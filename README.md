@@ -73,6 +73,14 @@ It's possible to position of the name of a tile through absolutely positioning. 
 **Figure 5: Graceful degradation on Internet Explorer. The name of a tile is entirely below the image instead of being overlayed.**
 
 </br>
+
+I use `position: sticky` to make sure that the name of a tile remains visible as long as the tile itself is on the screen. This eliminates the need to manipulate 'stickyness' through JavaScript which can cause performance issues during scrolling. Please note `position: sticky` is not supported on Internet Explorer.
+
+![image](readme-assets/sticky-name-of-tile.jpg)
+
+**Figure 6: The name of a tile remains visible as long as the tile itself is visible as well.**
+
+</br>
 </br>
 </br>
 
@@ -82,7 +90,7 @@ Please note the use of the `<section>` element as a navigational landmark. Users
 
 ![image](readme-assets/navigational-landmarks.jpg)
 
-**Figure 6: Elements list (navigational landmarks) panel on NVDA screen reader.**
+**Figure 7: Elements list (navigational landmarks) panel on NVDA screen reader.**
 
 </br>
 
@@ -90,7 +98,7 @@ I recommend decreasing the opacity level that contains the tile name. This is in
 
 ![image](readme-assets/contrast.jpg)
 
-**Figure 7: Different levels of opacity applied to the box that contains the tile name.**
+**Figure 8: Different levels of opacity applied to the box that contains the tile name.**
 
 </br>
 </br>
@@ -101,4 +109,4 @@ I use Jest as a test runner from the command line.
 
 ![image](readme-assets/testing.jpg)
 
-**Figure 8: Testing with Jest on the command line.**.
+**Figure 9: Testing with Jest on the command line.**.
