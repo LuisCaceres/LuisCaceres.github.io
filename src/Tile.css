@@ -6,6 +6,12 @@ body {
   margin: 0;
 }
 
+@media (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+}
+
 .tile {
   display: grid;
   flex: 1 1 630px;
@@ -17,26 +23,22 @@ body {
     width: 100%;
     grid-row: 1;
     grid-column: 1;
-
 }
 
 .tile__logo {
-  min-width: 50px;
-  width: 5%;
-  height: auto;
-  margin-right: 2.5%;
+  width: 3rem;
+  margin-right: 1.5rem;
 }
 
 .tile__name {
-  font-size: 2rem;
-  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;  
 }
 
 .tile__name-container {
   display: flex;
-  width: 100%;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.75);
   align-items: center;
   grid-row: 1;
   grid-column: 1;
