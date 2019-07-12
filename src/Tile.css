@@ -41,8 +41,9 @@ body {
   grid-row: 1;
   grid-column: 1;
   align-self: end;
+  position: sticky;
+  bottom: 0;
   color: white;
-
 }
 
 .tile__outer-container {
