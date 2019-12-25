@@ -6,13 +6,17 @@ img {
 
 li {
     display: grid;
+    padding: 0.5em;
     flex: 1 0 300px;
 }
 
 p {
+    padding-top: 0.5em;
     margin: 0;
+    align-self: end;
     grid-area: 1/1/1/1;
     z-index: 1;
+    white-space: nowrap;
 }
 
 picture {
