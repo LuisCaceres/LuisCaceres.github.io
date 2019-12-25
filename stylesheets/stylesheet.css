@@ -1,3 +1,14 @@
 img {
     width: 100%;
 }
+
+li {
+    flex: 1 0 300px;
+}
+
+ul {
+    display: flex;
+    flex-flow: wrap;
+    padding-left: 0;
+    list-style: none;
+}
