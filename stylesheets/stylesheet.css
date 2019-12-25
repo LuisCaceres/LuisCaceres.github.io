@@ -1,9 +1,19 @@
 img {
     width: 100%;
+    height: 100%;
+    grid-area: 1/1/1/1;
+    object-fit: cover;
 }
 
 li {
+    display: grid;
     flex: 1 0 300px;
+}
+
+p {
+    margin: 0;
+    grid-area: 1/1/1/1;
+    z-index: 1;
 }
 
 ul {
