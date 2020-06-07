@@ -5,95 +5,38 @@
   <meta charset="utf-8">
   <title></title>
   <meta name="author" content="">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://www.mymusclechef.com/on/demandware.static/Sites-au-mmc-Site/-/en_AU/v1590383297661/css/global.css"
     rel="stylesheet" type="text/css"/>
 </head>
 
 <body>
-  <form>
-    <div class="form-group">
-        <label class="form-control-label text-field__label" for="registration-form-fname">
-          First Name
-        </label>
-        <input class="text-field__input form-control" id="registration-form-fname" name="dwfrm_profile_customer_firstname" required maxlength="50">
-     </div>
-     <div class="form-group">
-        <label class="form-control-label text-field__label" for="registration-form-lname">
-        Last Name
-        </label>
-        <input class="text-field__input form-control" id="registration-form-lname" name="dwfrm_profile_customer_lastname" required maxlength="50">
-     </div>
-     <div class="form-group">
-        <label class="form-control-label text-field__label" for="registration-form-phone">
-        Phone
-        </label>
-        <input type="tel" class="text-field__input form-control" id="registration-form-phone" name="dwfrm_profile_customer_phone" required pattern="^\({0,1}((0|\+61)(2|4|3|7|8)){0,1}\){0,1}(\|-){0,1}[0-9]{2}(\|-){0,1}[0-9]{2}(\|-){0,1}[0-9]{1}(\|-){0,1}[0-9]{3}$" placeholder="Example: 9234567890">
-     </div>
-     <div class="form-group">
-        <label class="form-control-label text-field__label" for="registration-form-email">
-        Email
-        </label>
-        <input type="email" class="text-field__input form-control" id="registration-form-email" name="dwfrm_profile_customer_email" required maxlength="50">
-     </div>
-     <div class="form-group">
-        <label class="form-control-label text-field__label" for="registration-form-email-confirm">
-        Confirm Email
-        </label>
-        <input type="email" class="text-field__input form-control" id="registration-form-email-confirm" name="dwfrm_profile_customer_emailconfirm" required maxlength="50">
-     </div>
-     <div class="form-group">
-        <label class="form-control-label text-field__label" for="registration-form-postalcode">
-        Post Code
-        </label>
-        <input class="text-field__input form-control is-invalid" id="registration-form-postalcode" name="dwfrm_profile_customer_postalcode" required pattern="^[0-9]{4}$" placeholder="Example: 1234">
-     </div>
-     <!-- State  -->
-     <div class="form-group">
-        <label class="form-control-label text-field__label" for="state">
-        State
-        </label>
-        <select class="text-field__input dropdown__select form-control" id="state" name="dwfrm_profile_customer_states_stateCode" required autocomplete="address-level1">
-           <option class="dropdown__option" value=""> </option>
-           <option class="dropdown__option" value="ACT">Australian Capital Territory</option>
-           <option class="dropdown__option" value="NSW">New South Wales</option>
-           <option class="dropdown__option" value="NT">Northern Territory</option>
-           <option class="dropdown__option" value="QLD">Queensland</option>
-           <option class="dropdown__option" value="SA">South Australia</option>
-           <option class="dropdown__option" value="TAS">Tasmania</option>
-           <option class="dropdown__option" value="VIC">Victoria</option>
-           <option class="dropdown__option" value="WA">Western Australia</option>
-        </select>
-     </div>
-     <div class="form-group">
-        <label class="form-control-label text-field__label" for="registration-form-password">
-        Password
-        </label>
-        <input type="password" class="text-field__input form-control" id="registration-form-password" autocomplete="off" name="dwfrm_profile_login_password" required maxlength="15" minlength="8">
-     </div>
-     <div class="form-group">
-        <label class="form-control-label text-field__label" for="registration-form-password-confirm">
-        Confirm Password
-        </label>
-        <input type="password" class="text-field__input form-control" id="registration-form-password-confirm" autocomplete="off" name="dwfrm_profile_login_passwordconfirm" required maxlength="15" minlength="8">
-     </div>
-     <!-- Fitness Goal  -->
-     <div class="form-group">
-        <label class="form-control-label text-field__label" for="fitnessGoal">
-        Fitness Goal
-        </label>
-        <select class="text-field__input dropdown__select form-control" id="fitnessGoal" name="dwfrm_profile_customer_fitnessGoal" required autocomplete="off">
-           <option class="dropdown__option" value=""> </option>
-           <option class="dropdown__option" value="musclegain">Muscle Gain</option>
-           <option class="dropdown__option" value="performance">Performance</option>
-           <option class="dropdown__option" value="caloriecontrol">Calorie Control</option>
-           <option class="dropdown__option" value="healthyeating">Healthy Eating</option>
-        </select>
-     </div>
-     <button type="submit" class="btn btn-block btn-primary mb-3 w-100">
-      Create Account
-     </button>
+  <form
+    action=""
+    data-component-name="form"
+    method=""
+    <!-- stops browser from using built-in UI for form validation messages -->
+    novalidate>
+
+    <div data-form-notification-error hidden></div>
+    <div data-form-notification-loading hidden></div>
+    <div data-form-notification-success hidden></div>
+
+    <ul>
+      <li>
+        <p>
+          <label>Name:</label>
+          <input
+            <!-- link this control to a validation message -->
+            data-form-validation-message-id=""
+            <!-- always add a `name` attribute with a value otherwise control is ignored -->
+            name="foo">
+        </p>
+        <!-- validation message -->
+        <p data-form-validation-message-id="<id>" hidden></p>
+      </li>
+    </ul>
+    
+    <button>Submit</button>
   </form>
 </body>
 
