@@ -14,7 +14,6 @@
     action=""
     data-component-name="form"
     method=""
-    <!-- stops browser from using built-in UI for form validation messages -->
     novalidate>
 
     <div data-form-notification-error hidden></div>
@@ -26,13 +25,11 @@
         <p>
           <label>Name:</label>
           <input
-            <!-- link this control to a validation message -->
             data-form-validation-message-id=""
-            <!-- always add a `name` attribute with a value otherwise control is ignored -->
             name="foo">
         </p>
         <!-- validation message -->
-        <p data-form-validation-message-id="<id>" hidden></p>
+        <p data-form-validation-message-id="" hidden></p>
       </li>
     </ul>
     
