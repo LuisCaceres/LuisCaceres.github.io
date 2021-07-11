@@ -69,9 +69,7 @@ function associate(items) {
   });
 }
 
-async function verifyAvailability({target}) {
-  const player = target;
-  
+async function verifyAvailability(player) {
   const videos = [add, intro];//.concat(musicVideos, pool);
 
   function verifier(resolve, video) {
