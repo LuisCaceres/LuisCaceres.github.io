@@ -9,6 +9,7 @@ function onYouTubeIframeAPIReady() {
 
 async function onReady(event) {
   await verifyAvailability(event);
+  console.log('Hello world!');
 }
 
 function verifyAvailability({target}) {
@@ -21,13 +22,15 @@ function verifyAvailability({target}) {
     // Move on to the next music video.
     resolve();
   }
-
-  const promise = videos.reduce(async function(video) {
+  
+  let promise;
+  
+  for (const video of videos) {
     // Attempt to play this video.
     player.loadVideoById(video);
     // Wait 5 seconds and verify if this video has loaded and is playing.
-    return await new Promise(resolve => setTimeout(verifier, 5000, resolve, video));
-  });
+    promise = await new Promise(resolve => setTimeout(verifier, 5000, resolve, video));
+  }
 
   return promise;
 }
