@@ -477,4 +477,8 @@ const pool = [
     type: 0,
     videoId: "PIiustuQOlQ"
   },
-];
+]
+// Duplicate an item a certain number of times according to its priority.
+// This increases the chances of an item being randomly picked up from the pool.
+// For example, an item with a priority of '3' is duplicated 3 times in the pool. 
+.map(item => (new Array(item.priority)).fill(item)).flat();
