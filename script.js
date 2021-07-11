@@ -32,7 +32,7 @@ async function onReady(event) {
 }
 
 function parse(chart) {
-  const artists = Array.from(chart.querySelectorAll('td:nth-of-type(3)')).map(artist => artist.textContent);
+  const artists = Array.from(chart.querySelectorAll('td:nth-of-type(5)')).map(artist => artist.textContent);
   const titles =  Array.from(chart.querySelectorAll('td:nth-of-type(4)')).map(title => title.textContent);
   const items = [];
 
