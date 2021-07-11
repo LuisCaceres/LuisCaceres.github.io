@@ -22,14 +22,12 @@ async function verifyAvailability({target}) {
     resolve();
   }
 
-  let promise;
-
-  for (const video of videos) {
+  const promise = videos.reduce(video => {
     // Attempt to play this video.
     player.loadVideoById(video);
     // Wait 5 seconds and verify if this video has loaded and is playing.
-    promise = await new Promise(resolve => setTimeout(verifier, 5000, resolve, video));
-  }
+    return await new Promise(resolve => setTimeout(verifier, 5000, resolve, video));
+  });
 
   return promise;
 }
