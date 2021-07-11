@@ -66,9 +66,8 @@ function associate(items) {
     adds.includes(position) && playlist.push(add, add);
     
     target.loadVideoById(playlist.shift());
-  }); 
-  
- 
+  });
+}
 
 async function verifyAvailability({target}) {
   const player = target;
