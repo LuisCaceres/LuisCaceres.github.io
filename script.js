@@ -12,7 +12,7 @@ async function onReady(event) {
   console.log('Hello world!');
 }
 
-function verifyAvailability({target}) {
+async function verifyAvailability({target}) {
   const player = target;
   const videos = [add, intro].concat(musicVideos, pool);
 
