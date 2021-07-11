@@ -49,7 +49,7 @@ function associate(items) {
     
     if (!musicVideo) {
       musicVideo = pool[random(pool.length - 1)];
-      musicVideo.match = encode(cell);
+      musicVideo.match = encode(title);
       // Remove any duplicates of 'musicVideo' from the pool.
       pool = pool.filter(item => item !== musicVideo);
     }
@@ -71,7 +71,8 @@ function associate(items) {
 
 async function verifyAvailability({target}) {
   const player = target;
-  const videos = [add, intro].concat(musicVideos, pool);
+  
+  const videos = [add, intro];//.concat(musicVideos, pool);
 
   function verifier(resolve, video) {
     // Notify if this music video cannot be played.
