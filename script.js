@@ -44,7 +44,7 @@ function parse(chart) {
 }
 
 function associate(items) {
-  items.forEach(([artist, title]) => {
+  items.forEach(([artist, title], index) => {
     let musicVideo = musicVideos.find(item => item.match === encode(title));
     
     if (!musicVideo) {
