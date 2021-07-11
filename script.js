@@ -17,6 +17,7 @@ function random(max) {
 function onYouTubeIframeAPIReady() {
   const player = new YT.Player('player');
   player.addEventListener('onReady', onReady);
+  player.addEventListener('onStateChange', onStateChange);
 }
 
 async function onReady(event) {
