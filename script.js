@@ -11,7 +11,7 @@ async function onReady(event) {
   await verifyAvailability(event);
 }
 
-async function verifyAvailability({target}) {
+function verifyAvailability({target}) {
   const player = target;
   const videos = [add, intro].concat(musicVideos, pool);
 
@@ -22,7 +22,7 @@ async function verifyAvailability({target}) {
     resolve();
   }
 
-  const promise = videos.reduce(video => {
+  const promise = videos.reduce(async function(video) {
     // Attempt to play this video.
     player.loadVideoById(video);
     // Wait 5 seconds and verify if this video has loaded and is playing.
