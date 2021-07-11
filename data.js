@@ -322,7 +322,7 @@ const musicVideos = [
   },
 ];
 
-const pool = [
+let pool = [
   {
     title: "Absolutely Everybody",
     artist: "Vanessa Amorosi",
