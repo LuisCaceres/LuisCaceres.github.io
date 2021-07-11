@@ -43,6 +43,7 @@ function parse(chart) {
     items.push([artist, title]);
   }
 
+  items.reverse();
   return items;
 }
 
