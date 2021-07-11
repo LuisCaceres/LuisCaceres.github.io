@@ -20,13 +20,15 @@ function onYouTubeIframeAPIReady() {
 }
 
 async function onReady(event) {
-  await verifyAvailability(event);
+  const player = event.target;
+  
+  await verifyAvailability(player);
   
   const chart = document.querySelector('table');
   const items = parse(chart);
   const musicVideos = associate(items);
   
-  console.log(musicVideos);
+  player.loadVideoById(playlist.shift());
 }
 
 function parse(chart) {
@@ -64,8 +66,6 @@ function associate(items) {
     musicVideo.endSeconds && playlist.push(musicVideo);
     // If an add must play immediately after the music video. 
     adds.includes(position) && playlist.push(add, add);
-    
-    target.loadVideoById(playlist.shift());
   });
 }
 
