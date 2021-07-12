@@ -23,6 +23,9 @@ const expect = chai.expect;
   expect(expectation[0]).to.equal(value[0]);         // Artist 1
   expect(expectation[1]).to.equal(value[1]);         // Artist 3
   expect(expectation[1].hasOwnProperty('match')).to.equal(true);
+  
+  expect(musicVideos.length).to.equal(3);
+  expect(pool.length).to.equal(0);
 }
 
 // encode()
