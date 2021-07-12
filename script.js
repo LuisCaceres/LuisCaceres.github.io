@@ -81,7 +81,7 @@ function associate(items, musicVideos, pool) {
     let musicVideo = musicVideos.find(musicVideo => musicVideo.match === title);
     
     if (!musicVideo) {
-      musicVideo = pool[random(pool.length - 1)];
+      musicVideo = pool[random(pool.length) - 1];
       musicVideo.match = encode(title);
       // Remove any duplicates of 'musicVideo' from the pool.
       pool = pool.filter(item => item !== musicVideo);
