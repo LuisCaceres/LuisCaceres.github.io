@@ -74,24 +74,26 @@ function parse(chart) {
 /*
  *
  */
-function associate(items, musicVideos, pool) {
-  const videos = [];
-  
-  items.forEach(([artist, title], index) => {
-    let video = musicVideos.find(video => video.match === title);
+function associate(items, videos, pool) {
+  items = items.map(([artist, title]) => {
+    let video = videos.find(video => video.match === title);
     
     if (!video) {
       video = pool[random(pool.length) - 1];
       video.match = encode(title);
       // Remove any duplicates of 'musicVideo' from the pool.
       pool = pool.filter(item => item !== video);
-      musicVideos.push(video);
+      videos.push(video);
     }
     
-    videos.push(video);
+    return video;
   });
   
-  return videos;
+  return {
+    items,
+    pool,
+    videos,
+  };
 }
 
  
