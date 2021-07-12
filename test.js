@@ -38,12 +38,12 @@ const expect = chai.expect;
   
   const table = (new DOMParser()).parseFromString(HTML, 'text/html');
   const value = parse(table);
-  expectation = [['Artist 1', 'Title 1'], ['Artist 2', 'Title 2']];
+  expectation = [['Artist 2', 'Title 2'], ['Artist 1', 'Title 1']];
   
-  expect(value.length).to.equal(expectation.length);       // 2 === 2
-  expect(value[0].length).to.equal(expectation[0].length); // 2 === 2 
-  expect(value[0][0]).to.equal(expectation[0][0]);         // 'Artist 1' === 'Artist 1' 
-  expect(value[0][1]).to.equal(expectation[0][1]);         // 'Title 1' === 'Title 1' 
+  expect(value.length).to.equal(expectation.length);       // 2
+  expect(value[0].length).to.equal(expectation[0].length); // 2 
+  expect(value[0][0]).to.equal(expectation[0][0]);         // 'Artist 2' 
+  expect(value[0][1]).to.equal(expectation[0][1]);         // 'Title 2' 
 }
 
 // random()
