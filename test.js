@@ -1,5 +1,30 @@
 const expect = chai.expect;
 
+// associate()
+{
+  const items = [
+    [encode('Artist 1'), encode('Title 1')],
+    [encode('Artist 3'), encode('Title 2')],
+  ];
+  
+  const musicVideos = [
+    { artist: 'Artist 1', title: 'Title 1', match: encode('Title 1') },
+    { artist: 'Artist 2', title: 'Title 2', match: encode('Title 2') },
+  ];
+  
+  const pool = [
+    { artist: 'Artist 3', title: 'Title 3' },
+  ];
+  
+  const value = associate(items, musicVideos, pool);
+  const expectation = [musicVideos[0], pool[0]];
+  
+  expect(expectation.length).to.equal(value.length); // 2
+  expect(expectation[0]).to.equal(value[0]);         // Artist 1
+  expect(expectation[1]).to.equal(value[1]);         // Artist 3
+  expect(expectation[1].hasOwnProperty('match')).to.equal(true);
+}
+
 // encode()
 // encode a string
 {
