@@ -49,8 +49,8 @@ async function onReady(event) {
   }
 
   const items = {
-    current = associate(charts.current),
-    next = associate(charts.next),
+    current: associate(charts.current),
+    next: associate(charts.next),
   };
 
   // charts.current = format(items.current, items.next, items);
