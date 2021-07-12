@@ -74,7 +74,9 @@ function parse(chart) {
 /*
  *
  */
-function associate(items) {
+function associate(items, musicVideos, pool) {
+  const videos = [];
+  
   items.forEach(([artist, title], index) => {
     let musicVideo = musicVideos.find(musicVideo => musicVideo.match === title);
     
@@ -85,18 +87,21 @@ function associate(items) {
       pool = pool.filter(item => item !== musicVideo);
     }
     
-    musicVideos.push(musicVideo);
-    
-    const position = Math.abs(index - 20);
+    videos.push(musicVideo);
+  });
+  
+  return videos;
+}
+
+ 
+   /* const position = Math.abs(index - 20);
     musicVideo.position = ("0" + position).substr(-2);
 
     playlist.push(intro, musicVideo);
     // If the music video must end prematurely.
     musicVideo.endSeconds && playlist.push(musicVideo);
     // If an add must play immediately after the music video. 
-    adds.includes(position) && playlist.push(add, add);
-  });
-}
+    adds.includes(position) && playlist.push(add, add); */
 
 /*
  *
