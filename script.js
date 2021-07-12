@@ -78,16 +78,17 @@ function associate(items, musicVideos, pool) {
   const videos = [];
   
   items.forEach(([artist, title], index) => {
-    let musicVideo = musicVideos.find(musicVideo => musicVideo.match === title);
+    let video = musicVideos.find(video => video.match === title);
     
-    if (!musicVideo) {
-      musicVideo = pool[random(pool.length) - 1];
-      musicVideo.match = encode(title);
+    if (!video) {
+      video = pool[random(pool.length) - 1];
+      video.match = encode(title);
       // Remove any duplicates of 'musicVideo' from the pool.
-      pool = pool.filter(item => item !== musicVideo);
+      pool = pool.filter(item => item !== video);
+      musicVideos.push(video);
     }
     
-    videos.push(musicVideo);
+    videos.push(video);
   });
   
   return videos;
