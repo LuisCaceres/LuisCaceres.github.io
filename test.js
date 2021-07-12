@@ -19,12 +19,13 @@ const expect = chai.expect;
   const value = associate(items, videos, pool);
   
   expect(value.items.length).to.equal(2);
-  expect(values.items[0]).to.equal(items[0]);  // Artist 1
-  expect(values.items[1]).to.equal(pool[0]);   // Artist 3
-  expect(pool[0].hasOwnProperty('match')).to.equal(true);
+  expect(values.items[0]).to.equal(videos[0]);  // Artist 1
+  expect(values.items[1]).to.equal(pool[0]);    // Artist 3
+  
+  expect(value.pool.length).to.equal(0);
+  expect(value.pool[0].hasOwnProperty('match')).to.equal(true);
   
   expect(value.videos.length).to.equal(3);
-  expect(value.pool.length).to.equal(0);
 }
 
 // encode()
