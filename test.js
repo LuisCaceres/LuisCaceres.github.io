@@ -1,16 +1,25 @@
 const expect = chai.expect;
 
 // encode()
+// encode a string
 {
-  const expectation = 'Ifmmp!xpsme\"'
   const value = encode('Hello world!');
-  expect(value).to.equal(expectation);
+  const expectation = 'Ifmmp!xpsme\"';
+  expect(expectation).to.equal(value);
 }
 
 // random()
+// return a random number
 {
-  const value = random(0);
-  const expectation = 0;
+  const value = random(1);
+  const expectation = 1;
   expect(value).to.equal(expectation);
-  expect(value).to.equal(10);
+}
+
+// return a random number no greater than another number.
+{
+  const limit = 20;
+  const value = random(limit);
+  const expectation = value <= limit;
+  expect(expectation).to.equal(true);
 }
