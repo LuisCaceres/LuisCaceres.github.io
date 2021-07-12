@@ -40,7 +40,7 @@ async function onReady(event) {
   }
   
   const charts = {
-    current: parse(tables.current),
+    current: parse(tables.current).map(([artist, title]) => [encode(artist), encode(title)]),
     // next: parse(tables.next),
   }
 
@@ -64,9 +64,7 @@ function parse(chart) {
   const items = [];
 
   for (let artist of artists) {
-    artist = encode(artist);
-    const title = encode(titles.shift());
-    items.push([artist, title]);
+    items.push([artist, titles.shift()]);
   }
 
   items.reverse();
