@@ -8,6 +8,40 @@ const expect = chai.expect;
   expect(expectation).to.equal(value);
 }
 
+// parse()
+{
+  const HTML = `
+    <table>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Title</th>
+        <th>Artist</th>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Title 1</td>
+        <td>Artist 1</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Title 2</td>
+        <td>Artist 2</td>
+      </tr>
+    </table>
+  `;
+  
+  const table = (new DOMParser()).parseFromString(HTML, 'text/html');
+  const value = parse(table);
+  expectation = [['Artist 1', 'Title 1'], ['Artist 2', 'Title 2']];
+  expect(value.length).to.equal(expectation.lenght);
+}
+
 // random()
 // return a random number
 {
