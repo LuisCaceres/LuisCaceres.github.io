@@ -45,12 +45,12 @@ async function onReady(event) {
   
   const charts = {
     current: parse(tables.current),
-    next: parse(tables.next),
+    // next: parse(tables.next),
   }
 
   const items = {
     current: associate(charts.current),
-    next: associate(charts.next),
+    // next: associate(charts.next),
   };
 
   // charts.current = format(items.current, items.next, items);
