@@ -4,7 +4,7 @@ const expect = chai.expect;
 {
   const items = [
     [encode('Artist 1'), encode('Title 1')],
-    [encode('Artist 3'), encode('Title 2')],
+    [encode('Artist 3'), encode('Title 3')],
   ];
   
   const musicVideos = [
