@@ -5,33 +5,63 @@ document.body.append(script);
 const adds = [19, 18, 16, 14, 12, 11, 9, 8, 6, 4, 2, 1];
 const playlist = [];
 
+
+/*
+ *
+ */
 function encode(string) {
   const codes = Array.from(string).map(e => e.charCodeAt(0) + 1);
   return String.fromCharCode(...codes);
 }
 
+/*
+ *
+ */
 function random(max) {
   return Math.floor(Math.random() * max) + 1;
 }
 
+/*
+ *
+ */
 function onYouTubeIframeAPIReady() {
   const player = new YT.Player('player');
   player.addEventListener('onReady', onReady);
   player.addEventListener('onStateChange', onStateChange);
 }
 
+/*
+ *
+ */
 async function onReady(event) {
   const player = event.target;
   
   await verifyAvailability(player);
   
-  const chart = document.querySelector('table');
-  const items = parse(chart);
-  const musicVideos = associate(items);
+  const tables = {
+    current: document.querySelector('table'),
+    next: null,
+  }
   
+  const charts = {
+    current: parse(tables.current),
+    next: parse(tables.next),
+  }
+
+  const items = {
+    current = associate(charts.current),
+    next = associate(charts.next),
+  };
+
+  // charts.current = format(items.current, items.next, items);
+  
+  // const musicVideos = associate(charts.current);
   player.loadVideoById(playlist.shift());
 }
 
+/*
+ *
+ */
 function parse(chart) {
   const artists = Array.from(chart.querySelectorAll('td:nth-of-type(5)')).map(artist => artist.textContent);
   const titles =  Array.from(chart.querySelectorAll('td:nth-of-type(4)')).map(title => title.textContent);
@@ -47,6 +77,9 @@ function parse(chart) {
   return items;
 }
 
+/*
+ *
+ */
 function associate(items) {
   items.forEach(([artist, title], index) => {
     let musicVideo = musicVideos.find(musicVideo => musicVideo.match === title);
@@ -71,6 +104,9 @@ function associate(items) {
   });
 }
 
+/*
+ *
+ */
 async function verifyAvailability(player) {
   const videos = [add, intro];//.concat(musicVideos, pool);
 
@@ -81,18 +117,17 @@ async function verifyAvailability(player) {
     resolve();
   }
   
-  let promise;
-  
   for (const video of videos) {
     // Attempt to play this video.
     player.loadVideoById(video);
     // Wait 5 seconds and verify if this video has loaded and is playing.
-    promise = await new Promise(resolve => setTimeout(verifier, 5000, resolve, video));
+    await new Promise(resolve => setTimeout(verifier, 5000, resolve, video));
   }
-
-  return promise;
 }
-  
+
+/*
+ *
+ */
 function onStateChange({data, target}) {
   if (data === YT.PlayerState.ENDED) {
     const nextVideo = playlist.shift();
