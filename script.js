@@ -1,7 +1,3 @@
-const script = document.createElement('script');
-script.src = "https://www.youtube.com/iframe_api";
-document.body.append(script);
-
 const adds = [19, 18, 16, 14, 12, 11, 9, 8, 6, 4, 2, 1];
 const playlist = [];
 
