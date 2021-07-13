@@ -50,7 +50,7 @@ async function onReady(event) {
     // next: associate(charts.next),
   };
   
-  playlist = generatePlaylist(charts.current, sting, advertisement);
+  playlist = generatePlaylist(charts.current.chart, sting, advertisement);
   player.loadVideoById(playlist.shift());
 }
 
