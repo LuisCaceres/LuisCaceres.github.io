@@ -1,10 +1,10 @@
-const add = {
+const advertisement = {
   endSeconds: 10,
   videoId: 'caaddLZhLoY',
   width: '83vw',
 };
 
-const intro = {
+const sting = {
   videoId: 'YoqgOOQwEqI',
   width: '83vw',
 };
