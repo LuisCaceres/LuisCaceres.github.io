@@ -56,25 +56,25 @@ async function onReady(event) {
 /*
  *
  */
-function parse(chart) {
-  const artists = Array.from(chart.querySelectorAll('td:nth-of-type(5)')).map(artist => artist.textContent);
-  const titles =  Array.from(chart.querySelectorAll('td:nth-of-type(4)')).map(title => title.textContent);
-  const items = [];
+function parse(table) {
+  const artists = Array.from(table.querySelectorAll('td:nth-of-type(5)')).map(artist => artist.textContent);
+  const titles =  Array.from(table.querySelectorAll('td:nth-of-type(4)')).map(title => title.textContent);
+  const chart = [];
 
   for (let artist of artists) {
     items.push([artist, titles.shift()]);
   }
 
   items.reverse();
-  return items;
+  return chart;
 }
 
 
 /*
  *
  */
-function associate(entries, videos, pool) {
-  entries = entries.map(([artist, title], index) => {
+function associate(chart, videos, pool) {
+  chart = chart.map(([artist, title], index) => {
     let video = videos.find(video => video.match === title);
     
     if (!video) {
@@ -90,9 +90,9 @@ function associate(entries, videos, pool) {
   });
     
   return {
-    entries,
-    pool,
+    chart,
     videos,
+    pool,
   };
 }
 
