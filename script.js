@@ -1,3 +1,10 @@
+function difference(arrayA, arrayB) {
+  arrayB = arrayB.map(e => e.join(' '));
+  arrayA = arrayA.map(e => e.join(' ')).filter(a => arrayB.find(b => a !== b)); 
+  return arrayA;
+}
+
+
 /*
  *
  */
@@ -38,20 +45,19 @@ async function onReady(event) {
   const tables = {
     current: document.querySelector('table'),
     next: null,
-  }
+  };
   
   const lists = {
     current: parse(tables.current).map(([artist, title]) => [encode(artist), encode(title)]),
     // next: parse(tables.next),
-  }
-
-  const charts = {
-    current: associate(lists.current, charted, uncharted),
-    // next: associate(charts.next),
   };
   
-  playlist = generatePlaylist(charts.current.chart, sting, advertisement);
-  player.loadVideoById(playlist.shift());
+//   const list = format(lists.current, lists.next, charted); 
+
+//   const { chart } = associate(list, charted, uncharted);
+  
+//   playlist = generatePlaylist(chart, sting, advertisement);
+//   player.loadVideoById(playlist.shift());
 }
 
 /*
@@ -67,6 +73,59 @@ function parse(table) {
   }
 
   return list;
+}
+
+
+
+function format(currentList, nextList, database) {
+//   const list = [];
+//   // Iterate through next week's list and verify if there are any new items.
+//   // Let `newItems` be a list of such items.
+//   const newItems = nextList.filter((artist, title) => !currentList.find(title));
+//   // Verify if there are any new items below position 13.
+//   // Let `illegalItems` be a list of such items.
+//   const illegalItems = newItems.filter(item => nextList.indexOf(item) + 1 < 13);
+  
+//   if (!illegalItems.length) {
+//     return currentList;
+//   }
+  
+//   // Iterate through next week's chart and verify which items have dropped out.
+//   // Let `expiredItems` be a list of such items.
+//   const expiredItems = currentList.filter(item => !nextList.includes(item));
+  
+//   // For each item `item` in `expiredItems`:  
+//   for (const item of expiredItems) {
+//     const data = database.find(data => data.);
+//     // Delete `item` from `expiredItems' if:
+//     // `item`'s history only contains forward movements except if:
+//     if (item.history.length === 1) {}
+//     if (item.history.at(-2) < 13) {}
+//     if (item.history.reduce()) {}
+//   }
+  
+  
+//   return list;
+  
+//   // TO DO:     
+//   // TO DO:       The number of items in `entry`'s history is 1.
+//   // TO DO:     `item`'s previous week's position is less than 13.
+//   // TO DO: For each item `item` in `illegalEntries`:
+//   // TO DO:   Let `replacee` be a ramdomly chosen item from `expiredItems`
+//   // TO DO:   Delete `replacee` from this week's chart.
+//   // TO DO:   Insert `item` instead.  
+//   // TO DO:   To consider: [13, 13, *]
+//   // TO DO:   To consider: [*, 20, *], [*, 19, *], [*, 18, *]
+//   // TO DO:   To consider: [17, 15, 20], [16, 13, 19]
+//   // TO DO:   TO consider: [19, 20, *]
+//   // TO DO:   TO consider: [10, 17, *]
+//   // TO DO:   TO consider: [14, 18, *]
+//   const candidates = [];
+
+  
+
+//   candidates[random()];
+//   return currentItems;
 }
 
 
