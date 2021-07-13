@@ -102,7 +102,7 @@ function associate(chart, charted, uncharted) {
  */
 function generatePlaylist(chart, sting, advertisement) {
   const playlist = [];
-  const pattern = [1, 2, 4, 6, 8, 9, 11, 12, 14, 16, 18, 19];
+  const pattern = [1, 2, 4, 6, 8, 9, 11, 12, 14, 16, 18];
 
   chart.forEach((entry, index) => {
     playlist.push(sting, entry);
@@ -112,6 +112,7 @@ function generatePlaylist(chart, sting, advertisement) {
     pattern.includes(index) && playlist.push(advertisement, advertisement);
   });
   
+  playlist.push(sting);
   return playlist;
 }
 
