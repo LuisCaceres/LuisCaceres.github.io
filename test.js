@@ -53,20 +53,66 @@ const expect = chai.expect;
     {artist: 'Artist 02', title: 'Title 02' },
     {artist: 'Artist 01', title: 'Title 01' },
   ];
-     
-  const playlist = generatePlaylist(chart);
   
-  expect(playlist.length).to.equal(43);
+  const sting = {};
+  const advertisement = {};
+     
+  const playlist = generatePlaylist(chart, sting, advertisement);
+  
+  expect(playlist.length).to.equal(52);
   
   expect(playlist[0]).to.equal(sting);      
-  expect(playlist[1]).to.equal(chart[0]);
+  expect(playlist[1]).to.equal(chart[0]);   // position 20
   expect(playlist[2]).to.equal(sting);
-  expect(playlist[3]).to.equal(chart[1]);
-  expect(playlist[4]).to.equal();
-  expect(playlist[5]).to.equal();
-  expect(playlist[6]).to.equal();
-  expect(playlist[7]).to.equal();
-  expect(playlist[8]).to.equal();
+  expect(playlist[3]).to.equal(chart[1]);   // position 19
+  expect(playlist[4]).to.equal(advertisement);
+  expect(playlist[5]).to.equal(sting);
+  expect(playlist[6]).to.equal(chart[2]);   // position 18
+  expect(playlist[7]).to.equal(advertisement);
+  expect(playlist[8]).to.equal(sting);
+  expect(playlist[9]).to.equal(chart[3]);   // position 17
+  expect(playlist[10]).to.equal(sting);
+  expect(playlist[11]).to.equal(chart[4]);   // position 16
+  expect(playlist[12]).to.equal(advertisement);
+  expect(playlist[13]).to.equal(sting);
+  expect(playlist[14]).to.equal(chart[5]);  // position 15
+  expect(playlist[15]).to.equal(sting);
+  expect(playlist[16]).to.equal(chart[6]);  // position 14
+  expect(playlist[17]).to.equal(advertisement);
+  expect(playlist[18]).to.equal(sting);
+  expect(playlist[19]).to.equal(chart[7]);  // position 13
+  expect(playlist[20]).to.equal(sting);
+  expect(playlist[21]).to.equal(chart[8]);  // position 12
+  expect(playlist[22]).to.equal(advertisement);
+  expect(playlist[23]).to.equal(sting);
+  expect(playlist[24]).to.equal(chart[9]);  // position 11
+  expect(playlist[25]).to.equal(advertisement);
+  expect(playlist[26]).to.equal(sting);
+  expect(playlist[27]).to.equal(chart[10]); // position 10
+  expect(playlist[28]).to.equal(sting);
+  expect(playlist[29]).to.equal(chart[11]); // position 09
+  expect(playlist[30]).to.equal(advertisement);
+  expect(playlist[31]).to.equal(sting);
+  expect(playlist[32]).to.equal(chart[12]); // position 08
+  expect(playlist[33]).to.equal(advertisement);
+  expect(playlist[34]).to.equal(sting);
+  expect(playlist[35]).to.equal(chart[13]); // position 07
+  expect(playlist[36]).to.equal(sting);
+  expect(playlist[37]).to.equal(chart[14]); // position 06
+  expect(playlist[38]).to.equal(advertisement);
+  expect(playlist[39]).to.equal(sting);
+  expect(playlist[40]).to.equal(chart[15]); // position 05
+  expect(playlist[41]).to.equal(sting);
+  expect(playlist[42]).to.equal(chart[16]); // position 04
+  expect(playlist[43]).to.equal(advertisement);
+  expect(playlist[44]).to.equal(sting);
+  expect(playlist[45]).to.equal(chart[17]); // position 03
+  expect(playlist[46]).to.equal(sting);
+  expect(playlist[47]).to.equal(chart[18]); // position 02
+  expect(playlist[48]).to.equal(advertisement);
+  expect(playlist[49]).to.equal(sting);
+  expect(playlist[50]).to.equal(chart[19]); // position 01
+  expect(playlist[51]).to.equal(sting);
 }
 
 
