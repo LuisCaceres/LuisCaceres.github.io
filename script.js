@@ -122,7 +122,7 @@ function generatePlaylist(chart, sting, advertisement) {
  *
  */
 async function verifyAvailability(player) {
-  const videos = [add, intro];//.concat(musicVideos, pool);
+  const videos = [advertisement, sting];//.concat(musicVideos, pool);
 
   function verifier(resolve, video) {
     // Notify if this music video cannot be played.
