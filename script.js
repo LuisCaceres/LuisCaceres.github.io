@@ -1,7 +1,3 @@
-const adds = [19, 18, 16, 14, 12, 11, 9, 8, 6, 4, 2, 1];
-const playlist = [];
-
-
 /*
  *
  */
@@ -45,9 +41,11 @@ async function onReady(event) {
   }
 
   const items = {
-    current: associate(charts.current),
+    current: associate(charts.current, musicVideos, pool),
     // next: associate(charts.next),
   };
+  
+  const playlist = generatePlaylist(current.items);
 
   // charts.current = format(items.current, items.next, items);
   
@@ -71,11 +69,12 @@ function parse(chart) {
   return items;
 }
 
+
 /*
  *
  */
-function associate(items, videos, pool) {
-  items = items.map(([artist, title]) => {
+function associate(entries, videos, pool) {
+  entries = entries.map(([artist, title], index) => {
     let video = videos.find(video => video.match === title);
     
     if (!video) {
@@ -86,25 +85,38 @@ function associate(items, videos, pool) {
       videos.push(video);
     }
     
-    return video;
+    video.position = ("0" + (index + 1)).substr(-2);
   });
-  
+    
   return {
-    items,
+    entries,
     pool,
     videos,
   };
 }
 
- 
-   /* const position = Math.abs(index - 20);
-    musicVideo.position = ("0" + position).substr(-2);
 
-    playlist.push(intro, musicVideo);
+/*
+ *
+ */
+function generatePlaylist(chart, sting, advertisement, pattern) {
+  const advertisement = {endSeconds: 10, videoId: 'caaddLZhLoY', width: '83vw'};
+  const sting = {videoId: 'YoqgOOQwEqI', width: '83vw'};
+  
+  const playlist = [];
+  const pattern = [2, 3, 5, 7, 9, 10, 12, 13, 15, 17, 19, 20];
+
+  chart.forEach((entry, index) => {
+    playlist.push(sting, entry);
     // If the music video must end prematurely.
-    musicVideo.endSeconds && playlist.push(musicVideo);
-    // If an add must play immediately after the music video. 
-    adds.includes(position) && playlist.push(add, add); */
+    entry.endSeconds && playlist.push(entry);
+    // If the music video is followed by an add. 
+    pattern.includes(index) && playlist.push(advertisement, advertisement);
+  });
+  
+  return playlist;
+}
+
 
 /*
  *
