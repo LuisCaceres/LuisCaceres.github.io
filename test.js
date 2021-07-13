@@ -54,8 +54,8 @@ const expect = chai.expect;
     {artist: 'Artist 01', title: 'Title 01' },
   ];
   
-  const sting = {};
-  const advertisement = {};
+  const sting = {title: 'sting'};
+  const advertisement = {title: 'advertisement'};
      
   const playlist = generatePlaylist(chart, sting, advertisement);
   
