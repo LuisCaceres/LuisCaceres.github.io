@@ -34,18 +34,19 @@ const expect = chai.expect;
 // difference()
 // Return a non zero-length list if there are differences between two arrays. 
 {
-  const arrayA = [['My Chemical Romance', 'Helena']];
-  const arrayB = [['Zoe', 'Dead']];
+  const arrayA = [['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']];
+  const arrayB = [['F', 'F'], ['G', 'G'], ['H', 'H'], ['A', 'A'], ['B', 'B']];
   const value = difference(arrayA, arrayB);
   
-  expect(value.length).to.equal(1);
-  expect(value[0][0]).to.equal('Zoe');
-  expect(value[0][1]).to.equal('Dead');
+  expect(value.length).to.equal(3);
+  expect(value[0][0]).to.equal('F');
+  expect(value[1][0]).to.equal('G');
+  expect(value[2][0]).to.equal('H');
 }
 // Return an empty list if there are no differences between two arrays.
 {
-  const arrayA = [['My Chemical Romance', 'Helena']];
-  const arrayB = [['My Chemical Romance', 'Helena']];
+  const arrayA = [['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']];
+  const arrayB = [['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']];
   const value = difference(arrayA, arrayB);
   
   expect(value.length).to.equal(0);
