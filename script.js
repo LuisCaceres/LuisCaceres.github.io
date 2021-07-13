@@ -2,8 +2,7 @@
  *
  */
 function difference(arrayA, arrayB) {
-  arrayA = arrayA.filter(([a, b]) => arrayB.find(([c, d]) => b !== d));
-  return arrayA;
+  return arrayB.filter(([a, b]) => !arrayA.find(([c, d]) => b === d));
 }
 
 
