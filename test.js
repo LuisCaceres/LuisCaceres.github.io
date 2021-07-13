@@ -1,3 +1,5 @@
+console.log('Testing starting.');
+
 const expect = chai.expect;
 
 // associate()
@@ -201,3 +203,5 @@ const expect = chai.expect;
   const expectation = value <= limit;
   expect(expectation).to.equal(true);
 }
+
+console.log('Testing completed.');
