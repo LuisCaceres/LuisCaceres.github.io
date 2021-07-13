@@ -1,3 +1,13 @@
+class History extends Array {
+  constructor() {
+    super();
+  }
+  
+  sayHello() {
+    console.log('Hello world!');
+  }
+}
+
 /*
  *
  */
@@ -104,18 +114,27 @@ function format(currentList, nextList, database) {
   // Let `expiredItems` be a list of such items.
   const expiredItems = difference(nextList, currentList);
   
-//   // For each item `item` in `expiredItems`:
-//   for (const item of expiredItems) {
-//     const data = database.find(data => data.);
+  // For each item `item` in `expiredItems`:
+  for (const [artist, title] of expiredItems) {
+    const { history } = database.find(data => data.match === title);
+    const previous = history[history.length(-1)];
+    
+//     if (previous < 13) {
+//       //delete
+//     }
+//     if (history.slice(0, -1).isAscending(0, -1)
+    
+//      
+    
 //     // Delete `item` from `expiredItems' if:
-//     // `item`'s history only contains forward movements except if:
+//         // `item`'s history only contains forward movements except if:
 //     if (item.history.length === 1) {}
 //     if (item.history.at(-2) < 13) {}
 //     if (item.history.reduce()) {}
-//   }
+  }
   
   
-//   return list;
+  return list;
   
 //   // TO DO:     
 //   // TO DO:       The number of items in `entry`'s history is 1.
@@ -126,7 +145,7 @@ function format(currentList, nextList, database) {
 //   // TO DO:   Insert `item` instead.  
 //   // TO DO:   To consider: [13, 13, *]
 //   // TO DO:   To consider: [*, 20, *], [*, 19, *], [*, 18, *]
-//   // TO DO:   To consider: [17, 15, 20], [16, 13, 19]
+//   // TO DO:   To consider: [17, 15, 20, *], [16, 13, 19, *]
 //   // TO DO:   TO consider: [19, 20, *]
 //   // TO DO:   TO consider: [10, 17, *]
 //   // TO DO:   TO consider: [14, 18, *]
