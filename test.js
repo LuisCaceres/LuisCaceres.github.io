@@ -17,12 +17,13 @@ const expect = chai.expect;
   ];
   
   const value = associate(list, charted, uncharted);
-  
+
   expect(value.chart.length).to.equal(2);
-  expect(value.chart[0]).to.equal(charted[0]);   // Artist 1
-  expect(value.chart[1]).to.equal(uncharted[0]); // Artist 3
-  expect(value.chart[1].hasOwnProperty('match')).to.equal(true);
-  
+  expect(value.chart[0]).to.equal(uncharted[0]);  // Artist 3
+  expect(value.chart[1]).to.equal(charted[0]);    // Artist 1
+  expect(value.chart[0].hasOwnProperty('match')).to.equal(true);
+
+
   expect(value.charted.length).to.equal(3);
   expect(value.uncharted.length).to.equal(0);
 }
