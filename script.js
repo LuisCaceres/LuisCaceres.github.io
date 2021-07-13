@@ -80,12 +80,13 @@ function associate(entries, videos, pool) {
     if (!video) {
       video = pool[random(pool.length) - 1];
       video.match = encode(title);
-      // Remove any duplicates of 'musicVideo' from the pool.
+      // Remove any duplicates of 'video' from the pool.
       pool = pool.filter(item => item !== video);
       videos.push(video);
     }
     
     video.position = ("0" + (index + 1)).substr(-2);
+    return video;
   });
     
   return {
