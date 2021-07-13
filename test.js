@@ -19,8 +19,8 @@ const expect = chai.expect;
   const value = associate(items, charted, uncharted);
   
   expect(value.chart.length).to.equal(2);
-  expect(value.chart[0]).to.equal(charted[0]);  // Artist 1
-  expect(value.chart[1]).to.equal(uncharted[0]);    // Artist 3
+  expect(value.chart[0]).to.equal(charted[0]);   // Artist 1
+  expect(value.chart[1]).to.equal(uncharted[0]); // Artist 3
   expect(value.chart[1].hasOwnProperty('match')).to.equal(true);
   
   expect(value.charted.length).to.equal(3);
@@ -31,7 +31,7 @@ const expect = chai.expect;
 // generatePlaylist()
 //
 {
-  const entries = [
+  const chart = [
     {artist: 'Artist 20', title: 'Title 20' },
     {artist: 'Artist 19', title: 'Title 19' },
     {artist: 'Artist 18', title: 'Title 18' },
@@ -54,13 +54,14 @@ const expect = chai.expect;
     {artist: 'Artist 01', title: 'Title 01' },
   ];
      
-  const playlist = generatePlaylist(entries);
+  const playlist = generatePlaylist(chart);
   
-  expect(playlist.length).to.equal();
-  expect(playlist[0]).to.equal(intro);      // curtain
-  expect(playlist[1]).to.equal(entries[0]); // position 20
-  expect(playlist[2]).to.equal();
-  expect(playlist[3]).to.equal();
+  expect(playlist.length).to.equal(43);
+  
+  expect(playlist[0]).to.equal(sting);      
+  expect(playlist[1]).to.equal(chart[0]);
+  expect(playlist[2]).to.equal(sting);
+  expect(playlist[3]).to.equal(chart[1]);
   expect(playlist[4]).to.equal();
   expect(playlist[5]).to.equal();
   expect(playlist[6]).to.equal();
