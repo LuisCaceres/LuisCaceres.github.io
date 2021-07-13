@@ -9,7 +9,7 @@ const sting = {
   width: '83vw',
 };
 
-const musicVideos = [
+const charted = [
   {
     title: "All I Have To Give",
     artist: "Backstreet Boys",
@@ -322,7 +322,7 @@ const musicVideos = [
   },
 ];
 
-let pool = [
+let uncharted = [
   {
     title: "Absolutely Everybody",
     artist: "Vanessa Amorosi",
