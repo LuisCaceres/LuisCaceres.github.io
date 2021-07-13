@@ -43,6 +43,17 @@ const expect = chai.expect;
   expect(value[1][0]).to.equal('G');
   expect(value[2][0]).to.equal('H');
 }
+// Return a non zero-length list if there are differences between two arrays. 
+{
+  const arrayA = [['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']];
+  const arrayB = [['F', 'F'], ['G', 'G'], ['H', 'H'], ['A', 'A'], ['B', 'B']];
+  const value = difference(arrayB, arrayA);
+  
+  expect(value.length).to.equal(3);
+  expect(value[0][0]).to.equal('C');
+  expect(value[1][0]).to.equal('D');
+  expect(value[2][0]).to.equal('E');
+}
 // Return an empty list if there are no differences between two arrays.
 {
   const arrayA = [['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']];
