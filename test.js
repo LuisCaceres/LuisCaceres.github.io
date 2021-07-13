@@ -2,7 +2,7 @@ const expect = chai.expect;
 
 // associate()
 {
-  const items = [
+  const list = [
     ['Artist 1', 'Title 1'],
     ['Artist 3', 'Title 3'],
   ];
@@ -16,7 +16,7 @@ const expect = chai.expect;
     { artist: 'Artist 3', title: 'Title 3' },
   ];
   
-  const value = associate(items, charted, uncharted);
+  const value = associate(list, charted, uncharted);
   
   expect(value.chart.length).to.equal(2);
   expect(value.chart[0]).to.equal(charted[0]);   // Artist 1
@@ -177,11 +177,11 @@ const expect = chai.expect;
   
   const table = (new DOMParser()).parseFromString(HTML, 'text/html');
   const value = parse(table);
-  expectation = [['Artist 2', 'Title 2'], ['Artist 1', 'Title 1']];
+  expectation = [['Artist 1', 'Title 1'], ['Artist 2', 'Title 2']];
   
   expect(value.length).to.equal(expectation.length);       // 2
   expect(value[0].length).to.equal(expectation[0].length); // 2 
-  expect(value[0][0]).to.equal(expectation[0][0]);         // 'Artist 2' 
+  expect(value[0][0]).to.equal(expectation[0][0]);         // 'Title 1' 
   expect(value[0][1]).to.equal(expectation[0][1]);         // 'Title 2' 
 }
 
