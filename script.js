@@ -78,7 +78,7 @@ function associate(chart, charted, uncharted) {
     let entry = charted.find(entry => entry.match === title);
     
     if (!entry) {
-      entry = uncharted[random(pool.length) - 1];
+      entry = uncharted[random(uncharted.length) - 1];
       entry.match = encode(title);
       // Remove any duplicates of 'video' from the pool.
       uncharted = uncharted.filter(item => item !== entry);
