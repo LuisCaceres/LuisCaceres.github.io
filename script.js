@@ -100,10 +100,7 @@ function associate(chart, charted, uncharted) {
 /*
  *
  */
-function generatePlaylist(chart) {
-  const advertisement = {endSeconds: 10, videoId: 'caaddLZhLoY', width: '83vw'};
-  const sting = {videoId: 'YoqgOOQwEqI', width: '83vw'};
-  
+function generatePlaylist(chart, sting, advertisement) {
   const playlist = [];
   const pattern = [2, 3, 5, 7, 9, 10, 12, 13, 15, 17, 19, 20];
 
