@@ -99,7 +99,7 @@ function associate(entries, videos, pool) {
 /*
  *
  */
-function generatePlaylist(chart, sting, advertisement, pattern) {
+function generatePlaylist(chart) {
   const advertisement = {endSeconds: 10, videoId: 'caaddLZhLoY', width: '83vw'};
   const sting = {videoId: 'YoqgOOQwEqI', width: '83vw'};
   
