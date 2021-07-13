@@ -73,26 +73,26 @@ function parse(table) {
 /*
  *
  */
-function associate(chart, videos, pool) {
+function associate(chart, charted, uncharted) {
   chart = chart.map(([artist, title], index) => {
-    let video = videos.find(video => video.match === title);
+    let entry = charted.find(entry => entry.match === title);
     
-    if (!video) {
-      video = pool[random(pool.length) - 1];
-      video.match = encode(title);
+    if (!entry) {
+      entry = uncharted[random(pool.length) - 1];
+      entry.match = encode(title);
       // Remove any duplicates of 'video' from the pool.
-      pool = pool.filter(item => item !== video);
-      videos.push(video);
+      uncharted = uncharted.filter(item => item !== entry);
+      charted.push(entry);
     }
     
-    video.position = ("0" + (index + 1)).substr(-2);
-    return video;
+    entry.position = ("0" + (index + 1)).substr(-2);
+    return entry;
   });
     
   return {
     chart,
-    videos,
-    pool,
+    charted,
+    uncharted,
   };
 }
 
