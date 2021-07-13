@@ -24,6 +24,9 @@ function onYouTubeIframeAPIReady() {
 }
 
 
+let playlist;
+
+
 /*
  *
  */
@@ -47,7 +50,7 @@ async function onReady(event) {
     // next: associate(charts.next),
   };
   
-  const playlist = generatePlaylist(charts.current, sting, advertisement);
+  playlist = generatePlaylist(charts.current, sting, advertisement);
   player.loadVideoById(playlist.shift());
 }
 
@@ -57,14 +60,14 @@ async function onReady(event) {
 function parse(table) {
   const artists = Array.from(table.querySelectorAll('td:nth-of-type(5)')).map(artist => artist.textContent);
   const titles =  Array.from(table.querySelectorAll('td:nth-of-type(4)')).map(title => title.textContent);
-  const chart = [];
+  const list = [];
 
   for (let artist of artists) {
-    items.push([artist, titles.shift()]);
+    list.push([artist, titles.shift()]);
   }
 
-  items.reverse();
-  return chart;
+  list.reverse();
+  return list;
 }
 
 
