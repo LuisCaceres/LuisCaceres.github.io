@@ -183,7 +183,32 @@ const expect = chai.expect;
   expect(expectation).to.equal(value);
 }
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// intersection()
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Return a non zero-length list if there are similarities between two arrays. 
+{
+  const arrayA = [['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']];
+  const arrayB = [['F', 'F'], ['G', 'G'], ['H', 'H'], ['A', 'A'], ['B', 'B']];
+  const value = intersection(arrayA, arrayB);
+  
+  expect(value.length).to.equal(2);
+  expect(value[0][0]).to.equal('A');
+  expect(value[1][0]).to.equal('B');
+}
+// Return a non zero-length list if there are no similarities between two arrays. 
+{
+  const arrayA = [['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']];
+  const arrayB = [['F', 'F'], ['G', 'G'], ['H', 'H'], ['I', 'I'], ['J', 'J']];
+  const value = intersection(arrayB, arrayA);
+  
+  expect(value.length).to.equal(0);
+}
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // parse()
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
   const HTML = `
     <table>
