@@ -31,6 +31,17 @@ const expect = chai.expect;
 }
 
 
+// difference()
+// No difference
+{
+  const arrayA = [['Green', 'Green']];
+  const arrayB = [['Green', 'Green']];
+  const value = difference(arrayA, arrayB);
+  
+  expect(value.length).to.equal(0);
+}
+
+
 // generatePlaylist()
 //
 {
