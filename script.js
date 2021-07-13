@@ -66,7 +66,6 @@ function parse(table) {
     list.push([artist, titles.shift()]);
   }
 
-  list.reverse();
   return list;
 }
 
@@ -88,7 +87,7 @@ function associate(chart, charted, uncharted) {
     
     entry.position = ("0" + (index + 1)).substr(-2);
     return entry;
-  });
+  }).reverse();
     
   return {
     chart,
