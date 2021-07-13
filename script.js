@@ -104,38 +104,38 @@ function format(currentList, nextList, database) {
   // Let `expiredItems` be a list of such items.
   const expiredItems = difference(nextList, currentList);
   
-  // For each item `item` in `expiredItems`:
-  for (const item of expiredItems) {
-    const data = database.find(data => data.);
-    // Delete `item` from `expiredItems' if:
-    // `item`'s history only contains forward movements except if:
-    if (item.history.length === 1) {}
-    if (item.history.at(-2) < 13) {}
-    if (item.history.reduce()) {}
-  }
+//   // For each item `item` in `expiredItems`:
+//   for (const item of expiredItems) {
+//     const data = database.find(data => data.);
+//     // Delete `item` from `expiredItems' if:
+//     // `item`'s history only contains forward movements except if:
+//     if (item.history.length === 1) {}
+//     if (item.history.at(-2) < 13) {}
+//     if (item.history.reduce()) {}
+//   }
   
   
-  return list;
+//   return list;
   
-  // TO DO:     
-  // TO DO:       The number of items in `entry`'s history is 1.
-  // TO DO:     `item`'s previous week's position is less than 13.
-  // TO DO: For each item `item` in `illegalEntries`:
-  // TO DO:   Let `replacee` be a ramdomly chosen item from `expiredItems`
-  // TO DO:   Delete `replacee` from this week's chart.
-  // TO DO:   Insert `item` instead.  
-  // TO DO:   To consider: [13, 13, *]
-  // TO DO:   To consider: [*, 20, *], [*, 19, *], [*, 18, *]
-  // TO DO:   To consider: [17, 15, 20], [16, 13, 19]
-  // TO DO:   TO consider: [19, 20, *]
-  // TO DO:   TO consider: [10, 17, *]
-  // TO DO:   TO consider: [14, 18, *]
-  const candidates = [];
+//   // TO DO:     
+//   // TO DO:       The number of items in `entry`'s history is 1.
+//   // TO DO:     `item`'s previous week's position is less than 13.
+//   // TO DO: For each item `item` in `illegalEntries`:
+//   // TO DO:   Let `replacee` be a ramdomly chosen item from `expiredItems`
+//   // TO DO:   Delete `replacee` from this week's chart.
+//   // TO DO:   Insert `item` instead.  
+//   // TO DO:   To consider: [13, 13, *]
+//   // TO DO:   To consider: [*, 20, *], [*, 19, *], [*, 18, *]
+//   // TO DO:   To consider: [17, 15, 20], [16, 13, 19]
+//   // TO DO:   TO consider: [19, 20, *]
+//   // TO DO:   TO consider: [10, 17, *]
+//   // TO DO:   TO consider: [14, 18, *]
+//   const candidates = [];
 
   
 
-  candidates[random()];
-  return currentItems;
+//   candidates[random()];
+//   return currentItems;
 }
 
 
