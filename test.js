@@ -51,7 +51,7 @@ const expect = chai.expect;
     {artist: 'Artist 04', title: 'Title 04' },
     {artist: 'Artist 03', title: 'Title 03' },
     {artist: 'Artist 02', title: 'Title 02' },
-    {artist: 'Artist 01', title: 'Title 01' },
+    {artist: 'Artist 01', title: 'Title 01', endSeconds: 180 },
   ];
   
   const sting = {title: 'sting'};
@@ -59,7 +59,7 @@ const expect = chai.expect;
      
   const playlist = generatePlaylist(chart, sting, advertisement);
   
-  expect(playlist.length).to.equal(63);
+  expect(playlist.length).to.equal(64);
   
   expect(playlist[0]).to.equal(sting);      
   expect(playlist[1]).to.equal(chart[0]);   // position 20
@@ -134,7 +134,8 @@ const expect = chai.expect;
   
   expect(playlist[60]).to.equal(sting);
   expect(playlist[61]).to.equal(chart[19]); // position 01
-  expect(playlist[62]).to.equal(sting);
+  expect(playlist[62]).to.equal(chart[19]);
+  expect(playlist[63]).to.equal(sting);
 }
 
 
