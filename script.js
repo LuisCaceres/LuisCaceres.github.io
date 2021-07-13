@@ -1,6 +1,8 @@
+/*
+ *
+ */
 function difference(arrayA, arrayB) {
-  arrayB = arrayB.map(e => e.join(' '));
-  arrayA = arrayA.map(e => e.join(' ')).filter(a => arrayB.find(b => a !== b)); 
+  arrayA = arrayA.filter(([a, b]) => arrayB.find(([c, d]) => b !== d));
   return arrayA;
 }
 
