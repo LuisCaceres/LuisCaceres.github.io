@@ -13,6 +13,7 @@ function random(max) {
   return Math.floor(Math.random() * max) + 1;
 }
 
+
 /*
  *
  */
@@ -21,6 +22,7 @@ function onYouTubeIframeAPIReady() {
   player.addEventListener('onReady', onReady);
   player.addEventListener('onStateChange', onStateChange);
 }
+
 
 /*
  *
@@ -35,21 +37,17 @@ async function onReady(event) {
     next: null,
   }
   
-  const charts = {
+  const lists = {
     current: parse(tables.current).map(([artist, title]) => [encode(artist), encode(title)]),
     // next: parse(tables.next),
   }
 
-  const items = {
-    current: associate(charts.current, musicVideos, pool),
+  const charts = {
+    current: associate(lists.current, charted, uncharted),
     // next: associate(charts.next),
   };
   
-  const playlist = generatePlaylist(current.items);
-
-  // charts.current = format(items.current, items.next, items);
-  
-  // const musicVideos = associate(charts.current);
+  const playlist = generatePlaylist(charts.current, sting, advertisement);
   player.loadVideoById(playlist.shift());
 }
 
