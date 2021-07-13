@@ -19,12 +19,12 @@ const expect = chai.expect;
   const value = associate(items, charted, uncharted);
   
   expect(value.chart.length).to.equal(2);
-  expect(value.chart[0]).to.equal(videos[0]);  // Artist 1
-  expect(value.chart[1]).to.equal(pool[0]);    // Artist 3
+  expect(value.chart[0]).to.equal(charted[0]);  // Artist 1
+  expect(value.chart[1]).to.equal(uncharted[0]);    // Artist 3
   expect(value.chart[1].hasOwnProperty('match')).to.equal(true);
   
-  expect(value.pool.length).to.equal(0);
-  expect(value.videos.length).to.equal(3);
+  expect(value.charted.length).to.equal(3);
+  expect(value.uncharted.length).to.equal(0);
 }
 
 
