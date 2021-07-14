@@ -42,12 +42,14 @@ const expect = chai.expect;
   expect(array.at(2)).to.equal(3);
   expect(array.at(3)).to.equal(4);
   expect(array.at(4)).to.equal(5);
+  expect(array.at(5)).to.equal(undefined);
   
   expect(array.at(-1)).to.equal(5);
   expect(array.at(-2)).to.equal(4);
   expect(array.at(-3)).to.equal(3);
   expect(array.at(-4)).to.equal(2);
   expect(array.at(-5)).to.equal(1);
+  expect(array.at(-6)).to.equal(undefined);
 }
 
 
