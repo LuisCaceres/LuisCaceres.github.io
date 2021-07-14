@@ -114,24 +114,16 @@ function format(currentList, nextList, database) {
   // Let `expiredItems` be a list of such items.
   const expiredItems = difference(nextList, currentList)
     // For each item `item` in `expiredItems`:  
-    .filter(expiredItem => {
-      const {artist, title} = expiredItem;
+    .filter({title} => {
       const item = database.find(item => item.match === title);
       const {history} = item;
-      const previous = history[history.length - 1];
-  
+      return history.at(-1) <= 12;
     });
-  
-  
-  for (const expiredItem of expiredItems) {
-    const {artist, title} = expiredItem;
-    const item = database.find(item => item.match === title);
-    const {history} = item;
-    const previous = history[history.length - 1];
-    
-    if (previous <= 12) {
-       
-    } 
+
+  // For each item `item` in `illegalEntries`:
+  for (const illegalItem of IllegalItems) {
+     const expiredItems[random()];
+     const list.replace(illegalItem, replacedItem);
   }
 
   return list;
@@ -139,7 +131,8 @@ function format(currentList, nextList, database) {
 //   // TO DO:     
 //   // TO DO:       The number of items in `entry`'s history is 1.
 //   // TO DO:     `item`'s previous week's position is less than 13.
-//   // TO DO: For each item `item` in `illegalEntries`:
+  
+  
 //   // TO DO:   Let `replacee` be a ramdomly chosen item from `expiredItems`
 //   // TO DO:   Delete `replacee` from this week's chart.
 //   // TO DO:   Insert `item` instead.  
