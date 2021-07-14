@@ -230,9 +230,9 @@ const expect = chai.expect;
   ).reverse();
   
   const database = [
-    { artist: 'OLD 1', title: 'OLD 1', history: [13, 13, 14, 17, 19] },
-    { artist: 'OLD 2', title: 'OLD 2', history: [7, 7, 9, 11, 15] },
-    { artist: 'OLD 3', title: 'OLD 3', history: [6, 5, 7, 8, 12] },
+    {history: [13, 13, 14, 17, 19], match: 'OLD 1'},
+    {history: [7, 7, 9, 11, 15], match: 'OLD 2'},
+    {history: [6, 5, 7, 8, 12], match: 'OLD 3'},
   ];
   
   const list = format(currentList, nextList, database);
