@@ -104,7 +104,7 @@ function format(currentList, nextList, database) {
   const newItems = difference(currentList, nextList);
   // Verify if there are any new items below position 13.
   // Let `illegalItems` be a list of such items.
-  const illegalItems = intersection(newItems, nextList.filter((item, index) => index + 1 < 13));
+  const illegalItems = intersection(newItems, nextList.filter((item, index) => index + 1 <= 12));
 
   if (!illegalItems.length) {
     return currentList;
@@ -112,28 +112,28 @@ function format(currentList, nextList, database) {
   
   // Iterate through next week's chart and verify which items have dropped out.
   // Let `expiredItems` be a list of such items.
-  const expiredItems = difference(nextList, currentList);
+  const expiredItems = difference(nextList, currentList)
+    // For each item `item` in `expiredItems`:  
+    .filter(expiredItem => {
+      const {artist, title} = expiredItem;
+      const item = database.find(item => item.match === title);
+      const {history} = item;
+      const previous = history[history.length - 1];
   
-  // For each item `item` in `expiredItems`:
-  for (const [artist, title] of expiredItems) {
-    const { history } = database.find(data => data.match === title);
-    const previous = history[history.length(-1)];
+    });
+  
+  
+  for (const expiredItem of expiredItems) {
+    const {artist, title} = expiredItem;
+    const item = database.find(item => item.match === title);
+    const {history} = item;
+    const previous = history[history.length - 1];
     
-//     if (previous < 13) {
-//       //delete
-//     }
-//     if (history.slice(0, -1).isAscending(0, -1)
-    
-//      
-    
-//     // Delete `item` from `expiredItems' if:
-//         // `item`'s history only contains forward movements except if:
-//     if (item.history.length === 1) {}
-//     if (item.history.at(-2) < 13) {}
-//     if (item.history.reduce()) {}
+    if (previous <= 12) {
+       
+    } 
   }
-  
-  
+
   return list;
   
 //   // TO DO:     
