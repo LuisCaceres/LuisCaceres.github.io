@@ -11,26 +11,10 @@ if (!Array.prototype.at) {
 /*
  *
  */
-function difference(arrayA, arrayB) {
-  return arrayB.filter(([a, b]) => !arrayA.find(([c, d]) => b === d));
-}
-
-
-/*
- *
- */
 function encode(string) {
   const codes = Array.from(string).map(e => e.charCodeAt(0) + 1);
   return String.fromCharCode(...codes);
 }
-
-
-/*
- *
- */
- function intersection(arrayA, arrayB) {
-  return arrayA.filter(([a, b]) => arrayB.find(([c, d]) => b === d));
- }
 
 
 /*
@@ -41,6 +25,22 @@ class List extends Array {
     super(...items);
   }
   
+  
+  /*
+   *
+   */
+  difference(list) {
+    return new List(list.filter(([a, b]) => !this.find(([c, d]) => b === d)));
+  }
+  
+
+  /*
+   *
+   */
+   intersection(list) {
+    return new List(this.filter(([a, b]) => list.find(([c, d]) => b === d)));
+   }
+
   
   /*
    *
@@ -142,10 +142,10 @@ function parse(table) {
 function format(currentList, nextList, database) {
   // Iterate through next week's list and verify if there are any new items.
   // Let `newItems` be a list of such items.
-  const newItems = difference(currentList, nextList);
+  const newItems = currentList.difference(nextList);
   // Verify if there are any new items below position 13.
   // Let `illegalItems` be a list of such items.
-  const illegalItems = intersection(newItems, nextList.filter((item, index) => index + 1 <= 12));
+  const illegalItems = newItems.intersection(nextList.filter((item, index) => index + 1 <= 12));
 
   if (!illegalItems.length) {
     return currentList;
@@ -153,7 +153,7 @@ function format(currentList, nextList, database) {
   
   // Iterate through next week's chart and verify which items have dropped out.
   // Let `expiredItems` be a list of such items.
-  const expiredItems = difference(nextList, currentList)
+  const expiredItems = nextList.difference(currentList)
     // For each item `item` in `expiredItems`:  
     .filter(({title}) => {
       const {history} = database.find(item => item.match === title);
