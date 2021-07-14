@@ -21,12 +21,9 @@ function encode(string) {
  *
  */
 class List extends Array {
-  constructor(...items) {   
+  constructor(...items) {
+    items = items.map(item => [item[0], item[1]]);
     super(...items);
-    
-    for (let i = 0; i < items.length; i++) {
-      items[i] = [items[i][0], items[i][1]];
-    }
   }
   
   
@@ -34,7 +31,8 @@ class List extends Array {
    *
    */
   difference(list) {
-    return new List(list.filter(([a, b]) => !this.find(([c, d]) => b === d)));
+    const array = Array.from(list);
+    return new List(array.filter(([a, b]) => !this.find(([c, d]) => b === d)));
   }
   
 
