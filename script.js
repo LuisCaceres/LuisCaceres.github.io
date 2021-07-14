@@ -22,6 +22,7 @@ function encode(string) {
  */
 class List extends Array {
   constructor(...items) {
+    items = items.map(item => item.slice());
     super(...items);
   }
   
