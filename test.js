@@ -247,9 +247,9 @@ const expect = chai.expect;
   const currentList = new List(
     ['T', 'T'], // 20
     ['S', 'S'], // 19
-    ['R', 'R'], // 18
+    ['OLD 1', 'OLD 1'], // 18
     ['Q', 'Q'], // 17
-    ['P', 'P'], // 16
+    ['OLD 2', 'OLD 2'], // 16
     ['O', 'O'], // 15
     ['N', 'N'], // 14
     ['M', 'M'], // 13
@@ -268,16 +268,16 @@ const expect = chai.expect;
   ).reverse();
   
   const nextList = new List(
-    ['S', 'S'], // 20
+    ['S', 'S'], // 20 / 19 - 20
     ['NEW 2', 'NEW 2'], // 19
-    ['O', 'O'], // 18
-    ['J', 'J'], // 17
-    ['K', 'K'], // 16
-    ['Q', 'Q'], // 15
-    ['L', 'L'], // 14
-    ['M', 'M'], // 13
-    ['I', 'I'], // 12
-    ['', ''], // 11 
+    ['O', 'O'], // 18 / 15 - 18
+    ['J', 'J'], // 17 / 10 - 17
+    ['K', 'K'], // 16 / 11 - 16
+    ['Q', 'Q'], // 15 / 17 - 15
+    ['L', 'L'], // 14 / 12 - 14
+    ['M', 'M'], // 13 / 13 - 13
+    ['I', 'I'], // 12 / 09 - 12
+    ['T', 'T'], // 11 / 20 - 11 
     ['NEW 1', 'NEW 1'], // 10
     ['N', 'N'], // 09 / 14 - 09 
     ['H', 'H'], // 08 / 08 - 08
@@ -291,14 +291,13 @@ const expect = chai.expect;
   ).reverse();
   
   const database = [
-    { artist: 'OLD 1', title: 'OLD 1', history: [13, 13, 14, 17, 19] },
-    { artist: 'OLD 2', title: 'OLD 2', history: [7, 7, 9, 11, 15] },
-    { artist: 'OLD 3', title: 'OLD 3', history: [6, 5, 7, 8, 12] },
+    { history: [5, 5, 9, 13, 15], match: 'OLD 1' },
+    { history: [1, 1, 1, 2, 3, 3, 5, 6, 6, 8, 12], match: 'OLD 2' },
   ];
   
   const list = format(currentList, nextList, database);
   
-//   expect(list.length).to.equal(20);
+  expect(list.length).to.equal(20);
 //   expect(list.includes('NEW 1')).to.equal(true);
 //   expect(list.includes('NEW 2')).to.equal(true);
 //   expect(list.includes('OLD 1')).to.equal(false);
