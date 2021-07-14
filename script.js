@@ -155,7 +155,7 @@ function format(currentList, nextList, database) {
   // Let `expiredItems` be a list of such items.
   const expiredItems = nextList.difference(currentList)
     // For each item `item` in `expiredItems`:  
-    .filter(({title}) => {
+    .filter(([artist, title]) => {
       const {history} = database.find(item => item.match === title);
       return history.at(-1) <= 12;
     });
