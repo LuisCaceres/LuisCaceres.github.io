@@ -442,8 +442,8 @@ const expect = chai.expect;
   
   expect(list[0][0]).to.equal('B');
   expect(list[0][1]).to.equal('B');
-  expect(list[1][0]).to.equal('F');
-  expect(list[1][1]).to.equal('F');
+  expect(list[1][0]).to.equal('C');
+  expect(list[1][1]).to.equal('C');
   expect(list[2][0]).to.equal('D');
   expect(list[2][1]).to.equal('D');
   expect(list[3][0]).to.equal('E');
