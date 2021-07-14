@@ -46,7 +46,8 @@ class List extends Array {
    *
    */
   random() {
-    this[random(this.length) - 1];
+    const max = Math.floor(Math.random() * this.length) + 1;
+    return this[max - 1];
   }
   
   
