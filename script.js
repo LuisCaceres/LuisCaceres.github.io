@@ -2,9 +2,9 @@
  *
  */
 if (!Array.prototype.at) {
-  Array.prototype.at = n => {
-    return this[n >= 0 ? n : this.length - 1 - n];
-  }
+  Array.prototype.at = function(n) {
+    return this[n >= 0 ? n : this.length - Math.abs(n)];
+  };
 }
 
 
