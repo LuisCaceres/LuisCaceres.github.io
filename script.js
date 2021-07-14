@@ -44,6 +44,18 @@ function random(max) {
 /*
  *
  */
+function replace(list, replacee, replacement) {
+  list.map(({artist, title}) => {
+    if (artist === replacee.artist && title === replacee.title) {
+      return replacement;
+    }
+  });
+}
+
+
+/*
+ *
+ */
 function onYouTubeIframeAPIReady() {
   const player = new YT.Player('player');
   player.addEventListener('onReady', onReady);
@@ -114,7 +126,7 @@ function format(currentList, nextList, database) {
   // Let `expiredItems` be a list of such items.
   const expiredItems = difference(nextList, currentList)
     // For each item `item` in `expiredItems`:  
-    .filter({title} => {
+    .filter(({title}) => {
       const item = database.find(item => item.match === title);
       const {history} = item;
       return history.at(-1) <= 12;
