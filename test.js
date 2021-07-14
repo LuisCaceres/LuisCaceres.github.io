@@ -419,7 +419,7 @@ const expect = chai.expect;
 {
   const listA = new List(['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']);
   const listB = new List(['F', 'F'], ['G', 'G'], ['H', 'H'], ['I', 'I'], ['J', 'J']);
-  const value = listA.intersection(listA);
+  const value = listA.intersection(listB);
   
   expect(value.length).to.equal(0);
 }
