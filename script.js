@@ -21,13 +21,12 @@ function encode(string) {
  *
  */
 class List extends Array {
-  constructor(...items) {
-    
-    if (typeof items[0] !== 'number') { 
-      items = items.map(item => item.slice());
-    }
-    
+  constructor(...items) {   
     super(...items);
+    
+    for (let i = 0; i < items.length; i++) {
+      items[i] = [item[0], item[1]]; 
+    }
   }
   
   
