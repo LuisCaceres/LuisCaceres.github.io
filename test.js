@@ -183,6 +183,74 @@ const expect = chai.expect;
   expect(expectation).to.equal(value);
 }
 
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// format()
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+{
+  const currentList = [
+    ['OLD 1', 'OLD 1'], // 20
+    ['OLD 2', 'OLD 2'], // 19
+    ['R', 'R'], // 18
+    ['OLD 3', 'OLD 3'], // 17
+    ['P', 'P'], // 16
+    ['O', 'O'], // 15
+    ['N', 'N'], // 14
+    ['M', 'M'], // 13
+    ['L', 'L'], // 12
+    ['K', 'K'], // 11
+    ['J', 'J'], // 10
+    ['I', 'I'], // 09
+    ['H', 'H'], // 08
+    ['G', 'G'], // 07
+    ['F', 'F'], // 06
+    ['E', 'E'], // 05
+    ['D', 'D'], // 04
+    ['C', 'C'], // 03
+    ['B', 'B'], // 02
+    ['A', 'A'], // 01
+  ];
+  
+  const nextList = [
+    ['O', 'O'], // 20
+    ['M', 'M'], // 19
+    ['N', 'N'], // 18
+    ['R', 'R'], // 17
+    ['NEW 3', 'NEW 3'], // 16
+    ['K', 'K'], // 15
+    ['P', 'P'], // 14
+    ['J', 'J'], // 13
+    ['L', 'L'], // 12
+    ['NEW 2', 'NEW 2'], // 11
+    ['G', 'G'], // 10
+    ['I', 'I'], // 09
+    ['NEW 1', 'NEW 1'], // 08
+    ['E', 'E'], // 07
+    ['F', 'F'], // 06
+    ['H', 'H'], // 05
+    ['C', 'C'], // 04
+    ['D', 'D'], // 03
+    ['B', 'B'], // 02
+    ['A', 'A'], // 01
+  ];
+  
+  const database = [
+    { artist: 'OLD 1', title: 'OLD 1', history: [13, 13, 14, 17, 19] },
+    { artist: 'OLD 2', title: 'OLD 2', history: [7, 7, 9, 11, 15] },
+    { artist: 'OLD 3', title: 'OLD 3', history: [6, 5, 7, 8, 12] },
+  ];
+  
+  const list = format(currentList, nextList, database);
+  
+  expect(list.length).to.equal(20);
+  expect(list.includes('NEW 1')).to.equal(true);
+  expect(list.includes('NEW 2')).to.equal(true);
+  expect(list.includes('NEW 1')).to.equal(true);
+  expect(list.includes('OLD 1')).to.equal(false);
+  expect(list.includes('OLD 2')).to.equal(false);
+}
+
+
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // intersection()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
