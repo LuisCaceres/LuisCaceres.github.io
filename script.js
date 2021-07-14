@@ -25,7 +25,7 @@ class List extends Array {
     super(...items);
     
     for (let i = 0; i < items.length; i++) {
-      items[i] = [item[0], item[1]]; 
+      items[i] = [items[i][0], items[i][1]];
     }
   }
   
