@@ -36,20 +36,50 @@ function encode(string) {
 /*
  *
  */
-function random(max) {
-  return Math.floor(Math.random() * max) + 1;
+class List extends Array {
+  constructor(...items) {
+    super(...items);
+  }
+  
+  
+  /*
+   *
+   */
+  random() {
+    this[random(this.length) - 1];
+  }
+  
+  
+  /*
+   *
+   */
+  remove(item) {
+    const index = this.findIndex(({artist, title}) => artist === item.artist && title === item.title);
+    this.splice(index, 1);
+  }
+ 
+  
+  /*
+   *
+   */
+  replace(replacee, replacement) {
+    for (const item of this) {
+      if (item[0] === replacee[0] && item[1] === replacee[1]) {
+        item[0] = replacement[0];
+        item[1] = replacement[1];
+        break;
+      }
+    }
+  }
+ 
 }
 
 
 /*
  *
  */
-function replace(list, replacee, replacement) {
-  list.map(({artist, title}) => {
-    if (artist === replacee.artist && title === replacee.title) {
-      return replacement;
-    }
-  });
+function random(max) {
+  return Math.floor(Math.random() * max) + 1;
 }
 
 
@@ -81,15 +111,15 @@ async function onReady(event) {
   
   const lists = {
     current: parse(tables.current).map(([artist, title]) => [encode(artist), encode(title)]),
-    // next: parse(tables.next),
+    next: parse(tables.next).map(([artist, title]) => [encode(artist), encode(title)]),
   };
   
-//   const list = format(lists.current, lists.next, charted); 
+  const list = format(lists.current, lists.next, charted); 
 
-//   const { chart } = associate(list, charted, uncharted);
+  const { chart } = associate(list, charted, uncharted);
   
-//   playlist = generatePlaylist(chart, sting, advertisement);
-//   player.loadVideoById(playlist.shift());
+  playlist = generatePlaylist(chart, sting, advertisement);
+  player.loadVideoById(playlist.shift());
 }
 
 /*
@@ -98,7 +128,7 @@ async function onReady(event) {
 function parse(table) {
   const artists = Array.from(table.querySelectorAll('td:nth-of-type(5)')).map(artist => artist.textContent);
   const titles =  Array.from(table.querySelectorAll('td:nth-of-type(4)')).map(title => title.textContent);
-  const list = [];
+  const list = new List();
 
   for (let artist of artists) {
     list.push([artist, titles.shift()]);
@@ -110,7 +140,6 @@ function parse(table) {
 
 
 function format(currentList, nextList, database) {
-  const list = [];
   // Iterate through next week's list and verify if there are any new items.
   // Let `newItems` be a list of such items.
   const newItems = difference(currentList, nextList);
@@ -127,39 +156,18 @@ function format(currentList, nextList, database) {
   const expiredItems = difference(nextList, currentList)
     // For each item `item` in `expiredItems`:  
     .filter(({title}) => {
-      const item = database.find(item => item.match === title);
-      const {history} = item;
+      const {history} = database.find(item => item.match === title);
       return history.at(-1) <= 12;
     });
 
   // For each item `item` in `illegalEntries`:
   for (const illegalItem of illegalItems) {
-//      const expiredItems[random()];
-//      const list.replace(illegalItem, replacedItem);
+      const expiredItem = expiredItems.random();
+      currentList.replace(illegalItem, expiredItem);
+      expiredItems.remove(expiredItem);
   }
 
-  return list;
-  
-//   // TO DO:     
-//   // TO DO:       The number of items in `entry`'s history is 1.
-//   // TO DO:     `item`'s previous week's position is less than 13.
-  
-  
-//   // TO DO:   Let `replacee` be a ramdomly chosen item from `expiredItems`
-//   // TO DO:   Delete `replacee` from this week's chart.
-//   // TO DO:   Insert `item` instead.  
-//   // TO DO:   To consider: [13, 13, *]
-//   // TO DO:   To consider: [*, 20, *], [*, 19, *], [*, 18, *]
-//   // TO DO:   To consider: [17, 15, 20, *], [16, 13, 19, *]
-//   // TO DO:   TO consider: [19, 20, *]
-//   // TO DO:   TO consider: [10, 17, *]
-//   // TO DO:   TO consider: [14, 18, *]
-//   const candidates = [];
-
-  
-
-//   candidates[random()];
-//   return currentItems;
+  return currentList;
 }
 
 
