@@ -57,41 +57,6 @@ const expect = chai.expect;
 
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// difference()
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// Return a non zero-length list if there are differences between two arrays. 
-{
-  const arrayA = [['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']];
-  const arrayB = [['F', 'F'], ['G', 'G'], ['H', 'H'], ['A', 'A'], ['B', 'B']];
-  const value = difference(arrayA, arrayB);
-  
-  expect(value.length).to.equal(3);
-  expect(value[0][0]).to.equal('F');
-  expect(value[1][0]).to.equal('G');
-  expect(value[2][0]).to.equal('H');
-}
-// Return a non zero-length list if there are differences between two arrays. 
-{
-  const arrayA = [['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']];
-  const arrayB = [['F', 'F'], ['G', 'G'], ['H', 'H'], ['A', 'A'], ['B', 'B']];
-  const value = difference(arrayB, arrayA);
-  
-  expect(value.length).to.equal(3);
-  expect(value[0][0]).to.equal('C');
-  expect(value[1][0]).to.equal('D');
-  expect(value[2][0]).to.equal('E');
-}
-// Return an empty list if there are no differences between two arrays.
-{
-  const arrayA = [['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']];
-  const arrayB = [['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']];
-  const value = difference(arrayA, arrayB);
-  
-  expect(value.length).to.equal(0);
-}
-
-
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // generatePlaylist()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
@@ -342,29 +307,6 @@ const expect = chai.expect;
 
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// intersection()
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// Return a non zero-length list if there are similarities between two arrays. 
-{
-  const arrayA = [['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']];
-  const arrayB = [['F', 'F'], ['G', 'G'], ['H', 'H'], ['A', 'A'], ['B', 'B']];
-  const value = intersection(arrayA, arrayB);
-  
-  expect(value.length).to.equal(2);
-  expect(value[0][0]).to.equal('A');
-  expect(value[1][0]).to.equal('B');
-}
-// Return a non zero-length list if there are no similarities between two arrays. 
-{
-  const arrayA = [['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']];
-  const arrayB = [['F', 'F'], ['G', 'G'], ['H', 'H'], ['I', 'I'], ['J', 'J']];
-  const value = intersection(arrayB, arrayA);
-  
-  expect(value.length).to.equal(0);
-}
-
-
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // parse()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
@@ -425,6 +367,62 @@ const expect = chai.expect;
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // class List
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// difference()
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Return a non zero-length list if there are differences between two arrays. 
+{
+  const listA = new List(['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']);
+  const listB = new List(['F', 'F'], ['G', 'G'], ['H', 'H'], ['A', 'A'], ['B', 'B']);
+  const value = listA.difference(listB);
+  
+  expect(value.length).to.equal(3);
+  expect(value[0][0]).to.equal('F');
+  expect(value[1][0]).to.equal('G');
+  expect(value[2][0]).to.equal('H');
+}
+// Return a non zero-length list if there are differences between two arrays. 
+{
+  const listA = new List(['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']);
+  const listB = new List(['F', 'F'], ['G', 'G'], ['H', 'H'], ['A', 'A'], ['B', 'B']);
+  const value = listB.difference(listA);
+  
+  expect(value.length).to.equal(3);
+  expect(value[0][0]).to.equal('C');
+  expect(value[1][0]).to.equal('D');
+  expect(value[2][0]).to.equal('E');
+}
+// Return an empty list if there are no differences between two arrays.
+{
+  const listA = new List(['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']);
+  const listB = new List(['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']);
+  const value = listA.difference(listB);
+  
+  expect(value.length).to.equal(0);
+}
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// intersection()
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Return a non zero-length list if there are similarities between two arrays. 
+{
+  const listA = new List(['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']);
+  const listB = new List(['F', 'F'], ['G', 'G'], ['H', 'H'], ['A', 'A'], ['B', 'B']);
+  const value = listA.intersection(listB);
+  
+  expect(value.length).to.equal(2);
+  expect(value[0][0]).to.equal('A');
+  expect(value[1][0]).to.equal('B');
+}
+// Return a zero-length list if there are no similarities between two arrays. 
+{
+  const listA = new List(['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']);
+  const listB = new List(['F', 'F'], ['G', 'G'], ['H', 'H'], ['I', 'I'], ['J', 'J']);
+  const value = listA.intersection(listA);
+  
+  expect(value.length).to.equal(0);
+}
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // random()
