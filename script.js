@@ -100,26 +100,26 @@ let playlist;
  *
  */
 async function onReady(event) {
-  const player = event.target;
+//   const player = event.target;
   
-  await verifyAvailability(player);
+//   await verifyAvailability(player);
   
-  const tables = {
-    current: document.querySelector('table'),
-    next: null,
-  };
+//   const tables = {
+//     current: document.querySelector('table'),
+//     next: null,
+//   };
   
-  const lists = {
-    current: parse(tables.current).map(([artist, title]) => [encode(artist), encode(title)]),
-    next: parse(tables.next).map(([artist, title]) => [encode(artist), encode(title)]),
-  };
+//   const lists = {
+//     current: parse(tables.current).map(([artist, title]) => [encode(artist), encode(title)]),
+//     next: parse(tables.next).map(([artist, title]) => [encode(artist), encode(title)]),
+//   };
   
-  const list = format(lists.current, lists.next, charted); 
+//   const list = format(lists.current, lists.next, charted); 
 
-  const { chart } = associate(list, charted, uncharted);
+//   const { chart } = associate(list, charted, uncharted);
   
-  playlist = generatePlaylist(chart, sting, advertisement);
-  player.loadVideoById(playlist.shift());
+//   playlist = generatePlaylist(chart, sting, advertisement);
+//   player.loadVideoById(playlist.shift());
 }
 
 /*
