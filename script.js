@@ -1,12 +1,12 @@
-class History extends Array {
-  constructor() {
-    super();
-  }
-  
-  sayHello() {
-    console.log('Hello world!');
+/*
+ *
+ */
+if (!Array.prototype.at) {
+  Array.prototype.at = n => {
+    return this[n >= 0 ? n : this.length - 1 - n];
   }
 }
+
 
 /*
  *
