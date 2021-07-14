@@ -23,7 +23,7 @@ function encode(string) {
 class List extends Array {
   constructor(...items) {
     
-    if (items[0] !== 0) { 
+    if (typeof items[0] !== 'number') { 
       items = items.map(item => item.slice());
     }
     
