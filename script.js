@@ -134,8 +134,8 @@ function format(currentList, nextList, database) {
 
   // For each item `item` in `illegalEntries`:
   for (const illegalItem of IllegalItems) {
-     const expiredItems[random()];
-     const list.replace(illegalItem, replacedItem);
+//      const expiredItems[random()];
+//      const list.replace(illegalItem, replacedItem);
   }
 
   return list;
