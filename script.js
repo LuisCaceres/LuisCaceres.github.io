@@ -34,7 +34,7 @@ class List extends Array {
    *
    */
   difference(list) {
-    return list.filter(([a, b]) => !this.find(([c, d]) => b === d)));
+    return list.filter(([a, b]) => !this.find(([c, d]) => b === d));
   }
   
 
@@ -42,7 +42,7 @@ class List extends Array {
    *
    */
    intersection(list) {
-    return this.filter(([a, b]) => list.find(([c, d]) => b === d)));
+    return this.filter(([a, b]) => list.find(([c, d]) => b === d));
    }
 
   
