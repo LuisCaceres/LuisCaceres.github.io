@@ -204,7 +204,7 @@ const expect = chai.expect;
     ['C', 'C'], // 03
     ['B', 'B'], // 02
     ['A', 'A'], // 01
-  );
+  ).reverse();
   
   const nextList = new List(
     ['O', 'O'], // 20
@@ -227,7 +227,7 @@ const expect = chai.expect;
     ['D', 'D'], // 03
     ['B', 'B'], // 02
     ['A', 'A'], // 01
-  );
+  ).reverse();
   
   const database = [
     { artist: 'OLD 1', title: 'OLD 1', history: [13, 13, 14, 17, 19] },
@@ -237,7 +237,7 @@ const expect = chai.expect;
   
   const list = format(currentList, nextList, database);
   
-//   expect(list.length).to.equal(20);
+  expect(list.length).to.equal(20);
 //   expect(list.includes('NEW 1')).to.equal(true);
 //   expect(list.includes('NEW 2')).to.equal(true);
 //   expect(list.includes('OLD 1')).to.equal(false);
@@ -265,7 +265,7 @@ const expect = chai.expect;
     ['C', 'C'], // 03
     ['B', 'B'], // 02
     ['A', 'A'], // 01
-  );
+  ).reverse();
   
   const nextList = new List(
     ['S', 'S'], // 20
@@ -288,7 +288,7 @@ const expect = chai.expect;
     ['E', 'E'], // 03 / 05 - 03
     ['B', 'B'], // 02 / 02 - 02
     ['A', 'A'], // 01 / 01 - 01
-  );
+  ).reverse();
   
   const database = [
     { artist: 'OLD 1', title: 'OLD 1', history: [13, 13, 14, 17, 19] },
