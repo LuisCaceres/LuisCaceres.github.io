@@ -412,4 +412,30 @@ const expect = chai.expect;
   expect(expectation).to.equal(true);
 }
 
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// replace()
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+{
+  let list = [['A', 'A'],['B', 'B'],['C', 'C'],['D', 'D'],['E', 'E']];
+  const replacee = ['C', 'C'];
+  const replacement = ['F', 'F'];
+
+  list = replace(list, replacee, replacement);
+  
+  expect(list.length).to.equal(5);
+  
+  expect(list[0][0]).to.equal('A');
+  expect(list[0][1]).to.equal('A');
+  expect(list[1][0]).to.equal('B');
+  expect(list[1][1]).to.equal('B');
+  expect(list[2][0]).to.equal('F');
+  expect(list[2][1]).to.equal('F');
+  expect(list[3][0]).to.equal('D');
+  expect(list[3][1]).to.equal('D');
+  expect(list[4][0]).to.equal('E');
+  expect(list[4][1]).to.equal('E');
+}
+
+
 console.log('Testing completed.');
