@@ -157,7 +157,7 @@ function format(currentList, nextList, database) {
     // For each item `item` in `expiredItems`:  
     .filter(([artist, title]) => {
       const {history} = database.find(item => item.match === title);
-      return history.at(-1) <= 12;
+      return history.at(-1) > 12;
     });
 
   // For each item `item` in `illegalEntries`:
