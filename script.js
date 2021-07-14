@@ -133,7 +133,7 @@ function format(currentList, nextList, database) {
     });
 
   // For each item `item` in `illegalEntries`:
-  for (const illegalItem of IllegalItems) {
+  for (const illegalItem of illegalItems) {
 //      const expiredItems[random()];
 //      const list.replace(illegalItem, replacedItem);
   }
