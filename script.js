@@ -101,21 +101,23 @@ function format(currentList, nextList, database) {
   // Let `illegalItems` be a list of such items.
   const illegalItems = newItems.intersection(nextList.filter((item, index) => index + 1 <= 12));
 
+  // Abort if there are no illegal items.
   if (!illegalItems.length) {
     return currentList;
   }
   
   // Iterate through next week's chart and verify which items have dropped out.
   // Let `expiredItems` be a list of such items.
-  const expiredItems = nextList.difference(currentList)
-    // For each item `item` in `expiredItems`:  
-    .filter(match => {
+  const expiredItems = nextList.difference(currentList);
+  // For each item `item` in `expiredItems`:  
+  const replacements = expiredItems.filter(match => {
       const {history} = database.find(item => item.match === match);
       return history.at(-1) > 12;
     });
   
-  if (expiredItems.length !== illegalItems.length) {
-    throw new Error('The number of expired and illegal items are not equal!');
+  // Abort if there are no suitable replacements.
+  if (!replacements.length) {
+    return currentList;
   }
 
   // For each item `item` in `illegalEntries`:
