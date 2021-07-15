@@ -66,7 +66,7 @@ class List extends Array {
   replace(replacee, replacement) {
     this.forEach((item, index) => {
       if (item === replacee) {
-        this[i] = replacement;
+        this[index] = replacement;
       }
     });
   }
