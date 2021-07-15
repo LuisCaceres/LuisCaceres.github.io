@@ -94,14 +94,9 @@ async function onReady(event) {
   
   await verifyAvailability(player);
   
-  const tables = {
-    current: document.querySelector('table:nth-of-type(1)'), 
-    next: document.querySelector('table:nth-of-type(2)'), 
-  };
-  
   const lists = {
-    current: parse(tables.current),
-    next: parse(tables.next),
+    current: new List(...currentList),
+    next: new List(...nextList),
   };
   
   const list = format(lists.current, lists.next, charted); 
