@@ -37,7 +37,7 @@ async function onReady(event) {
  *
  */
 async function verifyAvailability(player) {
-  const videos = [advertisement, sting];//.concat(musicVideos, pool);
+  const videos = [advertisement, sting].concat(charted, uncharted);
 
   function verifier(resolve, video) {
     // Notify if this music video cannot be played.
