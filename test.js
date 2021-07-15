@@ -179,6 +179,66 @@ const expect = chai.expect;
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
   const currentList = new List(
+    'T', // 20
+    'S', // 19
+    'OLD 1', // 18
+    'Q', // 17
+    'OLD 2', // 16
+    'O', // 15
+    'N', // 14
+    'M', // 13
+    'L', // 12
+    'K', // 11
+    'J', // 10
+    'I', // 09
+    'H', // 08
+    'G', // 07
+    'F', // 06
+    'E', // 05
+    'D', // 04
+    'C', // 03
+    'B', // 02
+    'A', // 01
+  ).reverse();
+  
+  const nextList = new List(
+    'S', // 20 / 19 - 20
+    'NEW 2', // 19
+    'O', // 18 / 15 - 18
+    'J', // 17 / 10 - 17
+    'K', // 16 / 11 - 16
+    'Q', // 15 / 17 - 15
+    'L', // 14 / 12 - 14
+    'M', // 13 / 13 - 13
+    'I', // 12 / 09 - 12
+    'T', // 11 / 20 - 11 
+    'NEW 1', // 10
+    'N', // 09 / 14 - 09 
+    'H', // 08 / 08 - 08
+    'G', // 07 / 07 - 07
+    'D', // 06 / 04 - 06
+    'F', // 05 / 06 - 05
+    'C', // 04 / 03 - 04
+    'E', // 03 / 05 - 03
+    'B', // 02 / 02 - 02
+    'A', // 01 / 01 - 01
+  ).reverse();
+  
+  const database = [
+    { history: [5, 5, 9, 13, 15], match: 'OLD 1' },
+    { history: [1, 1, 1, 2, 3, 3, 5, 6, 6, 8, 12], match: 'OLD 2' },
+  ];
+  
+  const list = format(currentList, nextList, database);
+  
+  expect(list.length).to.equal(20);
+  expect(list.includes('NEW 1')).to.equal(true);  // ** - 10
+  expect(list.includes('NEW 2')).to.equal(false); // ** - 19
+  expect(list.includes('OLD 1')).to.equal(false); // 18 - **
+  expect(list.includes('OLD 2')).to.equal(true);  // 16 - **
+}
+{
+  const currentList = new List(
     'OLD 1', // 20
     'OLD 2', // 19
     'R', // 18
@@ -239,66 +299,6 @@ const expect = chai.expect;
   expect(list.includes('OLD 1')).to.equal(false); // 19 - 20
   expect(list.includes('OLD 2')).to.equal(false); // 15 - 19 
   expect(list.includes('OLD 3')).to.equal(true);  // 12 - 17
-}
-{
-  const currentList = new List(
-    'T', // 20
-    'S', // 19
-    'OLD 1', // 18
-    'Q', // 17
-    'OLD 2', // 16
-    'O', // 15
-    'N', // 14
-    'M', // 13
-    'L', // 12
-    'K', // 11
-    'J', // 10
-    'I', // 09
-    'H', // 08
-    'G', // 07
-    'F', // 06
-    'E', // 05
-    'D', // 04
-    'C', // 03
-    'B', // 02
-    'A', // 01
-  ).reverse();
-  
-  const nextList = new List(
-    'S', // 20 / 19 - 20
-    'NEW 2', // 19
-    'O', // 18 / 15 - 18
-    'J', // 17 / 10 - 17
-    'K', // 16 / 11 - 16
-    'Q', // 15 / 17 - 15
-    'L', // 14 / 12 - 14
-    'M', // 13 / 13 - 13
-    'I', // 12 / 09 - 12
-    'T', // 11 / 20 - 11 
-    'NEW 1', // 10
-    'N', // 09 / 14 - 09 
-    'H', // 08 / 08 - 08
-    'G', // 07 / 07 - 07
-    'D', // 06 / 04 - 06
-    'F', // 05 / 06 - 05
-    'C', // 04 / 03 - 04
-    'E', // 03 / 05 - 03
-    'B', // 02 / 02 - 02
-    'A', // 01 / 01 - 01
-  ).reverse();
-  
-  const database = [
-    { history: [5, 5, 9, 13, 15], match: 'OLD 1' },
-    { history: [1, 1, 1, 2, 3, 3, 5, 6, 6, 8, 12], match: 'OLD 2' },
-  ];
-  
-  const list = format(currentList, nextList, database);
-  
-  expect(list.length).to.equal(20);
-  expect(list.includes('NEW 1')).to.equal(true);  // ** - 10
-  expect(list.includes('NEW 2')).to.equal(false); // ** - 19
-  expect(list.includes('OLD 1')).to.equal(false); // 18 - **
-  expect(list.includes('OLD 2')).to.equal(true);  // 16 - **
 }
 
 
