@@ -234,8 +234,8 @@ const expect = chai.expect;
   expect(list.length).to.equal(20);
   expect(list.includes('NEW 1')).to.equal(true);  // ** - 10
   expect(list.includes('NEW 2')).to.equal(false); // ** - 19
-  expect(list.includes('OLD 1')).to.equal(false); // 18 - **
-  expect(list.includes('OLD 2')).to.equal(true);  // 16 - **
+  expect(list.includes('OLD 1')).to.equal(false); // 15 - 18 - **
+  expect(list.includes('OLD 2')).to.equal(true);  // 12 - 16 - **
 }
 {
   const currentList = new List(
