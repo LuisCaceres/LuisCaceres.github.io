@@ -227,9 +227,9 @@ const charted = [
     artist: "Lynda",
     history: [19, 17, 13, 11, 11, 15],
     match: "!Toppq!Ephhz!Ephh!gfbu/!Dibsmjf!Xjmtpo!!!Toppq(t!Vqtjef!Zb!Ifbe!",
-    startSeconds: 2,
+    startSeconds: 1,
     type: 0,
-    videoId: "vJKc2xWD6gE", // "ms14D_Cz7FU",
+    videoId: "_o0vOmL-PYY",
     width: "83vw",
   },
   {
