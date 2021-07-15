@@ -216,7 +216,7 @@ const charted = [
     title: "New",
     artist: "No Doubt",
     history: [12, 9, 7, 6, 6],
-    match: "!Dpme!Spdl!B!Qbsuz!",
+    match: "!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!",
     startSeconds: 2,
     type: 0,
     videoId: "LTfD2E0hf4k",
