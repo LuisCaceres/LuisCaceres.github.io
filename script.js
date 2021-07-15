@@ -131,7 +131,7 @@ function parse(table) {
 
   for (const artist of artists) {
     const title = titles.shift();
-    list.push(`${encode(artist)} ${encode(title)}`);
+    list.push(encode(`${artist} ${title}`));
   }
 
   return list;
