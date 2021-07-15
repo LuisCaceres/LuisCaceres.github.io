@@ -164,7 +164,7 @@ const charted = [
   {
     title: "Let Forever Be",
     artist: "The Chemical Broters",
-    history: [18],
+    history: [15, 18],
     match: "!Y{jcju!!!Qbqbsb{{j!",
     type: 0,
     videoId: "s5FyfQDO5g0",
