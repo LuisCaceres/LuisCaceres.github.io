@@ -7,10 +7,7 @@ const expect = chai.expect;
 // associate()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
-  const list = [
-    ['Artist 1', 'Title 1'],
-    ['Artist 3', 'Title 3'],
-  ];
+  const list = [Title 1', 'Title 2'];
   
   const charted = [
     { artist: 'Artist 1', title: 'Title 1', match: 'Title 1' },
