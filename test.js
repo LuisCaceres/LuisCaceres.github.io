@@ -340,23 +340,6 @@ const expect = chai.expect;
   expect(value[1]).to.equal(encode('Artist 2 Title 2'));
 }
 
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// random()
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// return a random number
-{
-  const value = random(1);
-  const expectation = 1;
-  expect(value).to.equal(expectation);
-}
-
-// return a random number no greater than another number.
-{
-  const limit = 20;
-  const value = random(limit);
-  const expectation = value <= limit;
-  expect(expectation).to.equal(true);
-}
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // class List
@@ -423,6 +406,9 @@ const expect = chai.expect;
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
   const list = new List('A', 'B', 'C', 'D', 'E');
+  const value = list.random();
+
+  expect(value).not.to.equal(undefined);
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
