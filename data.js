@@ -169,7 +169,7 @@ const charted = [
   {
     title: "Let Forever Be",
     artist: "The Chemical Broters",
-    history: [15, 18],
+    history: [15],
     match: "!Y{jcju!!!Qbqbsb{{j!",
     type: 0,
     videoId: "s5FyfQDO5g0",
@@ -178,7 +178,7 @@ const charted = [
   {
     title: "Look At Me",
     artist: "Geri Halliwell",
-    history: [16],
+    history: [12],
     match: "!Tqjdf!Hjsmt!!!Tbz!Zpv(mm!Cf!Uifsf!",
     type: 0,
     videoId: "31mlEEs9_Vk",
