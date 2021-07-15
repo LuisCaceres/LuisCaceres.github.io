@@ -77,14 +77,6 @@ class List extends Array {
 /*
  *
  */
-function random(max) {
-  return Math.floor(Math.random() * max) + 1;
-}
-
-
-/*
- *
- */
 function onYouTubeIframeAPIReady() {
   const player = new YT.Player('player');
   player.addEventListener('onReady', onReady);
@@ -179,7 +171,7 @@ function associate(list, charted, uncharted) {
     let entry = charted.find(entry => entry.match === match);
     
     if (!entry) {
-      entry = uncharted[random(uncharted.length) - 1];
+      entry = uncharted.random();
       entry.match = encode(match);
       // Remove any duplicates of 'video' from the pool.
       uncharted = uncharted.filter(item => item !== entry);
