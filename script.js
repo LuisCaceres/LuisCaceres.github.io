@@ -64,12 +64,11 @@ class List extends Array {
    *
    */
   replace(replacee, replacement) {
-    for (const item of this) {
+    this.forEach((item, index) => {
       if (item === replacee) {
-        item = replacement;
-        break;
+        this[i] = replacement;
       }
-    }
+    });
   }
  
 }
