@@ -113,6 +113,10 @@ function format(currentList, nextList, database) {
       const {history} = database.find(item => item.match === match);
       return history.at(-1) > 12;
     });
+  
+  if (expiredItems.length !== illegalItems.length) {
+    throw new Error('The number of expired and illegal items are not equal!');
+  }
 
   // For each item `item` in `illegalEntries`:
   for (const illegalItem of illegalItems) {
