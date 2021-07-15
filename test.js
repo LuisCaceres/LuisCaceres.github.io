@@ -296,9 +296,9 @@ const expect = chai.expect;
   expect(list.includes('NEW 1')).to.equal(true);  // ** - 08
   expect(list.includes('NEW 2')).to.equal(true);  // ** - 11
   expect(list.includes('NEW 3')).to.equal(false); // ** - 16
-  expect(list.includes('OLD 1')).to.equal(false); // 19 - 20
-  expect(list.includes('OLD 2')).to.equal(false); // 15 - 19 
-  expect(list.includes('OLD 3')).to.equal(true);  // 12 - 17
+  expect(list.includes('OLD 1')).to.equal(false); // 19 - 20 - **
+  expect(list.includes('OLD 2')).to.equal(false); // 15 - 19 - **
+  expect(list.includes('OLD 3')).to.equal(true);  // 12 - 17 - **
 }
 
 
