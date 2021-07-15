@@ -242,49 +242,49 @@ const expect = chai.expect;
 }
 {
   const currentList = new List(
-    ['T', 'T'], // 20
-    ['S', 'S'], // 19
-    ['OLD 1', 'OLD 1'], // 18
-    ['Q', 'Q'], // 17
-    ['OLD 2', 'OLD 2'], // 16
-    ['O', 'O'], // 15
-    ['N', 'N'], // 14
-    ['M', 'M'], // 13
-    ['L', 'L'], // 12
-    ['K', 'K'], // 11
-    ['J', 'J'], // 10
-    ['I', 'I'], // 09
-    ['H', 'H'], // 08
-    ['G', 'G'], // 07
-    ['F', 'F'], // 06
-    ['E', 'E'], // 05
-    ['D', 'D'], // 04
-    ['C', 'C'], // 03
-    ['B', 'B'], // 02
-    ['A', 'A'], // 01
+    'T', // 20
+    'S', // 19
+    'OLD 1', // 18
+    'Q', // 17
+    'OLD 2', // 16
+    'O', // 15
+    'N', // 14
+    'M', // 13
+    'L', // 12
+    'K', // 11
+    'J', // 10
+    'I', // 09
+    'H', // 08
+    'G', // 07
+    'F', // 06
+    'E', // 05
+    'D', // 04
+    'C', // 03
+    'B', // 02
+    'A', // 01
   ).reverse();
   
   const nextList = new List(
-    ['S', 'S'], // 20 / 19 - 20
-    ['NEW 2', 'NEW 2'], // 19
-    ['O', 'O'], // 18 / 15 - 18
-    ['J', 'J'], // 17 / 10 - 17
-    ['K', 'K'], // 16 / 11 - 16
-    ['Q', 'Q'], // 15 / 17 - 15
-    ['L', 'L'], // 14 / 12 - 14
-    ['M', 'M'], // 13 / 13 - 13
-    ['I', 'I'], // 12 / 09 - 12
-    ['T', 'T'], // 11 / 20 - 11 
-    ['NEW 1', 'NEW 1'], // 10
-    ['N', 'N'], // 09 / 14 - 09 
-    ['H', 'H'], // 08 / 08 - 08
-    ['G', 'G'], // 07 / 07 - 07
-    ['D', 'D'], // 06 / 04 - 06
-    ['F', 'F'], // 05 / 06 - 05
-    ['C', 'C'], // 04 / 03 - 04
-    ['E', 'E'], // 03 / 05 - 03
-    ['B', 'B'], // 02 / 02 - 02
-    ['A', 'A'], // 01 / 01 - 01
+    'S', // 20 / 19 - 20
+    'NEW 2', // 19
+    'O', // 18 / 15 - 18
+    'J', // 17 / 10 - 17
+    'K', // 16 / 11 - 16
+    'Q', // 15 / 17 - 15
+    'L', // 14 / 12 - 14
+    'M', // 13 / 13 - 13
+    'I', // 12 / 09 - 12
+    'T', // 11 / 20 - 11 
+    'NEW 1', // 10
+    'N', // 09 / 14 - 09 
+    'H', // 08 / 08 - 08
+    'G', // 07 / 07 - 07
+    'D', // 06 / 04 - 06
+    'F', // 05 / 06 - 05
+    'C', // 04 / 03 - 04
+    'E', // 03 / 05 - 03
+    'B', // 02 / 02 - 02
+    'A', // 01 / 01 - 01
   ).reverse();
   
   const database = [
@@ -334,12 +334,10 @@ const expect = chai.expect;
   
   const table = (new DOMParser()).parseFromString(HTML, 'text/html');
   const value = parse(table);
-  expectation = [['Artist 1', 'Title 1'], ['Artist 2', 'Title 2']];
   
-  expect(value.length).to.equal(expectation.length);       // 2
-  expect(value[0].length).to.equal(expectation[0].length); // 2 
-  expect(value[0][0]).to.equal(expectation[0][0]);         // 'Title 1' 
-  expect(value[0][1]).to.equal(expectation[0][1]);         // 'Title 2' 
+  expect(value.length).to.equal(2);
+  expect(value[0]).to.equal(encode('Artist 1 Title 1'));
+  expect(value[1]).to.equal(encode('Artist 2 Title 2'));
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -369,30 +367,30 @@ const expect = chai.expect;
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Return a non zero-length list if there are differences between two arrays. 
 {
-  const listA = new List(['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']);
-  const listB = new List(['F', 'F'], ['G', 'G'], ['H', 'H'], ['A', 'A'], ['B', 'B']);
+  const listA = new List('A', 'B', 'C', 'D', 'E');
+  const listB = new List('F', 'G', 'H', 'A', 'B');
   const value = listA.difference(listB);
   
   expect(value.length).to.equal(3);
-  expect(value[0][0]).to.equal('F');
-  expect(value[1][0]).to.equal('G');
-  expect(value[2][0]).to.equal('H');
+  expect(value[0]).to.equal('F');
+  expect(value[1]).to.equal('G');
+  expect(value[2]).to.equal('H');
 }
 // Return a non zero-length list if there are differences between two arrays. 
 {
-  const listA = new List(['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']);
-  const listB = new List(['F', 'F'], ['G', 'G'], ['H', 'H'], ['A', 'A'], ['B', 'B']);
+  const listA = new List('A', 'B', 'C', 'D', 'E');
+  const listB = new List('F', 'G', 'H', 'A', 'B');
   const value = listB.difference(listA);
   
   expect(value.length).to.equal(3);
-  expect(value[0][0]).to.equal('C');
-  expect(value[1][0]).to.equal('D');
-  expect(value[2][0]).to.equal('E');
+  expect(value[0]).to.equal('C');
+  expect(value[1]).to.equal('D');
+  expect(value[2]).to.equal('E');
 }
 // Return an empty list if there are no differences between two arrays.
 {
-  const listA = new List(['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']);
-  const listB = new List(['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']);
+  const listA = new List('A', 'B', 'C', 'D', 'E');
+  const listB = new List('A', 'B', 'C', 'D', 'E');
   const value = listA.difference(listB);
   
   expect(value.length).to.equal(0);
@@ -403,18 +401,18 @@ const expect = chai.expect;
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Return a non zero-length list if there are similarities between two arrays. 
 {
-  const listA = new List(['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']);
-  const listB = new List(['F', 'F'], ['G', 'G'], ['H', 'H'], ['A', 'A'], ['B', 'B']);
+  const listA = new List('A', 'B', 'C', 'D', 'E');
+  const listB = new List('F', 'G', 'H', 'A', 'B');
   const value = listA.intersection(listB);
   
   expect(value.length).to.equal(2);
-  expect(value[0][0]).to.equal('A');
-  expect(value[1][0]).to.equal('B');
+  expect(value[0]).to.equal('A');
+  expect(value[1]).to.equal('B');
 }
 // Return a zero-length list if there are no similarities between two arrays. 
 {
-  const listA = new List(['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E']);
-  const listB = new List(['F', 'F'], ['G', 'G'], ['H', 'H'], ['I', 'I'], ['J', 'J']);
+  const listA = new List('A', 'B', 'C', 'D', 'E');
+  const listB = new List('F', 'G', 'H', 'I', 'J');
   const value = listA.intersection(listB);
   
   expect(value.length).to.equal(0);
@@ -424,50 +422,41 @@ const expect = chai.expect;
 // random()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
-  const list = new List(['A', 'A'],['B', 'B'],['C', 'C'],['D', 'D'],['E', 'E']);
+  const list = new List('A', 'B', 'C', 'D', 'E');
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // remove()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
-  const list = new List(['A', 'A'],['B', 'B'],['C', 'C'],['D', 'D'],['E', 'E']);
-  list.remove(['A', 'A']);
+  const list = new List('A', 'B', 'C', 'D', 'E');
+  list.remove('A');
   
   expect(list.length).to.equal(4);
   
-  expect(list[0][0]).to.equal('B');
-  expect(list[0][1]).to.equal('B');
-  expect(list[1][0]).to.equal('C');
-  expect(list[1][1]).to.equal('C');
-  expect(list[2][0]).to.equal('D');
-  expect(list[2][1]).to.equal('D');
-  expect(list[3][0]).to.equal('E');
-  expect(list[3][1]).to.equal('E');
+  expect(list[0]).to.equal('B');
+  expect(list[1]).to.equal('C');
+  expect(list[2]).to.equal('D');
+  expect(list[3]).to.equal('E');
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // replace()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
-  const list = new List(['A', 'A'],['B', 'B'],['C', 'C'],['D', 'D'],['E', 'E']);
-  const replacee = ['C', 'C'];
-  const replacement = ['F', 'F'];
+  const list = new List('A', 'B', 'C', 'D', 'E');
+  const replacee = 'C';
+  const replacement = 'F';
 
   list.replace(replacee, replacement);
   
   expect(list.length).to.equal(5);
   
-  expect(list[0][0]).to.equal('A');
-  expect(list[0][1]).to.equal('A');
-  expect(list[1][0]).to.equal('B');
-  expect(list[1][1]).to.equal('B');
-  expect(list[2][0]).to.equal('F');
-  expect(list[2][1]).to.equal('F');
-  expect(list[3][0]).to.equal('D');
-  expect(list[3][1]).to.equal('D');
-  expect(list[4][0]).to.equal('E');
-  expect(list[4][1]).to.equal('E');
+  expect(list[0]).to.equal('A');
+  expect(list[1]).to.equal('B');
+  expect(list[2]).to.equal('F');
+  expect(list[3]).to.equal('D');
+  expect(list[4]).to.equal('E');
 }
 
 
