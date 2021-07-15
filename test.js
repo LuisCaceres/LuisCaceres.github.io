@@ -9,14 +9,12 @@ const expect = chai.expect;
 {
   const list = ['Title 1', 'Title 3'];
   
-  const charted = [
+  const charted = new List(
     { artist: 'Artist 1', title: 'Title 1', match: 'Title 1' },
     { artist: 'Artist 2', title: 'Title 2', match: 'Title 2' },
-  ];
+  );
   
-  const uncharted = [
-    { artist: 'Artist 3', title: 'Title 3' },
-  ];
+  const uncharted = new List({ artist: 'Artist 3', title: 'Title 3' });
   
   const value = associate(list, charted, uncharted);
 
