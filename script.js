@@ -122,9 +122,9 @@ function format(currentList, nextList, database) {
 
   // For each item `item` in `illegalEntries`:
   for (const illegalItem of illegalItems) {
-      const expiredItem = expiredItems.random();
-      currentList.replace(expiredItem, illegalItem);
-      expiredItems.remove(expiredItem);
+      const replacement = replacements.random();
+      currentList.replace(replacement, illegalItem);
+      replacements.remove(replacement);
   }
 
   return currentList;
