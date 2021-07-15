@@ -176,7 +176,7 @@ function format(currentList, nextList, database) {
  *
  */
 function associate(list, charted, uncharted) {
-  const chart = list.map(match, index) => {
+  const chart = list.map((match, index) => {
     let entry = charted.find(entry => entry.match === match);
     
     if (!entry) {
