@@ -235,10 +235,12 @@ const expect = chai.expect;
   const list = format(currentList, nextList, database);
   
   expect(list.length).to.equal(20);
-//   expect(list.includes('NEW 1')).to.equal(true);
-//   expect(list.includes('NEW 2')).to.equal(true);
-//   expect(list.includes('OLD 1')).to.equal(false);
-//   expect(list.includes('OLD 2')).to.equal(false);
+  expect(list.includes('NEW 1')).to.equal(true);  // ** - 08
+  expect(list.includes('NEW 2')).to.equal(true);  // ** - 11
+  expect(list.includes('NEW 3')).to.equal(false); // ** - 16
+  expect(list.includes('OLD 1')).to.equal(false); // 19 - 20
+  expect(list.includes('OLD 2')).to.equal(false); // 15 - 19 
+  expect(list.includes('OLD 3')).to.equal(true);  // 12 - 17
 }
 {
   const currentList = new List(
@@ -295,10 +297,10 @@ const expect = chai.expect;
   const list = format(currentList, nextList, database);
   
   expect(list.length).to.equal(20);
-//   expect(list.includes('NEW 1')).to.equal(true);
-//   expect(list.includes('NEW 2')).to.equal(true);
-//   expect(list.includes('OLD 1')).to.equal(false);
-//   expect(list.includes('OLD 2')).to.equal(false);
+  expect(list.includes('NEW 1')).to.equal(true);  // ** - 10
+  expect(list.includes('NEW 2')).to.equal(false); // ** - 19
+  expect(list.includes('OLD 1')).to.equal(false); // 18 - **
+  expect(list.includes('OLD 2')).to.equal(true);  // 16 - **
 }
 
 
