@@ -55,7 +55,7 @@ class List extends Array {
    *
    */
   remove(item) {
-    const index = this.findIndex(a => a ==== item);
+    const index = this.findIndex(a => a === item);
     this.splice(index, 1);
   }
  
