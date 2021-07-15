@@ -22,7 +22,6 @@ function encode(string) {
  */
 class List extends Array {
   constructor(...items) {
-    items = items.map(item => [item[0], item[1]]);
     super(...items);
   }
   
@@ -31,8 +30,7 @@ class List extends Array {
    *
    */
   difference(list) {
-    const array = Array.from(list);
-    return new List(array.filter(([a, b]) => !this.find(([c, d]) => b === d)));
+    return list.filter(a => !this.find(b => a === b));
   }
   
 
@@ -40,7 +38,7 @@ class List extends Array {
    *
    */
    intersection(list) {
-    return new List(this.filter(([a, b]) => list.find(([c, d]) => b === d)));
+    return this.filter(a => list.find(b => a === b));
    }
 
   
@@ -57,7 +55,7 @@ class List extends Array {
    *
    */
   remove(item) {
-    const index = this.findIndex(({artist, title}) => artist === item.artist && title === item.title);
+    const index = this.findIndex(a => a ==== item);
     this.splice(index, 1);
   }
  
@@ -67,9 +65,8 @@ class List extends Array {
    */
   replace(replacee, replacement) {
     for (const item of this) {
-      if (item[0] === replacee[0] && item[1] === replacee[1]) {
-        item[0] = replacement[0];
-        item[1] = replacement[1];
+      if (item === replacee) {
+        item = replacement;
         break;
       }
     }
@@ -133,8 +130,9 @@ function parse(table) {
   const titles =  Array.from(table.querySelectorAll('td:nth-of-type(4)')).map(title => title.textContent);
   const list = new List();
 
-  for (let artist of artists) {
-    list.push([artist, titles.shift()]);
+  for (const artist of artists) {
+    const title = titles.shift();
+    list.push(`${encode(artist)} ${encode(title)}`);
   }
 
   return list;
@@ -158,8 +156,8 @@ function format(currentList, nextList, database) {
   // Let `expiredItems` be a list of such items.
   const expiredItems = nextList.difference(currentList)
     // For each item `item` in `expiredItems`:  
-    .filter(([artist, title]) => {
-      const {history} = database.find(item => item.match === title);
+    .filter(match) => {
+      const {history} = database.find(item => item.match === match);
       return history.at(-1) > 12;
     });
 
@@ -177,13 +175,13 @@ function format(currentList, nextList, database) {
 /*
  *
  */
-function associate(chart, charted, uncharted) {
-  chart = chart.map(([artist, title], index) => {
-    let entry = charted.find(entry => entry.match === title);
+function associate(list, charted, uncharted) {
+  const chart = list.map(match, index) => {
+    let entry = charted.find(entry => entry.match === match);
     
     if (!entry) {
       entry = uncharted[random(uncharted.length) - 1];
-      entry.match = encode(title);
+      entry.match = encode(match);
       // Remove any duplicates of 'video' from the pool.
       uncharted = uncharted.filter(item => item !== entry);
       charted.push(entry);
