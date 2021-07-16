@@ -276,6 +276,19 @@ function generateList(outcoming, incoming) {
   expect(list.includes('IN 11')).to.equal(true);  
   expect(list.includes('IN 8')).to.equal(true); 
 }
+{
+  const { currentList, nextList } = generateList([11], [5]);
+
+  const database = [
+    {history: [6, 2, 2, 1], match: 'OUT 11'},
+  ];
+  
+  const list = format(currentList, nextList, database);
+  
+  expect(list.length).to.equal(20);
+  expect(list.includes('OUT 11')).to.equal(true); 
+  expect(list.includes('IN 5')).to.equal(false); 
+}
 
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
