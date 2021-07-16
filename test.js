@@ -3,7 +3,7 @@ console.log('Testing starting.');
 
 const expect = chai.expect;
 
-function foo(outcoming, incoming) {
+function generateList(outcoming, incoming) {
   const currentList = new List();
   const nextList = new List();
   const itemsA = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'];
