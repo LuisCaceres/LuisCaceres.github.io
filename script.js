@@ -132,22 +132,38 @@ function format(currentList, nextList, database) {
   const expiredItems = nextList.difference(currentList);
   // Let `replacees` be a list of items that may be replaced by an illegal item. 
   const replacees = expiredItems.filter(match => {
-      // For each item `item` in `expiredItems`:  
-      const {history} = database.find(item => item.match === match);
-      const range = new NumericRange(...history);
-      return range.length === 0 || range.at(-1) > 12 && range.isAscending();
-    });
+    // For each item `item` in `expiredItems`:  
+    const {history} = database.find(item => item.match === match);
+    const range = new NumericRange(...history);
+    return range.length === 0 || range.at(-1) > 12 && range.isAscending();
+  });
   
   // Abort if there are no suitable replacements.
   if (!replacees.length) {
     return currentList;
   }
+  
 
   // For each item `item` in `illegalEntries`:
   for (const illegalItem of illegalItems) {
+    const usedItems = new List();
+  
+    while (replacees.length) {
+      debugger;
       const replacee = replacees.random();
-      currentList.replace(replacee, illegalItem);
+      const positionIllegalItem = nextList.indexOf(illegalItem);
+      const positionReplacee = currentList.indexOf(replacee);
+      const difference = positionReplacee - positionIllegalItem;
+      
+      if (difference > 1) {
+        currentList.replace(replacee, illegalItem);
+      }
+      
       replacees.remove(replacee);
+      usedItems.push(replacee);
+    }
+
+    replacees.push(...usedItems);
   }
 
   return currentList;
