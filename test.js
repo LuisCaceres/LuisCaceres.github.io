@@ -221,12 +221,12 @@ function generateList(outcoming, incoming) {
   const list = format(currentList, nextList, database);
   
   expect(list.length).to.equal(20);
-  expect(list.includes('IN 1')).to.equal(true);  // ** - 12
-  expect(list.includes('IN 2')).to.equal(false); // ** - 15
-  expect(list.includes('IN 3')).to.equal(false); // ** - 19
-  expect(list.includes('IN 4')).to.equal(false); // ** - 20
-  expect(list.includes('OUT 1')).to.equal(true);  // 10 - 17 - **
-  expect(list.includes('OUT 2')).to.equal(true);  // 11 - 16 - **
+  expect(list.includes('IN 12')).to.equal(true); 
+  expect(list.includes('IN 15')).to.equal(false); 
+  expect(list.includes('IN 19')).to.equal(false);
+  expect(list.includes('IN 20')).to.equal(false); 
+  expect(list.includes('OUT 16')).to.equal(true); // 10 - 17 - **
+  expect(list.includes('OUT 17')).to.equal(true); // 11 - 16 - **
 }
 {
   const currentList = new List(
