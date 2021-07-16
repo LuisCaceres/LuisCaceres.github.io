@@ -59,7 +59,7 @@ const charted = [
   {
     title: "Atrapados En La Red",
     artist: "Tam Tam Go!",
-    history: [15, 18],
+    history: [15],
     match: "!Epoob!Mfxjt!!!J!Mpwf!Zpv!Bmxbzt!Gpsfwfs!",
     type: 0,
     videoId: "u8uup17RrUU",
@@ -167,15 +167,6 @@ const charted = [
     width: "83vw",
   },
   {
-    title: "Let Forever Be",
-    artist: "The Chemical Broters",
-    history: [15],
-    match: "!Y{jcju!!!Qbqbsb{{j!",
-    type: 0,
-    videoId: "s5FyfQDO5g0",
-    width: "83vw",
-  },
-  {
     title: "Look At Me",
     artist: "Geri Halliwell",
     history: [12],
@@ -215,7 +206,7 @@ const charted = [
   {
     title: "New",
     artist: "No Doubt",
-    history: [12, 9, 7, 6, 6],
+    history: [18, 12, 9, 7, 6, 6],
     match: "!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!",
     startSeconds: 2,
     type: 0,
@@ -411,7 +402,15 @@ let uncharted = [
     artist: "Five",
     type: 0,
     videoId: "3OJMjlzVLZE"
-  }, */
+  }, */  
+  {
+    title: "Let Forever Be",
+    artist: "The Chemical Broters",
+    priority: 1,
+    type: 0,
+    videoId: "s5FyfQDO5g0",
+    width: "83vw",
+  },
   {
     title: "Lullaby",
     artist: "Shawn Mullins",
