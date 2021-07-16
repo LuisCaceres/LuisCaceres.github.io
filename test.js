@@ -276,6 +276,19 @@ function generateList(outcoming, incoming) {
   expect(list.includes('IN 11')).to.equal(true);  
   expect(list.includes('IN 8')).to.equal(true); 
 }
+{
+  const { currentList, nextList } = generateList([20], [1]);
+
+  const database = [
+    {history: [], match: 'OUT 20'},
+  ];
+  
+  const list = format(currentList, nextList, database);
+  
+  expect(list.length).to.equal(20);
+  expect(list.includes('OUT 20')).to.equal(false); 
+  expect(list.includes('IN 1')).to.equal(true); 
+}
 
 // FORMATTING NOT ALLOWED IN SPITE OF THE EXISTENCE OF AN ILLEGAL ITEM
 {
