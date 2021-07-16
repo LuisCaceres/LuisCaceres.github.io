@@ -72,6 +72,26 @@ class List extends Array {
   } 
 }
 
+class NumericRange extends Array {
+  constructor(...numbers) {
+    super(...numbers);
+  }
+
+  isAscending() {
+    return this.every((n, i)=> {
+      const next = this[i + 1]; 
+      return typeof next === 'number' ? n <= next : true;
+    });
+  }
+  
+  isDescending() {
+    return this.every((n, i)=> {
+      const next = this[i + 1]; 
+      return typeof next === 'number' ? n >= next : true;ç
+    }); 
+  }
+}
+
 
 /*
  *
