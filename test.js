@@ -276,6 +276,8 @@ function generateList(outcoming, incoming) {
   expect(list.includes('IN 11')).to.equal(true);  
   expect(list.includes('IN 8')).to.equal(true); 
 }
+
+// FORMATTING NOT ALLOWED IN SPITE OF THE EXISTENCE OF AN ILLEGAL ITEM
 {
   const { currentList, nextList } = generateList([11], [5]);
 
@@ -289,6 +291,7 @@ function generateList(outcoming, incoming) {
   expect(list.includes('OUT 11')).to.equal(true); 
   expect(list.includes('IN 5')).to.equal(false); 
 }
+// FORMATTING NOT ALLOWED IN SPITE OF THE EXISTENCE OF AN ILLEGAL ITEM
 {
   const { currentList, nextList } = generateList([15], [10]);
 
@@ -301,6 +304,20 @@ function generateList(outcoming, incoming) {
   expect(list.length).to.equal(20);
   expect(list.includes('OUT 15')).to.equal(true); 
   expect(list.includes('IN 10')).to.equal(false); 
+}
+// FORMATTING NOT ALLOWED IN SPITE OF THE EXISTENCE OF AN ILLEGAL ITEM
+{
+  const { currentList, nextList } = generateList([20], [9]);
+
+  const database = [
+    {history: [28, 18, 16, 14, 13, 13], match: 'OUT 20'},
+  ];
+  
+  const list = format(currentList, nextList, database);
+  
+  expect(list.length).to.equal(20);
+  expect(list.includes('OUT 20')).to.equal(true); 
+  expect(list.includes('IN 9')).to.equal(false); 
 }
 
 
