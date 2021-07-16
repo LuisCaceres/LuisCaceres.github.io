@@ -192,7 +192,7 @@ function generateList(outcoming, incoming) {
 // format()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
-  const { currentList, nextList } = generateList([16, 18], [10, 12]);
+  const { currentList, nextList } = generateList([16, 18], [10, 19]);
   
   
   const database = [
