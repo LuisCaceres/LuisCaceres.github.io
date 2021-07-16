@@ -177,14 +177,16 @@ const expect = chai.expect;
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // format()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-{
+{ 
   function foo(outcoming, incoming) {
     const currentList = new List();
     const nextList = new List();
-   
+    const itemsA = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'];
+    const itemsB = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'];
+    
     for (let i = 1; i <= 20; i++) {
-        currentList.push(outcoming.includes(i) ? `OUT ${i}` : i);
-        nextList.push(incoming.includes(i) ? `IN ${i}` : i);
+        currentList.push(outcoming.includes(i) ? `OUT ${i}` : itemsA.shift());
+        nextList.push(incoming.includes(i) ? `IN ${i}` : itemsB.shift());
     }
     
     return { currentList, nextList };
