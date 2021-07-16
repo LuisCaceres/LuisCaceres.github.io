@@ -147,7 +147,7 @@ function format(currentList, nextList, database) {
   for (const illegalItem of illegalItems) {
       const replacee = replacees.random();
       currentList.replace(replacee, illegalItem);
-      replacee.remove(replacee);
+      replacees.remove(replacee);
   }
 
   return currentList;
