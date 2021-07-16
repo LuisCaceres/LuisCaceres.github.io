@@ -280,11 +280,14 @@ function generateList(outcoming, incoming) {
   expect(list.includes('IN 11')).to.equal(true);
   expect(list.includes('IN 8')).to.equal(true);
 
-  const position = list.indexOf('IN 11') + 1;
-  expect([19, 20].includes(position)).to.equal(true); // POSITION 19 OR 20
-
-  const position = list.indexOf('IN 8') + 1;
-  expect([19, 20].includes(position)).to.equal(true); // POSITION 19 OR 20
+  {
+    const position = list.indexOf('IN 11') + 1;
+    expect([19, 20].includes(position)).to.equal(true); // POSITION 19 OR 20
+  }
+  {
+    const position = list.indexOf('IN 8') + 1;
+    expect([19, 20].includes(position)).to.equal(true); // POSITION 19 OR 20
+  }
 }
 {
   const { currentList, nextList } = generateList([20], [1]);
