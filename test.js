@@ -179,8 +179,8 @@ const expect = chai.expect;
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
   function foo(outcoming, incoming) {
-    const currentList = [];
-    const nextList = [];
+    const currentList = new List();
+    const nextList = new List();
    
     for (let i = 1; i <= 20; i++) {
         currentList.push(outcoming.includes(i) ? `OUT ${i}` : i);
