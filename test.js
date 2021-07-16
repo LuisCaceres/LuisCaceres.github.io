@@ -229,67 +229,23 @@ function generateList(outcoming, incoming) {
   expect(list.includes('OUT 17')).to.equal(true); // 11 - 16 - **
 }
 {
-  const currentList = new List(
-    'OLD 1', // 20
-    'OLD 2', // 19
-    'R', // 18
-    'OLD 3', // 17
-    'P', // 16
-    'O', // 15
-    'N', // 14
-    'M', // 13
-    'L', // 12
-    'K', // 11
-    'J', // 10
-    'I', // 09
-    'H', // 08
-    'G', // 07
-    'F', // 06
-    'E', // 05
-    'D', // 04
-    'C', // 03
-    'B', // 02
-    'A', // 01
-  ).reverse();
-  
-  const nextList = new List(
-    'O', // 20
-    'M', // 19
-    'N', // 18
-    'R', // 17
-    'NEW 3', // 16
-    'K', // 15
-    'P', // 14
-    'J', // 13
-    'L', // 12
-    'NEW 2', // 11
-    'G', // 10
-    'I', // 09
-    'NEW 1', // 08
-    'E', // 07
-    'F', // 06
-    'H', // 05
-    'C', // 04
-    'D', // 03
-    'B', // 02
-    'A', // 01
-  ).reverse();
-  
+  const { currentList, nextList } = generateList([16, 11, 8], [17, 19, 20]);
+
   const database = [
-    {history: [13, 13, 14, 17, 19], match: 'OLD 1'},
-    {history: [7, 7, 9, 11, 15], match: 'OLD 2'},
-    {history: [6, 5, 7, 8, 12], match: 'OLD 3'},
+    {history: [13, 13, 14, 17, 19], match: 'OUT 20'},
+    {history: [7, 7, 9, 11, 15], match: 'OUT 19'},
+    {history: [6, 5, 7, 8, 12], match: 'OUT 17'},
   ];
   
   const list = format(currentList, nextList, database);
   
   expect(list.length).to.equal(20);
-  expect(list.includes('NEW 1')).to.equal(true);  // ** - 08
-  expect(list.includes('NEW 2')).to.equal(true);  // ** - 11
-  expect(list.includes('NEW 3')).to.equal(false); // ** - 16
-  expect(list.includes('OLD 1')).to.equal(false); // 19 - 20 - **
-  expect(list.includes('OLD 2')).to.equal(false); // 15 - 19 - **
-  expect(list.includes('OLD 3')).to.equal(true);  // 12 - 17 - **
+  expect(list.includes('IN 16')).to.equal(false);  
+  expect(list.includes('IN 11')).to.equal(true);  
+  expect(list.includes('IN 8')).to.equal(true); 
+  expect(list.includes('OUT 20')).to.equal(false); // 19 - 20 - **
+  expect(list.includes('OUT 19')).to.equal(false); // 15 - 19 - **
+  expect(list.includes('OUT 17')).to.equal(true);  // 12 - 17 - **
 }
 
 
