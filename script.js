@@ -149,7 +149,6 @@ function format(currentList, nextList, database) {
     const reserve = new List();
   
     while (replacees.length) {
-      debugger;
       const replacee = replacees.random();
       const positionIllegalItem = nextList.indexOf(illegalItem);
       const positionReplacee = currentList.indexOf(replacee);
