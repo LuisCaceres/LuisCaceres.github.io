@@ -17,7 +17,11 @@ let playlist;
 async function onReady(event) {
   const player = event.target;
   
-  await verifyAvailability(player);
+  const response = confirm('Would you like to test the availability of videos?');
+
+  if (response) {
+    await verifyAvailability(player);
+  }
   
   const lists = {
     current: new List(...currentList),
