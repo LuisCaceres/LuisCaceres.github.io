@@ -457,7 +457,14 @@ function generateList(outcoming, incoming) {
 //
 {
   const range = new NumericRange(1, 2, 3, 4, 5, 6, 7, 8, 9);
-  expect(range.isAscending).to.equal(true);
+  expect(range.isAscending()).to.equal(true);
+  expect(range.isDescending()).to.equal(false);
+}
+
+{
+  const range = new NumericRange(9, 8, 7, 6, 5, 4, 3, 2, 1);
+  expect(range.isAscending()).to.equal(false);
+  expect(range.isDescending()).to.equal(true);
 }
 
 console.log('Testing completed.');
