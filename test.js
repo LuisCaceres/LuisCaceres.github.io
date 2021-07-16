@@ -229,6 +229,17 @@ function generateList(outcoming, incoming) {
   expect(list.includes('OUT 17')).to.equal(true); // 11 - 16 - **
 }
 {
+  const { currentList, nextList } = generateList([16, 18], [19, 20]);
+  
+  const list = format(currentList, nextList, {});
+  
+  expect(list.length).to.equal(20);
+  expect(list.includes('IN 20')).to.equal(false); 
+  expect(list.includes('IN 19')).to.equal(false); 
+  expect(list.includes('OUT 18')).to.equal(true); 
+  expect(list.includes('OUT 16')).to.equal(true);
+}
+{
   const { currentList, nextList } = generateList([17, 19, 20], [16, 11, 8]);
 
   const database = [
