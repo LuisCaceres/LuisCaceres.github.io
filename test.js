@@ -229,7 +229,7 @@ function generateList(outcoming, incoming) {
   expect(list.includes('OUT 17')).to.equal(true); // 11 - 16 - **
 }
 {
-  const { currentList, nextList } = generateList([16, 11, 8], [17, 19, 20]);
+  const { currentList, nextList } = generateList([17, 19, 20], [16, 11, 8]);
 
   const database = [
     {history: [13, 13, 14, 17, 19], match: 'OUT 20'},
