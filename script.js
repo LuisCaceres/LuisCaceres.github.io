@@ -158,6 +158,7 @@ function format(currentList, nextList, database) {
       
       if (difference > 1) {
         currentList.replace(replacee, illegalItem);
+        break;
       }
       else {
         reserve.push(replacee);
