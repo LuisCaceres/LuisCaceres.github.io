@@ -74,7 +74,8 @@ class List extends Array {
 
 class NumericRange extends Array {
   constructor(...numbers) {
-    super(...numbers);
+    super();
+    this.push(...numbers);
   }
 
   isAscending() {
