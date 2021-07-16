@@ -154,14 +154,14 @@ function format(currentList, nextList, database) {
       const positionReplacee = currentList.indexOf(replacee);
       const difference = positionReplacee - positionIllegalItem;
       
+      replacees.remove(replacee);
+      
       if (difference > 1) {
         currentList.replace(replacee, illegalItem);
       }
       else {
         reserve.push(replacee);
       }
-      
-      replacees.remove(replacee);
     }
 
     replacees.push(...reserve);
