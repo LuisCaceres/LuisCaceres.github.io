@@ -249,6 +249,15 @@ function generateList(outcoming, incoming) {
   expect(list.includes('IN 17')).to.equal(false);
 }
 {
+  const { currentList, nextList } = generateList([18], [16]);
+  
+  const list = format(currentList, nextList, {});
+  
+  expect(list.length).to.equal(20);
+  expect(list.includes('OUT 18')).to.equal(true); 
+  expect(list.includes('IN 16')).to.equal(false);
+}
+{
   const { currentList, nextList } = generateList([17, 19, 20], [16, 11, 8]);
 
   const database = [
@@ -260,12 +269,12 @@ function generateList(outcoming, incoming) {
   const list = format(currentList, nextList, database);
   
   expect(list.length).to.equal(20);
-  expect(list.includes('IN 16')).to.equal(false);  
-  expect(list.includes('IN 11')).to.equal(true);  
-  expect(list.includes('IN 8')).to.equal(true); 
   expect(list.includes('OUT 20')).to.equal(false); // 19 - 20 - **
   expect(list.includes('OUT 19')).to.equal(false); // 15 - 19 - **
   expect(list.includes('OUT 17')).to.equal(true);  // 12 - 17 - **
+  expect(list.includes('IN 16')).to.equal(false);  
+  expect(list.includes('IN 11')).to.equal(true);  
+  expect(list.includes('IN 8')).to.equal(true); 
 }
 
 
