@@ -132,7 +132,7 @@ function format(currentList, nextList, database) {
   // For each item `item` in `expiredItems`:  
   const replacements = expiredItems.filter(match => {
       const {history} = database.find(item => item.match === match);
-      const range = new NumericRange(history);
+      const range = new NumericRange(...history);
       return range.at(-1) > 12 && !range.isAscending();
     });
   
