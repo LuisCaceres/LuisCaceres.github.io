@@ -183,11 +183,11 @@ const expect = chai.expect;
     const nextList = [];
    
     for (let i = 1; i <= 20; i++) {
-        current.push(outcoming.includes(i) ? `OUT ${i}` : i);
-        next.push(incoming.includes(i) ? `IN ${i}` : i);
+        currentList.push(outcoming.includes(i) ? `OUT ${i}` : i);
+        nextList.push(incoming.includes(i) ? `IN ${i}` : i);
     }
     
-    return { current, next };
+    return { currentList, nextList };
   }
   
    const { currentList, nextList } = foo([16, 18], [10, 12]);
