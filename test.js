@@ -350,7 +350,7 @@ function generateList(outcoming, incoming) {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // difference()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// Return a non zero-length list if there are differences between two arrays. 
+// Return a non zero-length list if there are differences between two arrays.
 {
   const listA = new List('A', 'B', 'C', 'D', 'E');
   const listB = new List('F', 'G', 'H', 'A', 'B');
@@ -447,5 +447,17 @@ function generateList(outcoming, incoming) {
   expect(list[4]).to.equal('E');
 }
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// class Range
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// isAscending()
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//
+{
+  const range = new NumericRange(1, 2, 3, 4, 5, 6, 7, 8, 9);
+  expect(range.isAscending).to.equal(true);
+}
 
 console.log('Testing completed.');
