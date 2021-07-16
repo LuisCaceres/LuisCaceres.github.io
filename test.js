@@ -203,16 +203,17 @@ function generateList(outcoming, incoming) {
   const list = format(currentList, nextList, database);
   
   expect(list.length).to.equal(20);
-  expect(list.includes('IN 10')).to.equal(true);   // ** - 10
-  expect(list.includes('IN 19')).to.equal(false);  // ** - 19
-  expect(list.includes('OUT 18')).to.equal(false); // 15 - 18 - **
-  expect(list.includes('OUT 16')).to.equal(true);  // 12 - 16 - **
+  expect(list.includes('OUT 18')).to.equal(false);
+  expect(list.includes('OUT 16')).to.equal(true);
+  expect(list.includes('IN 19')).to.equal(false);
+  expect(list.includes('IN 10')).to.equal(true);
+  expect(list.indexOf('IN 10')).to.equal(17); // POSITION 18
 }
 {
   const { currentList, nextList } = generateList([16, 17, 18, 20], [20, 19, 15, 12]);
   
   const database = [
-    { history: [11], match: 'OUT 16' }, 
+    { history: [11], match: 'OUT 16' },
     { history: [10], match: 'OUT 17' },
     { history: [15], match: 'OUT 18' },
     { history: [19], match: 'OUT 20' },
@@ -221,12 +222,15 @@ function generateList(outcoming, incoming) {
   const list = format(currentList, nextList, database);
   
   expect(list.length).to.equal(20);
-  expect(list.includes('IN 12')).to.equal(true); 
-  expect(list.includes('IN 15')).to.equal(false); 
+  expect(list.includes('OUT 17')).to.equal(true);
+  expect(list.includes('OUT 16')).to.equal(true);
+  expect(list.includes('IN 20')).to.equal(false);
   expect(list.includes('IN 19')).to.equal(false);
-  expect(list.includes('IN 20')).to.equal(false); 
-  expect(list.includes('OUT 16')).to.equal(true); // 10 - 17 - **
-  expect(list.includes('OUT 17')).to.equal(true); // 11 - 16 - **
+  expect(list.includes('IN 15')).to.equal(false);
+  expect(list.includes('IN 12')).to.equal(true);
+  
+  const position = list.indexOf('IN 12') + 1;
+  expect([18, 20].includes(position)).to.equal(true);
 }
 {
   const { currentList, nextList } = generateList([16, 18], [19, 20]);
