@@ -212,10 +212,10 @@ function generateList(outcoming, incoming) {
   const { currentList, nextList } = generateList([16, 17, 18, 20], [20, 19, 15, 12]);
   
   const database = [
-    { history: [11], match: 'OUT 1' }, // 16
-    { history: [10], match: 'OUT 2' }, // 17
-    { history: [15], match: 'OUT 3' }, // 18
-    { history: [19], match: 'OUT 4' }, // 20
+    { history: [11], match: 'OUT 16' }, 
+    { history: [10], match: 'OUT 17' },
+    { history: [15], match: 'OUT 18' },
+    { history: [19], match: 'OUT 20' },
   ];
   
   const list = format(currentList, nextList, database);
