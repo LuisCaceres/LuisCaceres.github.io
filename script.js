@@ -130,23 +130,24 @@ function format(currentList, nextList, database) {
   // Iterate through next week's chart and verify which items have dropped out.
   // Let `expiredItems` be a list of such items.
   const expiredItems = nextList.difference(currentList);
-  // For each item `item` in `expiredItems`:  
-  const replacements = expiredItems.filter(match => {
+  // Let `replacees` be a list of items that may be replaced by an illegal item. 
+  const replacees = expiredItems.filter(match => {
+      // For each item `item` in `expiredItems`:  
       const {history} = database.find(item => item.match === match);
       const range = new NumericRange(...history);
-      return range.at(-1) > 12 && range.isAscending();
+      return range.length === 0 || range.at(-1) > 12 && range.isAscending();
     });
   
   // Abort if there are no suitable replacements.
-  if (!replacements.length) {
+  if (!replacees.length) {
     return currentList;
   }
 
   // For each item `item` in `illegalEntries`:
   for (const illegalItem of illegalItems) {
-      const replacement = replacements.random();
-      currentList.replace(replacement, illegalItem);
-      replacements.remove(replacement);
+      const replacee = replacees.random();
+      currentList.replace(replacee, illegalItem);
+      replacee.remove(replacee);
   }
 
   return currentList;
