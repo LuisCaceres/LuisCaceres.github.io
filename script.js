@@ -142,11 +142,11 @@ function format(currentList, nextList, database) {
   if (!replacees.length) {
     return currentList;
   }
-  
+   
+  const reserve = new List();
 
   // For each item `item` in `illegalEntries`:
   for (const illegalItem of illegalItems) {
-    const reserve = new List();
   
     while (replacees.length) {
       const replacee = replacees.random();
