@@ -318,7 +318,7 @@ function generateList(outcoming, incoming) {
   expect(list.includes('IN 9')).to.equal(true);
 }
 {
-  const { currentList, nextList } = generateList([14, 13], [12]);
+  const { currentList, nextList } = generateList([14, 13], [12, 16]);
 
   const database = [
     {history: [6, 10, 14], match: 'OUT 14'},
@@ -330,8 +330,23 @@ function generateList(outcoming, incoming) {
   expect(list.length).to.equal(20);
   expect(list.includes('OUT 14')).to.equal(false);
   expect(list.includes('OUT 13')).to.equal(true);
+  expect(list.includes('IN 16')).to.equal(false);
   expect(list.includes('IN 12')).to.equal(true);
   expect(list.indexOf('IN 12')).to.equal(13); // POSITION 14 IN CHART
+}
+{
+  const { currentList, nextList } = generateList([13], [11]);
+
+  const database = [
+    {history: [6, 10, 14], match: 'OUT 13'},
+  ];
+  
+  const list = format(currentList, nextList, database);
+  
+  expect(list.length).to.equal(20);
+  expect(list.includes('OUT 13')).to.equal(false);
+  expect(list.includes('IN 11')).to.equal(true);
+  expect(list.indexOf('IN 11')).to.equal(12); // POSITION 13 IN CHART
 }
 
 // FORMATTING NOT ALLOWED IN SPITE OF THE EXISTENCE OF AN ILLEGAL ITEM
