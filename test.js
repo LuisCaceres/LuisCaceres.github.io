@@ -477,10 +477,16 @@ function generateList(outcoming, incoming) {
   expect(range.isAscending()).to.equal(true);
   expect(range.isDescending()).to.equal(false);
 }
-
 {
   const range = new NumericRange(9, 8, 7, 6, 5, 4, 3, 2, 1);
   expect(range.isAscending()).to.equal(false);
+  expect(range.isDescending()).to.equal(true);
+}
+{
+  const range = new NumericRange(9);
+  expect(range.length).to.equal(1);
+  expect(range[0]).to.equal(9);
+  expect(range.isAscending()).to.equal(true);
   expect(range.isDescending()).to.equal(true);
 }
 
