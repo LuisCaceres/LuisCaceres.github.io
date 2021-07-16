@@ -146,7 +146,7 @@ function format(currentList, nextList, database) {
 
   // For each item `item` in `illegalEntries`:
   for (const illegalItem of illegalItems) {
-    const usedItems = new List();
+    const reserve = new List();
   
     while (replacees.length) {
       debugger;
@@ -158,12 +158,14 @@ function format(currentList, nextList, database) {
       if (difference > 1) {
         currentList.replace(replacee, illegalItem);
       }
+      else {
+        reserve.push(replacee);
+      }
       
       replacees.remove(replacee);
-      usedItems.push(replacee);
     }
 
-    replacees.push(...usedItems);
+    replacees.push(...reserve);
   }
 
   return currentList;
