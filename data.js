@@ -88,7 +88,7 @@ const charted = [
     title: "Fast As You Can",
     artist: "Fiona Apple",
     history: [20, 20, 18, 17],
-    match: "MM!Dppm!K!!!Bjo(u!Opcpez!",
+    match: "!MM!Dppm!K!!!Bjo(u!Opcpez!",
     type: 0,
     videoId: "NbxqtbqyoRk",
     width: "83vw",
