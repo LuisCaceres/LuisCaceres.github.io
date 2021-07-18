@@ -220,7 +220,7 @@ const charted = [
     startSeconds: 1,
     type: 0,
     videoId: "_o0vOmL-PYY",
-    width: "83vw",
+    width: "100vw",
   },
   {
     title: "Puente",
