@@ -460,7 +460,7 @@ function generateList(outcoming, incoming) {
   `;
   
   const table = (new DOMParser()).parseFromString(HTML, 'text/html');
-  const value = parse(table);
+  const value = parse(table).split('®');
   
   expect(value.length).to.equal(2);
   expect(value[0]).to.equal(encode('Artist 1 Title 1'));
