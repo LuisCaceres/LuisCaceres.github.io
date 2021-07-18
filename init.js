@@ -1,4 +1,38 @@
 /*
+
+const style = document.createElement('style');
+style.textContent = `
+.annotation {
+    display: none !important;
+}
+
+.ytp-ad-image-overlay {
+    display: none !important;
+}
+
+.ytp-ce-element {
+    display: none !important;
+}
+
+.ytp-chrome-bottom {
+    display: none !important;
+}
+
+.ytp-show-cards-title {
+    display: none !important;
+}
+
+.ytp-spinner {
+    display: none !important;
+}
+
+`;
+document.head.append(style);
+
+*/
+
+
+/*
  *
  */
 function onYouTubeIframeAPIReady() {
