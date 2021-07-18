@@ -107,7 +107,7 @@ function parse(table) {
     list.push(encode(`${artist} ${title}`));
   }
 
-  return list;
+  return list.join('®');
 }
 
 
