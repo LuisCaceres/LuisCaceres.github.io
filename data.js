@@ -69,7 +69,7 @@ const charted = [
     title: "Blue Monday",
     artist: "Orgy",
     history: [17, 15, 20],
-    match: "!Qspgfttjpobm!Xjepx!",
+    match: "!Upsj!Bnpt!!!Qspgfttjpobm!Xjepx!",
     startSeconds: 1,
     type: 0,
     videoId: "aJZTfl3DmCU",
