@@ -29,7 +29,7 @@ const charted = [
     artist: "Cher",
     endSeconds: 242,
     history: [16, 14],
-    match: "!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K!'!Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!",
+    match: "!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!",
     startSeconds: 6,
     type: 0,
     videoId: "BW4LUe2e5oU",
