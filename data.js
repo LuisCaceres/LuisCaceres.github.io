@@ -195,12 +195,13 @@ const charted = [
   {
     title: "Mi Chico Latino",
     artist: "Geri Halliwell",
+    left: "-5vw",
     history: [15, 12, 8, 4, 3],
     match: "!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!",
     startSeconds: 1,
     type: 0,
     videoId: "4KGTR0NPNF0",
-    width: "100vw",
+    width: "110vw",
   },
   {
     title: "New",
