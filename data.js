@@ -1,4 +1,4 @@
-// WEEK 5 / 15.02 
+// WEEK 6 / 22.02 
 const currentList = ["!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!", "!Op!Epvcu!!!Epo(u!Tqfbl!", "!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!", "!Tqjdf!Hjsmt!!!3!Cfdpnf!2!", "!Spcfsu!Njmft!!!Pof!Boe!Pof!", "!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!", "!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!", "!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!", "!Kbnjsprvbj!!!Dptnjd!Hjsm!", "!Uif!Qspejhz!!!Csfbuif!", "!Toppq!Ephhz!Ephh!gfbu/!Dibsmjf!Xjmtpo!!!Toppq(t!Vqtjef!Zb!Ifbe!", "!Gvhfft!!!Op!Xpnbo!Op!Dsz!", "!Hjovxjof!!!Qpoz!", "!Cpz{pof!!!B!Ejggfsfou!Cfbu!", "!Cbdltusffu!Cpzt!!!Rvju!Qmbzjoh!Hbnft!)Xjui!Nz!Ifbsu*!", "!Fbtu!28!!!Ifz!Dijme!!", "!Upsj!Bnpt!!!Qspgfttjpobm!Xjepx!", "!Xbssfo!H/!gfbu/!Bejob!Ipxbse!!!Xibu(t!Mpwf!Hpu!Up!Ep!Xjui!Ju!", "!Cmbdltusffu!gfbu/!Es/!Esf!!!Op!Ejhhjuz!", "!MM!Dppm!K!!!Bjo(u!Opcpez!"];
 const nextList = ["!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!", "!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!", "!Op!Epvcu!!!Epo(u!Tqfbl!", "!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!", "!Tqjdf!Hjsmt!!!3!Cfdpnf!2!", "!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!", "!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!", "!Hjovxjof!!!Qpoz!", "!Kbnjsprvbj!!!Dptnjd!Hjsm!", "!Spcfsu!Njmft!!!Pof!Boe!Pof!", "!Toppq!Ephhz!Ephh!gfbu/!Dibsmjf!Xjmtpo!!!Toppq(t!Vqtjef!Zb!Ifbe!", "!Cpz{pof!!!B!Ejggfsfou!Cfbu!", "!Fbtu!28!!!Ifz!Dijme!!", "!Uif!Qspejhz!!!Csfbuif!", "!Upsj!Bnpt!!!Qspgfttjpobm!Xjepx!", "!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!", "!Gvhfft!!!Op!Xpnbo!Op!Dsz!", "!MM!Dppm!K!!!Bjo(u!Opcpez!", "!Cbdltusffu!Cpzt!!!Rvju!Qmbzjoh!Hbnft!)Xjui!Nz!Ifbsu*!", "!Cmbdltusffu!gfbu/!Es/!Esf!!!Op!Ejhhjuz!"];
 
@@ -29,7 +29,7 @@ const charted = [
     artist: "Cher",
     endSeconds: 242,
     history: [16, 14],
-    match: "!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!",
+    match: "!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K!'!Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!",
     startSeconds: 6,
     type: 0,
     videoId: "BW4LUe2e5oU",
@@ -96,7 +96,7 @@ const charted = [
     title: "Fly Away",
     artist: "Lenny Kravitz",
     history: [11],
-    match: "!Ejtdpuifrvf!",
+    match: "!V3!!!Ejtdpuifrvf!",
     priority: 2,
     type: 0,
     videoId: "EvuL5jyCHOw",
@@ -187,7 +187,7 @@ const charted = [
     title: "Maria Maria",
     artist: "Santana",
     history: [8],
-    match: "!Cbssfm!Pg!B!Hvo!",
+    match: "!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!",
     priority: 2,
     type: 0,
     videoId: "nPLV7lGbmT4"
@@ -266,7 +266,7 @@ const charted = [
     title: "Super Trouper",
     artist: "A-Teens",
     history: [16],
-    match: "!J!Tipu!Uif!Tifsjgg!",
+    match: "!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!",
     priority: 3,
     type: 0,
     videoId: "5j1vhCf5XKg"
