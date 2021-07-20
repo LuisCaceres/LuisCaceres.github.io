@@ -206,6 +206,8 @@ function generatePlaylist(chart, sting, advertisement) {
   const playlist = [];
   const pattern = [1, 2, 4, 6, 8, 9, 11, 12, 14, 16, 18];
 
+  playlist.push(intro);
+  
   chart.forEach((entry, index) => {
     playlist.push(sting, entry);
     // If the music video must end prematurely.
