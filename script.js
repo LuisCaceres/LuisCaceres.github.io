@@ -71,6 +71,18 @@ class List extends Array {
   }
   
 
+  
+  /*
+   *
+   */
+   insert(indexes, items) {
+    indexes.reverse();
+     
+    for (const index of indexes) {
+      this.splice(index, 0, item);
+    }
+   }
+   
   /*
    *
    */
@@ -212,10 +224,8 @@ function generatePlaylist(chart, intro, sting, advertisement, newVideo) {
     else {
       playlist.push(sting, entry);    
     }
-    // If the music video must end prematurely.
-    entry.endSeconds && playlist.push(entry);
-    // If the music video is followed by an add. 
-    pattern.includes(index) && playlist.push(advertisement, advertisement);
+    // If the music video is followed by an add.
+    pattern.includes(index) && playlist.push(advertisement);
   });
   
   playlist.push(intro);
