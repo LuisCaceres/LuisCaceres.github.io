@@ -20,9 +20,9 @@ const charted = [
     history: [3, 4, 5, 7, 10, 14],
     match: "!Uif!Qspejhz!!!Csfbuif!",
     startSeconds: 1,
-    videoId: "pj6FCKm8dhM",
     style: {width: "83vw"},
     type: 0,
+    videoId: "pj6FCKm8dhM",
   },
   {
     title: "All Or Nothing",
