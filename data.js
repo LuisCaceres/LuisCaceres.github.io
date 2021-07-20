@@ -347,6 +347,7 @@ let uncharted = [
     title: "Absolutely Everybody",
     artist: "Vanessa Amorosi",
     priority: 1,
+    style: {width: "83vw"},
     type: 0,
     videoId: "Rco1QQShM1Y"
   },
@@ -360,6 +361,7 @@ let uncharted = [
     title: "Burning Down The House",
     artist: "Tom Jones",
     priority: 1,
+    style: {width: "83vw"},
     type: 0,
     videoId: "iYuldgIOelY"
   },
@@ -375,21 +377,23 @@ let uncharted = [
     endSeconds: 368,
     startSeconds: 7,
     priority: 1,
+    style: {width: "100vw"},
     type: 0,
     videoId: "GXRVX1AKAew",
-    width: "100vw"
   },
   {
     title: "Coma White",
-    priority: 2,
-    type: 0,
     artist: "Marilyn Manson",
+    priority: 2,
+    style: {width: "83vw"},
+    type: 0,
     videoId: "QQPJYnr48yU"
   },
   {
     title: "Crazy",
     artist: "Britney Spears",
     priority: 3,
+    style: {width: "83vw"},
     type: 0,
     videoId: "IPL_4ICbrfw",
   },
@@ -397,6 +401,7 @@ let uncharted = [
     title: "Diselo Con Flores",
     artist: "Fey",
     priority: 2,
+    style: {width: "83vw"},
     type: 0,
     videoId: "r-b495ayDF4"
   },
@@ -404,6 +409,7 @@ let uncharted = [
     title: "Don't Call Me Baby",
     artist: "Madison Avenue",
     priority: 1,
+    style: {width: "83vw"},
     type: 0,
     videoId: "M1kEjj3Ej68"
   },
@@ -411,6 +417,7 @@ let uncharted = [
     title: "Ese Oscuro Objeto Del Deseo",
     artist: "Vertigogo",
     priority: 1,
+    style: {width: "83vw"},
     type: 0,
     videoId: "snYOuSoIOO0"
   },
@@ -418,6 +425,7 @@ let uncharted = [
     title: "Guerrilla Radio",
     artist: "Rage Against The Machine",
     priority: 1,
+    style: {width: "83vw"},
     type: 0,
     videoId: "Rm1nCYOZB-s"
   },
@@ -431,14 +439,15 @@ let uncharted = [
     title: "Let Forever Be",
     artist: "The Chemical Broters",
     priority: 1,
+    style: {width: "83vw"},
     type: 0,
     videoId: "s5FyfQDO5g0",
-    width: "83vw",
   },
   {
     title: "Lullaby",
     artist: "Shawn Mullins",
     priority: 1,
+    style: {width: "83vw"},
     type: 0,
     videoId: "hG9C0VwruXE"
   },
@@ -446,6 +455,7 @@ let uncharted = [
     title: "No Leaf Clover",
     artist: "Metallica",
     priority: 2,
+    style: {width: "83vw"},
     type: 0,
     videoId: "Sh5S3OxiE-s"
   },
@@ -453,6 +463,7 @@ let uncharted = [
     title: "Ojos Así",
     artist: "Shakira",
     priority: 1,
+    style: {width: "83vw"},
     type: 0,
     videoId: "I0ahzYU1xpg"
   },
@@ -460,6 +471,7 @@ let uncharted = [
     title: "She's Got Issues",
     artist: "The Offspring",
     priority: 2,
+    style: {width: "83vw"},
     type: 0,
     videoId: "SAxPLSvvbXY"
   },
@@ -467,6 +479,7 @@ let uncharted = [
     title: "Sitting Down Here",
     artist: "Lene Marlin",
     priority: 1,
+    style: {width: "83vw"},
     type: 0,
     videoId: "ClSVzlObxSc"
   },
@@ -474,6 +487,7 @@ let uncharted = [
     title: "So Young",
     artist: "The Corrs",
     priority: 1,
+    style: {width: "83vw"},
     type: 0,
     videoId: "TzLTf69vQos"
   },
@@ -481,6 +495,7 @@ let uncharted = [
     title: "There She Goes",
     artist: "Sixpence None The Richer",
     priority: 1,
+    style: {width: "83vw"},
     type: 0,
     videoId: "68MKLkNSMN4"
   },
@@ -488,6 +503,7 @@ let uncharted = [
     title: "Unpretty",
     artist: "TLC",
     priority: 1,
+    style: {width: "83vw"},
     type: 0,
     videoId: "g2gy1Evb1Kg"
   },
@@ -495,6 +511,7 @@ let uncharted = [
     title: "Ya No Te Quiero",
     artist: "Ana Torroja",
     priority: 1,
+    style: {width: "83vw"},
     type: 0,
     videoId: "PIiustuQOlQ"
   },
