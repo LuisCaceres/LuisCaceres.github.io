@@ -4,13 +4,14 @@ const nextList = ["!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!", "!Fo!Wphvf!!!Epo(u!M
 
 const advertisement = {
   endSeconds: 10,
+  style: {width: "83vw"},
   videoId: 'caaddLZhLoY',
-  width: '83vw',
 };
 
 const sting = {
+  startSeconds: 16,
+  style: {width: "83vw"},
   videoId: 'YoqgOOQwEqI',
-  width: '83vw',
 };
 
 const charted = [
