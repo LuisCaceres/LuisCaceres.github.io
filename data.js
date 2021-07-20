@@ -3,7 +3,8 @@ const currentList = ["!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!", "!Xijuofz!Ipvtupo
 const nextList = ["!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!", "!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!", "!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!", "!Op!Epvcu!!!Epo(u!Tqfbl!", "!Hjovxjof!!!Qpoz!", "!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!", "!V3!!!Ejtdpuifrvf!", "!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!", "!Tqjdf!Hjsmt!!!3!Cfdpnf!2!", "!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!", "!Kbnjsprvbj!!!Dptnjd!Hjsm!", "!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!", "!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!", "!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!", "!Tbti\"!!!Fodpsf!vof!gpjt!", "!Spcfsu!Njmft!!!Pof!Boe!Pof!", "!MM!Dppm!K!!!Bjo(u!Opcpez!", "!Cpz{pof!!!B!Ejggfsfou!Cfbu!", "!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!", "!Upsj!Bnpt!!!Qspgfttjpobm!Xjepx!"]; 
 
 const advertisement = {
-  endSeconds: 10,
+  startSeconds: 77,
+  endSeconds: 91,
   style: {width: "83vw"},
   videoId: 'caaddLZhLoY',
 };
