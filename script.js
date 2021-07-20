@@ -222,15 +222,15 @@ function generatePlaylist(chart, intro, sting, advertisement) {
  *
  */
 function insertExtraItems(chart, uncharted) {
-  const slots = [7, 18];
-  
+  const slots = [3, 13];
+
   for (const slot of slots) {
     const extraItem = uncharted.random();
     uncharted = uncharted.filter(item => item !== extraItem);
     chart.splice(slot, 0, extraItem);
   }
-  
-  return chart;
+
+ return chart;
 }
 
 
