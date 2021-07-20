@@ -27,7 +27,7 @@ function associate(list, charted, uncharted) {
     
     if (!entry) {
       entry = uncharted.random();
-      entry.match = encode(match);
+      entry.match = match;
       // Remove any duplicates of 'video' from the pool.
       uncharted = uncharted.filter(item => item !== entry);
       charted.push(entry);
