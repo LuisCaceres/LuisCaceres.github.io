@@ -73,7 +73,7 @@ function generateList(outcoming, incoming) {
     'POSITION 20',
     'POSITION 19',
     'POSITION 18',
-    'EXTRA 1',
+    'VIDEO EXTRA 1',
     'POSITION 17',
     'POSITION 16',
     'POSITION 15',
@@ -84,7 +84,7 @@ function generateList(outcoming, incoming) {
     'POSITION 10',
     'POSITION 09',
     'POSITION 08',
-    'EXTRA 2',
+    'VIDEO EXTRA 2',
     'POSITION 07',
     'POSITION 06',
     'POSITION 05',
@@ -108,7 +108,7 @@ function generateList(outcoming, incoming) {
   expect(playlist[6]).to.equal('STING');
   expect(playlist[7]).to.equal('POSITION 18');
   expect(playlist[8]).to.equal('STING VIDEO EXTRA');
-  expect(playlist[9]).to.equal('EXTRA 1');
+  expect(playlist[9]).to.equal('VIDEO EXTRA 1');
   expect(playlist[10]).to.equal('ADVERTISEMENT');
   
   expect(playlist[11]).to.equal('STING');
@@ -142,7 +142,7 @@ function generateList(outcoming, incoming) {
   expect(playlist[34]).to.equal('STING');
   expect(playlist[35]).to.equal('POSITION 08');
   expect(playlist[36]).to.equal('STING VIDEO EXTRA');
-  expect(playlist[37]).to.equal('EXTRA 1');
+  expect(playlist[37]).to.equal('VIDEO EXTRA 2');
   expect(playlist[38]).to.equal('ADVERTISEMENT');
 
   expect(playlist[39]).to.equal('STING');
