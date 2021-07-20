@@ -23,9 +23,7 @@ function adjustScreen(screen, measurements) {
  */
 function adjustPlaylist(playlist) {
   return playlist.map(item => {
-    if (item.hasOwnProperty('endSeconds')) {
-      return [item, item];
-    }
+    return item.hasOwnProperty('endSeconds') ? [item, item] : item;
   }).flat();
 }
 
