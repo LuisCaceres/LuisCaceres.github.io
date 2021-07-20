@@ -249,6 +249,7 @@ function insertExtraItems(chart, uncharted) {
 
   for (const slot of slots) {
     const extraItem = uncharted.random();
+    extraItem.position = "xtra";
     uncharted = uncharted.filter(item => item !== extraItem);
     chart.splice(slot, 0, extraItem);
   }
