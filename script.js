@@ -11,6 +11,33 @@ if (!Array.prototype.at) {
 /*
  *
  */
+function associate(list, charted, uncharted) {
+  const chart = list.map((match, index) => {
+    let entry = charted.find(entry => entry.match === match);
+    
+    if (!entry) {
+      entry = uncharted.random();
+      entry.match = encode(match);
+      // Remove any duplicates of 'video' from the pool.
+      uncharted = uncharted.filter(item => item !== entry);
+      charted.push(entry);
+    }
+    
+    entry.position = ("0" + (index + 1)).substr(-2);
+    return entry;
+  }).reverse();
+    
+  return {
+    chart,
+    charted,
+    uncharted,
+  };
+}
+
+
+/*
+ *
+ */
 function encode(string) {
   const codes = Array.from(string).map(e => e.charCodeAt(0) + 1);
   return String.fromCharCode(...codes);
@@ -72,6 +99,10 @@ class List extends Array {
   } 
 }
 
+
+/*
+ *
+ */
 class NumericRange extends Array {
   constructor(...numbers) {
     super();
@@ -97,17 +128,10 @@ class NumericRange extends Array {
 /*
  *
  */
-function parse(table) {
-  const artists = Array.from(table.querySelectorAll('td:nth-of-type(5)')).map(artist => artist.textContent);
-  const titles =  Array.from(table.querySelectorAll('td:nth-of-type(4)')).map(title => title.textContent);
-  const list = new List();
-
-  for (const artist of artists) {
-    const title = titles.shift();
-    list.push(encode(`${artist} ${title}`));
-  }
-
-  return list;
+function AdjustScreen(screen, measurements) {
+  screen.style.left = measurements.left || '';
+  screen.style.position = measurements.position || '';
+  screen.style.width = measurements.width || '';
 }
 
 
@@ -172,45 +196,6 @@ function format(currentList, nextList, database) {
 }
 
 
-function insertExtraItems(chart, uncharted) {
-  const slots = [7, 18];
-  
-  for (const slot of slots) {
-    const extraItem = uncharted.random();
-    uncharted = uncharted.filter(item => item !== extraItem);
-    chart.splice(slot, 0, extraItem);
-  }
-  
-  return chart;
-}
-
-/*
- *
- */
-function associate(list, charted, uncharted) {
-  const chart = list.map((match, index) => {
-    let entry = charted.find(entry => entry.match === match);
-    
-    if (!entry) {
-      entry = uncharted.random();
-      entry.match = encode(match);
-      // Remove any duplicates of 'video' from the pool.
-      uncharted = uncharted.filter(item => item !== entry);
-      charted.push(entry);
-    }
-    
-    entry.position = ("0" + (index + 1)).substr(-2);
-    return entry;
-  }).reverse();
-    
-  return {
-    chart,
-    charted,
-    uncharted,
-  };
-}
-
-
 /*
  *
  */
@@ -230,4 +215,37 @@ function generatePlaylist(chart, intro, sting, advertisement) {
   
   playlist.push(intro);
   return playlist;
+}
+
+
+/*
+ *
+ */
+function insertExtraItems(chart, uncharted) {
+  const slots = [7, 18];
+  
+  for (const slot of slots) {
+    const extraItem = uncharted.random();
+    uncharted = uncharted.filter(item => item !== extraItem);
+    chart.splice(slot, 0, extraItem);
+  }
+  
+  return chart;
+}
+
+
+/*
+ *
+ */
+function parse(table) {
+  const artists = Array.from(table.querySelectorAll('td:nth-of-type(5)')).map(artist => artist.textContent);
+  const titles =  Array.from(table.querySelectorAll('td:nth-of-type(4)')).map(title => title.textContent);
+  const list = new List();
+
+  for (const artist of artists) {
+    const title = titles.shift();
+    list.push(encode(`${artist} ${title}`));
+  }
+
+  return list;
 }
