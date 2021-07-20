@@ -202,7 +202,7 @@ function associate(list, charted, uncharted) {
 /*
  *
  */
-function generatePlaylist(chart, sting, advertisement) {
+function generatePlaylist(chart, intro, sting, advertisement) {
   const playlist = [];
   const pattern = [1, 2, 4, 6, 8, 9, 11, 12, 14, 16, 18];
 
