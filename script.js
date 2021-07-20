@@ -214,8 +214,9 @@ function format(currentList, nextList, database) {
 function generatePlaylist(chart, intro, sting, advertisement, extra) {
   chart.insert([0], intro);
   chart.insert([1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22], sting);
+  chart.insert([7, 28], extra);
   chart.insert([4, 8, 12], advertisement);
-  chart.insert([], extra);
+ 
   chart.push(intro);
   
   return playlist;
