@@ -172,6 +172,17 @@ function format(currentList, nextList, database) {
 }
 
 
+function insertExtraVideos(chart, uncharted) {
+  const slots = [7, 17];
+  
+  for (const slot of slots) {
+    const extra = uncharted.random();
+    chart.splice(slot, 0, extra);
+  }
+  
+  return chart;
+}
+
 /*
  *
  */
@@ -216,6 +227,6 @@ function generatePlaylist(chart, intro, sting, advertisement) {
     pattern.includes(index) && playlist.push(advertisement, advertisement);
   });
   
-  playlist.push(sting);
+  playlist.push(intro);
   return playlist;
 }
