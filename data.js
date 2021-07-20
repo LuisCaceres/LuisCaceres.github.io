@@ -13,6 +13,13 @@ const intro = {
   videoId: 'YoqgOOQwEqI',
 };
 
+const newVideo = {
+  startSeconds: 10,
+  endSeconds: 20,
+  style: {width: "83vw"},
+  videoId: 'caaddLZhLoY',
+};
+
 const sting = {
   startSeconds: 16,
   style: {width: "83vw"},
