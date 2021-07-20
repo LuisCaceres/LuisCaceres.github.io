@@ -211,24 +211,13 @@ function format(currentList, nextList, database) {
 /*
  *
  */
-function generatePlaylist(chart, intro, sting, advertisement, newVideo) {
-  const playlist = [];
-  const pattern = [1, 2, 4, 6, 8, 9, 11, 12, 14, 16, 18];
-
-  playlist.push(intro);
+function generatePlaylist(chart, intro, sting, advertisement, extra) {
+  chart.push(intro);
+  chart.insert([0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19], sting);
+  chart.insert([], advertisement);
+  chart.insert([], extra);
+  chart.push(intro);
   
-  chart.forEach((entry, index) => {
-    if (index === 4 || index === 14) {
-      playlist.push(newVideo, entry);    
-    }
-    else {
-      playlist.push(sting, entry);    
-    }
-    // If the music video is followed by an add.
-    pattern.includes(index) && playlist.push(advertisement);
-  });
-  
-  playlist.push(intro);
   return playlist;
 }
 
