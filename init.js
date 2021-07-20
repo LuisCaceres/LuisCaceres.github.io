@@ -71,7 +71,8 @@ async function onReady(event) {
   insertExtraItems(chart, uncharted);
   
   playlist = generatePlaylist(chart, intro, sting, advertisement);
-  
+  playlist = adjustPlaylist(playlist);
+    
   const nextVideo = playlist.shift(); 
   player.loadVideoById(nextVideo);
   
