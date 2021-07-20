@@ -94,7 +94,7 @@ function generateList(outcoming, incoming) {
     'POSITION 01',
   );
      
-  const playlist = generatePlaylist(chart, 'INTRO', 'STING', 'ADVERTISEMENT', 'STING NEW VIDEO');
+  const playlist = generatePlaylist(chart, 'INTRO', 'STING', 'ADVERTISEMENT', 'STING VIDEO EXTRA');
   
   expect(playlist.length).to.equal(57);
   
