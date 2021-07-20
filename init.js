@@ -104,10 +104,7 @@ function onStateChange({data, target}) {
 
     const iframe = document.querySelector('iframe');
       
-    const { style } = nextVideo;
-    iframe.style.left = style.left || '';
-    iframe.style.position = style.position || '';
-    iframe.style.width = style.width || '';
+    fitVideoIntoScreen(style, screen);
  
     const logo = document.querySelector('.logo');
     logo.toggleAttribute('hidden', nextVideo.type !== 0);
