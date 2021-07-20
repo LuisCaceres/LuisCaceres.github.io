@@ -199,14 +199,19 @@ function format(currentList, nextList, database) {
 /*
  *
  */
-function generatePlaylist(chart, intro, sting, advertisement) {
+function generatePlaylist(chart, intro, sting, advertisement, newVideo) {
   const playlist = [];
   const pattern = [1, 2, 4, 6, 8, 9, 11, 12, 14, 16, 18];
 
   playlist.push(intro);
   
   chart.forEach((entry, index) => {
-    playlist.push(sting, entry);
+    if (index === 4 || index === 14) {
+      playlist.push(newVideo, entry);    
+    }
+    else {
+      playlist.push(sting, entry);    
+    }
     // If the music video must end prematurely.
     entry.endSeconds && playlist.push(entry);
     // If the music video is followed by an add. 
@@ -222,7 +227,7 @@ function generatePlaylist(chart, intro, sting, advertisement) {
  *
  */
 function insertExtraItems(chart, uncharted) {
-  const slots = [3, 13];
+  const slots = [3, 14];
 
   for (const slot of slots) {
     const extraItem = uncharted.random();
