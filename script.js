@@ -21,6 +21,28 @@ function adjustScreen(screen, measurements) {
 /*
  *
  */
+function adjustPlaylist(playlist) {
+  return playlist.map(item => {
+    if (item.hasProperty('endSeconds') {
+      return [item, item];
+    }
+  }).flat();
+}
+
+
+/*
+ *
+ */
+function adjustScreen(screen, measurements) {
+  screen.style.left = measurements.left || '';
+  screen.style.position = measurements.position || '';
+  screen.style.width = measurements.width || '';
+}
+
+
+/*
+ *
+ */
 function associate(list, charted, uncharted) {
   const chart = list.map((match, index) => {
     let entry = charted.find(entry => entry.match === match);
