@@ -69,7 +69,7 @@ function generateList(outcoming, incoming) {
 // generatePlaylist()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
-  const chart = [
+  const chart = new List(
     'POSITION 20',
     'POSITION 19',
     'POSITION 18',
@@ -92,7 +92,7 @@ function generateList(outcoming, incoming) {
     'POSITION 03',
     'POSITION 02',
     'POSITION 01',
-  ];
+  );
      
   const playlist = generatePlaylist(chart, 'INTRO', 'STING', 'ADVERTISEMENT', 'STING NEW VIDEO');
   
