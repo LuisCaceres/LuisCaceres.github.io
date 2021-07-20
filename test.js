@@ -499,6 +499,27 @@ function generateList(outcoming, incoming) {
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// insert()
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+{
+  const list = new List('A', 'B', 'C', 'D', 'E');
+  list.insert([0, 1, 2, 3, 4], 'Z');
+  
+  expect(list.length).to.equal(10);
+  
+  expect(list[0]).to.equal('Z');
+  expect(list[1]).to.equal('A');
+  expect(list[2]).to.equal('Z');
+  expect(list[3]).to.equal('B');
+  expect(list[4]).to.equal('Z');
+  expect(list[5]).to.equal('C');
+  expect(list[6]).to.equal('Z');
+  expect(list[7]).to.equal('D');
+  expect(list[8]).to.equal('Z');
+  expect(list[9]).to.equal('E');
+}
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // intersection()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Return a non zero-length list if there are similarities between two arrays. 
