@@ -75,7 +75,7 @@ class List extends Array {
   /*
    *
    */
-   insert(indexes, items) {
+   insert(indexes, item) {
     indexes.reverse();
      
     for (const index of indexes) {
