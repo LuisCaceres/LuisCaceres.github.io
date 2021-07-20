@@ -101,8 +101,8 @@ function onStateChange({data, target}) {
     const nextVideo = playlist.shift();
 
     const iframe = document.querySelector('iframe');
-    // iframe.style.left = nextVideo.left || '';
-    // iframe.style.position = nextVideo.position || 'static';
+    iframe.style.left = nextVideo.left || '';
+    iframe.style.position = nextVideo.position || '';
     iframe.style.width = nextVideo.width;
  
     const logo = document.querySelector('.logo');
