@@ -11,6 +11,16 @@ if (!Array.prototype.at) {
 /*
  *
  */
+function adjustScreen(screen, measurements) {
+  screen.style.left = measurements.left || '';
+  screen.style.position = measurements.position || '';
+  screen.style.width = measurements.width || '';
+}
+
+
+/*
+ *
+ */
 function associate(list, charted, uncharted) {
   const chart = list.map((match, index) => {
     let entry = charted.find(entry => entry.match === match);
@@ -122,16 +132,6 @@ class NumericRange extends Array {
       return typeof next === 'number' ? n >= next : true;ç
     }); 
   }
-}
-
-
-/*
- *
- */
-function AdjustScreen(screen, measurements) {
-  screen.style.left = measurements.left || '';
-  screen.style.position = measurements.position || '';
-  screen.style.width = measurements.width || '';
 }
 
 
