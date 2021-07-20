@@ -69,7 +69,12 @@ async function onReady(event) {
   const { chart, foo, baz } = associate(list, charted, new List(...uncharted));
   
   playlist = generatePlaylist(chart, intro, sting, advertisement);
-  player.loadVideoById(playlist.shift());
+  
+  const nextVideo = playlist.shift(); 
+  player.loadVideoById(nextVideo);
+  
+  const screen = document.querySelector('iframe');  
+  adjustScreen(screen, nextVideo.style);
 }
 
 
@@ -102,9 +107,8 @@ function onStateChange({data, target}) {
   if (data === YT.PlayerState.ENDED) {
     const nextVideo = playlist.shift();
 
-    const iframe = document.querySelector('iframe');
-      
-    fitVideoIntoScreen(style, screen);
+    const screen = document.querySelector('iframe');
+    adjustScreen(screen, nextVideo.style);
  
     const logo = document.querySelector('.logo');
     logo.toggleAttribute('hidden', nextVideo.type !== 0);
