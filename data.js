@@ -15,7 +15,7 @@ const intro = {
 };
 
 const newVideo = {
-  startSeconds: 10,
+  startSeconds: 11,
   endSeconds: 20,
   style: {width: "83vw"},
   videoId: 'caaddLZhLoY',
