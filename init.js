@@ -68,7 +68,7 @@ async function onReady(event) {
 
   const { chart, foo, baz } = associate(list, charted, new List(...uncharted));
   
-  playlist = generatePlaylist(chart, sting, advertisement);
+  playlist = generatePlaylist(chart, intro, sting, advertisement);
   player.loadVideoById(playlist.shift());
 }
 
