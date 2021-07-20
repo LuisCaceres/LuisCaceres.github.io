@@ -172,12 +172,13 @@ function format(currentList, nextList, database) {
 }
 
 
-function insertExtraVideos(chart, uncharted) {
-  const slots = [7, 17];
+function insertExtraItems(chart, uncharted) {
+  const slots = [7, 18];
   
   for (const slot of slots) {
-    const extra = uncharted.random();
-    chart.splice(slot, 0, extra);
+    const extraItem = uncharted.random();
+    uncharted = uncharted.filter(item => item !== extraItem);
+    chart.splice(slot, 0, extraItem);
   }
   
   return chart;
