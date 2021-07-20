@@ -8,6 +8,11 @@ const advertisement = {
   videoId: 'caaddLZhLoY',
 };
 
+const intro = {
+  style: {width: "83vw"},
+  videoId: 'YoqgOOQwEqI',
+};
+
 const sting = {
   startSeconds: 16,
   style: {width: "83vw"},
