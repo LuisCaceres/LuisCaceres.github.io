@@ -66,7 +66,7 @@ async function onReady(event) {
   
   const list = format(lists.current, lists.next, charted); 
 
-  const { chart, foo, baz } = associate(list, charted, new List(...uncharted));
+  const { chart, foo, baz } = associate(list, charted, uncharted);
     
   insertExtraItems(chart, uncharted);
   
