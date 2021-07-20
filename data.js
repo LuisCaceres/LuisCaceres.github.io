@@ -459,6 +459,7 @@ let uncharted = [
   {
     title: "Tengo Frio",
     artist: "Ely Guerra",
+    match: "\"Crqnnq\"Hqwt\"Hqtv{\"\"\"Ckp)v\"Vcnmkp)\")Dqwv\"Fwd\"",
     priority: 1,
     type: 0,
     videoId: "foLqysKnIIM"
