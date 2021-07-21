@@ -86,10 +86,10 @@ async function onReady(event) {
     position.textContent = nextVideo.position;
 
     await new Promise(resolve => {  
-      player.addEventListener('onStateChange', function resolver() {
+      player.addEventListener('onStateChange', function listener({data}) {
         if (data === YT.PlayerState.ENDED) {
           resolve();
-          player.removeEventListener('onStateChange', resolver);  
+          player.removeEventListener('onStateChange', listener);  
         }
       });
     });
