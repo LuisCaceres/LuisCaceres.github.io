@@ -68,6 +68,7 @@ async function onReady(event) {
   const { chart, foo, baz } = associate(list, charted, uncharted);
     
   insertExtraItems(chart, uncharted);
+  expect(chart.length).to.equal(22);
   
   playlist = generatePlaylist(chart, intro, sting, advertisement, newVideo);
   playlist = adjustPlaylist(playlist);
