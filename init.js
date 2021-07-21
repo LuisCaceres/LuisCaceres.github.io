@@ -72,12 +72,29 @@ async function onReady(event) {
   
   playlist = generatePlaylist(chart, intro, sting, advertisement, newVideo);
   playlist = adjustPlaylist(playlist);
-    
-  const nextVideo = playlist.shift(); 
-  player.loadVideoById(nextVideo);
-  
-  const screen = document.querySelector('iframe');  
-  adjustScreen(screen, nextVideo.style);
+ 
+  while (playlist.length) {
+    const nextVideo = playlist.shift();
+    player.loadVideoById(nextVideo);
+      
+    const screen = document.querySelector('iframe');
+    adjustScreen(screen, nextVideo.style);
+
+    const logo = document.querySelector('.logo');
+    logo.toggleAttribute('hidden', nextVideo.type !== 0);
+
+    const position = document.querySelector('.position');
+    position.textContent = nextVideo.position;
+
+    await new Promise(resolve => {  
+      player.addEventListener('onStateChange', function resolver() {
+        if (data === YT.PlayerState.ENDED) {
+          resolve();
+          player.removeEventListener('onStateChange', resolver);  
+        }
+      });
+    });
+  }
 }
 
 
@@ -99,27 +116,5 @@ async function verifyAvailability(player) {
     player.loadVideoById(video);
     // Wait 5 seconds and verify if this video has loaded and is playing.
     await new Promise(resolve => setTimeout(verifier, 5000, resolve, video));
-  }
-}
-
-
-/*
- *
- */
-function onStateChange({data, target}) {
-  if (data === YT.PlayerState.ENDED) {
-    const nextVideo = playlist.shift();
-
-    const screen = document.querySelector('iframe');
-    adjustScreen(screen, nextVideo.style);
- 
-    const logo = document.querySelector('.logo');
-    logo.toggleAttribute('hidden', nextVideo.type !== 0);
-
-    const position = document.querySelector('.position');
-    position.textContent = nextVideo.position;
-
-    const player = target;
-    player.loadVideoById(nextVideo);
   }
 }
