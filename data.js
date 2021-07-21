@@ -95,7 +95,7 @@ const charted = [
     history: [15],
     match: "!Tbti\"!!!Fodpsf!vof!gpjt!",
     startSeconds: 7,
-    style: {width: "100vw"},
+    style: {left: "-2vw", position: "relative", width: "105vw"},
     type: 0,
     videoId: "GXRVX1AKAew",
   },
