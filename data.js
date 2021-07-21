@@ -481,7 +481,7 @@ let uncharted = new List(
     title: "Sitting Down Here",
     artist: "Lene Marlin",
     priority: 1,
-    style: {width: "83vw"},
+    style: {left: "3vw", position: "relative", width: "83vw"},
     type: 0,
     videoId: "ClSVzlObxSc"
   },
