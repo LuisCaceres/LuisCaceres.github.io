@@ -38,7 +38,6 @@ document.head.append(style);
 function onYouTubeIframeAPIReady() {
   const player = new YT.Player('player');
   player.addEventListener('onReady', onReady);
-  player.addEventListener('onStateChange', onStateChange);
 }
 
 
