@@ -42,7 +42,7 @@ const charted = [
     title: "All Or Nothing",
     artist: "Cher",
     endSeconds: 242,
-    history: [16, 14],
+    history: [16, 14, 10],
     match: "!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!",
     startSeconds: 6,
     style: {left: "-5vw", position: "relative", width: "110vw"},
@@ -52,7 +52,7 @@ const charted = [
   {
     title: "All Star",
     artist: "Smash Mouth",
-    history: [14, 9, 4, 1, 1, 1, 1],
+    history: [14, 9, 4, 1, 1, 1, 1, 1],
     match: "!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!",
     style: {width: "100vw"},
     type: 0,
@@ -62,7 +62,7 @@ const charted = [
     title: "Angels",
     artist: "Robbie Williams",
     endSeconds: 235,
-    history: [20, 11, 8, 5, 3, 2, 2],
+    history: [20, 11, 8, 5, 3, 2, 2, 3],
     match: "!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!",
     startSeconds: 1,
     style: {width: "83vw"},
@@ -81,12 +81,32 @@ const charted = [
   { 
     title: "Blue Monday",
     artist: "Orgy",
-    history: [17, 15, 20],
+    history: [17, 15, 20, 20],
     match: "!Upsj!Bnpt!!!Qspgfttjpobm!Xjepx!",
     startSeconds: 1,
     style: {width: "83vw"},
     type: 0,
     videoId: "aJZTfl3DmCU",
+  },
+  {
+    title: "Coffee And TV",
+    artist: "Blur",
+    endSeconds: 368,
+    history: [15],
+    match: "!Tbti\"!!!Fodpsf!vof!gpjt!",
+    startSeconds: 7,
+    style: {width: "100vw"},
+    type: 0,
+    videoId: "GXRVX1AKAew",
+  },
+  {
+    title: "Diselo Con Flores",
+    artist: "Fey",
+    history: [19],
+    match: "!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!",
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "r-b495ayDF4"
   },
   {
     title: "Don't Say You Love Me",
@@ -100,7 +120,7 @@ const charted = [
   {
     title: "Fast As You Can",
     artist: "Fiona Apple",
-    history: [20, 20, 18, 17],
+    history: [20, 20, 18, 17, 17],
     match: "!MM!Dppm!K!!!Bjo(u!Opcpez!",
     style: {width: "83vw"},
     type: 0,
@@ -109,7 +129,7 @@ const charted = [
   {
     title: "Fly Away",
     artist: "Lenny Kravitz",
-    history: [20, 11],
+    history: [20, 11, 7],
     left: "-5vw",
     match: "!V3!!!Ejtdpuifrvf!",
     style: {left: "-5vw", position: "relative", width: "110vw"},
@@ -146,7 +166,7 @@ const charted = [
   {
     title: "I Need To Know",
     artist: "Marc Anthony",
-    history: [18, 10, 6, 2, 2, 3, 4],
+    history: [18, 10, 6, 2, 2, 3, 4, 4],
     match: "!Op!Epvcu!!!Epo(u!Tqfbl!",
     style: {width: "83vw"},
     type: 0,
@@ -191,7 +211,7 @@ const charted = [
   {
     title: "Man! I Feel Like A Woman",
     artist: "Shania Twain",
-    history: [20, 18, 14, 12, 12],
+    history: [20, 18, 14, 12, 12, 18],
     match: "!Cpz{pof!!!B!Ejggfsfou!Cfbu!",
     style: {width: "83vw"},
     type: 0,
@@ -200,7 +220,7 @@ const charted = [
   {
     title: "Maria Maria",
     artist: "Santana",
-    history: [19, 8],
+    history: [19, 8, 8],
     match: "!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!",
     style: {width: "83vw"},
     type: 0,
@@ -210,7 +230,7 @@ const charted = [
     title: "Mi Chico Latino",
     artist: "Geri Halliwell",
     left: "-5vw",
-    history: [15, 12, 8, 4, 3],
+    history: [15, 12, 8, 4, 3, 2],
     match: "!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!",
     startSeconds: 1,
     style: {left: "-5vw", position: "relative", width: "110vw"},
@@ -220,7 +240,7 @@ const charted = [
   {
     title: "New",
     artist: "No Doubt",
-    history: [18, 12, 9, 7, 6, 6],
+    history: [18, 12, 9, 7, 6, 6, 6],
     match: "!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!",
     startSeconds: 2,
     style: {width: "83vw"},
@@ -241,7 +261,7 @@ const charted = [
   {
     title: "Puente",
     artist: "Gustavo Cerati",
-    history: [1, 1, 1, 4, 5, 10, 13],
+    history: [1, 1, 1, 4, 5, 10, 13, 16],
     match: "!Spcfsu!Njmft!!!Pof!Boe!Pof!",
     style: {width: "83vw"},
     type: 0,
@@ -250,7 +270,7 @@ const charted = [
   {
     title: "Si Me Adverti",
     artist: "Zurdok",
-    history: [17, 15, 13, 10, 9, 9, 9],
+    history: [17, 15, 13, 10, 9, 9, 9, 11],
     match: "!Kbnjsprvbj!!!Dptnjd!Hjsm!",
     startSeconds: 1,
     style: {width: "83vw"},
@@ -260,7 +280,7 @@ const charted = [
   {
     title: "Someday",
     artist: "Sugar Ray",
-    history: [2, 2, 2, 6, 6, 7, 10],
+    history: [2, 2, 2, 6, 6, 7, 10, 13],
     match: "!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!",
     startSeconds: 1,
     style: {width: "83vw"},
@@ -271,7 +291,7 @@ const charted = [
     title: "Someday We'll Know",
     artist: "New Radicals",
     endSeconds: 215,
-    history: [5, 3, 3, 3, 4, 5, 7],
+    history: [5, 3, 3, 3, 4, 5, 7, 9],
     match: "!Tqjdf!Hjsmt!!!3!Cfdpnf!2!",
     style: {width: "83vw"},
     type: 0,
@@ -280,7 +300,7 @@ const charted = [
   {
     title: "Super Trouper",
     artist: "A-Teens",
-    history: [16],
+    history: [16, 14],
     match: "!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!",
     style: {width: "83vw"},
     type: 0,
@@ -289,7 +309,7 @@ const charted = [
   {
     title: "Tengo Frio",
     artist: "Ely Guerra",
-    history: [18],
+    history: [18, 12],
     match: "!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!",
     style: {width: "83vw"},
     type: 0,
@@ -298,7 +318,7 @@ const charted = [
   {
     title: "That's The Way It Is",
     artist: "Celine Dion",
-    history: [19, 15, 13, 8, 5],
+    history: [19, 15, 13, 8, 5, 5],
     match: "!Hjovxjof!!!Qpoz!",
     style: {width: "83vw"},
     type: 0,
@@ -372,16 +392,6 @@ let uncharted = new List(
     videoId: "_sgwHcuVCYg"
   },*/
   {
-    title: "Coffee And TV",
-    artist: "Blur",
-    endSeconds: 368,
-    startSeconds: 7,
-    priority: 1,
-    style: {width: "100vw"},
-    type: 0,
-    videoId: "GXRVX1AKAew",
-  },
-  {
     title: "Coma White",
     artist: "Marilyn Manson",
     priority: 2,
@@ -396,14 +406,6 @@ let uncharted = new List(
     style: {width: "83vw"},
     type: 0,
     videoId: "IPL_4ICbrfw",
-  },
-  {
-    title: "Diselo Con Flores",
-    artist: "Fey",
-    priority: 2,
-    style: {width: "83vw"},
-    type: 0,
-    videoId: "r-b495ayDF4"
   },
   {
     title: "Don't Call Me Baby",
