@@ -394,7 +394,7 @@ let uncharted = new List(
   {
     title: "Coma White",
     artist: "Marilyn Manson",
-    priority: 2,
+    priority: 1,
     style: {width: "83vw"},
     type: 0,
     videoId: "QQPJYnr48yU"
@@ -402,7 +402,7 @@ let uncharted = new List(
   {
     title: "Crazy",
     artist: "Britney Spears",
-    priority: 3,
+    priority: 20,
     style: {width: "83vw"},
     type: 0,
     videoId: "IPL_4ICbrfw",
@@ -431,12 +431,13 @@ let uncharted = new List(
     type: 0,
     videoId: "Rm1nCYOZB-s"
   },
-  /* {
+  {
     title: "Keep On Movin'",
     artist: "Five",
+    priority: 4,  
     type: 0,
     videoId: "3OJMjlzVLZE"
-  }, */  
+  },
   {
     title: "Let Forever Be",
     artist: "The Chemical Broters",
@@ -456,7 +457,7 @@ let uncharted = new List(
   {
     title: "No Leaf Clover",
     artist: "Metallica",
-    priority: 2,
+    priority: 1,
     style: {width: "83vw"},
     type: 0,
     videoId: "Sh5S3OxiE-s"
@@ -472,7 +473,7 @@ let uncharted = new List(
   {
     title: "She's Got Issues",
     artist: "The Offspring",
-    priority: 2,
+    priority: 4,
     style: {width: "83vw"},
     type: 0,
     videoId: "SAxPLSvvbXY"
