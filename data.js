@@ -78,6 +78,15 @@ const charted = [
     type: 0,
     videoId: "u8uup17RrUU",
   },
+  {
+    title: "...Baby One More Time",
+    artist: "Britney Spears",
+    history: [19, 20],
+    match: "!Qfufs!Boesf!!!J!Gffm!Zpv!",
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "C-u5WLJ9Yk4",
+  },
   { 
     title: "Blue Monday",
     artist: "Orgy",
@@ -135,15 +144,6 @@ const charted = [
     style: {left: "-5vw", position: "relative", width: "110vw"},
     type: 0,
     videoId: "EvuL5jyCHOw",
-  },
-  {
-    title: "From The Bottom Of My Broken Heart",
-    artist: "Britney Spears",
-    history: [19, 20],
-    match: "!Qfufs!Boesf!!!J!Gffm!Zpv!",
-    style: {width: "83vw"},
-    type: 0,
-    videoId: "fHPnGqXXUmI",
   },
   {
     title: "Heartbreaker",
@@ -374,6 +374,7 @@ let uncharted = new List(
   /*{
     title: "Born To Make You Happy",
     artist: "Britney Spears",
+    priority: 1,
     type: 0,
     videoId: "Yy5cKX4jBkQ"
   },*/
@@ -388,6 +389,7 @@ let uncharted = new List(
   /*{
     title: "Canela",
     artist: "Fey",
+    priority: 1,
     type: 0,
     videoId: "_sgwHcuVCYg"
   },*/
@@ -423,13 +425,31 @@ let uncharted = new List(
     type: 0,
     videoId: "snYOuSoIOO0"
   },
+  /* 
+  {
+    title: "From The Bottom Of My Broken Heart",
+    artist: "Britney Spears",
+    priority: 1,
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "fHPnGqXXUmI",
+  },
+  */
   {
     title: "Guerrilla Radio",
     artist: "Rage Against The Machine",
     priority: 1,
     style: {width: "83vw"},
     type: 0,
-    videoId: "Rm1nCYOZB-s"
+    videoId: "Rm1nCYOZB-s",
+  },
+  {
+    title: "I Don't Want To Miss A Thing",
+    artist: "Aerosmith",
+    priority: 160,
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "JkK8g6FMEXE",
   },
   {
     title: "Keep On Movin'",
@@ -454,6 +474,24 @@ let uncharted = new List(
     type: 0,
     videoId: "hG9C0VwruXE"
   },
+  /*
+  {
+    title: "Millenium",
+    artist: "Robbie Williams",
+    priority: 1,
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "xcWOviMI6Lk"
+  },
+  */
+  {
+    title: "My Favourite Game",
+    artist: "The Cardigans",
+    priority: 1,
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "u9WgtlgGAgs"
+  },
   {
     title: "No Leaf Clover",
     artist: "Metallica",
@@ -471,13 +509,23 @@ let uncharted = new List(
     videoId: "I0ahzYU1xpg"
   },
   {
-    title: "She's Got Issues",
+    title: "Pretty Fly",
     artist: "The Offspring",
     priority: 4,
     style: {width: "83vw"},
     type: 0,
+    videoId: "QtTR-_Klcq8"
+  },
+  /*
+  {
+    title: "She's Got Issues",
+    artist: "The Offspring",
+    priority: 1,
+    style: {width: "83vw"},
+    type: 0,
     videoId: "SAxPLSvvbXY"
   },
+  */
   {
     title: "Sitting Down Here",
     artist: "Lene Marlin",
@@ -493,6 +541,14 @@ let uncharted = new List(
     style: {width: "83vw"},
     type: 0,
     videoId: "TzLTf69vQos"
+  },
+  {
+    title: "Thank You",
+    artist: "Alanis Morissette",
+    priority: 2,
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "OOgpT5rEKIU"
   },
   {
     title: "There She Goes",
