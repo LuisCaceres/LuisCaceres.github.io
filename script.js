@@ -286,72 +286,72 @@ function validate(playlist) {
     return accumulator;
   }, []);
   
-  expect(playlist[0]).to.equal('INTRO');
-  expect(playlist[1]).to.equal('STING');
+  expect(playlist[0].name).to.equal('INTRO');
+  expect(playlist[1].name).to.equal('STING');
   expect(playlist[2].position).to.equal('20');
-  expect(playlist[3]).to.equal('STING');
+  expect(playlist[3].name).to.equal('STING');
   expect(playlist[4].position).to.equal('19');
-  expect(playlist[5]).to.equal('ADVERTISEMENT');
+  expect(playlist[5].name).to.equal('ADVERTISEMENT');
 
-  expect(playlist[6]).to.equal('STING');
+  expect(playlist[6].name).to.equal('STING');
   expect(playlist[7].position).to.equal('18');
-  expect(playlist[8]).to.equal('STING VIDEO EXTRA');
+  expect(playlist[8].name).to.equal('STING NEW VIDEO');
   expect(playlist[9].position).to.equal('xtra');
-  expect(playlist[10]).to.equal('ADVERTISEMENT');
+  expect(playlist[10].name).to.equal('ADVERTISEMENT');
 
-  expect(playlist[11]).to.equal('STING');
+  expect(playlist[11].name).to.equal('STING');
   expect(playlist[12].position).to.equal('17');
-  expect(playlist[13]).to.equal('STING');
+  expect(playlist[13].name).to.equal('STING');
   expect(playlist[14].position).to.equal('16');
-  expect(playlist[15]).to.equal('ADVERTISEMENT');
+  expect(playlist[15].name).to.equal('ADVERTISEMENT');
 
-  expect(playlist[16]).to.equal('STING');
+  expect(playlist[16].name).to.equal('STING');
   expect(playlist[17].position).to.equal('15');
-  expect(playlist[18]).to.equal('STING');
+  expect(playlist[18].name).to.equal('STING');
   expect(playlist[19].position).to.equal('14');
-  expect(playlist[20]).to.equal('ADVERTISEMENT');
+  expect(playlist[20].name).to.equal('ADVERTISEMENT');
 
-  expect(playlist[21]).to.equal('STING');
+  expect(playlist[21].name).to.equal('STING');
   expect(playlist[22].position).to.equal('13');
-  expect(playlist[23]).to.equal('STING');
+  expect(playlist[23].name).to.equal('STING');
   expect(playlist[24].position).to.equal('12');
-  expect(playlist[25]).to.equal('ADVERTISEMENT');
+  expect(playlist[25].name).to.equal('ADVERTISEMENT');
 
-  expect(playlist[26]).to.equal('STING');
+  expect(playlist[26].name).to.equal('STING');
   expect(playlist[27].position).to.equal('11');
-  expect(playlist[28]).to.equal('ADVERTISEMENT');
+  expect(playlist[28].name).to.equal('ADVERTISEMENT');
 
-  expect(playlist[29]).to.equal('STING');
+  expect(playlist[29].name).to.equal('STING');
   expect(playlist[30].position).to.equal('10');
-  expect(playlist[31]).to.equal('STING');
+  expect(playlist[31].name).to.equal('STING');
   expect(playlist[32].position).to.equal('09');
-  expect(playlist[33]).to.equal('ADVERTISEMENT');
+  expect(playlist[33].name).to.equal('ADVERTISEMENT');
 
-  expect(playlist[34]).to.equal('STING');
+  expect(playlist[34].name).to.equal('STING');
   expect(playlist[35].position).to.equal('08');
-  expect(playlist[36]).to.equal('STING VIDEO EXTRA');
+  expect(playlist[36].name).to.equal('STING NEW VIDEO');
   expect(playlist[37].position).to.equal('xtra');
-  expect(playlist[38]).to.equal('ADVERTISEMENT');
+  expect(playlist[38].name).to.equal('ADVERTISEMENT');
 
-  expect(playlist[39]).to.equal('STING');
+  expect(playlist[39].name).to.equal('STING');
   expect(playlist[40].position).to.equal('07');
-  expect(playlist[41]).to.equal('STING');
+  expect(playlist[41].name).to.equal('STING');
   expect(playlist[42].position).to.equal('06');
-  expect(playlist[43]).to.equal('ADVERTISEMENT');
+  expect(playlist[43].name).to.equal('ADVERTISEMENT');
 
-  expect(playlist[44]).to.equal('STING');
+  expect(playlist[44].name).to.equal('STING');
   expect(playlist[45].position).to.equal('05');
-  expect(playlist[46]).to.equal('STING');
+  expect(playlist[46].name).to.equal('STING');
   expect(playlist[47].position).to.equal('04');
-  expect(playlist[48]).to.equal('ADVERTISEMENT');
+  expect(playlist[48].name).to.equal('ADVERTISEMENT');
 
-  expect(playlist[49]).to.equal('STING');
+  expect(playlist[49].name).to.equal('STING');
   expect(playlist[50].position).to.equal('03');
-  expect(playlist[51]).to.equal('STING');
+  expect(playlist[51].name).to.equal('STING');
   expect(playlist[52].position).to.equal('02');
-  expect(playlist[53]).to.equal('ADVERTISEMENT');
+  expect(playlist[53].name).to.equal('ADVERTISEMENT');
 
-  expect(playlist[54]).to.equal('STING');
+  expect(playlist[54].name).to.equal('STING');
   expect(playlist[55].position).to.equal('01');
-  expect(playlist[56]).to.equal('INTRO');
+  expect(playlist[56].name).to.equal('INTRO');
 }
