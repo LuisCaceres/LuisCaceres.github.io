@@ -63,8 +63,9 @@ async function onYouTubeIframeAPIReady() {
   expect(chart.length).to.equal(22);
   
   let playlist = generatePlaylist(chart, intro, sting, advertisement, newVideo);
-  playlist = adjustPlaylist(playlist);
+  validate(playlist);
   
+  playlist = adjustPlaylist(playlist);
   validate(playlist);
  
   while (playlist.length) {
