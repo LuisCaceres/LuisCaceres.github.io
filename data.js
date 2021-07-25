@@ -195,6 +195,15 @@ const charted = [
     volume: 100,
   },
   {
+    title: "I Don't Want To Miss A Thing",
+    artist: "Aerosmith",
+    match: "!CCF!!!Gmbti!",
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "JkK8g6FMEXE",
+    volume: 100,
+  },
+  {
     title: "I Need To Know",
     artist: "Marc Anthony",
     history: [18, 10, 6, 2, 2, 3, 4, 4],
@@ -514,15 +523,6 @@ let uncharted = new List(
     style: {width: "83vw"},
     type: 0,
     videoId: "Rm1nCYOZB-s",
-    volume: 100,
-  },
-  {
-    title: "I Don't Want To Miss A Thing",
-    artist: "Aerosmith",
-    priority: 160,
-    style: {width: "83vw"},
-    type: 0,
-    videoId: "JkK8g6FMEXE",
     volume: 100,
   },
   {
