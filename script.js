@@ -182,23 +182,23 @@ function format(currentList, nextList, database) {
   if (!illegalItems.length) {
     return currentList;
   }
-  
+
   // Iterate through next week's chart and verify which items have dropped out.
   // Let `expiredItems` be a list of such items.
   const expiredItems = nextList.difference(currentList);
-  // Let `replacees` be a list of items that may be replaced by an illegal item. 
+  // Let `replacees` be a list of items that may be replaced by an illegal item.
   const replacees = expiredItems.filter(match => {
-    // For each item `item` in `expiredItems`:  
+    // For each item `item` in `expiredItems`:
     const {history} = database.find(item => item.match === match);
     const range = new NumericRange(...history);
     return range.length === 0 || range.at(-1) > 12 && range.isAscending();
   });
-  
+
   // Abort if there are no suitable replacements.
   if (!replacees.length) {
     return currentList;
   }
-   
+
   const reserve = new List();
 
   // For each item `item` in `illegalEntries`:
@@ -225,6 +225,14 @@ function format(currentList, nextList, database) {
   }
 
   return currentList;
+}
+
+
+/*
+ *
+ */
+function format2(currentList, nextList, next) {
+  
 }
 
 
