@@ -96,7 +96,7 @@ async function onYouTubeIframeAPIReady() {
  *
  */
 async function verifyAvailability(player) {
-  const videos = [advertisement, sting].concat(charted, uncharted);
+  const videos = new Set([advertisement, sting].concat(charted, uncharted));
   
   for (const video of videos) {
     // Attempt to play this video.
