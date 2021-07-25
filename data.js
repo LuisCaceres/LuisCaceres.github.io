@@ -51,7 +51,7 @@ const charted = [
     title: "All Or Nothing",
     artist: "Cher",
     endSeconds: 242,
-    history: [16, 14, 10],
+    history: [16, 14, 10, 8],
     match: "!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!",
     startSeconds: 6,
     style: {left: "-5vw", position: "relative", width: "110vw"},
@@ -62,7 +62,7 @@ const charted = [
   {
     title: "All Star",
     artist: "Smash Mouth",
-    history: [14, 9, 4, 1, 1, 1, 1, 1],
+    history: [14, 9, 4, 1, 1, 1, 1, 1, 3],
     match: "!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!",
     style: {width: "100vw"},
     type: 0,
@@ -73,7 +73,7 @@ const charted = [
     title: "Angels",
     artist: "Robbie Williams",
     endSeconds: 235,
-    history: [20, 11, 8, 5, 3, 2, 2, 3],
+    history: [20, 11, 8, 5, 3, 2, 2, 3, 7],
     match: "!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!",
     startSeconds: 1,
     style: {width: "83vw"},
@@ -91,7 +91,17 @@ const charted = [
     videoId: "u8uup17RrUU",
     volume: 100,
   },
-  { 
+  {
+    title: "Baby One More Time",
+    artist: "Britney Spears",
+    history: [19, 20],
+    match: "!Qfufs!Boesf!!!J!Gffm!Zpv!",
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "fHPnGqXXUmI",
+    volume: 100,
+  },
+  {
     title: "Blue Monday",
     artist: "Orgy",
     history: [17, 15, 20, 20],
@@ -106,7 +116,7 @@ const charted = [
     title: "Coffee And TV",
     artist: "Blur",
     endSeconds: 368,
-    history: [15],
+    history: [15, 11],
     match: "!Tbti\"!!!Fodpsf!vof!gpjt!",
     startSeconds: 7,
     style: {width: "100vw"},
@@ -117,6 +127,8 @@ const charted = [
   {
     title: "Crazy",
     artist: "Britney Spears",
+    endSeconds: 197,
+    history: [16],
     match: "!Cbdltusffu!Cpzt!!!Bozxifsf!Gps!Zpv!",
     style: {width: "83vw"},
     type: 0,
@@ -126,7 +138,7 @@ const charted = [
   {
     title: "Diselo Con Flores",
     artist: "Fey",
-    history: [19],
+    history: [19, 18],
     match: "!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!",
     style: {width: "83vw"},
     type: 0,
@@ -156,22 +168,12 @@ const charted = [
   {
     title: "Fly Away",
     artist: "Lenny Kravitz",
-    history: [20, 11, 7],
+    history: [20, 11, 7, 2],
     left: "-5vw",
     match: "!V3!!!Ejtdpuifrvf!",
     style: {left: "-5vw", position: "relative", width: "110vw"},
     type: 0,
     videoId: "EvuL5jyCHOw",
-    volume: 100,
-  },
-  {
-    title: "From The Bottom Of My Broken Heart",
-    artist: "Britney Spears",
-    history: [19, 20],
-    match: "!Qfufs!Boesf!!!J!Gffm!Zpv!",
-    style: {width: "83vw"},
-    type: 0,
-    videoId: "fHPnGqXXUmI",
     volume: 100,
   },
   {
@@ -197,6 +199,7 @@ const charted = [
   {
     title: "I Don't Want To Miss A Thing",
     artist: "Aerosmith",
+    history: [13],
     match: "!CCF!!!Gmbti!",
     style: {width: "83vw"},
     type: 0,
@@ -206,7 +209,7 @@ const charted = [
   {
     title: "I Need To Know",
     artist: "Marc Anthony",
-    history: [18, 10, 6, 2, 2, 3, 4, 4],
+    history: [18, 10, 6, 2, 2, 3, 4, 4, 5],
     match: "!Op!Epvcu!!!Epo(u!Tqfbl!",
     style: {width: "83vw"},
     type: 0,
@@ -236,6 +239,7 @@ const charted = [
   {
     title: "Keep On Movin'",
     artist: "Five",
+    history: [19],
     match: "!Bfsptnjui!!!Gbmmjoh!Jo!Mpwf!)Jt!Ibse!Po!Uif!Lofft*!",
     style: {width: "83vw"},
     type: 0,
@@ -275,7 +279,7 @@ const charted = [
   {
     title: "Maria Maria",
     artist: "Santana",
-    history: [19, 8, 8],
+    history: [19, 8, 8, 4],
     match: "!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!",
     style: {width: "83vw"},
     type: 0,
@@ -286,7 +290,7 @@ const charted = [
     title: "Mi Chico Latino",
     artist: "Geri Halliwell",
     left: "-5vw",
-    history: [15, 12, 8, 4, 3, 2],
+    history: [15, 12, 8, 4, 3, 2, 1],
     match: "!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!",
     startSeconds: 1,
     style: {left: "-5vw", position: "relative", width: "110vw"},
@@ -297,7 +301,7 @@ const charted = [
   {
     title: "New",
     artist: "No Doubt",
-    history: [18, 12, 9, 7, 6, 6, 6],
+    history: [18, 12, 9, 7, 6, 6, 6, 9],
     match: "!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!",
     startSeconds: 2,
     style: {width: "83vw"},
@@ -330,7 +334,7 @@ const charted = [
   {
     title: "Si Me Adverti",
     artist: "Zurdok",
-    history: [17, 15, 13, 10, 9, 9, 9, 11],
+    history: [17, 15, 13, 10, 9, 9, 9, 11, 17],
     match: "!Kbnjsprvbj!!!Dptnjd!Hjsm!",
     startSeconds: 1,
     style: {width: "83vw"},
@@ -341,7 +345,7 @@ const charted = [
   {
     title: "Someday",
     artist: "Sugar Ray",
-    history: [2, 2, 2, 6, 6, 7, 10, 13],
+    history: [2, 2, 2, 6, 6, 7, 10, 13, 15],
     match: "!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!",
     startSeconds: 1,
     style: {width: "83vw"},
@@ -353,7 +357,7 @@ const charted = [
     title: "Someday We'll Know",
     artist: "New Radicals",
     endSeconds: 215,
-    history: [5, 3, 3, 3, 4, 5, 7, 9],
+    history: [5, 3, 3, 3, 4, 5, 7, 9, 14],
     match: "!Tqjdf!Hjsmt!!!3!Cfdpnf!2!",
     style: {width: "83vw"},
     type: 0,
@@ -363,7 +367,7 @@ const charted = [
   {
     title: "Super Trouper",
     artist: "A-Teens",
-    history: [16, 14],
+    history: [16, 14, 12],
     match: "!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!",
     style: {width: "83vw"},
     type: 0,
@@ -373,7 +377,7 @@ const charted = [
   {
     title: "Tengo Frio",
     artist: "Ely Guerra",
-    history: [18, 12],
+    history: [18, 12, 10],
     match: "!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!",
     style: {width: "83vw"},
     type: 0,
@@ -383,7 +387,7 @@ const charted = [
   {
     title: "That's The Way It Is",
     artist: "Celine Dion",
-    history: [19, 15, 13, 8, 5, 5],
+    history: [19, 15, 13, 8, 5, 5, 6],
     match: "!Hjovxjof!!!Qpoz!",
     style: {width: "83vw"},
     type: 0,
@@ -403,6 +407,7 @@ const charted = [
   {
     title: "Unpretty",
     artist: "TLC",
+    history: [20],
     match: "!Xijuf!Upxo!!!Bcpsu-!Sfusz-!Gbjm@!Zpvs!Xpnbo!",
     style: {width: "83vw"},
     type: 0,
@@ -584,7 +589,7 @@ let uncharted = new List(
   {
     title: "Pretty Fly",
     artist: "The Offspring",
-    priority: 4,
+    priority: 5,
     style: {width: "83vw"},
     type: 0,
     videoId: "QtTR-_Klcq8",
@@ -622,7 +627,7 @@ let uncharted = new List(
   {
     title: "Thank You",
     artist: "Alanis Morissette",
-    priority: 2,
+    priority: 3,
     style: {width: "83vw"},
     type: 0,
     videoId: "OOgpT5rEKIU",
