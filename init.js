@@ -65,8 +65,7 @@ async function onYouTubeIframeAPIReady() {
   let playlist = generatePlaylist(chart, intro, sting, advertisement, newVideo);
   playlist = adjustPlaylist(playlist);
   
-  const assertion = new Set(playlist.filter(video => video.type === 0));
-  expect(asertion.size).to.equal(22);
+  validate(playlist);
  
   while (playlist.length) {
     const video = playlist.shift();
