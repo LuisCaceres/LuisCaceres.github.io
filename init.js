@@ -35,20 +35,12 @@ document.head.append(style);
 /*
  *
  */
-function onYouTubeIframeAPIReady() {
+async function onYouTubeIframeAPIReady() {
   const player = new YT.Player('player');
-  player.addEventListener('onReady', onReady);
-}
 
-
-let playlist;
-
-
-/*
- *
- */
-async function onReady(event) {
-  const player = event.target;
+  await new Promise(resolve => {
+    player.addEventListener('onReady', resolve); 
+  }); 
   
   const response = confirm('Would you like to verify the availability of videos?');
 
@@ -70,7 +62,7 @@ async function onReady(event) {
   insertExtraItems(chart, uncharted);
   expect(chart.length).to.equal(22);
   
-  playlist = generatePlaylist(chart, intro, sting, advertisement, newVideo);
+  let playlist = generatePlaylist(chart, intro, sting, advertisement, newVideo);
   playlist = adjustPlaylist(playlist);
  
   while (playlist.length) {
