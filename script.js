@@ -279,7 +279,7 @@ function parse(table) {
  *
  */
 function validate(playlist) {
-  playlist = playlist.reduce((accumulator, current, index) => {
+  playlist = playlist.reduce(function (accumulator, current, index) {
     if (current !== this[index + 1]) {
       accumulator.push(current);
     }
