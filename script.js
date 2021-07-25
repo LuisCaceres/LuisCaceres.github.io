@@ -286,6 +286,8 @@ function validate(playlist) {
     return accumulator;
   }, []);
   
+  expect(playlist.length).to.equal(57);
+  
   expect(playlist[0].name).to.equal('INTRO');
   expect(playlist[1].name).to.equal('STING');
   expect(playlist[2].position).to.equal('20');
