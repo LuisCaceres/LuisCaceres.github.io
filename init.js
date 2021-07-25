@@ -1,4 +1,4 @@
-/*
+    /*
 
 const style = document.createElement('style');
 style.textContent = `
@@ -57,12 +57,12 @@ async function onYouTubeIframeAPIReady() {
   
   const list = format(lists.current, lists.next, charted); 
 
-  const { chart } = associate(list, charted, uncharted);
+  const result = associate(list, charted, uncharted);
     
-  insertExtraItems(chart, uncharted);
-  expect(chart.length).to.equal(22);
+  insertExtraItems(result.chart, result.uncharted);
+  expect(result.chart.length).to.equal(22);
   
-  let playlist = generatePlaylist(chart, intro, sting, advertisement, newVideo);
+  let playlist = generatePlaylist(result.chart, intro, sting, advertisement, newVideo);
   validate(playlist);
   
   playlist = adjustPlaylist(playlist);
