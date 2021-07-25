@@ -7,11 +7,13 @@ const advertisement = {
   endSeconds: 91,
   style: {width: "83vw"},
   videoId: 'caaddLZhLoY',
+  volume: 50,
 };
 
 const intro = {
   style: {width: "83vw"},
   videoId: 'YoqgOOQwEqI',
+  volume: 50,
 };
 
 const newVideo = {
@@ -19,12 +21,14 @@ const newVideo = {
   endSeconds: 20,
   style: {width: "83vw"},
   videoId: 'caaddLZhLoY',
+  volume: 50,
 };
 
 const sting = {
   startSeconds: 16,
   style: {width: "83vw"},
   videoId: 'YoqgOOQwEqI',
+  volume: 50,
 };
 
 const charted = [
@@ -37,6 +41,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "pj6FCKm8dhM",
+    volume: 100,
   },
   {
     title: "All Or Nothing",
@@ -48,6 +53,7 @@ const charted = [
     style: {left: "-5vw", position: "relative", width: "110vw"},
     type: 0,
     videoId: "BW4LUe2e5oU",
+    volume: 100,
   },
   {
     title: "All Star",
@@ -57,6 +63,7 @@ const charted = [
     style: {width: "100vw"},
     type: 0,
     videoId: "L_jWHffIx5E",
+    volume: 100,
   },
   {
     title: "Angels",
@@ -68,6 +75,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "luwAMFcc2f8",
+    volume: 100,
   },
   {
     title: "Atrapados En La Red",
@@ -77,6 +85,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "u8uup17RrUU",
+    volume: 100,
   },
   {
     title: "...Baby One More Time",
@@ -86,6 +95,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "C-u5WLJ9Yk4",
+    volume: 100,
   },
   { 
     title: "Blue Monday",
@@ -96,6 +106,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "aJZTfl3DmCU",
+    volume: 100,
   },
   {
     title: "Coffee And TV",
@@ -107,6 +118,7 @@ const charted = [
     style: {left: "-2vw", position: "relative", width: "105vw"},
     type: 0,
     videoId: "GXRVX1AKAew",
+    volume: 100,
   },
   {
     title: "Diselo Con Flores",
@@ -115,7 +127,8 @@ const charted = [
     match: "!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!",
     style: {width: "83vw"},
     type: 0,
-    videoId: "r-b495ayDF4"
+    videoId: "r-b495ayDF4",
+    volume: 100,
   },
   {
     title: "Don't Say You Love Me",
@@ -125,6 +138,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "ZCFlT_FYnEE",
+    volume: 100,
   },
   {
     title: "Fast As You Can",
@@ -134,6 +148,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "NbxqtbqyoRk",
+    volume: 100,
   },
   {
     title: "Fly Away",
@@ -144,6 +159,7 @@ const charted = [
     style: {left: "-5vw", position: "relative", width: "110vw"},
     type: 0,
     videoId: "EvuL5jyCHOw",
+    volume: 100,
   },
   {
     title: "Heartbreaker",
@@ -153,6 +169,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "FUzcLVyFLNo",
+    volume: 100,
   },
   {
     title: "Higher",
@@ -162,6 +179,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "J16lInLZRms",
+    volume: 100,
   },
   {
     title: "I Need To Know",
@@ -171,6 +189,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "fLVzw9wVd9o",
+    volume: 100,
   },
   {
     title: "If Ya Gettin' Down",
@@ -180,6 +199,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "TU-5FmsXOOA",
+    volume: 100,
   },
   {
     title: "Jennifer Del Estero",
@@ -189,6 +209,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "KLRlJ0uJ-yI",
+    volume: 100,
   },
   {
     title: "La Lola",
@@ -198,6 +219,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "ccsUjRhpo_U",
+    volume: 100,
   },
   {
     title: "Look At Me",
@@ -207,6 +229,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "31mlEEs9_Vk",
+    volume: 100,
   },
   {
     title: "Man! I Feel Like A Woman",
@@ -216,6 +239,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "ZJL4UGSbeFg",
+    volume: 100,
   },
   {
     title: "Maria Maria",
@@ -224,7 +248,8 @@ const charted = [
     match: "!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!",
     style: {width: "83vw"},
     type: 0,
-    videoId: "nPLV7lGbmT4"
+    videoId: "nPLV7lGbmT4",
+    volume: 100,
   },
   {
     title: "Mi Chico Latino",
@@ -236,6 +261,7 @@ const charted = [
     style: {left: "-5vw", position: "relative", width: "110vw"},
     type: 0,
     videoId: "4KGTR0NPNF0",
+    volume: 100,
   },
   {
     title: "New",
@@ -246,6 +272,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "LTfD2E0hf4k",
+    volume: 100,
   },
   {
     title: "No Quiero Verte",
@@ -257,6 +284,7 @@ const charted = [
     style: {left: "-5vw", position: "relative", width: "110vw"},
     type: 0,
     videoId: "_o0vOmL-PYY",
+    volume: 100,
   },
   {
     title: "Puente",
@@ -266,6 +294,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "eAO7CEcCD3s",
+    volume: 100,
   },
   {
     title: "Si Me Adverti",
@@ -276,6 +305,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "gZJOe6lEHJE",
+    volume: 100,
   },
   {
     title: "Someday",
@@ -286,6 +316,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "NQSCKWfJlXs",
+    volume: 100,
   },
   {
     title: "Someday We'll Know",
@@ -296,6 +327,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "bDmA8qQKhMY",
+    volume: 100,
   },
   {
     title: "Super Trouper",
@@ -304,7 +336,8 @@ const charted = [
     match: "!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!",
     style: {width: "83vw"},
     type: 0,
-    videoId: "5j1vhCf5XKg"
+    videoId: "5j1vhCf5XKg",
+    volume: 100,
   },
   {
     title: "Tengo Frio",
@@ -313,7 +346,8 @@ const charted = [
     match: "!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!",
     style: {width: "83vw"},
     type: 0,
-    videoId: "foLqysKnIIM"
+    videoId: "foLqysKnIIM",
+    volume: 100,
   },
   {
     title: "That's The Way It Is",
@@ -323,6 +357,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "T6wbugWrfLU",
+    volume: 100,
   },
   {
     title: "The Kids Aren't Alright",
@@ -332,6 +367,7 @@ const charted = [
     style: {left: "-5vw", position: "relative", width: "110vw"},
     type: 0,
     videoId: "7iNbnineUCI",
+    volume: 100,
   },
   {
     title: "Waiting For Tonight",
@@ -341,6 +377,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "_66jPJVS4JE",
+    volume: 100,
   },
   {
     title: "What's My Age Again?",
@@ -350,6 +387,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "K7l5ZeVVoCA",
+    volume: 100,
   },
   {
     title: "When You're Gone",
@@ -359,6 +397,7 @@ const charted = [
     style: {width: "83vw"},
     type: 0,
     videoId: "_W2jONIjrM0",
+    volume: 100,
   },
 ];
 
@@ -369,14 +408,16 @@ let uncharted = new List(
     priority: 1,
     style: {width: "83vw"},
     type: 0,
-    videoId: "Rco1QQShM1Y"
+    videoId: "Rco1QQShM1Y",
+    volume: 100,
   },
   /*{
     title: "Born To Make You Happy",
     artist: "Britney Spears",
     priority: 1,
     type: 0,
-    videoId: "Yy5cKX4jBkQ"
+    videoId: "Yy5cKX4jBkQ",
+    volume: 100,
   },*/
   {
     title: "Burning Down The House",
@@ -384,14 +425,16 @@ let uncharted = new List(
     priority: 1,
     style: {width: "83vw"},
     type: 0,
-    videoId: "iYuldgIOelY"
+    videoId: "iYuldgIOelY",
+    volume: 100,
   },
   /*{
     title: "Canela",
     artist: "Fey",
     priority: 1,
     type: 0,
-    videoId: "_sgwHcuVCYg"
+    videoId: "_sgwHcuVCYg",
+    volume: 100,
   },*/
   {
     title: "Coma White",
@@ -399,7 +442,8 @@ let uncharted = new List(
     priority: 1,
     style: {width: "83vw"},
     type: 0,
-    videoId: "QQPJYnr48yU"
+    videoId: "QQPJYnr48yU",
+    volume: 100,
   },
   {
     title: "Crazy",
@@ -408,6 +452,7 @@ let uncharted = new List(
     style: {width: "83vw"},
     type: 0,
     videoId: "IPL_4ICbrfw",
+    volume: 100,
   },
   {
     title: "Don't Call Me Baby",
@@ -415,7 +460,8 @@ let uncharted = new List(
     priority: 1,
     style: {width: "83vw"},
     type: 0,
-    videoId: "M1kEjj3Ej68"
+    videoId: "M1kEjj3Ej68",
+    volume: 100,
   },
   {
     title: "Ese Oscuro Objeto Del Deseo",
@@ -423,7 +469,8 @@ let uncharted = new List(
     priority: 1,
     style: {width: "83vw"},
     type: 0,
-    videoId: "snYOuSoIOO0"
+    videoId: "snYOuSoIOO0",
+    volume: 100,
   },
   /* 
   {
@@ -433,6 +480,7 @@ let uncharted = new List(
     style: {width: "83vw"},
     type: 0,
     videoId: "fHPnGqXXUmI",
+    volume: 100,
   },
   */
   {
@@ -442,6 +490,7 @@ let uncharted = new List(
     style: {width: "83vw"},
     type: 0,
     videoId: "Rm1nCYOZB-s",
+    volume: 100,
   },
   {
     title: "I Don't Want To Miss A Thing",
@@ -450,13 +499,15 @@ let uncharted = new List(
     style: {width: "83vw"},
     type: 0,
     videoId: "JkK8g6FMEXE",
+    volume: 100,
   },
   {
     title: "Keep On Movin'",
     artist: "Five",
     priority: 4,  
     type: 0,
-    videoId: "3OJMjlzVLZE"
+    videoId: "3OJMjlzVLZE",
+    volume: 100,
   },
   {
     title: "Let Forever Be",
@@ -465,6 +516,7 @@ let uncharted = new List(
     style: {width: "83vw"},
     type: 0,
     videoId: "s5FyfQDO5g0",
+    volume: 100,
   },
   {
     title: "Lullaby",
@@ -472,7 +524,8 @@ let uncharted = new List(
     priority: 1,
     style: {width: "83vw"},
     type: 0,
-    videoId: "hG9C0VwruXE"
+    videoId: "hG9C0VwruXE",
+    volume: 100,
   },
   /*
   {
@@ -481,7 +534,8 @@ let uncharted = new List(
     priority: 1,
     style: {width: "83vw"},
     type: 0,
-    videoId: "xcWOviMI6Lk"
+    videoId: "xcWOviMI6Lk",
+    volume: 100,
   },
   */
   {
@@ -490,7 +544,8 @@ let uncharted = new List(
     priority: 1,
     style: {width: "83vw"},
     type: 0,
-    videoId: "u9WgtlgGAgs"
+    videoId: "u9WgtlgGAgs",
+    volume: 100,
   },
   {
     title: "No Leaf Clover",
@@ -498,7 +553,8 @@ let uncharted = new List(
     priority: 1,
     style: {width: "83vw"},
     type: 0,
-    videoId: "Sh5S3OxiE-s"
+    videoId: "Sh5S3OxiE-s",
+    volume: 100,
   },
   {
     title: "Ojos Así",
@@ -506,7 +562,8 @@ let uncharted = new List(
     priority: 1,
     style: {width: "83vw"},
     type: 0,
-    videoId: "I0ahzYU1xpg"
+    videoId: "I0ahzYU1xpg",
+    volume: 100,
   },
   {
     title: "Pretty Fly",
@@ -514,7 +571,8 @@ let uncharted = new List(
     priority: 4,
     style: {width: "83vw"},
     type: 0,
-    videoId: "QtTR-_Klcq8"
+    videoId: "QtTR-_Klcq8",
+    volume: 100,
   },
   /*
   {
@@ -523,7 +581,8 @@ let uncharted = new List(
     priority: 1,
     style: {width: "83vw"},
     type: 0,
-    videoId: "SAxPLSvvbXY"
+    videoId: "SAxPLSvvbXY",
+    volume: 100,
   },
   */
   {
@@ -532,7 +591,8 @@ let uncharted = new List(
     priority: 1,
     style: {left: "3vw", position: "relative", width: "83vw"},
     type: 0,
-    videoId: "ClSVzlObxSc"
+    videoId: "ClSVzlObxSc",
+    volume: 100,
   },
   {
     title: "So Young",
@@ -540,7 +600,8 @@ let uncharted = new List(
     priority: 1,
     style: {width: "83vw"},
     type: 0,
-    videoId: "TzLTf69vQos"
+    videoId: "TzLTf69vQos",
+    volume: 100,
   },
   {
     title: "Thank You",
@@ -548,7 +609,8 @@ let uncharted = new List(
     priority: 2,
     style: {width: "83vw"},
     type: 0,
-    videoId: "OOgpT5rEKIU"
+    videoId: "OOgpT5rEKIU",
+    volume: 100,
   },
   {
     title: "There She Goes",
@@ -556,7 +618,8 @@ let uncharted = new List(
     priority: 1,
     style: {width: "83vw"},
     type: 0,
-    videoId: "68MKLkNSMN4"
+    videoId: "68MKLkNSMN4",
+    volume: 100,
   },
   {
     title: "Unpretty",
@@ -564,7 +627,8 @@ let uncharted = new List(
     priority: 1,
     style: {width: "83vw"},
     type: 0,
-    videoId: "g2gy1Evb1Kg"
+    videoId: "g2gy1Evb1Kg",
+    volume: 100,
   },
   {
     title: "Ya No Te Quiero",
@@ -572,7 +636,8 @@ let uncharted = new List(
     priority: 1,
     style: {width: "83vw"},
     type: 0,
-    videoId: "PIiustuQOlQ"
+    videoId: "PIiustuQOlQ",
+    volume: 100,
   },
 )
 // Duplicate an item a certain number of times according to its priority.
