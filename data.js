@@ -109,6 +109,15 @@ const charted = [
     volume: 100,
   },
   {
+    title: "Crazy",
+    artist: "Britney Spears",
+    match: "!Cbdltusffu!Cpzt!!!Bozxifsf!Gps!Zpv!",
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "IPL_4ICbrfw",
+    volume: 100,
+  },
+  {
     title: "Coffee And TV",
     artist: "Blur",
     endSeconds: 368,
@@ -463,15 +472,6 @@ let uncharted = new List(
     style: {width: "83vw"},
     type: 0,
     videoId: "QQPJYnr48yU",
-    volume: 100,
-  },
-  {
-    title: "Crazy",
-    artist: "Britney Spears",
-    priority: 20,
-    style: {width: "83vw"},
-    type: 0,
-    videoId: "IPL_4ICbrfw",
     volume: 100,
   },
   {
