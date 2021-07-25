@@ -212,6 +212,15 @@ const charted = [
     volume: 100,
   },
   {
+    title: "Keep On Movin'",
+    artist: "Five",
+    priority: 4,
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "3OJMjlzVLZE",
+    volume: 100,
+  },
+  {
     title: "La Lola",
     artist: "Cafe Quijano",
     history: [4, 6, 10, 16],
@@ -370,6 +379,15 @@ const charted = [
     volume: 100,
   },
   {
+    title: "Unpretty",
+    artist: "TLC",
+    priority: 1,
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "g2gy1Evb1Kg",
+    volume: 100,
+  },
+  {
     title: "Waiting For Tonight",
     artist: "Jennifer Lopez",
     history: [10, 17],
@@ -502,14 +520,6 @@ let uncharted = new List(
     volume: 100,
   },
   {
-    title: "Keep On Movin'",
-    artist: "Five",
-    priority: 4,  
-    type: 0,
-    videoId: "3OJMjlzVLZE",
-    volume: 100,
-  },
-  {
     title: "Let Forever Be",
     artist: "The Chemical Broters",
     priority: 1,
@@ -619,15 +629,6 @@ let uncharted = new List(
     style: {width: "83vw"},
     type: 0,
     videoId: "68MKLkNSMN4",
-    volume: 100,
-  },
-  {
-    title: "Unpretty",
-    artist: "TLC",
-    priority: 1,
-    style: {width: "83vw"},
-    type: 0,
-    videoId: "g2gy1Evb1Kg",
     volume: 100,
   },
   {
