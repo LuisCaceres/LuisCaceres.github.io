@@ -102,7 +102,7 @@ async function verifyAvailability(player) {
     // Attempt to play this video.
     player.loadVideoById(video);
     // Wait 5 seconds.
-    await new Promise(resolve => setTimeout(resolve, 5000);
+    await new Promise(resolve => setTimeout(resolve, 5000));
     // Notify if this music video cannot be played.
     player.getPlayerState() !== 1 && console.log(video);
   }
