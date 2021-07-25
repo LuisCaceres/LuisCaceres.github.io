@@ -214,7 +214,7 @@ const charted = [
   {
     title: "Keep On Movin'",
     artist: "Five",
-    priority: 4,
+    match: "!Bfsptnjui!!!Gbmmjoh!Jo!Mpwf!)Jt!Ibse!Po!Uif!Lofft*!",
     style: {width: "83vw"},
     type: 0,
     videoId: "3OJMjlzVLZE",
@@ -381,7 +381,7 @@ const charted = [
   {
     title: "Unpretty",
     artist: "TLC",
-    priority: 1,
+    match: "!Xijuf!Upxo!!!Bcpsu-!Sfusz-!Gbjm@!Zpvs!Xpnbo!",
     style: {width: "83vw"},
     type: 0,
     videoId: "g2gy1Evb1Kg",
