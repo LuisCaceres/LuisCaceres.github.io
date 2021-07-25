@@ -445,6 +445,7 @@ let uncharted = new List(
   /*{
     title: "Born To Make You Happy",
     artist: "Britney Spears",
+    priority: 1,
     style: {width: "83vw"},
     type: 0,
     videoId: "Yy5cKX4jBkQ",
@@ -462,15 +463,16 @@ let uncharted = new List(
   /*{
     title: "Canela",
     artist: "Fey",
+    priority: 1,
     style: {width: "83vw"},
     type: 0,
     videoId: "_sgwHcuVCYg",
     volume: 100,
-  },*/  
+  },*/
   {
     title: "Coma White",
     artist: "Marilyn Manson",
-    priority: 2,
+    priority: 1,
     style: {width: "83vw"},
     type: 0,
     videoId: "QQPJYnr48yU",
@@ -494,6 +496,17 @@ let uncharted = new List(
     videoId: "snYOuSoIOO0",
     volume: 100,
   },
+  /* 
+  {
+    title: "From The Bottom Of My Broken Heart",
+    artist: "Britney Spears",
+    priority: 1,
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "fHPnGqXXUmI",
+    volume: 100,
+  },
+  */
   {
     title: "Guerrilla Radio",
     artist: "Rage Against The Machine",
@@ -502,7 +515,16 @@ let uncharted = new List(
     type: 0,
     videoId: "Rm1nCYOZB-s",
     volume: 100,
-  },  
+  },
+  {
+    title: "I Don't Want To Miss A Thing",
+    artist: "Aerosmith",
+    priority: 160,
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "JkK8g6FMEXE",
+    volume: 100,
+  },
   {
     title: "Let Forever Be",
     artist: "The Chemical Broters",
@@ -521,10 +543,30 @@ let uncharted = new List(
     videoId: "hG9C0VwruXE",
     volume: 100,
   },
+  /*
+  {
+    title: "Millenium",
+    artist: "Robbie Williams",
+    priority: 1,
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "xcWOviMI6Lk",
+    volume: 100,
+  },
+  */
+  {
+    title: "My Favourite Game",
+    artist: "The Cardigans",
+    priority: 1,
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "u9WgtlgGAgs",
+    volume: 100,
+  },
   {
     title: "No Leaf Clover",
     artist: "Metallica",
-    priority: 2,
+    priority: 1,
     style: {width: "83vw"},
     type: 0,
     videoId: "Sh5S3OxiE-s",
@@ -540,19 +582,30 @@ let uncharted = new List(
     volume: 100,
   },
   {
+    title: "Pretty Fly",
+    artist: "The Offspring",
+    priority: 4,
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "QtTR-_Klcq8",
+    volume: 100,
+  },
+  /*
+  {
     title: "She's Got Issues",
     artist: "The Offspring",
-    priority: 2,
+    priority: 1,
     style: {width: "83vw"},
     type: 0,
     videoId: "SAxPLSvvbXY",
     volume: 100,
   },
+  */
   {
     title: "Sitting Down Here",
     artist: "Lene Marlin",
     priority: 1,
-    style: {width: "83vw"},
+    style: {left: "3vw", position: "relative", width: "83vw"},
     type: 0,
     videoId: "ClSVzlObxSc",
     volume: 100,
@@ -564,6 +617,15 @@ let uncharted = new List(
     style: {width: "83vw"},
     type: 0,
     videoId: "TzLTf69vQos",
+    volume: 100,
+  },
+  {
+    title: "Thank You",
+    artist: "Alanis Morissette",
+    priority: 2,
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "OOgpT5rEKIU",
     volume: 100,
   },
   {
