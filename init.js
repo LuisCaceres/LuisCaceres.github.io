@@ -74,17 +74,19 @@ async function onReady(event) {
   playlist = adjustPlaylist(playlist);
  
   while (playlist.length) {
-    const nextVideo = playlist.shift();
-    player.loadVideoById(nextVideo);
+    const video = playlist.shift();
+    
+    player.loadVideoById(video);
+    player.setVolume(video.volume);
       
     const screen = document.querySelector('iframe');
-    adjustScreen(screen, nextVideo.style);
+    adjustScreen(screen, video.style);
 
     const logo = document.querySelector('.logo');
-    logo.toggleAttribute('hidden', nextVideo.type !== 0);
+    logo.toggleAttribute('hidden', video.type !== 0);
 
     const position = document.querySelector('.position');
-    position.textContent = nextVideo.position;
+    position.textContent = video.position;
 
     await new Promise(resolve => {  
       player.addEventListener('onStateChange', function listener({data}) {
@@ -103,18 +105,13 @@ async function onReady(event) {
  */
 async function verifyAvailability(player) {
   const videos = [advertisement, sting].concat(charted, uncharted);
-
-  function verifier(resolve, video) {
-    // Notify if this music video cannot be played.
-    player.getPlayerState() !== 1 && console.log(video);
-    // Move on to the next music video.
-    resolve();
-  }
   
   for (const video of videos) {
     // Attempt to play this video.
     player.loadVideoById(video);
-    // Wait 5 seconds and verify if this video has loaded and is playing.
-    await new Promise(resolve => setTimeout(verifier, 5000, resolve, video));
+    // Wait 5 seconds.
+    await new Promise(resolve => setTimeout(resolve, 5000);
+    // Notify if this music video cannot be played.
+    player.getPlayerState() !== 1 && console.log(video);
   }
 }
