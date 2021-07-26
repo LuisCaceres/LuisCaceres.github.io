@@ -1,4 +1,3 @@
-
 console.log('Testing starting.');
 
 const expect = chai.expect;
@@ -247,7 +246,7 @@ function generateList(outcoming, incoming) {
 {
   const { currentList, nextList } = generateList([18], [16]);
 
-  const list = format(currentList, nextList, {});
+const list = format(currentList, nextList, {});
 
   expect(list.length).to.equal(20);
   expect(list.includes('OUT 18')).to.equal(true);
