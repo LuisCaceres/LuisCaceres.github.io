@@ -348,6 +348,7 @@ function validate(playlist) {
     'ADVERTISEMENT',
     
     'STING','01',
+    'INTRO',
   ];
   
   playlist.forEach((item, index) => {
