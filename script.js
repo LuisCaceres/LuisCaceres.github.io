@@ -283,85 +283,74 @@ function parse(table) {
 }
 
 
-/*
- *
+/* Verifies if a playlist `playlist` consists of the expected number of
+ * advertisements, music videos and stings and in the expected order.
+ * @param {[Video]} - playlist
+ * @return {boolean} - Whether `playlist` fulfils the criteria above.
  */
 function validate(playlist) {
+  
+  /* Remove any consecutive duplicates. Duplicates are inserted into 
+  `playlist` because of what I consider a bug from the YouTube API. See 
+  the `adjustPlaylist` function for further details about this bug. */
   playlist = playlist.reduce(function (accumulator, current, index) {
     if (current !== playlist[index + 1]) {
       accumulator.push(current);
     }
     return accumulator;
   }, []);
-  
+
   expect(playlist.length).to.equal(57);
   
-  expect(playlist[0].name).to.equal('INTRO');
-  expect(playlist[1].name).to.equal('STING');
-  expect(playlist[2].position).to.equal('20');
-  expect(playlist[3].name).to.equal('STING');
-  expect(playlist[4].position).to.equal('19');
-  expect(playlist[5].name).to.equal('ADVERTISEMENT');
-
-  expect(playlist[6].name).to.equal('STING');
-  expect(playlist[7].position).to.equal('18');
-  expect(playlist[8].name).to.equal('STING NEW VIDEO');
-  expect(playlist[9].position).to.equal('xtra');
-  expect(playlist[10].name).to.equal('ADVERTISEMENT');
-
-  expect(playlist[11].name).to.equal('STING');
-  expect(playlist[12].position).to.equal('17');
-  expect(playlist[13].name).to.equal('STING');
-  expect(playlist[14].position).to.equal('16');
-  expect(playlist[15].name).to.equal('ADVERTISEMENT');
-
-  expect(playlist[16].name).to.equal('STING');
-  expect(playlist[17].position).to.equal('15');
-  expect(playlist[18].name).to.equal('STING');
-  expect(playlist[19].position).to.equal('14');
-  expect(playlist[20].name).to.equal('ADVERTISEMENT');
-
-  expect(playlist[21].name).to.equal('STING');
-  expect(playlist[22].position).to.equal('13');
-  expect(playlist[23].name).to.equal('STING');
-  expect(playlist[24].position).to.equal('12');
-  expect(playlist[25].name).to.equal('ADVERTISEMENT');
-
-  expect(playlist[26].name).to.equal('STING');
-  expect(playlist[27].position).to.equal('11');
-  expect(playlist[28].name).to.equal('ADVERTISEMENT');
-
-  expect(playlist[29].name).to.equal('STING');
-  expect(playlist[30].position).to.equal('10');
-  expect(playlist[31].name).to.equal('STING');
-  expect(playlist[32].position).to.equal('09');
-  expect(playlist[33].name).to.equal('ADVERTISEMENT');
-
-  expect(playlist[34].name).to.equal('STING');
-  expect(playlist[35].position).to.equal('08');
-  expect(playlist[36].name).to.equal('STING NEW VIDEO');
-  expect(playlist[37].position).to.equal('xtra');
-  expect(playlist[38].name).to.equal('ADVERTISEMENT');
-
-  expect(playlist[39].name).to.equal('STING');
-  expect(playlist[40].position).to.equal('07');
-  expect(playlist[41].name).to.equal('STING');
-  expect(playlist[42].position).to.equal('06');
-  expect(playlist[43].name).to.equal('ADVERTISEMENT');
-
-  expect(playlist[44].name).to.equal('STING');
-  expect(playlist[45].position).to.equal('05');
-  expect(playlist[46].name).to.equal('STING');
-  expect(playlist[47].position).to.equal('04');
-  expect(playlist[48].name).to.equal('ADVERTISEMENT');
-
-  expect(playlist[49].name).to.equal('STING');
-  expect(playlist[50].position).to.equal('03');
-  expect(playlist[51].name).to.equal('STING');
-  expect(playlist[52].position).to.equal('02');
-  expect(playlist[53].name).to.equal('ADVERTISEMENT');
-
-  expect(playlist[54].name).to.equal('STING');
-  expect(playlist[55].position).to.equal('01');
-  expect(playlist[56].name).to.equal('INTRO');
+  const order = [
+    'INTRO',
+    'STING','20',
+    'STING','19',
+    'ADVERTISEMENT',
+    
+    'STING','18',
+    'STING NEW VIDEO','xtra',
+    'ADVERTISEMENT',
+    
+    'STING','17',
+    'STING','16',
+    'ADVERTISEMENT',
+    
+    'STING','15',
+    'STING','14',
+    'ADVERTISEMENT',
+    
+    'STING','13',
+    'STING','12',
+    'ADVERTISEMENT',
+    
+    'STING','11',
+    'ADVERTISEMENT',
+    
+    'STING','10',
+    'STING','09',
+    'ADVERTISEMENT',
+    
+    'STING','08',
+    'STING NEW VIDEO','xtra',
+    'ADVERTISEMENT',
+    
+    'STING','07',
+    'STING','06',
+    'ADVERTISEMENT',
+    
+    'STING','05',
+    'STING','04',
+    'ADVERTISEMENT',
+    
+    'STING','03',
+    'STING','02',
+    'ADVERTISEMENT',
+    
+    'STING','01',
+  ];
+  
+  playlist.forEach((item, index) => {
+    expect(item.name || item.position).to.equal(order[index]);
+  });
 }
