@@ -185,11 +185,9 @@ function generateList(outcoming, incoming) {
 {
   const { currentList, nextList } = generateList([16, 18], [10, 19]);
   
-  
-  const database = [
-    { history: [5, 5, 9, 13, 15], match: 'OUT 18' },
-    { history: [1, 1, 1, 2, 3, 3, 5, 6, 6, 8, 12], match: 'OUT 16' },
-  ];
+  const database = new Map();
+  database.set('OUT 18', {history: [5, 5, 9, 13, 15]});
+  database.set('OUT 16', {history: [1, 1, 1, 2, 3, 3, 5, 6, 6, 8, 12]});
   
   const list = format(currentList, nextList, database);
   
