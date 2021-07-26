@@ -444,7 +444,8 @@ const charted = [
     videoId: "_W2jONIjrM0",
     volume: 100,
   },
-];
+].reduce((map, item) => map.set(item.match, item), new Map());
+
 
 let uncharted = new List(
   {
