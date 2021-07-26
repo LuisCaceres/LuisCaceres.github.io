@@ -279,9 +279,8 @@ function generateList(outcoming, incoming) {
 {
   const { currentList, nextList } = generateList([20], [1]);
 
-  const database = [
-    {history: [], match: 'OUT 20'},
-  ];
+  const database = new Map()
+  .set('OUT 20', {history: new NumericRange()});
 
   const list = format(currentList, nextList, database);
 
@@ -310,9 +309,8 @@ function generateList(outcoming, incoming) {
 {
   const { currentList, nextList } = generateList([20], [9]);
 
-  const database = [
-    {history: [20], match: 'OUT 20'},
-  ];
+  const database = new Map()
+  .set('OUT 20', {history: new NumericRange(20)});
 
   const list = format(currentList, nextList, database);
 
@@ -326,10 +324,9 @@ function generateList(outcoming, incoming) {
 {
   const { currentList, nextList } = generateList([14, 13], [12, 16]);
 
-  const database = [
-    {history: [6, 10, 14], match: 'OUT 14'},
-    {history: [7, 12, 13], match: 'OUT 13'},
-  ];
+  const database = new Map()
+  .set('OUT 14', {history: new NumericRange(6, 10, 14)})
+  .set('OUT 13', {history: new NumericRange(7, 12, 13)});
 
   const list = format(currentList, nextList, database);
 
@@ -345,9 +342,8 @@ function generateList(outcoming, incoming) {
 {
   const { currentList, nextList } = generateList([13], [11]);
 
-  const database = [
-    {history: [6, 10, 14], match: 'OUT 13'},
-  ];
+  const database = new Map()
+  .set('OUT 13', {history: new NumericRange(6, 10, 14)});
   
   const list = format(currentList, nextList, database);
   
@@ -362,9 +358,8 @@ function generateList(outcoming, incoming) {
 {
   const { currentList, nextList } = generateList([11], [5]);
 
-  const database = [
-    {history: [6, 2, 2, 1], match: 'OUT 11'},
-  ];
+  const database = new Map()
+  .set('OUT 11', {history: new NumericRange(6, 2, 2, 1)});
   
   const list = format(currentList, nextList, database);
   
@@ -375,10 +370,9 @@ function generateList(outcoming, incoming) {
 // FORMATTING NOT ALLOWED IN SPITE OF THE EXISTENCE OF AN ILLEGAL ITEM
 {
   const { currentList, nextList } = generateList([15], [10]);
-
-  const database = [
-    {history: [19, 17, 13, 11, 11], match: 'OUT 15'},
-  ];
+  
+  const database = new Map()
+  .set('OUT 15', {history: new NumericRange(19, 17, 13, 11, 11)});
   
   const list = format(currentList, nextList, database);
   
@@ -389,10 +383,9 @@ function generateList(outcoming, incoming) {
 // FORMATTING NOT ALLOWED IN SPITE OF THE EXISTENCE OF AN ILLEGAL ITEM
 {
   const { currentList, nextList } = generateList([20], [9]);
-
-  const database = [
-    {history: [20, 18, 16, 14, 13, 13], match: 'OUT 20'},
-  ];
+  
+  const database = new Map()
+  .set('OUT 20', {history: new NumericRange(20, 18, 16, 14, 13, 13)});
  
   const list = format(currentList, nextList, database);
  
@@ -404,9 +397,8 @@ function generateList(outcoming, incoming) {
 {
   const { currentList, nextList } = generateList([13], [12]);
 
-  const database = [
-    {history: [7, 12, 13], match: 'OUT 13'},
-  ];
+  const database = new Map()
+  .set('OUT 13', {history: new NumericRange(7, 12, 13)});
 
   const list = format(currentList, nextList, database);
 
