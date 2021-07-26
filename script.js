@@ -174,7 +174,7 @@ function format(currentList, nextList, database) {
   // Iterate through next week's list and verify if there are any new items.
   // Let `newItems` be a list of such items.
   const newItems = currentList.difference(nextList);
-  // Verify if there are any new items below position 13.
+  // Verify if there are any new items in position 12 or below.
   // Let `illegalItems` be a list of such items.
   const illegalItems = newItems.intersection(nextList.filter((item, index) => index + 1 <= 12));
 
@@ -189,9 +189,8 @@ function format(currentList, nextList, database) {
   // Let `replacees` be a list of items that may be replaced by an illegal item.
   const replacees = expiredItems.filter(match => {
     // For each item `item` in `expiredItems`:
-    const {history} = database.find(item => item.match === match);
-    const range = new NumericRange(...history);
-    return range.length === 0 || range.at(-1) > 12 && range.isAscending();
+    const {history} = database.get(match);
+    return history.length === 0 || history.at(-1) > 12 && history.isAscending();
   });
 
   // Abort if there are no suitable replacements.
@@ -231,8 +230,20 @@ function format(currentList, nextList, database) {
 /*
  *
  */
-function format2(currentList, nextList, next) {
+function format2(currentList, previousList, database) {
+  // Compare `currentList` and `nextList` and get the items that have come out of `nextList`.
+  // Let `outItems` be a list of such items.
+  const outItems = nextList.difference(currentList);
   
+  const illegalItems = outItems.filter(match => {
+    const {history} = database.get(match);
+    return history.isAscending();
+  });
+  
+  // Abort if there are no illegal items.
+  if (!illegalItems.length) {
+    return currentList;
+  }
 }
 
 
