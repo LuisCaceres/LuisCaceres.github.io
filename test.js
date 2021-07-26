@@ -243,7 +243,7 @@ function generateList(outcoming, incoming) {
 {
   const { currentList, nextList } = generateList([18], [16]);
 
-const list = format(currentList, nextList, {});
+  const list = format(currentList, nextList, {});
 
   expect(list.length).to.equal(20);
   expect(list.includes('OUT 18')).to.equal(true);
@@ -252,12 +252,11 @@ const list = format(currentList, nextList, {});
 {
   const { currentList, nextList } = generateList([17, 19, 20], [16, 11, 8]);
 
-  const database = [
-    {history: [13, 13, 14, 17, 19], match: 'OUT 20'},
-    {history: [7, 7, 9, 11, 15], match: 'OUT 19'},
-    {history: [6, 5, 7, 8, 12], match: 'OUT 17'},
-  ];
-
+  const database = new Map()
+  .set('OUT 20', {history: new NumericRange(13, 13, 14, 17, 19)})
+  .set('OUT 19', {history: new NumericRange(7, 7, 9, 11, 15)})
+  .set('OUT 17', {history: new NumericRange(6, 5, 7, 8, 12)});
+  
   const list = format(currentList, nextList, database);
 
   expect(list.length).to.equal(20);
