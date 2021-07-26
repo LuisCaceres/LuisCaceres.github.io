@@ -186,9 +186,9 @@ function generateList(outcoming, incoming) {
   const { currentList, nextList } = generateList([16, 18], [10, 19]);
   
   const database = new Map();
-  database.set('OUT 18', {history: [5, 5, 9, 13, 15]});
-  database.set('OUT 16', {history: [1, 1, 1, 2, 3, 3, 5, 6, 6, 8, 12]});
-  
+  database.set('OUT 18', {history: new NumericRange(5, 5, 9, 13, 15)});
+  database.set('OUT 16', {history: new NumericRange(1, 1, 1, 2, 3, 3, 5, 6, 6, 8, 12)});
+ 
   const list = format(currentList, nextList, database);
   
   expect(list.length).to.equal(20);
