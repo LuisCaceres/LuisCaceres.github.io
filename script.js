@@ -43,14 +43,13 @@ function adjustScreen(screen, measurements) {
  */
 function associate(list, charted, uncharted) {
   const chart = list.map((match, index) => {
-    let entry = charted.find(entry => entry.match === match);
+    let entry = charted.get(match);
     
     if (!entry) {
       entry = uncharted.random();
-      entry.match = match;
       // Remove any duplicates of 'video' from the pool.
       uncharted = uncharted.filter(item => item !== entry);
-      charted.push(entry);
+      charted.set(match, entry);
     }
     
     entry.position = ("0" + (index + 1)).substr(-2);
