@@ -31,8 +31,8 @@ function generateList(outcoming, incoming) {
   const { chart } = associate(list, charted, uncharted);
 
   expect(chart.length).to.equal(2);
-  expect(chart[0]).to.equal('Song A');
-  expect(chart[1]).to.equal('Song C');
+  expect(chart[0]).to.equal('Song C');
+  expect(chart[1]).to.equal('Song A');
   expect(charted.size).to.equal(3);
   expect(uncharted.length).to.equal(0);
 }
