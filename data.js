@@ -447,6 +447,7 @@ const charted = [
 ]
 // .map(element => new Item(element))
 //.forEach(item => item.validate())
+.reduce((map, item) => map.set(item.match, item), new Map())
 .forEach(item => {
   const keys = Object.keys(item);
   expect(keys.includes('title')).to.equal(true);
@@ -457,8 +458,7 @@ const charted = [
   expect(keys.includes('type')).to.equal(true);
   expect(keys.includes('videoId')).to.equal(true);
   expect(keys.includes('volume')).to.equal(true);
-})
-.reduce((map, item) => map.set(item.match, item), new Map());
+});
 
 
 let uncharted = new List(
