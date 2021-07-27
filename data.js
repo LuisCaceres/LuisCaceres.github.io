@@ -676,11 +676,11 @@ let uncharted = new List(
 // Validate each item in uncharted.
 uncharted.forEach(item => {
   const keys = Object.keys(item);
-  expect(keys.includes('title')).to.equal.true();
-  expect(keys.includes('artist')).to.equal.true();
-  expect(keys.includes('priority')).to.equal.true();
-  expect(keys.includes('style')).to.equal.true();
-  expect(keys.includes('type')).to.equal.true();
-  expect(keys.includes('videoId')).to.equal.true();
-  expect(keys.includes('volume')).to.equal.true();
+  expect(keys.includes('title')).to.equal(true);
+  expect(keys.includes('artist')).to.equal(true);
+  expect(keys.includes('priority')).to.equal(true);
+  expect(keys.includes('style')).to.equal(true);
+  expect(keys.includes('type')).to.equal(true);
+  expect(keys.includes('videoId')).to.equal(true);
+  expect(keys.includes('volume')).to.equal(true);
 });
