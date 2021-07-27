@@ -548,7 +548,12 @@ function generateList(outcoming, incoming) {
   expect(list[2]).to.equal('D');
   expect(list[3]).to.equal('E');
 }
-
+{
+  const list = new List('A', 'A', 'A', 'A', 'A');
+  list.remove('A');
+  
+  expect(list.length).to.equal(0);
+}
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // replace()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
