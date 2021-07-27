@@ -5,7 +5,7 @@ const nextList = ["!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!", "!V3!!!Ejtdpuifrvf!", "!Nb
 const advertisement = {
   endSeconds: 91,
   name: "ADVERTISEMENT",
-  startSeconds: 77,
+  startSeconds: 77, 
   style: {width: "83vw"},
   videoId: 'caaddLZhLoY',
   volume: 50,
@@ -447,8 +447,9 @@ const charted = [
 ]
 // .map(element => new Item(element))
 //.forEach(item => item.validate())
-.reduce((map, item) => map.set(item.match, item), new Map())
-.forEach(item => {
+.reduce((map, item) => map.set(item.match, item), new Map());
+
+charted.forEach(item => {
   const keys = Object.keys(item);
   expect(keys.includes('title')).to.equal(true);
   expect(keys.includes('artist')).to.equal(true);
