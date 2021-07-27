@@ -58,19 +58,14 @@ async function onYouTubeIframeAPIReady() {
   const list = format(lists.current, lists.next, charted); 
 
   const result = associate(list, charted, uncharted);
-    
   insertExtraItems(result.chart, result.uncharted);
-  expect(result.chart.length).to.equal(22);
-  
-  let playlist = generatePlaylist(result.chart, intro, sting, advertisement, newVideo);
-  validate(playlist);
-  
+
+  let playlist = generatePlaylist(result.chart, intro, sting, advertisement, newVideo);  
   playlist = adjustPlaylist(playlist);
   validate(playlist);
  
   while (playlist.length) {
     const video = playlist.shift();
-    
     player.loadVideoById(video);
     player.setVolume(video.volume);
       
