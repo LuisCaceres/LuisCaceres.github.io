@@ -373,5 +373,5 @@ function validate(playlist) {
   /* Verify there are no music videos duplicated in the playlist */
   playlist = playlist.filter(item => item.position);
   playlist = new Set(playlist);
-  expect(playlist.length).to.equal(22);
+  expect(playlist.size).to.equal(22);
 }
