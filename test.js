@@ -20,24 +20,20 @@ function generateList(outcoming, incoming) {
 // associate()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
-  const list = ['Title 1', 'Title 3'];
+  const list = ['A', 'C'];
   
-  const charted = new List(
-    { artist: 'Artist 1', title: 'Title 1', match: 'Title 1' },
-    { artist: 'Artist 2', title: 'Title 2', match: 'Title 2' },
-  );
-  
-  const uncharted = new List({ artist: 'Artist 3', title: 'Title 3' });
+  const charted = new Map()
+  .set('A', '1')
+  .set('B', '2');
+     
+  const uncharted = new List('C');
   
   const value = associate(list, charted, uncharted);
 
   expect(value.chart.length).to.equal(2);
-  expect(value.chart[0]).to.equal(uncharted[0]);  // Artist 3
-  expect(value.chart[1]).to.equal(charted[0]);    // Artist 1
-  expect(value.chart[0].hasOwnProperty('match')).to.equal(true);
-
-
-  expect(value.charted.length).to.equal(3);
+  expect(value.chart[0]).to.equal('3');
+  expect(value.chart[1]).to.equal('1');
+  expect(value.charted.size).to.equal(3);
   expect(value.uncharted.length).to.equal(0);
 }
 
