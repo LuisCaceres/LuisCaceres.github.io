@@ -444,7 +444,21 @@ const charted = [
     videoId: "_W2jONIjrM0",
     volume: 100,
   },
-].reduce((map, item) => map.set(item.match, item), new Map());
+]
+// .map(element => new Item(element))
+//.forEach(item => item.validate())
+.forEach(item => {
+  const keys = Object.keys(item);
+  expect(keys.includes('title')).to.equal(true);
+  expect(keys.includes('artist')).to.equal(true);
+  expect(keys.includes('history')).to.equal(true);
+  expect(keys.includes('match')).to.equal(true);
+  expect(keys.includes('style')).to.equal(true);
+  expect(keys.includes('type')).to.equal(true);
+  expect(keys.includes('videoId')).to.equal(true);
+  expect(keys.includes('volume')).to.equal(true);
+})
+.reduce((map, item) => map.set(item.match, item), new Map());
 
 
 let uncharted = new List(
@@ -657,3 +671,4 @@ let uncharted = new List(
 // This increases the chances of an item being randomly picked up from the pool.
 // For example, an item with a priority of '3' is duplicated 3 times in the pool. 
 .map(item => (new Array(item.priority)).fill(item)).flat();
+
