@@ -65,31 +65,31 @@ function generateList(outcoming, incoming) {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
   const chart = new List(
-    'POSITION 20',
-    'POSITION 19',
-    'POSITION 18',
-    'VIDEO EXTRA 1',
-    'POSITION 17',
-    'POSITION 16',
-    'POSITION 15',
-    'POSITION 14',
-    'POSITION 13',
-    'POSITION 12',
-    'POSITION 11',
-    'POSITION 10',
-    'POSITION 09',
-    'POSITION 08',
-    'VIDEO EXTRA 2',
-    'POSITION 07',
-    'POSITION 06',
-    'POSITION 05',
-    'POSITION 04',
-    'POSITION 03',
-    'POSITION 02',
-    'POSITION 01',
+    '20',
+    '19',
+    '18',
+    'xtra', // VIDEO EXTRA
+    '17',
+    '16',
+    '15',
+    '14',
+    '13',
+    '12',
+    '11',
+    '10',
+    '09',
+    '08',
+    'xtra', // VIDEO EXTRA
+    '07',
+    '06',
+    '05',
+    '04',
+    '03',
+    '02',
+    '01',
   );
      
-  const playlist = generatePlaylist(chart, 'INTRO', 'STING', 'ADVERTISEMENT', 'STING VIDEO EXTRA');
+  const playlist = generatePlaylist(chart, 'INTRO', 'STING', 'ADVERTISEMENT', 'STING NEW VIDEO');
   validate(playlist);
 }
 
