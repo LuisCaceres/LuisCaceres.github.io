@@ -367,6 +367,6 @@ function validate(playlist) {
   ];
   
   playlist.forEach((item, index) => {
-    expect(item.name || item.position).to.equal(order[index]);
+    expect(item.name || item.position || item).to.equal(order[index]);
   });
 }
