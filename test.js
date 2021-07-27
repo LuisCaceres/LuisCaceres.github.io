@@ -20,21 +20,21 @@ function generateList(outcoming, incoming) {
 // associate()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
-  const list = ['A', 'C'];
-  
   const charted = new Map()
-  .set('A', '1')
-  .set('B', '2');
-     
-  const uncharted = new List('C');
-  
-  const value = associate(list, charted, uncharted);
+  .set('Entry 1', 'Song A')
+  .set('Entry 2', 'Song B');
 
-  expect(value.chart.length).to.equal(2);
-  expect(value.chart[0]).to.equal('3');
-  expect(value.chart[1]).to.equal('1');
-  expect(value.charted.size).to.equal(3);
-  expect(value.uncharted.length).to.equal(0);
+  const uncharted = new List('Song C');
+
+  const list = ['Entry 1', 'Entry 3'];
+
+  const { chart } = associate(list, charted, uncharted);
+
+  expect(chart.length).to.equal(2);
+  expect(chart[0]).to.equal('Song A');
+  expect(chart[1]).to.equal('Song C');
+  expect(charted.size).to.equal(3);
+  expect(uncharted.length).to.equal(0);
 }
 
 
