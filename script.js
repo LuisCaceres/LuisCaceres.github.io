@@ -1,6 +1,8 @@
 // TO DO: IT SEEMS THERE ARE MORE DEBUTS THAN I WOULD LIKE THEM TO THERE BE. 
 // TO DO: [20, 20, 18, 17, 17, **], [**, **, **, **, **, 13] <<<< SHOULDN'T BE ALLOWED, INSTEAD [20, 20, 18, 17, 17, 13]
 // TO DO: [20, **], [** 18]<<<<< SHOULDN'T BE ALLOWED INSTEAD [20, 18]
+// WHAT ABOUT WHEN THERE IS MORE THAN ONCE INSTANCE OF THIS?
+
 
 // TO DO: THERE ARE MORE OCURRENCES OF VIDEOS BEING IN THE SAME POSITION FOR MORE THAN 3 WEEKS, I DON'T LIKE THAT.
 
@@ -241,20 +243,59 @@ function format(currentList, nextList, database) {
  *
  */
 function format2(currentList, previousList, database) {
-  // Compare `currentList` and `nextList` and get the items that have come out of `nextList`.
+  // Compare `currentList` to `previousList` and get the items that have come out of `currentList`.
   // Let `outItems` be a list of such items.
-  const outItems = nextList.difference(currentList);
+  const outItems = currentList.difference(previousList);
   
-  const illegalItems = outItems.filter(match => {
-    const {history} = database.get(match);
-    return history.isAscending();
+  // Let `illegalItems` be an initially empty list of items.
+  // For each item `item` in `outItems`.
+     // Add `item` to `illegalItems` if no backward movement has been registered.
+     // Example: [20, 20, 18, 17, 17, **]
+  const illegalItems = outItems.filter((match, index )=> {
+    return database.get(match).history.isAscending();
   });
   
   // Abort if there are no illegal items.
   if (!illegalItems.length) {
     return currentList;
   }
+  
+  const positions = illegalItems.map(item => previousList.indexOf(item));
+  
+  // Compare `previousList` to `currentList` and get the items that have come into `currentList`.
+  // Let `newItems` be a list of such items.
+  // For each item `item` in `newItems`.
+  
+  // Filter items that are not suitable for replacement.
+  // What's the definition of suitable?
+  // An item that is no less than
+  
+  const replacees = previousList.difference(currentList)
+  .filter(item => {
+    return positions.some(position => currentList.indexOf(item) > position);
+  });
+  
+  // Abort if there are no replacees.
+  if (!replacees.length) {
+    return currentList;
+  }
+  
+  // If the number of items is not the same as illegal items.
+  // Remove the least suitable items and make them equal as the number of illegal items
+  // What's the definition of less suitable?
+  illegalItems.sort(item => {
+    
+  }).splice();
+   
+  // Randomly assign and replace
+  
+  // Do I need to sort Illegal items?
+  
+  while (illegalItems.length) {
+    
+  }
 }
+
 
 
 /*
