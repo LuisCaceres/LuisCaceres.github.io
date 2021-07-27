@@ -52,7 +52,7 @@ function associate(list, charted, uncharted) {
       charted.set(match, entry);
     }
     
-    entry.position = `${index}`.padStart(2, 0);
+    entry.position = `${index + 1}`.padStart(2, 0);
     
     return entry;
   }).reverse();
