@@ -48,11 +48,12 @@ function associate(list, charted, uncharted) {
     if (!entry) {
       entry = uncharted.random();
       // Remove any duplicates of 'video' from the pool.
-      uncharted = uncharted.filter(item => item !== entry);
+      uncharted.remove(entry);
       charted.set(match, entry);
     }
     
-    entry.position = ("0" + (index + 1)).substr(-2);
+    entry.position = `${index}`.padStart(2, 0);
+    
     return entry;
   }).reverse();
     
@@ -123,8 +124,12 @@ class List extends Array {
    *
    */
   remove(item) {
-    const index = this.findIndex(a => a === item);
-    this.splice(index, 1);
+    let index = this.indexOf(item);
+    
+    while(index > -1) {
+      this.splice(index, 1);
+      index = this.indexOf(item);
+    }
   }
  
   
