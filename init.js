@@ -51,12 +51,14 @@ async function onYouTubeIframeAPIReady() {
   alert('The availability of videos has been verified');
   
   const lists = {
+    previous: new List(...previousList),
     current: new List(...currentList),
     next: new List(...nextList),
   };
   
-  const list = format(lists.current, lists.next, charted); 
-
+  let list = format(lists.current, lists.previous, charted);
+  list = format2(lists.current, lists.next, charted);
+ 
   const result = associate(list, charted, uncharted);
   insertExtraItems(result.chart, result.uncharted);
 
