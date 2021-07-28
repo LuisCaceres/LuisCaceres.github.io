@@ -309,13 +309,13 @@ function format2(currentList, previousList, database) {
       replacees.remove(replacee);
     
       const rest1 = illegalItems.slice(index + 1).map(entry => previousList.indexOf(entry));
-      const rest2 = replacees.map(entry => currentList.indexOf(entry));
+      const rest2 = replacees.concat(reserve).map(entry => currentList.indexOf(entry));
       
       const allowed = rest2.filter(item => {
         return rest1.some(position => item >= position);
       });
     
-      if (allowed.length === rest1.length) {
+      if (allowed.length) {
         currentList.replace(replacee, illegalItem);
         break;
       } 
