@@ -255,7 +255,7 @@ function format2(currentList, previousList, database) {
      // Example: [20, 20, 18, 17, 17, **]
   const illegalItems = outItems.filter((match, index )=> {
     const {history} = database.get(match);
-    return history.isAscending() || history.length === 1;
+    return history.isDescending() || history.length === 1;
   });
   
   // Abort if there are no illegal items.
