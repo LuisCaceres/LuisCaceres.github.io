@@ -311,10 +311,10 @@ function format2(currentList, previousList, database) {
       const rest1 = illegalItems.slice(index + 1).map(entry => previousList.indexOf(entry));
       const rest2 = replacees.map(entry => currentList.indexOf(entry));
       
-      const allowed = rest1.filter(item => {
-        return rest2.some(position => currentList.indexOf(item) >= position);
+      const allowed = rest2.filter(item => {
+        return rest1.some(position => currentList.indexOf(item) >= position);
       }); 
-      
+    
       if (allowed.length === rest1.length) {
         currentList.replace(replacee, illegalItem);
         break;
