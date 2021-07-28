@@ -347,8 +347,12 @@ function generateList(outcoming, incoming) {
   const list = format2(currentList, previousList, database);
 
   expect(list.length).to.equal(20);
-  expect(list.includes('OUT 13')).to.equal(true);
-  expect(list.includes('IN 12')).to.equal(false);
+  expect(list.includes('OUT 20')).to.equal(true);
+  expect(list.includes('OUT 19')).to.equal(true);
+  expect(list.includes('OUT 18')).to.equal(true);
+  expect(list.includes('IN 20')).to.equal(false);
+  expect(list.includes('IN 19')).to.equal(false);
+  expect(list.includes('IN 18')).to.equal(false);
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
