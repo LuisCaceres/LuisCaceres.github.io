@@ -303,11 +303,13 @@ function format2(currentList, previousList, database) {
   // For each entry `entry` in `disallowedEntries`.
     // Randomly extract a debut from `debuts`.
     // Replace `debut` with `entry` on this week's chart.
-  for (const illegalItem of illegalItems) {
+  illegalItems.forEach(illegalItem => {
     while (replacees.length) {
       const replacee = replacees.random();
       replacees.remove(replacee);
     
+//       const others = illegalItems.slice(index);
+      
       if (true) {
         currentList.replace(replacee, illegalItem);
         break;
@@ -316,10 +318,9 @@ function format2(currentList, previousList, database) {
         reserve.push(replacee);
       }
     }
-    
     // Let's start again
     replacees.push(...reserve);
-  }  
+  });  
   
   // DONE
   return currentList;
