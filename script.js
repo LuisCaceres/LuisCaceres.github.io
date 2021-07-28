@@ -245,61 +245,83 @@ function format(currentList, nextList, database) {
  *
  */
 function format2(currentList, previousList, database) {
-  // Compare `currentList` to `previousList` and get the items that have come out of `currentList`.
-  // Let `outItems` be a list of such items.
+  // FIND OUT WHICH ENTRIES HAVE DROPPED OFF THIS WEEK'S CHART.
+  // Compare last week's chart and this week's chart and get the entries not present in this week's chart.
+  // Let `outItems` be a list of such entries.
   const outItems = currentList.difference(previousList);
   
-  // Let `illegalItems` be an initially empty list of items.
-  // For each item `item` in `outItems`.
-     // Add `item` to `illegalItems` if no backward movement has been registered.
-     // Example: [20, 20, 18, 17, 17, **]
+  // OUT OF THOSE ENTRIES, FIND OUT WHICH ONES ARE DISALLOWED.
+  // Let `disallowedEntries` be an initially empty list of entries.
+  // For each entry `entry` in `outItems`.
+     // Add `entry` to `disallowedEntries` if `entry`'s history only contains forward movements.
+     // EXAMPLE of an entry's history which only contains forward movements: [20, 20, 18, 17, 17, **]
   const illegalItems = outItems.filter((match, index )=> {
     const {history} = database.get(match);
     return history.isDescending() || history.length === 1;
   });
   
-  // Abort if there are no illegal items.
+  // ABORT IF THERE ARE NO DISALLOWED ENTRIES
   if (!illegalItems.length) {
     return currentList;
   }
-  
+ 
+  // Let `positions` be an initially empty list of chart positions.
+  // For each entry `entry` in `disallowedEntries`.
+    // Refer to last week's chart and find out `entry`'s position on the chart.
+    // Add that position to `positions`.
   const positions = illegalItems.map(item => previousList.indexOf(item));
   
-  // Compare `previousList` to `currentList` and get the items that have come into `currentList`.
-  // Let `newItems` be a list of such items.
-  // For each item `item` in `newItems`.
+  // FIND OUT WHICH ENTRIES HAVE DEBUTED ON THIS WEEK'S CHART.
+  // Compare last week's chart and this week's chart and get the entries not present in last week's chart (debuts).
+  // Let `newEntries` be a list of such entries.
+  const debuts = previousList.difference(currentList);
   
-  // Filter items that are not suitable for replacement.
-  // What's the definition of suitable?
-  // An item that is no less than
-  
-  const replacees = previousList.difference(currentList)
-  .filter(item => {
+  // CHECK WHICH OF THOSE DEBUTS CAN BE REPLACED BY A DISALLOWED ENTRY
+  // For each debut `debut` in `debuts`.
+    // Refer to this week's chart and find out `debut`'s position on the chart.
+    // Add to `replacees` if that position is greater than, at least, one of the positions in `positions`.
+  const replacees = debuts.filter(item => {
     return positions.some(position => currentList.indexOf(item) >= position);
   });
   
-  // Abort if there are no replacees.
+  // ABORT IF THERE ARE NO DEBUTS THAT CAN BE REPLACED.
   if (!replacees.length) {
     return currentList;
   }
   
-  // If the number of items is not the same as illegal items.
-  // Remove the least suitable items and make them equal as the number of illegal items
-  // What's the definition of less suitable?
+  // NOTE: STEP PERHAPS NOT REQUIRED
+  // If there are more disallowed entries than debuts 
+  //  Remove the least suitable items and make them equal as the number of illegal items
+  //  What's the definition of less suitable?
   if (illegalItems.length !== replacees.length) {
     illegalItems.sort(item => {}).splice();
   }
-   
-  // Randomly assign and replace
-  // Do I need to sort Illegal items?
+  
   const reserve = new List();
   
+  // REPLACE A DEBUT WITH A DISALLOWED ENTRY ON THIS WEEK'S CHART.
+  // For each entry `entry` in `disallowedEntries`.
+    // Randomly extract a debut from `debuts`.
+    // Replace `debut` with `entry` on this week's chart.
   for (const illegalItem of illegalItems) {
-    const replacee = replacees.random();
-    currentList.replace(replacee, illegalItem);
-    replacees.remove(replacee);
+    while (replacees.length) {
+      const replacee = replacees.random();
+      replacees.remove(replacee);
+    
+      if (true) {
+        currentList.replace(replacee, illegalItem);
+        break;
+      } 
+      else {
+        reserve.push(replacee);
+      }
+    }
+    
+    // Let's start again
+    replacees.push(...reserve);
   }  
   
+  // DONE
   return currentList;
 }
 
