@@ -188,7 +188,7 @@ function format(currentList, nextList, database) {
   const newItems = currentList.difference(nextList);
   // Verify if there are any new items in position 12 or below.
   // Let `illegalItems` be a list of such items.
-  const illegalItems = newItems.intersection(nextList.filter((item, index) => index + 1 <= 12));
+  const illegalItems = newItems.filter(item => nextList.indexOf(item) + 1 <= 12));
 
   // Abort if there are no illegal items.
   if (!illegalItems.length) {
