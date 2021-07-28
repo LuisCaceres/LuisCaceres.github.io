@@ -344,7 +344,7 @@ function generateList(outcoming, incoming) {
   .set('OUT 19', {history: new NumericRange(20)})
   .set('OUT 18', {history: new NumericRange(20, 19)});
 
-  const list = format2(previousList, currentList, database);
+  const list = format2(currentList, previousList, database);
 
   expect(list.length).to.equal(20);
   expect(list.includes('OUT 13')).to.equal(true);
