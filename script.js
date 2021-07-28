@@ -281,7 +281,7 @@ function format2(currentList, previousList, database) {
     // Refer to this week's chart and find out `debut`'s position on the chart.
     // Add to `replacees` if that position is greater than, at least, one of the positions in `positions`.
   const replacees = debuts.filter(item => {
-    return positions.some(position => currentList.indexOf(item) >= position);
+    return positions.some(position => currentList.indexOf(item) <= position);
   });
   
   // ABORT IF THERE ARE NO DEBUTS THAT CAN BE REPLACED.
