@@ -254,7 +254,8 @@ function format2(currentList, previousList, database) {
      // Add `item` to `illegalItems` if no backward movement has been registered.
      // Example: [20, 20, 18, 17, 17, **]
   const illegalItems = outItems.filter((match, index )=> {
-    return database.get(match).history.isAscending();
+    const {history} = database.get(match);
+    return history.isAscending() || history.length === 1;
   });
   
   // Abort if there are no illegal items.
