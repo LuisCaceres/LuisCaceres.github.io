@@ -303,14 +303,19 @@ function format2(currentList, previousList, database) {
   // For each entry `entry` in `disallowedEntries`.
     // Randomly extract a debut from `debuts`.
     // Replace `debut` with `entry` on this week's chart.
-  illegalItems.forEach(illegalItem => {
+  illegalItems.forEach((illegalItem, index) => {
     while (replacees.length) {
       const replacee = replacees.random();
       replacees.remove(replacee);
     
-//       const others = illegalItems.slice(index);
+      const rest1 = illegalItems.slice(index + 1).map(entry => previousList.indexOf(entry));
+      const rest2 = replacees.difference(new List(replacee).map(entry => currentList.indexOf(entry));
       
-      if (true) {
+      const allowed = rest1.filter(item => {
+        return rest2.some(position => currentList.indexOf(item) >= position);
+      }); 
+      
+      if (allowed.length === rest1.length) {
         currentList.replace(replacee, illegalItem);
         break;
       } 
