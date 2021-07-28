@@ -286,19 +286,21 @@ function format2(currentList, previousList, database) {
   // If the number of items is not the same as illegal items.
   // Remove the least suitable items and make them equal as the number of illegal items
   // What's the definition of less suitable?
-  illegalItems.sort(item => {
-    
-  }).splice();
+  if (illegalItems.length !== replacees.length) {
+    illegalItems.sort(item => {}).splice();
+  }
    
   // Randomly assign and replace
-  
   // Do I need to sort Illegal items?
   const reserve = new List();
   
+  while (illegalItems.length) {
+    const replacee = replacees.random();
+    currentList.replace(replacee, illegalItem);
+    replacees.remove(replacee);
+  }
   
-//   while (illegalItems.length) {
-    
-//   }
+  return currentList;
 }
 
 // [20, 19, 18] = [20, 19, 18];
