@@ -374,6 +374,9 @@ function generateList(outcoming, incoming) {
   expect(list.includes('IN 20')).to.equal(false);
   expect(list.includes('IN 19')).to.equal(false);
   expect(list.includes('IN 18')).to.equal(false);
+  expect(list.indexOf('OUT 20')).to.equal(20);
+  expect(list.indexOf('OUT 19')).to.equal(19);
+  expect(list.indexOf('OUT 18')).to.equal(18);
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
