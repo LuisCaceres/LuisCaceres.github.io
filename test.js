@@ -337,6 +337,27 @@ function generateList(outcoming, incoming) {
 // format2()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
+  const [previousList, currentList] = generateList([20, 18, 17, 16], [20, 19, 16, 13]);
+
+  const database = new Map()
+  .set('OUT 20', {history: new NumericRange(17, 15, 20, 20)})
+  .set('OUT 18', {history: new NumericRange(20, 18, 14, 12, 12, 18)})
+  .set('OUT 17', {history: new NumericRange(20, 20, 18, 17, 17)})
+  .set('OUT 16', {history: new NumericRange(1, 1, 1, 4, 5, 10, 13, 16)});
+
+  const list = format2(currentList, previousList, database);
+
+  expect(list.length).to.equal(20);
+  expect(list.includes('OUT 20')).to.equal(false);
+  expect(list.includes('OUT 18')).to.equal(false);
+  expect(list.includes('OUT 17')).to.equal(true);
+  expect(list.includes('OUT 16')).to.equal(false);
+  expect(list.includes('IN 20')).to.equal(true);
+  expect(list.includes('IN 19')).to.equal(true);
+  expect([16, 13].includes(list.indexOf('OUT 20') + 1)).to.equal(true);
+}
+
+{
   const [previousList, currentList] = generateList([20, 19, 18], [20, 19, 18]);
 
   const database = new Map()
