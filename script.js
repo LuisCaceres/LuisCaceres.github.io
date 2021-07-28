@@ -312,8 +312,8 @@ function format2(currentList, previousList, database) {
       const rest2 = replacees.map(entry => currentList.indexOf(entry));
       
       const allowed = rest2.filter(item => {
-        return rest1.some(position => currentList.indexOf(item) >= position);
-      }); 
+        return rest1.some(position => item >= position);
+      });
     
       if (allowed.length === rest1.length) {
         currentList.replace(replacee, illegalItem);
