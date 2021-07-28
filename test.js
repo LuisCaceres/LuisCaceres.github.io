@@ -3,17 +3,17 @@ console.log('Testing starting.');
 const expect = chai.expect;
 
 function generateList(outcoming, incoming) {
-  const currentList = new List();
-  const nextList = new List();
+  const listA = new List();
+  const listB = new List();
   const itemsA = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'];
   const itemsB = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'];
 
   for (let i = 1; i <= 20; i++) {
-      currentList.push(outcoming.includes(i) ? `OUT ${i}` : itemsA.shift());
-      nextList.push(incoming.includes(i) ? `IN ${i}` : itemsB.shift());
+      listA.push(outcoming.includes(i) ? `OUT ${i}` : itemsA.shift());
+      listB.push(incoming.includes(i) ? `IN ${i}` : itemsB.shift());
   }
 
-  return { currentList, nextList };
+  return [listA, listB];
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -109,7 +109,7 @@ function generateList(outcoming, incoming) {
 // format()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
-  const { currentList, nextList } = generateList([16, 18], [10, 19]);
+  const [currentList, nextList] = generateList([16, 18], [10, 19]);
   
   const database = new Map()
   .set('OUT 18', {history: new NumericRange(5, 5, 9, 13, 15)})
@@ -125,7 +125,7 @@ function generateList(outcoming, incoming) {
   expect(list.indexOf('IN 10')).to.equal(17); // POSITION 18
 }
 {
-  const { currentList, nextList } = generateList([16, 17, 18, 20], [20, 19, 15, 12]);
+  const [currentList, nextList] = generateList([16, 17, 18, 20], [20, 19, 15, 12]);
   
   const database = new Map()
   .set('OUT 16', {history: new NumericRange(11)})
@@ -147,7 +147,7 @@ function generateList(outcoming, incoming) {
   expect([18, 20].includes(position)).to.equal(true); // POSITION 18 OR 20
 }
 {
-  const { currentList, nextList } = generateList([16, 18], [19, 20]);
+  const [currentList, nextList] = generateList([16, 18], [19, 20]);
   
   const list = format(currentList, nextList, new Map());
   
@@ -158,7 +158,7 @@ function generateList(outcoming, incoming) {
   expect(list.includes('OUT 16')).to.equal(true);
 }
 {
-  const { currentList, nextList } = generateList([16], [17]);
+  const [currentList, nextList] = generateList([16], [17]);
   
   const list = format(currentList, nextList, {});
   
@@ -167,7 +167,7 @@ function generateList(outcoming, incoming) {
   expect(list.includes('IN 17')).to.equal(false);
 }
 {
-  const { currentList, nextList } = generateList([18], [16]);
+  const [currentList, nextList] = generateList([18], [16]);
 
   const list = format(currentList, nextList, {});
 
@@ -176,7 +176,7 @@ function generateList(outcoming, incoming) {
   expect(list.includes('IN 16')).to.equal(false);
 }
 {
-  const { currentList, nextList } = generateList([17, 19, 20], [16, 11, 8]);
+  const [currentList, nextList] = generateList([17, 19, 20], [16, 11, 8]);
 
   const database = new Map()
   .set('OUT 20', {history: new NumericRange(13, 13, 14, 17, 19)})
@@ -203,7 +203,7 @@ function generateList(outcoming, incoming) {
   }
 }
 {
-  const { currentList, nextList } = generateList([20], [1]);
+  const [currentList, nextList] = generateList([20], [1]);
 
   const database = new Map()
   .set('OUT 20', {history: new NumericRange()});
@@ -233,7 +233,7 @@ function generateList(outcoming, incoming) {
 //   expect(list.includes('IN 7')).to.equal(true);
 // }
 {
-  const { currentList, nextList } = generateList([20], [9]);
+  const [currentList, nextList] = generateList([20], [9]);
 
   const database = new Map()
   .set('OUT 20', {history: new NumericRange(20)});
@@ -248,7 +248,7 @@ function generateList(outcoming, incoming) {
   expect([20].includes(position)).to.equal(true); // POSITION 20
 }
 {
-  const { currentList, nextList } = generateList([14, 13], [12, 16]);
+  const [currentList, nextList] = generateList([14, 13], [12, 16]);
 
   const database = new Map()
   .set('OUT 14', {history: new NumericRange(6, 10, 14)})
@@ -266,7 +266,7 @@ function generateList(outcoming, incoming) {
   expect([14].includes(position)).to.equal(true); // POSITION 14
 }
 {
-  const { currentList, nextList } = generateList([13], [11]);
+  const [currentList, nextList] = generateList([13], [11]);
 
   const database = new Map()
   .set('OUT 13', {history: new NumericRange(6, 10, 14)});
@@ -282,7 +282,7 @@ function generateList(outcoming, incoming) {
 }
 // FORMATTING NOT ALLOWED IN SPITE OF THE EXISTENCE OF AN ILLEGAL ITEM
 {
-  const { currentList, nextList } = generateList([11], [5]);
+  const [currentList, nextList] = generateList([11], [5]);
 
   const database = new Map()
   .set('OUT 11', {history: new NumericRange(6, 2, 2, 1)});
@@ -295,7 +295,7 @@ function generateList(outcoming, incoming) {
 }
 // FORMATTING NOT ALLOWED IN SPITE OF THE EXISTENCE OF AN ILLEGAL ITEM
 {
-  const { currentList, nextList } = generateList([15], [10]);
+  const [currentList, nextList] = generateList([15], [10]);
   
   const database = new Map()
   .set('OUT 15', {history: new NumericRange(19, 17, 13, 11, 11)});
@@ -308,7 +308,7 @@ function generateList(outcoming, incoming) {
 }
 // FORMATTING NOT ALLOWED IN SPITE OF THE EXISTENCE OF AN ILLEGAL ITEM
 {
-  const { currentList, nextList } = generateList([20], [9]);
+  const [currentList, nextList] = generateList([20], [9]);
   
   const database = new Map()
   .set('OUT 20', {history: new NumericRange(20, 18, 16, 14, 13, 13)});
@@ -321,7 +321,7 @@ function generateList(outcoming, incoming) {
 }
 // FORMATTING NOT ALLOWED IN SPITE OF THE EXISTENCE OF AN ILLEGAL ITEM
 {
-  const { currentList, nextList } = generateList([13], [12]);
+  const [currentList, nextList] = generateList([13], [12]);
 
   const database = new Map()
   .set('OUT 13', {history: new NumericRange(7, 12, 13)});
@@ -337,7 +337,7 @@ function generateList(outcoming, incoming) {
 // format2()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
-  const {previousList, currentList} = generateList([20, 19, 18], [20, 19, 18]);
+  const [previousList, currentList] = generateList([20, 19, 18], [20, 19, 18]);
 
   const database = new Map()
   .set('OUT 20', {history: new NumericRange()})
