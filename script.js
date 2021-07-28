@@ -275,7 +275,7 @@ function format2(currentList, previousList, database) {
   
   const replacees = previousList.difference(currentList)
   .filter(item => {
-    return positions.some(position => currentList.indexOf(item) > position);
+    return positions.some(position => currentList.indexOf(item) >= position);
   });
   
   // Abort if there are no replacees.
