@@ -356,7 +356,6 @@ function generateList(outcoming, incoming) {
   expect(list.includes('IN 19')).to.equal(true);
   expect([16, 13].includes(list.indexOf('OUT 17') + 1)).to.equal(true);
 }
-
 {
   const [previousList, currentList] = generateList([20, 19, 18], [20, 19, 18]);
 
@@ -377,6 +376,24 @@ function generateList(outcoming, incoming) {
   expect(list.indexOf('OUT 20')).to.equal(20);
   expect(list.indexOf('OUT 19')).to.equal(19);
   expect(list.indexOf('OUT 18')).to.equal(18);
+}
+{
+  const [previousList, currentList] = generateList([17, 16, 15], [20, 19, 18]);
+
+  const database = new Map()
+  .set('OUT 17', {history: new NumericRange(20, 19, 18, 17)})
+  .set('OUT 16', {history: new NumericRange(19, 18, 17, 16)})
+  .set('OUT 15', {history: new NumericRange(18, 17, 16, 15)});
+
+  const list = format2(currentList, previousList, database);
+
+  expect(list.length).to.equal(20);
+  expect(list.includes('OUT 17')).to.equal(false);
+  expect(list.includes('OUT 16')).to.equal(false);
+  expect(list.includes('OUT 15')).to.equal(false);
+  expect(list.includes('IN 20')).to.equal(true);
+  expect(list.includes('IN 19')).to.equal(true);
+  expect(list.includes('IN 18')).to.equal(true);
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
