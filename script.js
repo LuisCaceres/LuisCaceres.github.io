@@ -325,6 +325,7 @@ function format2(currentList, previousList, database) {
     }
     // Let's start again
     replacees.push(...reserve);
+    reserve.length = 0;
   });  
   
   // DONE
