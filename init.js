@@ -1,4 +1,4 @@
-    /*
+/*
 
 const style = document.createElement('style');
 style.textContent = `
@@ -56,8 +56,8 @@ async function onYouTubeIframeAPIReady() {
     next: new List(...nextList),
   };
   
-  let list = format(lists.current, lists.previous, charted);
-  list = format2(lists.current, lists.next, charted);
+  let list = format2(lists.current, lists.previous, charted);
+  list = format(lists.current, lists.next, charted);
  
   const result = associate(list, charted, uncharted);
   insertExtraItems(result.chart, result.uncharted);
