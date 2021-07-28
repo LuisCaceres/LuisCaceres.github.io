@@ -315,7 +315,7 @@ function format2(currentList, previousList, database) {
         return rest1.some(position => item >= position);
       });
     
-      if (allowed.length) {
+      if (allowed.length === rest1.length) {
         currentList.replace(replacee, illegalItem);
         break;
       } 
