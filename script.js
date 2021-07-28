@@ -228,10 +228,12 @@ function format(currentList, nextList, database) {
         break;
       }
       else {
+        // Save this for someone else
         reserve.push(replacee);
       }
     }
 
+    // Let's start again
     replacees.push(...reserve);
   }
 
@@ -290,13 +292,16 @@ function format2(currentList, previousList, database) {
   // Randomly assign and replace
   
   // Do I need to sort Illegal items?
+  const reserve = new List();
   
-  while (illegalItems.length) {
+  
+//   while (illegalItems.length) {
     
-  }
+//   }
 }
 
-
+// [20, 19, 18] = [20, 19, 18];
+// [20, 19, 18, 17*] = [19, 18, 15]; 
 
 /*
  *
