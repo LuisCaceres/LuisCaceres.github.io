@@ -294,11 +294,11 @@ function format2(currentList, previousList, database) {
   // Do I need to sort Illegal items?
   const reserve = new List();
   
-  while (illegalItems.length) {
+  for (const illegalItem of illegalItems) {
     const replacee = replacees.random();
     currentList.replace(replacee, illegalItem);
     replacees.remove(replacee);
-  }
+  }  
   
   return currentList;
 }
