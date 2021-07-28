@@ -333,6 +333,23 @@ function generateList(outcoming, incoming) {
   expect(list.includes('IN 12')).to.equal(false); 
 }
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// format2()
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+{
+  const {previousList, currentList} = generateList([20, 19, 18], [20, 19, 18]);
+
+  const database = new Map()
+  .set('OUT 20', {history: new NumericRange()})
+  .set('OUT 19', {history: new NumericRange(20)})
+  .set('OUT 18', {history: new NumericRange(20, 19)});
+
+  const list = format2(previousList, currentList, database);
+
+  expect(list.length).to.equal(20);
+  expect(list.includes('OUT 13')).to.equal(true);
+  expect(list.includes('IN 12')).to.equal(false);
+}
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // parse()
