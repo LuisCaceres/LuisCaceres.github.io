@@ -1,41 +1,3 @@
-// WEEK 9 / 15.03
-const previousList = []; 'IT HAS THE FORMATTED ONE' 
-const currentList = ["!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!", "!V3!!!Ejtdpuifrvf!", "!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!", "!Op!Epvcu!!!Epo(u!Tqfbl!", "!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!", "!Hjovxjof!!!Qpoz!", "!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!", "!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!", "!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!", "!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!", "!Tbti\"!!!Fodpsf!vof!gpjt!", "!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!", "!CCF!!!Gmbti!", "!Tqjdf!Hjsmt!!!3!Cfdpnf!2!", "!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!", "!Cbdltusffu!Cpzt!!!Bozxifsf!Gps!Zpv!", "!Kbnjsprvbj!!!Dptnjd!Hjsm!", "!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!", "!Bfsptnjui!!!Gbmmjoh!Jo!Mpwf!)Jt!Ibse!Po!Uif!Lofft*!", "!Xijuf!Upxo!!!Bcpsu-!Sfusz-!Gbjm@!Zpvs!Xpnbo!"];
-const nextList = ["!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!", "!V3!!!Ejtdpuifrvf!", "!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!", "!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!", "!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!", "!Op!Epvcu!!!Epo(u!Tqfbl!", "!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!", "!Tbti\"!!!Fodpsf!vof!gpjt!", "!Hjovxjof!!!Qpoz!", "!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!", "!Cbdltusffu!Cpzt!!!Bozxifsf!Gps!Zpv!", "!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!", "!CCF!!!Gmbti!", "!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!", "!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!", "!Sfqvcmjdb!!!Sfbez!Up!Hp!", "!Xijuf!Upxo!!!Bcpsu-!Sfusz-!Gbjm@!Zpvs!Xpnbo!", "!Bfsptnjui!!!Gbmmjoh!Jo!Mpwf!)Jt!Ibse!Po!Uif!Lofft*!", "!Ufybt!!!Tbz!Xibu!Zpv!Xbou!", "!Cmvs!!!Cffumfcvn!"]; 
-
-const advertisement = {
-  endSeconds: 91,
-  name: "ADVERTISEMENT",
-  startSeconds: 77, 
-  style: {width: "83vw"},
-  videoId: 'caaddLZhLoY',
-  volume: 50,
-};
-
-const intro = {
-  name: "INTRO",
-  style: {width: "83vw"},
-  videoId: 'YoqgOOQwEqI',
-  volume: 50,
-};
-
-const newVideo = {
-  endSeconds: 20,
-  name: "STING NEW VIDEO",
-  startSeconds: 11,
-  style: {width: "83vw"},
-  videoId: 'caaddLZhLoY',
-  volume: 50,
-};
-
-const sting = {
-  name: "STING",
-  startSeconds: 16,
-  style: {width: "83vw"},
-  videoId: 'YoqgOOQwEqI',
-  volume: 50,
-};
-
 const charted = [
   {
     title: "All I Have To Give",
@@ -448,7 +410,74 @@ const charted = [
 ]
 // .map(element => new Item(element))
 //.forEach(item => item.validate())
+.map(item => item.history = new NumericRange(...item.history))
 .reduce((map, item) => map.set(item.match, item), new Map());
+
+
+// WEEK 9 / 15.03
+const previousList = [
+  ["Orgy", "Blue Monday"],
+  ["Fey", "Díselo Con Flores"]
+  ["Shania Twain", "I Feel Like A Woman"]
+  ["Fiona Apple", "Fast As You Can"]
+  ["Gustavo Cerati", "Puente"]
+  ["Blur", "Coffee And T.V."]
+  ["A-Teens", "Super Trouper"]
+  ["Sugar Ray", "Someday"]
+  ["Ely Guerra", "Tengo frío"]
+  ["Zurdok", "Si Me Advertí"]
+  ["Cher", "All Or Nothing"],
+  ["New Radicals", "Someday We'll Know"],
+  ["Santana", "Maria Maria"],
+  ["Lenny Kravitz", "Fly Away"],
+  ["No Doubt", "New"],
+  ["Celine Dion", "That's The Way It Is"],
+  ["Marc Anthony", 'I Need To Know'],
+  ["Robbie Williams", "Angel"],
+  ["Geri Halliwell", "Mi Chico Latino"],
+  ["All Star", "Smash Mouth"],
+]
+.map(([artist, title]) => {
+  return Array.from(charted.values()).find(item => item.artist === artist && item.title === title).match;
+});
+
+const currentList = ["!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!", "!V3!!!Ejtdpuifrvf!", "!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!", "!Op!Epvcu!!!Epo(u!Tqfbl!", "!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!", "!Hjovxjof!!!Qpoz!", "!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!", "!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!", "!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!", "!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!", "!Tbti\"!!!Fodpsf!vof!gpjt!", "!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!", "!CCF!!!Gmbti!", "!Tqjdf!Hjsmt!!!3!Cfdpnf!2!", "!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!", "!Cbdltusffu!Cpzt!!!Bozxifsf!Gps!Zpv!", "!Kbnjsprvbj!!!Dptnjd!Hjsm!", "!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!", "!Bfsptnjui!!!Gbmmjoh!Jo!Mpwf!)Jt!Ibse!Po!Uif!Lofft*!", "!Xijuf!Upxo!!!Bcpsu-!Sfusz-!Gbjm@!Zpvs!Xpnbo!"];
+const nextList = ["!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!", "!V3!!!Ejtdpuifrvf!", "!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!", "!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!", "!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!", "!Op!Epvcu!!!Epo(u!Tqfbl!", "!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!", "!Tbti\"!!!Fodpsf!vof!gpjt!", "!Hjovxjof!!!Qpoz!", "!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!", "!Cbdltusffu!Cpzt!!!Bozxifsf!Gps!Zpv!", "!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!", "!CCF!!!Gmbti!", "!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!", "!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!", "!Sfqvcmjdb!!!Sfbez!Up!Hp!", "!Xijuf!Upxo!!!Bcpsu-!Sfusz-!Gbjm@!Zpvs!Xpnbo!", "!Bfsptnjui!!!Gbmmjoh!Jo!Mpwf!)Jt!Ibse!Po!Uif!Lofft*!", "!Ufybt!!!Tbz!Xibu!Zpv!Xbou!", "!Cmvs!!!Cffumfcvn!"]; 
+
+const advertisement = {
+  endSeconds: 91,
+  name: "ADVERTISEMENT",
+  startSeconds: 77, 
+  style: {width: "83vw"},
+  videoId: 'caaddLZhLoY',
+  volume: 50,
+};
+
+const intro = {
+  name: "INTRO",
+  style: {width: "83vw"},
+  videoId: 'YoqgOOQwEqI',
+  volume: 50,
+};
+
+const newVideo = {
+  endSeconds: 20,
+  name: "STING NEW VIDEO",
+  startSeconds: 11,
+  style: {width: "83vw"},
+  videoId: 'caaddLZhLoY',
+  volume: 50,
+};
+
+const sting = {
+  name: "STING",
+  startSeconds: 16,
+  style: {width: "83vw"},
+  videoId: 'YoqgOOQwEqI',
+  volume: 50,
+};
+
+
 
 charted.forEach(item => {
   const keys = Object.keys(item);
