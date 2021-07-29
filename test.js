@@ -163,22 +163,26 @@ function generateList(outcoming, incoming) {
   expect(chart).not.to.include('DEBUT 19'); 
 }
 {
-  const [currentList, nextList] = generateList([16], [17]);
+  const [currentChart, nextChart] = generateList([16], [17]);
   
-  const list = format(currentList, nextList, {});
+  const chart = format(currentChart, nextChart, {});
   
-  expect(list.length).to.equal(20);
-  expect(list.includes('OUT 16')).to.equal(true); 
-  expect(list.includes('IN 17')).to.equal(false);
+  expect(chart.length).to.equal(20);
+  
+  expect(chart).to.include('TUBED 16');
+  
+  expect(chart).not.to.include('DEBUT 17');
 }
 {
-  const [currentList, nextList] = generateList([18], [16]);
+  const [currentChart, nextChart] = generateList([18], [16]);
 
-  const list = format(currentList, nextList, {});
+  const chart = format(currentChart, nextChart, {});
 
-  expect(list.length).to.equal(20);
-  expect(list.includes('OUT 18')).to.equal(true);
-  expect(list.includes('IN 16')).to.equal(false);
+  expect(chart.length).to.equal(20);
+  
+  expect(chart).to.include('TUBED 18');
+  
+  expect(chart).not.to.include('DEBUT 16');
 }
 {
   const [currentList, nextList] = generateList([17, 19, 20], [16, 11, 8]);
