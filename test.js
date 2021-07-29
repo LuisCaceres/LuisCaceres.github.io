@@ -118,13 +118,13 @@ function generateList(outcoming, incoming) {
   const chart = format(currentChart, nextChart, database);
   expect(chart.length).to.equal(20);
   
-  expect(chart).to.include('TUBED 16'));
-  expect(chart).to.include('DEBUT 10'));
+  expect(chart).to.include('TUBED 16');
+  expect(chart).to.include('DEBUT 10');
   
   expect(chart.indexOf('DEBUT 10') + 1).to.equal(18);
   
-  expect(chart).not.to.include('DEBUT 19'));
-  expect(chart).not.to.include('TUBED 18'));
+  expect(chart).not.to.include('DEBUT 19');
+  expect(chart).not.to.include('TUBED 18');
 }
 {
   const [currentList, nextList] = generateList([20, 18, 17, 16], [20, 19, 15, 12]);
