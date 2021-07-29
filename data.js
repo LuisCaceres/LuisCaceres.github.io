@@ -421,7 +421,7 @@ const charted = [
 const previousList = [
   ["Orgy", "Blue Monday"],
   ["Fey", "Díselo Con Flores"],
-  ["Shania Twain", "I Feel Like A Woman"],
+  ["Shania Twain", "Man! I Feel Like A Woman"],
   ["Fiona Apple", "Fast As You Can"],
   ["Gustavo Cerati", "Puente"],
   ["Blur", "Coffee And T.V."],
