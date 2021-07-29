@@ -150,15 +150,17 @@ function generateList(outcoming, incoming) {
   expect([18, 20]).to.include(chart.indexOf('DEBUT 12') + 1);
 }
 {
-  const [currentList, nextList] = generateList([16, 18], [19, 20]);
+  const [currentChart, nextChart] = generateList([18, 16], [20, 19]);
   
-  const list = format(currentList, nextList, new Map());
+  const chart = format(currentChart, nextChart, new Map());
   
-  expect(list.length).to.equal(20);
-  expect(list.includes('IN 20')).to.equal(false); 
-  expect(list.includes('IN 19')).to.equal(false); 
-  expect(list.includes('OUT 18')).to.equal(true); 
-  expect(list.includes('OUT 16')).to.equal(true);
+  expect(chart.length).to.equal(20);
+  
+  expect(chart).to.include('TUBED 18');
+  expect(chart).to.include('TUBED 16');
+  
+  expect(chart).not.to.include('DEBUT 20');
+  expect(chart).not.to.include('DEBUT 19'); 
 }
 {
   const [currentList, nextList] = generateList([16], [17]);
