@@ -438,7 +438,7 @@ const previousList = [
   ["Marc Anthony", "I Need To Know"],
   ["Robbie Williams", "Angels"],
   ["Geri Halliwell", "Mi Chico Latino"],
-  ["All Star", "Smash Mouth"],
+  ["Smash Mouth", "All Star"],
 ]
 .map(([artist, title]) => {
   return Array.from(charted.values()).find(item => item.artist === artist && item.title === title).match;
