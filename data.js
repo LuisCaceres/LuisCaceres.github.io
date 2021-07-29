@@ -1,4 +1,4 @@
-const charted = [
+  const charted = [
   {
     title: "All I Have To Give",
     artist: "Backstreet Boys",
@@ -436,7 +436,7 @@ const previousList = [
   ["No Doubt", "New"],
   ["Celine Dion", "That's The Way It Is"],
   ["Marc Anthony", "I Need To Know"],
-  ["Robbie Williams", "Angel"],
+  ["Robbie Williams", "Angels"],
   ["Geri Halliwell", "Mi Chico Latino"],
   ["All Star", "Smash Mouth"],
 ]
