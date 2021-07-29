@@ -76,7 +76,7 @@ const charted = [
     volume: 100,
   },
   {
-    title: "Coffee And TV",
+    title: "Coffee And T.V.",
     artist: "Blur",
     endSeconds: 368,
     history: [15, 11],
@@ -99,7 +99,7 @@ const charted = [
     volume: 100,
   },
   {
-    title: "Diselo Con Flores",
+    title: "Díselo Con Flores",
     artist: "Fey",
     history: [19, 18],
     match: "!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!",
@@ -295,7 +295,7 @@ const charted = [
     volume: 100,
   },
   {
-    title: "Si Me Adverti",
+    title: "Si Me Advertí",
     artist: "Zurdok",
     history: [17, 15, 13, 10, 9, 9, 9, 11, 17],
     match: "!Kbnjsprvbj!!!Dptnjd!Hjsm!",
@@ -338,7 +338,7 @@ const charted = [
     volume: 100,
   },
   {
-    title: "Tengo Frio",
+    title: "Tengo Frío",
     artist: "Ely Guerra",
     history: [18, 12, 10],
     match: "!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!",
@@ -417,15 +417,15 @@ const charted = [
 // WEEK 9 / 15.03
 const previousList = [
   ["Orgy", "Blue Monday"],
-  ["Fey", "Díselo Con Flores"]
-  ["Shania Twain", "I Feel Like A Woman"]
-  ["Fiona Apple", "Fast As You Can"]
-  ["Gustavo Cerati", "Puente"]
-  ["Blur", "Coffee And T.V."]
-  ["A-Teens", "Super Trouper"]
-  ["Sugar Ray", "Someday"]
-  ["Ely Guerra", "Tengo frío"]
-  ["Zurdok", "Si Me Advertí"]
+  ["Fey", "Díselo Con Flores"],
+  ["Shania Twain", "I Feel Like A Woman"],
+  ["Fiona Apple", "Fast As You Can"],
+  ["Gustavo Cerati", "Puente"],
+  ["Blur", "Coffee And T.V."],
+  ["A-Teens", "Super Trouper"],
+  ["Sugar Ray", "Someday"],
+  ["Ely Guerra", "Tengo frío"],
+  ["Zurdok", "Si Me Advertí"],
   ["Cher", "All Or Nothing"],
   ["New Radicals", "Someday We'll Know"],
   ["Santana", "Maria Maria"],
