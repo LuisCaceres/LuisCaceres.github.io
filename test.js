@@ -9,8 +9,8 @@ function generateList(outcoming, incoming) {
   const itemsB = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'];
 
   for (let i = 1; i <= 20; i++) {
-      listA.push(outcoming.includes(i) ? `OUT ${i}` : itemsA.shift());
-      listB.push(incoming.includes(i) ? `IN ${i}` : itemsB.shift());
+      listA.push(outcoming.includes(i) ? `TUBED ${i}` : itemsA.shift());
+      listB.push(incoming.includes(i) ? `DEBUT ${i}` : itemsB.shift());
   }
 
   return [listA, listB];
@@ -109,23 +109,25 @@ function generateList(outcoming, incoming) {
 // format()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
-  const [currentList, nextList] = generateList([16, 18], [10, 19]);
+  const [currentChart, nextChart] = generateList([18, 16], [19, 10]);
   
   const database = new Map()
-  .set('OUT 18', {history: new NumericRange(5, 5, 9, 13, 15)})
-  .set('OUT 16', {history: new NumericRange(1, 1, 1, 2, 3, 3, 5, 6, 6, 8, 12)});
+  .set('TUBED 18', {history: [5, 5, 9, 13, 15]})
+  .set('TUBED 16', {history: [1, 1, 1, 2, 3, 3, 5, 6, 6, 8, 12]});
  
-  const list = format(currentList, nextList, database);
+  const chart = format(currentChart, nextChart, database);
+  expect(chart.length).to.equal(20);
   
-  expect(list.length).to.equal(20);
-  expect(list.includes('OUT 18')).to.equal(false);
-  expect(list.includes('OUT 16')).to.equal(true);
-  expect(list.includes('IN 19')).to.equal(false);
-  expect(list.includes('IN 10')).to.equal(true);
-  expect(list.indexOf('IN 10')).to.equal(17); // POSITION 18
+  expect(chart).to.include('TUBED 16'));
+  expect(chart).to.include('DEBUT 10'));
+  
+  expect(chart.indexOf('DEBUT 10') + 1).to.equal(18);
+  
+  expect(chart).not.to.include('DEBUT 19'));
+  expect(chart).not.to.include('TUBED 18'));
 }
 {
-  const [currentList, nextList] = generateList([16, 17, 18, 20], [20, 19, 15, 12]);
+  const [currentList, nextList] = generateList([20, 18, 17, 16], [20, 19, 15, 12]);
   
   const database = new Map()
   .set('OUT 16', {history: new NumericRange(11)})
