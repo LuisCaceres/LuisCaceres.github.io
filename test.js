@@ -359,7 +359,7 @@ function generateList(outcoming, incoming) {
   expect(chart).not.to.include('TUBED 18');
   expect(chart).not.to.include('TUBED 16');
  
-  expect([16, 13]).to.include(chart.indexOf('TUBED 17') + 1));
+  expect([16, 13]).to.include(chart.indexOf('TUBED 17') + 1);
 }
 {
   const [previousList, currentList] = generateList([20, 19, 18], [20, 19, 18]);
