@@ -201,7 +201,7 @@ function format(currentList, nextList, database) {
   // Let `replacees` be a list of items that may be replaced by an illegal item.
   const replacees = expiredItems.filter(match => {
     // For each item `item` in `expiredItems`:
-    const {history} = database.get(match);
+    const history = new NumericRange(...database.get(match).history);
     return history.length === 0 || history.at(-1) > 12 && history.isAscending();
   });
 
@@ -256,7 +256,7 @@ function format2(currentList, previousList, database) {
      // Add `entry` to `disallowedEntries` if `entry`'s history only contains forward movements.
      // EXAMPLE of an entry's history which only contains forward movements: [20, 20, 18, 17, 17, **]
   const illegalItems = outItems.filter((match, index )=> {
-    const {history} = database.get(match);
+    const history = new NumericRange(...database.get(match).history);
     return history.isDescending() || history.length === 1;
   });
   
