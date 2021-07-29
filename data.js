@@ -410,7 +410,10 @@ const charted = [
 ]
 // .map(element => new Item(element))
 //.forEach(item => item.validate())
-.map(item => item.history = new NumericRange(...item.history))
+.map(item => {
+  item.history = new NumericRange(...item.history);
+  return item;
+})
 .reduce((map, item) => map.set(item.match, item), new Map());
 
 
