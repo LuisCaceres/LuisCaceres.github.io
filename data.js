@@ -412,37 +412,46 @@
 //.forEach(item => item.validate())
 .reduce((map, item) => map.set(item.match, item), new Map());
 
+// ++++++++++++++++++++++++++++++++++++++++++
+// WEEK 10 / 22.03
+// ++++++++++++++++++++++++++++++++++++++++++
 
-// WEEK 9 / 15.03
 const previousList = [
-  ["Orgy", "Blue Monday"],
+  ["TLC", "Unprettyy"],
+  ["Five", "Keep On Movin'"],
   ["Fey", "Díselo Con Flores"],
-  ["Shania Twain", "Man! I Feel Like A Woman"],
-  ["Fiona Apple", "Fast As You Can"],
-  ["Gustavo Cerati", "Puente"],
-  ["Blur", "Coffee And T.V."],
-  ["A-Teens", "Super Trouper"],
-  ["Sugar Ray", "Someday"],
-  ["Ely Guerra", "Tengo Frío"],
   ["Zurdok", "Si Me Advertí"],
-  ["Cher", "All Or Nothing"],
+  ["Britney Spears", "Crazy"],
+  ["Sugar Ray", "Someday"],
   ["New Radicals", "Someday We'll Know"],
-  ["Santana", "Maria Maria"],
-  ["Lenny Kravitz", "Fly Away"],
+  ["Aerosmith", "I Don't Want To Miss A Thing"],
+  ["A-Teens", "Super Trouper"],
+  ["Blur", "Coffee And T.V."],
+  ["Ely Guerra", "Tengo Frío"],
   ["No Doubt", "New"],
+  ["Cher", "All Or Nothing"],
+  ["Robbie Williams", "Angels"],
   ["Celine Dion", "That's The Way It Is"],
   ["Marc Anthony", "I Need To Know"],
-  ["Robbie Williams", "Angels"],
-  ["Geri Halliwell", "Mi Chico Latino"],
+  ["Santana", "Maria Maria"],
   ["Smash Mouth", "All Star"],
+  ["Lenny Kravitz", "Fly Away"],
+  ["Geri Halliwell", "Mi Chico Latino"],
 ]
 .map(([artist, title]) => {
   return Array.from(charted.values()).find(item => item.artist === artist && item.title === title).match;
 })
 .reverse();
 
-const currentList = ["!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!", "!V3!!!Ejtdpuifrvf!", "!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!", "!Op!Epvcu!!!Epo(u!Tqfbl!", "!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!", "!Hjovxjof!!!Qpoz!", "!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!", "!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!", "!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!", "!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!", "!Tbti\"!!!Fodpsf!vof!gpjt!", "!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!", "!CCF!!!Gmbti!", "!Tqjdf!Hjsmt!!!3!Cfdpnf!2!", "!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!", "!Cbdltusffu!Cpzt!!!Bozxifsf!Gps!Zpv!", "!Kbnjsprvbj!!!Dptnjd!Hjsm!", "!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!", "!Bfsptnjui!!!Gbmmjoh!Jo!Mpwf!)Jt!Ibse!Po!Uif!Lofft*!", "!Xijuf!Upxo!!!Bcpsu-!Sfusz-!Gbjm@!Zpvs!Xpnbo!"];
-const nextList = ["!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!", "!V3!!!Ejtdpuifrvf!", "!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!", "!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!", "!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!", "!Op!Epvcu!!!Epo(u!Tqfbl!", "!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!", "!Tbti\"!!!Fodpsf!vof!gpjt!", "!Hjovxjof!!!Qpoz!", "!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!", "!Cbdltusffu!Cpzt!!!Bozxifsf!Gps!Zpv!", "!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!", "!CCF!!!Gmbti!", "!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!", "!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!", "!Sfqvcmjdb!!!Sfbez!Up!Hp!", "!Xijuf!Upxo!!!Bcpsu-!Sfusz-!Gbjm@!Zpvs!Xpnbo!", "!Bfsptnjui!!!Gbmmjoh!Jo!Mpwf!)Jt!Ibse!Po!Uif!Lofft*!", "!Ufybt!!!Tbz!Xibu!Zpv!Xbou!", "!Cmvs!!!Cffumfcvn!"]; 
+const currentList = ["!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!", "!V3!!!Ejtdpuifrvf!", "!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!", "!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!", "!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!", "!Op!Epvcu!!!Epo(u!Tqfbl!", "!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!", "!Tbti\"!!!Fodpsf!vof!gpjt!", "!Hjovxjof!!!Qpoz!", "!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!", "!Cbdltusffu!Cpzt!!!Bozxifsf!Gps!Zpv!", "!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!", "!CCF!!!Gmbti!", "!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!", "!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!", "!Sfqvcmjdb!!!Sfbez!Up!Hp!", "!Xijuf!Upxo!!!Bcpsu-!Sfusz-!Gbjm@!Zpvs!Xpnbo!", "!Bfsptnjui!!!Gbmmjoh!Jo!Mpwf!)Jt!Ibse!Po!Uif!Lofft*!", "!Ufybt!!!Tbz!Xibu!Zpv!Xbou!", "!Cmvs!!!Cffumfcvn!"]; 
+const nextList = ["!V3!!!Ejtdpuifrvf!", "!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!", "!Tbti\"!!!Fodpsf!vof!gpjt!", "!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!", "!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!", "!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!", "!Op!Epvcu!!!Epo(u!Tqfbl!", "!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!", "!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!", "!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!", "!CCF!!!Gmbti!", "!Hjovxjof!!!Qpoz!", "!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!", "!Sfqvcmjdb!!!Sfbez!Up!Hp!", "!Xijuf!Upxo!!!Bcpsu-!Sfusz-!Gbjm@!Zpvs!Xpnbo!", "!Cbdltusffu!Cpzt!!!Bozxifsf!Gps!Zpv!", "!Bfsptnjui!!!Gbmmjoh!Jo!Mpwf!)Jt!Ibse!Po!Uif!Lofft*!", "!Ufybt!!!Tbz!Xibu!Zpv!Xbou!", "!Tqjdf!Hjsmt!!!Nbnb!", "!Cmvs!!!Cffumfcvn!"];
+
+expect(previousList.length).to.equal(20);
+expect(currentList.length).to.equal(20);
+expect(nextList.length).to.equal(20);
+
+
+
 
 const advertisement = {
   endSeconds: 91,
