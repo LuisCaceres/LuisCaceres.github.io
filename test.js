@@ -453,9 +453,9 @@ function generateList(outcoming, incoming) {
     /* 01 */ ['T',       'T',       'R'], /* 01 */
   ];
   
-  const previousChart = charts.map(item => item[0]);
-  const currentChart = charts.map(item => item[1]);
-  const nextChart = charts.map(item => item[2]);
+  const previousChart = new List(...charts.map(item => item[0]));
+  const currentChart = new List(...charts.map(item => item[1]));
+  const nextChart = new List(...charts.map(item => item[2]));
     
   const database = new Map()
   .set('TUBED B', {title: "TUBED B", history: [19, 16, 13, 19]})
