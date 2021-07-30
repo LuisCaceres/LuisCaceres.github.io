@@ -427,29 +427,49 @@ function generateList(outcoming, incoming) {
 }
 {
   const charts = [
-    /* 20 */ ['A', 'A', 'W'], /* 20 */
-    /* 19 */ ['B', 'U', 'X'], /* 19 */
-    /* 18 */ ['C', 'I', 'U'], /* 18 */
-    /* 17 */ ['D', 'D', 'L'], /* 17 */
-    /* 16 */ ['E', 'H', 'Y'], /* 16 */
-    /* 15 */ ['F', 'V', 'K'], /* 15 */
-    /* 14 */ ['G', 'E', 'N'], /* 14 */
-    /* 13 */ ['H', 'K', 'Z'], /* 13 */
-    /* 12 */ ['I', 'C', 'E'], /* 12 */
-    /* 11 */ ['J', 'L', 'V'], /* 11 */
-    /* 10 */ ['K', 'G', 'C'], /* 10 */
-    /* 09 */ ['L', 'N', 'O'], /* 09 */
-    /* 08 */ ['M', 'M', 'G'], /* 08 */
-    /* 07 */ ['N', 'J', 'S'], /* 07 */
-    /* 06 */ ['O', 'O', 'P'], /* 06 */
-    /* 05 */ ['P', 'P', 'Q'], /* 05 */
-    /* 04 */ ['Q', 'Q', 'M'], /* 04 */
-    /* 03 */ ['R', 'S', 'T'], /* 03 */
-    /* 02 */ ['S', 'R', 'J'], /* 02 */
-    /* 01 */ ['T', 'T', 'R'], /* 01 */
+    /* 20 */ ['TUBED A', 'TUBED A', 'DEBUT W'], /* 20 */
+    /* 19 */ ['TUBED B', 'DEBUT U', 'DEBUT X'], /* 19 */
+    /* 18 */ ['C',       'TUBED I', 'DEBUT U'], /* 18 */
+    /* 17 */ ['TUBED D', 'TUBED D', 'L'], /* 17 */
+    /* 16 */ ['E',       'TUBED H', 'DEBUT Y'], /* 16 */
+    /* 15 */ ['TUBED F', 'DEBUT V', 'K'], /* 15 */
+    /* 14 */ ['G',       'E',       'N'], /* 14 */
+    /* 13 */ ['TUBED H', 'K',       'DEBUT Z'], /* 13 */
+    /* 12 */ ['TUBED I', 'C',       'E'], /* 12 */
+    /* 11 */ ['J',       'L',       'DEBUT V'], /* 11 */
+    /* 10 */ ['K',       'G',       'C'], /* 10 */
+    /* 09 */ ['L',       'N',       'O'], /* 09 */
+    /* 08 */ ['M',       'M',       'G'], /* 08 */
+    /* 07 */ ['N',       'J',       'S'], /* 07 */
+    /* 06 */ ['O',       'O',       'P'], /* 06 */
+    /* 05 */ ['P',       'P',       'Q'], /* 05 */
+    /* 04 */ ['Q',       'Q',       'M'], /* 04 */
+    /* 03 */ ['R',       'S',       'T'], /* 03 */
+    /* 02 */ ['S',       'R',       'J'], /* 02 */
+    /* 01 */ ['T',       'T',       'R'], /* 01 */
   ];
   
+  const previousChart = charts.map(item => item[0]);
+  const currentChart = charts.map(item => item[1]);
+  const nextChart = charts.map(item => item[2]);
+    
+  const database = new Map()
+  .set('TUBED 19', {title: "TUBED 19", history: [19, 16, 13, 19]})
+  .set('TUBED 15', {title: "TUBED 15", history: [19, 17, 13, 11, 11, 15]})
+  .set('TUBED 20', {title: "TUBED 20", history: [17, 15, 20, 20]})
+  .set('TUBED 18', {title: "TUBED 18", history: [20, 18, 14, 12, 12, 18]})
+  .set('TUBED 17', {title: "TUBED 17", history: [20, 20, 18, 17, 17]})
+  .set('TUBED 16', {title: "TUBED 16", history: [1, 1, 1, 4, 5, 10, 13, 16]});
+    
+  let chart = format2(currentChart, previousChart);
   
+  expect(chart.length).to.equal(20);
+  
+  chart = format(currentChart, nextChart);
+  
+  expect(chart.length).to.equal(20);
+  expect(chart).to.include('TUBED D');
+  expect([16, 13]).to.include(chart.indexOf('TUBED D') + 1);
 }
 
 
