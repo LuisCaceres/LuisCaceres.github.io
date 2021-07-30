@@ -417,7 +417,7 @@
 // ++++++++++++++++++++++++++++++++++++++++++
 
 const previousList = [
-  ["TLC", "Unprettyy"],
+  ["TLC", "Unpretty"],
   ["Five", "Keep On Movin'"],
   ["Fey", "Díselo Con Flores"],
   ["Zurdok", "Si Me Advertí"],
