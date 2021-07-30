@@ -350,6 +350,7 @@ function generateList(outcoming, incoming) {
   expect(chart).not.to.include('DEBUT 12');
 }
 
+
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // format2()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -380,9 +381,9 @@ function generateList(outcoming, incoming) {
   const [previousChart, currentChart] = generateList([20, 19, 18], [20, 19, 18]);
 
   const database = new Map()
-  .set('TUBED 20', {history: []})
-  .set('TUBED 19', {history: [20]})
-  .set('TUBED 18', {history: [20, 19]});
+  .set('TUBED 20', {history: [20]})
+  .set('TUBED 19', {history: [20, 19]})
+  .set('TUBED 18', {history: [20, 19, 18]});
 
   const chart = format2(currentChart, previousChart, database);
 
@@ -400,8 +401,7 @@ function generateList(outcoming, incoming) {
   expect(chart.indexOf('DEBUT 19') + 1).to.equal(19);
   expect(chart.indexOf('DEBUT 18') + 1).to.equal(18);
 }
-{
-  
+{  
   const [previousChart, currentChart] = generateList([17, 16, 15], [20, 19, 18]);
 
   const database = new Map()
