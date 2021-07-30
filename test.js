@@ -358,24 +358,24 @@ function generateList(outcoming, incoming) {
   const [previousChart, currentChart] = generateList([20, 18, 17, 16], [20, 19, 16, 13]);
 
   const database = new Map()
-  .set('TUBED 20', {history: [17, 15, 20, 20]})
-  .set('TUBED 18', {history: [20, 18, 14, 12, 12, 18]})
-  .set('TUBED 17', {history: [20, 20, 18, 17, 17]})
-  .set('TUBED 16', {history: [1, 1, 1, 4, 5, 10, 13, 16]});
+  .set('TUBED 20', {title: 'TUBED 20', history: [17, 15, 20, 20]})
+  .set('TUBED 18', {title: 'TUBED 18', history: [20, 18, 14, 12, 12, 18]})
+  .set('TUBED 17', {title: 'TUBED 17', history: [20, 20, 18, 17, 17]})
+  .set('TUBED 16', {title: 'TUBED 16', history: [1, 1, 1, 4, 5, 10, 13, 16]});
 
+  const TUBED17 = database.get('TUBED 17');
+  
   const chart = format2(currentChart, previousChart, database);
-
+  
   expect(chart.length).to.equal(20);
   
-  expect(chart).to.include('DEBUT 20');
-  expect(chart).to.include('DEBUT 19');
-  expect(chart).to.include('TUBED 17');
+  expect(database.has('DEBUT 16') || database.has('DEBUT 13')).to.equal(true);
 
-  expect(chart).not.to.include('TUBED 20');
-  expect(chart).not.to.include('TUBED 18');
-  expect(chart).not.to.include('TUBED 16');
- 
-  expect([16, 13]).to.include(chart.indexOf('TUBED 17') + 1);
+  expect(database.has('TUBED 17')).to.equal(false);
+  
+  expect(database.get('DEBUT 16') || database.get('DEBUT 13')).to.equal(TUBED17);
+  
+  expect(['DEBUT 16', 'DEBUT 13']).to.include(TUBED17.match);
 }
 {
   const [previousChart, currentChart] = generateList([20, 19, 18], [20, 19, 18]);
@@ -388,6 +388,7 @@ function generateList(outcoming, incoming) {
   const chart = format2(currentChart, previousChart, database);
 
   expect(chart.length).to.equal(20);
+  
   expect(database.has('DEBUT 20')).to.equal(true);
   expect(database.has('DEBUT 19')).to.equal(true);
   expect(database.has('DEBUT 18')).to.equal(true);
