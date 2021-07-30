@@ -396,9 +396,9 @@ function generateList(outcoming, incoming) {
   expect(chart).not.to.include('DEBUT 19');
   expect(chart).not.to.include('DEBUT 18');
   
-  expect(list.indexOf('DEBUT 20') + 1).to.equal(20);
-  expect(list.indexOf('DEBUT 19') + 1).to.equal(19);
-  expect(list.indexOf('DEBUT 18') + 1).to.equal(18);
+  expect(chart.indexOf('DEBUT 20') + 1).to.equal(20);
+  expect(chart.indexOf('DEBUT 19') + 1).to.equal(19);
+  expect(chart.indexOf('DEBUT 18') + 1).to.equal(18);
 }
 {
   
@@ -421,9 +421,9 @@ function generateList(outcoming, incoming) {
   expect(chart).not.to.include('TUBED 16');
   expect(chart).not.to.include('TUBED 15');
   
-  expect(list.indexOf('DEBUT 20') + 1).to.equal(20);
-  expect(list.indexOf('DEBUT 19') + 1).to.equal(19);
-  expect(list.indexOf('DEBUT 18') + 1).to.equal(18);
+  expect(chart.indexOf('DEBUT 20') + 1).to.equal(20);
+  expect(chart.indexOf('DEBUT 19') + 1).to.equal(19);
+  expect(chart.indexOf('DEBUT 18') + 1).to.equal(18);
 }
 
 
