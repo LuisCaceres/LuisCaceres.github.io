@@ -458,22 +458,53 @@ function generateList(outcoming, incoming) {
   const nextChart = charts.map(item => item[2]);
     
   const database = new Map()
-  .set('TUBED 19', {title: "TUBED 19", history: [19, 16, 13, 19]})
-  .set('TUBED 15', {title: "TUBED 15", history: [19, 17, 13, 11, 11, 15]})
-  .set('TUBED 20', {title: "TUBED 20", history: [17, 15, 20, 20]})
-  .set('TUBED 18', {title: "TUBED 18", history: [20, 18, 14, 12, 12, 18]})
-  .set('TUBED 17', {title: "TUBED 17", history: [20, 20, 18, 17, 17]})
-  .set('TUBED 16', {title: "TUBED 16", history: [1, 1, 1, 4, 5, 10, 13, 16]});
+  .set('TUBED B', {title: "TUBED B", history: [19, 16, 13, 19]})
+  .set('TUBED F', {title: "TUBED F", history: [19, 17, 13, 11, 11, 15]})
+  .set('TUBED A', {title: "TUBED A", history: [17, 15, 20, 20]})
+  .set('TUBED I', {title: "TUBED I", history: [20, 18, 14, 12, 12, 18]})
+  .set('TUBED D', {title: "TUBED D", history: [20, 20, 18, 17, 17]})
+  .set('TUBED H', {title: "TUBED H", history: [1, 1, 1, 4, 5, 10, 13, 16]});
+  
+  const TUBED_D = database.get('TUBED D');
     
   let chart = format2(currentChart, previousChart);
   
   expect(chart.length).to.equal(20);
   
+  expect(database.has('DEBUT Y') || database.has('DEBUT Z')).to.equal(true);
+
+  expect(database.has('TUBED D')).to.equal(false);
+  
+  expect(database.get('DEBUT Y') || database.get('DEBUT Z')).to.equal(TUBED_D);
+  
+  expect(['DEBUT Y', 'DEBUT Z']).to.include(TUBED_D.match);
+  
+  
+  
+ 
   chart = format(currentChart, nextChart);
   
   expect(chart.length).to.equal(20);
-  expect(chart).to.include('TUBED D');
-  expect([16, 13]).to.include(chart.indexOf('TUBED D') + 1);
+  expect(chart[19]).to.equal('DEBUT W');
+  expect(chart[18]).to.equal('DEBUT X');
+  expect(chart[17]).to.equal('DEBUT U');
+  expect(chart[16]).to.equal('L');
+  expect(chart[15]).to.equal('DEBUT Y');
+  expect(chart[14]).to.equal('K');
+  expect(chart[13]).to.equal('N');
+  expect(chart[12]).to.equal('DEBUT Z');
+  expect(chart[11]).to.equal('E');
+  expect(chart[10]).to.equal('DEBUT V');
+  expect(chart[09]).to.equal('C');
+  expect(chart[08]).to.equal('O');
+  expect(chart[07]).to.equal('G');
+  expect(chart[06]).to.equal('S');
+  expect(chart[05]).to.equal('P');
+  expect(chart[04]).to.equal('Q');
+  expect(chart[03]).to.equal('M');
+  expect(chart[02]).to.equal('T');
+  expect(chart[01]).to.equal('J');
+  expect(chart[00]).to.equal('R');
 }
 
 
