@@ -221,7 +221,7 @@ function generateList(outcoming, incoming) {
   
   expect(chart).not.to.include('TUBED 20');
   
-  expect([20]).to.include(chart.indexOf('IN 1') + 1);
+  expect(chart.indexOf('DEBUT 1') + 1).to.equal(20);
 }
 // I WOULD LIKE THIS TO APPLY BUT IT'S NOT POSSIBLE BECAUSE 20, 19, 18, 18 * IS INTERPRETED AS AN ITEM STILL ASCENDING.
 // HOW TO DIFFERENTIATE THE ABOVE FROM 20, 18, 16, 14, 13, 13, 20, *?
@@ -239,104 +239,115 @@ function generateList(outcoming, incoming) {
 //   expect(list.includes('IN 7')).to.equal(true);
 // }
 {
-  const [currentList, nextList] = generateList([20], [9]);
+  const [currentChart, nextChart] = generateList([20], [9]);
 
   const database = new Map()
-  .set('OUT 20', {history: new NumericRange(20)});
+  .set('TUBED 20', {history: []});
 
-  const list = format(currentList, nextList, database);
+  const chart = format(currentChart, nextChart, database);
 
-  expect(list.length).to.equal(20);
-  expect(list.includes('OUT 20')).to.equal(false);
-  expect(list.includes('IN 9')).to.equal(true);
+  expect(chart.length).to.equal(20);
 
-  const position = list.indexOf('IN 9') + 1;
-  expect([20].includes(position)).to.equal(true); // POSITION 20
+  expect(chart).to.include('DEBUT 9'); 
+  
+  expect(chart).not.to.include('TUBED 20');
+  
+  expect(chart.indexOf('DEBUT 9') + 1).to.equal(20);
 }
 {
-  const [currentList, nextList] = generateList([14, 13], [12, 16]);
+  const [currentChart, nextChart] = generateList([14, 13], [16, 12]);
 
   const database = new Map()
-  .set('OUT 14', {history: new NumericRange(6, 10, 14)})
-  .set('OUT 13', {history: new NumericRange(7, 12, 13)});
+  .set('TUBED 14', {history: [6, 10, 14]})
+  .set('TUBED 13', {history: [7, 12, 13]});
 
-  const list = format(currentList, nextList, database);
+  const chart = format(currentChart, nextChart, database);
 
-  expect(list.length).to.equal(20);
-  expect(list.includes('OUT 14')).to.equal(false);
-  expect(list.includes('OUT 13')).to.equal(true);
-  expect(list.includes('IN 16')).to.equal(false);
-  expect(list.includes('IN 12')).to.equal(true);
+  expect(chart.length).to.equal(20);
 
-  const position = list.indexOf('IN 12') + 1;
-  expect([14].includes(position)).to.equal(true); // POSITION 14
+  expect(chart).to.include('DEBUT 12'); // IN POSITION 14
+  expect(chart).to.include('TUBED 13');
+  
+  expect(chart).not.to.include('TUBED 14');
+  expect(chart).not.to.include('DEBUT 16');
+  
+  expect(chart.indexOf('DEBUT 12') + 1).to.equal(14);
 }
 {
-  const [currentList, nextList] = generateList([13], [11]);
-
+  const [currentChart, nextChart] = generateList([13], [11]);
+  
   const database = new Map()
-  .set('OUT 13', {history: new NumericRange(6, 10, 14)});
-  
-  const list = format(currentList, nextList, database);
-  
-  expect(list.length).to.equal(20);
-  expect(list.includes('OUT 13')).to.equal(false);
-  expect(list.includes('IN 11')).to.equal(true);
+  .set('TUBED 13', {history: [6, 10, 13]});
 
-  const position = list.indexOf('IN 11') + 1;
-  expect([13].includes(position)).to.equal(true); // POSITION 13
-}
-// FORMATTING NOT ALLOWED IN SPITE OF THE EXISTENCE OF AN ILLEGAL ITEM
-{
-  const [currentList, nextList] = generateList([11], [5]);
+  const chart = format(currentChart, nextChart, database);
 
-  const database = new Map()
-  .set('OUT 11', {history: new NumericRange(6, 2, 2, 1)});
+  expect(chart.length).to.equal(20);
+
+  expect(chart).to.include('DEBUT 11'); 
   
-  const list = format(currentList, nextList, database);
+  expect(chart).not.to.include('TUBED 13');
   
-  expect(list.length).to.equal(20);
-  expect(list.includes('OUT 11')).to.equal(true);
-  expect(list.includes('IN 5')).to.equal(false);
+  expect(chart.indexOf('DEBUT 11') + 1).to.equal(13);
 }
 // FORMATTING NOT ALLOWED IN SPITE OF THE EXISTENCE OF AN ILLEGAL ITEM
 {
-  const [currentList, nextList] = generateList([15], [10]);
-  
+  const [currentChart, nextChart] = generateList([11], [5]);
+
   const database = new Map()
-  .set('OUT 15', {history: new NumericRange(19, 17, 13, 11, 11)});
+  .set('TUBED 11', {history: [6, 2, 2, 1]});
+
+  const chart = format(currentChart, nextChart, database);
+
+  expect(chart.length).to.equal(20);
+
+  expect(chart).to.include('TUBED 11');
   
-  const list = format(currentList, nextList, database);
-  
-  expect(list.length).to.equal(20);
-  expect(list.includes('OUT 15')).to.equal(true); 
-  expect(list.includes('IN 10')).to.equal(false); 
+  expect(chart).not.to.include('DEBUT 5');
 }
 // FORMATTING NOT ALLOWED IN SPITE OF THE EXISTENCE OF AN ILLEGAL ITEM
 {
-  const [currentList, nextList] = generateList([20], [9]);
-  
+  const [currentChart, nextChart] = generateList([15], [10]);
+
   const database = new Map()
-  .set('OUT 20', {history: new NumericRange(20, 18, 16, 14, 13, 13)});
- 
-  const list = format(currentList, nextList, database);
- 
-  expect(list.length).to.equal(20);
-  expect(list.includes('OUT 20')).to.equal(true);
-  expect(list.includes('IN 9')).to.equal(false);
+  .set('TUBED 15', {history: [19, 17, 13, 11, 11]});
+
+  const chart = format(currentChart, nextChart, database);
+
+  expect(chart.length).to.equal(20);
+
+  expect(chart).to.include('TUBED 15');
+  
+  expect(chart).not.to.include('DEBUT 10');
 }
 // FORMATTING NOT ALLOWED IN SPITE OF THE EXISTENCE OF AN ILLEGAL ITEM
 {
-  const [currentList, nextList] = generateList([13], [12]);
+  const [currentChart, nextChart] = generateList([20], [9]);
 
   const database = new Map()
-  .set('OUT 13', {history: new NumericRange(7, 12, 13)});
+  .set('TUBED 20', {history: [20, 18, 16, 14, 13, 13]});
 
-  const list = format(currentList, nextList, database);
+  const chart = format(currentChart, nextChart, database);
 
-  expect(list.length).to.equal(20);
-  expect(list.includes('OUT 13')).to.equal(true); 
-  expect(list.includes('IN 12')).to.equal(false); 
+  expect(chart.length).to.equal(20);
+
+  expect(chart).to.include('TUBED 20');
+  
+  expect(chart).not.to.include('DEBUT 9');
+}
+// FORMATTING NOT ALLOWED IN SPITE OF THE EXISTENCE OF AN ILLEGAL ITEM
+{
+  const [currentChart, nextChart] = generateList([13], [12]);
+
+  const database = new Map()
+  .set('TUBED 13', {history: [7, 12, 13]});
+
+  const chart = format(currentChart, nextChart, database);
+
+  expect(chart.length).to.equal(20);
+
+  expect(chart).to.include('TUBED 13');
+  
+  expect(chart).not.to.include('DEBUT 12');
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
