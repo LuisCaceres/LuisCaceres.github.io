@@ -467,7 +467,7 @@ function generateList(outcoming, incoming) {
   
   const TUBED_D = database.get('TUBED D');
     
-  let chart = format2(currentChart, previousChart);
+  let chart = format2(currentChart, previousChart, database);
   
   expect(chart.length).to.equal(20);
   
@@ -482,7 +482,7 @@ function generateList(outcoming, incoming) {
   
   
  
-  chart = format(currentChart, nextChart);
+  chart = format(currentChart, nextChart, database);
   
   expect(chart.length).to.equal(20);
   expect(chart[19]).to.equal('DEBUT W');
