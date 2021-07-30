@@ -397,9 +397,9 @@ function generateList(outcoming, incoming) {
   expect(chart).not.to.include('DEBUT 19');
   expect(chart).not.to.include('DEBUT 18');
   
-  expect(chart.indexOf('DEBUT 20') + 1).to.equal(20);
-  expect(chart.indexOf('DEBUT 19') + 1).to.equal(19);
-  expect(chart.indexOf('DEBUT 18') + 1).to.equal(18);
+  expect(chart.indexOf('TUBED 20') + 1).to.equal(20);
+  expect(chart.indexOf('TUBED 19') + 1).to.equal(19);
+  expect(chart.indexOf('TUBED 18') + 1).to.equal(18);
 }
 {  
   const [previousChart, currentChart] = generateList([17, 16, 15], [20, 19, 18]);
