@@ -316,7 +316,11 @@ function format2(currentList, previousList, database) {
       });
     
       if (allowed.length === rest1.length) {
-        currentList.replace(replacee, illegalItem);
+        // currentList.replace(replacee, illegalItem);
+        const item = database.get(illegalItem);
+        database.delete(illegalItem);
+        database.set(replacee, item);
+        item.match = replacee;
         break;
       } 
       else {
