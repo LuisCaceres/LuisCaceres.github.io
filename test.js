@@ -434,28 +434,28 @@ function generateList(outcoming, incoming) {
     /* 20 */ ['TUBED A', 'TUBED A', 'DEBUT W'], /* 20 */
     /* 19 */ ['TUBED B', 'DEBUT U', 'DEBUT X'], /* 19 */
     /* 18 */ ['C',       'TUBED I', 'DEBUT U'], /* 18 */
-    /* 17 */ ['TUBED D', 'TUBED D', 'L'], /* 17 */
+    /* 17 */ ['TUBED D', 'TUBED D', 'L'],       /* 17 */
     /* 16 */ ['E',       'TUBED H', 'DEBUT Y'], /* 16 */
-    /* 15 */ ['TUBED F', 'DEBUT V', 'K'], /* 15 */
-    /* 14 */ ['G',       'E',       'N'], /* 14 */
+    /* 15 */ ['TUBED F', 'DEBUT V', 'K'],       /* 15 */
+    /* 14 */ ['G',       'E',       'N'],       /* 14 */
     /* 13 */ ['TUBED H', 'K',       'DEBUT Z'], /* 13 */
-    /* 12 */ ['TUBED I', 'C',       'E'], /* 12 */
+    /* 12 */ ['TUBED I', 'C',       'E'],       /* 12 */
     /* 11 */ ['J',       'L',       'DEBUT V'], /* 11 */
-    /* 10 */ ['K',       'G',       'C'], /* 10 */
-    /* 09 */ ['L',       'N',       'O'], /* 09 */
-    /* 08 */ ['M',       'M',       'G'], /* 08 */
-    /* 07 */ ['N',       'J',       'S'], /* 07 */
-    /* 06 */ ['O',       'O',       'P'], /* 06 */
-    /* 05 */ ['P',       'P',       'Q'], /* 05 */
-    /* 04 */ ['Q',       'Q',       'M'], /* 04 */
-    /* 03 */ ['R',       'S',       'T'], /* 03 */
-    /* 02 */ ['S',       'R',       'J'], /* 02 */
-    /* 01 */ ['T',       'T',       'R'], /* 01 */
+    /* 10 */ ['K',       'G',       'C'],       /* 10 */
+    /* 09 */ ['L',       'N',       'O'],       /* 09 */
+    /* 08 */ ['M',       'M',       'G'],       /* 08 */
+    /* 07 */ ['N',       'J',       'S'],       /* 07 */
+    /* 06 */ ['O',       'O',       'P'],       /* 06 */
+    /* 05 */ ['P',       'P',       'Q'],       /* 05 */
+    /* 04 */ ['Q',       'Q',       'M'],       /* 04 */
+    /* 03 */ ['R',       'S',       'T'],       /* 03 */
+    /* 02 */ ['S',       'R',       'J'],       /* 02 */
+    /* 01 */ ['T',       'T',       'R'],       /* 01 */
   ];
   
-  const previousChart = new List(...charts.map(item => item[1]));
-  const currentChart = new List(...charts.map(item => item[2]));
-//   const nextChart = new List(...charts.map(item => item[2]));
+  const previousChart = new List(...charts.map(item => item[1]).reverse());
+  const currentChart = new List(...charts.map(item => item[2]).reverse());
+//   const nextChart = new List(...charts.map(item => item[2]).reverse());
     
   const database = new Map()
   .set('TUBED B', {title: "TUBED B", history: [19, 16, 13, 19]})
