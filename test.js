@@ -185,31 +185,27 @@ function generateList(outcoming, incoming) {
   expect(chart).not.to.include('DEBUT 16');
 }
 {
-  const [currentList, nextList] = generateList([17, 19, 20], [16, 11, 8]);
+  const [currentChart, nextChart] = generateList([20, 19, 17], [16, 11, 8]);
 
   const database = new Map()
-  .set('OUT 20', {history: new NumericRange(13, 13, 14, 17, 19)})
-  .set('OUT 19', {history: new NumericRange(7, 7, 9, 11, 15)})
-  .set('OUT 17', {history: new NumericRange(6, 5, 7, 8, 12)});
+  .set('TUBED 20', {history: [13, 13, 14, 17, 19]})
+  .set('TUBED 19', {history: [7, 7, 9, 11, 15]})
+  .set('TUBED 17', {history: [6, 5, 7, 8, 12]});
   
-  const list = format(currentList, nextList, database);
+  const chart = format(currentChart, nextChart, database);
 
-  expect(list.length).to.equal(20);
-  expect(list.includes('OUT 20')).to.equal(false); // 19 - 20 - **
-  expect(list.includes('OUT 19')).to.equal(false); // 15 - 19 - **
-  expect(list.includes('OUT 17')).to.equal(true);  // 12 - 17 - **
-  expect(list.includes('IN 16')).to.equal(false);
-  expect(list.includes('IN 11')).to.equal(true);
-  expect(list.includes('IN 8')).to.equal(true);
+  expect(chart.length).to.equal(20);
+ 
+  expect(chart).to.include('DEBUT 11'); // IN POSITION 20 OR 19
+  expect(chart).to.include('DEBUT 8');  // IN POSITION 20 OR 19 
+  expect(chart).to.include('TUBED 17');
+  
+  expect(chart).not.to.include('TUBED 20');
+  expect(chart).not.to.include('TUBED 19');
+  expect(chart).not.to.include('DEBUT 16');
 
-  {
-    const position = list.indexOf('IN 11') + 1;
-    expect([19, 20].includes(position)).to.equal(true); // POSITION 19 OR 20
-  }
-  {
-    const position = list.indexOf('IN 8') + 1;
-    expect([19, 20].includes(position)).to.equal(true); // POSITION 19 OR 20
-  }
+  expect([19, 20]).to.include(list.indexOf('DEBUT 11') + 1);
+  expect([19, 20]).to.include(list.indexOf('DEBUT 8') + 1);
 }
 {
   const [currentList, nextList] = generateList([20], [1]);
