@@ -204,23 +204,24 @@ function generateList(outcoming, incoming) {
   expect(chart).not.to.include('TUBED 19');
   expect(chart).not.to.include('DEBUT 16');
 
-  expect([19, 20]).to.include(list.indexOf('DEBUT 11') + 1);
-  expect([19, 20]).to.include(list.indexOf('DEBUT 8') + 1);
+  expect([19, 20]).to.include(chart.indexOf('DEBUT 11') + 1);
+  expect([19, 20]).to.include(chart.indexOf('DEBUT 8') + 1);
 }
 {
-  const [currentList, nextList] = generateList([20], [1]);
+  const [currentChart, nextChart] = generateList([20], [1]);
 
   const database = new Map()
-  .set('OUT 20', {history: new NumericRange()});
+  .set('TUBED 20', {history: []});
 
-  const list = format(currentList, nextList, database);
+  const chart = format(currentChart, nextChart, database);
 
-  expect(list.length).to.equal(20);
-  expect(list.includes('OUT 20')).to.equal(false);
-  expect(list.includes('IN 1')).to.equal(true); 
+  expect(chart.length).to.equal(20);
 
-  const position = list.indexOf('IN 1') + 1;
-  expect([20].includes(position)).to.equal(true); // POSITION 20
+  expect(chart).to.include('DEBUT 1'); 
+  
+  expect(chart).not.to.include('TUBED 20');
+  
+  expect([20]).to.include(chart.indexOf('IN 1') + 1);
 }
 // I WOULD LIKE THIS TO APPLY BUT IT'S NOT POSSIBLE BECAUSE 20, 19, 18, 18 * IS INTERPRETED AS AN ITEM STILL ASCENDING.
 // HOW TO DIFFERENTIATE THE ABOVE FROM 20, 18, 16, 14, 13, 13, 20, *?
