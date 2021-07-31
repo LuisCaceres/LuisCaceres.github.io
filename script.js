@@ -179,66 +179,6 @@ class NumericRange extends Array {
 }
 
 
-/*
- *
- */
-function format(currentList, nextList, database) {
-  // Iterate through next week's list and verify if there are any new items.
-  // Let `newItems` be a list of such items.
-  const newItems = currentList.difference(nextList);
-  // Verify if there are any new items in position 12 or below.
-  // Let `illegalItems` be a list of such items.
-  const illegalItems = newItems.filter(item => nextList.indexOf(item) + 1 <= 12);
-
-  // Abort if there are no illegal items.
-  if (!illegalItems.length) {
-    return currentList;
-  }
-
-  // Iterate through next week's chart and verify which items have dropped out.
-  // Let `expiredItems` be a list of such items.
-  const expiredItems = nextList.difference(currentList);
-  // Let `replacees` be a list of items that may be replaced by an illegal item.
-  const replacees = expiredItems.filter(match => {
-    // For each item `item` in `expiredItems`:
-    const history = new NumericRange(...database.get(match).history);
-    return history.length === 0 || history.at(-1) > 12 && history.isAscending();
-  });
-
-  // Abort if there are no suitable replacements.
-  if (!replacees.length) {
-    return currentList;
-  }
-
-  const reserve = new List();
-
-  // For each item `item` in `illegalEntries`:
-  for (const illegalItem of illegalItems) {
-  
-    while (replacees.length) {
-      const replacee = replacees.random();
-      const positionIllegalItem = nextList.indexOf(illegalItem);
-      const positionReplacee = currentList.indexOf(replacee);
-      const difference = positionReplacee - positionIllegalItem;
-      
-      replacees.remove(replacee);
-      
-      if (difference > 1) {
-        currentList.replace(replacee, illegalItem);
-        break;
-      }
-      else {
-        // Save this for someone else
-        reserve.push(replacee);
-      }
-    }
-
-    // Let's start again
-    replacees.push(...reserve);
-  }
-
-  return currentList;
-}
 
 
 /*
@@ -473,7 +413,69 @@ class Chart extends List {
     super();
   }
   
+  
   at(index) {
     return this[index - 1];
+  }
+  
+  /*
+   *
+   */
+  format(nextList, database) {
+    // Iterate through next week's list and verify if there are any new items.
+    // Let `newItems` be a list of such items.
+    const newItems = this.difference(nextList);
+    // Verify if there are any new items in position 12 or below.
+    // Let `illegalItems` be a list of such items.
+    const illegalItems = newItems.filter(item => nextList.indexOf(item) + 1 <= 12);
+
+    // Abort if there are no illegal items.
+    if (!illegalItems.length) {
+      return this;
+    }
+
+    // Iterate through next week's chart and verify which items have dropped out.
+    // Let `expiredItems` be a list of such items.
+    const expiredItems = nextList.difference(this);
+    // Let `replacees` be a list of items that may be replaced by an illegal item.
+    const replacees = expiredItems.filter(match => {
+      // For each item `item` in `expiredItems`:
+      const history = new NumericRange(...database.get(match).history);
+      return history.length === 0 || history.at(-1) > 12 && history.isAscending();
+    });
+
+    // Abort if there are no suitable replacements.
+    if (!replacees.length) {
+      return this;
+    }
+
+    const reserve = new List();
+
+    // For each item `item` in `illegalEntries`:
+    for (const illegalItem of illegalItems) {
+
+      while (replacees.length) {
+        const replacee = replacees.random();
+        const positionIllegalItem = nextList.indexOf(illegalItem);
+        const positionReplacee = this.indexOf(replacee);
+        const difference = positionReplacee - positionIllegalItem;
+
+        replacees.remove(replacee);
+
+        if (difference > 1) {
+          this.replace(replacee, illegalItem);
+          break;
+        }
+        else {
+          // Save this for someone else
+          reserve.push(replacee);
+        }
+      }
+
+      // Let's start again
+      replacees.push(...reserve);
+    }
+
+    return this;
   }
 }
