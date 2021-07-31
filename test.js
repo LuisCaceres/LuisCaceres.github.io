@@ -352,7 +352,7 @@ function generateList(outcoming, incoming) {
 // format2()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
-  const [previousChart, currentChart] = generateList([20, 18, 17, 16], [20, 19, 16, 13]);
+  const [chart, currentChart] = generateList([20, 18, 17, 16], [20, 19, 16, 13]);
 
   const database = new Map()
   .set('TUBED 20', {title: 'TUBED 20', history: [17, 15, 20, 20]})
@@ -362,7 +362,7 @@ function generateList(outcoming, incoming) {
 
   const TUBED17 = database.get('TUBED 17');
   
-  const chart = format2(currentChart, previousChart, database);
+  chart.format2(previousChart, database);
   
   expect(chart.length).to.equal(20);
   
@@ -375,14 +375,14 @@ function generateList(outcoming, incoming) {
   expect(['DEBUT 16', 'DEBUT 13']).to.include(TUBED17.match);
 }
 {
-  const [previousChart, currentChart] = generateList([20, 19, 18], [20, 19, 18]);
+  const [chart, currentChart] = generateList([20, 19, 18], [20, 19, 18]);
 
   const database = new Map()
   .set('TUBED 20', {title: 'TUBED 20', history: [20]})
   .set('TUBED 19', {title: 'TUBED 19', history: [20, 19]})
   .set('TUBED 18', {title: 'TUBED 18', history: [20, 19, 18]});
 
-  const chart = format2(currentChart, previousChart, database);
+  chart.format2(previousChart, database);
 
   expect(chart.length).to.equal(20);
   
@@ -403,14 +403,14 @@ function generateList(outcoming, incoming) {
   expect(database.get('DEBUT 20').title).to.equal('TUBED 20');
 }
 {  
-  const [previousChart, currentChart] = generateList([17, 16, 15], [20, 19, 18]);
+  const [chart, currentChart] = generateList([17, 16, 15], [20, 19, 18]);
 
   const database = new Map()
   .set('TUBED 17', {history: [20, 19, 18, 17]})
   .set('TUBED 16', {history: [19, 18, 17, 16]})
   .set('TUBED 15', {history: [18, 17, 16, 15]});
 
-  const chart = format2(currentChart, previousChart, database);
+  chart.format2(previousChart, database);
 
   expect(chart.length).to.equal(20);
   
@@ -450,8 +450,8 @@ function generateList(outcoming, incoming) {
     /* 01 */ ['T',       'T',       'R'],       /* 01 */
   ];
   
-  const previousChart = new List(...charts.map(item => item[1]).reverse());
-  const currentChart = new List(...charts.map(item => item[2]).reverse());
+  const chart = new Chart(...charts.map(item => item[2]).reverse());
+  const previousChart = new Chart(...charts.map(item => item[1]).reverse());
 //   const nextChart = new List(...charts.map(item => item[2]).reverse());
     
   const database = new Map()
@@ -464,7 +464,7 @@ function generateList(outcoming, incoming) {
   
   const TUBED_D = database.get('TUBED D');
     
-  let chart = format2(currentChart, previousChart, database);
+  chart.format2(previousChart, database);
   
   expect(chart.length).to.equal(20);
   
