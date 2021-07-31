@@ -49,6 +49,20 @@ function adjustScreen(screen, measurements) {
 /*
  *
  */
+class Chart extends List {
+  constructor() {
+    super();
+  }
+  
+  at(index) {
+    return this(index +1);
+  }
+}
+
+
+/*
+ *
+ */
 function associate(list, charted, uncharted) {
   const chart = list.map((match, index) => {
     let entry = charted.get(match);
