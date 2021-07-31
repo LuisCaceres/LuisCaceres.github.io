@@ -309,7 +309,7 @@ function validate(playlist) {
  *
  */
 class Chart extends List {
-  constructor() {
+  constructor(...entries) {
     super();
   }
   
