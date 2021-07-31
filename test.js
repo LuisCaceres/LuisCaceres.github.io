@@ -3,8 +3,8 @@ console.log('Testing starting.');
 const expect = chai.expect;
 
 function generateList(outcoming, incoming) {
-  const listA = new List();
-  const listB = new List();
+  const listA = new Chart();
+  const listB = new Chart();
   const itemsA = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'];
   const itemsB = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'];
 
@@ -19,7 +19,6 @@ function generateList(outcoming, incoming) {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // associate()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-{
   const charted = new Map()
   .set('Entry 1', 'Song A')
   .set('Entry 2', 'Song B');
@@ -252,7 +251,7 @@ function generateList(outcoming, incoming) {
   
   expect(chart).not.to.include('TUBED 20');
   
-  expect(chart.indexOf('DEBUT 9') + 1).to.equal(20);
+  expect(chart.at(20)).to.equal('DEBUT 9');
 }
 {
   const [currentChart, nextChart] = generateList([14, 13], [16, 12]);
