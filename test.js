@@ -109,14 +109,13 @@ function generateList(outcoming, incoming) {
 // format()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
-  const [currentChart, nextChart] = generateList([18, 16], [19, 10]);
+  const [chart, nextChart] = generateList([18, 16], [19, 10]);
   
   const database = new Map()
   .set('TUBED 18', {history: [5, 5, 9, 13, 15]})
   .set('TUBED 16', {history: [1, 1, 1, 2, 3, 3, 5, 6, 6, 8, 12]});
  
-  const chart = format(currentChart, nextChart, database);
-  // currentChart.format(nextChart, database);
+  chart.format(nextChart, database);
   
   expect(chart.length).to.equal(20);
   
@@ -127,7 +126,7 @@ function generateList(outcoming, incoming) {
   expect(chart).not.to.include('DEBUT 19');
 }
 {
-  const [currentChart, nextChart] = generateList([20, 18, 17, 16], [20, 19, 15, 12]);
+  const [chart, nextChart] = generateList([20, 18, 17, 16], [20, 19, 15, 12]);
   
   const database = new Map()
   .set('TUBED 20', {history: [19]})
@@ -135,7 +134,7 @@ function generateList(outcoming, incoming) {
   .set('TUBED 17', {history: [10]})
   .set('TUBED 16', {history: [11]});
   
-  const chart = format(currentChart, nextChart, database);
+  chart.format(nextChart, database);
   
   expect(chart.length).to.equal(20);
  
