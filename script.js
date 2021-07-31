@@ -474,6 +474,6 @@ class Chart extends List {
   }
   
   at(index) {
-    return this(index +1);
+    return this[index +1];
   }
 }
