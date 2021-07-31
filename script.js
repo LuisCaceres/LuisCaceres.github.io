@@ -49,20 +49,6 @@ function adjustScreen(screen, measurements) {
 /*
  *
  */
-class Chart extends List {
-  constructor() {
-    super();
-  }
-  
-  at(index) {
-    return this(index +1);
-  }
-}
-
-
-/*
- *
- */
 function associate(list, charted, uncharted) {
   const chart = list.map((match, index) => {
     let entry = charted.get(match);
@@ -476,4 +462,18 @@ function validate(playlist) {
   playlist = playlist.filter(item => item.position);
   playlist = new Set(playlist);
   expect(playlist.size).to.equal(22);
+}
+
+
+/*
+ *
+ */
+class Chart extends List {
+  constructor() {
+    super();
+  }
+  
+  at(index) {
+    return this(index +1);
+  }
 }
