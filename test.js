@@ -116,15 +116,14 @@ function generateList(outcoming, incoming) {
   .set('TUBED 16', {history: [1, 1, 1, 2, 3, 3, 5, 6, 6, 8, 12]});
  
   const chart = format(currentChart, nextChart, database);
+  
   expect(chart.length).to.equal(20);
   
-  expect(chart).to.include('TUBED 16');
-  expect(chart).to.include('DEBUT 10');
+  expect(chart.at(18)).to.equal('DEBUT 10');
+  expect(chart.at(16)).to.equal('TUBED 16');
   
-  expect(chart.indexOf('DEBUT 10') + 1).to.equal(18);
-  
+  expect(chart).not.to.include('TUBED 18'); 
   expect(chart).not.to.include('DEBUT 19');
-  expect(chart).not.to.include('TUBED 18');
 }
 {
   const [currentChart, nextChart] = generateList([20, 18, 17, 16], [20, 19, 15, 12]);
@@ -139,15 +138,13 @@ function generateList(outcoming, incoming) {
   
   expect(chart.length).to.equal(20);
  
-  expect(chart).to.include('DEBUT 12'); // IN POSITION 20 OR 18
-  expect(chart).to.include('TUBED 17');
-  expect(chart).to.include('TUBED 16');
+  expect(chart.at(20), chart.at(18)).to.include('DEBUT 12'); // IN POSITION 20 OR 18
+  expect(chart.at(17)).to.equal('TUBED 17');
+  expect(chart.at(16)).to.equal('TUBED 16');
   
   expect(chart).not.to.include('DEBUT 20');
   expect(chart).not.to.include('DEBUT 19');
   expect(chart).not.to.include('DEBUT 15');
-  
-  expect([18, 20]).to.include(chart.indexOf('DEBUT 12') + 1);
 }
 {
   const [currentChart, nextChart] = generateList([18, 16], [20, 19]);
