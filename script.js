@@ -329,7 +329,7 @@ class Chart extends List {
     const newItems = this.difference(nextList);
     // Verify if there are any new items in position 12 or below.
     // Let `illegalItems` be a list of such items.
-    const illegalItems = newItems.filter(item => nextList.indexOf(item) + 1 <= 12);
+    const illegalItems = newItems.filter(entry => nextList.positionOf(entry) <= 12);
 
     // Abort if there are no illegal items.
     if (!illegalItems.length) {
@@ -358,8 +358,8 @@ class Chart extends List {
 
       while (replacees.length) {
         const replacee = replacees.random();
-        const positionIllegalItem = nextList.indexOf(illegalItem);
-        const positionReplacee = this.indexOf(replacee);
+        const positionIllegalItem = nextList.positionOf(illegalItem);
+        const positionReplacee = this.positionOf(replacee);
         const difference = positionReplacee - positionIllegalItem;
 
         replacees.remove(replacee);
@@ -410,7 +410,7 @@ class Chart extends List {
     // For each entry `entry` in `disallowedEntries`.
       // Refer to last week's chart and find out `entry`'s position on the chart.
       // Add that position to `positions`.
-    const positions = illegalItems.map(item => previousList.indexOf(item));
+    const positions = illegalItems.map(entry => previousList.positionOf(entry));
 
     // FIND OUT WHICH ENTRIES HAVE DEBUTED ON THIS WEEK'S CHART.
     // Compare last week's chart and this week's chart and get the entries not present in last week's chart (debuts).
@@ -421,8 +421,8 @@ class Chart extends List {
     // For each debut `debut` in `debuts`.
       // Refer to this week's chart and find out `debut`'s position on the chart.
       // Add to `replacees` if that position is greater than, at least, one of the positions in `positions`.
-    const replacees = debuts.filter(item => {
-      return positions.some(position => this.indexOf(item) <= position);
+    const replacees = debuts.filter(entry => {
+      return positions.some(position => this.positionOf(entry) <= position);
     });
 
     // ABORT IF THERE ARE NO DEBUTS THAT CAN BE REPLACED.
@@ -449,8 +449,8 @@ class Chart extends List {
         const replacee = replacees.random();
         replacees.remove(replacee);
 
-        const rest1 = illegalItems.slice(index + 1).map(entry => previousList.indexOf(entry));
-        const rest2 = replacees.concat(reserve).map(entry => this.indexOf(entry));
+        const rest1 = illegalItems.slice(index + 1).map(entry => previousList.positionOf(entry));
+        const rest2 = replacees.concat(reserve).map(entry => this.positionOf(entry));
 
         const allowed = rest2.filter(item => {
           return rest1.some(position => item >= position);
