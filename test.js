@@ -352,7 +352,7 @@ function generateList(outcoming, incoming) {
 // format2()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
-  const [chart, currentChart] = generateList([20, 18, 17, 16], [20, 19, 16, 13]);
+  const [previousChart, chart] = generateList([20, 18, 17, 16], [20, 19, 16, 13]);
 
   const database = new Map()
   .set('TUBED 20', {title: 'TUBED 20', history: [17, 15, 20, 20]})
@@ -375,7 +375,7 @@ function generateList(outcoming, incoming) {
   expect(['DEBUT 16', 'DEBUT 13']).to.include(TUBED17.match);
 }
 {
-  const [chart, currentChart] = generateList([20, 19, 18], [20, 19, 18]);
+  const [previousChart, currentChart] = generateList([20, 19, 18], [20, 19, 18]);
 
   const database = new Map()
   .set('TUBED 20', {title: 'TUBED 20', history: [20]})
@@ -403,7 +403,7 @@ function generateList(outcoming, incoming) {
   expect(database.get('DEBUT 20').title).to.equal('TUBED 20');
 }
 {  
-  const [chart, currentChart] = generateList([17, 16, 15], [20, 19, 18]);
+  const [previousChart, currentChart] = generateList([17, 16, 15], [20, 19, 18]);
 
   const database = new Map()
   .set('TUBED 17', {history: [20, 19, 18, 17]})
