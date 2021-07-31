@@ -138,7 +138,8 @@ function generateList(outcoming, incoming) {
   
   expect(chart.length).to.equal(20);
  
-  expect(chart.at(20), chart.at(18)).to.include('DEBUT 12'); // IN POSITION 20 OR 18
+  expect([chart.at(20), chart.at(18)]).to.include('DEBUT 12');
+  
   expect(chart.at(17)).to.equal('TUBED 17');
   expect(chart.at(16)).to.equal('TUBED 16');
   
