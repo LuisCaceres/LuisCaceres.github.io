@@ -318,6 +318,8 @@ class Chart extends List {
     return this[index - 1];
   }
   
+
+  
   /*
    *
    */
@@ -378,7 +380,8 @@ class Chart extends List {
 
     return this;
   }
-  
+
+
   /*
    *
    */
@@ -393,7 +396,7 @@ class Chart extends List {
     // For each entry `entry` in `outItems`.
        // Add `entry` to `disallowedEntries` if `entry`'s history only contains forward movements.
        // EXAMPLE of an entry's history which only contains forward movements: [20, 20, 18, 17, 17, **]
-    const illegalItems = outItems.filter((match, index )=> {
+    const illegalItems = outItems.filter((match, index) => {
       const history = new NumericRange(...database.get(match).history);
       return history.isDescending() || history.length === 1;
     });
@@ -472,5 +475,12 @@ class Chart extends List {
 
     // DONE
     return this;
+  }
+  
+  /*
+   *
+   */
+  positionOf(entry) {
+    return this.indexOf(entry) + 1;
   }
 }
