@@ -382,7 +382,7 @@ class Chart extends List {
   /*
    *
    */
-  function format2(currentList, previousList, database) {
+  format2(currentList, previousList, database) {
     // FIND OUT WHICH ENTRIES HAVE DROPPED OFF THIS WEEK'S CHART.
     // Compare last week's chart and this week's chart and get the entries not present in this week's chart.
     // Let `outItems` be a list of such entries.
