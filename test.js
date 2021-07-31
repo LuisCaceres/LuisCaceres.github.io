@@ -116,6 +116,7 @@ function generateList(outcoming, incoming) {
   .set('TUBED 16', {history: [1, 1, 1, 2, 3, 3, 5, 6, 6, 8, 12]});
  
   const chart = format(currentChart, nextChart, database);
+  // currentChart.format(nextChart, database);
   
   expect(chart.length).to.equal(20);
   
