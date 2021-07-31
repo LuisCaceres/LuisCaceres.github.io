@@ -148,13 +148,13 @@ function generateList(outcoming, incoming) {
   expect(chart).not.to.include('DEBUT 15');
 }
 {
-  const [currentChart, nextChart] = generateList([18, 16], [20, 19]);
+  const [chart, nextChart] = generateList([18, 16], [20, 19]);
   
   const database = new Map()
   .set('TUBED 18', {history: [12, 14]})
   .set('TUBED 16', {history: [09, 12]});
  
-  const chart = format(currentChart, nextChart, database);
+  chart.format(nextChart, database);
   
   expect(chart.length).to.equal(20);
   
@@ -165,12 +165,12 @@ function generateList(outcoming, incoming) {
   expect(chart).not.to.include('DEBUT 19');
 }
 {
-  const [currentChart, nextChart] = generateList([16], [17]);
+  const [chart, nextChart] = generateList([16], [17]);
   
   const database = new Map()
   .set('TUBED 16', {history: [04, 06, 10]});
   
-  const chart = format(currentChart, nextChart, database);
+  chart.format(nextChart, database);
   
   expect(chart.length).to.equal(20);
   
@@ -179,12 +179,12 @@ function generateList(outcoming, incoming) {
   expect(chart).not.to.include('DEBUT 17');
 }
 {
-  const [currentChart, nextChart] = generateList([18], [16]);
+  const [chart, nextChart] = generateList([18], [16]);
 
   const database = new Map()
   .set('TUBED 18', {history: [08, 08, 11, 14]});
   
-  const chart = format(currentChart, nextChart, database);
+  chart.format(nextChart, database);
 
   expect(chart.length).to.equal(20);
   
@@ -193,14 +193,14 @@ function generateList(outcoming, incoming) {
   expect(chart).not.to.include('DEBUT 16');
 }
 {
-  const [currentChart, nextChart] = generateList([20, 19, 17], [16, 11, 8]);
+  const [chart, nextChart] = generateList([20, 19, 17], [16, 11, 8]);
 
   const database = new Map()
   .set('TUBED 20', {history: [13, 13, 14, 17, 19]})
   .set('TUBED 19', {history: [07, 07, 09, 11, 15]})
   .set('TUBED 17', {history: [06, 05, 07, 08, 12]});
   
-  const chart = format(currentChart, nextChart, database);
+  chart.format(nextChart, database);
 
   expect(chart.length).to.equal(20);
  
@@ -213,12 +213,12 @@ function generateList(outcoming, incoming) {
   expect(chart).not.to.include('DEBUT 16');
 }
 {
-  const [currentChart, nextChart] = generateList([20], [1]);
+  const [chart, nextChart] = generateList([20], [1]);
 
   const database = new Map()
   .set('TUBED 20', {history: []});
 
-  const chart = format(currentChart, nextChart, database);
+  chart.format(nextChart, database);
 
   expect(chart.length).to.equal(20);
   
@@ -242,12 +242,12 @@ function generateList(outcoming, incoming) {
 //   expect(list.includes('IN 7')).to.equal(true);
 // }
 {
-  const [currentChart, nextChart] = generateList([20], [9]);
+  const [chart, nextChart] = generateList([20], [9]);
 
   const database = new Map()
   .set('TUBED 20', {history: []});
 
-  const chart = format(currentChart, nextChart, database);
+  chart.format(nextChart, database);
 
   expect(chart.length).to.equal(20);
 
@@ -256,13 +256,13 @@ function generateList(outcoming, incoming) {
   expect(chart).not.to.include('TUBED 20');  
 }
 {
-  const [currentChart, nextChart] = generateList([14, 13], [16, 12]);
+  const [chart, nextChart] = generateList([14, 13], [16, 12]);
 
   const database = new Map()
   .set('TUBED 14', {history: [6, 10, 14]})
   .set('TUBED 13', {history: [7, 12, 13]});
 
-  const chart = format(currentChart, nextChart, database);
+  chart.format(nextChart, database);
 
   expect(chart.length).to.equal(20);
 
@@ -273,12 +273,12 @@ function generateList(outcoming, incoming) {
   expect(chart).not.to.include('DEBUT 16');  
 }
 {
-  const [currentChart, nextChart] = generateList([13], [11]);
+  const [chart, nextChart] = generateList([13], [11]);
   
   const database = new Map()
   .set('TUBED 13', {history: [6, 10, 13]});
 
-  const chart = format(currentChart, nextChart, database);
+  chart.format(nextChart, database);
 
   expect(chart.length).to.equal(20);
 
@@ -288,12 +288,12 @@ function generateList(outcoming, incoming) {
 }
 // FORMATTING NOT ALLOWED IN SPITE OF THE EXISTENCE OF AN ILLEGAL ITEM
 {
-  const [currentChart, nextChart] = generateList([11], [5]);
+  const [chart, nextChart] = generateList([11], [5]);
 
   const database = new Map()
   .set('TUBED 11', {history: [6, 2, 2, 1]});
 
-  const chart = format(currentChart, nextChart, database);
+  chart.format(nextChart, database);
 
   expect(chart.length).to.equal(20);
 
@@ -303,12 +303,12 @@ function generateList(outcoming, incoming) {
 }
 // FORMATTING NOT ALLOWED IN SPITE OF THE EXISTENCE OF AN ILLEGAL ITEM
 {
-  const [currentChart, nextChart] = generateList([15], [10]);
+  const [chart, nextChart] = generateList([15], [10]);
 
   const database = new Map()
   .set('TUBED 15', {history: [19, 17, 13, 11, 11]});
 
-  const chart = format(currentChart, nextChart, database);
+  chart.format(nextChart, database);
 
   expect(chart.length).to.equal(20);
 
@@ -318,12 +318,12 @@ function generateList(outcoming, incoming) {
 }
 // FORMATTING NOT ALLOWED IN SPITE OF THE EXISTENCE OF AN ILLEGAL ITEM
 {
-  const [currentChart, nextChart] = generateList([20], [9]);
+  const [chart, nextChart] = generateList([20], [9]);
 
   const database = new Map()
   .set('TUBED 20', {history: [20, 18, 16, 14, 13, 13]});
 
-  const chart = format(currentChart, nextChart, database);
+  chart.format(nextChart, database);
 
   expect(chart.length).to.equal(20);
 
@@ -333,12 +333,12 @@ function generateList(outcoming, incoming) {
 }
 // FORMATTING NOT ALLOWED IN SPITE OF THE EXISTENCE OF AN ILLEGAL ITEM
 {
-  const [currentChart, nextChart] = generateList([13], [12]);
+  const [chart, nextChart] = generateList([13], [12]);
 
   const database = new Map()
   .set('TUBED 13', {history: [7, 12, 13]});
 
-  const chart = format(currentChart, nextChart, database);
+  chart.format(nextChart, database);
 
   expect(chart.length).to.equal(20);
 
