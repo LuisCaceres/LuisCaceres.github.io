@@ -310,7 +310,7 @@ function validate(playlist) {
  */
 class Chart extends List {
   constructor(...entries) {
-    super();
+    super(...entries);
   }
   
   
