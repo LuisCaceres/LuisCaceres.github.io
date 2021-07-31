@@ -382,11 +382,11 @@ class Chart extends List {
   /*
    *
    */
-  format2(currentList, previousList, database) {
+  format2(previousList, database) {
     // FIND OUT WHICH ENTRIES HAVE DROPPED OFF THIS WEEK'S CHART.
     // Compare last week's chart and this week's chart and get the entries not present in this week's chart.
     // Let `outItems` be a list of such entries.
-    const outItems = currentList.difference(previousList);
+    const outItems = this.difference(previousList);
 
     // OUT OF THOSE ENTRIES, FIND OUT WHICH ONES ARE DISALLOWED.
     // Let `disallowedEntries` be an initially empty list of entries.
@@ -400,7 +400,7 @@ class Chart extends List {
 
     // ABORT IF THERE ARE NO DISALLOWED ENTRIES
     if (!illegalItems.length) {
-      return currentList;
+      return this;
     }
 
     // Let `positions` be an initially empty list of chart positions.
@@ -412,19 +412,19 @@ class Chart extends List {
     // FIND OUT WHICH ENTRIES HAVE DEBUTED ON THIS WEEK'S CHART.
     // Compare last week's chart and this week's chart and get the entries not present in last week's chart (debuts).
     // Let `newEntries` be a list of such entries.
-    const debuts = previousList.difference(currentList);
+    const debuts = previousList.difference(this);
 
     // CHECK WHICH OF THOSE DEBUTS CAN BE REPLACED BY A DISALLOWED ENTRY
     // For each debut `debut` in `debuts`.
       // Refer to this week's chart and find out `debut`'s position on the chart.
       // Add to `replacees` if that position is greater than, at least, one of the positions in `positions`.
     const replacees = debuts.filter(item => {
-      return positions.some(position => currentList.indexOf(item) <= position);
+      return positions.some(position => this.indexOf(item) <= position);
     });
 
     // ABORT IF THERE ARE NO DEBUTS THAT CAN BE REPLACED.
     if (!replacees.length) {
-      return currentList;
+      return this;
     }
 
     // NOTE: STEP PERHAPS NOT REQUIRED
@@ -447,7 +447,7 @@ class Chart extends List {
         replacees.remove(replacee);
 
         const rest1 = illegalItems.slice(index + 1).map(entry => previousList.indexOf(entry));
-        const rest2 = replacees.concat(reserve).map(entry => currentList.indexOf(entry));
+        const rest2 = replacees.concat(reserve).map(entry => this.indexOf(entry));
 
         const allowed = rest2.filter(item => {
           return rest1.some(position => item >= position);
@@ -471,6 +471,6 @@ class Chart extends List {
     });  
 
     // DONE
-    return currentList;
+    return this;
   }
 }
