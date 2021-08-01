@@ -325,11 +325,10 @@ class Chart extends List {
    */
   format(nextList, database) {
     // Iterate through next week's list and verify if there are any new items.
-    // Let `newItems` be a list of such items.
-    const newItems = this.difference(nextList);
+    // Let `newItems` be a list of such items.    
     // Verify if there are any new items in position 12 or below.
     // Let `illegalItems` be a list of such items.
-    const illegalItems = newItems.filter(entry => nextList.positionOf(entry) <= 12);
+    const illegalItems = nextList.slice(0, 11).difference(this);
 
     // Abort if there are no illegal items.
     if (!illegalItems.length) {
