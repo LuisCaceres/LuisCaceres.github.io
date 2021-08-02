@@ -350,8 +350,8 @@ class Chart extends List {
       return this;
     }
     
-    const values = map(illegalItems, replacees, function(listA, listB, left, right) {
-        const difference = listB.positionOf(right) - listA.positionOf(left);
+    const values = map(illegalItems, replacees, (listA, listB, left, right) => {
+        const difference = this.positionOf(right) - nextList.positionOf(left);
         return difference > 1;
     });
     
