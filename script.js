@@ -318,7 +318,6 @@ class Chart extends List {
     return this[index - 1];
   }
   
-
   
   /*
    *
@@ -350,34 +349,16 @@ class Chart extends List {
     if (!replacees.length) {
       return this;
     }
-
-    const reserve = new List();
-
-    // For each item `item` in `illegalEntries`:
-    for (const illegalItem of illegalItems) {
-
-      while (replacees.length) {
-        const replacee = replacees.random();
-        const positionIllegalItem = nextList.positionOf(illegalItem);
-        const positionReplacee = this.positionOf(replacee);
-        const difference = positionReplacee - positionIllegalItem;
-
-        replacees.remove(replacee);
-
-        if (difference > 1) {
-          this.replace(replacee, illegalItem);
-          break;
-        }
-        else {
-          // Save this for someone else
-          reserve.push(replacee);
-        }
-      }
-
-      // Let's start again
-      replacees.push(...reserve);
+    
+    const values = map(illegalItems, replacees, function(listA, listB, left, right) {
+        const difference = listB.positionOf(right) - listA.positionOf(left);
+        return difference > 1;
+    });
+    
+    for (const [illegalItem, replacee] of values.entries()) {
+       this.replace(replacee, illegalItem);
     }
-
+    
     return this;
   }
 
@@ -483,4 +464,36 @@ class Chart extends List {
   positionOf(entry) {
     return this.indexOf(entry) + 1;
   }
+}
+
+
+/*
+ *
+ */
+function map(listA, listB, compareFn) {
+  const map = new Map();
+  const reserve = [];
+    
+  listA.forEach(left => {
+    
+    while (listB.length) {
+      const right = listB.random();
+      listB.remove(right);
+
+      const condition = compareFn(listA, listB, left, right);
+
+      if (condition) {
+        map.set(left, right);
+        break;
+      } 
+      else {
+        reserve.push(right);
+      }
+    }
+
+    listB.push(...reserve);
+    reserve.length = 0;
+  });
+  
+  return map;
 }
