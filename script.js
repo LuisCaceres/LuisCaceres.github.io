@@ -46,7 +46,7 @@ function assign(listA, listB, predicate) {
     const allocation = list.shift();                    // allocation === 'A'
                                                          // items === ['ARGENTINA', 'BOLIVIA', CANADA, 'DENMARK', 'ECUADOR']
     const items = mapB.get(allocation).
-    (new List(key));  // difference() === ['BOLIVIA', CANADA, 'DENMARK', 'ECUADOR']
+                                           // difference() === ['BOLIVIA', CANADA, 'DENMARK', 'ECUADOR']
 
 
     const condition = items.some(item => {
