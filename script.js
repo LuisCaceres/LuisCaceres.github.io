@@ -7,7 +7,9 @@
 // TO DO: THERE ARE MORE OCURRENCES OF VIDEOS BEING IN THE SAME POSITION FOR MORE THAN 3 WEEKS, I DON'T LIKE THAT.
 
 
-
+/* Returns a map whose keys are the values of this map and whose values are the keys of this map. 
+ * @return {Map} - 
+ */
 Map.prototype.transpose = function() {
   const map = new Map();
 
@@ -27,6 +29,11 @@ Map.prototype.transpose = function() {
 };
 
 
+/*
+ * @param {List} - listA
+ * @param {List} - listB
+ * @return {Map} - 
+ */
 function assign(listA, listB, predicate) {
   // Let `mapA` be a map initially empty.
   const mapA = new Map();
@@ -45,8 +52,8 @@ function assign(listA, listB, predicate) {
   for (const [key, list] of mapA) {                       // [key, value] === ['ARGENTINA', ['A, E, G, I']]
     const allocation = list.shift();                    // allocation === 'A'
                                                          // items === ['ARGENTINA', 'BOLIVIA', CANADA, 'DENMARK', 'ECUADOR']
-    const items = mapB.get(allocation).
-                                           // difference() === ['BOLIVIA', CANADA, 'DENMARK', 'ECUADOR']
+    const items = mapB.get(allocation).remove(key);
+                                                          // difference() === ['BOLIVIA', CANADA, 'DENMARK', 'ECUADOR']
 
 
     const condition = items.some(item => {
