@@ -144,7 +144,7 @@ class List extends Array {
    *
    */
   difference(list) {
-    return list.filter(item => this.includes(item));
+    return list.filter(item => !this.includes(item));
   }
   
 
