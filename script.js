@@ -13,14 +13,14 @@ Map.prototype.transpose = function() {
 
   for (const [key, list] of this) {
 
-      for (const item of list) {
+    for (const item of list) {
 
-          if (!map.has(item)) {
-              map.set(item, new Set());
-          }
-
-          map.get(item).add(key);
+      if (!map.has(item)) {
+        map.set(item, new List());
       }
+
+      map.get(item).push(key);
+    }
   }
 
   return map;
