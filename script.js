@@ -138,17 +138,17 @@ class List extends Array {
   constructor(...items) {
     super(...items);
   }
-  
-  
-  /*
-   *
+
+
+  /* Returns the items from `list` not present in this list.
+   * @param {List} - list
+   * @return {List} -
    */
   difference(list) {
     return list.filter(item => !this.includes(item));
   }
-  
 
-  
+
   /*
    *
    */
