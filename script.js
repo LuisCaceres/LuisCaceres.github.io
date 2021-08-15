@@ -6,13 +6,61 @@
 
 // TO DO: THERE ARE MORE OCURRENCES OF VIDEOS BEING IN THE SAME POSITION FOR MORE THAN 3 WEEKS, I DON'T LIKE THAT.
 
-/*
- *
- */
-if (!Array.prototype.at) {
-  Array.prototype.at = function(n) {
-    return this[n >= 0 ? n : this.length - Math.abs(n)];
-  };
+
+
+Map.prototype.transpose = function() {
+  const map = new Map();
+
+  for (const [key, list] of this) {
+
+      for (const item of list) {
+
+          if (!map.has(item)) {
+              map.set(item, new Set());
+          }
+
+          map.get(item).add(key);
+      }
+  }
+
+  return map;
+};
+
+
+function assign(listA, listB, predicate) {
+  // Let `mapA` be a map initially empty.
+  const mapA = new Map();
+
+  // For each item `item` in `listA`
+  for (const item of listA) {
+    // Let `allocations` be a list of items from `listB` that are associated with `item`.
+    const allocations = listB.filter(predicate.bind(listB, item));
+    mapA.set(item, allocations);
+  }
+
+  // Let `mapB` be a map initially empty.
+  const mapB = mapA.transpose();
+
+
+  for (const [key, list] of mapA) {                       // [key, value] === ['ARGENTINA', ['A, E, G, I']]
+    const allocation = list.shift();                    // allocation === 'A'
+                                                         // items === ['ARGENTINA', 'BOLIVIA', CANADA, 'DENMARK', 'ECUADOR']
+    const items = mapB.get(allocation).difference(key);  // difference() === ['BOLIVIA', CANADA, 'DENMARK', 'ECUADOR']
+
+
+    const condition = items.some(item => {
+      !(mapA.get(item).length === 1);
+    }) && list.length > 1;
+                                                        // item === 'BOLIVIA'
+                                                       // [A, B, I]
+                                                        // difference() === [B, I]
+    if (condition) {                                     // 2
+      mapA.remove(allocation);
+      mapA.set(key, allocation);           
+    }
+  }
+
+  return mapA;
 }
 
 
@@ -313,7 +361,7 @@ class Chart extends List {
     super(...entries);
   }
   
-  
+
   at(index) {
     return this[index - 1];
   }
