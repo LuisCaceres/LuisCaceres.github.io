@@ -37,11 +37,12 @@ Map.prototype.transpose = function() {
 function assign(listA, listB, predicate) {
   // Let `mapA` be a map initially empty.
   const mapA = new Map();
+  const mapC = new Map();
 
   // For each item `item` in `listA`
   for (const item of listA) {
     // Let `allocations` be a list of items from `listB` that are associated with `item`.
-    const allocations = listB.filter(predicate.bind(listB, item));
+    const allocations = listB.filter(predicate.bind(listB, item)).shuffle();
     mapA.set(item, allocations);
   }
 
@@ -56,22 +57,27 @@ function assign(listA, listB, predicate) {
                                                           // difference() === ['BOLIVIA', CANADA, 'DENMARK', 'ECUADOR']
     
     
-    const condition = items.some(item => mapA.get(item).length > 1);
+    const condition = items.length === 0 || items.some(item => mapA.get(item).length > 1);
     
                                                       // item === 'BOLIVIA'
                                                        // [A, B, I]
                                                         // difference() === [B, I]
     if (condition) {
       
-      for (const [item, allocations] of mapA) {
+      for (const [, allocations] of mapA) {
         allocations.remove(allocation);
       }
-                                                           // 2
-      mapA.set(item, allocation);           
+      
+      for (const [, allocations] of mapB) {
+        allocations.remove(item);
+      }
+      
+      mapA.delete(item);                                  // 2
+      mapC.set(item, allocation);         
     }
   }
 
-  return mapA;
+  return mapC;
 }
 
 
@@ -211,7 +217,20 @@ class List extends Array {
         this[index] = replacement;
       }
     });
-  } 
+  }
+
+
+  /*
+   *
+   */
+  shuffle() {
+    for (let i = this.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [this[i], this[j]] = [this[j], this[i]];
+    }
+
+    return this;
+  }
 }
 
 
