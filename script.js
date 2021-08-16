@@ -49,22 +49,25 @@ function assign(listA, listB, predicate) {
   const mapB = mapA.transpose();
 
 
-  for (const [key, list] of mapA) {                       // [key, value] === ['ARGENTINA', ['A, E, G, I']]
-    const allocation = list.shift();                    // allocation === 'A'
+  for (const [item, allocations] of mapA) {                       // [key, value] === ['ARGENTINA', ['A, E, G, I']]
+    const allocation = allocations.shift();                    // allocation === 'A'
                                                          // items === ['ARGENTINA', 'BOLIVIA', CANADA, 'DENMARK', 'ECUADOR']
-    const items = mapB.get(allocation).remove(key);
+    const items = mapB.get(allocation).remove(item);
                                                           // difference() === ['BOLIVIA', CANADA, 'DENMARK', 'ECUADOR']
-
-
-    const condition = items.some(item => {
-      !(mapA.get(item).length === 1);
-    }) && list.length > 1;
-                                                        // item === 'BOLIVIA'
+    
+    
+    const condition = items.some(item => mapA.get(item).length > 1);
+    
+                                                      // item === 'BOLIVIA'
                                                        // [A, B, I]
                                                         // difference() === [B, I]
-    if (condition) {                                     // 2
-      mapA.remove(allocation);
-      mapA.set(key, allocation);           
+    if (condition) {
+      
+      for (const [item, allocations] of mapA) {
+        allocations.remove(allocation);
+      }
+                                                           // 2
+      mapA.set(item, allocation);           
     }
   }
 
@@ -194,6 +197,8 @@ class List extends Array {
       this.splice(index, 1);
       index = this.indexOf(item);
     }
+
+    return this;
   }
  
   
