@@ -226,7 +226,7 @@ class List extends Array {
   share(...lists) {
     const value = [this].concat(lists).map((list, index, lists) => {
       
-      if (list.length === 0) {
+      if (!list.length) {
         return null;
       }
         
@@ -235,7 +235,7 @@ class List extends Array {
       while (list.length) {
         const item = list.shift();
         
-        const condition = list.length == 1 ||
+        const condition = !list.length ||
           rest.filter(list => list.includes(item)).some(list => list.length > 1);
 
         if (condition) {
