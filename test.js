@@ -752,9 +752,9 @@ function generateList(outcoming, incoming) {
 }
 {
   const listA = new List('D', 'C', 'B', 'A');
-  const listA = new List('D', 'C', 'B');
-  const listA = new List('D', 'C');
-  const listA = new List('D');
+  const listB = new List('D', 'C', 'B');
+  const listC = new List('D', 'C');
+  const listD = new List('D');
 
   const list = listA.share(listB, listC, listD);
 
