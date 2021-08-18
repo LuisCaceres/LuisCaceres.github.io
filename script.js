@@ -223,29 +223,25 @@ class List extends Array {
   /*
    *
    */
-  share(...lists) {    
-    lists.concat(this);
-    
-    const value = lists.map(list, index) => {
+  share(...lists) {
+    const value = lists.concat(this).map(list, index) => {
+      
+      if (list.length === 0) {
+        return null;
+      }
+      
+      if (list.length == 1) {
+        return list[0];  
+      }
       
       for (const item of list) {
         const rest = lists.slice(index + 1);
 
-        const condition = list.length === 1 ||
-          rest.some(list => {
-            return list.slice().remove(item).length > 0;
-        });
+        const condition = rest.filter(list => list.includes(item)).some(list => list.length > 1);
 
         if (condition) {
-          rest.forEach(list => {
-            list.remove(item);
-            if (!list.length) {
-              list[0] = null;
-            }
-          });
- 
-          value.push(item);
-          break;
+          rest.forEach(list => list.remove(item));
+          return item;
         }
       }
     });
