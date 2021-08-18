@@ -218,6 +218,40 @@ class List extends Array {
       }
     });
   }
+  
+  
+  /*
+   *
+   */
+  share(...lists) {
+    const value = [];
+
+    for (const list of lists) {
+
+      for (const item of list) {
+        const rest = lists.slice(1);
+
+        const condition = list.length === 1 ||
+          rest.some(list => {
+            return list.slice().remove(item).length > 0;
+        });
+
+        if (condition) {
+          rest.forEach(list => {
+            list.remove(item);
+            if (!list.length) {
+              list[0] = null;
+            }
+          });
+ 
+          value.push(item);
+          break;
+        }
+      }  
+    }
+
+    return value;
+  }
 
 
   /*
