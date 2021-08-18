@@ -230,18 +230,25 @@ class List extends Array {
         return null;
       }
       
+      
+      
       const rest = lists.slice(index + 1);
       
-      list.sort(item => {
-        const condition = rest.every(list => !list.includes(item)); 
-        return condition ? -1 : 0;
-      });
+//       list.sort(item => {
+//         const condition = rest.every(list => !list.includes(item)); 
+//         return condition ? -1 : 0;
+//       });
       
       while (list.length) {
         const item = list.shift();
-        const filtered = rest.filter(list => list.includes(item));  
+      
+        const condition = !list.length || list.every(item => {
+          return rest.some(list => list.include(item));
+        });
         
-        const condition = !list.length || !filtered.length || filtered.every(list => list.length > 1);
+//         const filtered = rest.filter(list => list.includes(item));  
+        
+//         const condition = !list.length || !filtered.length || filtered.every(list => list.length > 1);
 
         if (condition) {
           rest.forEach(list => list.remove(item));
