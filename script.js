@@ -223,13 +223,13 @@ class List extends Array {
   /*
    *
    */
-  share(...lists) {
-    const value = [];
-
-    for (const list of lists) {
-
+  share(...lists) {    
+    lists.concat(this);
+    
+    const value = lists.map(list, index) => {
+      
       for (const item of list) {
-        const rest = lists.slice(1);
+        const rest = lists.slice(index + 1);
 
         const condition = list.length === 1 ||
           rest.some(list => {
@@ -247,8 +247,8 @@ class List extends Array {
           value.push(item);
           break;
         }
-      }  
-    }
+      }
+    });
 
     return value;
   }
