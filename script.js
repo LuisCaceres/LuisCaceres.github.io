@@ -224,7 +224,7 @@ class List extends Array {
    *
    */
   share(...lists) {
-    const value = [this].concat(lists).map((list, index) => {
+    const value = [this].concat(lists).map((list, index, lists) => {
       
       if (list.length === 0) {
         return null;
