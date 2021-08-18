@@ -680,13 +680,21 @@ function generateList(outcoming, incoming) {
   const listA = new List('A');
   const listB = new List('A');
 
-
-  const list = listA.share(listA, listB);
+  const list = listA.share(listB);
   
-  expect(list.length).to.equal(2);
-  
+  expect(list.length).to.equal(2); 
   expect(list[0]).to.equal('A');
   expect(list[1]).to.equal(null);
+}
+{
+  const listA = new List('A', 'B');
+  const listB = new List('A');
+
+  const list = listA.share(listB);
+  
+  expect(list.length).to.equal(2); 
+  expect(list[0]).to.equal('B');
+  expect(list[1]).to.equal('A');
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
