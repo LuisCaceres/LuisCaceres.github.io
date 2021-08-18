@@ -229,9 +229,11 @@ class List extends Array {
       if (list.length === 0) {
         return null;
       }
+        
+      const rest = lists.slice(index + 1);
       
-      for (const item of list) {
-        const rest = lists.slice(index + 1);
+      while (list.length) {
+        const item = list.shift();
         
         const condition = list.length == 1 ||
           rest.filter(list => list.includes(item)).some(list => list.length > 1);
