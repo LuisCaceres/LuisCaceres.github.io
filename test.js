@@ -681,8 +681,7 @@ function generateList(outcoming, incoming) {
   const listB = new List('A');
 
   const list = listA.share(listB);
-  
-  expect(list.length).to.equal(2);
+
   expect(list[0]).to.equal('A');
   expect(list[1]).to.equal(null);
 }
@@ -691,8 +690,7 @@ function generateList(outcoming, incoming) {
   const listB = new List('A');
 
   const list = listA.share(listB);
-  
-  expect(list.length).to.equal(2);
+
   expect(list[0]).to.equal('B');
   expect(list[1]).to.equal('A');
 }
@@ -701,8 +699,7 @@ function generateList(outcoming, incoming) {
   const listB = new List('A', 'B');
 
   const list = listA.share(listB);
-  
-  expect(list.length).to.equal(2);
+
   expect(list[0]).to.equal('A');
   expect(list[1]).to.equal('B');
 }
@@ -711,8 +708,7 @@ function generateList(outcoming, incoming) {
   const listB = new List('A');
 
   const list = listA.share(listB);
-  
-  expect(list.length).to.equal(2);
+
   expect(list[0]).to.equal('B');
   expect(list[1]).to.equal('A');
 }
@@ -721,8 +717,7 @@ function generateList(outcoming, incoming) {
   const listB = new List('B', 'A');
 
   const list = listA.share(listB);
-  
-  expect(list.length).to.equal(2);
+
   expect(list[0]).to.equal('A');
   expect(list[1]).to.equal('B');
 }
@@ -732,8 +727,7 @@ function generateList(outcoming, incoming) {
   const listC = new List('A', 'B');
 
   const list = listA.share(listB, listC);
-  
-  expect(list.length).to.equal(3);
+
   expect(list[0]).to.equal('A');
   expect(list[1]).to.equal('B');
   expect(list[2]).to.equal(null);
@@ -745,7 +739,6 @@ function generateList(outcoming, incoming) {
 
   const list = listA.share(listB, listC);
 
-  expect(list.length).to.equal(3);
   expect(list[0]).to.equal('A');
   expect(list[1]).to.equal('B');
   expect(list[2]).to.equal('C');
@@ -758,11 +751,10 @@ function generateList(outcoming, incoming) {
 
   const list = listA.share(listB, listC, listD);
 
-  expect(list.length).to.equal(4);
   expect(list[0]).to.equal('A');
   expect(list[1]).to.equal('B');
   expect(list[2]).to.equal('C');
-  expect(list[2]).to.equal('D');
+  expect(list[3]).to.equal('D');
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
