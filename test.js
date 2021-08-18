@@ -682,7 +682,7 @@ function generateList(outcoming, incoming) {
 
   const list = listA.share(listB);
   
-  expect(list.length).to.equal(2); 
+  expect(list.length).to.equal(2);
   expect(list[0]).to.equal('A');
   expect(list[1]).to.equal(null);
 }
@@ -692,7 +692,7 @@ function generateList(outcoming, incoming) {
 
   const list = listA.share(listB);
   
-  expect(list.length).to.equal(2); 
+  expect(list.length).to.equal(2);
   expect(list[0]).to.equal('B');
   expect(list[1]).to.equal('A');
 }
@@ -702,7 +702,7 @@ function generateList(outcoming, incoming) {
 
   const list = listA.share(listB);
   
-  expect(list.length).to.equal(2); 
+  expect(list.length).to.equal(2);
   expect(list[0]).to.equal('A');
   expect(list[1]).to.equal('B');
 }
@@ -712,7 +712,7 @@ function generateList(outcoming, incoming) {
 
   const list = listA.share(listB);
   
-  expect(list.length).to.equal(2); 
+  expect(list.length).to.equal(2);
   expect(list[0]).to.equal('B');
   expect(list[1]).to.equal('A');
 }
@@ -722,7 +722,7 @@ function generateList(outcoming, incoming) {
 
   const list = listA.share(listB);
   
-  expect(list.length).to.equal(2); 
+  expect(list.length).to.equal(2);
   expect(list[0]).to.equal('A');
   expect(list[1]).to.equal('B');
 }
@@ -733,7 +733,7 @@ function generateList(outcoming, incoming) {
 
   const list = listA.share(listB, listC);
   
-  expect(list.length).to.equal(3); 
+  expect(list.length).to.equal(3);
   expect(list[0]).to.equal('A');
   expect(list[1]).to.equal('B');
   expect(list[2]).to.equal(null);
@@ -744,23 +744,21 @@ function generateList(outcoming, incoming) {
   const listC = new List('A', 'B', 'C');
 
   const list = listA.share(listB, listC);
-  
-  expect(list.length).to.equal(3); 
+
+  expect(list.length).to.equal(3);
   expect(list[0]).to.equal('A');
   expect(list[1]).to.equal('B');
   expect(list[2]).to.equal('C');
 }
-
 {
-  const listA = new List('A', 'B', 'C', 'D');
-  const listA = new List('B');
-  const listA = new List('C');
+  const listA = new List('D', 'C', 'B', 'A');
+  const listA = new List('D', 'C', 'B');
+  const listA = new List('D', 'C');
   const listA = new List('D');
-  
 
   const list = listA.share(listB, listC, listD);
-  
-  expect(list.length).to.equal(4); 
+
+  expect(list.length).to.equal(4);
   expect(list[0]).to.equal('A');
   expect(list[1]).to.equal('B');
   expect(list[2]).to.equal('C');
@@ -788,7 +786,6 @@ function generateList(outcoming, incoming) {
 {
   const range = new NumericRange(9);
   expect(range.length).to.equal(1);
-  expect(range[0]).to.equal(9);
   expect(range.isAscending()).to.equal(true);
   expect(range.isDescending()).to.equal(true);
 }
