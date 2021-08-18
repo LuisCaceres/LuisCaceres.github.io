@@ -229,12 +229,17 @@ class List extends Array {
       if (!list.length) {
         return null;
       }
-        
+      
       const rest = lists.slice(index + 1);
+      
+      list.sort(item => {
+        const condition = rest.every(list => !list.includes(item)); 
+        return condition ? -1 : 0;
+      });
       
       while (list.length) {
         const item = list.shift();
-        const filtered = rest.filter(list => list.includes(item));
+        const filtered = rest.filter(list => list.includes(item));  
         
         const condition = !list.length || !filtered.length || filtered.every(list => list.length > 1);
 
