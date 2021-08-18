@@ -673,6 +673,21 @@ function generateList(outcoming, incoming) {
   expect(list[3]).to.equal('D');
   expect(list[4]).to.equal('E');
 }
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// share()
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+{
+  const listA = new List('A');
+  const listB = new List('A');
+
+
+  const list = listA.share(listA, listB);
+  
+  expect(list.length).to.equal(2);
+  
+  expect(list[0]).to.equal('A');
+  expect(list[1]).to.equal(null);
+}
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // class Range
