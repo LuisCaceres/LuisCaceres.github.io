@@ -230,14 +230,11 @@ class List extends Array {
         return null;
       }
       
-      if (list.length == 1) {
-        return list[0];  
-      }
-      
       for (const item of list) {
         const rest = lists.slice(index + 1);
-
-        const condition = rest.filter(list => list.includes(item)).some(list => list.length > 1);
+        
+        const condition = list.length == 1 ||
+          rest.filter(list => list.includes(item)).some(list => list.length > 1);
 
         if (condition) {
           rest.forEach(list => list.remove(item));
