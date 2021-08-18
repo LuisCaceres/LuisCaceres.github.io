@@ -726,6 +726,46 @@ function generateList(outcoming, incoming) {
   expect(list[0]).to.equal('A');
   expect(list[1]).to.equal('B');
 }
+{
+  const listA = new List('A', 'B');
+  const listB = new List('A', 'B');
+  const listC = new List('A', 'B');
+
+  const list = listA.share(listB, listC);
+  
+  expect(list.length).to.equal(3); 
+  expect(list[0]).to.equal('A');
+  expect(list[1]).to.equal('B');
+  expect(list[2]).to.equal(null);
+}
+{
+  const listA = new List('A', 'B', 'C');
+  const listB = new List('A', 'B', 'C');
+  const listC = new List('A', 'B', 'C');
+
+  const list = listA.share(listB, listC);
+  
+  expect(list.length).to.equal(3); 
+  expect(list[0]).to.equal('A');
+  expect(list[1]).to.equal('B');
+  expect(list[2]).to.equal('C');
+}
+
+{
+  const listA = new List('A', 'B', 'C', 'D');
+  const listA = new List('B');
+  const listA = new List('C');
+  const listA = new List('D');
+  
+
+  const list = listA.share(listB, listC, listD);
+  
+  expect(list.length).to.equal(4); 
+  expect(list[0]).to.equal('A');
+  expect(list[1]).to.equal('B');
+  expect(list[2]).to.equal('C');
+  expect(list[2]).to.equal('D');
+}
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // class Range
