@@ -235,7 +235,7 @@ class List extends Array {
       while (list.length) {
         const item = list.shift();
 
-        const condition = list.length === 1 || !(rest.filter(list => list.length === 1).some(list => list.includes(item)));
+        const condition = list.length === 1 || rest.filter(list => list.length == 1 && list.includes(item)).length === 0;
 
         if (condition) {
           rest.forEach(list => list.remove(item));
