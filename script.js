@@ -230,7 +230,7 @@ class List extends Array {
         return null;
       }
 
-      const rest = lists.slice(index + 1);
+      const rest = lists.slice(index + 1).map(list => list.slice());
 
       while (list.length) {
         const item = list.shift();
