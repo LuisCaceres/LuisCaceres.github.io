@@ -225,33 +225,23 @@ class List extends Array {
    */
   share(...lists) {
     const value = [this].concat(lists).map((list, index, lists) => {
-      
+
       if (!list.length) {
         return null;
       }
-      
-      
-      
+
       const rest = lists.slice(index + 1);
-      
-//       list.sort(item => {
-//         const condition = rest.every(list => !list.includes(item)); 
-//         return condition ? -1 : 0;
-//       });
-      
+
       while (list.length) {
         const item = list.shift();
-      
+
         const condition = !list.length || list.every(item => {
           return rest.some(list => list.includes(item));
         });
-        
-//         const filtered = rest.filter(list => list.includes(item));  
-        
-//         const condition = !list.length || !filtered.length || filtered.every(list => list.length > 1);
+
+        rest.forEach(list => list.remove(item));
 
         if (condition) {
-          rest.forEach(list => list.remove(item));
           return item;
         }
       }
@@ -259,6 +249,11 @@ class List extends Array {
 
     return value;
   }
+
+//   const listA = new List('D', 'C', 'B');
+//   const listB = new List('D', 'C', 'B', 'A');
+//   const listC = new List('D', 'C');
+//   const listD = new List('D');
 
 
   /*
