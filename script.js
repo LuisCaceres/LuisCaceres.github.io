@@ -243,7 +243,7 @@ class List extends Array {
         const item = list.shift();
       
         const condition = !list.length || list.every(item => {
-          return rest.some(list => list.include(item));
+          return rest.some(list => list.includes(item));
         });
         
 //         const filtered = rest.filter(list => list.includes(item));  
