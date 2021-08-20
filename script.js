@@ -234,12 +234,17 @@ class List extends Array {
 
       while (list.length) {
         const item = list.shift();
-
-        const condition = list.length === 0 || rest.filter(list => list.length == 1 && list.includes(item)).length === 0;
-
+        const singles = rest.filter(list => list.includes(item) && list.length === 1);
+        const condition = list.length === 0 || singles.length === 0;
+        
         if (condition) {
           rest.forEach(list => list.remove(item));
           return item;
+        }
+        else {
+          if (singles.length) {
+            singles.difference(rest).forEach(list => list.remove(item));
+          }
         }
       }
     });
