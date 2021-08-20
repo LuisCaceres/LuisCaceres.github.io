@@ -230,7 +230,7 @@ class List extends Array {
         return null;
       }
 
-      const rest = lists.slice(index + 1).map(list => list.slice());
+      const rest = lists.slice(index + 1);
 
       while (list.length) {
         const item = list.shift();
@@ -239,9 +239,8 @@ class List extends Array {
           return rest.some(list => list.includes(item));
         });
 
-        rest.forEach(list => list.remove(item));
-
         if (condition) {
+          rest.forEach(list => list.remove(item));
           return item;
         }
       }
