@@ -223,9 +223,9 @@ class List extends Array {
   /*
    *
    */
-  share(...lists) {
-    const value = [this].concat(lists).map((list, index, lists) => {
-
+  share(...lists) {   
+    const value = lists.unshift(this).map((list, index, lists) => {
+      
       if (!list.length) {
         return null;
       }
