@@ -242,9 +242,7 @@ class List extends Array {
           return item;
         }
         else {
-          if (singles.length) {
-            singles.difference(rest).forEach(list => list.remove(item));
-          }
+          singles.difference(rest).forEach(list => list.remove(item));
         }
       }
     });
