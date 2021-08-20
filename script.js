@@ -236,7 +236,7 @@ class List extends Array {
         const item = list.shift();
 
         const condition = !list.length || list.every(item => {
-          return rest.some(list => list.includes(item));
+          return rest.filter(list => list.length === 1).some(list => !list.includes(item));
         });
 
         if (condition) {
