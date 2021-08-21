@@ -365,15 +365,11 @@ class Chart extends List {
     // Let `illegalItems` be a list of such items.
     const illegalItems = newItems.filter(entry => nextList.positionOf(entry) <= 12);
 
-    // Abort if there are no illegal items.
-    if (!illegalItems.length) {
-      return this;
-    }
-
     const map = new Map();
 
     illegalItems.forEach(itemA => {
       const list = this.filter(itemB => {
+        
         if (nextList.includes(itemB)) {
           return false;
         }
@@ -385,6 +381,7 @@ class Chart extends List {
         }
  
         const history = new NumericRange(...database.get(itemB).history);
+        
         return history.length === 0 || history.at(-1) > 12 && history.isAscending();
       });
 
@@ -420,19 +417,14 @@ class Chart extends List {
       return history.isDescending() || history.length === 1;
     });
 
-    // ABORT IF THERE ARE NO DISALLOWED ENTRIES
-    if (!illegalItems.length) {
-      return this;
-    }
-    
     const map = new Map();
-    
+
     illegalItems.forEach(itemA => {
       const list = this.filter(itemB => {
         if (previousList.includes(itemB)) {
           return false;
         }
-        
+
         const position = this.positionOf(itemB);
 
         // WHAT ABOUT BEING IN THE SAME POSITION FOR 3 WEEKS OR MORE
@@ -441,14 +433,14 @@ class Chart extends List {
 
       map.set(itemA, list);
     });
-    
+
     map.share();
-    
+
     for (const [replacement, replacee] of map) {
-          const item = database.get(replacement);
-         database.delete(replacement);
-        database.set(replacee, item);
-          item.match = replacee;
+      const item = database.get(replacement);
+      database.delete(replacement);
+      database.set(replacee, item);
+      item.match = replacee;
     }
 
     // DONE
