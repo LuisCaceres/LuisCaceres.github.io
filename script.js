@@ -6,6 +6,32 @@
 
 // TO DO: THERE ARE MORE OCURRENCES OF VIDEOS BEING IN THE SAME POSITION FOR MORE THAN 3 WEEKS, I DON'T LIKE THAT.
 
+Map.prototype.share = function share() {   
+  Array.from(this.values()).forEach((list, index, lists) => {
+    let item = null;
+
+    const rest = new List(...lists.slice(index + 1));
+
+    while (list.length) {
+      item = list.shift();
+      const singles = rest.filter(list => list.includes(item) && list.length === 1);
+      const condition = list.length === 0 || singles.length === 0;
+
+      if (condition) {
+        rest.forEach(list => list.remove(item));
+        break;
+      }
+      else {
+        singles.difference(rest).forEach(list => list.remove(item));
+      }
+    }
+
+    list.length = 0;
+    list.push(item);
+  });
+};
+
+
 
 /*
  *
@@ -143,36 +169,6 @@ class List extends Array {
         this[index] = replacement;
       }
     });
-  }
-  
-  
-  /*
-   *
-   */
-  share(...lists) {   
-    const value = [this].concat(lists).map((list, index, lists) => {
-      let item = null;
-
-      const rest = new List(...lists.slice(index + 1));
-
-      while (list.length) {
-        item = list.shift();
-        const singles = rest.filter(list => list.includes(item) && list.length === 1);
-        const condition = list.length === 0 || singles.length === 0;
-
-        if (condition) {
-          rest.forEach(list => list.remove(item));
-          break;
-        }
-        else {
-          singles.difference(rest).forEach(list => list.remove(item));
-        }
-      }
-
-      return item;
-    });
-
-    return value;
   }
 
 
@@ -500,33 +496,4 @@ class Chart extends List {
   positionOf(entry) {
     return this.indexOf(entry) + 1;
   }
-}
-
-
-function map(listA, listB, compareFn) {
-  const map = new Map();
-  const reserve = [];
-    
-  listA.forEach(left => {
-    
-    while (listB.length) {
-      const right = listB.random();
-      listB.remove(right);
-
-      const condition = compareFn(listA, listB, left, right);
-
-      if (condition) {
-        map.set(left, right);
-        break;
-      } 
-      else {
-        reserve.push(right);
-      }
-    }
-
-    listB.push(...reserve);
-    reserve.length = 0;
-  });
-  
-  return map;
 }
