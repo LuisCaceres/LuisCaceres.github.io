@@ -380,7 +380,7 @@ class Chart extends List {
 
     illegalItems.forEach(item => {
       const list = this.filter(item => {
-        if (!nextList.includes(item)) {
+        if (nextList.includes(item)) {
           return false;
         }
         const history = new NumericRange(...database.get(item).history);
