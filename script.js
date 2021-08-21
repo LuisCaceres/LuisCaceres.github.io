@@ -6,28 +6,28 @@
 
 // TO DO: THERE ARE MORE OCURRENCES OF VIDEOS BEING IN THE SAME POSITION FOR MORE THAN 3 WEEKS, I DON'T LIKE THAT.
 
-Map.prototype.share = function share() {   
-  Array.from(this.values()).forEach((list, index, lists) => {
-    let item = null;
+Map.prototype.share = function share() {
+  const lists = new List(...map.values());
 
-    const rest = new List(...lists.slice(index + 1));
+  for ([key] of this) {
+    const list = lists.shift();
+    let item = null;
 
     while (list.length) {
       item = list.shift();
-      const singles = rest.filter(list => list.includes(item) && list.length === 1);
+      const singles = lists.filter(list => list.includes(item) && list.length === 1);
       const condition = list.length === 0 || singles.length === 0;
 
       if (condition) {
-        rest.forEach(list => list.remove(item));
+        lists.forEach(list => list.remove(item));
         break;
       }
       else {
-        singles.difference(rest).forEach(list => list.remove(item));
+        singles.difference(lists).forEach(list => list.remove(item));
       }
     }
 
-    list.length = 0;
-    list.push(item);
+    this.set(key, item);
   });
 };
 
