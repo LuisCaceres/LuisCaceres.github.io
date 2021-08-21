@@ -352,29 +352,37 @@ class Chart extends List {
   at(index) {
     return this[index - 1];
   }
+  
+  
+  /*
+  
+  
+  ['A']
+  
+  */
 
 
   /*
    *
    */
-  format(nextList, database) {
+  format(listB, database) {
     // Iterate through next week's list and verify if there are any new items.
     // Let `newItems` be a list of such items.
-    const newItems = this.difference(nextList);
+    const newItems = this.difference(listB);
     // Verify if there are any new items in position 12 or below.
     // Let `illegalItems` be a list of such items.
-    const illegalItems = newItems.filter(entry => nextList.positionOf(entry) <= 12);
+    const illegalItems = newItems.filter(entry => listB.positionOf(entry) <= 12);
 
     const map = new Map();
 
     illegalItems.forEach(itemA => {
       const list = this.filter(itemB => {
         
-        if (nextList.includes(itemB)) {
+        if (listB.includes(itemB)) {
           return false;
         }
 
-        const delta = this.positionOf(itemB) - nextList.positionOf(itemA);
+        const delta = this.positionOf(itemB) - listB.positionOf(itemA);
         
         if (delta < 2) {
           return false;
