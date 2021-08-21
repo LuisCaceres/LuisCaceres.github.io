@@ -506,3 +506,32 @@ class Chart extends List {
     return this.indexOf(entry) + 1;
   }
 }
+
+
+function map(listA, listB, compareFn) {
+  const map = new Map();
+  const reserve = [];
+    
+  listA.forEach(left => {
+    
+    while (listB.length) {
+      const right = listB.random();
+      listB.remove(right);
+
+      const condition = compareFn(listA, listB, left, right);
+
+      if (condition) {
+        map.set(left, right);
+        break;
+      } 
+      else {
+        reserve.push(right);
+      }
+    }
+
+    listB.push(...reserve);
+    reserve.length = 0;
+  });
+  
+  return map;
+}
