@@ -151,8 +151,9 @@ class List extends Array {
    */
   share(...lists) {   
     const value = [this].concat(lists).map((list, index, lists) => {
+      let item = null;
+
       const rest = new List(...lists.slice(index + 1));
-      let item;
 
       while (list.length) {
         item = list.shift();
@@ -168,7 +169,7 @@ class List extends Array {
         }
       }
 
-      return item || null;
+      return item;
     });
 
     return value;
