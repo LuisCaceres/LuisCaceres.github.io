@@ -28,7 +28,7 @@ Map.prototype.share = function share() {
     }
 
     this.set(key, item);
-  });
+  }
 };
 
 
