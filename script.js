@@ -7,7 +7,7 @@
 // TO DO: THERE ARE MORE OCURRENCES OF VIDEOS BEING IN THE SAME POSITION FOR MORE THAN 3 WEEKS, I DON'T LIKE THAT.
 
 Map.prototype.share = function share() {
-  const lists = new List(...map.values());
+  const lists = new List(...this.values());
 
   for ([key] of this) {
     const list = lists.shift();
