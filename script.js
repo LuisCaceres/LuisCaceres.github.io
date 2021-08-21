@@ -374,26 +374,29 @@ class Chart extends List {
     if (!illegalItems.length) {
       return this;
     }
-    
+
     const map = new Map();
     const lists = [];
-    
+
     illegalItems.forEach(item => {
       const list = this.filter(item => {
-        const history = new NumericRange(...database.get(item).history);      
-        return !nextList.includes(item) && history.length === 0 || history.at(-1) > 12 && history.isAscending();    
+        if (!nextList.includes(item)) {
+          return false;
+        }
+        const history = new NumericRange(...database.get(item).history);
+        return history.length === 0 || history.at(-1) > 12 && history.isAscending();
       });
-      
+
       map.set(item, list);
       lists.push(list);
     });
-    
+
     lists[0].share(lists.slice(1));
-    
+
     for (const [replacee, replacement] of map) {
       this.replace(replacee, replacement);
     }
-   
+
     return this;
   }
 
