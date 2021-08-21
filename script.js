@@ -372,16 +372,23 @@ class Chart extends List {
 
     const map = new Map();
 
-    illegalItems.forEach(item => {
-      const list = this.filter(item => {
-        if (nextList.includes(item)) {
+    illegalItems.forEach(itemA => {
+      const list = this.filter(itemB => {
+        if (nextList.includes(itemB)) {
           return false;
         }
-        const history = new NumericRange(...database.get(item).history);
+
+        const delta = this.positionOf(itemB) - nextList.positionOf(itemA);
+        
+        if (delta < 2) {
+          return false;
+        }
+ 
+        const history = new NumericRange(...database.get(itemB).history);
         return history.length === 0 || history.at(-1) > 12 && history.isAscending();
       });
 
-      map.set(item, list);
+      map.set(itemA, list);
     });
 
     map.share();
