@@ -362,6 +362,18 @@ function generateList(outcoming, incoming) {
 
   const TUBED17 = database.get('TUBED 17');
   
+  {
+    previousChart.reverse();
+    chart.reverse();
+    
+    previousChart.format(chart, database);
+    
+    previousChart.reverse();
+    chart.reverse();
+ 
+  }
+  
+  
   chart.format2(previousChart, database);
   
   expect(chart.length).to.equal(20);
