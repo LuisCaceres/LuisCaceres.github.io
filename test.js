@@ -366,7 +366,7 @@ function generateList(outcoming, incoming) {
     previousChart.reverse();
     chart.reverse();
     
-    previousChart.format(chart, database);
+    chart.format(previousChart, database);
     
     previousChart.reverse();
     chart.reverse();
