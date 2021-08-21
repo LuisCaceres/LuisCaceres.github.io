@@ -172,6 +172,8 @@ class List extends Array {
         }
       }
     });
+    
+    return value;
   }
 
 
