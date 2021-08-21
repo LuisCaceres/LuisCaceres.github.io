@@ -386,7 +386,7 @@ class Chart extends List {
 
     map.share();
 
-    for (const [replacee, replacement] of map) {
+    for (const [replacement, replacee] of map) {
       this.replace(replacee, replacement);
     }
 
