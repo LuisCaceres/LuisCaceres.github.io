@@ -679,7 +679,7 @@ function generateList(outcoming, incoming) {
 {
   const map = new Map();
 
-  map.set(1, new List('A'))
+  map.set(1, new List('A'));
   map.set(2, new List('A'));
 
   map.share();
@@ -688,88 +688,104 @@ function generateList(outcoming, incoming) {
   expect(map.get(2)).to.equal(null);
 }
 {
-  const listA = new List('A', 'B');
-  const listB = new List('A');
+  const map = new Map();
 
-  const list = listA.share(listB);
+  map.set(1, new List('A', 'B'));
+  map.set(2, new List('A'));
 
-  expect(list[0]).to.equal('B');
-  expect(list[1]).to.equal('A');
+  map.share();
+
+  expect(map.get(1)).to.equal('B');
+  expect(map.get(2)).to.equal('A');
 }
 {
-  const listA = new List('A');
-  const listB = new List('A', 'B');
+  const map = new Map();
 
-  const list = listA.share(listB);
+  map.set(1, new List('A'));
+  map.set(2, new List('A', 'B'));
 
-  expect(list[0]).to.equal('A');
-  expect(list[1]).to.equal('B');
+  map.share();
+
+  expect(map.get(1)).to.equal('A');
+  expect(map.get(2)).to.equal('B');
 }
 {
-  const listA = new List('B', 'A');
-  const listB = new List('A');
+  const map = new Map();
 
-  const list = listA.share(listB);
+  map.set(1, new List('B', 'A'));
+  map.set(2, new List('A'));
 
-  expect(list[0]).to.equal('B');
-  expect(list[1]).to.equal('A');
+  map.share();
+
+  expect(map.get(1)).to.equal('B');
+  expect(map.get(2)).to.equal('A');
 }
 {
-  const listA = new List('A');
-  const listB = new List('B', 'A');
+  const map = new Map();
 
-  const list = listA.share(listB);
+  map.set(1, new List('A'));
+  map.set(2, new List('B', 'A'));
 
-  expect(list[0]).to.equal('A');
-  expect(list[1]).to.equal('B');
+  map.share();
+
+  expect(map.get(1)).to.equal('A');
+  expect(map.get(2)).to.equal('B');
 }
 {
-  const listA = new List('A', 'B');
-  const listB = new List('A', 'B');
-  const listC = new List('A', 'B');
+  const map = new Map();
 
-  const list = listA.share(listB, listC);
+  map.set(1, new List('A', 'B'));
+  map.set(2, new List('A', 'B'));
+  map.set(3, new List('A', 'B'));
 
-  expect(list[0]).to.equal('A');
-  expect(list[1]).to.equal('B');
-  expect(list[2]).to.equal(null);
+  map.share();
+
+  expect(map.get(1)).to.equal('A');
+  expect(map.get(2)).to.equal('B');
+  expect(map.get(3)).to.equal(null);
 }
 {
-  const listA = new List('A', 'B', 'C');
-  const listB = new List('A', 'B', 'C');
-  const listC = new List('A', 'B', 'C');
+  const map = new Map();
 
-  const list = listA.share(listB, listC);
+  map.set(1, new List('A', 'B', 'C'));
+  map.set(2, new List('A', 'B', 'C'));
+  map.set(3, new List('A', 'B', 'C'));
 
-  expect(list[0]).to.equal('A');
-  expect(list[1]).to.equal('B');
-  expect(list[2]).to.equal('C');
+  map.share();
+
+  expect(map.get(1)).to.equal('A');
+  expect(map.get(2)).to.equal('B');
+  expect(map.get(3)).to.equal('C');
 }
 {
-  const listA = new List('D', 'C', 'B', 'A');
-  const listB = new List('D', 'C', 'B');
-  const listC = new List('D', 'C');
-  const listD = new List('D');
+  const map = new Map();
 
-  const list = listA.share(listB, listC, listD);
+  map.set(1, new List('D', 'C', 'B', 'A'));
+  map.set(2, new List('D', 'C', 'B'));
+  map.set(3, new List('D', 'C'));
+  map.set(4, new List('D'));
 
-  expect(list[0]).to.equal('A');
-  expect(list[1]).to.equal('B');
-  expect(list[2]).to.equal('C');
-  expect(list[3]).to.equal('D');
+  map.share();
+
+  expect(map.get(1)).to.equal('A');
+  expect(map.get(2)).to.equal('B');
+  expect(map.get(3)).to.equal('C');
+  expect(map.get(4)).to.equal('D');
 }
 {
-  const listA = new List('D', 'C', 'B');
-  const listB = new List('D', 'C', 'B', 'A');
-  const listC = new List('D', 'C');
-  const listD = new List('D');
+  const map = new Map();
 
-  const list = listA.share(listB, listC, listD);
+  map.set(1, new List('D', 'C', 'B'));
+  map.set(2, new List('D', 'C', 'B', 'A'));
+  map.set(3, new List('D', 'C'));
+  map.set(4, new List('D'));
 
-  expect(list[0]).to.equal('B');
-  expect(list[1]).to.equal('A');
-  expect(list[2]).to.equal('C');
-  expect(list[3]).to.equal('D');
+  map.share();
+
+  expect(map.get(1)).to.equal('B');
+  expect(map.get(2)).to.equal('A');
+  expect(map.get(3)).to.equal('C');
+  expect(map.get(4)).to.equal('D');
 }
   
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
