@@ -374,31 +374,26 @@ class Chart extends List {
     if (!illegalItems.length) {
       return this;
     }
-
-    // Iterate through next week's chart and verify which items have dropped out.
-    // Let `expiredItems` be a list of such items.
-    const expiredItems = nextList.difference(this);
-    // Let `replacees` be a list of items that may be replaced by an illegal item.
-    const replacees = expiredItems.filter(match => {
-      // For each item `item` in `expiredItems`:
-      const history = new NumericRange(...database.get(match).history);
-      return history.length === 0 || history.at(-1) > 12 && history.isAscending();
+    
+    const map = new Map();
+    const lists = [];
+    
+    illegalItems.forEach(item => {
+      const list = this.filter(item => {
+        const history = new NumericRange(...database.get(item).history);      
+        return !nextList.includes(item) && history.length === 0 || history.at(-1) > 12 && history.isAscending();    
+      });
+      
+      map.set(item, list);
+      lists.push(list);
     });
-
-    // Abort if there are no suitable replacements.
-    if (!replacees.length) {
-      return this;
+    
+    lists[0].share(lists.slice(1));
+    
+    for (const [replacee, replacement] of map) {
+      this.replace(replacee, replacement);
     }
-
-    const values = map(illegalItems, replacees, (listA, listB, left, right) => {
-        const difference = this.positionOf(right) - nextList.positionOf(left);
-        return difference > 1;
-    });
-
-    for (const [illegalItem, replacee] of values.entries()) {
-       this.replace(replacee, illegalItem);
-    }
-
+   
     return this;
   }
 
