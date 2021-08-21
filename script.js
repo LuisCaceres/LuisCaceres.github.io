@@ -151,28 +151,26 @@ class List extends Array {
    */
   share(...lists) {   
     const value = [this].concat(lists).map((list, index, lists) => {
-      
-      if (!list.length) {
-        return null;
-      }
-
       const rest = new List(...lists.slice(index + 1));
+      let item;
 
       while (list.length) {
-        const item = list.shift();
+        item = list.shift();
         const singles = rest.filter(list => list.includes(item) && list.length === 1);
         const condition = list.length === 0 || singles.length === 0;
-        
+
         if (condition) {
           rest.forEach(list => list.remove(item));
-          return item;
+          break;
         }
         else {
           singles.difference(rest).forEach(list => list.remove(item));
         }
       }
+
+      return item || null;
     });
-    
+
     return value;
   }
 
