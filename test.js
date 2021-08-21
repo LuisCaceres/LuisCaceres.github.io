@@ -677,13 +677,15 @@ function generateList(outcoming, incoming) {
 // share()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
-  const listA = new List('A');
-  const listB = new List('A');
+  const map = new Map();
 
-  const list = listA.share(listB);
+  map.set(1, new List('A'))
+  map.set(2, new List('A'));
 
-  expect(list[0]).to.equal('A');
-  expect(list[1]).to.equal(null);
+  map.share();
+
+  expect(map.get(1)).to.equal('A');
+  expect(map.get(2)).to.equal(null);
 }
 {
   const listA = new List('A', 'B');
