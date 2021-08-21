@@ -424,73 +424,32 @@ class Chart extends List {
     if (!illegalItems.length) {
       return this;
     }
+    
+    const map = new Map();
+    
+    illegalItems.forEach(itemA => {
+      const list = this.filter(itemB => {
+        if (previousList.includes(itemB)) {
+          return false;
+        }
+        
+        const position = this.positionOf(itemB);
 
-    // Let `positions` be an initially empty list of chart positions.
-    // For each entry `entry` in `disallowedEntries`.
-      // Refer to last week's chart and find out `entry`'s position on the chart.
-      // Add that position to `positions`.
-    const positions = illegalItems.map(entry => previousList.positionOf(entry));
+        // WHAT ABOUT BEING IN THE SAME POSITION FOR 3 WEEKS OR MORE
+        return previousList.positionOf(itemA) >= position;
+      });
 
-    // FIND OUT WHICH ENTRIES HAVE DEBUTED ON THIS WEEK'S CHART.
-    // Compare last week's chart and this week's chart and get the entries not present in last week's chart (debuts).
-    // Let `newEntries` be a list of such entries.
-    const debuts = previousList.difference(this);
-
-    // CHECK WHICH OF THOSE DEBUTS CAN BE REPLACED BY A DISALLOWED ENTRY
-    // For each debut `debut` in `debuts`.
-      // Refer to this week's chart and find out `debut`'s position on the chart.
-      // Add to `replacees` if that position is greater than, at least, one of the positions in `positions`.
-    const replacees = debuts.filter(entry => {
-      return positions.some(position => this.positionOf(entry) <= position);
+      map.set(itemA, list);
     });
-
-    // ABORT IF THERE ARE NO DEBUTS THAT CAN BE REPLACED.
-    if (!replacees.length) {
-      return this;
-    }
-
-    // NOTE: STEP PERHAPS NOT REQUIRED
-    // If there are more disallowed entries than debuts 
-    //  Remove the least suitable items and make them equal as the number of illegal items
-    //  What's the definition of less suitable?
-    if (illegalItems.length !== replacees.length) {
-      illegalItems.sort(item => {}).splice();
-    }
-
-    const reserve = new List();
-
-    // REPLACE A DEBUT WITH A DISALLOWED ENTRY ON THIS WEEK'S CHART.
-    // For each entry `entry` in `disallowedEntries`.
-      // Randomly extract a debut from `debuts`.
-      // Replace `debut` with `entry` on this week's chart.
-    illegalItems.forEach((illegalItem, index) => {
-      while (replacees.length) {
-        const replacee = replacees.random();
-        replacees.remove(replacee);
-
-        const rest1 = illegalItems.slice(index + 1).map(entry => previousList.positionOf(entry));
-        const rest2 = replacees.concat(reserve).map(entry => this.positionOf(entry));
-
-        const allowed = rest2.filter(item => {
-          return rest1.some(position => item >= position);
-        });
-
-        if (allowed.length === rest1.length) {
-          // currentList.replace(replacee, illegalItem);
-          const item = database.get(illegalItem);
-          database.delete(illegalItem);
-          database.set(replacee, item);
+    
+    map.share();
+    
+    for (const [replacement, replacee] of map) {
+          const item = database.get(replacement);
+         database.delete(replacement);
+        database.set(replacee, item);
           item.match = replacee;
-          break;
-        }
-        else {
-          reserve.push(replacee);
-        }
-      }
-      // Let's start again
-      replacees.push(...reserve);
-      reserve.length = 0;
-    });  
+    }
 
     // DONE
     return this;
