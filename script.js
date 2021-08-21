@@ -376,7 +376,7 @@ class Chart extends List {
     }
 
     const map = new Map();
-    const lists = [];
+    const lists = new List();
 
     illegalItems.forEach(item => {
       const list = this.filter(item => {
