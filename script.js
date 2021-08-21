@@ -250,11 +250,6 @@ class List extends Array {
     return value;
   }
 
-//   const listA = new List('D', 'C', 'B');
-//   const listB = new List('D', 'C', 'B', 'A');
-//   const listC = new List('D', 'C');
-//   const listD = new List('D');
-
 
   /*
    *
@@ -428,13 +423,16 @@ class Chart extends List {
   constructor(...entries) {
     super(...entries);
   }
-  
 
+
+  /*
+   *
+   */
   at(index) {
     return this[index - 1];
   }
-  
-  
+
+
   /*
    *
    */
@@ -465,16 +463,16 @@ class Chart extends List {
     if (!replacees.length) {
       return this;
     }
-    
+
     const values = map(illegalItems, replacees, (listA, listB, left, right) => {
         const difference = this.positionOf(right) - nextList.positionOf(left);
         return difference > 1;
     });
-    
+
     for (const [illegalItem, replacee] of values.entries()) {
        this.replace(replacee, illegalItem);
     }
-    
+
     return this;
   }
 
@@ -560,7 +558,7 @@ class Chart extends List {
           database.set(replacee, item);
           item.match = replacee;
           break;
-        } 
+        }
         else {
           reserve.push(replacee);
         }
@@ -573,43 +571,12 @@ class Chart extends List {
     // DONE
     return this;
   }
-  
+
+
   /*
    *
    */
   positionOf(entry) {
     return this.indexOf(entry) + 1;
   }
-}
-
-
-/*
- *
- */
-function map(listA, listB, compareFn) {
-  const map = new Map();
-  const reserve = [];
-    
-  listA.forEach(left => {
-    
-    while (listB.length) {
-      const right = listB.random();
-      listB.remove(right);
-
-      const condition = compareFn(listA, listB, left, right);
-
-      if (condition) {
-        map.set(left, right);
-        break;
-      } 
-      else {
-        reserve.push(right);
-      }
-    }
-
-    listB.push(...reserve);
-    reserve.length = 0;
-  });
-  
-  return map;
 }
