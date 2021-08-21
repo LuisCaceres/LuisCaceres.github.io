@@ -172,8 +172,6 @@ class List extends Array {
         }
       }
     });
-
-    return value;
   }
 
 
@@ -376,7 +374,6 @@ class Chart extends List {
     }
 
     const map = new Map();
-    const lists = new List();
 
     illegalItems.forEach(item => {
       const list = this.filter(item => {
@@ -388,10 +385,9 @@ class Chart extends List {
       });
 
       map.set(item, list);
-      lists.push(list);
     });
 
-    lists[0].share(lists.slice(1));
+    map.share();
 
     for (const [replacee, replacement] of map) {
       this.replace(replacee, replacement);
