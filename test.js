@@ -129,7 +129,7 @@ function generateList(outcoming, incoming) {
   .set('TUBED 18', {history: [5, 5, 9, 13, 15]})
   .set('TUBED 16', {history: [1, 1, 1, 2, 3, 3, 5, 6, 6, 8, 12]});
  
-  chart.format(nextChart, database);
+  chart.foo(nextChart, database);
   
   expect(chart.length).to.equal(20);
   
