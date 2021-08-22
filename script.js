@@ -365,7 +365,9 @@ class Chart extends List {
        }
 
       const difference = listA.difference(listB);
-      const targets = difference.filter(entry => listB.positionOf(entry) < 13);
+      const targets = difference.filter(entry => {
+        return listB.positionOf(entry) < 13 && database.get(entry) === null;
+      });
       const map = new Map();
 
       targets.forEach(target => {
