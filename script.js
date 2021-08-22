@@ -387,6 +387,10 @@ class Chart extends List {
         if (delta < 2) {
           return false;
         }
+        
+        if (!database.get(itemB)) {
+          return false;
+        }
  
         const history = new NumericRange(...database.get(itemB).history);
         
