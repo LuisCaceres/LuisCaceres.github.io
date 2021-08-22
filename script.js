@@ -423,7 +423,7 @@ class Chart extends List {
     const map = new Map();
 
     illegalItems.forEach(itemA => {
-      const list = this.difference(listB).filter(itemB => {
+      const list = listB.difference(this).filter(itemB => {
         const delta = this.positionOf(itemB) - listB.positionOf(itemA);
         
         if (delta < 2) {
@@ -474,11 +474,7 @@ class Chart extends List {
     const map = new Map();
 
     illegalItems.forEach(itemA => {
-      const list = this.difference(previousList).filter(itemB => {
-        if (previousList.includes(itemB)) {
-          return false;
-        }
-
+      const list = previousList.difference(this).filter(itemB => {
         const position = this.positionOf(itemB);
 
         // WHAT ABOUT BEING IN THE SAME POSITION FOR 3 WEEKS OR MORE
