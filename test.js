@@ -105,18 +105,18 @@ function generateList(outcoming, incoming) {
 }
 
 
-{
-  const [chartA, chartB] = generateList([1], [20]);
+// {
+//   const [chartA, chartB] = generateList([1], [20]);
 
-  const database = new Map()
-  .set('TUBED 1', {history: [19, 17, 15, 11, 8, 6, 2, 2, 1]});
+//   const database = new Map()
+//   .set('TUBED 1', {history: [19, 17, 15, 11, 8, 6, 2, 2, 1]});
   
-  chartA.foo(chartB, database);
+//   chartA.foo(chartB, database);
   
-  expect(chartB.length).to.equal(20);
+//   expect(chartB.length).to.equal(20);
   
-  expect(chartB.at(20)).to.equal('TUBED 1');
-}  
+//   expect(chartB.at(20)).to.equal('TUBED 1');
+// }  
 
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -129,7 +129,7 @@ function generateList(outcoming, incoming) {
   .set('TUBED 18', {history: [5, 5, 9, 13, 15]})
   .set('TUBED 16', {history: [1, 1, 1, 2, 3, 3, 5, 6, 6, 8, 12]});
  
-  chart.foo(nextChart, database);
+  chart.format(nextChart, database);
   
   expect(chart.length).to.equal(20);
   
@@ -148,7 +148,7 @@ function generateList(outcoming, incoming) {
   .set('TUBED 17', {history: [10]})
   .set('TUBED 16', {history: [11]});
   
-  chart.foo(nextChart, database);
+  chart.format(nextChart, database);
   
   expect(chart.length).to.equal(20);
  
@@ -168,7 +168,7 @@ function generateList(outcoming, incoming) {
   .set('TUBED 18', {history: [12, 14]})
   .set('TUBED 16', {history: [09, 12]});
  
-  chart.foo(nextChart, database);
+  chart.format(nextChart, database);
   
   expect(chart.length).to.equal(20);
   
@@ -184,7 +184,7 @@ function generateList(outcoming, incoming) {
   const database = new Map()
   .set('TUBED 16', {history: [04, 06, 10]});
   
-  chart.foo(nextChart, database);
+  chart.format(nextChart, database);
   
   expect(chart.length).to.equal(20);
   
@@ -198,7 +198,7 @@ function generateList(outcoming, incoming) {
   const database = new Map()
   .set('TUBED 18', {history: [08, 08, 11, 14]});
   
-  chart.foo(nextChart, database);
+  chart.format(nextChart, database);
 
   expect(chart.length).to.equal(20);
   
@@ -214,7 +214,7 @@ function generateList(outcoming, incoming) {
   .set('TUBED 19', {history: [07, 07, 09, 11, 15]})
   .set('TUBED 17', {history: [06, 05, 07, 08, 12]});
   
-  chart.foo(nextChart, database);
+  chart.format(nextChart, database);
 
   expect(chart.length).to.equal(20);
  
@@ -232,7 +232,7 @@ function generateList(outcoming, incoming) {
   const database = new Map()
   .set('TUBED 20', {history: []});
 
-  chart.foo(nextChart, database);
+  chart.format(nextChart, database);
 
   expect(chart.length).to.equal(20);
   
@@ -261,7 +261,7 @@ function generateList(outcoming, incoming) {
   const database = new Map()
   .set('TUBED 20', {history: []});
 
-  chart.foo(nextChart, database);
+  chart.format(nextChart, database);
 
   expect(chart.length).to.equal(20);
 
@@ -276,7 +276,7 @@ function generateList(outcoming, incoming) {
   .set('TUBED 14', {history: [6, 10, 14]})
   .set('TUBED 13', {history: [7, 12, 13]});
 
-  chart.foo(nextChart, database);
+  chart.format(nextChart, database);
 
   expect(chart.length).to.equal(20);
 
@@ -292,7 +292,7 @@ function generateList(outcoming, incoming) {
   const database = new Map()
   .set('TUBED 13', {history: [6, 10, 13]});
 
-  chart.foo(nextChart, database);
+  chart.format(nextChart, database);
 
   expect(chart.length).to.equal(20);
 
@@ -307,7 +307,7 @@ function generateList(outcoming, incoming) {
   const database = new Map()
   .set('TUBED 11', {history: [6, 2, 2, 1]});
 
-  chart.foo(nextChart, database);
+  chart.format(nextChart, database);
 
   expect(chart.length).to.equal(20);
 
@@ -322,7 +322,7 @@ function generateList(outcoming, incoming) {
   const database = new Map()
   .set('TUBED 15', {history: [19, 17, 13, 11, 11]});
 
-  chart.foo(nextChart, database);
+  chart.format(nextChart, database);
 
   expect(chart.length).to.equal(20);
 
@@ -337,7 +337,7 @@ function generateList(outcoming, incoming) {
   const database = new Map()
   .set('TUBED 20', {history: [20, 18, 16, 14, 13, 13]});
 
-  chart.foo(nextChart, database);
+  chart.format(nextChart, database);
 
   expect(chart.length).to.equal(20);
 
@@ -352,7 +352,7 @@ function generateList(outcoming, incoming) {
   const database = new Map()
   .set('TUBED 13', {history: [7, 12, 13]});
 
-  chart.foo(nextChart, database);
+  chart.format(nextChart, database);
 
   expect(chart.length).to.equal(20);
 
