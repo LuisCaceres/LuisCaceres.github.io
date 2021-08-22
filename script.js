@@ -381,7 +381,7 @@ class Chart extends List {
           }
 
           if (!database.get(item)) {
-            return false;
+            return true;
           }
 
           const history = new NumericRange(...database.get(item).history);
