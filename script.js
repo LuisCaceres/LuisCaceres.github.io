@@ -353,13 +353,57 @@ class Chart extends List {
     return this[index - 1];
   }
   
-  
-  /*
-  
-  
-  ['A']
-  
-  */
+  foo(listB, database) {
+    
+    const foo = [[this, listB], [listB, this], [listB, this], [this, listB]];
+    let index = 0;
+ 
+    for (const [listA, listB] of foo) {
+       if (index++ === 2) {
+          listA.reverse();
+          listB.reverse();
+       }
+
+      const difference = listA.difference(listB);
+      const targets = difference.filter(entry => listB.positionOf(entry) < 13);
+      const map = new Map();
+
+      targets.forEach(target => {
+        const list = listA.filter(item => {
+          if (listB.includes(item)) {
+            return false;
+          }
+
+          const delta = listA.positionOf(item) - listB.positionOf(target);
+
+          if (delta < 2) {
+            return false;
+          }
+
+          if (!database.get(item)) {
+            return false;
+          }
+
+          const history = new NumericRange(...database.get(item).history);
+
+          return history.length === 0 || history.at(-1) > 12 && history.isAscending();
+        });
+
+        map.set(target, list);
+      });
+      
+      map.share();
+
+      for (const [replacement, replacee] of map) {
+        this.replace(replacee, replacement);
+      }
+    }
+    
+    this.reverse();
+    listB.reverse();
+    
+    return this;
+  }
 
 
   /*
