@@ -111,7 +111,7 @@ function generateList(outcoming, incoming) {
   const database = new Map()
   .set('TUBED 1', {history: [19, 17, 15, 11, 8, 6, 2, 2, 1]});
   
-  chart.foo(chartB, database);
+  chartA.foo(chartB, database);
   
   expect(chartB.length).to.equal(20);
   
