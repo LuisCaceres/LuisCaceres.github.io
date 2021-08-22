@@ -105,6 +105,20 @@ function generateList(outcoming, incoming) {
 }
 
 
+{
+  const [chartA, chartB] = generateList([1], [20]);
+
+  const database = new Map()
+  .set('TUBED 1', {history: [19, 17, 15, 11, 8, 6, 2, 2, 1]});
+  
+  chart.foo(chartB, database);
+  
+  expect(chartB.length).to.equal(20);
+  
+  expect(chartB.at(20)).to.equal('TUBED 1');
+}  
+
+
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // format()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
