@@ -371,7 +371,7 @@ class Chart extends List {
     const newItems = this.difference(listB);
     // Verify if there are any new items in position 12 or below.
     // Let `illegalItems` be a list of such items.
-    const illegalItems = newItems.filter(entry => listB.positionOf(entry) <= 12);
+    const illegalItems = newItems.filter(entry => listB.positionOf(entry) < 13);
 
     const map = new Map();
 
