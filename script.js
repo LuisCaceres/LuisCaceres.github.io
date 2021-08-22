@@ -368,6 +368,7 @@ class Chart extends List {
       const targets = difference.filter(entry => {
         return listB.positionOf(entry) < 13 && database.get(entry) === null;
       });
+      
       const map = new Map();
 
       targets.forEach(target => {
@@ -422,12 +423,7 @@ class Chart extends List {
     const map = new Map();
 
     illegalItems.forEach(itemA => {
-      const list = this.filter(itemB => {
-        
-        if (listB.includes(itemB)) {
-          return false;
-        }
-
+      const list = this.difference(listB).filter(itemB => {
         const delta = this.positionOf(itemB) - listB.positionOf(itemA);
         
         if (delta < 2) {
@@ -478,7 +474,7 @@ class Chart extends List {
     const map = new Map();
 
     illegalItems.forEach(itemA => {
-      const list = this.filter(itemB => {
+      const list = this.difference(previousList).filter(itemB => {
         if (previousList.includes(itemB)) {
           return false;
         }
