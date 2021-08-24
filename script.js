@@ -357,7 +357,7 @@ class Chart extends List {
   /*
    *
    */
-  format(listB, database) {
+  format(listB, database) {    
     const targets = this.difference(listB).filter(item => {
 
       if (listB.positionOf(item) < 13) {
@@ -411,45 +411,11 @@ class Chart extends List {
    *
    */
   format2(previousList, database) {
-    // FIND OUT WHICH ENTRIES HAVE DROPPED OFF THIS WEEK'S CHART.
-    // Compare last week's chart and this week's chart and get the entries not present in this week's chart.
-    // Let `outItems` be a list of such entries.
-    const outItems = this.difference(previousList);
-
-    // OUT OF THOSE ENTRIES, FIND OUT WHICH ONES ARE DISALLOWED.
-    // Let `disallowedEntries` be an initially empty list of entries.
-    // For each entry `entry` in `outItems`.
-       // Add `entry` to `disallowedEntries` if `entry`'s history only contains forward movements.
-       // EXAMPLE of an entry's history which only contains forward movements: [20, 20, 18, 17, 17, **]
-    const illegalItems = outItems.filter(match  => {
-      const history = new NumericRange(...database.get(match).history);
-      return history.isDescending() || history.length === 1;
-    });
-
-    const map = new Map();
-
-    illegalItems.forEach(itemA => {
-      const list = previousList.difference(this).filter(itemB => {
-        const position = this.positionOf(itemB);
-
-        // WHAT ABOUT BEING IN THE SAME POSITION FOR 3 WEEKS OR MORE
-        return previousList.positionOf(itemA) >= position;
-      });
-
-      map.set(itemA, list);
-    });
-
-    map.share();
-
-    for (const [replacement, replacee] of map) {
-      const item = database.get(replacement);
-      database.delete(replacement);
-      database.set(replacee, item);
-      item.match = replacee;
-    }
-
-    // DONE
-    return this;
+    this.reverse();
+    previousList.reverse();
+    this.format(previousList, database);
+    this.reverse();
+    previousList.reverse();
   }
 
 
