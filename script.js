@@ -6,16 +6,28 @@
 
 // TO DO: THERE ARE MORE OCURRENCES OF VIDEOS BEING IN THE SAME POSITION FOR MORE THAN 3 WEEKS, I DON'T LIKE THAT.
 
+/* Reduces each list to only one item. These items become the values of this map instead. The items are unique as values.    
+ * In other words, an item is used as a value only once even if some lists share that same item. Therefore, null may be used as a value if necessary   
+ * in order to maintain the uniqueness of the values. 
+ */
 Map.prototype.share = function share() {
+  // Let `lists` be a list of lists in this listMap.
   const lists = new List(...this.values());
 
+  // For each key in this listMap.
   for ([key] of this) {
+    // Let `list` be the list associate with `key`.
     const list = lists.shift();
+    // Let `item` be...
     let item = null;
 
+    // While this list isn't empty.
     while (list.length) {
+      // Remove the item currently at the beginning of `list`.
       item = list.shift();
+      // Let `singles` be a list of lists. Each list contains only one item. This item is `item`. 
       const singles = lists.filter(list => list.includes(item) && list.length === 1);
+      // If `list` contains only one item then `item` is the {{what}} item.
       const condition = list.length === 0 || singles.length === 0;
 
       if (condition) {
@@ -27,6 +39,7 @@ Map.prototype.share = function share() {
       }
     }
 
+    // Associate `key` and `item` instead.
     this.set(key, item);
   }
 };
