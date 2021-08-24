@@ -32,7 +32,6 @@ Map.prototype.share = function share() {
 };
 
 
-
 /*
  *
  */
@@ -127,7 +126,8 @@ class List extends Array {
       this.splice(index, 0, item);
     }
    }
-   
+
+
   /*
    *
    */
@@ -363,7 +363,18 @@ class Chart extends List {
     const newItems = this.difference(listB);
     // Verify if there are any new items in position 12 or below.
     // Let `illegalItems` be a list of such items.
-    const illegalItems = newItems.filter(entry => listB.positionOf(entry) < 13);
+    const illegalItems = newItems.filter(entry => {
+      if (listB.positionOf(entry) < 13)) {
+        return true;
+      }
+      
+      if (database.get(entry) === null) {
+        return false;
+      }
+      
+      const history = new NumericRange(...database.get(entry).history);
+      return history.isDescending() || history.length === 1;
+    };
 
     const map = new Map();
 
