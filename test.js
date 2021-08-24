@@ -523,7 +523,7 @@ function generateList(outcoming, incoming) {
 //   expect(chart[02]).to.equal('T');
 //   expect(chart[01]).to.equal('J');
 //   expect(chart[00]).to.equal('R');
-}
+//   }
 
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
