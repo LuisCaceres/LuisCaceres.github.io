@@ -374,7 +374,7 @@ class Chart extends List {
       
       const history = new NumericRange(...database.get(entry).history);
       return history.isDescending() || history.length === 1;
-    };
+    });
 
     const map = new Map();
 
