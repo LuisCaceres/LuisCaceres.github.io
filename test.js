@@ -376,124 +376,126 @@ function generateList(outcoming, incoming) {
 
   const TUBED17 = database.get('TUBED 17');
   
-  { 
-    previousChart.format(chart, database); 
-  }
   
-  
-  chart.format2(previousChart, database);
-  
+  chart.format2(previousChart,database);
   expect(chart.length).to.equal(20);
+  expect(chart.at(13)).to.equal('TUBED 17');
+  expect(chart).not.to.include('DEBUT 13');
   
-  expect(database.has('DEBUT 16') || database.has('DEBUT 13')).to.equal(true);
+  
+  
+  
+//   expect(chart.length).to.equal(20);
+  
+//   expect(database.has('DEBUT 16') || database.has('DEBUT 13')).to.equal(true);
 
-  expect(database.has('TUBED 17')).to.equal(false);
+//   expect(database.has('TUBED 17')).to.equal(false);
   
-  expect(database.get('DEBUT 16') || database.get('DEBUT 13')).to.equal(TUBED17);
+//   expect(database.get('DEBUT 16') || database.get('DEBUT 13')).to.equal(TUBED17);
   
-  expect(['DEBUT 16', 'DEBUT 13']).to.include(TUBED17.match);
+//   expect(['DEBUT 16', 'DEBUT 13']).to.include(TUBED17.match);
 }
-{
-  const [previousChart, chart] = generateList([20, 19, 18], [20, 19, 18]);
+// {
+//   const [previousChart, chart] = generateList([20, 19, 18], [20, 19, 18]);
 
-  const database = new Map()
-  .set('TUBED 20', {title: 'TUBED 20', history: [20]})
-  .set('TUBED 19', {title: 'TUBED 19', history: [20, 19]})
-  .set('TUBED 18', {title: 'TUBED 18', history: [20, 19, 18]});
+//   const database = new Map()
+//   .set('TUBED 20', {title: 'TUBED 20', history: [20]})
+//   .set('TUBED 19', {title: 'TUBED 19', history: [20, 19]})
+//   .set('TUBED 18', {title: 'TUBED 18', history: [20, 19, 18]});
 
-  chart.format2(previousChart, database);
+//   chart.format2(previousChart, database);
 
-  expect(chart.length).to.equal(20);
+//   expect(chart.length).to.equal(20);
   
-  expect(database.has('DEBUT 20')).to.equal(true);
-  expect(database.has('DEBUT 19')).to.equal(true);
-  expect(database.has('DEBUT 18')).to.equal(true);
+//   expect(database.has('DEBUT 20')).to.equal(true);
+//   expect(database.has('DEBUT 19')).to.equal(true);
+//   expect(database.has('DEBUT 18')).to.equal(true);
   
-  expect(database.has('TUBED 20')).to.equal(false);
-  expect(database.has('TUBED 19')).to.equal(false);
-  expect(database.has('TUBED 18')).to.equal(false);
+//   expect(database.has('TUBED 20')).to.equal(false);
+//   expect(database.has('TUBED 19')).to.equal(false);
+//   expect(database.has('TUBED 18')).to.equal(false);
   
-  expect(database.get('DEBUT 20').match).to.equal('DEBUT 20');
-  expect(database.get('DEBUT 19').match).to.equal('DEBUT 19');
-  expect(database.get('DEBUT 18').match).to.equal('DEBUT 18');
+//   expect(database.get('DEBUT 20').match).to.equal('DEBUT 20');
+//   expect(database.get('DEBUT 19').match).to.equal('DEBUT 19');
+//   expect(database.get('DEBUT 18').match).to.equal('DEBUT 18');
   
-  expect(database.get('DEBUT 20').title).to.equal('TUBED 20');
-  expect(database.get('DEBUT 20').title).to.equal('TUBED 20');
-  expect(database.get('DEBUT 20').title).to.equal('TUBED 20');
-}
-{  
-  const [previousChart, chart] = generateList([17, 16, 15], [20, 19, 18]);
+//   expect(database.get('DEBUT 20').title).to.equal('TUBED 20');
+//   expect(database.get('DEBUT 20').title).to.equal('TUBED 20');
+//   expect(database.get('DEBUT 20').title).to.equal('TUBED 20');
+// }
+// {  
+//   const [previousChart, chart] = generateList([17, 16, 15], [20, 19, 18]);
 
-  const database = new Map()
-  .set('TUBED 17', {history: [20, 19, 18, 17]})
-  .set('TUBED 16', {history: [19, 18, 17, 16]})
-  .set('TUBED 15', {history: [18, 17, 16, 15]});
+//   const database = new Map()
+//   .set('TUBED 17', {history: [20, 19, 18, 17]})
+//   .set('TUBED 16', {history: [19, 18, 17, 16]})
+//   .set('TUBED 15', {history: [18, 17, 16, 15]});
 
-  chart.format2(previousChart, database);
+//   chart.format2(previousChart, database);
 
-  expect(chart.length).to.equal(20);
+//   expect(chart.length).to.equal(20);
   
-  expect(chart).to.include('DEBUT 20');
-  expect(chart).to.include('DEBUT 19');
-  expect(chart).to.include('DEBUT 18');
+//   expect(chart).to.include('DEBUT 20');
+//   expect(chart).to.include('DEBUT 19');
+//   expect(chart).to.include('DEBUT 18');
 
-  expect(chart).not.to.include('TUBED 17');
-  expect(chart).not.to.include('TUBED 16');
-  expect(chart).not.to.include('TUBED 15');
+//   expect(chart).not.to.include('TUBED 17');
+//   expect(chart).not.to.include('TUBED 16');
+//   expect(chart).not.to.include('TUBED 15');
   
-  expect(chart.indexOf('DEBUT 20') + 1).to.equal(20);
-  expect(chart.indexOf('DEBUT 19') + 1).to.equal(19);
-  expect(chart.indexOf('DEBUT 18') + 1).to.equal(18);
-}
-{
-  const charts = [
-    /* 20 */ ['TUBED A', 'TUBED A', 'DEBUT W'], /* 20 */
-    /* 19 */ ['TUBED B', 'DEBUT U', 'DEBUT X'], /* 19 */
-    /* 18 */ ['C',       'TUBED I', 'DEBUT U'], /* 18 */
-    /* 17 */ ['TUBED D', 'TUBED D', 'L'],       /* 17 */
-    /* 16 */ ['E',       'TUBED H', 'DEBUT Y'], /* 16 */
-    /* 15 */ ['TUBED F', 'DEBUT V', 'K'],       /* 15 */
-    /* 14 */ ['G',       'E',       'N'],       /* 14 */
-    /* 13 */ ['TUBED H', 'K',       'DEBUT Z'], /* 13 */
-    /* 12 */ ['TUBED I', 'C',       'E'],       /* 12 */
-    /* 11 */ ['J',       'L',       'DEBUT V'], /* 11 */
-    /* 10 */ ['K',       'G',       'C'],       /* 10 */
-    /* 09 */ ['L',       'N',       'O'],       /* 09 */
-    /* 08 */ ['M',       'M',       'G'],       /* 08 */
-    /* 07 */ ['N',       'J',       'S'],       /* 07 */
-    /* 06 */ ['O',       'O',       'P'],       /* 06 */
-    /* 05 */ ['P',       'P',       'Q'],       /* 05 */
-    /* 04 */ ['Q',       'Q',       'M'],       /* 04 */
-    /* 03 */ ['R',       'S',       'T'],       /* 03 */
-    /* 02 */ ['S',       'R',       'J'],       /* 02 */
-    /* 01 */ ['T',       'T',       'R'],       /* 01 */
-  ];
+//   expect(chart.indexOf('DEBUT 20') + 1).to.equal(20);
+//   expect(chart.indexOf('DEBUT 19') + 1).to.equal(19);
+//   expect(chart.indexOf('DEBUT 18') + 1).to.equal(18);
+// }
+// {
+//   const charts = [
+//     /* 20 */ ['TUBED A', 'TUBED A', 'DEBUT W'], /* 20 */
+//     /* 19 */ ['TUBED B', 'DEBUT U', 'DEBUT X'], /* 19 */
+//     /* 18 */ ['C',       'TUBED I', 'DEBUT U'], /* 18 */
+//     /* 17 */ ['TUBED D', 'TUBED D', 'L'],       /* 17 */
+//     /* 16 */ ['E',       'TUBED H', 'DEBUT Y'], /* 16 */
+//     /* 15 */ ['TUBED F', 'DEBUT V', 'K'],       /* 15 */
+//     /* 14 */ ['G',       'E',       'N'],       /* 14 */
+//     /* 13 */ ['TUBED H', 'K',       'DEBUT Z'], /* 13 */
+//     /* 12 */ ['TUBED I', 'C',       'E'],       /* 12 */
+//     /* 11 */ ['J',       'L',       'DEBUT V'], /* 11 */
+//     /* 10 */ ['K',       'G',       'C'],       /* 10 */
+//     /* 09 */ ['L',       'N',       'O'],       /* 09 */
+//     /* 08 */ ['M',       'M',       'G'],       /* 08 */
+//     /* 07 */ ['N',       'J',       'S'],       /* 07 */
+//     /* 06 */ ['O',       'O',       'P'],       /* 06 */
+//     /* 05 */ ['P',       'P',       'Q'],       /* 05 */
+//     /* 04 */ ['Q',       'Q',       'M'],       /* 04 */
+//     /* 03 */ ['R',       'S',       'T'],       /* 03 */
+//     /* 02 */ ['S',       'R',       'J'],       /* 02 */
+//     /* 01 */ ['T',       'T',       'R'],       /* 01 */
+//   ];
   
-  const chart = new Chart(...charts.map(item => item[2]).reverse());
-  const previousChart = new Chart(...charts.map(item => item[1]).reverse());
-//   const nextChart = new List(...charts.map(item => item[2]).reverse());
+//   const chart = new Chart(...charts.map(item => item[2]).reverse());
+//   const previousChart = new Chart(...charts.map(item => item[1]).reverse());
+// //   const nextChart = new List(...charts.map(item => item[2]).reverse());
     
-  const database = new Map()
-  .set('TUBED B', {title: "TUBED B", history: [19, 16, 13, 19]})
-  .set('TUBED F', {title: "TUBED F", history: [19, 17, 13, 11, 11, 15]})
-  .set('TUBED A', {title: "TUBED A", history: [17, 15, 20, 20]})
-  .set('TUBED I', {title: "TUBED I", history: [20, 18, 14, 12, 12, 18]})
-  .set('TUBED D', {title: "TUBED D", history: [20, 20, 18, 17, 17]})
-  .set('TUBED H', {title: "TUBED H", history: [1, 1, 1, 4, 5, 10, 13, 16]});
+//   const database = new Map()
+//   .set('TUBED B', {title: "TUBED B", history: [19, 16, 13, 19]})
+//   .set('TUBED F', {title: "TUBED F", history: [19, 17, 13, 11, 11, 15]})
+//   .set('TUBED A', {title: "TUBED A", history: [17, 15, 20, 20]})
+//   .set('TUBED I', {title: "TUBED I", history: [20, 18, 14, 12, 12, 18]})
+//   .set('TUBED D', {title: "TUBED D", history: [20, 20, 18, 17, 17]})
+//   .set('TUBED H', {title: "TUBED H", history: [1, 1, 1, 4, 5, 10, 13, 16]});
   
-  const TUBED_D = database.get('TUBED D');
+//   const TUBED_D = database.get('TUBED D');
     
-  chart.format2(previousChart, database);
+//   chart.format2(previousChart, database);
   
-  expect(chart.length).to.equal(20);
+//   expect(chart.length).to.equal(20);
   
-  expect(database.has('DEBUT Y') || database.has('DEBUT Z')).to.equal(true);
+//   expect(database.has('DEBUT Y') || database.has('DEBUT Z')).to.equal(true);
 
-  expect(database.has('TUBED D')).to.equal(false);
+//   expect(database.has('TUBED D')).to.equal(false);
   
-  expect(database.get('DEBUT Y') || database.get('DEBUT Z')).to.equal(TUBED_D);
+//   expect(database.get('DEBUT Y') || database.get('DEBUT Z')).to.equal(TUBED_D);
   
-  expect(['DEBUT Y', 'DEBUT Z']).to.include(TUBED_D.match);
+//   expect(['DEBUT Y', 'DEBUT Z']).to.include(TUBED_D.match);
   
   
   
