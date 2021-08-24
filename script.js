@@ -358,7 +358,7 @@ class Chart extends List {
    *
    */
   format(listB, database) {    
-    const targets = this.difference(listB).filter(item => {
+    const replacees = this.difference(listB).filter(item => {
 
       if (listB.positionOf(item) < 13) {
         const entry = database.get(item);
@@ -371,16 +371,15 @@ class Chart extends List {
           return history.isDescending() || history.length === 1;
         }
       }
-      else {
-        return false;
-      }
     });
 
     const map = new Map();
+    
+    // shuffle targets and shuffle list
 
-    targets.forEach(target => {
+    replacees.forEach(replacee => {
       const list = listB.difference(this).filter(itemB => {
-        const delta = this.positionOf(itemB) - listB.positionOf(target);
+        const delta = this.positionOf(itemB) - listB.positionOf(replacee);
         const entry = database.get(itemB);
         
         if (delta >= 0 && delta <= 1 && entry === undefined) {
@@ -398,7 +397,7 @@ class Chart extends List {
         }    
       });
 
-      map.set(target, list);
+      map.set(replacee, list);
     });
 
     map.share();
