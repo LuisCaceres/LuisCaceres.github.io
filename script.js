@@ -368,7 +368,7 @@ class Chart extends List {
         return true;
       }
       
-      if (database.get(entry) === null) {
+      if (!database.get(entry)) {
         return false;
       }
       
