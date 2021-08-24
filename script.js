@@ -358,27 +358,27 @@ class Chart extends List {
    *
    */
   format(listB, database) {
-    // Iterate through next week's list and verify if there are any new items.
-    // Let `newItems` be a list of such items.
-    const newItems = this.difference(listB);
-    // Verify if there are any new items in position 12 or below.
-    // Let `illegalItems` be a list of such items.
-    const illegalItems = newItems.filter(entry => {
-      if (listB.positionOf(entry) < 13) {
-        return true;
+    const targets = this.difference(listB).filter(item => {
+
+      if (listB.positionOf(item) < 13) {
+        const item = database.get(item);
+        
+        if (item === undefined) {
+          return true;
+        }
+        else {
+          const history = new NumericRange(...item.history);
+          return history.isDescending() || history.length === 1;
+        }
       }
-      
-      if (!database.get(entry)) {
+      else {
         return false;
       }
-      
-      const history = new NumericRange(...database.get(entry).history);
-      return history.isDescending() || history.length === 1;
     });
 
     const map = new Map();
 
-    illegalItems.forEach(itemA => {
+    targets.forEach(itemA => {
       const list = listB.difference(this).filter(itemB => {
         const delta = this.positionOf(itemB) - listB.positionOf(itemA);
         
@@ -390,8 +390,7 @@ class Chart extends List {
           return false;
         }
  
-        const history = new NumericRange(...database.get(itemB).history);
-        
+        const history = new NumericRange(...database.get(itemB).history);        
         return history.length === 0 || history.at(-1) > 12 && history.isAscending();
       });
 
