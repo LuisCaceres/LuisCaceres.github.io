@@ -395,8 +395,8 @@ function generateList(outcoming, incoming) {
   expect(chart.length).to.equal(20);
 
   expect(chart.at(20)).to.equal('TUBED 20');
-  expect(chart.at(20)).to.equal('TUBED 19');
-  expect(chart.at(20)).to.equal('TUBED 18');
+  expect(chart.at(19)).to.equal('TUBED 19');
+  expect(chart.at(18)).to.equal('TUBED 18');
   
   expect(chart).not.to.include('DEBUT 20');
   expect(chart).not.to.include('DEBUT 19');
