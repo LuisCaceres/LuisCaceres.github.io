@@ -364,7 +364,7 @@ class Chart extends List {
     // Verify if there are any new items in position 12 or below.
     // Let `illegalItems` be a list of such items.
     const illegalItems = newItems.filter(entry => {
-      if (listB.positionOf(entry) < 13)) {
+      if (listB.positionOf(entry) < 13) {
         return true;
       }
       
