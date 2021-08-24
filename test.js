@@ -374,55 +374,34 @@ function generateList(outcoming, incoming) {
   .set('TUBED 17', {title: 'TUBED 17', history: [20, 20, 18, 17, 17]})
   .set('TUBED 16', {title: 'TUBED 16', history: [1, 1, 1, 4, 5, 10, 13, 16]});
 
-  const TUBED17 = database.get('TUBED 17');
-  
-  
   chart.format2(previousChart,database);
+
   expect(chart.length).to.equal(20);
+
   expect(chart.at(13)).to.equal('TUBED 17');
+  
   expect(chart).not.to.include('DEBUT 13');
-  
-  
-  
-  
-//   expect(chart.length).to.equal(20);
-  
-//   expect(database.has('DEBUT 16') || database.has('DEBUT 13')).to.equal(true);
-
-//   expect(database.has('TUBED 17')).to.equal(false);
-  
-//   expect(database.get('DEBUT 16') || database.get('DEBUT 13')).to.equal(TUBED17);
-  
-//   expect(['DEBUT 16', 'DEBUT 13']).to.include(TUBED17.match);
 }
-// {
-//   const [previousChart, chart] = generateList([20, 19, 18], [20, 19, 18]);
+{
+  const [previousChart, chart] = generateList([20, 19, 18], [20, 19, 18]);
 
-//   const database = new Map()
-//   .set('TUBED 20', {title: 'TUBED 20', history: [20]})
-//   .set('TUBED 19', {title: 'TUBED 19', history: [20, 19]})
-//   .set('TUBED 18', {title: 'TUBED 18', history: [20, 19, 18]});
+  const database = new Map()
+  .set('TUBED 20', {title: 'TUBED 20', history: [20]})
+  .set('TUBED 19', {title: 'TUBED 19', history: [20, 19]})
+  .set('TUBED 18', {title: 'TUBED 18', history: [20, 19, 18]});
 
-//   chart.format2(previousChart, database);
+  chart.format2(previousChart, database);
 
-//   expect(chart.length).to.equal(20);
+  expect(chart.length).to.equal(20);
+
+  expect(chart.at(20)).to.equal('TUBED 20');
+  expect(chart.at(20)).to.equal('TUBED 19');
+  expect(chart.at(20)).to.equal('TUBED 18');
   
-//   expect(database.has('DEBUT 20')).to.equal(true);
-//   expect(database.has('DEBUT 19')).to.equal(true);
-//   expect(database.has('DEBUT 18')).to.equal(true);
-  
-//   expect(database.has('TUBED 20')).to.equal(false);
-//   expect(database.has('TUBED 19')).to.equal(false);
-//   expect(database.has('TUBED 18')).to.equal(false);
-  
-//   expect(database.get('DEBUT 20').match).to.equal('DEBUT 20');
-//   expect(database.get('DEBUT 19').match).to.equal('DEBUT 19');
-//   expect(database.get('DEBUT 18').match).to.equal('DEBUT 18');
-  
-//   expect(database.get('DEBUT 20').title).to.equal('TUBED 20');
-//   expect(database.get('DEBUT 20').title).to.equal('TUBED 20');
-//   expect(database.get('DEBUT 20').title).to.equal('TUBED 20');
-// }
+  expect(chart).not.to.include('DEBUT 20');
+  expect(chart).not.to.include('DEBUT 19');
+  expect(chart).not.to.include('DEBUT 18');
+}
 // {  
 //   const [previousChart, chart] = generateList([17, 16, 15], [20, 19, 18]);
 
