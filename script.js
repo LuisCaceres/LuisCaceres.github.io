@@ -378,23 +378,27 @@ class Chart extends List {
 
     const map = new Map();
 
-    targets.forEach(itemA => {
+    targets.forEach(target => {
       const list = listB.difference(this).filter(itemB => {
-        const delta = this.positionOf(itemB) - listB.positionOf(itemA);
+        const delta = this.positionOf(itemB) - listB.positionOf(target);
+        const entry = database.get(itemB);
         
-        if (delta < 2) {
-          return false;
-        }
-        
-        if (database.get(itemB) === undefined) {
+        if (delta >= 0 && delta <= 1 && entry === undefined) {
           return true;
         }
- 
-        const history = new NumericRange(...database.get(itemB).history);        
-        return history.length === 0 || history.at(-1) > 12 && history.isAscending();
+
+        if (delta >= 2) {
+          if (entry === undefined) {
+            return true;
+          }
+          else {
+            const history = new NumericRange(...entry.history);
+            return history.length === 0 || history.at(-1) > 12 && history.isAscending();
+          }
+        }    
       });
 
-      map.set(itemA, list);
+      map.set(target, list);
     });
 
     map.share();
