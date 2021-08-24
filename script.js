@@ -361,13 +361,13 @@ class Chart extends List {
     const targets = this.difference(listB).filter(item => {
 
       if (listB.positionOf(item) < 13) {
-        const item = database.get(item);
+        const entry = database.get(item);
         
-        if (item === undefined) {
+        if (entry === undefined) {
           return true;
         }
         else {
-          const history = new NumericRange(...item.history);
+          const history = new NumericRange(...entry.history);
           return history.isDescending() || history.length === 1;
         }
       }
