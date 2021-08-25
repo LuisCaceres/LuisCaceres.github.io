@@ -426,18 +426,6 @@ class Chart extends List {
   /*
    *
    */
-  format2(previousList, database) {
-    this.reverse();
-    previousList.reverse();
-    this.format(previousList, database);
-    this.reverse();
-    previousList.reverse();
-  }
-
-
-  /*
-   *
-   */
   positionOf(entry) {
     return this.indexOf(entry) + 1;
   }
