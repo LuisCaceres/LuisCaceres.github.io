@@ -378,8 +378,13 @@ function generateList(outcoming, incoming) {
 
   expect(chart.length).to.equal(20);
 
+  expect(chart.at(20)).to.equal('DEBUT 20');
+  expect(chart.at(19)).to.equal('DEBUT 19');
   expect(chart.at(13)).to.equal('TUBED 17');
   
+  expect(chart).not.to.include('TUBED 20');
+  expect(chart).not.to.include('TUBED 18');
+  expect(chart).not.to.include('TUBED 16');
   expect(chart).not.to.include('DEBUT 13');
 }
 {
