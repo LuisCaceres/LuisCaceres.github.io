@@ -374,7 +374,7 @@ function generateList(outcoming, incoming) {
   .set('TUBED 17', {title: 'TUBED 17', history: [20, 20, 18, 17]})
   .set('TUBED 16', {title: 'TUBED 16', history: [1, 1, 1, 4, 5, 10, 13]});
 
-  chart.format2(previousChart,database);
+  chart.format(previousChart,database);
 
   expect(chart.length).to.equal(20);
 
@@ -394,7 +394,7 @@ function generateList(outcoming, incoming) {
   .set('TUBED 19', {title: 'TUBED 19', history: [20]})
   .set('TUBED 18', {title: 'TUBED 18', history: [20, 19]});
 
-  chart.format2(previousChart, database);
+  chart.format(previousChart, database);
 
   expect(chart.length).to.equal(20);
 
@@ -414,7 +414,7 @@ function generateList(outcoming, incoming) {
   .set('TUBED 16', {history: [19, 18, 17]})
   .set('TUBED 15', {history: [18, 17, 16, 15]});
 
-  chart.format2(previousChart, database);
+  chart.format(previousChart, database);
 
   expect(chart.length).to.equal(20);
   
