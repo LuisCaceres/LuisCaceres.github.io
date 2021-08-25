@@ -375,11 +375,13 @@ class Chart extends List {
       const entry = database.get(item);
       const history = entry && new NumericRange(...entry.history);
       
+      // If an entry arrives in position 12 or lower. For example: [**, 12, 9]  
       if (!entry && listB.positionOf(item) < 13) {
         return true;
       }
       
-      if (history.isDescending() || history.length === 1) {
+      // If an ascending entry departs. For example: [20, 20, 18, 17, 17, **]  
+      if (history && history.isDescending() || history.length === 1) {
         return true;
       }
     });
