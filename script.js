@@ -381,7 +381,7 @@ class Chart extends List {
       }
       
       // If an ascending entry departs. For example: [20, 20, 18, 17, 17, **]  
-      if (history && history.isDescending() || history.length === 1) {
+      if (history && (history.isDescending() || history.length === 1)) {
         return true;
       }
     });
