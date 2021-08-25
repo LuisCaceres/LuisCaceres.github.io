@@ -369,10 +369,10 @@ function generateList(outcoming, incoming) {
   const [previousChart, chart] = generateList([20, 18, 17, 16], [20, 19, 16, 13]);
 
   const database = new Map()
-  .set('TUBED 20', {title: 'TUBED 20', history: [17, 15, 20]})
-  .set('TUBED 18', {title: 'TUBED 18', history: [20, 18, 14, 12, 12]})
-  .set('TUBED 17', {title: 'TUBED 17', history: [20, 20, 18, 17]})
-  .set('TUBED 16', {title: 'TUBED 16', history: [1, 1, 1, 4, 5, 10, 13]});
+  .set('TUBED 20', {title: 'TUBED 20', history: [17, 15, 20, 20]})
+  .set('TUBED 18', {title: 'TUBED 18', history: [20, 18, 14, 12, 12, 18]})
+  .set('TUBED 17', {title: 'TUBED 17', history: [20, 20, 18, 17, 17]})
+  .set('TUBED 16', {title: 'TUBED 16', history: [1, 1, 1, 4, 5, 10, 13, 16]});
 
   chart.format(previousChart,database);
 
@@ -391,8 +391,9 @@ function generateList(outcoming, incoming) {
   const [previousChart, chart] = generateList([20, 19, 18], [20, 19, 18]);
 
   const database = new Map()
-  .set('TUBED 19', {title: 'TUBED 19', history: [20]})
-  .set('TUBED 18', {title: 'TUBED 18', history: [20, 19]});
+  .set('TUBED 20', {title: 'TUBED 19', history: [20]})
+  .set('TUBED 19', {title: 'TUBED 19', history: [20, 19]})
+  .set('TUBED 18', {title: 'TUBED 18', history: [20, 19, 18]});
 
   chart.format(previousChart, database);
 
@@ -410,8 +411,8 @@ function generateList(outcoming, incoming) {
   const [previousChart, chart] = generateList([17, 16, 15], [20, 19, 18]);
 
   const database = new Map()
-  .set('TUBED 17', {history: [20, 19, 18]})
-  .set('TUBED 16', {history: [19, 18, 17]})
+  .set('TUBED 17', {history: [20, 19, 18, 17]})
+  .set('TUBED 16', {history: [19, 18, 17, 16]})
   .set('TUBED 15', {history: [18, 17, 16, 15]});
 
   chart.format(previousChart, database);
