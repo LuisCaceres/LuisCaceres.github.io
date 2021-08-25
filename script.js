@@ -372,17 +372,15 @@ class Chart extends List {
    */
   format(listB, database) {    
     const replacees = this.difference(listB).filter(item => {
-
-      if (listB.positionOf(item) < 13) {
-        const entry = database.get(item);
-        
-        if (entry === undefined) {
-          return true;
-        }
-        else {
-          const history = new NumericRange(...entry.history);
-          return history.isDescending() || history.length === 1;
-        }
+      const entry = database.get(item);
+      const history = entry && new NumericRange(...entry.history);
+      
+      if (!entry && listB.positionOf(item) < 13) {
+        return true;
+      }
+      
+      if (history.isDescending() || history.length === 1) {
+        return true;
       }
     });
 
