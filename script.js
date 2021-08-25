@@ -185,8 +185,8 @@ class List extends Array {
   }
 
 
-  /*
-   *
+  /* Rearranges the order of the items in this list.
+   * @returns {List} - this list.
    */
   shuffle() {
     for (let i = this.length - 1; i > 0; i--) {
@@ -386,12 +386,11 @@ class Chart extends List {
       }
     });
 
+    replacees.shuffle();
     const map = new Map();
-    
-    // shuffle targets and shuffle list
 
     replacees.forEach(replacee => {
-      const list = listB.difference(this).filter(itemB => {
+      const replacements = listB.difference(this).filter(itemB => {
         const delta = this.positionOf(itemB) - listB.positionOf(replacee);
         const entry = database.get(itemB);
         
@@ -410,12 +409,13 @@ class Chart extends List {
         }    
       });
 
-      map.set(replacee, list);
+      map.set(replacee, replacements.shuffle());
     });
 
     map.share();
 
     for (const [replacement, replacee] of map) {
+      // what if it's null?
       this.replace(replacee, replacement);
     }
 
