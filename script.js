@@ -379,13 +379,13 @@ class Chart extends List {
    * (new Chart('A', 'B', 'F', 'C', 'D')).format(new Chart('A', 'B', 'C', 'D', 'E'));
    */
   format(listB, database) {    
-    const errors = detector2(this, listB, database);
+    const errors = Chart.detector2(this, listB, database);
     errors.shuffle();
     
     const map = new Map();
 
     errors.forEach(error => {
-      const targets = corrector2(error, this, listB);
+      const targets = Chart.corrector2(error, this, listB);
       map.set(error, targets.shuffle());
     });
 
