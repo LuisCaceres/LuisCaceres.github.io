@@ -465,13 +465,14 @@ class Chart extends List {
    * For example, [**, 10, 6, 2, 2]
    * @return {Array}
    */
-  static corrector2(entryB, chartA, chartB) {
+  static corrector2(entryB, chartA, chartB, database) {
     return chartB.difference(chartA).filter(entryA => {
       const delta = chartA.positionOf(entryA) - chartB.positionOf(entryB);
+      const history = new NumericRange(...database.get(entryA).history);
       
       // TO DO: Detect if entry will be in the position for more than two weeks.
       // For example: [20, 19, 18, 18, *] turns into [20, 19, 18, 18, 18]
-      return delta >= 0;
+      return delta >= 0 && history.at(-1) > 12;
     });
   }
 }
