@@ -385,7 +385,7 @@ class Chart extends List {
     const map = new Map();
 
     errors.forEach(error => {
-      const targets = Chart.corrector2(error, this, listB);
+      const targets = Chart.corrector2(error, this, listB, database);
       map.set(error, targets.shuffle());
     });
 
