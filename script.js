@@ -370,20 +370,22 @@ class Chart extends List {
   }
 
 
-  /* Compares this chart to `chatB` in search of errors. 
-   * Modifies this chart to eliminate such errors.
-   * @param {Chart} chartB -
+  /* Modifies this chart to eliminate continuity errors from `chartB`.
+   * @param {Chart} chartB - This chart's previous or next chart.
+   * @param {} database - A list of entries having ever charted.
    * @return {Chart} this chart.
    * @example
    * // returns ['A', 'B', 'E', 'C', 'D']
    * (new Chart('A', 'B', 'F', 'C', 'D')).format(new Chart('A', 'B', 'C', 'D', 'E'));
    */
-  format(listB, database) {    
+  format(listB, database) {
+    // Detect continuity errors from `chartB`.
     const errors = Chart.detector2(this, listB, database);
     errors.shuffle();
-    
+
     const map = new Map();
 
+    // Find entries in this chart able to eliminate continuity errors from `chartB`. 
     errors.forEach(error => {
       const targets = Chart.corrector2(error, this, listB, database);
       map.set(error, targets.shuffle());
@@ -391,20 +393,22 @@ class Chart extends List {
 
     map.share();
 
+    // Eliminate errors.
     for (const [replacement, replacee] of map) {
-      // what if it's null?
-      this.replace(replacee, replacement);
+      if (replacee !== null) {
+        this.replace(replacee, replacement);
+      }
     }
 
     return this;
   }
 
 
-  /* Returns the position of `entry` in this chart.
-   * @param {*} entry -
+  /* Returns the position of `entry` on this chart if `entry` is in fact on this chart.
+   * @param {*} entry
    * @return {Number}
    * @example
-   * // returns 'C'
+   * // returns 3
    * (new Chart('A', 'B', 'C', 'D', 'E')).positionOf('C')
    */
   positionOf(entry) {
@@ -415,11 +419,11 @@ class Chart extends List {
 
   /* Compares `chartA` to `chartB` to find entries on `chartB` which have been ascending
    * and have unexpectedly departed from chartA.
-   * For example, [20, 18, 16, 14, 11, **]
-   * @param {Chart} chartA -
-   * @param {Chart} chartB -
-   * @param {} database -
-   * @return {Array}
+   * For example: [20, 18, 16, 14, 11, **]
+   * @param {Chart} chartA
+   * @param {Chart} chartB
+   * @param {} database - A list of entries having ever charted.
+   * @return {Array} entries
    */
   static detector1(chartA, chartB, database) {
     return chartA.difference(chartB).filter(entry => {
@@ -430,30 +434,34 @@ class Chart extends List {
 
 
   /* Finds entries on `chartA` which `entryB` can replace.
-   * @param {} entryB - Entry on `chartB` which has been ascending and has unexpectedly departed from chartA.
-   * For example, [20, 18, 16, 14, 11, **]
-   * @param {Chart} chartA -
-   * @param {Chart} chartB -
-   * @return {Array}
+   * @param {*} entryB - Entry on `chartB` which has been ascending and has unexpectedly departed from chartA.
+   * For example: [20, 18, 16, 14, 11, **]
+   * @param {Chart} chartA
+   * @param {Chart} chartB
+   * @return {Array} entries
    */
   static corrector1(entryB, chartA, chartB) {
-    return chartA.difference(chartB).filter(entryB => {
-      const delta = chartA.positionOf(entryB) - chartB.positionOf(entryB);
-      
+    return chartA.difference(chartB).filter(entryA => {
+      const delta = chartA.positionOf(entryA) - chartB.positionOf(entryB);
+ 
       // TO DO: Detect if entry will be in the position for more than two weeks.
       // For example: [20, 19, 18, 18, *] turns into [20, 19, 18, 18, 18]
-      return delta >= 0;
+      // It seems that it's okay to let this happen because we'd like to reduce the number of debuts.
+      // It's expected that a different corrector will correct this kind of behaviour.
+      
+      // `entryB`'s position on `chartB` is the same as `entryA`'s position or higher. 
+      return delta >= 0
     });
   }
 
   
   /* Compares `chartA` to `chartB` to find entries on `chartB` which have debuted
    * in position 12 or a lower position.
-   * For example, [**, 10]
-   * @param {Chart} chartA -
-   * @param {Chart} chartB -
-   * @param {} database -
-   * @return {Array}
+   * For example: [**, 10]
+   * @param {Chart} chartA
+   * @param {Chart} chartB
+   * @param {} database - A list of entries having ever charted.
+   * @return {Array} entries
    */
   static detector2(chartA, chartB) {
     return chartA.difference(chartB).filter(entry => chartB.positionOf(entry) < 13);
@@ -461,18 +469,24 @@ class Chart extends List {
 
 
   /* Finds entries on `chartA` which `entryB` can replace.
-   * `entryB` is an entry on `chartB` which has debuted in position 12 or a lower position.
-   * For example, [**, 10, 6, 2, 2]
-   * @return {Array}
+   * @param {*} entryB - Corrupt entry on `chartB` which has debuted in position 12 or a higher position.
+   * For example: [**, 10, 6, 2, 2]
+   * @param {Chart} chartA
+   * @param {Chart} chartB
+   * @param {} database - A list of entries having ever charted.
+   * @return {Array} entries
    */
   static corrector2(entryB, chartA, chartB, database) {
     return chartB.difference(chartA).filter(entryA => {
-      const delta = chartA.positionOf(entryA) - chartB.positionOf(entryB);
+      const position = chartA.positionOf(entryA) 
+      const delta = position - chartB.positionOf(entryB);
       const history = new NumericRange(...database.get(entryA).history);
       
-      // TO DO: Detect if entry will be in the position for more than two weeks.
-      // For example: [20, 19, 18, 18, *] turns into [20, 19, 18, 18, 18]
-      return delta >= 0 && history.at(-1) > 12;
+      // `entryA`'s position on `chartA` is at least two positions lower than `entryB`'s position on `chartB` and
+      // `entryA`'s position on `chartA` is 13 or lower and
+      // `entryA` has been charting for at least 2 charts and
+      // `entryA` has already had at least one movement backwards.
+      return delta >= 2 && position > 12 && history.length >= 1 && history.isDescending();
     });
   }
 }
