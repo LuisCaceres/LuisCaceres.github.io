@@ -423,10 +423,15 @@ class Chart extends List {
   }
 
 
-  /*
-   *
+  /* Returns the position of `entry` in this chart 
+   * @param {*} entry -
+   * @return {Number}
+   * @example
+   * // returns 'C'
+   * (new Chart('A', 'B', 'C', 'D', 'E')).positionOf('C')
    */
   positionOf(entry) {
+    // What about if `entry` doesn't exist in this chart?
     return this.indexOf(entry) + 1;
   }
 }
