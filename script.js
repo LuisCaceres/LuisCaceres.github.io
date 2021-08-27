@@ -466,8 +466,8 @@ class Chart extends List {
    * @return {Array}
    */
   static corrector2(entryB, chartA, chartB) {
-    return chartA.difference(chartB).filter(entryB => {
-      const delta = chartA.positionOf(entryB) - chartB.positionOf(entryB);
+    return chartB.difference(chartA).filter(entryA => {
+      const delta = chartA.positionOf(entryA) - chartB.positionOf(entryB);
       
       // TO DO: Detect if entry will be in the position for more than two weeks.
       // For example: [20, 19, 18, 18, *] turns into [20, 19, 18, 18, 18]
