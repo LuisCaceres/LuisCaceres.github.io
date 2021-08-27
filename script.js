@@ -370,49 +370,23 @@ class Chart extends List {
   }
 
 
-  /*
-   *
+  /* Compares this chart to `chatB` in search of errors. 
+   * Modifies this chart to eliminate such errors.
+   * @param {Chart} chartB -
+   * @return {Chart} this chart.
+   * @example
+   * // returns ['A', 'B', 'E', 'C', 'D']
+   * (new Chart('A', 'B', 'F', 'C', 'D')).format(new Chart('A', 'B', 'C', 'D', 'E'));
    */
   format(listB, database) {    
-    const replacees = this.difference(listB).filter(item => {
-      const entry = database.get(item);
-      const history = entry && new NumericRange(...entry.history);
-      
-      // If an entry arrives in position 12 or lower. For example: [**, 12, 9]  
-      if (!entry && listB.positionOf(item) < 13) {
-        return true;
-      }
-      
-      // If an ascending entry departs. For example: [20, 20, 18, 17, 17, **]  
-      if (history && (history.isDescending() || history.length === 1)) {
-        return true;
-      }
-    });
-
-    replacees.shuffle();
+    const errors = detector2(this, listB, database);
+    errors.shuffle();
+    
     const map = new Map();
 
-    replacees.forEach(replacee => {
-      const replacements = listB.difference(this).filter(itemB => {
-        const delta = this.positionOf(itemB) - listB.positionOf(replacee);
-        const entry = database.get(itemB);
-        
-        if (delta >= 0 && delta <= 1 && entry === undefined) {
-          return true;
-        }
-
-        if (delta >= 2) {
-          if (entry === undefined) {
-            return true;
-          }
-          else {
-            const history = new NumericRange(...entry.history);
-            return history.length === 0 || history.at(-1) > 12 && history.isAscending();
-          }
-        }    
-      });
-
-      map.set(replacee, replacements.shuffle());
+    errors.forEach(error => {
+      const replacees = corrector2(error, this, listB);
+      map.set(error, replacees.shuffle());
     });
 
     map.share();
@@ -439,14 +413,62 @@ class Chart extends List {
   }
 
 
-  /* Finds which entries on `chartB` can be replaced by `entryA`.
-   * `entryA` is an entry on `chartA` which has been ascending and unexpectedly departed from chartB.
+  /* Compares `chartA` to `chartB` to find entries on `chartB` which have been ascending
+   * and have unexpectedly departed from chartA.
    * For example, [20, 18, 16, 14, 11, **]
+   * @param {Chart} chartA -
+   * @param {Chart} chartB -
+   * @param {} database -
    * @return {Array}
    */
-  static foo(entryA, chartA, chartB) {
+  static detector1(chartA, chartB, database) {
+    return chartA.difference(chartB).filter(entry => {
+      const entry = database.get(entry);
+      const history = new NumericRange(...entry.history);
+      return history.length === 0 && history.isDescending();
+    });
+  }
+
+
+  /* Finds entries on `chartA` which `entryB` can replace.
+   * @param {} entryB - Entry on `chartB` which has been ascending and has unexpectedly departed from chartA.
+   * For example, [20, 18, 16, 14, 11, **]
+   * @param {Chart} chartA -
+   * @param {Chart} chartB -
+   * @return {Array}
+   */
+  static corrector1(entryB, chartA, chartB) {
     return chartA.difference(chartB).filter(entryB => {
-      const delta = chartA.positionOf(entryA) - chartB.positionOf(entryB);
+      const delta = chartA.positionOf(entryB) - chartB.positionOf(entryB);
+      
+      // TO DO: Detect if entry will be in the position for more than two weeks.
+      // For example: [20, 19, 18, 18, *] turns into [20, 19, 18, 18, 18]
+      return delta >= 0;
+    });
+  }
+
+  
+  /* Compares `chartA` to `chartB` to find entries on `chartB` which have debuted
+   * in position 12 or a lower position.
+   * For example, [**, 10]
+   * @param {Chart} chartA -
+   * @param {Chart} chartB -
+   * @param {} database -
+   * @return {Array}
+   */
+  static detector2(chartA, chartB) {
+    return chartA.difference(chartB).filter(entry => chartB.positionOf(entry) < 13);
+  }
+
+
+  /* Finds entries on `chartA` which `entryB` can replace.
+   * `entryB` is an entry on `chartB` which has debuted in position 12 or a lower position.
+   * For example, [**, 10, 6, 2, 2]
+   * @return {Array}
+   */
+  static corrector2(entryB, chartA, chartB) {
+    return chartA.difference(chartB).filter(entryB => {
+      const delta = chartA.positionOf(entryB) - chartB.positionOf(entryB);
       
       // TO DO: Detect if entry will be in the position for more than two weeks.
       // For example: [20, 19, 18, 18, *] turns into [20, 19, 18, 18, 18]
