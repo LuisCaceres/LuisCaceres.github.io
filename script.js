@@ -359,11 +359,14 @@ class Chart extends List {
   }
 
 
-  /*
-   *
+  /* Returns
+   * @return {Number} position -
+   * @example
+   * // returns 'C'
+   * (new Chart('A', 'B', 'C', 'D', 'E')).at(3)
    */
-  at(index) {
-    return this[index - 1];
+  at(position) {
+    return this[position - 1];
   }
 
 
@@ -423,7 +426,7 @@ class Chart extends List {
   }
 
 
-  /* Returns the position of `entry` in this chart 
+  /* Returns the position of `entry` in this chart.
    * @param {*} entry -
    * @return {Number}
    * @example
@@ -433,5 +436,21 @@ class Chart extends List {
   positionOf(entry) {
     // What about if `entry` doesn't exist in this chart?
     return this.indexOf(entry) + 1;
+  }
+
+
+  /* Finds which entries on `chartB` can be replaced by `entryA`.
+   * `entryA` is an entry on `chartA` which has been ascending and unexpectedly departed from chartB.
+   * For example, [20, 18, 16, 14, 11, **]
+   * @return {Array}
+   */
+  static foo(entryA, chartA, chartB) {
+    return chartA.difference(chartB).filter(entryB => {
+      const delta = chartA.positionOf(entryA) - chartB.positionOf(entryB);
+      
+      // TO DO: Detect if entry will be in the position for more than two weeks.
+      // For example: [20, 19, 18, 18, *] turns into [20, 19, 18, 18, 18]
+      return delta >= 0;
+    });
   }
 }
