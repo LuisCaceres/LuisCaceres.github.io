@@ -423,8 +423,7 @@ class Chart extends List {
    */
   static detector1(chartA, chartB, database) {
     return chartA.difference(chartB).filter(entry => {
-      const entry = database.get(entry);
-      const history = new NumericRange(...entry.history);
+      const history = new NumericRange(...database.get(entry).history);
       return history.length === 0 && history.isDescending();
     });
   }
