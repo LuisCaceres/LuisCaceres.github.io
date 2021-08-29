@@ -538,7 +538,7 @@ function generateList(outcoming, incoming) {
   
   const table = (new DOMParser()).parseFromString(HTML, 'text/html');
   const value = parse(table);
-  
+
   expect(value.length).to.equal(2);
   expect(value[0]).to.equal(encode('Artist 1 Title 1'));
   expect(value[1]).to.equal(encode('Artist 2 Title 2'));
@@ -550,35 +550,95 @@ function generateList(outcoming, incoming) {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// after()
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+{
+  const list = new List('A', 'B', 'C', 'D', 'E');
+
+  expect(list.after('F').length).to.equal(0);
+
+  expect(list.after('A').length).to.equal(4);
+  expect(list.after('B').length).to.equal(3);
+  expect(list.after('C').length).to.equal(2);
+  expect(list.after('D').length).to.equal(1);
+  expect(list.after('E').length).to.equal(0);
+
+  expect(list.after('A')).to.include('B');
+  expect(list.after('A')).to.include('C');
+  expect(list.after('A')).to.include('D');
+  expect(list.after('A')).to.include('E');
+
+  expect(list.after('B')).to.include('C');
+  expect(list.after('B')).to.include('D');
+  expect(list.after('B')).to.include('E');
+
+  expect(list.after('C')).to.include('D');
+  expect(list.after('C')).to.include('E');
+
+  expect(list.after('D')).to.include('E');
+
+  expect(list.after('A', 0).length).to.equal(0);
+
+  expect(list.after('A', 1).length).to.equal(1);
+  expect(list.after('A', 2).length).to.equal(2);
+  expect(list.after('A', 3).length).to.equal(3);
+  expect(list.after('A', 4).length).to.equal(4);
+  expect(list.after('A', 5).length).to.equal(4);
+  expect(list.after('A', 6).length).to.equal(4);
+  expect(list.after('A', 7).length).to.equal(4);
+  expect(list.after('A', 8).length).to.equal(4);
+  expect(list.after('A', 9).length).to.equal(4);
+
+  expect(list.after('A', 1)).to.include('B');
+
+  expect(list.after('A', 2)).to.include('B');
+  expect(list.after('A', 2)).to.include('C');
+  
+  expect(list.after('A', 3)).to.include('B');
+  expect(list.after('A', 3)).to.include('C');
+  expect(list.after('A', 3)).to.include('D');
+  
+  expect(list.after('A', 4)).to.include('B');
+  expect(list.after('A', 4)).to.include('C');
+  expect(list.after('A', 4)).to.include('D');
+  expect(list.after('A', 4)).to.include('E');
+
+  expect(list.after('A', 5)).to.include('B');
+  expect(list.after('A', 5)).to.include('C');
+  expect(list.after('A', 5)).to.include('D');
+  expect(list.after('A', 5)).to.include('E');
+}
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // before()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 {
   const list = new List('A', 'B', 'C', 'D', 'E');
-  
+
   expect(list.before('F').length).to.equal(0);
-  
+
   expect(list.before('A').length).to.equal(0);
   expect(list.before('B').length).to.equal(1);
   expect(list.before('C').length).to.equal(2);
   expect(list.before('D').length).to.equal(3);
   expect(list.before('E').length).to.equal(4);
-  
+
   expect(list.before('B')).to.include('A');
-  
+
   expect(list.before('C')).to.include('A');
   expect(list.before('C')).to.include('B');
-  
+
   expect(list.before('D')).to.include('A');
   expect(list.before('D')).to.include('B');
   expect(list.before('D')).to.include('C');
-  
+
   expect(list.before('E')).to.include('A');
   expect(list.before('E')).to.include('B');
   expect(list.before('E')).to.include('C');
   expect(list.before('E')).to.include('D');
-  
+
   expect(list.before('E', 0).length).to.equal(0);
-  
+
   expect(list.before('E', 1).length).to.equal(1);
   expect(list.before('E', 2).length).to.equal(2);
   expect(list.before('E', 3).length).to.equal(3);
@@ -588,16 +648,16 @@ function generateList(outcoming, incoming) {
   expect(list.before('E', 7).length).to.equal(4);
   expect(list.before('E', 8).length).to.equal(4);
   expect(list.before('E', 9).length).to.equal(4);
-  
+
   expect(list.before('E', 1)).to.include('D');
-  
+
   expect(list.before('E', 2)).to.include('C');
   expect(list.before('E', 2)).to.include('D');
-  
+
   expect(list.before('E', 3)).to.include('B');
   expect(list.before('E', 3)).to.include('C');
   expect(list.before('E', 3)).to.include('D');
-  
+
   expect(list.before('E', 4)).to.include('A');
   expect(list.before('E', 4)).to.include('B');
   expect(list.before('E', 4)).to.include('C');
