@@ -253,10 +253,17 @@ class NumberList extends Array {
    * @return {Boolean}
    */
   isIncreasing() {
-    return this.every((n, i)=> {
-      const next = this[i + 1]; 
-      return typeof next === 'number' ? n <= next : true;
+    const condition1 = this.every((n, index) => {
+      const next = this[index + 1];
+      return next === undefined ? true : n <= next;
     });
+
+    const condition2 = this.some((n, index) => {
+      const next = this[index + 1];
+      return next === undefined ? false : n < next;
+    });
+
+    return condition1 && condition2;
   }
 
 
@@ -269,10 +276,7 @@ class NumberList extends Array {
    * @return {Boolean}
    */
   isDecreasing() {
-    return this.every((n, i)=> {
-      const next = this[i + 1]; 
-      return typeof next === 'number' ? n >= next : true;
-    }); 
+    return this.slice().reverse().isIncreasing();
   }
 
 
