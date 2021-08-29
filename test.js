@@ -509,7 +509,7 @@ function generateList(outcoming, incoming) {
   const chartA = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'];
   const chartB = ['D', 'F', 'C', 'A', 'H', 'B', 'E', 'G', 'L', 'M', 'I', 'O', 'Q', 'K', 'S', 'J', 'N', 'T', 'U', 'V'];
 
-  const database = new Map();
+  const database = new Map()
   .set('A', {history: [01, 01]})
   .set('B', {history: [02, 02]})
   .set('C', {history: [05, 03]})
