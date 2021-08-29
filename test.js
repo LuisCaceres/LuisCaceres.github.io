@@ -921,17 +921,27 @@ function generateList(outcoming, incoming) {
   const list = new NumberList(1, 2, 3, 4, 5, 6, 7, 8, 9);
   expect(list.isIncreasing()).to.equal(true);
   expect(list.isDecreasing()).to.equal(false);
+  expect(list.isFlat()).to.equal(false);
 }
 {
   const list = new NumberList(9, 8, 7, 6, 5, 4, 3, 2, 1);
   expect(list.isIncreasing()).to.equal(false);
   expect(list.isDecreasing()).to.equal(true);
+  expect(list.isFlat()).to.equal(false);
 }
 {
   const list = new NumberList(9);
   expect(list.length).to.equal(1);
   expect(list.isIncreasing()).to.equal(true);
   expect(list.isDecreasing()).to.equal(true);
+  expect(list.isFlat()).to.equal(true);
+}
+{
+  const list = new NumberList(1, 1, 1);
+  expect(list.length).to.equal(3);
+  expect(list.isIncreasing()).to.equal(false);
+  expect(list.isDecreasing()).to.equal(false);
+  expect(list.isFlat()).to.equal(true);
 }
 
 console.log('Testing completed.');
