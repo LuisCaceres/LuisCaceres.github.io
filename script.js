@@ -143,21 +143,17 @@ class List extends Array {
    * (new List(1, 2, 3)).before(2);
    */
   before(item, howMany) {
-    this.reverse();
-    
+    const list = this.slice().reverse();
     const index = this.indexOf(item); 
-    
+
     if (index === -1) {
       return [];
     }
-    
+
     const start = index + 1;
     const end = Number.isInteger(howMany) ? start + Math.max(howMany, 0) : howMany;
-    const list = this.slice(start, end).reverse();
-    
-    this.reverse();
 
-    return list;
+    return list.slice(start, end).reverse();
   }
 
 
