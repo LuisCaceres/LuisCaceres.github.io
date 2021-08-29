@@ -858,20 +858,20 @@ function generateList(outcoming, incoming) {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //
 {
-  const range = new NumericRange(1, 2, 3, 4, 5, 6, 7, 8, 9);
-  expect(range.isAscending()).to.equal(true);
-  expect(range.isDescending()).to.equal(false);
+  const list = new NumberList(1, 2, 3, 4, 5, 6, 7, 8, 9);
+  expect(list.isIncreasing()).to.equal(true);
+  expect(list.isDecreasing()).to.equal(false);
 }
 {
-  const range = new NumericRange(9, 8, 7, 6, 5, 4, 3, 2, 1);
-  expect(range.isAscending()).to.equal(false);
-  expect(range.isDescending()).to.equal(true);
+  const list = new NumberList(9, 8, 7, 6, 5, 4, 3, 2, 1);
+  expect(list.isIncreasing()).to.equal(false);
+  expect(list.isDecreasing()).to.equal(true);
 }
 {
-  const range = new NumericRange(9);
-  expect(range.length).to.equal(1);
-  expect(range.isAscending()).to.equal(true);
-  expect(range.isDescending()).to.equal(true);
+  const list = new NumberList(9);
+  expect(list.length).to.equal(1);
+  expect(list.isIncreasing()).to.equal(true);
+  expect(list.isDecreasing()).to.equal(true);
 }
 
 console.log('Testing completed.');
