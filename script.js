@@ -234,17 +234,51 @@ class NumberList extends Array {
     this.push(...numbers);
   }
 
-  isAscending() {
+
+  /* Returns true 
+   * @example
+   * // Returns true
+   * new NumberList(1, 2, 3, 4, 5).isIncreasing();
+   * // Returns false
+   * new NumberList(5, 4, 3, 2, 1).isIncreasing();
+   * @return {Boolean}
+   */
+  isIncreasing() {
     return this.every((n, i)=> {
       const next = this[i + 1]; 
       return typeof next === 'number' ? n <= next : true;
     });
   }
-  
-  isDescending() {
+
+
+  /* Returns true 
+   * @example
+   * // Returns true
+   * new NumberList(5, 4, 3, 2, 1).isDecreasing();
+   * // Returns false
+   * new NumberList(1, 2, 3, 4, 5).isDecreasing();
+   * @return {Boolean}
+   */
+  isDecreasing() {
     return this.every((n, i)=> {
       const next = this[i + 1]; 
       return typeof next === 'number' ? n >= next : true;
+    }); 
+  }
+
+
+  /* Returns true 
+   * @example
+   * // Returns true
+   * new NumberList(1, 1, 1, 1, 1).isFlat();
+   * // Returns false
+   * new NumberList(1, 2, 3, 4, 5).isFlat();
+   * @return {Boolean}
+   */
+  isFlat() {
+    return this.every((n, i)=> {
+      const next = this[i + 1]; 
+      return typeof next === 'number' ? n === next : true;
     }); 
   }
 }
@@ -530,14 +564,46 @@ class Chart extends List {
    */
   static detector3(chartA, chartB, database) {
     return chartA.filter(entry => {
-      const position = chartA.positionOf(entry);
-      
-      // item isn't number 1
-      
-      if (database.has(entry)) {
-        const {history} = database.get(entry);
-        return position === history.at(-1) && position === history.at(-2);
+
+      // Filter out if `entry` debuts on `chartA`.
+      if (database.has(entry) === null) {
+        return false;
       }
+
+      const history = new NumberList(...database.get(entry).history.slice(-2));
+
+      // Filter out if `entry` has charted for 2 weeks at most.
+      if (history.length === 1) {
+        return false;
+      }
+
+      const positionA = chartA.positionOf(entry);
+      const positionB = chartB.positionOf(entry);
+      history.push(positionA);
+
+      // Filter out if `entry` starts to move backwards from `chartB`.
+      // Example: [20, 19, 15, 12, 13]
+      if (history.isDescending() && history.at(-1) < positionB) {
+        return false;
+      }
+
+      // Filter out if `entry` has been static in position 1 for 3 weeeks consecutively.
+      history.push(positionA);
+
+      if (history.at(0) === 1 && history.isFlat() === true) {
+        return false;
+      }
+      
+      list.push(positionB);
+      
+      // Filter out if `entry` is in the same position for 4 weeeks consecutively.
+      // Example: [07, 05, 03, 02, 02, 02, 02]
+      if (list.isFlat() === true) {
+        return false;
+      }
+
+      // Filter in if `entry` has been static in the same position for 3 weeks consecutively.
+      return list.slice(0, 3).isFlat() === true;
     });
   }
 
@@ -552,42 +618,30 @@ class Chart extends List {
    */
   static corrector3(entry, chartA, chartB, database) {
     const history = new NumberList(...database.get(entry).history);
+    const placeholder = chartA.positionOf(entry);
+    const positionB = chartB.positionOf(entry);
+    const delta = Math.abs(placeholder - positionB);
+    const method = history.isDescending() ? 'after' : 'before';
     
-    // What about an item that can have before and after?
-    // [05, 03, 03, 03, 04, 05] can be both [05, 03, 03, 02] or [05, 03, 03, 04] 
-    const entries = history.isDescending() ? chartA.after(entry) : chartA.before(entry);
-    const positionA = chartA.positionOf(entry);
+    // According to `entry`'s direction of movement, retrieve those entries placed ahead of `entry`.
+    // Example:
+    // Returns [20, 19]
+    // new Chart(20, 19, entry, 17, 16).before(entry);
+    const entries = chartA[method](entry, delta);
 
     return entries.filter(entry => {
-      const position1 = chartA.positionOf(entry);
-      const position2 = chartB.positionOf(entry);
       
       // Filter out if `entry` arrives in `chartA` and `positionA` is 12 or higher.
-      if (database.has(entry) === null && positionA <= 12) {
+      if (database.has(entry) === null && placeholder <= 12) {
         return false;
       }
 
       // Filter out if `positionA` is 12 or higher and `entry` departs from `chartB`.
-      if (positionA <= 12 && position2 === 21) {
+      if (placeholder <= 12 && chartB.positionOf(entry) === 21) {
         return false;
       }
 
-      const history = new NumberList(...database.get(entry).history, position1, position2);      
-      return history.isDescending ? positionA >= position2 : positionA <= position2;
+      return true;
     });
   }
-  
-  [14, 14, 14, 10] = [14, 14, 12, 10]
-  [18, 13, 13, 12] = [18, 13, 13, 12]
-  [06, 10, 12, 15] = [06, 10, 14, 15]
-  
-  
-  [05, 03, 03, 03] = [05, 03, 03, 03]
-  [02, 02, 02, 06] = [02, 02, 01, 06]
-  [01, 01, 01, 04] = [01, 01, 02, 04]
-  
-  04
-  03
-  02
-  01
 }
