@@ -145,10 +145,9 @@ class List extends Array {
   before(item, howMany) {
     this.reverse();
 
-    const index = this.indexOf(item);
-    const start = index >= 0 ? index : 0;
-    const end = Number.isInteger(howMany) ? start + howMany : 0;
-    const list = this.slice(start, end).reverse();
+    const start = this.indexOf(item);
+    const end = start + Math.max(howMany, 0);
+    const list = start >= 0 ? this.slice(start, end).reverse() : [];
 
     return list;
   }
