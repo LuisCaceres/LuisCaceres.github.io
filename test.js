@@ -550,6 +550,66 @@ function generateList(outcoming, incoming) {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// before()
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+{
+  const list = new List('A', 'B', 'C', 'D', 'E');
+  
+  expect(list.before('F').length).to.equal(0);
+  
+  expect(list.before('A').length).to.equal(0);
+  expect(list.before('B').length).to.equal(1);
+  expect(list.before('C').length).to.equal(2);
+  expect(list.before('D').length).to.equal(3);
+  expect(list.before('E').length).to.equal(4);
+  
+  expect(list.before('B')).to.include('A');
+  
+  expect(list.before('C')).to.include('A');
+  expect(list.before('C')).to.include('B');
+  
+  expect(list.before('D')).to.include('A');
+  expect(list.before('D')).to.include('B');
+  expect(list.before('D')).to.include('C');
+  
+  expect(list.before('E')).to.include('A');
+  expect(list.before('E')).to.include('B');
+  expect(list.before('E')).to.include('C');
+  expect(list.before('E')).to.include('D');
+  
+  expect(list.before('E', 0).length).to.equal(0);
+  
+  expect(list.before('E', 1).length).to.equal(1);
+  expect(list.before('E', 2).length).to.equal(2);
+  expect(list.before('E', 3).length).to.equal(3);
+  expect(list.before('E', 4).length).to.equal(4);
+  expect(list.before('E', 5).length).to.equal(4);
+  expect(list.before('E', 6).length).to.equal(4);
+  expect(list.before('E', 7).length).to.equal(4);
+  expect(list.before('E', 8).length).to.equal(4);
+  expect(list.before('E', 9).length).to.equal(4);
+  
+  expect(list.before('E', 1)).to.include('D');
+  
+  expect(list.before('E', 2)).to.include('C');
+  expect(list.before('E', 2)).to.include('D');
+  
+  expect(list.before('E', 3)).to.include('B');
+  expect(list.before('E', 3)).to.include('C');
+  expect(list.before('E', 3)).to.include('D');
+  
+  expect(list.before('E', 4)).to.include('A');
+  expect(list.before('E', 4)).to.include('B');
+  expect(list.before('E', 4)).to.include('C');
+  expect(list.before('E', 4)).to.include('D');
+
+  expect(list.before('E', 5)).to.include('A');
+  expect(list.before('E', 5)).to.include('B');
+  expect(list.before('E', 5)).to.include('C');
+  expect(list.before('E', 5)).to.include('D');
+}
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // difference()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Return a non zero-length list if there are differences between two arrays.
