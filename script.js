@@ -128,8 +128,16 @@ class List extends Array {
    * (new List(1, 2, 3)).after(2);
    */
   after(item, howMany) {
-    const index = this.indexOf(item);
-    return this.slice(index + 1);
+    const index = list.indexOf(item);
+
+    if (index === -1) {
+      return [];
+    }
+
+    const start = index + 1;
+    const end = Number.isInteger(howMany) ? start + Math.max(howMany, 0) : howMany;
+
+    return list.slice(start, end);
   }
 
 
@@ -143,17 +151,7 @@ class List extends Array {
    * (new List(1, 2, 3)).before(2);
    */
   before(item, howMany) {
-    const list = this.slice().reverse();
-    const index = list.indexOf(item); 
-
-    if (index === -1) {
-      return [];
-    }
-
-    const start = index + 1;
-    const end = Number.isInteger(howMany) ? start + Math.max(howMany, 0) : howMany;
-
-    return list.slice(start, end).reverse();
+    return this.slice().reverse().after(item, howMany).reverse();
   }
 
 
