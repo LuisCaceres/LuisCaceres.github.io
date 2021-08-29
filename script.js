@@ -134,6 +134,7 @@ class List extends Array {
 
 
   /* Finds the first occurrence of `item` in this list and returns a list of the items placed before `item`.
+   * The number of items on the returned is list is determined by `howMany`.
    * @param {*} item -
    * @param {Number} howMany -
    * @return {List}
@@ -142,9 +143,12 @@ class List extends Array {
    * (new List(1, 2, 3)).before(2);
    */
   before(item, howMany) {
+    howMany = Number.isInteger(howMany) ? howMany : 0;
+
     const index = this.indexOf(item);
     const end = index >= 0 ? index : 0;
-    const start = Number.isInteger(howMany) ? Math.min(end - howMany, 0) : 0;
+    const start = Math.max(end - howMany, 0);
+
     return this.slice(start, end);
   }
 
