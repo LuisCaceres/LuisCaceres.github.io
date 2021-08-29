@@ -128,7 +128,7 @@ class List extends Array {
    * (new List(1, 2, 3)).after(2);
    */
   after(item, howMany) {
-    const index = list.indexOf(item);
+    const index = this.indexOf(item);
 
     if (index === -1) {
       return [];
@@ -137,7 +137,7 @@ class List extends Array {
     const start = index + 1;
     const end = Number.isInteger(howMany) ? start + Math.max(howMany, 0) : howMany;
 
-    return list.slice(start, end);
+    return this.slice(start, end);
   }
 
 
