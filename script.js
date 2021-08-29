@@ -142,7 +142,8 @@ class List extends Array {
    * (new List(1, 2, 3)).before(2);
    */
   before(item, howMany) {
-    const end = this.indexOf(item);
+    const index = this.indexOf(item);
+    const end = index <= 0 ? index : 0;
     const start = Number.isInteger(howMany) ? Math.min(end - howMany, 0) : 0;
     return this.slice(start, end);
   }
