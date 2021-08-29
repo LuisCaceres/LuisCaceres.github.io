@@ -120,9 +120,35 @@ class List extends Array {
   }
 
 
+  /* Finds the first occurrence of `item` in this list and returns a list of the items placed after `item`.
+   * @param {*} item
+   * @return {List}
+   * @example
+   * // returns '3'
+   * (new List(1, 2, 3)).after(2);
+   */
+  after(item) {
+    const index = this.indexOf(item);
+    return this.slice(index + 1);
+  }
+
+
+  /* Finds the first occurrence of `item` in this list and returns a list of the items placed before `item`.
+   * @param {*} item
+   * @return {List}
+   * @example
+   * // returns '1'
+   * (new List(1, 2, 3)).before(2);
+   */
+  before(item) {
+    const index = this.indexOf(item);
+    return this.slice(0, index);
+  }
+
+
   /* Returns the items from `list` not present in this list.
-   * @param {List} - list
-   * @return {List} -
+   * @param {List} list -
+   * @return {List}
    */
   difference(list) {
     return list.filter(item => !this.includes(item));
@@ -202,7 +228,7 @@ class List extends Array {
 /*
  *
  */
-class NumericRange extends Array {
+class NumberList extends Array {
   constructor(...numbers) {
     super();
     this.push(...numbers);
@@ -218,7 +244,7 @@ class NumericRange extends Array {
   isDescending() {
     return this.every((n, i)=> {
       const next = this[i + 1]; 
-      return typeof next === 'number' ? n >= next : true;ç
+      return typeof next === 'number' ? n >= next : true;
     }); 
   }
 }
@@ -370,7 +396,7 @@ class Chart extends List {
   }
 
 
-  /* Modifies this chart to eliminate continuity errors from `chartB`.
+  /* Modifies this chart to eliminate continuity errors.
    * @param {Chart} chartB - This chart's previous or next chart.
    * @param {} database - A list of entries having ever charted.
    * @return {Chart} this chart.
@@ -379,13 +405,13 @@ class Chart extends List {
    * (new Chart('A', 'B', 'F', 'C', 'D')).format(new Chart('A', 'B', 'C', 'D', 'E'));
    */
   format(listB, database) {
-    // Detect continuity errors from `chartB`.
+    // Detect continuity errors.
     const errors = Chart.detector2(this, listB, database);
     errors.shuffle();
 
     const map = new Map();
 
-    // Find entries in this chart able to eliminate continuity errors from `chartB`. 
+    // Find entries in this chart able to eliminate continuity errors. 
     errors.forEach(error => {
       const targets = Chart.corrector2(error, this, listB, database);
       map.set(error, targets.shuffle());
@@ -397,6 +423,8 @@ class Chart extends List {
     for (const [replacement, replacee] of map) {
       if (replacee !== null) {
         this.replace(replacee, replacement);
+        
+        // this.replace(replacement, replacee);
       }
     }
 
@@ -404,16 +432,18 @@ class Chart extends List {
   }
 
 
-  /* Returns the position of `entry` on this chart if `entry` is in fact on this chart.
-   * @param {*} entry
-   * @return {Number}
+  /* Returns the position of `entry` on this chart.
+   * @param {*} entry - 
+   * @return {Number} position - The position of `entry` on this chart otherwise 21 if `entry` isn't on this chart.
    * @example
    * // returns 3
-   * (new Chart('A', 'B', 'C', 'D', 'E')).positionOf('C')
+   * (new Chart('A', 'B', 'C', 'D', 'E')).positionOf('C');
+   * // returns -1
+   * (new Chart('A', 'B', 'C', 'D', 'E')).positionOf('F');
    */
   positionOf(entry) {
-    // What about if `entry` doesn't exist in this chart?
-    return this.indexOf(entry) + 1;
+    const index = this.indexOf(entry);
+    return index >= 0 ? index + 1 : 21;
   }
 
 
@@ -427,7 +457,7 @@ class Chart extends List {
    */
   static detector1(chartA, chartB, database) {
     return chartA.difference(chartB).filter(entry => {
-      const history = new NumericRange(...database.get(entry).history);
+      const history = new NumberList(...database.get(entry).history);
       return history.length === 0 && history.isDescending();
     });
   }
@@ -480,7 +510,7 @@ class Chart extends List {
     return chartB.difference(chartA).filter(entryA => {
       const position = chartA.positionOf(entryA) 
       const delta = position - chartB.positionOf(entryB);
-      const history = new NumericRange(...database.get(entryA).history);
+      const history = new NumberList(...database.get(entryA).history);
       
       // `entryA`'s position on `chartA` is at least two positions lower than `entryB`'s position on `chartB` and
       // `entryA`'s position on `chartA` is 13 or lower and
@@ -489,4 +519,75 @@ class Chart extends List {
       return delta >= 2 && position > 12 && history.length >= 1 && history.isDescending();
     });
   }
+
+
+  /* Finds entries on `chartA` which have been static in the same position consecutively for 3 charts.
+   * For example: [17, 15, 13, 10, 9, 9, 9]
+   * @param {Chart} chartA
+   * @param {Chart} chartB
+   * @param {} database - A list of entries having ever charted.
+   * @return {Array} entries
+   */
+  static detector3(chartA, chartB, database) {
+    return chartA.filter(entry => {
+      const position = chartA.positionOf(entry);
+      
+      // item isn't number 1
+      
+      if (database.has(entry)) {
+        const {history} = database.get(entry);
+        return position === history.at(-1) && position === history.at(-2);
+      }
+    });
+  }
+
+
+  /* Finds entries on `chartA` which `entryB` can replace.
+   * @param {*} entryB - Corrupt entry on `chartB` which has debuted in position 12 or a higher position.
+   * For example: [**, 10, 6, 2, 2]
+   * @param {Chart} chartA
+   * @param {Chart} chartB
+   * @param {} database - A list of entries having ever charted.
+   * @return {Array} entries
+   */
+  static corrector3(entry, chartA, chartB, database) {
+    const history = new NumberList(...database.get(entry).history);
+    
+    // What about an item that can have before and after?
+    // [05, 03, 03, 03, 04, 05] can be both [05, 03, 03, 02] or [05, 03, 03, 04] 
+    const entries = history.isDescending() ? chartA.after(entry) : chartA.before(entry);
+    const positionA = chartA.positionOf(entry);
+
+    return entries.filter(entry => {
+      const position1 = chartA.positionOf(entry);
+      const position2 = chartB.positionOf(entry);
+      
+      // Filter out if `entry` arrives in `chartA` and `positionA` is 12 or higher.
+      if (database.has(entry) === null && positionA <= 12) {
+        return false;
+      }
+
+      // Filter out if `positionA` is 12 or higher and `entry` departs from `chartB`.
+      if (positionA <= 12 && position2 === 21) {
+        return false;
+      }
+
+      const history = new NumberList(...database.get(entry).history, position1, position2);      
+      return history.isDescending ? positionA >= position2 : positionA <= position2;
+    });
+  }
+  
+  [14, 14, 14, 10] = [14, 14, 12, 10]
+  [18, 13, 13, 12] = [18, 13, 13, 12]
+  [06, 10, 12, 15] = [06, 10, 14, 15]
+  
+  
+  [05, 03, 03, 03] = [05, 03, 03, 03]
+  [02, 02, 02, 06] = [02, 02, 01, 06]
+  [01, 01, 01, 04] = [01, 01, 02, 04]
+  
+  04
+  03
+  02
+  01
 }
