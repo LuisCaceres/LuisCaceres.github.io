@@ -932,8 +932,8 @@ function generateList(outcoming, incoming) {
 {
   const list = new NumberList(9);
   expect(list.length).to.equal(1);
-  expect(list.isIncreasing()).to.equal(true);
-  expect(list.isDecreasing()).to.equal(true);
+  expect(list.isIncreasing()).to.equal(false);
+  expect(list.isDecreasing()).to.equal(false);
   expect(list.isFlat()).to.equal(true);
 }
 {
