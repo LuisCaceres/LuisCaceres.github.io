@@ -607,16 +607,16 @@ class Chart extends List {
         return false;
       }
       
-      list.push(positionB);
+      history.push(positionB);
       
       // Filter out if `entry` is in the same position for 4 weeeks consecutively.
       // Example: [07, 05, 03, 02, 02, 02, 02]
-      if (list.isFlat() === true) {
+      if (history.isFlat() === true) {
         return false;
       }
 
       // Filter in if `entry` has been static in the same position for 3 weeks consecutively.
-      return list.slice(0, 3).isFlat() === true;
+      return history.slice(0, 3).isFlat() === true;
     });
   }
 
