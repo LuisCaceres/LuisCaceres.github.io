@@ -127,22 +127,24 @@ class List extends Array {
    * // returns '3'
    * (new List(1, 2, 3)).after(2);
    */
-  after(item) {
+  after(item, howMany) {
     const index = this.indexOf(item);
     return this.slice(index + 1);
   }
 
 
   /* Finds the first occurrence of `item` in this list and returns a list of the items placed before `item`.
-   * @param {*} item
+   * @param {*} item -
+   * @param {Number} howMany -
    * @return {List}
    * @example
    * // returns '1'
    * (new List(1, 2, 3)).before(2);
    */
-  before(item) {
-    const index = this.indexOf(item);
-    return this.slice(0, index);
+  before(item, howMany) {
+    const end = this.indexOf(item);
+    const start = Number.isInteger(howMany) ? Math.min(end - howMany, 0) : 0;
+    return this.slice(start, end);
   }
 
 
