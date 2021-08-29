@@ -143,12 +143,13 @@ class List extends Array {
    * (new List(1, 2, 3)).before(2);
    */
   before(item, howMany) {
-    let list = this.slice().reverse();
-    const start = list.indexOf(item) + 1;
-    
-    list = Number.isInteger(howMany) ? list.splice(start, howMany) : list.splice(start);
-    list.reverse();
-    
+    this.reverse();
+
+    const index = this.indexOf(item);
+    const start = index >= 0 ? index : 0;
+    const end = Number.isInteger(howMany) ? start + howMany : 0;
+    const list = this.slice(start, end).reverse();
+
     return list;
   }
 
