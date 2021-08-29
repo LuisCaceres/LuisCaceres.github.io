@@ -579,7 +579,7 @@ class Chart extends List {
     return chartA.filter(entry => {
 
       // Filter out if `entry` debuts on `chartA`.
-      if (database.has(entry) === null) {
+      if (database.has(entry) === false) {
         return false;
       }
 
