@@ -144,7 +144,7 @@ class List extends Array {
    */
   before(item, howMany) {
     const list = this.slice().reverse();
-    const index = this.indexOf(item); 
+    const index = list.indexOf(item); 
 
     if (index === -1) {
       return [];
