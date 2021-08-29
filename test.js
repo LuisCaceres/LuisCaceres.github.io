@@ -505,6 +505,34 @@ function generateList(outcoming, incoming) {
 //   expect(chart[00]).to.equal('R');
 //   }
 
+{
+  const chartA = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'];
+  const chartB = ['D', 'F', 'C', 'A', 'H', 'B', 'E', 'G', 'L', 'M', 'I', 'O', 'Q', 'K', 'S', 'J', 'N', 'T', 'U', 'V'];
+
+  const database = new Map
+  .set('A', {history: [01, 01]})
+  .set('B', {history: [02, 02]})
+  .set('C', {history: [05, 03]})
+  .set('D', {history: [14, 09]})
+  .set('E', {history: [03, 04]})
+  .set('F', {history: [18, 10]})
+  .set('G', {history: [06, 05]})
+  .set('H', {history: [20, 11]})
+  .set('I', {history: [07, 07]})
+  .set('J', {history: [04, 06]})
+  .set('K', {history: [08, 08]})
+  .set('L', {history: [18]})
+  .set('M', {history: [17, 15]})
+  .set('N', {history: [13, 13]})
+  .set('P', {history: [09, 12]})
+  .set('Q', {history: [19]})
+  .set('R', {history: [12, 14]});
+
+  const entries = detector3(chartA, chartB, database);
+
+  expect(entries.length).to.equal(1);
+  expect(entries).to.include('B');
+}
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // parse()
@@ -910,7 +938,7 @@ function generateList(outcoming, incoming) {
 }
   
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// class Range
+// class NumberList
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
