@@ -596,7 +596,7 @@ class Chart extends List {
 
       // Filter out if `entry` starts to move backwards from `chartB`.
       // Example: [20, 19, 15, 12, 13]
-      if (history.isDescending() && history.at(-1) < positionB) {
+      if (history.isDecreasing() && history.at(-1) < positionB) {
         return false;
       }
 
