@@ -528,7 +528,7 @@ function generateList(outcoming, incoming) {
   .set('Q', {history: [19]})
   .set('R', {history: [12, 14]});
 
-  const entries = detector3(chartA, chartB, database);
+  const entries = Chart.detector3(chartA, chartB, database);
 
   expect(entries.length).to.equal(1);
   expect(entries).to.include('B');
