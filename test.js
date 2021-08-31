@@ -4,7 +4,7 @@ function createDatabase(...charts) {
   for (const chart of charts) {
     chart.reverse();
 
-    charts.forEach((entry, index) => { 
+    chart.forEach((entry, index) => { 
 
       if (database.has(entry) === false) {
         database.set(entry, {history: []});
