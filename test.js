@@ -112,7 +112,7 @@ const charts = [
     [02, 'I Need To Know'],
     [01, 'All Star'],
   ],  
-};
+];
 
 
 console.log('Testing starting.');
