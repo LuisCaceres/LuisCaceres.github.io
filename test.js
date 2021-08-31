@@ -10,7 +10,7 @@ function createDatabase(...charts) {
         map.set(entry, {history: []});
       }
       
-      map.get(entry).history.push(index));
+      map.get(entry).history.push(index);
     });
     
     chart.reverse();
