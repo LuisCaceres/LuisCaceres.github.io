@@ -1,3 +1,120 @@
+function createDatabase(...charts) {
+  const database = new Map();
+  
+  for (const chart of charts) {
+    chart.reverse();
+    
+    chart.forEach((entry, index) => {
+      
+      if (database.has(entry) === false) {
+        map.set(entry, {history: []});
+      }
+      
+      map.get(entry).history.push(index));
+    });
+    
+    chart.reverse();
+  }
+  
+  return database;
+}
+
+
+const charts = [
+  [ // chart 1
+    [20, 'Angels'],
+    [19, '...Baby One More Time'],
+    [18, 'Let Forever Be'],
+    [17, 'Si Me Advertí'],
+    [16, 'Look At Me'],
+    [15, 'Atrapados En La Red'],
+    [14, 'All Star'],
+    [13, 'When You\'re Gone'],
+    [12, 'Jennifer Del Estero'],
+    [11, 'What\'s My Age Again?'],
+    [10, 'Waiting For Tonight'],
+    [09, 'Heartbreaker'],
+    [08, 'The Kids Aren\'t Alright'],
+    [07, 'If Ya Gettin\' Down'],
+    [06, 'Higher'],
+    [05, 'Someday We\'ll Know'],
+    [04, 'La Lola'],
+    [03, 'All I Have To Give'],
+    [02, 'Someday'],
+    [01, 'Puente'],
+  ],
+
+  [ // chart 2
+    [20, '...Baby One More Time'],
+    [19, 'No Quiero Verte'],
+    [18, 'Atrapados En La Red'],
+    [17, 'Waiting For Tonight'],
+    [16, 'What\'s My Age Again?'],
+    [15, 'Si Me Advertí'],
+    [14, 'Jennifer Del Estero'],
+    [13, 'When You\'re Gone'],
+    [12, 'Heartbreaker'],
+    [11, 'Angels'],
+    [10, 'I Need To Know'],
+    [09, 'All Star'],
+    [08, 'The Kids Aren\'t Alright'],
+    [07, 'If Ya Gettin\' Down'],
+    [06, 'La Lola'],
+    [05, 'Higher'],
+    [04, 'All I Have To Give'],
+    [03, 'Someday We\'ll Know'],
+    [02, 'Someday'],
+    [01, 'Puente'],
+  ],
+
+  [ // chart 3
+    [20, 'Man! I Feel Like A Woman'],
+    [19, 'That\'s The Way It Is'],
+    [18, 'Jennifer Del Estero'],
+    [17, 'No Quiero Verte'],
+    [16, 'Heartbreaker'],
+    [15, 'Mi Chico Latino'],
+    [14, 'When You\'re Gone'],
+    [13, 'Si Me Advertí'],
+    [12, 'New'],
+    [11, 'The Kids Aren\'t Alright'],
+    [10, 'La Lola'],
+    [09, 'If Ya Gettin\' Down'],
+    [08, 'Angels'],
+    [07, 'Higher'],
+    [06, 'I Need To Know'],
+    [05, 'All I Have To Give'],
+    [04, 'All Star'],
+    [03, 'Someday We\'ll Know'],
+    [02, 'Someday'],
+    [01, 'Puente'],
+  ],
+
+  [ // chart 4
+    [20, 'As Fast As You Can'],
+    [19, 'Don\'t Say You Love Me'],
+    [18, 'Man! I Feel Like A Woman'],
+    [17, 'When You\'re Gone'],
+    [16, 'La Lola'],
+    [15, 'That\'s The Way It Is'],
+    [14, 'The Kids Aren\'t Alright'],
+    [13, 'No Quiero Verte'],
+    [12, 'Mi Chico Latino'],
+    [11, 'If Ya Gettin\' Down'],
+    [10, 'Si Me Advertí'],
+    [09, 'New'],
+    [08, 'Higher'],
+    [07, 'All I Have To Give'],
+    [06, 'Someday'],
+    [05, 'Angels'],
+    [04, 'Puente'],
+    [03, 'Someday We\'ll Know'],
+    [02, 'I Need To Know'],
+    [01, 'All Star'],
+  ],  
+};
+
+
 console.log('Testing starting.');
 
 const expect = chai.expect;
@@ -506,29 +623,8 @@ function generateList(outcoming, incoming) {
 //   }
 
 {
-  const chartA = new Chart('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T');
-  const chartB = new Chart('D', 'F', 'C', 'A', 'H', 'B', 'E', 'G', 'L', 'M', 'I', 'O', 'Q', 'K', 'S', 'J', 'N', 'T', 'U', 'V');
-
-  const database = new Map()
-  .set('A', {history: [01, 01]})
-  .set('B', {history: [02, 02]})
-  .set('C', {history: [05, 03]})
-  .set('D', {history: [14, 09]})
-  .set('E', {history: [03, 04]})
-  .set('F', {history: [18, 10]})
-  .set('G', {history: [06, 05]})
-  .set('H', {history: [20, 11]})
-  .set('I', {history: [07, 07]})
-  .set('J', {history: [04, 06]})
-  .set('K', {history: [08, 08]})
-  .set('L', {history: [18]})
-  .set('M', {history: [17, 15]})
-  .set('N', {history: [13, 13]})
-  .set('P', {history: [09, 12]})
-  .set('Q', {history: [19]})
-  .set('R', {history: [12, 14]});
-
-  const entries = Chart.detector3(chartA, chartB, database);
+  const database = createDatabase(charts[0], charts[1]);
+  const entries = Chart.detector3(charts[3], charts[4], database);
 
   expect(entries.length).to.equal(1);
   expect(entries).to.include('B');
