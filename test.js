@@ -119,6 +119,8 @@ const charts = [
   ),  
 ];
 
+charts.forEach(chart => chart.reverse());
+
 
 console.log('Testing starting.');
 
