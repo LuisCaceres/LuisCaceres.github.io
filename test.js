@@ -621,7 +621,7 @@ function generateList(outcoming, incoming) {
 
 {
   const database = createDatabase(charts[0], charts[1]);
-  const entries = Chart.detector3(charts[3], charts[4], database);
+  const entries = Chart.detector3(charts[2], charts[3], database);
 
   expect(entries.length).to.equal(1);
   expect(entries).to.include('B');
