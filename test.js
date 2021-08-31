@@ -632,6 +632,11 @@ function generateList(outcoming, incoming) {
 
   expect(entries.length).to.equal(1);
   expect(entries).to.include('Someday');
+
+  const foo = Chart.corrector3(entries[0], charts[2], charts[3], database);
+
+  expect(foo.length).to.equal(1);
+  expect(foo).to.include('Puente');
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
