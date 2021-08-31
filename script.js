@@ -622,7 +622,7 @@ class Chart extends List {
 
 
   /* Finds entries on `chartA` which `entryB` can replace.
-   * @param {*} entryB - Corrupt entry on `chartB` which has debuted in position 12 or a higher position.
+   * @param {*} entry - Corrupt entry on `chartB` which has debuted in position 12 or a higher position.
    * For example: [**, 10, 6, 2, 2]
    * @param {Chart} chartA
    * @param {Chart} chartB
@@ -634,7 +634,7 @@ class Chart extends List {
     const placeholder = chartA.positionOf(entry);
     const positionB = chartB.positionOf(entry);
     const delta = Math.abs(placeholder - positionB);
-    const method = history.isDescending() ? 'after' : 'before';
+    const method = history.isDecreasing() ? 'after' : 'before';
     
     // According to `entry`'s direction of movement, retrieve those entries placed ahead of `entry`.
     // Example:
