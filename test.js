@@ -7,10 +7,10 @@ function createDatabase(...charts) {
     chart.forEach((entry, index) => {
       
       if (database.has(entry) === false) {
-        map.set(entry, {history: []});
+        database.set(entry, {history: []});
       }
       
-      map.get(entry).history.push(index);
+      database.get(entry).history.push(index);
     });
     
     chart.reverse();
