@@ -631,7 +631,7 @@ function generateList(outcoming, incoming) {
   const entries = Chart.detector3(charts[2], charts[3], database);
 
   expect(entries.length).to.equal(1);
-  expect(entries).to.include('B');
+  expect(entries).to.include('Someday');
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
