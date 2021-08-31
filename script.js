@@ -595,7 +595,8 @@ class Chart extends List {
       history.push(positionA);
 
       // Filter out if `entry` starts to move backwards from `chartB`.
-      // Example: [20, 19, 15, 12, 13]
+      // Example: [12, 12, 12, 13]
+      // TO DO: THIS DOESN'T SEEM TO WORK WITH 'SOMEDAY';
       if (history.isDecreasing() && history.at(-1) < positionB) {
         return false;
       }
@@ -640,6 +641,11 @@ class Chart extends List {
     // Example:
     // Returns [20, 19]
     // new Chart(20, 19, entry, 17, 16).before(entry);
+    
+    
+    // TO DO: WHAT IF ENTRY IS MOVING FORWARDS AND THE DESCENDS FROM CHART B? WE SHOULD ONLY ALLOW ENTRY TO MOVE FORWARD
+    // ONLY ONE POSITION AT MOST TO AVOID A POTENTIAL JUMP TO NUMBER 1 JUST TO HAVE A BIG AND UNREALISTIC FALL
+    // [10, 9, 9, 9, 11] COULD POTENTIALLY BE [10, 9, 9, 1, 11] WE DONT' WANT THAT
     const entries = chartA[method](entry, delta);
 
     return entries.filter(entry => {
