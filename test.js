@@ -1,21 +1,18 @@
 function createDatabase(...charts) {
   const database = new Map();
-  
+
   for (const chart of charts) {
-    chart.reverse();
-    
-    chart.forEach((entry, index) => {
-      
+
+    for (const [position, entry] of chart) { 
+
       if (database.has(entry) === false) {
         database.set(entry, {history: []});
       }
-      
-      database.get(entry).history.push(index);
-    });
-    
-    chart.reverse();
+
+      database.get(entry).history.push(position);
+    }
   }
-  
+
   return database;
 }
 
