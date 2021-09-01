@@ -657,11 +657,15 @@ class Chart extends List {
     
     // TO DO: WHAT IF A PROPOSED CORRECTION IS [5, 3, 3, 3] THEN THAT COULD MAKE IT [5, 3, 2, 3] BUT WE DON'T WANT THIS BECAUSE
     // WE DON'T KNOW IF THERE'S GOING TO BE ANOTHER MOVEMENT FORWARD AS IN [5, 3, 2, 3, 2]
-    
+
     const entries = chartA[method](entry, delta);
-    
+
+    if (positionA < positionB) {
+      entries.unshift(chartA.before(entry, 1);
+    } 
+
     return entries.filter(entry => {
-      
+
       // Filter out if `entry` arrives in `chartA` and `positionA` is 12 or higher.
       if (database.has(entry) === null && positionA <= 12) {
         return false;
