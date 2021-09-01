@@ -631,6 +631,13 @@ class Chart extends List {
    * @return {Array} entries
    */
   static corrector3(entry, chartA, chartB, database) {
+    // TO DO: If there are multiple instances of an entry being static for 3 weeks be careful because inadvertently 
+    // we could end up moving an entry too far away from his original position.
+    // For example:
+    // POSITION 5 [5, 5, 5]
+    // POSITION 10 [10, 10, 10]
+    // TARGET [4, 6, 15] COULD BECOME [4, 5, 15]
+    
     const positionA = chartA.positionOf(entry);
     const positionB = chartB.positionOf(entry);
     const history = new NumberList(...database.get(entry).history, positionA, positionB);
