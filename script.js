@@ -631,10 +631,11 @@ class Chart extends List {
    * @return {Array} entries
    */
   static corrector3(entry, chartA, chartB, database) {
-    const history = new NumberList(...database.get(entry).history);
-    const placeholder = chartA.positionOf(entry);
+    const positionA = placeholder = chartA.positionOf(entry);
     const positionB = chartB.positionOf(entry);
-    const delta = Math.abs(placeholder - positionB);
+    const history = new NumberList(...database.get(entry).history, positionA, positionB);
+    
+    const delta = Math.abs(positionA - positionB);
     const method = history.isDecreasing() ? 'after' : 'before';
     
     // According to `entry`'s direction of movement, retrieve those entries placed ahead of `entry`.
@@ -658,7 +659,7 @@ class Chart extends List {
     // WE DON'T KNOW IF THERE'S GOING TO BE ANOTHER MOVEMENT FORWARD AS IN [5, 3, 2, 3, 2]
     
     const entries = chartA[method](entry, delta);
-
+    
     return entries.filter(entry => {
       
       // Filter out if `entry` arrives in `chartA` and `positionA` is 12 or higher.
