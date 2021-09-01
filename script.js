@@ -642,21 +642,14 @@ class Chart extends List {
     // Example:
     // Returns [20, 19]
     // new Chart(20, 19, entry, 17, 16).before(entry);
-    
-    
-    // TO DO: WHAT IF ENTRY IS MOVING FORWARDS AND THE DESCENDS FROM CHART B? WE SHOULD ONLY ALLOW ENTRY TO MOVE FORWARD
-    // ONLY ONE POSITION AT MOST TO AVOID A POTENTIAL JUMP TO NUMBER 1 JUST TO HAVE A BIG AND UNREALISTIC FALL
-    // [10, 9, 9, 9, 11] COULD POTENTIALLY BE [10, 9, 9, 1, 11] WE DONT' WANT THAT
-    
+
     // TO DO: ALSO WE DON'T WANT TO CAUSE THE ITEM THAT'S MOVED TO REPEAT POSITION FOR CHART A AND B
     // EXAMPLE [1O, 12, 13, 14] = [10, 12, 14, 14]
-    
-    // TO DO: WHAT IF A PROPOSED CORRECTION IS [5, 3, 3, 3] THEN THAT COULD MAKE IT [5, 3, 2, 3] BUT WE DON'T WANT THIS BECAUSE
-    // WE DON'T KNOW IF THERE'S GOING TO BE ANOTHER MOVEMENT FORWARD AS IN [5, 3, 2, 3, 2]
 
     const entries = chartA[method](entry, delta);
 
-    // If `entry` starts descending from chartB
+    // If `entry` starts descending from chartB.
+    // Example: [2, 2, 2, 3]
     if (positionA < positionB) {
       // Retreive the entry immediately preceding `entry` on chartA and add it to `entries`.
       entries.unshift(...chartA.before(entry, 1));
