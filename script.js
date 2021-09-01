@@ -656,6 +656,11 @@ class Chart extends List {
     } 
 
     return entries.filter(entry => {
+      
+      // TO DO: item has only been in chart for less than 3 weeks
+      // TO DO: item ascends from chart B 
+      // Example: [20, 19, 1, 9]
+      
       // Filter out if `entry` arrives in `chartA` and `positionA` is 12 or higher.
       if (database.has(entry) === null && positionA <= 12) {
         return false;
