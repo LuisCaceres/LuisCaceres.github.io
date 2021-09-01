@@ -661,7 +661,7 @@ class Chart extends List {
     const entries = chartA[method](entry, delta);
 
     if (positionA < positionB) {
-      entries.unshift(chartA.before(entry, 1);
+      entries.unshift(chartA.before(entry, 1));
     } 
 
     return entries.filter(entry => {
