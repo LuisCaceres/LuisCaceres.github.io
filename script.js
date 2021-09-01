@@ -672,11 +672,19 @@ class Chart extends List {
       if (positionA <= 12 && chartB.positionOf(entry) === 21) {
         return false;
       }
-      
+
       const history = new NumberList(...database.get(entry).history);
-      
-      // Filter out if `positionA` is 12 or higher and `entry` departs from `chartB`.
+
+      // Filter out if `entry` is descending and `positionA` in `entry`'s history causes `entry` to ascend again.
+      // Example: [1, 2, 3, 4, 2]
       if (history.isIncreasing() && history.at(-1) > positionA) {
+        return false;
+      }
+
+      // Filter out if `entry` is ascending and `positionA` in `entry`'s history causes `entry` to descend again.
+      // NOTE:
+      // Example: [7, 5, 3, 2, 3]
+      if (history.isDecreasing() && positionA < chartB.positionOf(entry)) {
         return false;
       }
 
