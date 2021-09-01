@@ -651,21 +651,18 @@ class Chart extends List {
     // TO DO: ALSO WE DON'T WANT TO CAUSE THE ITEM THAT'S MOVED TO REPEAT POSITION FOR CHART A AND B
     // EXAMPLE [1O, 12, 13, 14] = [10, 12, 14, 14]
     
-    
-    // TO DO: WHAT IF ENTRY IS MOVING FORWARDS AND THE DESCENDS FROM CHART B? THEN ENTRIES ARE AROUND 'ENTRY' AND NOT JUST BEFORE OR AFTER
-    // EXAMPLE: [2, 2, 2, 3] THEN ENTRIES IS ENTRY NUMBER 1 AND ENTRY NUMBER 3 
-    
     // TO DO: WHAT IF A PROPOSED CORRECTION IS [5, 3, 3, 3] THEN THAT COULD MAKE IT [5, 3, 2, 3] BUT WE DON'T WANT THIS BECAUSE
     // WE DON'T KNOW IF THERE'S GOING TO BE ANOTHER MOVEMENT FORWARD AS IN [5, 3, 2, 3, 2]
 
     const entries = chartA[method](entry, delta);
 
+    // If `entry` starts descending from chartB
     if (positionA < positionB) {
+      // Retreive the entry immediately preceding `entry` on chartA and add it to `entries`.
       entries.unshift(...chartA.before(entry, 1));
     } 
 
     return entries.filter(entry => {
-
       // Filter out if `entry` arrives in `chartA` and `positionA` is 12 or higher.
       if (database.has(entry) === null && positionA <= 12) {
         return false;
@@ -673,6 +670,13 @@ class Chart extends List {
 
       // Filter out if `positionA` is 12 or higher and `entry` departs from `chartB`.
       if (positionA <= 12 && chartB.positionOf(entry) === 21) {
+        return false;
+      }
+      
+      const {history} = database.get(entry);
+      
+      // Filter out if `positionA` is 12 or higher and `entry` departs from `chartB`.
+      if (history.isIncreasing() && history.at(-1) > positionA ) {
         return false;
       }
 
