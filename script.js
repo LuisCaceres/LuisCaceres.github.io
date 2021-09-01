@@ -631,7 +631,7 @@ class Chart extends List {
    * @return {Array} entries
    */
   static corrector3(entry, chartA, chartB, database) {
-    const positionA = placeholder = chartA.positionOf(entry);
+    const positionA = chartA.positionOf(entry);
     const positionB = chartB.positionOf(entry);
     const history = new NumberList(...database.get(entry).history, positionA, positionB);
     
@@ -663,12 +663,12 @@ class Chart extends List {
     return entries.filter(entry => {
       
       // Filter out if `entry` arrives in `chartA` and `positionA` is 12 or higher.
-      if (database.has(entry) === null && placeholder <= 12) {
+      if (database.has(entry) === null && positionA <= 12) {
         return false;
       }
 
       // Filter out if `positionA` is 12 or higher and `entry` departs from `chartB`.
-      if (placeholder <= 12 && chartB.positionOf(entry) === 21) {
+      if (positionA <= 12 && chartB.positionOf(entry) === 21) {
         return false;
       }
 
