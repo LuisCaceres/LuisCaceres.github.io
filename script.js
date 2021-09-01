@@ -673,10 +673,10 @@ class Chart extends List {
         return false;
       }
       
-      const {history} = database.get(entry);
+      const {history} = new NumberList(...database.get(entry));
       
       // Filter out if `positionA` is 12 or higher and `entry` departs from `chartB`.
-      if (history.isIncreasing() && history.at(-1) > positionA ) {
+      if (history.isIncreasing() && history.at(-1) > positionA) {
         return false;
       }
 
