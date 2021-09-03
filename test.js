@@ -657,22 +657,26 @@ function generateList(outcoming, incoming) {
     expect(entries).to.include('All I Have To Give');
 
     // Someday
-    const foo = Chart.corrector3(entries[0], chartA, chartB, database);
+    {
+      const value = Chart.corrector3(entries[0], chartA, chartB, database);
 
-    expect(foo.length).to.equal(4);                // Someday
-    expect(foo).to.include('Puente');              // [02, 02, 01, 06] [01, 01, 02, 04]
-    expect(foo).to.include('All I Have To Give');  // [02, 02, 03, 06] [03, 03, 02, 07]
-    expect(foo).to.include('All Star');            // [02, 02, 05, 06] [14, 09, 02, 01]
-    expect(foo).to.include('I Need To Know');      // [02, 02, 06, 06] [**, 10, 02, 02]
+      expect(value.length).to.equal(4);                // Someday
+      expect(value).to.include('Puente');              // [02, 02, 01, 06] [01, 01, 02, 04]
+      expect(value).to.include('All I Have To Give');  // [02, 02, 03, 06] [03, 03, 02, 07]
+      expect(value).to.include('All Star');            // [02, 02, 05, 06] [14, 09, 02, 01]
+      expect(value).to.include('I Need To Know');      // [02, 02, 06, 06] [**, 10, 02, 02]
+    }
 
     // All I Have To Give
-    const foo = Chart.corrector3(entries[1], chartA, chartB, database);
+    {
+      const value = Chart.corrector3(entries[1], chartA, chartB, database);
 
-    expect(foo.length).to.equal(4);                // All I Have To Give
-    expect(foo).to.include('Someday');             // [03, 03, 02, 07] [02, 02, 03, 06]
-    expect(foo).to.include('Someday We\'ll Know'); // [03, 03, 04, 07] [05, 04, 03, 03]
-    expect(foo).to.include('All Star');            // [03, 03, 05, 07] [14, 09, 03, 01]
-    expect(foo).to.include('I Need To Know');      // [03, 03, 06, 07] [**, 10, 03, 02]
+      expect(value.length).to.equal(4);                // All I Have To Give
+      expect(value).to.include('Someday');             // [03, 03, 02, 07] [02, 02, 03, 06]
+      expect(value).to.include('Someday We\'ll Know'); // [03, 03, 04, 07] [05, 04, 03, 03]
+      expect(value).to.include('All Star');            // [03, 03, 05, 07] [14, 09, 03, 01]
+      expect(value).to.include('I Need To Know');      // [03, 03, 06, 07] [**, 10, 03, 02]
+    }
   }
 }
 
