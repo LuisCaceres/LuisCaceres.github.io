@@ -710,10 +710,12 @@ class Chart extends List {
         return false;
       }
 
-      // Filter out if `entry` is ascending and `positionA` in `entry`'s history causes `entry` to descend again.
-      // NOTE:
-      // Example: [7, 5, 3, 2, 3]
-      if (history.isDecreasing() && positionA > chartB.positionOf(entry)) {
+      history.push(positionA, positionB);
+
+      // Filter out if `entry` is ascending and `positionA` in `entry`'s history causes `entry` to descend from chartB.
+      //           1  2  A  B  C
+      // Example: [5, 3, 2, 3, 2]
+      if (history.isDecreasing() && positionA < chartB.positionOf(entry)) {
         return false;
       }
 
