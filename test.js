@@ -627,18 +627,44 @@ function generateList(outcoming, incoming) {
 //   }
 
 {
-  const database = createDatabase(charts[0], charts[1]);
-  const entries = Chart.detector3(charts[2], charts[3], database);
+  const [chart1, chart2, chartA, chartB] = charts;
+  {
+    const database = createDatabase(chart1, chart2);
+    const entries = Chart.detector3(chartA, chartB, database);
 
-  expect(entries.length).to.equal(1);
-  expect(entries).to.include('Someday');
+    expect(entries.length).to.equal(1);
+    expect(entries).to.include('Someday');
 
-  const foo = Chart.corrector3(entries[0], charts[2], charts[3], database);
+    const foo = Chart.corrector3(entries[0], chartA, chartB, database);
 
-  expect(foo.length).to.equal(3);
-  expect(foo).to.include('Puente');
-  expect(foo).to.include('All Star');
-  expect(foo).to.include('I Need To Know');
+    expect(foo.length).to.equal(3);
+    expect(foo).to.include('I Need To Know');
+    expect(foo).to.include('All Star');
+    expect(foo).to.include('Puente');
+  }
+  {
+    const [chart1, chart2, chartA, chartB] = charts;
+
+    chart2.replace('Someday We\'ll Know', 'All I Have To Give');
+    chart2.replace('All I Have To Give', 'Someday We\'ll Know');   
+    chart2.replace('Someday We\'ll Know', 'All I Have To Give');
+    chart2.replace('All Star', 'Someday We\'ll Know');  
+    chart2.replace('All I Have To Give', 'All Star');  
+
+    const database = createDatabase(chart1, chart2);
+    const entries = Chart.detector3(chartA, chartB, database);
+
+    expect(entries.length).to.equal(2);
+    expect(entries).to.include('Someday');
+    expect(entries).to.include('Puente');
+
+    const foo = Chart.corrector3(entries[0], chartA, chartB, database);
+
+    expect(foo.length).to.equal(3);
+    expect(foo).to.include('Someday');
+    expect(foo).to.include('All Star');
+    expect(foo).to.include('I Need To Know');
+  }
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
