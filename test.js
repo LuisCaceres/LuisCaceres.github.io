@@ -635,15 +635,15 @@ function generateList(outcoming, incoming) {
     expect(entries.length).to.equal(1);
     expect(entries).to.include('Someday');
 
-    const foo = Chart.corrector3(entries[0], chartA, chartB, database);
+    const value = Chart.corrector3(entries[0], chartA, chartB, database);
 
-    expect(foo.length).to.equal(3);
-    expect(foo).to.include('I Need To Know');
-    expect(foo).to.include('All Star');
-    expect(foo).to.include('Puente');
+    expect(value.length).to.equal(3);
+    expect(value).to.include('Puente');          // [02, 02, 01, 06] [01, 01, 02, 04]
+    expect(value).to.include('All Star');        // [02, 02, 04, 06] [14, 09, 02, 01]
+    expect(value).to.include('I Need To Know');  // [02, 02, 06, 06] [**, 10, 02, 02]
   }
   {
-    const [chart1, chart2, chartA, chartB] = charts;
+    const [chart1, chart2, chartA, chartB] = charts.map(chart => chart.slice());
 
     chart2.swap('Someday We\'ll Know', 'All I Have To Give');
     chartA.swap('All Star', 'All I Have To Give');
@@ -676,6 +676,42 @@ function generateList(outcoming, incoming) {
       expect(value).to.include('Someday We\'ll Know'); // [03, 03, 04, 07] [05, 04, 03, 03]
       expect(value).to.include('All Star');            // [03, 03, 05, 07] [14, 09, 03, 01]
       expect(value).to.include('I Need To Know');      // [03, 03, 06, 07] [**, 10, 03, 02]
+    }
+  }
+  
+  {
+    const [chart1, chart2, chartA, chartB] = charts.map(chart => chart.slice());
+
+    chartA.swap('Angels', 'If Ya Gettin\' Down');
+    chartA.swap('Higher', 'If Ya Gettin\' Down');
+
+    const database = createDatabase(chart1, chart2);
+    const entries = Chart.detector3(chartA, chartB, database);
+
+    expect(entries.length).to.equal(2);
+    expect(entries).to.include('Someday');
+    expect(entries).to.include('If Ya Gettin\' Down');
+
+    // Someday
+    {
+      const value = Chart.corrector3(entries[0], chartA, chartB, database);
+
+      expect(value.length).to.equal(4);            // Someday
+      expect(value).to.include('Puente');          // [02, 02, 01, 06] [01, 01, 02, 04]
+      expect(value).to.include('All Star');        // [02, 02, 04, 06] [14, 09, 02, 01]
+      expect(value).to.include('I Need To Know');  // [02, 02, 06, 06] [**, 10, 02, 02]
+    }
+
+    // If Ya Gettin' Down
+    {
+      const value = Chart.corrector3(entries[1], chartA, chartB, database);
+
+      expect(value.length).to.equal(5);                      // All I Have To Give
+      expect(value).to.include('I Need To Know');            // [07, 07, 06, 11] [**, 10, 07, 02]
+      expect(value).to.include('Higher');                    // [07, 07, 08, 11] [06, 05, 07, 08]
+      expect(value).to.include('Angels');                    // [07, 07, 09, 11] [20, 11, 08, 05]
+      expect(value).to.include('La Lola');                   // [07, 07, 10, 11] [04, 06, 09, 16]
+      expect(value).to.include('The Kids Aren\'t Alright');  // [07, 07, 11, 11] [08, 08, 10, 14]
     }
   }
 }
