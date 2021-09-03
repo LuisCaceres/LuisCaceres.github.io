@@ -647,9 +647,9 @@ function generateList(outcoming, incoming) {
 
     chart2.replace('Someday We\'ll Know', 'All I Have To Give');
     chart2.replace('All I Have To Give', 'Someday We\'ll Know');   
-    chart2.replace('Someday We\'ll Know', 'All I Have To Give');
-    chart2.replace('All Star', 'Someday We\'ll Know');  
-    chart2.replace('All I Have To Give', 'All Star');  
+    chartA.replace('Someday We\'ll Know', 'All I Have To Give');
+    chartA.replace('All Star', 'Someday We\'ll Know');  
+    chartA.replace('All I Have To Give', 'All Star');  
 
     const database = createDatabase(chart1, chart2);
     const entries = Chart.detector3(chartA, chartB, database);
