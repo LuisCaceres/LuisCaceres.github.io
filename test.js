@@ -645,11 +645,9 @@ function generateList(outcoming, incoming) {
   {
     const [chart1, chart2, chartA, chartB] = charts;
 
-    chart2.replace('Someday We\'ll Know', 'All I Have To Give');
-    chart2.replace('All I Have To Give', 'Someday We\'ll Know');   
-    chartA.replace('Someday We\'ll Know', 'All I Have To Give');
-    chartA.replace('All Star', 'Someday We\'ll Know');  
-    chartA.replace('All I Have To Give', 'All Star');  
+    chart2.swap('Someday We\'ll Know', 'All I Have To Give');
+    chartA.swap('All Star', 'All I Have To Give');
+    chartA.swap('Someday We\'ll Know', 'All I Have To Give');
 
     const database = createDatabase(chart1, chart2);
     const entries = Chart.detector3(chartA, chartB, database);
