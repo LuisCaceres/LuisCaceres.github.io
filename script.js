@@ -709,10 +709,18 @@ class Chart extends List {
       if (history.isIncreasing() && history.at(-1) > positionA) {
         return false;
       }
+  
+      // Filter out if the difference between `entry`'s position in `chart2` and `positionA` is at least 2 
+      // and `entry` starts to descend from `chartB`.
+      //           1  2  A  B
+      // Example: [6, 5, 1, 8]
+      if (history.isIncreasing() === false && Math.abs(history.at(-1) - positionA) >= 2) {
+        return false;
+      }
 
       history.push(chartA.positionOf(entry), chartB.positionOf(entry));
 
-      // Filter out if `entry` is ascending and `positionA` in `entry`'s history causes `entry` to descend from chartB.
+      // Filter out if `entry` is ascending and `positionA` in `entry`'s history causes `entry` to descend from `chartB`.
       //           1  2  A  B  C
       // Example: [5, 3, 2, 3, 2]
       if (history.isDecreasing() && positionA < chartB.positionOf(entry)) {
