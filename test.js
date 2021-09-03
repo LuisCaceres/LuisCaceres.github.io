@@ -635,8 +635,10 @@ function generateList(outcoming, incoming) {
 
   const foo = Chart.corrector3(entries[0], charts[2], charts[3], database);
 
-  expect(foo.length).to.equal(1);
+  expect(foo.length).to.equal(3);
   expect(foo).to.include('Puente');
+  expect(foo).to.include('All Star');
+  expect(foo).to.include('I Need To Know');
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
