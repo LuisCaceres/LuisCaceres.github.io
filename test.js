@@ -654,14 +654,15 @@ function generateList(outcoming, incoming) {
 
     expect(entries.length).to.equal(2);
     expect(entries).to.include('Someday');
-    expect(entries).to.include('Puente');
+    expect(entries).to.include('All I Have To Give');
 
     const foo = Chart.corrector3(entries[0], chartA, chartB, database);
 
-    expect(foo.length).to.equal(3);
-    expect(foo).to.include('Someday');
-    expect(foo).to.include('All Star');
-    expect(foo).to.include('I Need To Know');
+    expect(foo.length).to.equal(4);
+    expect(foo).to.include('Someday');             // [03, 03, 02, 07] [02, 02, 03, 06]
+    expect(foo).to.include('Someday We\'ll Know'); // [03, 03, 04, 07] [05, 04, 03, 03]
+    expect(foo).to.include('All Star');            // [03, 03, 05, 07] [14, 09, 03, 01]
+    expect(foo).to.include('I Need To Know');      // [03, 03, 06, 07] [**, 10, 03, 02]
   }
 }
 
