@@ -206,14 +206,18 @@ class List extends Array {
 
     return this;
   }
- 
-  
+
+
   /*
    *
    */
   replace(replacee, replacement) {
     const index = this.indexOf(replacee);
-    this[index] = replacement;
+
+    if (index !== -1) {
+      this[index] = replacement;
+    }
+
     return this;
   }
 
@@ -229,7 +233,29 @@ class List extends Array {
 
     return this;
   }
+
+  
+  /* Find `item1` and `item2` in this list. If found, move `item1` to `item2`'s position and viceversa. 
+   * @param {*} item1 -
+   * @param {*} item2 -
+   * @returns {List} - this list.
+   * @example
+   * // returns [4, 2, 3, 1]
+   * new List(1, 2, 3, 4).swap(1, 4);
+   */
+  swap(item1, item2) {
+    const index1 = this.indexOf(item1);
+    const index2 = this.indexOf(item2);
+
+    if (index1 !== -1 && index2 !== -1) {      
+      this[index1] = item2;
+      this[index2] = item1;
+    }
+
+    return this;
+  }
 }
+
 
 
 /*
