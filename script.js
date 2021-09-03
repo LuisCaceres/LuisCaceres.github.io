@@ -714,7 +714,7 @@ class Chart extends List {
       // and `entry` starts to descend from `chartB`.
       //           1  2  A  B
       // Example: [6, 5, 1, 8]
-      if (history.isIncreasing() === false && Math.abs(history.at(-1) - positionA) >= 2) {
+      if (history.isIncreasing() === false && (history.at(-1) - positionA) >= 2) {
         return false;
       }
 
