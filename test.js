@@ -627,8 +627,8 @@ function generateList(outcoming, incoming) {
 //   }
 
 {
-  const [chart1, chart2, chartA, chartB] = charts;
   {
+    const [chart1, chart2, chartA, chartB] = charts.map(chart => chart.slice());
     const database = createDatabase(chart1, chart2);
     const entries = Chart.detector3(chartA, chartB, database);
 
@@ -677,8 +677,7 @@ function generateList(outcoming, incoming) {
       expect(value).to.include('All Star');            // [03, 03, 05, 07] [14, 09, 03, 01]
       expect(value).to.include('I Need To Know');      // [03, 03, 06, 07] [**, 10, 03, 02]
     }
-  }
-  
+  }  
   {
     const [chart1, chart2, chartA, chartB] = charts.map(chart => chart.slice());
 
