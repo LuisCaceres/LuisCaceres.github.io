@@ -212,11 +212,9 @@ class List extends Array {
    *
    */
   replace(replacee, replacement) {
-    this.forEach((item, index) => {
-      if (item === replacee) {
-        this[index] = replacement;
-      }
-    });
+    const index = this.indexOf(replacee);
+    this[index] = replacement;
+    return this;
   }
 
 
