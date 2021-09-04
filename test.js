@@ -718,6 +718,7 @@ function generateList(outcoming, incoming) {
 
     chartA.swap('La Lola', 'The Kids Aren\'t Alright');
     chartA.swap('If Ya Gettin\' Down', 'The Kids Aren\'t Alright');
+    chartA.swap('Angels', 'The Kids Aren\'t Alright');
 
     const database = createDatabase(chart1, chart2);
     const entries = Chart.detector3(chartA, chartB, database);
