@@ -774,10 +774,10 @@ function generateList(outcoming, incoming) {
     {
       const value = Chart.corrector3(entries[1], chartA, chartB, database);
 
-      expect(value.length).to.equal(4);             // When You\'re Gone
+      expect(value.length).to.equal(5);             // When You\'re Gone
       expect(value).to.include('New');              // [13, 13, 12, 17] [**, **, 13, 09]
       expect(value).to.include('Si Me Advertí');    // [13, 13, 14, 17] [17, 15, 13, 10]
-      expect(value).to.include('Mi Chico Latino');  // [13, 13, 15, 17] [**, **, 14, 12]
+      expect(value).to.include('Mi Chico Latino');  // [13, 13, 15, 17] [**, **, 13, 12]
       expect(value).to.include('Heartbreaker');     // [13, 13, 16, 17] [09, 12, 13, **]
       expect(value).to.include('No Quiero Verte');  // [13, 13, 17, 17] [**, 19, 13, 13]  
     }
