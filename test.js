@@ -748,6 +748,40 @@ function generateList(outcoming, incoming) {
       expect(value).to.include('La Lola');                   // [08, 08, 11, 14] [04, 06, 08, 16]
     }
   }
+  {
+    const [chart1, chart2, chartA, chartB] = charts.map(chart => chart.slice());
+
+    chartA.swap('Si Me Advertí', 'When You\'re Gone');
+
+    const database = createDatabase(chart1, chart2);
+    const entries = Chart.detector3(chartA, chartB, database);
+
+    expect(entries.length).to.equal(2);
+    expect(entries).to.include('Someday');
+    expect(entries).to.include('When You\'re Gone');
+
+    // Someday
+    {
+      const value = Chart.corrector3(entries[0], chartA, chartB, database);
+
+      expect(value.length).to.equal(3);            // Someday
+      expect(value).to.include('Puente');          // [02, 02, 01, 06] [01, 01, 02, 04]
+      expect(value).to.include('All Star');        // [02, 02, 04, 06] [14, 09, 02, 01]
+      expect(value).to.include('I Need To Know');  // [02, 02, 06, 06] [**, 10, 02, 02]
+    }
+
+    // When You\'re Gone
+    {
+      const value = Chart.corrector3(entries[1], chartA, chartB, database);
+
+      expect(value.length).to.equal(4);             // When You\'re Gone
+      expect(value).to.include('New');              // [13, 13, 12, 17] [**, **, 13, 09]
+      expect(value).to.include('Si Me Advertí');    // [13, 13, 14, 17] [17, 15, 13, 10]
+      expect(value).to.include('Mi Chico Latino');  // [13, 13, 15, 17] [**, **, 14, 12]
+      expect(value).to.include('Heartbreaker');     // [13, 13, 16, 17] [09, 12, 13, **]
+      expect(value).to.include('No Quiero Verte');  // [13, 13, 17, 17] [**, 19, 13, 13]  
+    }
+  }
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
