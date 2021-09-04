@@ -627,7 +627,7 @@ function generateList(outcoming, incoming) {
 //   }
 
 {
-  {
+  { // POSITION 2
     const [chart1, chart2, chartA, chartB] = charts.map(chart => chart.slice());
     const database = createDatabase(chart1, chart2);
     const entries = Chart.detector3(chartA, chartB, database);
@@ -642,7 +642,7 @@ function generateList(outcoming, incoming) {
     expect(value).to.include('All Star');        // [02, 02, 04, 06] [14, 09, 02, 01]
     expect(value).to.include('I Need To Know');  // [02, 02, 06, 06] [**, 10, 02, 02]
   }
-  {
+  { // POSITION 3
     const [chart1, chart2, chartA, chartB] = charts.map(chart => chart.slice());
 
     chart2.swap('Someday We\'ll Know', 'All I Have To Give');
@@ -678,7 +678,42 @@ function generateList(outcoming, incoming) {
       expect(value).to.include('I Need To Know');      // [03, 03, 06, 07] [**, 10, 03, 02]
     }
   }
-  {
+  { // POSITION 5
+    const [chart1, chart2, chartA, chartB] = charts.map(chart => chart.slice());
+
+    chart2.swap('All I Have To Give', 'Someday We\'ll Know');
+    chart2.swap('Higher', 'Someday We\'ll Know');
+    chartA.swap('All Star', 'Someday We\'ll Know');
+    chartA.swap('All I Have To Give', 'Someday We\'ll Know');
+
+    const database = createDatabase(chart1, chart2);
+    const entries = Chart.detector3(chartA, chartB, database);
+
+    expect(entries.length).to.equal(2);
+    expect(entries).to.include('Someday');
+    expect(entries).to.include('Someday We\'ll Know');
+
+    // Someday
+    {
+      const value = Chart.corrector3(entries[0], chartA, chartB, database);
+
+      expect(value.length).to.equal(4);                // Someday
+      expect(value).to.include('Puente');              // [02, 02, 01, 06] [01, 01, 02, 04]
+      expect(value).to.include('All Star');            // [02, 02, 03, 06] [14, 09, 02, 01] 
+      expect(value).to.include('All I Have To Give');  // [02, 02, 04, 06] [03, 03, 02, 07]
+      expect(value).to.include('I Need To Know');      // [02, 02, 06, 06] [**, 10, 02, 02]
+    }
+
+    // Someday We'll Know
+    {
+      const value = Chart.corrector3(entries[1], chartA, chartB, database);
+
+      expect(value.length).to.equal(2);                // Someday We'll Know
+      expect(value).to.include('All Star');            // [05, 05, 03, 03] [14, 09, 05, 01]
+      expect(value).to.include('All I Have To Give');  // [05, 05, 04, 03] [03, 03, 05, 07]
+    }
+  }
+  { // POSITION 7
     const [chart1, chart2, chartA, chartB] = charts.map(chart => chart.slice());
 
     chartA.swap('Angels', 'If Ya Gettin\' Down');
@@ -713,7 +748,7 @@ function generateList(outcoming, incoming) {
       expect(value).to.include('The Kids Aren\'t Alright');  // [07, 07, 11, 11] [08, 08, 10, 14]
     }
   }
-  {
+  { // POSITION 8
     const [chart1, chart2, chartA, chartB] = charts.map(chart => chart.slice());
 
     chartA.swap('La Lola', 'The Kids Aren\'t Alright');
@@ -748,7 +783,7 @@ function generateList(outcoming, incoming) {
       expect(value).to.include('La Lola');                   // [08, 08, 11, 14] [04, 06, 08, 16]
     }
   }
-  {
+  { // POSITION 13
     const [chart1, chart2, chartA, chartB] = charts.map(chart => chart.slice());
 
     chartA.swap('Si Me Advertí', 'When You\'re Gone');
