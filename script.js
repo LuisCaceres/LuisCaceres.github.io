@@ -687,7 +687,8 @@ class Chart extends List {
     } 
 
     return entries.filter(entry => {
-      
+      const history = new NumberList(...(database.get(entry)?.history || [21, 21]));
+
       // TO DO: item has only been in chart for less than 3 weeks
       // TO DO: item ascends from chart B 
       // Example: [20, 19, 1, 9]
@@ -701,8 +702,6 @@ class Chart extends List {
       if (positionA <= 12 && chartB.positionOf(entry) === 21) {
         return false;
       }
-
-      const history = new NumberList(...database.get(entry).history);
 
       // Filter out if `entry` is descending and `positionA` in `entry`'s history causes `entry` to ascend again.
       // Example: [1, 2, 3, 4, 2]
