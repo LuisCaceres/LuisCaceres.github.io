@@ -694,7 +694,7 @@ class Chart extends List {
       // Example: [20, 19, 1, 9]
       
       // Filter out if `entry` arrives in `chartA` and `positionA` is 12 or higher.
-      if (database.has(entry) === false && positionA <= 12) {
+      if (history.at(-1) === 21 && positionA <= 12) {
         return false;
       }
 
