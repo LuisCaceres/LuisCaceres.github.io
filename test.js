@@ -120,7 +120,7 @@ const charts = [
     /* 20 */ 'As Fast As You Can',
     /* 19 */ 'When You\'re Gone',
     /* 18 */ 'The Kids Aren\'t Alright',
-    /* 17 */ 'Dreams In Digital'
+    /* 17 */ 'Dreams In Digital',
     /* 16 */ 'Don\'t Say You Love Me',
     /* 15 */ 'If Ya Gettin\' Down',
     /* 14 */ 'Man! I Feel Like A Woman',
