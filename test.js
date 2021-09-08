@@ -169,9 +169,9 @@ const charts = [
     /* 19 */ 'Don\'t Say You Love Me',
     /* 18 */ 'All I Have To Give',
     /* 17 */ 'As Fast As You Can',
-    /* 16 */ 'Super Trouper'
+    /* 16 */ 'Super Trouper',
     /* 15 */ 'No Quiero Verte',
-    /* 14 */ 'All Or Nothing'
+    /* 14 */ 'All Or Nothing',
     /* 13 */ 'Puente',
     /* 12 */ 'Man! I Feel Like A Woman',
     /* 11 */ 'Fly Away'
