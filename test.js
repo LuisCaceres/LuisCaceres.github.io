@@ -174,7 +174,7 @@ const charts = [
     /* 14 */ 'All Or Nothing',
     /* 13 */ 'Puente',
     /* 12 */ 'Man! I Feel Like A Woman',
-    /* 11 */ 'Fly Away'
+    /* 11 */ 'Fly Away',
     /* 10 */ 'Someday',
     /* 09 */ 'Si Me Advertí',
     /* 08 */ 'Maria Maria',
