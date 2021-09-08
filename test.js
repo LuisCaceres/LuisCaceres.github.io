@@ -962,6 +962,23 @@ function generateList(outcoming, incoming) {
     }
   }
 }
+// WEEK 9
+{
+  {
+    const [chart1, chart2, chartA, chartB] = charts.map(chart => chart.slice()).slice(-4);
+    const database = createDatabase(chart1, chart2);
+    const entries = Chart.detector3(chartA, chartB, database);
+
+    expect(entries.length).to.equal(1);
+    expect(entries).to.include('I Need To Know');
+
+    {
+      const value = Chart.corrector3(entries[0], chartA, chartB, database);
+
+      expect(value.length).to.equal(0);
+    }
+  }
+}
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // parse()
