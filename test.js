@@ -966,7 +966,7 @@ function generateList(outcoming, incoming) {
 {
   {
     const [chart1, chart2, chartA, chartB] = charts.slice(-4);
-    const database = createDatabase(charts.slice(0, -2));
+    const database = createDatabase(...charts.slice(0, -2));
     const entries = Chart.detector3(chartA, chartB, database);
 
     expect(entries.length).to.equal(1);
