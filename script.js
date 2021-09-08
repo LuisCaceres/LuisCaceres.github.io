@@ -618,7 +618,7 @@ class Chart extends List {
       const positionB = chartB.positionOf(entry);
       history.push(positionA);
 
-      // Filter out if `entry` starts to move backwards from `chartB`.
+      // Filter out if `entry` starts to descend from `chartB`.
       // Example: [12, 12, 12, 13]
       // TO DO: THIS DOESN'T SEEM TO WORK WITH 'SOMEDAY';
       if (history.isDecreasing() && history.at(-1) < positionB) {
@@ -680,8 +680,8 @@ class Chart extends List {
     const entries = chartA[method](entry, delta);
 
     // If `entry` starts descending from chartB.
-    // Example: [2, 2, 2, 3]
-    if (positionA < positionB) {
+    // Example: [**, 18, 16, 14, 12, 12, 12, 13]
+    if (history.slice(0, -1).isDecreasing() && positionA < positionB) {
       // Retreive the entry immediately preceding `entry` on chartA and add it to `entries`.
       entries.unshift(...chartA.before(entry, 1));
     } 
