@@ -271,18 +271,26 @@ class NumberList extends Array {
   /* Returns true 
    * @example
    * // Returns true
-   * new NumberList(1, 2, 3, 4, 5).isIncreasing();
+   * new NumberList(5, 4, 3, 2, 1, 2, 3, 4, 5).isCurved();
    * // Returns false
-   * new NumberList(5, 4, 3, 2, 1).isIncreasing();
+   * new NumberList(1, 2, 3, 4, 5, 6, 7, 8, 9).isCurved();
    * @return {Boolean}
    */
-  isIncreasing() {
-    const condition1 = this.every((n, index) => {
-      const next = this[index + 1];
-      return next === undefined ? true : n <= next;
-    });
-
-    return this.isFlat() === false && condition1;
+  isCurved() {
+    const min = Math.min(this);
+    const max = Math.max(this);
+    const index = this.indexOf(min);
+    
+    if (this.at(0) === min || this.at(-1) === min) {
+      return false;
+    }
+    
+    if (
+    
+    const condition1 = this.slice(0, index).isIncreasing();
+    const condition2 = this.slice(index).isDecreasing();
+    
+    return condition1 && condition2;
   }
 
 
@@ -312,6 +320,24 @@ class NumberList extends Array {
       const next = this[i + 1]; 
       return typeof next === 'number' ? n === next : true;
     }); 
+  }
+
+
+  /* Returns true 
+   * @example
+   * // Returns true
+   * new NumberList(1, 2, 3, 4, 5).isIncreasing();
+   * // Returns false
+   * new NumberList(5, 4, 3, 2, 1).isIncreasing();
+   * @return {Boolean}
+   */
+  isIncreasing() {
+    const condition1 = this.every((n, index) => {
+      const next = this[index + 1];
+      return next === undefined ? true : n <= next;
+    });
+
+    return this.isFlat() === false && condition1;
   }
 }
 
