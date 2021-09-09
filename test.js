@@ -981,6 +981,7 @@ function generateList(outcoming, incoming) {
       expect(value).to.include('Maria Maria');            // [06, 06, 08, 09] [**, 08, 06, 05]
     }
   }
+}
 // WEEK 9
 {
   {
