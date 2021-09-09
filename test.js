@@ -962,6 +962,25 @@ function generateList(outcoming, incoming) {
     }
   }
 }
+// WEEK 8
+{
+  {
+    const [chart1, chart2, chartA, chartB] = charts.slice(5, 9);
+    const database = createDatabase(...charts.slice(0, 7));
+    const entries = Chart.detector3(chartA, chartB, database);
+
+    expect(entries.length).to.equal(1);
+    expect(entries).to.include('New');
+
+    {
+      const value = Chart.corrector3(entries[0], chartA, chartB, database);
+
+      expect(value.length).to.equal(1);
+      expect(value).to.include('That\'s The Way It Is');  // [06, 06, 05, 09] [08, 05, 06, 06]
+      expect(value).to.include('Fly Away');            // [06, 06, 07, 09] [**, 11, 06, 02]
+      expect(value).to.include('Maria Maria');            // [06, 06, 08, 09] [**, 08, 06, 05]
+    }
+  }
 // WEEK 9
 {
   {
