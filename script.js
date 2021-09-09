@@ -282,12 +282,7 @@ class NumberList extends Array {
       return next === undefined ? true : n <= next;
     });
 
-    const condition2 = this.some((n, index) => {
-      const next = this[index + 1];
-      return next === undefined ? false : n < next;
-    });
-
-    return condition1 && condition2;
+    return this.isFlat() === false && condition1;
   }
 
 
