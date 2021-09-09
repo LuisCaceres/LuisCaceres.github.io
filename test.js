@@ -975,7 +975,8 @@ function generateList(outcoming, incoming) {
     {
       const value = Chart.corrector3(entries[0], chartA, chartB, database);
 
-      expect(value.length).to.equal(0);
+      expect(value.length).to.equal(1);
+      expect(value).to.include('That\'s The Way It Is');  // [04, 04, 06, 06] [05, 05, 04, 09]
     }
   }
 }
