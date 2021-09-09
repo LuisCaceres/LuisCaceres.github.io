@@ -676,7 +676,7 @@ class Chart extends List {
 
     // If `entry` starts descending from chartB.
     // Example: [**, 18, 16, 14, 12, 12, 12, 13]
-    if (history.slice(0, -1).isIncreasing() === false && positionA < positionB) {
+    if (history.slice(0, -1).isDecreasing() && positionA < positionB) {
       // Retreive the entry immediately preceding `entry` on chartA and add it to `entries`.
       entries.unshift(...chartA.before(entry, 1));
     } 
