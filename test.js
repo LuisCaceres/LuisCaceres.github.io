@@ -975,9 +975,9 @@ function generateList(outcoming, incoming) {
     {
       const value = Chart.corrector3(entries[0], chartA, chartB, database);
 
-      expect(value.length).to.equal(1);
+      expect(value.length).to.equal(3);
       expect(value).to.include('That\'s The Way It Is');  // [06, 06, 05, 09] [08, 05, 06, 06]
-      expect(value).to.include('Fly Away');            // [06, 06, 07, 09] [**, 11, 06, 02]
+      expect(value).to.include('Fly Away');               // [06, 06, 07, 09] [**, 11, 06, 02]
       expect(value).to.include('Maria Maria');            // [06, 06, 08, 09] [**, 08, 06, 05]
     }
   }
