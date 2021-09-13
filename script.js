@@ -699,8 +699,6 @@ class Chart extends List {
       }
 
       // Filter out if `entry` has been static in position 1 for 3 weeeks consecutively.
-      history.push(positionA);
-
       if (history.at(0) === 1 && history.isFlat() === true) {
         return false;
       }
