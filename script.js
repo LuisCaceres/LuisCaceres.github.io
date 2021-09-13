@@ -736,7 +736,7 @@ class Chart extends List {
 
       // Filter out if `entry` is descending and `positionA` in `entry`'s history causes `entry` to ascend again.
       // Example: [1, 2, 3, 4, 2]
-      if (history.isIncreasing() && history.at(-1) > positionA) {
+      if (history.isCurved() && history.at(-1) > positionA) {
         return false;
       }
   
