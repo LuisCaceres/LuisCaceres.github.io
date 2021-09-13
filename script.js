@@ -363,7 +363,20 @@ class NumberList extends Array {
     const subHistory = this.slice(-1);
     const [secondLast, last] = this.slice(-2);
     
-    return (subHistory.isDecreasing() || subHistory.isFlat()) && secondLast < last;     
+    return (subHistory.isDecreasing() || subHistory.isFlat()) && secondLast < last;
+  }
+
+
+  /* Returns true 
+   * @example
+   * // Returns true
+   * new NumberList(1, 2, 3, 4, 5).isIncreasing();
+   * // Returns false
+   * new NumberList(5, 4, 3, 2, 1).isIncreasing();
+   * @return {Boolean}
+   */
+  isAscending() {
+    return this.isFlat() || this.isDecreasing();
   }
 }
 
@@ -761,7 +774,8 @@ class Chart extends List {
       // and `entry` starts to descend from `chartB`.
       //           1  2  A  B
       // Example: [6, 5, 1, 8]
-      if (history.isDecreasing() && (history.at(-1) - positionA) >= 2 && history.at(-1) < chartB.positionOf(entry)) {
+      // NOTE: DETECT IF IT STARTS DESCENDING FROM CHART A
+      if (history.isAscending() && (history.at(-1) - positionA) >= 2 && history.at(-1) < chartB.positionOf(entry)) {
         return false;
       }
 
