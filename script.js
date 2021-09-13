@@ -378,6 +378,19 @@ class NumberList extends Array {
   isAscending() {
     return this.isFlat() || this.isDecreasing();
   }
+  
+
+  /* Returns true 
+   * @example
+   * // Returns true
+   * new NumberList(1, 2, 3, 4, 5).isIncreasing();
+   * // Returns false
+   * new NumberList(5, 4, 3, 2, 1).isIncreasing();
+   * @return {Boolean}
+   */
+  isDescending() {
+    return this.isCurved() || this.isIncreasing();
+  }
 }
 
 
@@ -766,7 +779,7 @@ class Chart extends List {
       // Filter out if `entry` is descending and `positionA` in `entry`'s history causes `entry` to ascend again.
       //           1  2  A  B
       // Example: [3, 4, 2, 7]
-      if ((history.isIncreasing() || history.isCurved()) && history.at(-1) > positionA) {
+      if (history.isDescending() && history.at(-1) > positionA) {
         return false;
       }
 
