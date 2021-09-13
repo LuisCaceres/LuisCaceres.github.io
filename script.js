@@ -271,35 +271,39 @@ class NumberList extends Array {
   /* Returns true 
    * @example
    * // Returns true
-   * new NumberList(5, 4, 3, 2, 1, 2, 3, 4, 5).isCurved();
+   * new NumberList(5, 3, 1, 3, 5).isCurved();
    * // Returns false
-   * new NumberList(1, 2, 3, 4, 5, 6, 7, 8, 9).isCurved();
+   * new NumberList(1, 2, 3, 4, 5).isCurved();
    * @return {Boolean}
    */
   isCurved() {
-//     if (this.isFlat() === true) {
-//       return false;
-//     }
+    if (this.length <= 2) {
+      return false;
+    }
 
-//     const min = Math.min(this); // 05
-//     const max = Math.max(this); // 17
-    
-//     if (this.at(0) === min || this.at(-1) === min) {
-//       return false;
-//     }
-    
-//     if (this.at(0) === max || this.at(-1) === max) {
-//       return false;
-//     }
-    
-//     if (index1 === ) {
-    
-//     }
-    
-//     const condition1 = this.slice(0, index).isIncreasing();
-//     const condition2 = this.slice(index).isDecreasing();
-    
-//     return condition1 && condition2;
+    if (this.isFlat() === true) {
+      return false;
+    }
+
+    {
+      const min = Math.min(...this); // 05
+      const index = this.indexOf(min);
+      const condition1 = this.slice(0, index + 1).isDecreasing();
+      const condition2 = this.slice(index).isIncreasing();
+
+      return condition1 && condition2;
+    }
+
+    {
+      const max = Math.max(...this); // 17
+      const index = this.indexOf(max);
+      const condition1 = this.slice(0, index + 1).isIncreasing();
+      const condition2 = this.slice(index).isDecreasing();
+
+      return condition1 && condition2;
+    }
+
+    return false;
   }
 
 
@@ -708,7 +712,7 @@ class Chart extends List {
 
     // If `entry` starts descending from chartB.
     // Example: [**, 18, 16, 14, 12, 12, 12, 13]
-    if ((history.slice(0, -1).isDecreasing() || history.slice(0, -1).isFlat()) && positionA < positionB) {
+    if (history.at(-3) > positionA && positionA < positionB) {
       // Retreive the entry immediately preceding `entry` on chartA and add it to `entries`.
       entries.unshift(...chartA.before(entry, 1));
     } 
