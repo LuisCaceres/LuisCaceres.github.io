@@ -974,6 +974,9 @@ function generateList(outcoming, incoming) {
 
     {
       const value = Chart.corrector3(entries[0], chartA, chartB, database);
+      
+      // TO DO: SITUATION THAT WE MAY HAVE SOME ILLEGAL ENTRIES BELOW 12 THAT MAY NOT BE SOLVED BY OTHER CORRECTORS
+      // IF THIS PUSHES AN ILLEGAL TO A LOWER POSITION GO FOR IT OTHERWISE DISALLOW IT
 
       expect(value.length).to.equal(3);         // Si Me Advertí
       expect(value).to.include('Maria Maria');  // [09, 09, 08, 11] [**, **, 09, 08]
