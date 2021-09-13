@@ -978,10 +978,9 @@ function generateList(outcoming, incoming) {
       // TO DO: SITUATION THAT WE MAY HAVE SOME ILLEGAL ENTRIES BELOW 12 THAT MAY NOT BE SOLVED BY OTHER CORRECTORS
       // IF THIS PUSHES AN ILLEGAL TO A LOWER POSITION GO FOR IT OTHERWISE DISALLOW IT
 
-      expect(value.length).to.equal(3);         // Si Me Advertí
+      expect(value.length).to.equal(2);         // Si Me Advertí
       expect(value).to.include('Maria Maria');  // [09, 09, 08, 11] [**, **, 09, 08]
       expect(value).to.include('Someday');      // [09, 09, 10, 11] [06, 07, 09, 13]
-      expect(value).to.include('Fly Away');     // [09, 09, 11, 11] [**, **, 09, 07]
     }
   }
 }
