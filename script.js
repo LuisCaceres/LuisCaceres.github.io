@@ -764,8 +764,19 @@ class Chart extends List {
       // TO DO: item ascends from chart B 
       // Example: [20, 19, 1, 9]
       
-      // Filter out if `entry` arrives in `chartA` and `positionA` is 12 or higher.
-      if (history.at(-1) === 21 && positionA <= 12) {
+      // Filter out if `entry` arrives in `chartA`
+      // and `positionA` in `entry`'s history causes `entry` to arrive in position 12 or lower.
+      //               BEFORE             AFTER
+      // Example: [**, **, 14, 07] = [**, **, 12, 07]
+      if (history.at(-1) === 21 && chartA.positionOf(entry) >= 13 && positionA <= 12) {
+        return false;
+      }
+      
+      // Filter out if `entry` already arrives in `chartA` in position 12 or lower, 
+      // and `positionA` in `entry`'s history causes `entry` to arrive in an even lower position.
+      //               BEFORE             AFTER
+      // Example: [**, **, 11, 07] = [**, **, 09, 07]
+      if (history.at(-1) === 21 && chartA.positionOf(entry) <= 12 && positionA < chartA.positionOf(entry)) {
         return false;
       }
 
