@@ -360,7 +360,7 @@ class NumberList extends Array {
    * @return {Boolean}
    */
   hasStartedDescending() {
-    const subHistory = this.slice(-1);
+    const subHistory = this.slice(0, -1);
     const [secondLast, last] = this.slice(-2);
     
     return (subHistory.isDecreasing() || subHistory.isFlat()) && secondLast < last;
