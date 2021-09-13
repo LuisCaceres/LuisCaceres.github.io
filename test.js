@@ -962,6 +962,26 @@ function generateList(outcoming, incoming) {
     }
   }
 }
+// WEEK 7
+{
+  {
+    const [chart1, chart2, chartA, chartB] = charts.slice(4, 8);
+    const database = createDatabase(...charts.slice(0, 6));
+    const entries = Chart.detector3(chartA, chartB, database);
+
+    expect(entries.length).to.equal(1);
+    expect(entries).to.include('Si Me Advertí');
+
+    {
+      const value = Chart.corrector3(entries[0], chartA, chartB, database);
+
+      expect(value.length).to.equal(3);         // Si Me Advertí
+      expect(value).to.include('Maria Maria');  // [09, 09, 08, 11] [**, **, 09, 08]
+      expect(value).to.include('Someday');      // [09, 09, 10, 11] [06, 07, 09, 13]
+      expect(value).to.include('Fly Away');     // [09, 09, 11, 11] [**, **, 09, 07]
+    }
+  }
+}
 // WEEK 8
 {
   {
