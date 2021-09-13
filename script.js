@@ -277,20 +277,29 @@ class NumberList extends Array {
    * @return {Boolean}
    */
   isCurved() {
-    const min = Math.min(this);
-    const max = Math.max(this);
-    const index = this.indexOf(min);
+//     if (this.isFlat() === true) {
+//       return false;
+//     }
+
+//     const min = Math.min(this); // 05
+//     const max = Math.max(this); // 17
     
-    if (this.at(0) === min || this.at(-1) === min) {
-      return false;
-    }
+//     if (this.at(0) === min || this.at(-1) === min) {
+//       return false;
+//     }
     
-    if (
+//     if (this.at(0) === max || this.at(-1) === max) {
+//       return false;
+//     }
     
-    const condition1 = this.slice(0, index).isIncreasing();
-    const condition2 = this.slice(index).isDecreasing();
+//     if (index1 === ) {
     
-    return condition1 && condition2;
+//     }
+    
+//     const condition1 = this.slice(0, index).isIncreasing();
+//     const condition2 = this.slice(index).isDecreasing();
+    
+//     return condition1 && condition2;
   }
 
 
@@ -316,10 +325,7 @@ class NumberList extends Array {
    * @return {Boolean}
    */
   isFlat() {
-    return this.every((n, i)=> {
-      const next = this[i + 1]; 
-      return typeof next === 'number' ? n === next : true;
-    }); 
+    return Math.min(...this) === Math.max(...this);
   }
 
 
@@ -332,12 +338,12 @@ class NumberList extends Array {
    * @return {Boolean}
    */
   isIncreasing() {
-    const condition1 = this.every((n, index) => {
+    const condition = this.every((n, index) => {
       const next = this[index + 1];
       return next === undefined ? true : n <= next;
     });
 
-    return this.isFlat() === false && condition1;
+    return this.isFlat() === false && condition;
   }
 }
 
