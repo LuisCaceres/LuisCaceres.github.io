@@ -734,11 +734,9 @@ class Chart extends List {
         return false;
       }
 
-      history.push(chartA.positionOf(entry), chartB.positionOf(entry));
-
       // Filter out if `entry` is descending and `positionA` in `entry`'s history causes `entry` to ascend again.
       // Example: [1, 2, 3, 4, 2]
-      if (history.isCurved()) {
+      if (history.slice().push(positionA, chartB.positionOf(entry)).isCurved()) {
         return false;
       }
 
@@ -746,9 +744,12 @@ class Chart extends List {
       // and `entry` starts to descend from `chartB`.
       //           1  2  A  B
       // Example: [6, 5, 1, 8]
-      if (history.isCurved() && (history.at(-3) - positionA) >= 2 && history.at(-3) < chartB.positionOf(entry)) {
+      if (history.isDecreasing() && (history.at(-1) - positionA) >= 2 && history.at(-1) < chartB.positionOf(entry)) {
         return false;
       }
+
+      history.push(chartA.positionOf(entry), chartB.positionOf(entry));
+
 
       // Filter out if `entry` is ascending and `positionA` in `entry`'s history causes `entry` to descend from `chartB`.
       //           1  2  A  B  C
