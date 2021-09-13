@@ -349,6 +349,22 @@ class NumberList extends Array {
 
     return this.isFlat() === false && condition;
   }
+
+
+  /* Returns true 
+   * @example
+   * // Returns true
+   * new NumberList(1, 2, 3, 4, 5).isIncreasing();
+   * // Returns false
+   * new NumberList(5, 4, 3, 2, 1).isIncreasing();
+   * @return {Boolean}
+   */
+  hasStartedDescending() {
+    const subHistory = this.slice(-1);
+    const [secondLast, last] = this.slice(-2);
+    
+    return (subHistory.isDecreasing() || subHistory.isFlat()) && secondLast < last;     
+  }
 }
 
 
@@ -712,7 +728,7 @@ class Chart extends List {
 
     // If `entry` starts descending from chartB.
     // Example: [**, 18, 16, 14, 12, 12, 12, 13]
-    if ((history.slice(0, -1).isDecreasing() || history.slice(0, -1).isFlat()) && positionA < positionB) {
+    if (history.hasStartedDescending()) {
       // Retreive the entry immediately preceding `entry` on chartA and add it to `entries`.
       entries.unshift(...chartA.before(entry, 1));
     } 
