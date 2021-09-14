@@ -1040,9 +1040,8 @@ function generateList(outcoming, incoming) {
     const group = charts.map(chart => chart.slice());
     const [chart1, chart2, chartA, chartB] = group.slice(6, 10);
 
-    chart1.swap('Angels', 'Mi Chico Latino');
-    chart1.swap('All Star', 'Mi Chico Latino');
-    chart2.swap('All Star', 'Mi Chico Latino');
+    chart1.move('Mi Chico Latino', 0);
+    chart2.move('Mi Chico Latino', 0);
  
     const database = createDatabase(...group.slice(0, 8));
     const entries = Chart.detector3(chartA, chartB, database);
