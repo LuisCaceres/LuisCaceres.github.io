@@ -789,9 +789,8 @@ function generateList(outcoming, incoming) {
   { // POSITION 3
     const [chart1, chart2, chartA, chartB] = charts.map(chart => chart.slice());
 
-    chart2.swap('Someday We\'ll Know', 'All I Have To Give');
-    chartA.swap('All Star', 'All I Have To Give');
-    chartA.swap('Someday We\'ll Know', 'All I Have To Give');
+    chart2.move('All I Have To Give', 2);
+    chartA.move('All I Have To Give', 2);
 
     const database = createDatabase(chart1, chart2);
     const entries = Chart.detector3(chartA, chartB, database);
