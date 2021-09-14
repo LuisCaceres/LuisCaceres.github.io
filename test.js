@@ -770,7 +770,7 @@ function generateList(outcoming, incoming) {
 //   expect(chart[00]).to.equal('R');
 //   }
 
-{
+{ // WEEK 3
   { // POSITION 2
     const [chart1, chart2, chartA, chartB] = charts.map(chart => chart.slice());
     const database = createDatabase(chart1, chart2);
@@ -1042,7 +1042,22 @@ function generateList(outcoming, incoming) {
 }
 // WEEK 9
 {
-  {
+  { // POSITION 01
+    const [chart1, chart2, chartA, chartB] = charts.slice(6, 10).map(chart => chart.slice());
+    const database = createDatabase(...charts.slice(0, -2));
+    const entries = Chart.detector3(chartA, chartB, database);
+
+    expect(entries.length).to.equal(1);
+    expect(entries).to.include('I Need To Know');
+
+    {
+      const value = Chart.corrector3(entries[0], chartA, chartB, database);
+
+      expect(value.length).to.equal(1);                   // I Need To Know
+      expect(value).to.include('That\'s The Way It Is');  // [04, 04, 06, 06] [05, 05, 04, 09]
+    }
+  }
+  { // POSITION 04
     const [chart1, chart2, chartA, chartB] = charts.slice(6, 10);
     const database = createDatabase(...charts.slice(0, -2));
     const entries = Chart.detector3(chartA, chartB, database);
@@ -1053,7 +1068,7 @@ function generateList(outcoming, incoming) {
     {
       const value = Chart.corrector3(entries[0], chartA, chartB, database);
 
-      expect(value.length).to.equal(1);
+      expect(value.length).to.equal(1);                   // I Need To Know
       expect(value).to.include('That\'s The Way It Is');  // [04, 04, 06, 06] [05, 05, 04, 09]
     }
   }
