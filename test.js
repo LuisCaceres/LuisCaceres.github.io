@@ -824,10 +824,8 @@ function generateList(outcoming, incoming) {
   { // POSITION 5
     const [chart1, chart2, chartA, chartB] = charts.map(chart => chart.slice());
 
-    chart2.swap('All I Have To Give', 'Someday We\'ll Know');
-    chart2.swap('Higher', 'Someday We\'ll Know');
-    chartA.swap('All Star', 'Someday We\'ll Know');
-    chartA.swap('All I Have To Give', 'Someday We\'ll Know');
+    chart2.move('Someday We\'ll Know', 4);
+    chartA.move('Someday We\'ll Know', 4);
 
     const database = createDatabase(chart1, chart2);
     const entries = Chart.detector3(chartA, chartB, database);
@@ -859,8 +857,7 @@ function generateList(outcoming, incoming) {
   { // POSITION 7
     const [chart1, chart2, chartA, chartB] = charts.map(chart => chart.slice());
 
-    chartA.swap('Angels', 'If Ya Gettin\' Down');
-    chartA.swap('Higher', 'If Ya Gettin\' Down');
+    chartA.move('If Ya Gettin\' Down', 6);
 
     const database = createDatabase(chart1, chart2);
     const entries = Chart.detector3(chartA, chartB, database);
@@ -894,9 +891,7 @@ function generateList(outcoming, incoming) {
   { // POSITION 8
     const [chart1, chart2, chartA, chartB] = charts.map(chart => chart.slice());
 
-    chartA.swap('La Lola', 'The Kids Aren\'t Alright');
-    chartA.swap('If Ya Gettin\' Down', 'The Kids Aren\'t Alright');
-    chartA.swap('Angels', 'The Kids Aren\'t Alright');
+    chartA.move('The Kids Aren\'t Alright', 7);
 
     const database = createDatabase(chart1, chart2);
     const entries = Chart.detector3(chartA, chartB, database);
@@ -929,7 +924,7 @@ function generateList(outcoming, incoming) {
   { // POSITION 13
     const [chart1, chart2, chartA, chartB] = charts.map(chart => chart.slice());
 
-    chartA.swap('Si Me Advertí', 'When You\'re Gone');
+    chartA.move('When You\'re Gone', 12);
 
     const database = createDatabase(chart1, chart2);
     const entries = Chart.detector3(chartA, chartB, database);
