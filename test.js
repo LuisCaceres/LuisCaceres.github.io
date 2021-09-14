@@ -19,7 +19,7 @@ function createDatabase(...charts) {
 
 const charts = [
 
-  // chart 1
+  // WEEK 1
   new Chart(
     /* 20 */ 'Angels',
     /* 19 */ '...Baby One More Time',
@@ -43,7 +43,7 @@ const charts = [
     /* 01 */ 'Puente',
   ),
 
-  // chart 2
+  // WEEK 2
   new Chart(
     /* 20 */ '...Baby One More Time',
     /* 19 */ 'No Quiero Verte',
@@ -67,7 +67,7 @@ const charts = [
     /* 01 */ 'Puente',
   ),
 
-  // chart 3
+  // WEEK 3
   new Chart(
     /* 20 */ 'Man! I Feel Like A Woman',
     /* 19 */ 'That\'s The Way It Is',
@@ -91,7 +91,7 @@ const charts = [
     /* 01 */ 'Puente',
   ),
 
-  // chart 4
+  // WEEK 4
   new Chart(
     /* 20 */ 'As Fast As You Can',
     /* 19 */ 'Don\'t Say You Love Me',
@@ -115,7 +115,7 @@ const charts = [
     /* 01 */ 'All Star',
   ),
 
-  // chart 5
+  // WEEK 5
   new Chart(
     /* 20 */ 'As Fast As You Can',
     /* 19 */ 'When You\'re Gone',
@@ -139,7 +139,7 @@ const charts = [
     /* 01 */ 'All Star',
   ),
 
-  // chart 6
+  // WEEK 6
   new Chart(
     /* 20 */ 'When You\'re Gone',
     /* 19 */ 'If Ya Gettin\' Down',
@@ -163,7 +163,7 @@ const charts = [
     /* 01 */ 'All Star',
   ),
 
-  // chart 7
+  // WEEK 7
   new Chart(
     /* 20 */ 'Dreams In Digital',
     /* 19 */ 'Don\'t Say You Love Me',
@@ -187,7 +187,7 @@ const charts = [
     /* 01 */ 'All Star',
   ),
 
-  // chart 8
+  // WEEK 8
   new Chart(
     /* 20 */ 'Dreams In Digital',
     /* 19 */ 'Díselo Con Flores',
@@ -211,7 +211,7 @@ const charts = [
     /* 01 */ 'All Star',
   ),
 
-  // chart 9
+  // WEEK 9
   new Chart(
     /* 20 */ 'Unpretty',
     /* 19 */ 'Keep On Movin\'',
@@ -235,7 +235,7 @@ const charts = [
     /* 01 */ 'Mi Chico Latino',
   ),
 
-  // chart 10
+  // WEEK 10
   new Chart(
     /* 20 */ 'Pretty Fly',
     /* 19 */ 'Absolutely Everybody',
@@ -975,11 +975,29 @@ function generateList(outcoming, incoming) {
     {
       const value = Chart.corrector3(entries[0], chartA, chartB, database);
 
-      expect(value.length).to.equal(2);         // Someday We'll Know
-      expect(value).to.include('Maria Maria');  // [03, 03, --, 04] [--, --, 03, --]
-      expect(value).to.include('Someday');      // [03, 03, --, 04] [--, --, 03, --]
+      expect(value.length).to.equal(2);            // Someday We'll Know
+      expect(value).to.include('I Need To Know');  // [03, 03, 02, 04] [10, 06, 03, 02]
+      expect(value).to.include('Puente');          // [03, 03, 04, 04] [01, 01, 03, 05]
     }
   }
+}
+// WEEK 5
+{
+  {
+    const [chart1, chart2, chartA, chartB] = charts.slice(2, 6);
+    const database = createDatabase(...charts.slice(0, 4));
+    const entries = Chart.detector3(chartA, chartB, database);
+
+    expect(entries.length).to.equal(0);
+}
+// WEEK 6
+{
+  {
+    const [chart1, chart2, chartA, chartB] = charts.slice(3, 7);
+    const database = createDatabase(...charts.slice(0, 5));
+    const entries = Chart.detector3(chartA, chartB, database);
+
+    expect(entries.length).to.equal(0);
 }
 // WEEK 7
 {
@@ -1023,7 +1041,7 @@ function generateList(outcoming, incoming) {
 // WEEK 9
 {
   {
-    const [chart1, chart2, chartA, chartB] = charts.slice(-4);
+    const [chart1, chart2, chartA, chartB] = charts.slice(6, 10);
     const database = createDatabase(...charts.slice(0, -2));
     const entries = Chart.detector3(chartA, chartB, database);
 
@@ -1037,6 +1055,7 @@ function generateList(outcoming, incoming) {
       expect(value).to.include('That\'s The Way It Is');  // [04, 04, 06, 06] [05, 05, 04, 09]
     }
   }
+// WEEK 10 - IMPOSSIBLE TO TEST WEEK 10 BECAUSE WEEK 11 IS UNAVAILABLE.
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
