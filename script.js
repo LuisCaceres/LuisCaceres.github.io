@@ -193,6 +193,11 @@ class List extends Array {
    * // returns ['B', 'C', 'D', 'E', 'A']
    */
   move(item, index) {
+
+    if (index < 0 || index > this.length - 1) {
+      return this;
+    }
+
     const i = this.indexOf(item);
     
     if (i === -1) {
@@ -200,7 +205,7 @@ class List extends Array {
     }
     
     this.splice(i, 1);
-    this.splice(index -1, item);
+    this.splice(index, 0, item);
 
     return this;
   }
