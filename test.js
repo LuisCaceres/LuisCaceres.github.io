@@ -1050,7 +1050,7 @@ function generateList(outcoming, incoming) {
     chart1.swap('All Star', 'Mi Chico Latino');
     chart2.swap('All Star', 'Mi Chico Latino');
  
-    const database = createDatabase(...group.slice(0, -2));
+    const database = createDatabase(...group.slice(0, 8));
     const entries = Chart.detector3(chartA, chartB, database);
 
     expect(entries.length).to.equal(1);
@@ -1065,7 +1065,7 @@ function generateList(outcoming, incoming) {
   }
   { // POSITION 04
     const [chart1, chart2, chartA, chartB] = charts.slice(6, 10);
-    const database = createDatabase(...charts.slice(0, -2));
+    const database = createDatabase(...charts.slice(0, 8));
     const entries = Chart.detector3(chartA, chartB, database);
 
     expect(entries.length).to.equal(1);
