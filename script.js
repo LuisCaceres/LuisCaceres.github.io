@@ -184,6 +184,28 @@ class List extends Array {
    }
 
   
+  /* Find `item` in this list. If found, move `item1` to `index`. 
+   * @param {*} item -
+   * @param {Number} index -
+   * @returns {List} - this list.
+   * @example
+   * new List('A', 'B', 'C', 'D', 'E').move('A', 5);
+   * // returns ['B', 'C', 'D', 'E', 'A']
+   */
+  move(item, index) {
+    const i = this.indexOf(item);
+    
+    if (i === -1) {
+      return this;
+    }
+    
+    this.splice(i, 1);
+    this.splice(index -1, item);
+
+    return this;
+  }
+
+
   /*
    *
    */
@@ -234,7 +256,7 @@ class List extends Array {
     return this;
   }
 
-  
+
   /* Find `item1` and `item2` in this list. If found, move `item1` to `item2`'s position and viceversa. 
    * @param {*} item1 -
    * @param {*} item2 -
