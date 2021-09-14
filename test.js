@@ -989,6 +989,7 @@ function generateList(outcoming, incoming) {
     const entries = Chart.detector3(chartA, chartB, database);
 
     expect(entries.length).to.equal(0);
+  }
 }
 // WEEK 6
 {
@@ -998,6 +999,7 @@ function generateList(outcoming, incoming) {
     const entries = Chart.detector3(chartA, chartB, database);
 
     expect(entries.length).to.equal(0);
+  }
 }
 // WEEK 7
 {
