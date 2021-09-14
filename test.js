@@ -1043,13 +1043,19 @@ function generateList(outcoming, incoming) {
 // WEEK 9
 {
   { // POSITION 01
-    const [chart1, chart2, chartA, chartB] = charts.slice(6, 10).map(chart => chart.slice());
-    const database = createDatabase(...charts.slice(0, -2));
+    const group = charts.map(chart => chart.slice());
+    const [chart1, chart2, chartA, chartB] = group.slice(6, 10);
+
+    chart1.swap('Angels', 'Mi Chico Latino');
+    chart1.swap('All Star', 'Mi Chico Latino');
+    chart2.swap('All Star', 'Mi Chico Latino');
+ 
+    const database = createDatabase(...group.slice(0, -2));
     const entries = Chart.detector3(chartA, chartB, database);
 
     expect(entries.length).to.equal(1);
     expect(entries).to.include('I Need To Know');
-
+    
     {
       const value = Chart.corrector3(entries[0], chartA, chartB, database);
 
