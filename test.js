@@ -1057,15 +1057,7 @@ function generateList(outcoming, incoming) {
   }
   
   { // POSITION 01
-//     const group = charts.map(chart => chart.slice());
-//     const [chart1, chart2, chartA, chartB] = group.slice(6, 10);
-
-//     chart1.move('Mi Chico Latino', 0);
-//     chart2.move('Mi Chico Latino', 0);
- 
-//     const database = createDatabase(...group.slice(0, 8));
-    const entries = entries[0]; // Chart.detector3(chartA, chartB, database);
-
+    const entries = values[0];
     expect(entries.length).to.equal(1);
     expect(entries).to.include('I Need To Know');
     
@@ -1077,10 +1069,7 @@ function generateList(outcoming, incoming) {
     }
   }
   { // POSITION 04
-    const [chart1, chart2, chartA, chartB] = charts.slice(6, 10);
-    const database = createDatabase(...charts.slice(0, 8));
-    const entries = Chart.detector3(chartA, chartB, database);
-
+    const entries = values[3];
     expect(entries.length).to.equal(1);
     expect(entries).to.include('I Need To Know');
 
