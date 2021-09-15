@@ -1056,7 +1056,7 @@ function generateList(outcoming, incoming) {
         chartA,
         chartB,
         database, 
-      }));
+      });
     }
 
     return values;
