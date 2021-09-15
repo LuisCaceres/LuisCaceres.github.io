@@ -1044,7 +1044,7 @@ function generateList(outcoming, incoming) {
     for (let index = 0; index < 20; index++) {
       const group = charts.map(chart => chart.slice());
       const [chart1, chart2, chartA, chartB] = group.slice(week - 3, week + 1);
-      const entry = chart1.at(index + 1);
+      const entry = chartA.at(index + 1);
       
       chart1.move(entry, index);
       chart2.move(entry, index);
