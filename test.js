@@ -982,10 +982,10 @@ function foo(week, charts) {
 }
 // WEEK 4
 {
-  {
-    const [chart1, chart2, chartA, chartB] = charts.slice(1, 5);
-    const database = createDatabase(...charts.slice(0, 3));
-    const entries = Chart.detector3(chartA, chartB, database);
+  const values = foo(4, charts);
+
+  { // POSITION 03
+    const { entries, chartA, chartB, database } = values[2];
 
     expect(entries.length).to.equal(1);
     expect(entries).to.include('Someday We\'ll Know');
@@ -1021,10 +1021,10 @@ function foo(week, charts) {
 }
 // WEEK 7
 {
-  {
-    const [chart1, chart2, chartA, chartB] = charts.slice(4, 8);
-    const database = createDatabase(...charts.slice(0, 6));
-    const entries = Chart.detector3(chartA, chartB, database);
+  const values = foo(7, charts);
+
+  { // POSITION 09
+    const { entries, chartA, chartB, database } = values[8];
 
     expect(entries.length).to.equal(1);
     expect(entries).to.include('Si Me Advertí');
@@ -1040,10 +1040,10 @@ function foo(week, charts) {
 }
 // WEEK 8
 {
-  {
-    const [chart1, chart2, chartA, chartB] = charts.slice(5, 9);
-    const database = createDatabase(...charts.slice(0, 7));
-    const entries = Chart.detector3(chartA, chartB, database);
+  const values = foo(8, charts);
+
+  { // POSITION 06
+    const { entries, chartA, chartB, database } = values[5];
 
     expect(entries.length).to.equal(1);
     expect(entries).to.include('New');
