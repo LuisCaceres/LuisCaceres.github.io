@@ -1052,7 +1052,7 @@ function generateList(outcoming, incoming) {
       const database = createDatabase(...group.slice(0, week - 1));
       
       values.push({
-        entries: Chart.detector3(chartA, chartB, database,
+        entries: Chart.detector3(chartA, chartB, database),
         chartA,
         chartB,
         database, 
