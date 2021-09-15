@@ -771,8 +771,6 @@ function generateList(outcoming, incoming) {
 //   }
 
 { // WEEK 3
-  const values = foo();
-  
   { // POSITION 2
     const [chart1, chart2, chartA, chartB] = charts.map(chart => chart.slice());
     const database = createDatabase(chart1, chart2);
@@ -842,7 +840,7 @@ function generateList(outcoming, incoming) {
 
       expect(value.length).to.equal(4);                // Someday
       expect(value).to.include('Puente');              // [02, 02, 01, 06] [01, 01, 02, 04]
-      expect(value).to.include('All Star');            // [02, 02, 03, 06] [14, 09, 02, 01] 
+      expect(value).to.include('All Star');            // [02, 02, 03, 06] [14, 09, 02, 01]
       expect(value).to.include('All I Have To Give');  // [02, 02, 04, 06] [03, 03, 02, 07]
       expect(value).to.include('I Need To Know');      // [02, 02, 06, 06] [**, 10, 02, 02]
     }
