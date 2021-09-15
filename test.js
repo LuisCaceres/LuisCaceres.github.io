@@ -1050,17 +1050,24 @@ function generateList(outcoming, incoming) {
       chart2.move(entry, index);
 
       const database = createDatabase(...group.slice(0, week - 1));
-      values.push(Chart.detector3(chartA, chartB, database));
+      
+      values.push({
+        entries: Chart.detector3(chartA, chartB, database,
+        chartA,
+        chartB,
+        database, 
+      }));
     }
 
     return values;
   }
   
   { // POSITION 01
-    const entries = values[0];
+    const { entries, chartA, chartB, database } = values[0];
+
     expect(entries.length).to.equal(1);
     expect(entries).to.include('I Need To Know');
-    
+
     {
       const value = Chart.corrector3(entries[0], chartA, chartB, database);
 
@@ -1069,7 +1076,8 @@ function generateList(outcoming, incoming) {
     }
   }
   { // POSITION 04
-    const entries = values[3];
+    const { entries, chartA, chartB, database } = values[3];
+
     expect(entries.length).to.equal(1);
     expect(entries).to.include('I Need To Know');
 
