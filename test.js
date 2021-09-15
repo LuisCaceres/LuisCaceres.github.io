@@ -770,6 +770,30 @@ function generateList(outcoming, incoming) {
 //   expect(chart[00]).to.equal('R');
 //   }
 
+function foo(week, charts) {
+  const values = [];
+
+  for (let index = 0; index < 20; index++) {
+    const group = charts.map(chart => chart.slice());
+    const [chart1, chart2, chartA, chartB] = group.slice(week - 3, week + 1);
+    const entry = chartA.at(index + 1);
+
+    chart1.move(entry, index);
+    chart2.move(entry, index);
+
+    const database = createDatabase(...group.slice(0, week - 1));
+
+    values.push({
+      entries: Chart.detector3(chartA, chartB, database),
+      chartA,
+      chartB,
+      database, 
+    });
+  }
+
+  return values;
+}
+
 { // WEEK 3
   { // POSITION 2
     const [chart1, chart2, chartA, chartB] = charts.map(chart => chart.slice());
@@ -1037,31 +1061,7 @@ function generateList(outcoming, incoming) {
 // WEEK 9
 {
   const values = foo(9, charts);
- 
-  function foo(week, charts) {
-    const values = [];
 
-    for (let index = 0; index < 20; index++) {
-      const group = charts.map(chart => chart.slice());
-      const [chart1, chart2, chartA, chartB] = group.slice(week - 3, week + 1);
-      const entry = chartA.at(index + 1);
-      
-      chart1.move(entry, index);
-      chart2.move(entry, index);
-
-      const database = createDatabase(...group.slice(0, week - 1));
-      
-      values.push({
-        entries: Chart.detector3(chartA, chartB, database),
-        chartA,
-        chartB,
-        database, 
-      });
-    }
-
-    return values;
-  }
-  
   { // POSITION 01
     const { entries, chartA, chartB, database } = values[0];
 
