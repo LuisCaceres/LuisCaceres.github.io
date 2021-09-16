@@ -770,28 +770,29 @@ function generateList(outcoming, incoming) {
 //   expect(chart[00]).to.equal('R');
 //   }
 
-function foo(week, charts) {
-  const values = [];
+function foo(week, charts, tests) {
 
   for (let index = 0; index < 20; index++) {
     const group = charts.map(chart => chart.slice());
     const [chart1, chart2, chartA, chartB] = group.slice(week - 3, week + 1);
+    
     const entry = chartA.at(index + 1);
-
     chart1.move(entry, index);
     chart2.move(entry, index);
 
     const database = createDatabase(...group.slice(0, week - 1));
+    const entries = Chart.detector3(chartA, chartB, database);
 
-    values.push({
-      entries: Chart.detector3(chartA, chartB, database),
-      chartA,
-      chartB,
-      database, 
+    tests[index].forEach((test, index) => {
+
+      if (index === 0) {
+        test(entries);
+      }
+      else {
+        test(entries[index]);
+      }
     });
   }
-
-  return values;
 }
 
 { // WEEK 3
@@ -1061,6 +1062,31 @@ function foo(week, charts) {
 // WEEK 9
 {
   const values = foo(9, charts);
+
+  const tests = [];
+  tests[0] = [
+    function (entries) {
+       expect(entries.length).to.equal(1);
+       expect(entries).to.include('I Need To Know');
+    },
+    function (entry) {
+      expect(value.length).to.equal(1);                   // I Need To Know
+      expect(value).to.include('That\'s The Way It Is');  // [04, 04, 06, 06] [05, 05, 04, 09]
+    },
+  };
+  tests[1] = [];
+  tests[2] = [];
+  tests[3] = [
+    function (entries) {
+       expect(entries.length).to.equal(1);
+       expect(entries).to.include('I Need To Know');
+    },
+    function (entry) {
+      expect(value.length).to.equal(1);                   // I Need To Know
+      expect(value).to.include('That\'s The Way It Is');  // [04, 04, 06, 06] [05, 05, 04, 09]
+    },
+  };
+  
 
   { // POSITION 01
     const { entries, chartA, chartB, database } = values[0];
