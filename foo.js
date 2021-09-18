@@ -48,16 +48,23 @@ function createTable(...charts) {
   }
 
   const tbody = document.createElement('tbody');
-  const titles = createDatabase(...charts);
+  
+  const titles = new Set();
+  
+  for (const chart of charts) {
+    for (const entry of chart) {
+      titles.add(entry);
+    }
+  }  
 
-  for (const [title, data] of titles) {
+  for (const title of titles) {
     const row = tbody.insertRow();
     const cell = row.insertCell();
     cell.textContent = title;
-
-    for (const position of data.history) {
+    
+    for (const chart of charts) {
       const cell = row.insertCell();
-      cell.textContent = position;
+      cell.textContent = chart.includes(title) ? chart.positionOf(title) : "**";
     }
   }
 
