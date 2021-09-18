@@ -137,7 +137,7 @@ function runTests(week, charts, tests) {
     ],
   ];
 
-  runTests(9, charts);  
+  runTests(9, charts, tests);  
 }
   
 // WEEK 10 - IMPOSSIBLE TO TEST WEEK 10 BECAUSE WEEK 11 IS UNAVAILABLE.
