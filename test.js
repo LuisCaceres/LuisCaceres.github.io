@@ -1,22 +1,3 @@
-function createDatabase(...charts) {
-  const database = new Map();
-
-  for (const chart of charts) {
-
-    chart.forEach((entry, index) => { 
-
-      if (database.has(entry) === false) {
-        database.set(entry, {history: []});
-      }
-
-      database.get(entry).history.push(index + 1);
-    });
-  }
-
-  return database;
-}
-
-
 const charts = [
 
   // WEEK 1
@@ -770,31 +751,6 @@ function generateList(outcoming, incoming) {
 //   expect(chart[00]).to.equal('R');
 //   }
 
-function foo(week, charts, tests) {
-
-  for (let index = 0; index < 20; index++) {
-    const group = charts.map(chart => chart.slice());
-    const [chart1, chart2, chartA, chartB] = group.slice(week - 3, week + 1);
-    
-    const entry = chartA.at(index + 1);
-    chart1.move(entry, index);
-    chart2.move(entry, index);
-
-    const database = createDatabase(...group.slice(0, week - 1));
-    const entries = Chart.detector3(chartA, chartB, database);
-
-    tests[index].forEach((test, index) => {
-
-      if (index === 0) {
-        test(entries);
-      }
-      else {
-        test(entries[index]);
-      }
-    });
-  }
-}
-
 { // WEEK 3
   { // POSITION 2
     const [chart1, chart2, chartA, chartB] = charts.map(chart => chart.slice());
@@ -1058,63 +1014,6 @@ function foo(week, charts, tests) {
       expect(value).to.include('Maria Maria');            // [06, 06, 08, 09] [**, 08, 06, 05]
     }
   }
-}
-// WEEK 9
-{
-  const values = foo(9, charts);
-
-  const tests = [];
-  tests[0] = [
-    function (entries) {
-       expect(entries.length).to.equal(1);
-       expect(entries).to.include('I Need To Know');
-    },
-    function (entry) {
-      expect(value.length).to.equal(1);                   // I Need To Know
-      expect(value).to.include('That\'s The Way It Is');  // [04, 04, 06, 06] [05, 05, 04, 09]
-    },
-  };
-  tests[1] = [];
-  tests[2] = [];
-  tests[3] = [
-    function (entries) {
-       expect(entries.length).to.equal(1);
-       expect(entries).to.include('I Need To Know');
-    },
-    function (entry) {
-      expect(value.length).to.equal(1);                   // I Need To Know
-      expect(value).to.include('That\'s The Way It Is');  // [04, 04, 06, 06] [05, 05, 04, 09]
-    },
-  };
-  
-
-  { // POSITION 01
-    const { entries, chartA, chartB, database } = values[0];
-
-    expect(entries.length).to.equal(1);
-    expect(entries).to.include('I Need To Know');
-
-    {
-      const value = Chart.corrector3(entries[0], chartA, chartB, database);
-
-      expect(value.length).to.equal(1);                   // I Need To Know
-      expect(value).to.include('That\'s The Way It Is');  // [04, 04, 06, 06] [05, 05, 04, 09]
-    }
-  }
-  { // POSITION 04
-    const { entries, chartA, chartB, database } = values[3];
-
-    expect(entries.length).to.equal(1);
-    expect(entries).to.include('I Need To Know');
-
-    {
-      const value = Chart.corrector3(entries[0], chartA, chartB, database);
-
-      expect(value.length).to.equal(1);                   // I Need To Know
-      expect(value).to.include('That\'s The Way It Is');  // [04, 04, 06, 06] [05, 05, 04, 09]
-    }
-  }
-// WEEK 10 - IMPOSSIBLE TO TEST WEEK 10 BECAUSE WEEK 11 IS UNAVAILABLE.
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
