@@ -50,12 +50,12 @@ function createTable(...charts) {
   const tbody = document.createElement('tbody');
   const titles = createDatabase(...charts);
 
-  for (const [title, history] of titles) {
+  for (const [title, data] of titles) {
     const row = tbody.insertRow();
     const cell = row.insertCell();
     cell.textContent = title;
 
-    for (const position of history) {
+    for (const position of data.history) {
       const cell = row.insertCell();
       cell.textContent = position;
     }
