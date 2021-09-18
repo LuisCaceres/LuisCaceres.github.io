@@ -36,24 +36,29 @@ function createDatabase(...charts) {
  */
 function createTable(...charts) {  
   const table = document.createElement('table');
-  
+
   const thead = document.createElement('thead');
   const row = thead.insertRow();
   const cell = row.insertCell();
   cell.textContent = "Title";
-  
+
   for (const chart of charts) {
     const cell = row.insertCell();
     cell.textContent = "Position";
   }
-  
+
   const tbody = document.createElement('tbody');
   const titles = createDatabase(...charts);
-  
-  for (const title of titles) {
+
+  for (const [title, history] of titles) {
     const row = tbody.insertRow();
     const cell = row.insertCell();
     cell.textContent = title;
+
+    for (const position of history) {
+      const cell = row.insertCell();
+      cell.textContent = position;
+    }
   }
 
   table.append(thead, tbody);
