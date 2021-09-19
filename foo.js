@@ -72,7 +72,7 @@ function createTable(...charts) {
     const cells = [...tbody.querySelectorAll(selector)];
 
     cells.sort((a, b) => {
-      return +a.textContent > +b.textContent ? -1 : 1; 
+      return +a.textContent > +b.textContent ? 1 : -1; 
     });
 
     cells.forEach(cell => {
