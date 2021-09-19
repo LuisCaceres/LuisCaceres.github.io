@@ -47,24 +47,28 @@ function createTable(...charts) {
     cell.textContent = "Position";
   }
 
-  const tbody = document.createElement('tbody');
-  
-  const titles = new Set();
-  
-  for (const chart of charts) {
-    for (const entry of chart) {
-      titles.add(entry);
-    }
-  }  
+  const tbody = document.createElement('tbody'); 
+  const titles = new Set();   
 
-  for (const title of titles) {
-    const row = tbody.insertRow();
-    const cell = row.insertCell();
-    cell.textContent = title;
+  for (const chart of charts) {
     
-    for (const chart of charts) {
+    for (const entry of chart) {
+      
+      if (titles.has(title)) {
+        break;
+      }
+      
+      titles.add(entry);
+
+      const row = tbody.insertRow();
       const cell = row.insertCell();
-      cell.textContent = chart.includes(title) ? chart.positionOf(title) : "**";
+      
+      cell.textContent = title;
+
+      for (const chart of charts) {
+        const cell = row.insertCell();
+        cell.textContent = chart.includes(title) ? chart.positionOf(title) : "**";
+      }
     }
   }
 
