@@ -41,7 +41,7 @@ function displayTable(...charts) {
 
   // Create a new table.
   const table = document.createElement('table');
-  table.classList.dataset.component = 'table'; 
+  table.dataset.component = 'table'; 
 
   // Insert table headers.
   const thead = document.createElement('thead');
