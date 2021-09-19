@@ -37,7 +37,7 @@ function createDatabase(...charts) {
 function displayTable(...charts) {
 
   // Remove table currently displayed.
-  document.querySelector('[data-component=table]')&&remove();
+  document.querySelector('[data-component=table]')?.remove();
 
   // Create a new table.
   const table = document.createElement('table');
