@@ -68,18 +68,15 @@ function createTable(...charts) {
 
     const cell = event.target;
     const tbody = cell.closest('table').querySelector('tbody');
-    const selector = `td:nth-of-type(${cell.cellIndex + 1}`;
+    const selector = `td:nth-of-type(${index + 1}`;
     const cells = [...tbody.querySelectorAll(selector)];
 
     cells.sort((a, b) => {
       return +a.textContent > +b.textContent ? 1 : -1; 
     });
-
-    cells.forEach(cell => {
-        const row = cell.closest('tr');
-        const tbody = row.closest('tbody');
-        tbody.append(row);
-    });
+    
+    const rows = cells.map(cell => cell.closest('tr'));
+    tbody.append(...rows);
   });
 }
 
