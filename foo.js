@@ -1,3 +1,8 @@
+function adjust(...charts) {
+  
+}
+
+
 /* Return
  * @param {Chart} charts -
  * @return {Map}
@@ -106,7 +111,7 @@ function runTests(week, charts, tests) {
   for (let index = 0; index < 20; index++) {
     const group = charts.map(chart => chart.slice());
     const [chart1, chart2, chartA, chartB] = group.slice(week - 3, week + 1);
-    
+
     const entry = chartA.at(index + 1);
     chart1.move(entry, index);
     chart2.move(entry, index);
