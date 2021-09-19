@@ -92,13 +92,13 @@ function runTests(week, charts, tests) {
     chart1.move(entry, index);
     chart2.move(entry, index);
 
-    const database = createDatabase(...groups.before(chartA));
+    const database = createDatabase(...group.before(chartA));
     const entries = Chart.detector3(chartA, chartB, database);
     
     
     // TO DO: Use chart.corrector3 here
     
-    createTable(...groups.before(chartB), chartB);
+    createTable(...group.before(chartB), chartB);
     debugger;
 
     tests[index].forEach((test, index) => {
