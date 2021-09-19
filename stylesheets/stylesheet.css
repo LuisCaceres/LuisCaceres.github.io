@@ -70,10 +70,10 @@ table {
   text-align: center;
 }
 
-[data-component=table] td:nth-of-type(odd) {
-  background: aliceblue;
-}
-
 [data-component=table] td:first-of-type {
   text-align: left;
+}
+
+[data-component=table] tr:nth-of-type(odd) {
+  background: aliceblue;
 }
