@@ -11,13 +11,13 @@ function createDatabase(...charts) {
   const database = new Map();
 
   for (const chart of charts) {
-    chart.forEach((entry, index) => { 
+    chart.forEach(entry => {
 
       if (database.has(entry) === false) {
         database.set(entry, {history: []});
       }
 
-      database.get(entry).history.push(index + 1);
+      database.get(entry).history.push(chart.positionOf(entry));
     });
   }
 
