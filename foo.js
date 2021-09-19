@@ -52,7 +52,7 @@ function createTable(...charts) {
     row.insertCell().textContent = entry;
 
     for (const chart of charts) {
-      row.insertCell().textContent = chart.includes(entry) ? chart.positionOf(entry) : "**";
+      row.insertCell().textContent = chart.includes(entry) ? chart.positionOf(entry) : 21;
     }  
   });
 
@@ -71,11 +71,7 @@ function createTable(...charts) {
     const selector = `td:nth-of-type(${cell.cellIndex + 1}`;
     const cells = [...tbody.querySelectorAll(selector)];
 
-    cells.sort((a, b) => { 
-      if (a.textContent === '**') {
-        return -1;
-      }
-
+    cells.sort((a, b) => {
       return +a.textContent > +b.textContent ? -1 : 1; 
     });
 
