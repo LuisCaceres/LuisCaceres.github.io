@@ -48,26 +48,26 @@ function createTable(...charts) {
   }
 
   const tbody = document.createElement('tbody'); 
-  const titles = new Set();   
+  const entries = new Set();   
 
   for (const chart of charts) {
     
     for (const entry of chart) {
       
-      if (titles.has(title)) {
+      if (entries.has(entry)) {
         break;
       }
       
-      titles.add(entry);
+      entries.add(entry);
 
       const row = tbody.insertRow();
       const cell = row.insertCell();
       
-      cell.textContent = title;
+      cell.textContent = entry;
 
       for (const chart of charts) {
         const cell = row.insertCell();
-        cell.textContent = chart.includes(title) ? chart.positionOf(title) : "**";
+        cell.textContent = chart.includes(entry) ? chart.positionOf(entry) : "**";
       }
     }
   }
