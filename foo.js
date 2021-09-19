@@ -58,6 +58,29 @@ function createTable(...charts) {
 
   table.append(thead, tbody);
   document.body.append(table);
+  
+  thead.addEventListener('click', {target} => {
+    const index = target.cellIndex;
+    
+    if (index === -1) {
+      return;
+    }
+   
+    const cell = target;
+    const table = cell.closest('table');
+    const selector = `td:nth-of-type(${cell.cellIndex + 1}`;
+    const cells = [...table.querySelectorAll(selector)];
+    
+    cells.sort((a, b) => {
+      return +a.textContent < +b.textContent ? -1 : 1; 
+    });
+
+    cells.forEach(cell => {
+        const row = cell.closest('tr');
+        const tbody = row.closest('tbody');
+        tbody.append(row);
+    });
+  });
 }
 
 
