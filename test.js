@@ -1,4 +1,4 @@
-const charts = [
+const charts = new List(
 
   // WEEK 1
   new Chart(
@@ -239,7 +239,7 @@ const charts = [
     /* 02 */ 'Fly Away',
     /* 01 */ 'Mi Chico Latino',
   ),
-];
+);
 
 charts.forEach(chart => chart.reverse());
 
