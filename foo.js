@@ -138,9 +138,9 @@ function runTests(week, charts, tests) {
        expect(entries.length).to.equal(1);
        expect(entries).to.include('I Need To Know');
       },
-      function (entry) {
-        expect(value.length).to.equal(1);                   // I Need To Know
-        expect(value).to.include('That\'s The Way It Is');  // [04, 04, 06, 06] [05, 05, 04, 09]
+      function (entries) {
+        expect(entries.length).to.equal(1);                   // I Need To Know
+        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06] [05, 05, 04, 09]
       },
     ],
     // POSITION 2
@@ -149,9 +149,9 @@ function runTests(week, charts, tests) {
        expect(entries.length).to.equal(1);
        expect(entries).to.include('I Need To Know');
       },
-      function (entry) {
-        expect(value.length).to.equal(1);                   // I Need To Know
-        expect(value).to.include('That\'s The Way It Is');  // [04, 04, 06, 06] [05, 05, 04, 09]
+      function (entries) {
+        expect(entries.length).to.equal(1);                   // I Need To Know
+        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06] [05, 05, 04, 09]
       },
     ],
   ];
