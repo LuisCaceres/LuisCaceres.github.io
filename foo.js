@@ -1,8 +1,3 @@
-function adjust(...charts) {
-  
-}
-
-
 /* Return
  * @param {Chart} charts -
  * @return {Map}
