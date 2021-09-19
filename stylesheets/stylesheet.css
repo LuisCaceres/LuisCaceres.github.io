@@ -63,3 +63,17 @@ table {
   justify-self: center;
   grid-area: 1/1;
 }
+
+[data-component=table] {
+  display: table;
+  background: wheat;
+  text-align: center;
+}
+
+[data-component=table] td:nth-of-type(odd) {
+  background: aliceblue;
+}
+
+[data-component=table] td:first-of-type {
+  text-align: left;
+}
