@@ -67,9 +67,9 @@ function createTable(...charts) {
     }
    
     const cell = event.target;
-    const table = cell.closest('table');
+    const tbody = cell.closest('table').querySelector('tbody');
     const selector = `td:nth-of-type(${cell.cellIndex + 1}`;
-    const cells = [...table.querySelectorAll(selector)];
+    const cells = [...tbody.querySelectorAll(selector)];
     
     cells.sort((a, b) => {
       return +a.textContent < +b.textContent ? -1 : 1; 
