@@ -61,18 +61,22 @@ function createTable(...charts) {
   
   thead.addEventListener('click', event => {
     const index = event.target.cellIndex;
-    
+
     if (index === -1) {
       return;
     }
-   
+
     const cell = event.target;
     const tbody = cell.closest('table').querySelector('tbody');
     const selector = `td:nth-of-type(${cell.cellIndex + 1}`;
     const cells = [...tbody.querySelectorAll(selector)];
-    
-    cells.sort((a, b) => {
-      return +a.textContent < +b.textContent ? -1 : 1; 
+
+    cells.sort((a, b) => { 
+      if (a.textContent === '**') {
+        return -1;
+      }
+
+      return +a.textContent > +b.textContent ? -1 : 1; 
     });
 
     cells.forEach(cell => {
