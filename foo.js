@@ -34,30 +34,25 @@ function createDatabase(...charts) {
  * createDatabase(chart1, chart2);
  * // Returns {'A' => { history: [1, 5])}, 'B' => { history: [2, 4])}, 'C' => { history: [3, 3])}, 'D' => { history: [4, 2])}, 'E' => { history: [5, 1])}}
  */
-function createTable(...charts) {  
+function createTable(...charts) {
   const table = document.createElement('table');
 
   const thead = document.createElement('thead');
   const row = thead.insertRow();
-  const cell = row.insertCell();
-  cell.textContent = "Title";
+  row.insertCell().textContent = "Title";
 
   for (const chart of charts) {
-    const cell = row.insertCell();
-    cell.textContent = "Position";
+    row.insertCell().textContent = "Position";
   }
 
   const tbody = document.createElement('tbody'); 
   
   new Set(charts.flat()).forEach(entry => {
     const row = tbody.insertRow();
-    const cell = row.insertCell();
-
-    cell.textContent = entry;
+    row.insertCell().textContent = entry;
 
     for (const chart of charts) {
-      const cell = row.insertCell();
-      cell.textContent = chart.includes(entry) ? chart.positionOf(entry) : "**";
+      row.insertCell().textContent = chart.includes(entry) ? chart.positionOf(entry) : "**";
     }  
   });
 
