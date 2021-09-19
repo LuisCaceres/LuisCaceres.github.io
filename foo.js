@@ -34,9 +34,16 @@ function createDatabase(...charts) {
  * createDatabase(chart1, chart2);
  * // Returns {'A' => { history: [1, 5])}, 'B' => { history: [2, 4])}, 'C' => { history: [3, 3])}, 'D' => { history: [4, 2])}, 'E' => { history: [5, 1])}}
  */
-function createTable(...charts) {
-  const table = document.createElement('table');
+function displayTable(...charts) {
 
+  // Remove table currently displayed.
+  document.querySelector('[data-component=table]')&&remove();
+
+  // Create a new table.
+  const table = document.createElement('table');
+  table.classList.dataset.component = 'table'; 
+
+  // Insert table headers.
   const thead = document.createElement('thead');
   const row = thead.insertRow();
   row.insertCell().textContent = "Title";
@@ -45,8 +52,10 @@ function createTable(...charts) {
     row.insertCell().textContent = "Position";
   }
 
+  // Insert table rows.
   const tbody = document.createElement('tbody'); 
   
+  // For each unique entry in `charts`.
   new Set(charts.flat()).forEach(entry => {
     const row = tbody.insertRow();
     row.insertCell().textContent = entry;
@@ -57,6 +66,8 @@ function createTable(...charts) {
   });
 
   table.append(thead, tbody);
+  
+  // Display table.
   document.body.append(table);
   
   thead.addEventListener('click', event => {
@@ -102,12 +113,8 @@ function runTests(week, charts, tests) {
 
     const database = createDatabase(...group.before(chartA));
     const entries = Chart.detector3(chartA, chartB, database);
-    
-    
-    // TO DO: Use chart.corrector3 here
-    
+ 
     createTable(...group.before(chartB), chartB);
-    debugger;
 
     tests[index].forEach((test, index) => {
 
@@ -115,7 +122,8 @@ function runTests(week, charts, tests) {
         test(entries);
       }
       else {
-        test(entries[index]);
+        const values = Chart.corrector3(entries.shift(), chartA, chartB, database);
+        test(values);
       }
     });
   }
