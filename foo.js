@@ -59,14 +59,14 @@ function createTable(...charts) {
   table.append(thead, tbody);
   document.body.append(table);
   
-  thead.addEventListener('click', {target} => {
-    const index = target.cellIndex;
+  thead.addEventListener('click', event => {
+    const index = event.target.cellIndex;
     
     if (index === -1) {
       return;
     }
    
-    const cell = target;
+    const cell = event.target;
     const table = cell.closest('table');
     const selector = `td:nth-of-type(${cell.cellIndex + 1}`;
     const cells = [...table.querySelectorAll(selector)];
