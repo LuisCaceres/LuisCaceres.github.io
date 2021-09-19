@@ -114,7 +114,7 @@ function runTests(week, charts, tests) {
     const database = createDatabase(...group.before(chartA));
     const entries = Chart.detector3(chartA, chartB, database);
  
-    createTable(...group.before(chartB), chartB);
+    displayTable(...group.before(chartB), chartB);
 
     tests[index].forEach((test, index) => {
 
