@@ -386,7 +386,7 @@ class NumberList extends Array {
       else {
         foo.push(bar);
         start = index;
-        bar = [];
+        bar = [n];
       }
     });
 
