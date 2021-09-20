@@ -284,7 +284,6 @@ class List extends Array {
 }
 
 
-
 /*
  *
  */
@@ -344,6 +343,54 @@ class NumberList extends Array {
    */
   isDecreasing() {
     return this.slice().reverse().isIncreasing();
+  }
+  
+  
+  /* Returns true
+   * @example
+   * // Returns true
+   * new NumberList(1, 1, 1, 1, 1).isOrdered();
+   * new NumberList(1, 2, 3, 4, 5).isOrdered();
+   * new NumberList(5, 4, 3, 2, 1).isOrdered();
+   * // Returns false
+   * new NumberList(1, 2, 3, 4, 1).isOrdered();
+   * @return {Boolean}
+   */  
+  isOrdered() {
+     return this.isDecreasing() || this.isFlat() || this.isIncreasing();
+  }
+  
+  
+  /* Returns true
+   * @example
+   * // Returns true
+   * new NumberList(1, 1, 1, 1, 1).isOrdered();
+   * new NumberList(1, 2, 3, 4, 5).isOrdered();
+   * new NumberList(5, 4, 3, 2, 1).isOrdered();
+   * // Returns false
+   * new NumberList(1, 2, 3, 4, 1).isOrdered();
+   * @return {Boolean}
+   */  
+  split() {
+    const foo = []
+    let bar = [];
+    let start = 0;
+    
+    this.forEach((n, index) => {
+      const end = index + 1;
+      const sublist = this.slice(start, end); 
+      
+      if (sublist.isOrdered()) {
+        bar.push(n);
+      }
+      else {
+        foo.push(bar);
+        start = index;
+        bar = [];
+      }
+    });
+
+    return foo;
   }
 
 
