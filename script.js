@@ -372,25 +372,24 @@ class NumberList extends Array {
    * @return {Boolean}
    */  
   split() {
-    const foo = []
-    let bar = [];
+    let list = [];
+    const lists = [list];
     let start = 0;
     
     this.forEach((n, index) => {
-      const end = index + 1;
-      const sublist = this.slice(start, end); 
+      const sublist = this.slice(start, index + 1); 
       
       if (sublist.isOrdered()) {
-        bar.push(n);
+        list.push(n);
       }
       else {
-        foo.push(bar);
+        list = [n];
+        lists.push(list);
         start = index;
-        bar = [n];
       }
     });
 
-    return foo;
+    return lists;
   }
 
 
