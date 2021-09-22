@@ -1424,7 +1424,7 @@ function generateList(outcoming, incoming) {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// isAscending()
+// isIncreasing()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //
 {
@@ -1452,6 +1452,15 @@ function generateList(outcoming, incoming) {
   expect(list.isIncreasing()).to.equal(false);
   expect(list.isDecreasing()).to.equal(false);
   expect(list.isFlat()).to.equal(true);
+}
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// split()
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//
+{
+  const list = new NumberList(21, 21, 15, 12, 8, 4, 4, 3, 1, 1);
+  const sublists = list.split();
+  expect(sublists.length).to.equal(1);
 }
 
 console.log('Testing completed.');
