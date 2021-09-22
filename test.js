@@ -1461,6 +1461,7 @@ function generateList(outcoming, incoming) {
   const list = new NumberList(21, 21, 15, 12, 8, 4, 4, 3, 1, 1);
   const sublists = list.split();
   expect(sublists.length).to.equal(1);
+  expect(sublists[0].length).to.equal(10);
 }
 
 console.log('Testing completed.');
