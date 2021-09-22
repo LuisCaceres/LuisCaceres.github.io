@@ -112,6 +112,23 @@ function runTests(week, charts, tests) {
     chart2.move(entry, index);
 
     const database = createDatabase(...group.before(chartA));
+
+    const (entry of chartA) {
+      const history = new NumberList(...database.get(entry));
+      const sublists = history.split();
+
+      if (sublists.length < 2) {
+        const which = sublists[2].at(0);
+        const whichWeek = sublists[0].length + sublists[1].length + 1;
+        const week = group.at(whichWeek - 1);
+        const position = week.positionOf(entry);
+        
+        for () {
+           week.move(entry, position - 1; );
+        }
+      }
+    }
+    
     const entries = Chart.detector3(chartA, chartB, database);
  
     displayTable(...group.before(chartB), chartB);
