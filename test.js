@@ -1,4 +1,4 @@
-const charts = new List(
+    const charts = new List(
 
   // WEEK 1
   new Chart(
@@ -1482,6 +1482,30 @@ function generateList(outcoming, incoming) {
   expect(sublists[1].length).to.equal(2);
   expect(sublists[1].at(0)).to.equal(3);
   expect(sublists[1].at(-1)).to.equal(3);
+}
+{
+  const list = new NumberList(10, 6, 2, 2, 3, 5, 5, 4, 6);
+  const sublists = list.split();
+  
+  expect(sublists.length).to.equal(3);
+  
+  expect(sublists[0].length).to.equal(4);
+  expect(sublists[0].at(0)).to.equal(10);
+  expect(sublists[0].at(-1)).to.equal(2);
+  
+  expect(sublists[1].length).to.equal(3);
+  expect(sublists[1].at(0)).to.equal(3);
+  expect(sublists[1].at(-1)).to.equal(5);
+  
+  expect(sublists[2].length).to.equal(2);
+  expect(sublists[2].at(0)).to.equal(4);
+  expect(sublists[2].at(-1)).to.equal(6);
+}
+{
+  const list = new NumberList(4, 6, 10, 16);
+  const sublists = list.split();
+  expect(sublists.length).to.equal(1);
+  expect(sublists[0].length).to.equal(4);
 }
 
 console.log('Testing completed.');
