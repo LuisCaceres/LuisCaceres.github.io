@@ -1469,5 +1469,19 @@ function generateList(outcoming, incoming) {
   expect(sublists.length).to.equal(1);
   expect(sublists[0].length).to.equal(4);
 }
+{
+  const list = new NumberList(14, 9, 4, 1, 1, 1, 1, 1, 3, 3);
+  const sublists = list.split();
+  
+  expect(sublists.length).to.equal(2);
+  
+  expect(sublists[0].length).to.equal(8);
+  expect(sublists[0].at(0)).to.equal(14);
+  expect(sublists[0].at(-1)).to.equal(1);
+  
+  expect(sublists[1].length).to.equal(2);
+  expect(sublists[1].at(0)).to.equal(3);
+  expect(sublists[1].at(-1)).to.equal(3);
+}
 
 console.log('Testing completed.');
