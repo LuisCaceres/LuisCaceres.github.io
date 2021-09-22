@@ -1458,10 +1458,16 @@ function generateList(outcoming, incoming) {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //
 {
-  const list = new NumberList(21, 21, 15, 12, 8, 4, 4, 3, 1, 1);
+  const list = new NumberList(15, 12, 8, 4, 4, 3, 1, 1);
   const sublists = list.split();
   expect(sublists.length).to.equal(1);
-  expect(sublists[0].length).to.equal(10);
+  expect(sublists[0].length).to.equal(8);
+}
+{
+  const list = new NumberList(2, 2, 2, 2);
+  const sublists = list.split();
+  expect(sublists.length).to.equal(1);
+  expect(sublists[0].length).to.equal(4);
 }
 
 console.log('Testing completed.');
