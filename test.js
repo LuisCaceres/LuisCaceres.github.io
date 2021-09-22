@@ -1492,14 +1492,73 @@ function generateList(outcoming, incoming) {
   expect(sublists[0].length).to.equal(4);
   expect(sublists[0].at(0)).to.equal(10);
   expect(sublists[0].at(-1)).to.equal(2);
-  
+
   expect(sublists[1].length).to.equal(3);
   expect(sublists[1].at(0)).to.equal(3);
   expect(sublists[1].at(-1)).to.equal(5);
-  
+
   expect(sublists[2].length).to.equal(2);
   expect(sublists[2].at(0)).to.equal(4);
   expect(sublists[2].at(-1)).to.equal(6);
+}
+{
+  const list = new NumberList(9, 8, 5, 5);
+  const sublists = list.split();
+  expect(sublists.length).to.equal(1);
+  expect(sublists[0].length).to.equal(4);
+}
+{
+  const list = new NumberList(19, 15, 13, 8, 6, 6, 6, 9);
+  const sublists = list.split();
+
+  expect(sublists.length).to.equal(2);
+
+  expect(sublists[0].length).to.equal(7);
+  expect(sublists[0].at(0)).to.equal(19);
+  expect(sublists[0].at(-1)).to.equal(6);
+  
+  expect(sublists[1].length).to.equal(1);
+  expect(sublists[1].at(0)).to.equal(9);
+}
+{
+  const list = new NumberList(20, 11, 8, 5, 3, 2, 3, 4, 7, 10);
+  const sublists = list.split();
+
+  expect(sublists.length).to.equal(2);
+
+  expect(sublists[0].length).to.equal(6);
+  expect(sublists[0].at(0)).to.equal(20);
+  expect(sublists[0].at(-1)).to.equal(2);
+  
+  expect(sublists[1].length).to.equal(4);
+  expect(sublists[1].at(0)).to.equal(3);
+  expect(sublists[1].at(-1)).to.equal(10);
+}
+{
+  const list = new NumberList(16, 14, 10, 8, 4);
+  const sublists = list.split();
+  expect(sublists.length).to.equal(1);
+  expect(sublists[0].length).to.equal(5);
+}
+{
+  const list = new NumberList(12, 9, 7, 6, 7, 7, 9, 14);
+  const sublists = list.split();
+
+  expect(sublists.length).to.equal(2);
+
+  expect(sublists[0].length).to.equal(4);
+  expect(sublists[0].at(0)).to.equal(12);
+  expect(sublists[0].at(-1)).to.equal(6);
+  
+  expect(sublists[1].length).to.equal(4);
+  expect(sublists[1].at(0)).to.equal(7);
+  expect(sublists[1].at(-1)).to.equal(14);
+}
+{
+  const list = new NumberList(12, 10, 7);
+  const sublists = list.split();
+  expect(sublists.length).to.equal(1);
+  expect(sublists[0].length).to.equal(3);
 }
 {
   const list = new NumberList(4, 6, 10, 16);
