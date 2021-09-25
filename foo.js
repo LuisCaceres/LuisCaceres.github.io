@@ -105,13 +105,13 @@ function runTests(week, charts, tests) {
   charts = charts.slice(0, week - 3).map(chart => chart.slice());
 
   for (let index = 0; index < 20; index++) {
-    const [chart1, chart2, chartA, chartB] = tests[index].splice(0, 4).map(array => new Chart(...array));
+    const [chart1, chart2, chartA, chartB] = tests[index].slice(0, 4).map(array => new Chart(...array));
     const database = createDatabase(...charts, chart1, chart2);
     const entries = Chart.detector3(chartA, chartB, database);
  
     displayTable(...charts, chart1, chart2, chartA, chartB);
 
-    tests[index].forEach((test, index) => {
+    tests[index].slice(4).forEach((test, index) => {
 
       if (index === 0) {
         test(entries);
