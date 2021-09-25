@@ -111,7 +111,7 @@ function runTests(week, charts, tests) {
  
     displayTable(...charts, chart1, chart2, chartA, chartB);
 
-    tests[index].slice(5).forEach((test, index) => {
+    tests[index].slice(4).forEach((test, index) => {
 
       if (index === 0) {
         test(entries);
