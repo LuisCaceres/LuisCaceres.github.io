@@ -102,36 +102,14 @@ function displayTable(...charts) {
  * // Returns {'A' => { history: [1, 5])}, 'B' => { history: [2, 4])}, 'C' => { history: [3, 3])}, 'D' => { history: [4, 2])}, 'E' => { history: [5, 1])}}
  */
 function runTests(week, charts, tests) {
+  charts = charts.slice(0, week - 3).map(chart => chart.slice());
 
   for (let index = 0; index < 20; index++) {
-    const group = charts.map(chart => chart.slice());
-    const [chart1, chart2, chartA, chartB] = group.slice(week - 3, week + 1);
-
-    const entry = chartA.at(index + 1);
-    chart1.move(entry, index);
-    chart2.move(entry, index);
-
-    const database = createDatabase(...group.before(chartA));
-
-    const (entry of chartA) {
-      const history = new NumberList(...database.get(entry));
-      const sublists = history.split();
-
-      if (sublists.length < 2) {
-        const which = sublists[2].at(0);
-        const whichWeek = sublists[0].length + sublists[1].length + 1;
-        const week = group.at(whichWeek - 1);
-        const position = week.positionOf(entry);
-        
-        for () {
-           week.move(entry, position - 1; );
-        }
-      }
-    }
-    
+    const [chart1, chart2, chartA, chartB] = tests[index].splice(0, 4);
+    const database = createDatabase(...charts, chart1, chart2);
     const entries = Chart.detector3(chartA, chartB, database);
  
-    displayTable(...group.before(chartB), chartB);
+    displayTable(...charts, chart1, chart2, chartA, chartB);
 
     tests[index].forEach((test, index) => {
 
@@ -150,7 +128,11 @@ function runTests(week, charts, tests) {
 {
   const tests = [
     // POSITION 1
-    [
+    [ 
+      [],
+      [],
+      [],
+      [],
       function (entries) {
        expect(entries.length).to.equal(1);
        expect(entries).to.include('I Need To Know');
