@@ -86,7 +86,7 @@ function displayTable(...charts) {
       a = a.textContent;
       b = b.textContent;
 
-      else if (a < b) {
+      if (a < b) {
         return -1;
       }
       else if (a === b) {
