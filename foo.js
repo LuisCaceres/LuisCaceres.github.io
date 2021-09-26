@@ -90,7 +90,7 @@ function displayTable(...charts) {
     });
     
     const rows = cells.map(cell => cell.closest('tr'));
-    tbody.append(...rows);
+    tbody.prepend(...rows);
   });
 }
 
