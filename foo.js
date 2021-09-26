@@ -61,7 +61,7 @@ function displayTable(...charts) {
     row.insertCell().textContent = entry;
 
     for (const chart of charts) {
-      row.insertCell().textContent = chart.includes(entry) ? chart.positionOf(entry) : "";
+      row.insertCell().textContent = chart.includes(entry) ? chart.positionOf(entry) : "_";
     }  
   });
 
@@ -85,14 +85,11 @@ function displayTable(...charts) {
     cells.sort((a, b) => {
       a = a.textContent;
       b = b.textContent;
-      
-      if (a === '' || b === '') {
-        return 1;
-      }
-      else if (+a < +b) {
+
+      else if (a < b) {
         return -1;
       }
-      else if (+a === +b) {
+      else if (a === b) {
         return 0;
       }
       else {
