@@ -1418,7 +1418,33 @@ function generateList(outcoming, incoming) {
   expect(map.get(3)).to.equal('C');
   expect(map.get(4)).to.equal('D');
 }
-  
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// class Matrix
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+{
+    const matrix = new Matrix([1], [2], [3]);
+    matrix.set(0, 0, 3);
+
+    expect(matrix[0][0]).to.equal(3);
+    expect(matrix[1][0]).to.equal(1);
+    expect(matrix[2][0]).to.equal(2);
+}
+
+{
+    const a = [];
+    const b = [];
+    const c = [];
+    
+    const matrix = new Matrix([3, 1, 1], [1, 2, 2], [2, 3, 3]);
+    matrix.set(0, 0, 3);
+
+    expect(matrix[0][0]).to.equal(3);
+    expect(matrix[1][0]).to.equal(1);
+    expect(matrix[2][0]).to.equal(2);
+}
+
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // class NumberList
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
