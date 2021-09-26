@@ -101,7 +101,7 @@ function runTests(week, charts, tests) {
   charts = charts.slice(0, week - 3).map(chart => chart.slice());
 
   for (let index = 0; index < 20; index++) {
-    const [chart1, chart2, chartA, chartB] = tests[index].slice(0, 4).map(array => new Chart(...array));
+    const [chart1, chart2] = tests[index].slice(0, 2).map(array => new Chart(...array));
     const database = createDatabase(...charts, chart1, chart2);
     const entries = Chart.detector3(chartA, chartB, database);
  
@@ -128,8 +128,6 @@ function runTests(week, charts, tests) {
     [ 
       ['Mi Chico Latino', 'All Star', 'Angels', 'I Need To Know', "That's The Way It Is", 'New', "Someday We'll Know", 'Maria Maria', 'Si Me Advertí', 'Someday', 'Fly Away', 'Man! I Feel Like A Woman', 'Puente', 'All Or Nothing', 'No Quiero Verte', 'Super Trouper', 'As Fast As You Can', 'All I Have To Give', "Don't Say You Love Me", 'Dreams In Digital'],
       ['Mi Chico Latino', 'All Star', 'Angels', 'I Need To Know', "That's The Way It Is", 'New', 'Fly Away', 'Maria Maria', "Someday We'll Know", 'All Or Nothing', 'Si Me Advertí', 'Tengo Frío', 'Someday', 'Super Trouper', 'T.V. And Coffee', 'Puente', 'As Fast As You Can', 'Man! I Feel Like A Woman', 'Díselo Con Flores', 'Dreams In Digital'],
-      ['Mi Chico Latino', 'Fly Away', 'All Star', 'I Need To Know', 'Maria Maria', "That's The Way It Is", 'Angels', 'All Or Nothing', 'New', 'Tengo Frío', 'T.V. And Coffee', 'Super Trouper', "I Don't Want To Miss A Thing", "Someday We'll Know", 'Someday', 'Crazy', 'Si Me Advertí', 'Díselo Con Flores', "Keep On Movin'", 'Unpretty'],
-      ['Mi Chico Latino', 'Fly Away', 'All Star', 'All Or Nothing', 'Maria Maria', 'I Need To Know', 'Tengo Frío', 'T.V. And Coffee', "That's The Way It Is", 'Angels', 'Crazy', 'Super Trouper', "I Don't Want To Miss A Thing", 'New', 'Díselo Con Flores', "I'm Sitting Down Here", 'Unpretty', "Keep On Movin'", 'Absolutely Everybody', 'Pretty Fly'],
       
       function (entries) {
        expect(entries.length).to.equal(1);
