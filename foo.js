@@ -83,13 +83,16 @@ function displayTable(...charts) {
     const cells = [...tbody.querySelectorAll(selector)];
 
     cells.sort((a, b) => {
+      a = a.textContent;
+      b = b.textContent;
+      
       if (a === '' || b === '') {
         return 1;
       }
-      else if (+a.textContent < +b.textContent) {
+      else if (+a < +b) {
         return -1;
       }
-      else if (+a.textContent === +b.textContent) {
+      else if (+a === +b) {
         return 0;
       }
       else {
