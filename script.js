@@ -361,17 +361,20 @@ class NumberList extends Array {
   }
   
   
-  /* Returns true
+  /* Returns a list of progressions in this NumberList. A progression is
+   * is a sequence of numbers that express an increment or decrement.
    * @example
-   * // Returns true
-   * new NumberList(1, 1, 1, 1, 1).isOrdered();
-   * new NumberList(1, 2, 3, 4, 5).isOrdered();
-   * new NumberList(5, 4, 3, 2, 1).isOrdered();
-   * // Returns false
-   * new NumberList(1, 2, 3, 4, 1).isOrdered();
-   * @return {Boolean}
+   * new NumberList(1, 1, 1, 1, 1).getProgressions();
+   * // Returns [[1, 1, 1, 1, 1]]
+   * new NumberList(1, 2, 3, 4, 5).getProgressions();
+   * // Returns [[1, 2, 3, 4, 5]]
+   * new NumberList(5, 4, 3, 2, 1).getProgressions();
+   * // Returns [[5, 4, 3, 2, 1]]
+   * new NumberList(1, 2, 3, 4, 1).getProgressions();
+   * // Returns [[1, 2, 3, 4], [1]]
+   * @return {NumberList[]}
    */  
-  split() {
+  getProgressions() {
     let list = [];
     const lists = [list];
     let start = 0;
