@@ -80,7 +80,7 @@ function displayTable(...charts) {
     const cell = event.target;
     const tbody = cell.closest('table').querySelector('tbody');
     const selector = `td:nth-of-type(${index + 1}`;
-    const cells = [...tbody.querySelectorAll(selector)].filter(cell => Number.isInteger(+cell.textContent));
+    const cells = [...tbody.querySelectorAll(selector)].filter(cell => cell.textContent !== '');
 
     cells.sort((a, b) => {
       a = +a.textContent;
