@@ -83,8 +83,8 @@ function displayTable(...charts) {
     const cells = [...tbody.querySelectorAll(selector)].filter(cell => Number.isInteger(+cell.textContent));
 
     cells.sort((a, b) => {
-      a = a.textContent;
-      b = b.textContent;
+      a = +a.textContent;
+      b = +b.textContent;
   
       return a < b ? 1 : -1;
     });
