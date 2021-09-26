@@ -77,19 +77,16 @@ function displayTable(...charts) {
       return;
     }
 
-    const cell = event.target;
-    const tbody = cell.closest('table').querySelector('tbody');
-    const selector = `td:nth-of-type(${index + 1}`;
-    const cells = [...tbody.querySelectorAll(selector)].filter(cell => cell.textContent !== '');
-
-    cells.sort((a, b) => {
-      a = +a.textContent;
-      b = +b.textContent;
+    const [tbody] = event.target.closest('table').tBodies;
+    const rows = [...tbody.rows].filter(row => row.cells[index].textContent !== '');
+    
+    rows.sort((a, b) => {
+      a = +a.cells[index].textContent;
+      b = +b.cells[index].textContent;
   
       return a > b ? 1 : -1;
     });
     
-    const rows = cells.map(cell => cell.closest('tr'));
     tbody.prepend(...rows);
   });
 }
