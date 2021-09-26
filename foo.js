@@ -61,7 +61,7 @@ function displayTable(...charts) {
     row.insertCell().textContent = entry;
 
     for (const chart of charts) {
-      row.insertCell().textContent = chart.includes(entry) ? chart.positionOf(entry) : "_";
+      row.insertCell().textContent = chart.includes(entry) ? chart.positionOf(entry) : "";
     }  
   });
 
@@ -80,21 +80,13 @@ function displayTable(...charts) {
     const cell = event.target;
     const tbody = cell.closest('table').querySelector('tbody');
     const selector = `td:nth-of-type(${index + 1}`;
-    const cells = [...tbody.querySelectorAll(selector)];
+    const cells = [...tbody.querySelectorAll(selector)].filter(cell => Number.isInteger(+cell.textContent));
 
     cells.sort((a, b) => {
       a = a.textContent;
       b = b.textContent;
-
-      if (+a < +b) {
-        return -1;
-      }
-      else if (+a === +b) {
-        return 0;
-      }
-      else {
-        return 1;
-      }
+  
+      return a < b ? 1 : -1:
     });
     
     const rows = cells.map(cell => cell.closest('tr'));
