@@ -102,7 +102,7 @@ function displayTable(...charts) {
  * // Returns {'A' => { history: [1, 5])}, 'B' => { history: [2, 4])}, 'C' => { history: [3, 3])}, 'D' => { history: [4, 2])}, 'E' => { history: [5, 1])}}
  */
 function runTests(week, charts, tests) {  
-  charts = charts.slice(0, week - 3).map(chart => [...chart]);
+  charts = charts.slice(0, week - 3).map(chart => chart.slice());
 
   for (let index = 0; index < 20; index++) {
     const [chart1, chart2, chartA, chartB] = tests[index].slice(0, 4).map(array => new Chart(...array));
