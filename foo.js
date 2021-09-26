@@ -86,7 +86,7 @@ function displayTable(...charts) {
       a = +a.textContent;
       b = +b.textContent;
   
-      return a < b ? -1 : 1;
+      return a > b ? 1 : -1;
     });
     
     const rows = cells.map(cell => cell.closest('tr'));
