@@ -1,4 +1,4 @@
-    const charts = new List(
+const charts = new List(
 
   // WEEK 1
   new Chart(
