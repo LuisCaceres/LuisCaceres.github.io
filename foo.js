@@ -71,23 +71,19 @@ function displayTable(...charts) {
   document.body.append(table);
   
   thead.addEventListener('click', event => {
-    const index = event.target.cellIndex;
+    const header = event.target;
+    const index = header.cellIndex;
+    const body = header.closest('table').tBodies[0];
+    const rows = [...body.rows].filter(row => row.cells[index].textContent !== '');
 
-    if (index === -1) {
-      return;
-    }
+    rows.sort((rowA, rowB) => {
+      const cellA = +rowA.cells[index].textContent;
+      const cellB = +rowB.cells[index].textContent;
 
-    const [tbody] = event.target.closest('table').tBodies;
-    const rows = [...tbody.rows].filter(row => row.cells[index].textContent !== '');
-    
-    rows.sort((a, b) => {
-      a = +a.cells[index].textContent;
-      b = +b.cells[index].textContent;
-  
-      return a > b ? 1 : -1;
+      return cellA > cellB ? 1 : -1;
     });
-    
-    tbody.prepend(...rows);
+
+    body.prepend(...rows);
   });
 }
 
