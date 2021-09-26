@@ -83,7 +83,18 @@ function displayTable(...charts) {
     const cells = [...tbody.querySelectorAll(selector)];
 
     cells.sort((a, b) => {
-      return +a.textContent > +b.textContent ? 1 : -1; 
+      if (a === '' || b === '') {
+        return 1;
+      }
+      else if (+a.textContent < +b.textContent) {
+        return -1;
+      }
+      else if (+a.textContent === +b.textContent) {
+        return 0;
+      }
+      else {
+        return 1;
+      }
     });
     
     const rows = cells.map(cell => cell.closest('tr'));
