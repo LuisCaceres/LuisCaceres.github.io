@@ -61,7 +61,7 @@ function displayTable(...charts) {
     row.insertCell().textContent = entry;
 
     for (const chart of charts) {
-      row.insertCell().textContent = chart.includes(entry) ? chart.positionOf(entry) : 21;
+      row.insertCell().textContent = chart.includes(entry) ? chart.positionOf(entry) : "";
     }  
   });
 
