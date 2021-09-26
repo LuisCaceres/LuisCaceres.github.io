@@ -1454,24 +1454,24 @@ function generateList(outcoming, incoming) {
   expect(list.isFlat()).to.equal(true);
 }
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// split()
+// getProgressions()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //
 {
   const list = new NumberList(15, 12, 8, 4, 4, 3, 1, 1);
-  const sublists = list.split();
+  const sublists = list.getProgressions();
   expect(sublists.length).to.equal(1);
   expect(sublists[0].length).to.equal(8);
 }
 {
   const list = new NumberList(2, 2, 2, 2);
-  const sublists = list.split();
+  const sublists = list.getProgressions();
   expect(sublists.length).to.equal(1);
   expect(sublists[0].length).to.equal(4);
 }
 {
   const list = new NumberList(14, 9, 4, 1, 1, 1, 1, 1, 3, 3);
-  const sublists = list.split();
+  const sublists = list.getProgressions();
   
   expect(sublists.length).to.equal(2);
   
@@ -1485,7 +1485,7 @@ function generateList(outcoming, incoming) {
 }
 {
   const list = new NumberList(10, 6, 2, 2, 3, 5, 5, 4, 6);
-  const sublists = list.split();
+  const sublists = list.getProgressions();
   
   expect(sublists.length).to.equal(3);
   
@@ -1503,13 +1503,13 @@ function generateList(outcoming, incoming) {
 }
 {
   const list = new NumberList(9, 8, 5, 5);
-  const sublists = list.split();
+  const sublists = list.getProgressions();
   expect(sublists.length).to.equal(1);
   expect(sublists[0].length).to.equal(4);
 }
 {
   const list = new NumberList(19, 15, 13, 8, 6, 6, 6, 9);
-  const sublists = list.split();
+  const sublists = list.getProgressions();
 
   expect(sublists.length).to.equal(2);
 
@@ -1522,7 +1522,7 @@ function generateList(outcoming, incoming) {
 }
 {
   const list = new NumberList(20, 11, 8, 5, 3, 2, 3, 4, 7, 10);
-  const sublists = list.split();
+  const sublists = list.getProgressions();
 
   expect(sublists.length).to.equal(2);
 
@@ -1536,13 +1536,13 @@ function generateList(outcoming, incoming) {
 }
 {
   const list = new NumberList(16, 14, 10, 8, 4);
-  const sublists = list.split();
+  const sublists = list.getProgressions();
   expect(sublists.length).to.equal(1);
   expect(sublists[0].length).to.equal(5);
 }
 {
   const list = new NumberList(12, 9, 7, 6, 7, 7, 9, 14);
-  const sublists = list.split();
+  const sublists = list.getProgressions();
 
   expect(sublists.length).to.equal(2);
 
@@ -1556,13 +1556,13 @@ function generateList(outcoming, incoming) {
 }
 {
   const list = new NumberList(12, 10, 7);
-  const sublists = list.split();
+  const sublists = list.getProgressions();
   expect(sublists.length).to.equal(1);
   expect(sublists[0].length).to.equal(3);
 }
 {
   const list = new NumberList(4, 6, 10, 16);
-  const sublists = list.split();
+  const sublists = list.getProgressions();
   expect(sublists.length).to.equal(1);
   expect(sublists[0].length).to.equal(4);
 }
