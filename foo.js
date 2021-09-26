@@ -127,27 +127,33 @@ function runTests(week, charts, tests) {
 // WEEK 9
 {
   const tests = [
+    
     // POSITION 1
     [ 
       ['Mi Chico Latino', 'All Star', 'Angels', 'I Need To Know', "That's The Way It Is", 'New', "Someday We'll Know", 'Maria Maria', 'Si Me Advertí', 'Someday', 'Fly Away', 'Man! I Feel Like A Woman', 'Puente', 'All Or Nothing', 'No Quiero Verte', 'Super Trouper', 'As Fast As You Can', 'All I Have To Give', "Don't Say You Love Me", 'Dreams In Digital', 'Tengo Frío', 'T.V. And Coffee', 'Díselo Con Flores', 'La Lola', 'Higher', "If Ya Gettin' Down", "The Kids Aren't Alright", 'Heartbreaker', 'Waiting For Tonight', "What's My Age Again?", 'Jennifer Del Estero', "When You're Gone", 'Atrapados En La Red', 'Look At Me', 'Let Forever Be', '...Baby One More Time', "I'm Sitting Down Here", 'Absolutely Everybody', 'Pretty Fly', 'Unpretty', "Keep On Movin'", 'Crazy', "I Don't Want To Miss A Thing"],
       ['Mi Chico Latino', 'All Star', 'Angels', 'I Need To Know', "That's The Way It Is", 'New', 'Fly Away', 'Maria Maria', "Someday We'll Know", 'All Or Nothing', 'Si Me Advertí', 'Tengo Frío', 'Someday', 'Super Trouper', 'T.V. And Coffee', 'Puente', 'As Fast As You Can', 'Man! I Feel Like A Woman', 'Díselo Con Flores', 'Dreams In Digital', "I Don't Want To Miss A Thing", 'Crazy', "Keep On Movin'", 'Unpretty', 'Pretty Fly', 'Absolutely Everybody', "I'm Sitting Down Here", '...Baby One More Time', 'Let Forever Be', 'Look At Me', 'Atrapados En La Red', "When You're Gone", 'Jennifer Del Estero', "What's My Age Again?", 'Waiting For Tonight', 'Heartbreaker', "The Kids Aren't Alright", "If Ya Gettin' Down", 'Higher', 'La Lola', "Don't Say You Love Me", 'All I Have To Give', 'No Quiero Verte'],
       ['Mi Chico Latino', 'Fly Away', 'All Star', 'I Need To Know', 'Maria Maria', "That's The Way It Is", 'Angels', 'All Or Nothing', 'New', 'Tengo Frío', 'T.V. And Coffee', 'Super Trouper', "I Don't Want To Miss A Thing", "Someday We'll Know", 'Someday', 'Crazy', 'Si Me Advertí', 'Díselo Con Flores', "Keep On Movin'", 'Unpretty', 'No Quiero Verte', 'All I Have To Give', "Don't Say You Love Me", 'La Lola', 'Higher', "If Ya Gettin' Down", "The Kids Aren't Alright", 'Heartbreaker', 'Waiting For Tonight', "What's My Age Again?", 'Jennifer Del Estero', "When You're Gone", 'Atrapados En La Red', 'Look At Me', 'Let Forever Be', '...Baby One More Time', "I'm Sitting Down Here", 'Absolutely Everybody', 'Pretty Fly', 'Dreams In Digital', 'Man! I Feel Like A Woman', 'As Fast As You Can', 'Puente'],
       ['Mi Chico Latino', 'Fly Away', 'All Star', 'All Or Nothing', 'Maria Maria', 'I Need To Know', 'Tengo Frío', 'T.V. And Coffee', "That's The Way It Is", 'Angels', 'Crazy', 'Super Trouper', "I Don't Want To Miss A Thing", 'New', 'Díselo Con Flores', "I'm Sitting Down Here", 'Unpretty', "Keep On Movin'", 'Absolutely Everybody', 'Pretty Fly', 'Puente', 'As Fast As You Can', 'Man! I Feel Like A Woman', 'Dreams In Digital', '...Baby One More Time', 'Let Forever Be', 'Look At Me', 'Atrapados En La Red', "When You're Gone", 'Jennifer Del Estero', "What's My Age Again?", 'Waiting For Tonight', 'Heartbreaker', "The Kids Aren't Alright", "If Ya Gettin' Down", 'Higher', 'La Lola', "Don't Say You Love Me", 'All I Have To Give', 'No Quiero Verte', 'Si Me Advertí', 'Someday', "Someday We'll Know"],
+      
       function (entries) {
        expect(entries.length).to.equal(1);
        expect(entries).to.include('I Need To Know');
       },
-      function (entries) {
-        expect(entries.length).to.equal(1);                   // I Need To Know
-        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06] [05, 05, 04, 09]
+      
+      function (entries) {                                    // [04, 04, 04, 06]  [05, 05, 06, 09]
+        expect(entries.length).to.equal(1);                   // I Need To Know    That's The Way It Is
+        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
       },
     ],
+    
     // POSITION 2
-    [ 
+    [
+      
       function (entries) {
        expect(entries.length).to.equal(1);
        expect(entries).to.include('I Need To Know');
       },
+      
       function (entries) {
         expect(entries.length).to.equal(1);                   // I Need To Know
         expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06] [05, 05, 04, 09]
