@@ -54,7 +54,7 @@ function displayTable(...charts) {
 
   // Insert table rows.
   const tbody = document.createElement('tbody'); 
-  
+
   // For each unique entry in `charts`.
   new Set(charts.flat()).forEach(entry => {
     const row = tbody.insertRow();
@@ -66,15 +66,13 @@ function displayTable(...charts) {
   });
 
   table.append(thead, tbody);
-  
+
   // Display table.
   document.body.append(table);
-  
+
   thead.addEventListener('click', event => {
-    const header = event.target;
-    const index = header.cellIndex;
-    const body = header.closest('table').tBodies[0];
-    const rows = [...body.rows].filter(row => row.cells[index].textContent !== '');
+    const index = event.target.cellIndex;
+    const rows = [...tbody.rows].filter(row => row.cells[index].textContent !== '');
 
     rows.sort((rowA, rowB) => {
       const cellA = +rowA.cells[index].textContent;
@@ -83,7 +81,7 @@ function displayTable(...charts) {
       return cellA > cellB ? 1 : -1;
     });
 
-    body.prepend(...rows);
+    tbody.prepend(...rows);
   });
 }
 
