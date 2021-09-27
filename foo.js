@@ -205,8 +205,12 @@ function runTests(week, charts, tests) {
        expect(entries).to.include('I Need To Know');
        expect(entries).to.include('That\'s The Way It Is');
       },
-
-      function (entries) {
+      
+      function (entries) {  // I Need To Know
+        expect(entries.length).to.equal(0);
+      },
+      
+      function (entries) {  // That's The Way It Is
         expect(entries.length).to.equal(2);
                                                        // [06, 06, 06, 09]  [02, 03, 07, 10]
         expect(entries).to.include('Angels');          // [06, 06, 07, 09]  [02, 03, 06, 10]
