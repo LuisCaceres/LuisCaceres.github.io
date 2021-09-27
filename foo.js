@@ -99,7 +99,7 @@ function runTests(week, charts, tests) {
   charts = [...charts];
   
   for (const test of tests) {
-    charts.splice(n, 2, ...test.splice(0, 2)); 
+    charts.splice(week - 3, 2, ...test.splice(0, 2)); 
     const [chart1, chart2, chartA, chartB] = charts.slice(week - 3, 4);
     
     const database = createDatabase(...charts.before(chartA));
