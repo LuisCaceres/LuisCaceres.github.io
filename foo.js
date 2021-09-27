@@ -250,6 +250,29 @@ function runTests(week, charts, tests) {
         expect(entries).to.include('New');             // [06, 06, 09, 09]  [05, 05, 06, 14]
       },
     ],
+
+    // POSITION 7
+    [
+      new Chart('All Star', 'Angels', 'Mi Chico Latino', 'I Need To Know', 'New', "That's The Way It Is", "Someday We'll Know", 'Maria Maria', 'Si Me Advertí', 'Someday', 'Fly Away', 'Man! I Feel Like A Woman', 'Puente', 'All Or Nothing', 'No Quiero Verte', 'Super Trouper', 'As Fast As You Can', 'All I Have To Give', "Don't Say You Love Me", 'Dreams In Digital'),
+      new Chart('All Star', 'Mi Chico Latino', 'Angels', 'I Need To Know', 'New', "That's The Way It Is", 'Fly Away', 'Maria Maria', "Someday We'll Know", 'All Or Nothing', 'Si Me Advertí', 'Tengo Frío', 'Someday', 'Super Trouper', 'T.V. And Coffee', 'Puente', 'As Fast As You Can', 'Man! I Feel Like A Woman', 'Díselo Con Flores', 'Dreams In Digital'),
+
+      function (entries) {
+       expect(entries.length).to.equal(1);
+       expect(entries).to.include('Angels');
+      },
+
+      function (entries) {  // Angels
+        expect(entries.length).to.equal(3);
+                                                       // [07, 07, 07, 10]  [14, 10, 08, 04]
+        expect(entries).to.include('All Or Nothing');  // [07, 07, 08, 10]  [14, 10, 07, 04]
+
+                                                       // [07, 07, 07, 10]  [05, 05, 09, 14]
+        expect(entries).to.include('New');             // [06, 06, 07, 09]  [05, 05, 07, 14]
+
+                                                       // [07, 07, 07, 10]  [**, 12, 10, 07]
+        expect(entries).to.include('Tengo Frío');      // [06, 06, 08, 09]  [**, 12, 07, 07]
+      },
+    ],
   ];
 
   runTests(9, charts, tests);  
