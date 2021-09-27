@@ -201,7 +201,8 @@ function runTests(week, charts, tests) {
       new Chart('All Star', 'Mi Chico Latino', 'Angels', 'I Need To Know', 'Maria Maria', "That's The Way It Is", 'New', 'Fly Away', "Someday We'll Know", 'All Or Nothing', 'Si Me Advertí', 'Tengo Frío', 'Someday', 'Super Trouper', 'T.V. And Coffee', 'Puente', 'As Fast As You Can', 'Man! I Feel Like A Woman', 'Díselo Con Flores', 'Dreams In Digital'),
 
       function (entries) {
-       expect(entries.length).to.equal(1);
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include('I Need To Know');
        expect(entries).to.include('That\'s The Way It Is');
       },
 
