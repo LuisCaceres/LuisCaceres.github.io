@@ -96,7 +96,7 @@ function displayTable(...charts) {
  * // Returns {'A' => { history: [1, 5])}, 'B' => { history: [2, 4])}, 'C' => { history: [3, 3])}, 'D' => { history: [4, 2])}, 'E' => { history: [5, 1])}}
  */
 function runTests(week, charts, tests) {
-  charts = [...charts];
+  charts = charts.slice();
   
   for (const test of tests) {
     charts.splice(week - 3, 2, ...test.splice(0, 2)); 
