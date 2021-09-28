@@ -527,6 +527,35 @@ function runTests(week, charts, tests) {
                                                           // [17, 17, 17, **]  [**, **, 20, 17]
         expect(entries).to.include('Unpretty');           // [17, 17, 20, **]  [**, **, 17, 17]
       },
+    ],
+
+    // POSITION 18
+    [
+      new Chart('All Star', 'Angels', 'Mi Chico Latino', 'I Need To Know', "That's The Way It Is", 'New', "Someday We'll Know", 'Maria Maria', 'Si Me Advertí', 'Someday', 'Fly Away', 'Man! I Feel Like A Woman', 'Puente', 'All Or Nothing', 'No Quiero Verte', 'Super Trouper', 'As Fast As You Can', 'Díselo Con Flores', 'All I Have To Give', 'Dreams In Digital'),
+      new Chart('All Star', 'Mi Chico Latino', 'Angels', 'I Need To Know', "That's The Way It Is", 'New', 'Fly Away', 'Maria Maria', "Someday We'll Know", 'All Or Nothing', 'Si Me Advertí', 'Tengo Frío', 'Someday', 'Super Trouper', 'T.V. And Coffee', 'Puente', 'As Fast As You Can', 'Díselo Con Flores', 'Man! I Feel Like A Woman', 'Dreams In Digital'),
+
+      function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include('I Need To Know');
+       expect(entries).to.include('Díselo Con Flores');
+      },
+
+      function (entries) {  // I Need To Know
+        expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
+        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
+      },
+
+      function (entries) {  // Díselo Con Flores
+        expect(entries.length).to.equal(3);
+                                                      // [18, 18, 18, 15]  [09, 11, 17, **]
+        expect(entries).to.include('Si Me Advertí');  // [18, 18, 17, 15]  [09, 11, 18, **]
+
+                                                      // [18, 18, 18, 15]  [**, **, 16, 11]
+        expect(entries).to.include('Crazy');          // [18, 18, 16, 15]  [**, **, 18, 11]
+        
+                                                     // [18, 18, 18, 15]  [10, 13, 15, **]
+        expect(entries).to.include('Someday');       // [18, 18, 15, 15]  [10, 13, 18, **]        
+      },
     ],    
   ];
 
