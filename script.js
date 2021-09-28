@@ -434,7 +434,7 @@ class NumberList extends Array {
    * @return {NumberList[]}
    */  
   getProgressions() {
-    let list = [];
+    let list = new NumberList();
     const lists = [list];
     let start = 0;
     
@@ -445,7 +445,7 @@ class NumberList extends Array {
         list.push(n);
       }
       else {
-        list = [n];
+        list = new NumberList(n);
         lists.push(list);
         start = index;
       }
