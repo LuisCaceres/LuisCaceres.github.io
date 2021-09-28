@@ -547,20 +547,21 @@ class ChartHistory extends NumberList {
    * // returns `false`
    */
   isValid() {
+    let validity = false;
+
     const progressions = this.getProgressions();
     const {length} = progressions;
 
-    if (length > 2) {
-      return false;
-    }
-    else if (length === 2) {
-      if (progressions[0].isIncreasing() || progressions[1].isDecreasing()) {
-        return false;
+    if (length === 2) {
+      if (progressions[0].isAscending() && (progressions[1].isIncreasing() || progressions[1].isFlat())) {
+        validity = true;
       }
     }
-    else {
-      return true;
+    else if (length === 1) {
+      validity = true;
     }
+
+    return validity;
   }
 }
 
