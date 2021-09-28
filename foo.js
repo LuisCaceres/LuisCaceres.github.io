@@ -358,7 +358,7 @@ function runTests(week, charts, tests) {
       },
     ],
 
-    // POSITION 10
+    // POSITION 11
     [
       new Chart('All Star', 'Angels', 'Mi Chico Latino', 'I Need To Know', "That's The Way It Is", 'New', "Someday We'll Know", 'Maria Maria', 'Si Me Advertí', 'Someday', 'T.V. And Coffee', 'Fly Away', 'Man! I Feel Like A Woman', 'Puente', 'All Or Nothing', 'No Quiero Verte', 'Super Trouper', 'As Fast As You Can', 'All I Have To Give', 'Dreams In Digital'),
       new Chart('All Star', 'Mi Chico Latino', 'Angels', 'I Need To Know', "That's The Way It Is", 'New', 'Fly Away', 'Maria Maria', "Someday We'll Know", 'All Or Nothing', 'T.V. And Coffee', 'Si Me Advertí', 'Tengo Frío', 'Someday', 'Super Trouper', 'Puente', 'As Fast As You Can', 'Man! I Feel Like A Woman', 'Díselo Con Flores', 'Dreams In Digital'),
@@ -381,6 +381,22 @@ function runTests(week, charts, tests) {
 
                                                    // [11, 11, 11, 08]  [06, 06, 09, 14]
         expect(entries).to.include('New');         // [11, 11, 09, 08]  [06, 06, 11, 14]
+      },
+    ],
+
+    // POSITION 12
+    [
+      new Chart('All Star', 'Angels', 'Mi Chico Latino', 'I Need To Know', "That's The Way It Is", 'New', "Someday We'll Know", 'Maria Maria', 'Si Me Advertí', 'Someday', 'Fly Away', 'Super Trouper', 'Man! I Feel Like A Woman', 'Puente', 'All Or Nothing', 'No Quiero Verte', 'As Fast As You Can', 'All I Have To Give', "Don't Say You Love Me", 'Dreams In Digital'),
+      new Chart('All Star', 'Mi Chico Latino', 'Angels', 'I Need To Know', "That's The Way It Is", 'New', 'Fly Away', 'Maria Maria', "Someday We'll Know", 'All Or Nothing', 'Si Me Advertí', 'Super Trouper', 'Tengo Frío', 'Someday', 'T.V. And Coffee', 'Puente', 'As Fast As You Can', 'Man! I Feel Like A Woman', 'Díselo Con Flores', 'Dreams In Digital'),
+
+      function (entries) {
+       expect(entries.length).to.equal(1);
+       expect(entries).to.include('I Need To Know');
+      },
+
+      function (entries) {  // I Need To Know
+        expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
+        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
       },
     ],    
   ];
