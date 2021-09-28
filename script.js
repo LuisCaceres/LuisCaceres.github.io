@@ -965,11 +965,13 @@ class Chart extends List {
       if (history.isAscending() && (history.at(-1) - positionA) >= 2 && history.at(-1) < chartB.positionOf(entry)) {
         return false;
       }
+      
+      history.push(positionA, chartB.positionOf(entry));
 
       // Filter out if `entry` is descending and `positionA` in `entry`'s history causes `entry` to ascend again.
       //           1  2  A  B
       // Example: [3, 4, 2, 7]
-      if (history.push(positionA, chartB.positionOf(entry)).isValid() === false) {
+      if (history.isValid() === false) {
         return false;
       }
 
