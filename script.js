@@ -541,9 +541,9 @@ class ChartHistory extends NumberList {
   /* Returns `true` if the order of the progressions in this chart history is valid or `false` otherwise.
    * @return {Boolean}
    * @example
-   * (new ChartHistory(1, 2, 3, 4, 5)).isValid();
+   * new ChartHistory(1, 2, 3, 4, 5).isValid();
    * // returns `true`
-   * (new ChartHistory(1, 2, 3, 2, 1)).isValid();
+   * new ChartHistory(1, 2, 3, 2, 1).isValid();
    * // returns `false`
    */
   isValid() {
@@ -554,7 +554,7 @@ class ChartHistory extends NumberList {
       return false;
     }
     else if (length === 2) {
-      if (progressions[0].isIncreasing[0] || progressions[1].isDecreasing() === true) {
+      if (progressions[0].isIncreasing() || progressions[1].isDecreasing()) {
         return false;
       }
     }
