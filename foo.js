@@ -267,10 +267,10 @@ function runTests(week, charts, tests) {
         expect(entries).to.include('All Or Nothing');  // [07, 07, 08, 10]  [14, 10, 07, 04]
 
                                                        // [07, 07, 07, 10]  [05, 05, 09, 14]
-        expect(entries).to.include('New');             // [06, 06, 07, 09]  [05, 05, 07, 14]
+        expect(entries).to.include('New');             // [07, 07, 09, 10]  [05, 05, 07, 14]
 
                                                        // [07, 07, 07, 10]  [**, 12, 10, 07]
-        expect(entries).to.include('Tengo Frío');      // [06, 06, 08, 09]  [**, 12, 07, 07]
+        expect(entries).to.include('Tengo Frío');      // [07, 07, 10, 10]  [**, 12, 07, 07]
       },
     ],
 
