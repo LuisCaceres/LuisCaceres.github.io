@@ -501,6 +501,32 @@ function runTests(week, charts, tests) {
                                                                       // [16, 16, 16, 11]  [**, **, 13, 13]
         expect(entries).to.include('I Don\'t Want To Miss A Thing');  // [16, 16, 13, 11]  [**, **, 16, 13]
       },
+    ],
+
+    // POSITION 17
+    [
+      new Chart('All Star', 'Angels', 'Mi Chico Latino', 'I Need To Know', "That's The Way It Is", 'New', "Someday We'll Know", 'Maria Maria', 'Someday', 'Fly Away', 'Man! I Feel Like A Woman', 'Puente', 'All Or Nothing', 'No Quiero Verte', 'Super Trouper', 'As Fast As You Can', 'Si Me Advertí', 'All I Have To Give', "Don't Say You Love Me", 'Dreams In Digital'),
+      new Chart('All Star', 'Mi Chico Latino', 'Angels', 'I Need To Know', "That's The Way It Is", 'New', 'Fly Away', 'Maria Maria', "Someday We'll Know", 'All Or Nothing', 'Tengo Frío', 'Someday', 'Super Trouper', 'T.V. And Coffee', 'Puente', 'As Fast As You Can', 'Si Me Advertí', 'Man! I Feel Like A Woman', 'Díselo Con Flores', 'Dreams In Digital'),
+
+      function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include('I Need To Know');
+       expect(entries).to.include('Si Me Advertí');
+      },
+
+      function (entries) {  // I Need To Know
+        expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
+        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
+      },
+
+      function (entries) {  // Si Me Advertí
+        expect(entries.length).to.equal(2);
+                                                          // [17, 17, 17, **]  [**, 19, 18, 15]
+        expect(entries).to.include('Díselo Con Flores');  // [17, 17, 18, **]  [**, 19, 17, 15]
+
+                                                          // [17, 17, 17, **]  [**, **, 20, 17]
+        expect(entries).to.include('Unpretty');           // [17, 17, 20, **]  [**, **, 17, 17]
+      },
     ],    
   ];
 
