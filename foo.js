@@ -346,7 +346,7 @@ function runTests(week, charts, tests) {
       },
 
       function (entries) {  // Tengo Frío
-        expect(entries.length).to.equal(2);
+        expect(entries.length).to.equal(3);
                                                        // [10, 10, 10, 07]  [06, 06, 09, 14]
         expect(entries).to.include('New');             // [10, 10, 09, 07]  [06, 06, 10, 14]
 
