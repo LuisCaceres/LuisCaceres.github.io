@@ -273,7 +273,36 @@ function runTests(week, charts, tests) {
         expect(entries).to.include('Tengo Frío');      // [06, 06, 08, 09]  [**, 12, 07, 07]
       },
     ],
-  ];
+
+    // POSITION 8
+    [
+      new Chart('All Star', 'Angels', 'Mi Chico Latino', 'I Need To Know', "That's The Way It Is", 'New', "Someday We'll Know", 'All Or Nothing', 'Maria Maria', 'Si Me Advertí', 'Someday', 'Fly Away', 'Man! I Feel Like A Woman', 'Puente', 'No Quiero Verte', 'Super Trouper', 'As Fast As You Can', 'All I Have To Give', "Don't Say You Love Me", 'Dreams In Digital'),
+      new Chart('All Star', 'Mi Chico Latino', 'Angels', 'I Need To Know', "That's The Way It Is", 'New', 'Fly Away', 'All Or Nothing', 'Maria Maria', "Someday We'll Know", 'Si Me Advertí', 'Tengo Frío', 'Someday', 'Super Trouper', 'T.V. And Coffee', 'Puente', 'As Fast As You Can', 'Man! I Feel Like A Woman', 'Díselo Con Flores', 'Dreams In Digital'),
+
+      function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include('I Need To Know');
+       expect(entries).to.include('All Or Nothing');
+      },
+
+      function (entries) {  // I Need To Know
+        expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
+        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
+      },
+
+      function (entries) {  // All Or Nothing
+        expect(entries.length).to.equal(3);                   
+                                                              // [08, 08, 08, 04]  [02, 03, 07, 10]
+        expect(entries).to.include('Angels');                 // [08, 08, 07, 04]  [02, 03, 08, 10]
+
+                                                              // [08, 08, 08, 04]  [05, 05, 06, 09]
+        expect(entries).to.include('That\'s The Way It Is');  // [08, 08, 06, 04]  [05, 05, 08, 09]
+
+                                                              // [08, 08, 08, 04]  [09, 09, 05, 05]
+        expect(entries).to.include('Maria Maria');            // [08, 08, 05, 04]  [09, 09, 08, 05]
+      },      
+    ],    
+  ];  
 
   runTests(9, charts, tests);  
 }
