@@ -114,42 +114,6 @@ function encode(string) {
 /*
  *
  */
-class ChartHistory extends NumberList {
-  constructor(...items) {
-    super(...items);
-  }
-
-
-  /* Returns `true` if the order of the progressions in this chart history is valid or `false` otherwise.
-   * @return {Boolean}
-   * @example
-   * (new ChartHistory(1, 2, 3, 4, 5)).isValid();
-   * // returns `true`
-   * (new ChartHistory(1, 2, 3, 2, 1)).isValid();
-   * // returns `false`
-   */
-  isValid() {
-    const progressions = this.getProgressions();
-    const {length} = progressions;
-
-    if (length > 2) {
-      return false;
-    }
-    else if (length === 2) {
-      if (progressions[0].isIncreasing[0] || progressions[1].isDecreasing() === true) {
-        return false;
-      }
-    }
-    else {
-      return true;
-    }
-  }
-}
-
-
-/*
- *
- */
 class List extends Array {
   constructor(...items) {
     super(...items);
@@ -378,6 +342,7 @@ class Matrix {
   }
 }
 
+
 /*
  *
  */
@@ -560,6 +525,42 @@ class NumberList extends Array {
    */
   isDescending() {
     return this.isCurved() || this.isIncreasing();
+  }
+}
+
+
+/*
+ *
+ */
+class ChartHistory extends NumberList {
+  constructor(...items) {
+    super(...items);
+  }
+
+
+  /* Returns `true` if the order of the progressions in this chart history is valid or `false` otherwise.
+   * @return {Boolean}
+   * @example
+   * (new ChartHistory(1, 2, 3, 4, 5)).isValid();
+   * // returns `true`
+   * (new ChartHistory(1, 2, 3, 2, 1)).isValid();
+   * // returns `false`
+   */
+  isValid() {
+    const progressions = this.getProgressions();
+    const {length} = progressions;
+
+    if (length > 2) {
+      return false;
+    }
+    else if (length === 2) {
+      if (progressions[0].isIncreasing[0] || progressions[1].isDecreasing() === true) {
+        return false;
+      }
+    }
+    else {
+      return true;
+    }
   }
 }
 
