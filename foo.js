@@ -150,7 +150,7 @@ function runTests(week, charts, tests) {
        expect(entries).to.include('That\'s The Way It Is');
       },
 
-      function (entries) {                          
+      function (entries) {
         expect(entries.length).to.equal(3);
                                                        // [06, 06, 06, 09]  [09, 08, 05, 05]
         expect(entries).to.include('Maria Maria');     // [06, 06, 05, 09]  [09, 08, 06, 05]
@@ -216,7 +216,7 @@ function runTests(week, charts, tests) {
         expect(entries).to.include('Angels');          // [06, 06, 07, 09]  [02, 03, 06, 10]
 
                                                        // [06, 06, 06, 09]  [14, 10, 08, 04]
-        expect(entries).to.include('All Or Nothing');  // [06, 06, 08, 09]  [14, 10, 06, 04]  
+        expect(entries).to.include('All Or Nothing');  // [06, 06, 08, 09]  [14, 10, 06, 04]
       },
     ],
     
@@ -300,9 +300,35 @@ function runTests(week, charts, tests) {
 
                                                               // [08, 08, 08, 04]  [09, 09, 05, 05]
         expect(entries).to.include('Maria Maria');            // [08, 08, 05, 04]  [09, 09, 08, 05]
-      },      
-    ],    
-  ];  
+      },
+    ],
+
+    // POSITION 9
+    [
+      new Chart('All Star', 'Angels', 'Mi Chico Latino', 'I Need To Know', "That's The Way It Is", "Someday We'll Know", 'Maria Maria', 'Si Me Advertí', 'New', 'Someday', 'Fly Away', 'Man! I Feel Like A Woman', 'Puente', 'All Or Nothing', 'No Quiero Verte', 'Super Trouper', 'As Fast As You Can', 'All I Have To Give', "Don't Say You Love Me", 'Dreams In Digital'),
+      new Chart('All Star', 'Mi Chico Latino', 'Angels', 'I Need To Know', "That's The Way It Is", 'Fly Away', 'Maria Maria', "Someday We'll Know", 'New', 'All Or Nothing', 'Si Me Advertí', 'Tengo Frío', 'Someday', 'Super Trouper', 'T.V. And Coffee', 'Puente', 'As Fast As You Can', 'Man! I Feel Like A Woman', 'Díselo Con Flores', 'Dreams In Digital'),
+
+      function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include('I Need To Know');
+       expect(entries).to.include('New');
+      },
+
+      function (entries) {  // I Need To Know
+        expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
+        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
+      },
+
+      function (entries) {  // New
+        expect(entries.length).to.equal(2);
+                                                              // [09, 09, 09, 14]  [**, 12, 10, 07]
+        expect(entries).to.include('Tengo Frío');             // [09, 09, 10, 14]  [**, 12, 09, 07]
+
+                                                              // [09, 09, 09, 14]  [**, 15, 11, 08]
+        expect(entries).to.include('T.V. And Coffee');        // [09, 09, 11, 14]  [**, 15, 09, 08]
+      },
+    ],
+  ];
 
   runTests(9, charts, tests);  
 }
