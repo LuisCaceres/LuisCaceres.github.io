@@ -444,6 +444,35 @@ function runTests(week, charts, tests) {
         expect(entries).to.include('Si Me Advertí');  // [14, 14, 17, **]  [07, 10, 14, **]        
       },
     ],
+
+    // POSITION 15
+    [
+      new Chart('All Star', 'Angels', 'Mi Chico Latino', 'I Need To Know', "That's The Way It Is", 'New', 'Si Me Advertí', 'Maria Maria', 'Someday', 'Fly Away', 'Man! I Feel Like A Woman', 'Puente', 'All Or Nothing', "Someday We'll Know", 'No Quiero Verte', 'Super Trouper', 'As Fast As You Can', 'All I Have To Give', "Don't Say You Love Me", 'Dreams In Digital'),
+      new Chart('All Star', 'Mi Chico Latino', 'Angels', 'I Need To Know', "That's The Way It Is", 'New', 'Fly Away', 'Maria Maria', 'All Or Nothing', 'Si Me Advertí', 'Tengo Frío', 'Someday', 'Super Trouper', "Someday We'll Know", 'T.V. And Coffee', 'Puente', 'As Fast As You Can', 'Man! I Feel Like A Woman', 'Díselo Con Flores', 'Dreams In Digital'),
+
+      function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include('I Need To Know');
+       expect(entries).to.include('Someday');
+      },
+
+      function (entries) {  // I Need To Know
+        expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
+        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
+      },
+
+      function (entries) {  // Someday
+        expect(entries.length).to.equal(3);
+                                                          // [15, 15, 15, **]  [**, **, 16, 11]
+        expect(entries).to.include('Crazy');              // [15, 15, 16, **]  [**, **, 15, 11]
+
+                                                          // [15, 15, 15, **]  [09, 11, 17, **]
+        expect(entries).to.include('Si Me Advertí');      // [15, 15, 17, **]  [09, 11, 15, **]
+
+                                                          // [15, 15, 15, **]  [**, 19, 18, 15]
+        expect(entries).to.include('Díselo Con Flores');  // [15, 15, 18, **]  [**, 19, 15, 15]        
+      },
+    ],    
   ];
 
   runTests(9, charts, tests);  
