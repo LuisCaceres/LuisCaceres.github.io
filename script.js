@@ -930,7 +930,7 @@ class Chart extends List {
     } 
 
     return entries.filter(entry => {
-      const history = new NumberList(...(database.get(entry)?.history || [21, 21]));
+      const history = new ChartHistory(...(database.get(entry)?.history || [21, 21]));
 
       // TO DO: item has only been in chart for less than 3 weeks
       // TO DO: item ascends from chart B 
@@ -957,19 +957,19 @@ class Chart extends List {
         return false;
       }
 
-      // Filter out if `entry` is descending and `positionA` in `entry`'s history causes `entry` to ascend again.
-      //           1  2  A  B
-      // Example: [3, 4, 2, 7]
-      if (history.isDescending() && history.at(-1) > positionA) {
-        return false;
-      }
-
       // Filter out if the difference between `entry`'s position in `chart2` and `positionA` is at least 2 
       // and `entry` starts to descend from `chartB`.
       //           1  2  A  B
       // Example: [6, 5, 1, 8]
       // NOTE: DETECT IF IT STARTS DESCENDING FROM CHART A
       if (history.isAscending() && (history.at(-1) - positionA) >= 2 && history.at(-1) < chartB.positionOf(entry)) {
+        return false;
+      }
+
+      // Filter out if `entry` is descending and `positionA` in `entry`'s history causes `entry` to ascend again.
+      //           1  2  A  B
+      // Example: [3, 4, 2, 7]
+      if (new HistoryChart(...history, positionA, chartB.positionOf(entry)).isValid() === false) {
         return false;
       }
 
