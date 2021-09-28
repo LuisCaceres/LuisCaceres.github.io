@@ -1056,6 +1056,35 @@ function generateList(outcoming, incoming) {
 
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// class ChartHistory
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+{
+  const value = new ChartHistory(1, 2, 3, 4, 5).isValid();
+  expect(value).to.equal(true);
+}
+{
+  const value = new ChartHistory(5, 4, 3, 2, 1).isValid();
+  expect(value).to.equal(true);
+}
+{
+  const value = new ChartHistory(1, 2, 3, 2, 1).isValid();
+  expect(value).to.equal(false);
+}
+{
+  const value = new ChartHistory(1, 1, 1, 2, 3).isValid();
+  expect(value).to.equal(true);
+}
+{
+  const value = new ChartHistory(3, 2, 1, 2, 2).isValid();
+  expect(value).to.equal(true);
+}
+{
+  const value = new ChartHistory(1, 1, 1, 1, 1).isValid();
+  expect(value).to.equal(true);
+}
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // class List
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
