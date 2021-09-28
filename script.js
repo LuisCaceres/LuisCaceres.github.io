@@ -969,10 +969,11 @@ class Chart extends List {
       // Filter out if `entry` is descending and `positionA` in `entry`'s history causes `entry` to ascend again.
       //           1  2  A  B
       // Example: [3, 4, 2, 7]
-      if (new HistoryChart(...history, positionA, chartB.positionOf(entry)).isValid() === false) {
+      if (history.push(positionA, chartB.positionOf(entry)).isValid() === false) {
         return false;
       }
 
+      history.splice(-2, 2);
       history.push(chartA.positionOf(entry), chartB.positionOf(entry));
 
       // Filter out if `entry` is in the same position for 4 weeeks consecutively.
