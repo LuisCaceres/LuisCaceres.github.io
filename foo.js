@@ -613,3 +613,83 @@ function runTests(week, charts, tests) {
   
 // WEEK 10 - IMPOSSIBLE TO TEST WEEK 10 BECAUSE WEEK 11 IS UNAVAILABLE.
 
+function parseColumn(column) {
+    const tbody = document.querySelector('[data-component=table]').tBodies[0];
+    const rows = [...tbody.rows].filter(row => row.cells[column].textContent !== '');
+
+    rows.sort((rowA, rowB) => {
+      const cellA = +rowA.cells[column].textContent;
+      const cellB = +rowB.cells[column].textContent;
+
+      return cellA > cellB ? 1 : -1;
+    });
+
+
+    return `"${rows.map(row => row.cells[0].textContent).join("\",\"")}"`;
+}
+
+
+function foo(position, chart1, chart2, chartA, chartB, entries) {
+
+return `
+    // POSITION ${position} <br>
+    &nbsp;&nbsp; [ <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; new Chart(${chart1}), <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; new Chart(${chart2}), <br><br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp; function (entries) { <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; expect(entries.length).to.equal(${entries.size}); <br>
+
+       ${(function(){
+         let string = '';
+
+         for (const [entry] of entries) {
+           string += `
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; expect(entries).to.include("${entry}"); <br>`;
+         }
+
+         return string;
+        })()}
+      &nbsp;&nbsp;&nbsp;&nbsp;}, <br><br>
+
+       ${(function(){
+         let string = '';
+
+         for (const [entry, values] of entries) {
+            string += `&nbsp;&nbsp;&nbsp;&nbsp; function (entries) {  // ${entry} <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; expect(entries.length).to.equal(${values.length}); <br><br>
+
+                 ${(function(){
+                     let string = '';
+
+                     for (const value of values) {
+                       string += `
+                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; expect(entries).to.include("${value}"); <br>
+                     }
+
+                     return string;
+                })()}
+
+            &nbsp;&nbsp;&nbsp;&nbsp; }, <br><br>`;
+         
+         }
+
+         return string;
+        })()}
+
+    ],
+`
+}
+
+const chart1 = parseColumn(7);
+const chart2 = parseColumn(8);
+const chartA = parseColumn(9);
+const chartB = parseColumn(10);
+
+const map = new Map;
+map.set('I Need To Know', ['That\'s The Way It Is']);
+map.set('Keep On Movin\'', ['Díselo Con Flores']);
+
+const parser = new DOMParser();
+const tree = parser.parseFromString(foo(1, chart1, chart2, chartA, chartB, map), 'text/html');
+document.body.append(...tree.body.childNodes);
