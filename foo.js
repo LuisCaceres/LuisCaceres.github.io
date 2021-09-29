@@ -162,7 +162,7 @@ function runTests(week, charts, tests) {
         expect(entries).to.include('All Or Nothing');  // [06, 06, 08, 09]  [14, 10, 06, 04]
       },
     ],
-    
+
     // POSITION 3
     [
       new Chart('Angels', 'Mi Chico Latino', 'All Star', 'I Need To Know', "That's The Way It Is", 'New', "Someday We'll Know", 'Maria Maria', 'Si Me Advertí', 'Someday', 'Fly Away', 'Man! I Feel Like A Woman', 'Puente', 'All Or Nothing', 'No Quiero Verte', 'Super Trouper', 'As Fast As You Can', 'All I Have To Give', "Don't Say You Love Me", 'Dreams In Digital'),
@@ -613,6 +613,60 @@ function runTests(week, charts, tests) {
   
 // WEEK 10 - IMPOSSIBLE TO TEST WEEK 10 BECAUSE WEEK 11 IS UNAVAILABLE.
 
+function bar(entry, value, ...charts) {
+    
+    const strings = charts.map((chart, index, array) => {
+
+        let string = [];
+
+        if (index === 0) {
+
+            for (const chart of charts) {
+                const index = `${chart.indexOf(entry) + 1}`.padStart(2, 0); 
+                string.push(index !== `00` ? `${index}` : `**`);
+            }
+        }
+
+        if (index === 1) {
+
+            for (const chart of charts) {
+                const index = `${chart.indexOf(value) + 1}`.padStart(2, 0); 
+                string.push(index !== `00` ? `${index}` : `**`);
+            }
+        }
+
+
+        return string;
+    })
+    .map((history, index, array) => {
+        
+        if (index === 2) {
+            const index = `${charts[2].indexOf(value) + 1}`.padStart(2, 0);
+            const a = array[0].slice();
+            a[2] = index !== `00` ? `${index}` : `**`;
+            history = a;                   
+        }
+
+        if (index === 3) {
+            const index = `${charts[2].indexOf(entry) + 1}`.padStart(2, 0);
+            const a = array[1].slice();
+            a[2] = index !== `00` ? `${index}` : `**`;
+            history = a;
+        }
+
+        return history;
+    })
+    .map(string => {
+        return '[' + string.join(', ') + ']';
+    });
+
+
+    const string = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // ${strings[0]} &nbsp;&nbsp; ${strings[1]} <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; expect(entries).to.include("${value}");  // ${strings[2]} &nbsp;&nbsp; ${strings[3]} <br><br>`;
+
+    return string;
+}
+
 function parseColumn(column) {
     const tbody = document.querySelector('[data-component=table]').tBodies[0];
     const rows = [...tbody.rows].filter(row => row.cells[column].textContent !== '');
@@ -625,17 +679,17 @@ function parseColumn(column) {
     });
 
 
-    return `"${rows.map(row => row.cells[0].textContent).join("\",\"")}"`;
+    return rows.map(row => row.cells[0].textContent);
 }
 
 
-function foo(position, chart1, chart2, chartA, chartB, entries) {
+function foo(position, charts, entries) {
 
-return `
-    // POSITION ${position} <br>
+return `<br>
+    &nbsp;&nbsp; // POSITION ${position} <br>
     &nbsp;&nbsp; [ <br>
-    &nbsp;&nbsp;&nbsp;&nbsp; new Chart(${chart1}), <br>
-    &nbsp;&nbsp;&nbsp;&nbsp; new Chart(${chart2}), <br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp; new Chart("${charts[0].join("\", \"")}"), <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; new Chart("${charts[1].join("\", \"")}"), <br><br>
 
     &nbsp;&nbsp;&nbsp;&nbsp; function (entries) { <br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; expect(entries.length).to.equal(${entries.size}); <br>
@@ -650,21 +704,20 @@ return `
 
          return string;
         })()}
-      &nbsp;&nbsp;&nbsp;&nbsp;}, <br><br>
+      &nbsp;&nbsp;&nbsp;&nbsp; }, <br><br>
 
        ${(function(){
          let string = '';
 
          for (const [entry, values] of entries) {
             string += `&nbsp;&nbsp;&nbsp;&nbsp; function (entries) {  // ${entry} <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; expect(entries.length).to.equal(${values.length}); <br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; expect(entries.length).to.equal(${values.length}); <br>
 
                  ${(function(){
                      let string = '';
 
                      for (const value of values) {
-                       string += `
-                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; expect(entries).to.include("${value}"); <br>
+                       string += `${bar(entry, value, ...charts)}`;
                      }
 
                      return string;
@@ -676,8 +729,7 @@ return `
 
          return string;
         })()}
-
-    ],
+    &nbsp;&nbsp; ],
 `
 }
 
@@ -687,9 +739,8 @@ const chartA = parseColumn(9);
 const chartB = parseColumn(10);
 
 const map = new Map;
-map.set('I Need To Know', ['That\'s The Way It Is']);
-map.set('Keep On Movin\'', ['Díselo Con Flores']);
+map.set('That\'s The Way It Is', ['Maria Maria', 'Angels', 'All Or Nothing']);
 
 const parser = new DOMParser();
-const tree = parser.parseFromString(foo(1, chart1, chart2, chartA, chartB, map), 'text/html');
+const tree = parser.parseFromString(foo(2, [chart1, chart2, chartA, chartB], map), 'text/html');
 document.body.append(...tree.body.childNodes);
