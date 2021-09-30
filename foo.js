@@ -220,13 +220,8 @@ function runTests(week, charts, tests) {
      new Chart("All Star", "Angels", "Mi Chico Latino", "I Need To Know", "That's The Way It Is", "New", "Someday We'll Know", "Maria Maria", "Si Me Advertí", "Someday", "Fly Away", "Man! I Feel Like A Woman", "Puente", "All Or Nothing", "No Quiero Verte", "Super Trouper", "As Fast As You Can", "All I Have To Give", "Don't Say You Love Me", "Dreams In Digital"),
 
      function (entries) {
-       expect(entries.length).to.equal(2);
-       expect(entries).to.include("I Need To Know");
+       expect(entries.length).to.equal(1);
        expect(entries).to.include("New");
-     },
-
-     function (entries) { // I Need To Know
-       expect(entries.length).to.equal(0);
      },
 
      function (entries) { // New
