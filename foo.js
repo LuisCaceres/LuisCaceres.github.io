@@ -135,12 +135,15 @@ function runTests(week, charts, tests) {
      },
 
      function (entries) { // New
-       expect(entries.length).to.equal(2);
-                                                   // [06, 06, 06, 09]    [**, 11, 07, 02]
-       expect(entries).to.include("Fly Away");     // [06, 06, 07, 09]    [**, 11, 06, 02]
+       expect(entries.length).to.equal(3);
+                                                            // [06, 06, 06, 09]    [08, 05, 05, 06]
+       expect(entries).to.include("That's The Way It Is");  // [06, 06, 05, 09]    [08, 05, 06, 06]
 
-                                                   // [06, 06, 06, 09]    [**, 08, 08, 05]
-       expect(entries).to.include("Maria Maria");  // [06, 06, 08, 09]    [**, 08, 06, 05]
+                                                            // [06, 06, 06, 09]    [**, 11, 07, 02]
+       expect(entries).to.include("Fly Away");              // [06, 06, 07, 09]    [**, 11, 06, 02]
+
+                                                            // [06, 06, 06, 09]    [**, 08, 08, 05]
+       expect(entries).to.include("Maria Maria");           // [06, 06, 08, 09]    [**, 08, 06, 05]
      },
     ],
   ];
