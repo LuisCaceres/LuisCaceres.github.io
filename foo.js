@@ -362,6 +362,23 @@ function runTests(week, charts, tests) {
        expect(entries).to.include("Si Me Advertí");  // [09, 09, 11, 14]  [08, 07, 09, 17]
      },
    ],
+    
+   // POSITION 10
+   [
+     new Chart("All Star", "Angels", "I Need To Know", "Mi Chico Latino", "Someday We'll Know", "New", "Someday", "That's The Way It Is", "Si Me Advertí", "All Or Nothing", "Puente", "No Quiero Verte", "Man! I Feel Like A Woman", "Don't Say You Love Me", "All I Have To Give", "Dreams In Digital", "Higher", "As Fast As You Can", "If Ya Gettin' Down", "When You're Gone"),
+     new Chart("All Star", "Angels", "Mi Chico Latino", "I Need To Know", "That's The Way It Is", "New", "Someday We'll Know", "Maria Maria", "Si Me Advertí", "All Or Nothing", "Someday", "Fly Away", "Man! I Feel Like A Woman", "Puente", "No Quiero Verte", "Super Trouper", "As Fast As You Can", "All I Have To Give", "Don't Say You Love Me", "Dreams In Digital"),
+
+     function (entries) {
+       expect(entries.length).to.equal(1);
+       expect(entries).to.include("All Or Nothing");
+     },
+
+     function (entries) { // All Or Nothing
+       expect(entries.length).to.equal(1);
+                                                          // [10, 10, 10, 08]  [05, 07, 09, 14]
+       expect(entries).to.include("Someday We'll Know");  // [10, 10, 09, 08]  [05, 07, 10, 14]
+     },
+   ],
   ];
 
   runTests(8, charts, tests);
