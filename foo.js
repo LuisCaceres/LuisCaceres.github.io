@@ -301,7 +301,7 @@ function runTests(week, charts, tests) {
      },
 
      function (entries) { // Fly Away
-       expect(entries.length).to.equal(3);
+       expect(entries.length).to.equal(2);
                                               // [07, 07, 07, 02]  [06, 06, 06, 09]
        expect(entries).to.include("New");     // [07, 07, 06, 02]  [06, 06, 07, 09]
 
