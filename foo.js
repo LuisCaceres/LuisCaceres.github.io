@@ -369,14 +369,27 @@ function runTests(week, charts, tests) {
      new Chart("All Star", "Angels", "Mi Chico Latino", "I Need To Know", "That's The Way It Is", "New", "Someday We'll Know", "Maria Maria", "Si Me Advertí", "All Or Nothing", "Someday", "Fly Away", "Man! I Feel Like A Woman", "Puente", "No Quiero Verte", "Super Trouper", "As Fast As You Can", "All I Have To Give", "Don't Say You Love Me", "Dreams In Digital"),
 
      function (entries) {
-       expect(entries.length).to.equal(1);
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("New");
        expect(entries).to.include("All Or Nothing");
+     },
+
+     function (entries) { // New
+       expect(entries.length).to.equal(3);
+                                                            // [06, 06, 06, 09]  [08, 05, 05, 06]
+       expect(entries).to.include("That's The Way It Is");  // [06, 06, 05, 09]  [08, 05, 06, 06]
+
+                                                            // [06, 06, 06, 09]  [**, 12, 07, 02]
+       expect(entries).to.include("Fly Away");              // [06, 06, 07, 09]  [**, 12, 06, 02]
+
+                                                            // [06, 06, 06, 09]  [**, 08, 08, 05]
+       expect(entries).to.include("Maria Maria");           // [06, 06, 08, 09]  [**, 08, 06, 05]
      },
 
      function (entries) { // All Or Nothing
        expect(entries.length).to.equal(1);
-                                                          // [10, 10, 10, 08]  [05, 07, 09, 14]
-       expect(entries).to.include("Someday We'll Know");  // [10, 10, 09, 08]  [05, 07, 10, 14]
+                                                            // [10, 10, 10, 08]  [05, 07, 09, 14]
+       expect(entries).to.include("Someday We'll Know");    // [10, 10, 09, 08]  [05, 07, 10, 14]
      },
    ],
   ];
