@@ -478,7 +478,6 @@ function runTests(week, charts, tests) {
 
                                                             // [06, 06, 06, 09]  [**, 08, 08, 05]
        expect(entries).to.include("Maria Maria");           // [06, 06, 08, 09]  [**, 08, 06, 05]
-
      },
 
      function (entries) { // Someday
@@ -512,7 +511,6 @@ function runTests(week, charts, tests) {
 
                                                             // [06, 06, 06, 09]  [**, 08, 08, 05]
        expect(entries).to.include("Maria Maria");           // [06, 06, 08, 09]  [**, 08, 06, 05]
-
      },
 
      function (entries) { // Super Trouper
@@ -546,7 +544,6 @@ function runTests(week, charts, tests) {
 
                                                             // [06, 06, 06, 09]  [**, 08, 08, 05]
        expect(entries).to.include("Maria Maria");           // [06, 06, 08, 09]  [**, 08, 06, 05]
-
      },
 
      function (entries) { // T.V. And Coffee
@@ -562,6 +559,39 @@ function runTests(week, charts, tests) {
 
                                                      // [15, 15, 15, 11]  [09, 09, 11, 17]
        expect(entries).to.include("Si Me Advertí");  // [15, 15, 11, 11]  [09, 09, 15, 17]
+     },
+   ],
+
+   // POSITION 16
+   [
+     new Chart("All Star", "Angels", "I Need To Know", "Mi Chico Latino", "Someday We'll Know", "New", "Someday", "That's The Way It Is", "Si Me Advertí", "No Quiero Verte", "Man! I Feel Like A Woman", "Don't Say You Love Me", "All I Have To Give", "Dreams In Digital", "All Or Nothing", "Puente", "Higher", "As Fast As You Can", "If Ya Gettin' Down", "When You're Gone"),
+     new Chart("All Star", "Angels", "Mi Chico Latino", "I Need To Know", "That's The Way It Is", "New", "Someday We'll Know", "Maria Maria", "Si Me Advertí", "Someday", "Fly Away", "Man! I Feel Like A Woman", "All Or Nothing", "No Quiero Verte", "Super Trouper", "Puente", "As Fast As You Can", "All I Have To Give", "Don't Say You Love Me", "Dreams In Digital"),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("New");
+       expect(entries).to.include("Puente");
+     },
+
+     function (entries) { // New
+       expect(entries.length).to.equal(3);
+                                                            // [06, 06, 06, 09]  [07, 05, 05, 06]
+       expect(entries).to.include("That's The Way It Is");  // [06, 06, 05, 09]  [07, 05, 06, 06]
+
+                                                            // [06, 06, 06, 09]  [**, 10, 07, 02]
+       expect(entries).to.include("Fly Away");              // [06, 06, 07, 09]  [**, 10, 06, 02]
+
+                                                            // [06, 06, 06, 09]  [**, 08, 08, 05]
+       expect(entries).to.include("Maria Maria");           // [06, 06, 08, 09]  [**, 08, 06, 05]
+     },
+
+     function (entries) { // Puente
+       expect(entries.length).to.equal(2);
+                                                                // [16, 16, 16, **]  [18, 17, 17, **]
+       expect(entries).to.include("As Fast As You Can");        // [16, 16, 17, **]  [18, 17, 16, **]
+
+                                                                // [16, 16, 16, **]  [11, 12, 18, **]
+       expect(entries).to.include("Man! I Feel Like A Woman");  // [16, 16, 18, **]  [11, 12, 16, **]
      },
    ],
   ];
