@@ -418,18 +418,9 @@ function runTests(week, charts, tests) {
      },
 
      function (entries) { // Si Me Advertí
-       expect(entries.length).to.equal(4);
-                                                       // [11, 11, 11, 17]  [**, **, 12, 10]
-       expect(entries).to.include("Tengo Frío");       // [11, 11, 12, 17]  [**, **, 11, 10]
-
-                                                       // [11, 11, 11, 17]  [07, 09, 13, 15]
-       expect(entries).to.include("Someday");          // [11, 11, 13, 17]  [07, 09, 11, 15]
-
-                                                       // [11, 11, 11, 17]  [**, **, 15, 11]
-       expect(entries).to.include("T.V. And Coffee");  // [11, 11, 15, 17]  [**, **, 11, 11]
-       // NOTE: CHECK THIS BELOW...
-                                                          // [11, 11, 11, 17]  [18, 17, 17, **]
-       expect(entries).to.include("As Fast As You Can");  // [11, 11, 17, 17]  [18, 17, 11, **]
+       expect(entries.length).to.equal(1);
+                                                          // [11, 11, 11, 17]  [07, 09, 13, 15]
+       expect(entries).to.include("Someday");             // [11, 11, 13, 17]  [07, 09, 11, 15]
      },
    ],
   ];
