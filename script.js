@@ -8,7 +8,7 @@
 
 /* Reduces each list to only one item. These items become the values of this map instead. The items are unique as values.    
  * In other words, an item is used as a value only once even if some lists share that same item. Therefore, null may be used as a value if necessary   
- * in order to maintain the uniqueness of the values. 
+ * in order to maintain the uniqueness of the values.
  */
 Map.prototype.share = function share() {
   // Let `lists` be a list of lists in this listMap.
@@ -904,14 +904,14 @@ class Chart extends List {
     // POSITION 5 [5, 5, 5]
     // POSITION 10 [10, 10, 10]
     // TARGET [4, 6, 15] COULD BECOME [4, 5, 15]
-    
+
     const positionA = chartA.positionOf(entry);
     const positionB = chartB.positionOf(entry);
     const history = new NumberList(...database.get(entry).history, positionA, positionB);
-    
+
     const delta = Math.abs(positionA - positionB);
     const method = history.isAscending() ? 'before' : 'after';
-    
+
     // According to `entry`'s direction of movement, retrieve those entries placed ahead of `entry`.
     // Example:
     // Returns [20, 19]
@@ -923,11 +923,18 @@ class Chart extends List {
     const entries = chartA[method](entry, delta);
 
     // If `entry` starts descending from chartB.
-    // Example: [**, 18, 16, 14, 12, 12, 12, 13]
     if (history.hasStartedDescending()) {
+      //                       1   2   A   B
+      // Example: [18, 16, 14, 12, 12, 12, 13]
       // Retreive the entry immediately preceding `entry` on chartA and add it to `entries`.
       entries.unshift(...chartA.before(entry, 1));
-    } 
+  
+      if (positionB === 21) {
+        //                   1   2   A   B
+        // Example: [20, 20, 17, 17, 17, **]
+        entries = entries.slice(-1);
+      }
+    }
 
     return entries.filter(entry => {
       const history = new ChartHistory(...(database.get(entry)?.history || [21, 21]));
