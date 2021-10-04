@@ -932,7 +932,6 @@ class Chart extends List {
       if (positionB === 21) {
         //                   1   2   A   B
         // Example: [20, 20, 17, 17, 17, **]
-        entries[0] = entries.at(-1);
         entries.length = 1;
       }
     }
