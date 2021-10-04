@@ -910,7 +910,7 @@ class Chart extends List {
     const history = new NumberList(...database.get(entry).history, positionA, positionB);
     
     const delta = Math.abs(positionA - positionB);
-    const method = history.isDecreasing() ? 'before' : 'after';
+    const method = history.isAscending() ? 'before' : 'after';
     
     // According to `entry`'s direction of movement, retrieve those entries placed ahead of `entry`.
     // Example:
