@@ -1,5 +1,12 @@
 const charts = new List(
 
+  // NOTE: INCLUDED SO DETECTOR AND CORRECTOR TESTS RUN SMOOTHLY
+  // WEEK -2
+  new Chart(),
+  // NOTE: INCLUDED SO DETECTOR AND CORRECTOR TESTS RUN SMOOTHLY
+  // WEEK -1
+  new Chart(),
+
   // WEEK 1
   new Chart(
     /* 20 */ 'Angels',
