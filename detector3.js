@@ -272,6 +272,26 @@
        expect(entries).to.include("All Or Nothing");  // [12, 12, 14, 18]  [**, 16, 12, 10]
      },
    ],
+
+   // POSITION 13
+   [
+     new Chart("All Star", "I Need To Know", "Angels", "Someday We'll Know", "New", "Someday", "Mi Chico Latino", "Si Me Advertí", "All I Have To Give", "No Quiero Verte", "Higher", "That's The Way It Is", "Puente", "Man! I Feel Like A Woman", "If Ya Gettin' Down", "Don't Say You Love Me", "Dreams In Digital", "The Kids Aren't Alright", "When You're Gone", "As Fast As You Can"),
+     new Chart("All Star", "Angels", "I Need To Know", "Mi Chico Latino", "Someday We'll Know", "New", "Someday", "That's The Way It Is", "Si Me Advertí", "No Quiero Verte", "Man! I Feel Like A Woman", "Don't Say You Love Me", "Puente", "All I Have To Give", "Dreams In Digital", "All Or Nothing", "Higher", "As Fast As You Can", "If Ya Gettin' Down", "When You're Gone"),
+
+     function (entries) {
+       expect(entries.length).to.equal(1);
+       expect(entries).to.include("Puente");
+     },
+
+     function (entries) { // Puente
+       expect(entries.length).to.equal(2);
+                                                       // [13, 13, 13, 16]  [**, 16, 14, 10] 
+       expect(entries).to.include("All Or Nothing");   // [13, 13, 14, 16]  [**, 16, 13, 10]
+
+                                                       // [13, 13, 13, 16]  [10, 10, 15, **]
+       expect(entries).to.include("No Quiero Verte");  // [13, 13, 15, 16]  [10, 10, 13, **]
+     },
+   ],
   ];
 
   runTests(9, charts, 3, tests);
