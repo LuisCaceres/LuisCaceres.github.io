@@ -222,6 +222,9 @@
 
                                                    // [09, 09, 09, 11]  [06, 07, 10, 13]
        expect(entries).to.include("Someday");      // [09, 09, 10, 11]  [06, 07, 09, 13]
+
+                                                   // [09, 09, 09, 11]  [11, 11, 11, 07]
+       expect(entries).to.include("Fly Away");     // [09, 09, 11, 11]  [11, 11, 09, 07]
      },
 
      function (entries) { // Fly Away
