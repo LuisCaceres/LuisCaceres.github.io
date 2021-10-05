@@ -216,7 +216,7 @@
      },
 
      function (entries) { // Si Me Advertí
-       expect(entries.length).to.equal(2);
+       expect(entries.length).to.equal(3);
                                                    // [09, 09, 09, 11]  [**, **, 08, 08]
        expect(entries).to.include("Maria Maria");  // [09, 09, 08, 11]  [**, **, 09, 08]
 
