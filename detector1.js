@@ -1,3 +1,126 @@
+/* Return
+ * @param {Chart} charts -
+ * @return {Map}
+ * @example
+ * const chart1 = new Chart('A', 'B', 'C', 'D', 'E');
+ * const chart2 = new Chart('E', 'D', 'C', 'B', 'A');
+ * createDatabase(chart1, chart2);
+ * // Returns {'A' => { history: [1, 5])}, 'B' => { history: [2, 4])}, 'C' => { history: [3, 3])}, 'D' => { history: [4, 2])}, 'E' => { history: [5, 1])}}
+ */
+function createDatabase(...charts) {
+  const database = new Map();
+
+  for (const chart of charts) {
+    chart.forEach(entry => {
+
+      if (database.has(entry) === false) {
+        database.set(entry, {history: []});
+      }
+
+      database.get(entry).history.push(chart.positionOf(entry));
+    });
+  }
+
+  return database;
+}
+
+
+/* Return
+ * @param {Chart} charts -
+ * @return {Map}
+ * @example
+ * const chart1 = new Chart('A', 'B', 'C', 'D', 'E');
+ * const chart2 = new Chart('E', 'D', 'C', 'B', 'A');
+ * createDatabase(chart1, chart2);
+ * // Returns {'A' => { history: [1, 5])}, 'B' => { history: [2, 4])}, 'C' => { history: [3, 3])}, 'D' => { history: [4, 2])}, 'E' => { history: [5, 1])}}
+ */
+function displayTable(...charts) {
+
+  // Remove table currently displayed.
+  document.querySelector('[data-component=table]')?.remove();
+
+  // Create a new table.
+  const table = document.createElement('table');
+  table.dataset.component = 'table'; 
+
+  // Insert table headers.
+  const thead = document.createElement('thead');
+  const row = thead.insertRow();
+  row.insertCell().textContent = "Title";
+
+  for (const chart of charts) {
+    row.insertCell().textContent = "Position";
+  }
+
+  // Insert table rows.
+  const tbody = document.createElement('tbody'); 
+
+  // For each unique entry in `charts`.
+  new Set(charts.flat()).forEach(entry => {
+    const row = tbody.insertRow();
+    row.insertCell().textContent = entry;
+
+    for (const chart of charts) {
+      row.insertCell().textContent = chart.includes(entry) ? chart.positionOf(entry) : "";
+    }  
+  });
+
+  table.append(thead, tbody);
+
+  // Display table.
+  document.body.append(table);
+
+  thead.addEventListener('click', event => {
+    const index = event.target.cellIndex;
+    const rows = [...tbody.rows].filter(row => row.cells[index].textContent !== '');
+
+    rows.sort((rowA, rowB) => {
+      const cellA = +rowA.cells[index].textContent;
+      const cellB = +rowB.cells[index].textContent;
+
+      return cellA > cellB ? 1 : -1;
+    });
+
+    tbody.prepend(...rows);
+  });
+}
+
+
+/* Return
+ * @param {Chart} charts
+ * @return {Map}
+ * @example
+ * const chart1 = new Chart('A', 'B', 'C', 'D', 'E');
+ * const chart2 = new Chart('E', 'D', 'C', 'B', 'A');
+ * createDatabase(chart1, chart2);
+ * // Returns {'A' => { history: [1, 5])}, 'B' => { history: [2, 4])}, 'C' => { history: [3, 3])}, 'D' => { history: [4, 2])}, 'E' => { history: [5, 1])}}
+ */
+function runTests(week, charts, detector, tests) {
+  charts = charts.slice();
+  
+  for (const test of tests) {
+    charts.splice(week - 3, 2, ...test.splice(0, 2));
+
+    const [chart1, chart2, chartA, chartB] = charts.slice(week - 3);    
+    const database = createDatabase(...charts.before(chartA));
+    const entries = Chart[`detector${detector}`](chartA, chartB, database);
+ 
+    displayTable(...charts.before(chartB), chartB);
+
+    test.forEach((test, index) => {
+
+      if (index === 0) {
+        test(entries);
+      }
+      else {
+        const values = Chart[`corrector${detector}`](entries.shift(), chartA, chartB, database);
+        test(values);
+      }
+    });
+  }
+}
+
+
 // WEEK 8
 {
   const tests = [
