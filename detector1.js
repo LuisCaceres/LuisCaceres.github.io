@@ -120,6 +120,61 @@ function runTests(week, charts, detector, tests) {
   }
 }
 
+// WEEK 1
+{
+  const tests = [
+   // POSITION 16
+   [
+     new Chart(""),
+     new Chart(""),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Look At Me");
+       expect(entries).to.include("Let Forever Be");
+     },
+
+     function (entries) { // Look At Me
+       expect(entries.length).to.equal(1);
+                                                      // [**, **, 16, **]  [**, **, **, 10]
+       expect(entries).to.include("I Need To Know");  // [**, **, 16, 10]  [**, **, **, **]
+     },
+
+     function (entries) { // Let Forever Be
+       expect(entries.length).to.equal(1);
+                                                      // [**, **, 18, **]  [**, **, **, 10]
+       expect(entries).to.include("I Need To Know");  // [**, **, 18, 10]  [**, **, **, **]
+     },
+   ],
+    
+   // POSITION 18
+   [
+     new Chart(""),
+     new Chart(""),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Look At Me");
+       expect(entries).to.include("Let Forever Be");
+     },
+
+     function (entries) { // Look At Me
+       expect(entries.length).to.equal(1);
+                                                      // [**, **, 16, **]  [**, **, **, 10]
+       expect(entries).to.include("I Need To Know");  // [**, **, 16, 10]  [**, **, **, **]
+     },
+
+     function (entries) { // Let Forever Be
+       expect(entries.length).to.equal(1);
+                                                      // [**, **, 18, **]  [**, **, **, 10]
+       expect(entries).to.include("I Need To Know");  // [**, **, 18, 10]  [**, **, **, **]
+     },
+   ],    
+  ];
+
+  runTests(1, charts, 1, tests);
+}
+
 
 // WEEK 8
 {
@@ -137,10 +192,10 @@ function runTests(week, charts, detector, tests) {
      function (entries) { // As Fast As You Can
        expect(entries.length).to.equal(2);
                                                                     // [18, 17, 17, **]  [**, **, **, 13]
-       expect(entries).to.include("I Don't Want To Miss A Thing");  // [18, 17, **, **]  [**, **, 17, 13]
+       expect(entries).to.include("I Don't Want To Miss A Thing");  // [18, 17, 17, 13]  [**, **, **, **]
 
-                                             // [18, 17, 17, **]  [**, **, **, 16]
-       expect(entries).to.include("Crazy");  // [18, 17, **, **]  [**, **, 17, 16]
+                                                                    // [18, 17, 17, **]  [**, **, **, 16]
+       expect(entries).to.include("Crazy");                         // [18, 17, 17, 16]  [**, **, **, **]
      },
    ],
   ];
