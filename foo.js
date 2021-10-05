@@ -321,13 +321,9 @@ function runTests(week, charts, tests) {
      },
 
      function (entries) { // Someday
-       expect(entries.length).to.equal(2);
-                                                                // [10, 10, 10, 13]  [14, 12, 12, 18]
-       expect(entries).to.include("Man! I Feel Like A Woman");  // [10, 10, 12, 13]  [14, 12, 10, 18]
-
+       expect(entries.length).to.equal(1);
                                                                 // [10, 10, 10, 13]  [05, 09, 13, 16]
        expect(entries).to.include("Puente");                    // [10, 10, 13, 13]  [05, 09, 10, 16]
-
      },
    ],
   ];
