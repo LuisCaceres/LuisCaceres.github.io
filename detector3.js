@@ -95,7 +95,7 @@ function displayTable(...charts) {
  * createDatabase(chart1, chart2);
  * // Returns {'A' => { history: [1, 5])}, 'B' => { history: [2, 4])}, 'C' => { history: [3, 3])}, 'D' => { history: [4, 2])}, 'E' => { history: [5, 1])}}
  */
-function runTests(week, charts, tests) {
+function runTests(week, charts, detector, tests) {
   charts = charts.slice();
   
   for (const test of tests) {
@@ -103,7 +103,7 @@ function runTests(week, charts, tests) {
 
     const [chart1, chart2, chartA, chartB] = charts.slice(week - 3);    
     const database = createDatabase(...charts.before(chartA));
-    const entries = Chart.detector3(chartA, chartB, database);
+    const entries = Chart[`detector${detector}`](chartA, chartB, database);
  
     displayTable(...charts.before(chartB), chartB);
 
@@ -113,7 +113,7 @@ function runTests(week, charts, tests) {
         test(entries);
       }
       else {
-        const values = Chart.corrector3(entries.shift(), chartA, chartB, database);
+        const values = Chart[`corrector${detector}`](entries.shift(), chartA, chartB, database);
         test(values);
       }
     });
@@ -328,7 +328,7 @@ function runTests(week, charts, tests) {
    ],
   ];
 
-  runTests(7, charts, tests);
+  runTests(7, charts, 3, tests);
 }
     
 // WEEK 8
@@ -939,7 +939,7 @@ function runTests(week, charts, tests) {
    ],
   ];
 
-  runTests(8, charts, tests);
+  runTests(8, charts, 3, tests);
 }
 
 // WEEK 9
@@ -1430,7 +1430,7 @@ function runTests(week, charts, tests) {
     ],
   ];
 
-  runTests(9, charts, tests);
+  runTests(9, charts, 3, tests);
 }
   
 // WEEK 10 - IMPOSSIBLE TO TEST WEEK 10 BECAUSE WEEK 11 IS UNAVAILABLE.
