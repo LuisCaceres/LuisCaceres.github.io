@@ -765,6 +765,7 @@ class Chart extends List {
 
   /* Compares `chartA` to `chartB` to find entries on `chartB` which have been ascending
    * and have unexpectedly departed from chartA.
+   *                               A   B
    * For example: [20, 18, 16, 14, 11, **]
    * @param {Chart} chartA
    * @param {Chart} chartB
@@ -772,22 +773,22 @@ class Chart extends List {
    * @return {Array} entries
    */
   static detector1(chartA, chartB, database) {
-    return chartA.difference(chartB).filter(entry => {
-      const history = new NumberList(...database.get(entry).history);
-      return history.length === 0 && history.isDescending();
+    return chartB.difference(chartA).filter(entry => {
+      const history = new ChartHistory(...database.get(entry).history, chartA.positionOf(entry));
+      return history.isAscending();
     });
   }
 
-
   /* Finds entries on `chartA` which `entryB` can replace.
-   * @param {*} entryB - Entry on `chartB` which has been ascending and has unexpectedly departed from chartA.
+   * @param {*} entryA - Entry on `chartA` which has been ascending and has unexpectedly departed from `chartB`.
+   *                               A   B
    * For example: [20, 18, 16, 14, 11, **]
    * @param {Chart} chartA
    * @param {Chart} chartB
    * @return {Array} entries
    */
-  static corrector1(entryB, chartA, chartB) {
-    return chartA.difference(chartB).filter(entryA => {
+  static corrector1(entryA, chartA, chartB) {
+    return chartA.difference(chartB).filter(entryB => {
       const delta = chartA.positionOf(entryA) - chartB.positionOf(entryB);
  
       // TO DO: Detect if entry will be in the position for more than two weeks.
@@ -796,7 +797,7 @@ class Chart extends List {
       // It's expected that a different corrector will correct this kind of behaviour.
       
       // `entryB`'s position on `chartB` is the same as `entryA`'s position or higher. 
-      return delta >= 0
+      return delta >= 0;
     });
   }
 
