@@ -261,7 +261,10 @@
      },
 
      function (entries) { // Man! I Feel Like A Woman
-       expect(entries.length).to.equal(2);
+       expect(entries.length).to.equal(3);
+                                                      // [12, 12, 12, 18]  [**, **, 11, 07]
+       expect(entries).to.include("Fly Away");        // [12, 12, 11, 18]  [**, **, 12, 07]
+
                                                       // [12, 12, 12, 18]  [05, 10, 13, 16]
        expect(entries).to.include("Puente");          // [12, 12, 13, 18]  [05, 10, 12, 16]
 
