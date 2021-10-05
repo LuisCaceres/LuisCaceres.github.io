@@ -169,7 +169,44 @@ function runTests(week, charts, detector, tests) {
                                                       // [**, **, 18, **]  [**, **, **, 10]
        expect(entries).to.include("I Need To Know");  // [**, **, 18, 10]  [**, **, **, **]
      },
-   ],    
+   ],
+
+   // POSITION 16
+   [
+     new Chart(""),
+     new Chart(""),
+
+     function (entries) {
+       expect(entries.length).to.equal(3);
+       expect(entries).to.include("Look At Me");
+       expect(entries).to.include("Let Forever Be");
+       expect(entries).to.include("Angels");
+     },
+
+     function (entries) { // Look At Me
+       expect(entries.length).to.equal(1);
+                                                      // [**, **, 16, **]  [**, **, **, 10]
+       expect(entries).to.include("I Need To Know");  // [**, **, 16, 10]  [**, **, **, **]
+     },
+
+     function (entries) { // Let Forever Be
+       expect(entries.length).to.equal(1);
+                                                      // [**, **, 18, **]  [**, **, **, 10]
+       expect(entries).to.include("I Need To Know");  // [**, **, 18, 10]  [**, **, **, **]
+     },
+
+     function (entries) { // Angels
+       expect(entries.length).to.equal(3);
+                                                       // [**, **, 20, **]  [**, **, **, 10]
+       expect(entries).to.include("I Need To Know");   // [**, **, 20, 10]  [**, **, **, **]
+
+                                                       // [**, **, 20, **]  [**, **, **, 11]
+       expect(entries).to.include("Debut A");          // [**, **, 20, 11]  [**, **, **, **]       
+
+                                                       // [**, **, 20, **]  [**, **, **, 19]
+       expect(entries).to.include("No Quiero Verte");  // [**, **, 20, 19]  [**, **, **, **]
+     },
+   ],
   ];
 
   runTests(3, charts, 1, tests);
