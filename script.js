@@ -774,7 +774,7 @@ class Chart extends List {
    */
   static detector1(chartA, chartB, database) {
     return chartB.difference(chartA).filter(entry => {
-      const history = new ChartHistory(...database.get(entry).history, chartA.positionOf(entry));
+      const history = new ChartHistory(...(database.get(entry)?.history || []), chartA.positionOf(entry));
       return history.isAscending();
     });
   }
