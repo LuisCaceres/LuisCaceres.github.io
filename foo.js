@@ -624,6 +624,43 @@ function runTests(week, charts, tests) {
        expect(entries).to.include("Puente");  // [17, 17, 16, **]  [10, 13, 17, **]
      },
    ],
+
+   // POSITION 18
+   [
+     new Chart("All Star", "Angels", "I Need To Know", "Mi Chico Latino", "Someday We'll Know", "New", "Someday", "That's The Way It Is", "Si Me Advertí", "Puente", "No Quiero Verte", "Don't Say You Love Me", "All I Have To Give", "Dreams In Digital", "All Or Nothing", "Higher", "As Fast As You Can", "Man! I Feel Like A Woman", "If Ya Gettin' Down", "When You're Gone"),
+     new Chart("All Star", "Angels", "Mi Chico Latino", "I Need To Know", "That's The Way It Is", "New", "Someday We'll Know", "Maria Maria", "Si Me Advertí", "Someday", "Fly Away", "Puente", "All Or Nothing", "No Quiero Verte", "Super Trouper", "All I Have To Give", "As Fast As You Can", "Man! I Feel Like A Woman", "Don't Say You Love Me", "Dreams In Digital"),
+
+     function (entries) {
+       expect(entries.length).to.equal(3);
+       expect(entries).to.include("New");
+       expect(entries).to.include("As Fast As You Can");
+       expect(entries).to.include("Man! I Feel Like A Woman");
+     },
+
+     function (entries) { // New
+       expect(entries.length).to.equal(3);
+                                                            // [06, 06, 06, 09]  [07, 05, 05, 06]
+       expect(entries).to.include("That's The Way It Is");  // [06, 06, 05, 09]  [07, 05, 06, 06]
+
+                                                            // [06, 06, 06, 09]  [**, 10, 07, 02]
+       expect(entries).to.include("Fly Away");              // [06, 06, 07, 09]  [**, 10, 06, 02]
+
+                                                            // [06, 06, 06, 09]  [**, 08, 08, 05]
+       expect(entries).to.include("Maria Maria");           // [06, 06, 08, 09]  [**, 08, 06, 05]
+     },
+
+     function (entries) { // As Fast As You Can
+       expect(entries.length).to.equal(1);
+                                              // [17, 17, 17, **]  [10, 12, 16, **]
+       expect(entries).to.include("Puente");  // [17, 17, 16, **]  [10, 12, 17, **]
+     },
+
+     function (entries) { // Man! I Feel Like A Woman
+       expect(entries.length).to.equal(1);
+                                                         // [18, 18, 18, **]  [**, **, 19, 18]
+       expect(entries).to.include("Díselo Con Flores");  // [18, 18, 19, **]  [**, **, 18, 18]
+     },
+   ],
   ];
 
   runTests(8, charts, tests);
