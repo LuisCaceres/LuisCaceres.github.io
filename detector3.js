@@ -205,7 +205,7 @@
    ],
   ];
 
-  runTests(7, charts, 3, tests);
+  runTests(9, charts, 3, tests);
 }
     
 // WEEK 8
@@ -816,7 +816,7 @@
    ],
   ];
 
-  runTests(8, charts, 3, tests);
+  runTests(10, charts, 3, tests);
 }
 
 // WEEK 9
@@ -1307,7 +1307,7 @@
     ],
   ];
 
-  runTests(9, charts, 3, tests);
+  runTests(11, charts, 3, tests);
 }
   
 // WEEK 10 - IMPOSSIBLE TO TEST WEEK 10 BECAUSE WEEK 11 IS UNAVAILABLE.
