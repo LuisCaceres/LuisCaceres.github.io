@@ -853,7 +853,7 @@ class Chart extends List {
         return false;
       }
 
-      const history = new NumberList(...database.get(entry).history.slice(-2));
+      const history = new ChartHistory(...database.get(entry).history.slice(-2));
 
       // Filter out if `entry` has charted for 2 weeks at most.
       if (history.length === 1) {
@@ -864,20 +864,20 @@ class Chart extends List {
       const positionB = chartB.positionOf(entry);
       history.push(positionA);
 
-      // Filter out if `entry` starts to descend from `chartB`.
-      // Example: [12, 12, 12, 13]
-      // TO DO: THIS DOESN'T SEEM TO WORK WITH 'SOMEDAY';
-      if (history.isDecreasing() && history.at(-1) < positionB) {
-        return false;
-      }
-
       // Filter out if `entry` has been static in position 1 for 3 weeeks consecutively.
       if (history.at(0) === 1 && history.isFlat() === true) {
         return false;
       }
-      
+
       history.push(positionB);
-      
+
+      // Filter out if `entry` starts to descend from `chartB`.
+      // Example: [12, 12, 12, 13]
+      // TO DO: THIS DOESN'T SEEM TO WORK WITH 'SOMEDAY';
+      if (history.hasStartedDescending() === true) {
+        return false;
+      }
+
       // Filter out if `entry` is in the same position for 4 weeeks consecutively.
       // Example: [07, 05, 03, 02, 02, 02, 02]
       if (history.isFlat() === true) {
