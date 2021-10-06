@@ -78,6 +78,6 @@ table {
   background: aliceblue;
 }
 
-td:nth-of-type(n+8):nth-of-type(-n+) {
+td:nth-of-type(n+8):nth-of-type(-n+11) {
   border-left: solid black 4px;
 }
