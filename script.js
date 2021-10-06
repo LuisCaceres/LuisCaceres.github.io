@@ -1039,7 +1039,7 @@ class Chart extends List {
       map.set(value, 0);
     }
 
-    values.sort((a, b) => map.get(a) - map.get(b));
+    values.sort((a, b) => map.get(b) - map.get(a));
 
     return values;
   }
