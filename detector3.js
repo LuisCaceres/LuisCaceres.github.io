@@ -413,7 +413,37 @@
      },
    ],
 
+   // POSITION 18
+   [
+     new Chart("All Star", "I Need To Know", "Angels", "Someday We'll Know", "Puente", "Someday", "New", "Mi Chico Latino", "Si Me Advertí", "No Quiero Verte", "Higher", "That's The Way It Is", "Man! I Feel Like A Woman", "If Ya Gettin' Down", "Don't Say You Love Me", "Dreams In Digital", "The Kids Aren't Alright", "All I Have To Give", "When You're Gone", "As Fast As You Can"),
+     new Chart("All Star", "Angels", "I Need To Know", "Mi Chico Latino", "Someday We'll Know", "New", "Someday", "That's The Way It Is", "Si Me Advertí", "Puente", "No Quiero Verte", "Man! I Feel Like A Woman", "Don't Say You Love Me", "Dreams In Digital", "All Or Nothing", "Higher", "As Fast As You Can", "All I Have To Give", "If Ya Gettin' Down", "When You're Gone"),
 
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Si Me Advertí");
+       expect(entries).to.include("All I Have To Give");
+     },
+
+     function (entries) { // Si Me Advertí
+       expect(entries.length).to.equal(2);
+                                                   // [09, 09, 09, 11]  [**, **, 08, 08]
+       expect(entries).to.include("Maria Maria");  // [09, 09, 08, 11]  [**, **, 09, 08]
+
+                                                   // [09, 09, 09, 11]  [06, 07, 10, 13]
+       expect(entries).to.include("Someday");      // [09, 09, 10, 11]  [06, 07, 09, 13]
+     },
+
+     function (entries) { // All I Have To Give
+       expect(entries.length).to.equal(2);
+                                                             // [18, 18, 18, **]  [15, 13, 19, **]
+       expect(entries).to.include("Don't Say You Love Me");  // [18, 18, 19, **]  [15, 13, 18, **]
+
+                                                             // [18, 18, 18, **]  [16, 14, 20, 20]
+       expect(entries).to.include("Dreams In Digital");      // [18, 18, 20, **]  [16, 14, 18, 20]
+     },
+   ],
+
+// HHHHH
   ];
 
   runTests(9, charts, 3, tests);
