@@ -34,17 +34,17 @@
 
      function (entries) { // Angels
        expect(entries.length).to.equal(1);
-                                                       // [02, 02, 02, 03]  [08, 04, 03, 02]
-       expect(entries).to.include("Mi Chico Latino");  // [02, 02, 03, 03]  [08, 04, 02, 02]
+                                                        // [02, 02, 02, 03]  [08, 04, 03, 02]
+       expect(entries[0]).to.equal("Mi Chico Latino");  // [02, 02, 03, 03]  [08, 04, 02, 02]
      },
 
      function (entries) { // Si Me Advertí
        expect(entries.length).to.equal(2);
-                                                   // [09, 09, 09, 11]  [**, **, 08, 08]
-       expect(entries).to.include("Maria Maria");  // [09, 09, 08, 11]  [**, **, 09, 08]
+                                                    // [09, 09, 09, 11]  [**, **, 08, 08]
+       expect(entries[0]).to.equal("Maria Maria");  // [09, 09, 08, 11]  [**, **, 09, 08]
        
-                                                   // [09, 09, 09, 11]  [06, 07, 10, 13]
-       expect(entries).to.include("Someday");      // [09, 09, 10, 11]  [06, 07, 09, 13]
+                                                    // [09, 09, 09, 11]  [06, 07, 10, 13]
+       expect(entries[1]).to.equal("Someday");      // [09, 09, 10, 11]  [06, 07, 09, 13]
      },
    ],
     
@@ -61,17 +61,17 @@
 
      function (entries) { // Mi Chico Latino
        expect(entries.length).to.equal(1);
-                                              // [03, 03, 03, 02]  [04, 02, 02, 03]
-       expect(entries).to.include("Angels");  // [03, 03, 02, 02]  [04, 02, 03, 03]
+                                               // [03, 03, 03, 02]  [04, 02, 02, 03]
+       expect(entries[0]).to.equal("Angels");  // [03, 03, 02, 02]  [04, 02, 03, 03]
      },
 
      function (entries) { // Si Me Advertí
        expect(entries.length).to.equal(2);
-                                                   // [09, 09, 09, 11]  [**, **, 08, 08]
-       expect(entries).to.include("Maria Maria");  // [09, 09, 08, 11]  [**, **, 09, 08]
-       
-                                                   // [09, 09, 09, 11]  [06, 07, 10, 13]
-       expect(entries).to.include("Someday");      // [09, 09, 10, 11]  [06, 07, 09, 13]
+                                                    // [09, 09, 09, 11]  [**, **, 08, 08]
+       expect(entries[0]).to.equal("Maria Maria");  // [09, 09, 08, 11]  [**, **, 09, 08]
+
+                                                    // [09, 09, 09, 11]  [06, 07, 10, 13]
+       expect(entries[1]).to.equal("Someday");      // [09, 09, 10, 11]  [06, 07, 09, 13]
      },
    ],
 
@@ -88,17 +88,17 @@
 
      function (entries) { // Angels
        expect(entries.length).to.equal(1);
-                                                       // [02, 02, 02, 03]  [08, 03, 03, 02]
-       expect(entries).to.include("Mi Chico Latino");  // [02, 02, 03, 03]  [08, 03, 02, 02]
+                                                        // [02, 02, 02, 03]  [08, 03, 03, 02]
+       expect(entries[0]).to.equal("Mi Chico Latino");  // [02, 02, 03, 03]  [08, 03, 02, 02]
      },
 
      function (entries) { // Si Me Advertí
        expect(entries.length).to.equal(2);
-                                                   // [09, 09, 09, 11]  [**, **, 08, 08]
-       expect(entries).to.include("Maria Maria");  // [09, 09, 08, 11]  [**, **, 09, 08]
+                                                    // [09, 09, 09, 11]  [**, **, 08, 08]
+       expect(entries[0]).to.equal("Maria Maria");  // [09, 09, 08, 11]  [**, **, 09, 08]
 
-                                                   // [09, 09, 09, 11]  [06, 07, 10, 13]
-       expect(entries).to.include("Someday");      // [09, 09, 10, 11]  [06, 07, 09, 13]
+                                                    // [09, 09, 09, 11]  [06, 07, 10, 13]
+       expect(entries[1]).to.equal("Someday");      // [09, 09, 10, 11]  [06, 07, 09, 13]
      },
    ],
 
@@ -124,11 +124,11 @@
 
      function (entries) { // Si Me Advertí
        expect(entries.length).to.equal(2);
-                                                   // [09, 09, 09, 11]  [**, **, 08, 08]
-       expect(entries).to.include("Maria Maria");  // [09, 09, 08, 11]  [**, **, 09, 08]
+                                                    // [09, 09, 09, 11]  [**, **, 08, 08]
+       expect(entries[0]).to.equal("Maria Maria");  // [09, 09, 08, 11]  [**, **, 09, 08]
 
-                                                   // [09, 09, 09, 11]  [06, 07, 10, 13]
-       expect(entries).to.include("Someday");      // [09, 09, 10, 11]  [06, 07, 09, 13]
+                                                    // [09, 09, 09, 11]  [06, 07, 10, 13]
+       expect(entries[1]).to.equal("Someday");      // [09, 09, 10, 11]  [06, 07, 09, 13]
      },
    ],
 
@@ -149,11 +149,11 @@
 
      function (entries) { // Si Me Advertí
        expect(entries.length).to.equal(2);
-                                                   // [09, 09, 09, 11]  [**, **, 08, 08]
-       expect(entries).to.include("Maria Maria");  // [09, 09, 08, 11]  [**, **, 09, 08]
+                                                    // [09, 09, 09, 11]  [**, **, 08, 08]
+       expect(entries[0]).to.equal("Maria Maria");  // [09, 09, 08, 11]  [**, **, 09, 08]
 
-                                                   // [09, 09, 09, 11]  [06, 06, 10, 13]
-       expect(entries).to.include("Someday");      // [09, 09, 10, 11]  [06, 06, 09, 13]
+                                                    // [09, 09, 09, 11]  [06, 06, 10, 13]
+       expect(entries[1]).to.equal("Someday");      // [09, 09, 10, 11]  [06, 06, 09, 13]
      },
    ],
 
@@ -179,11 +179,11 @@
 
      function (entries) { // Si Me Advertí
        expect(entries.length).to.equal(2);
-                                                   // [09, 09, 09, 11]  [**, **, 08, 08]
-       expect(entries).to.include("Maria Maria");  // [09, 09, 08, 11]  [**, **, 09, 08]
+                                                    // [09, 09, 09, 11]  [**, **, 08, 08]
+       expect(entries[0]).to.equal("Maria Maria");  // [09, 09, 08, 11]  [**, **, 09, 08]
 
-                                                   // [09, 09, 09, 11]  [06, 07, 10, 13]
-       expect(entries).to.include("Someday");      // [09, 09, 10, 11]  [06, 07, 09, 13]
+                                                    // [09, 09, 09, 11]  [06, 07, 10, 13]
+       expect(entries[1]).to.equal("Someday");      // [09, 09, 10, 11]  [06, 07, 09, 13]
      },
    ],
 
@@ -199,8 +199,8 @@
 
      function (entries) { // Someday
        expect(entries.length).to.equal(1);
-                                                                // [10, 10, 10, 13]  [05, 09, 13, 16]
-       expect(entries).to.include("Puente");                    // [10, 10, 13, 13]  [05, 09, 10, 16]
+                                                                 // [10, 10, 10, 13]  [05, 09, 13, 16]
+       expect(entries[0]).to.equal("Puente");                    // [10, 10, 13, 13]  [05, 09, 10, 16]
      },
    ],
 
@@ -217,26 +217,26 @@
 
      function (entries) { // Si Me Advertí
        expect(entries.length).to.equal(3);
-                                                   // [09, 09, 09, 11]  [**, **, 08, 08]
-       expect(entries).to.include("Maria Maria");  // [09, 09, 08, 11]  [**, **, 09, 08]
+                                                    // [09, 09, 09, 11]  [**, **, 08, 08]
+       expect(entries[0]).to.equal("Maria Maria");  // [09, 09, 08, 11]  [**, **, 09, 08]
 
-                                                   // [09, 09, 09, 11]  [06, 07, 10, 13]
-       expect(entries).to.include("Someday");      // [09, 09, 10, 11]  [06, 07, 09, 13]
+                                                    // [09, 09, 09, 11]  [11, 11, 11, 07]
+       expect(entries[1]).to.equal("Fly Away");     // [09, 09, 11, 11]  [11, 11, 09, 07]
 
-                                                   // [09, 09, 09, 11]  [11, 11, 11, 07]
-       expect(entries).to.include("Fly Away");     // [09, 09, 11, 11]  [11, 11, 09, 07]
+                                                    // [09, 09, 09, 11]  [06, 07, 10, 13]
+       expect(entries[2]).to.equal("Someday");      // [09, 09, 10, 11]  [06, 07, 09, 13]
      },
 
      function (entries) { // Fly Away
        expect(entries.length).to.equal(3);
-                                                     // [11, 11, 11, 07]  [06, 07, 10, 13]
-       expect(entries).to.include("Someday");        // [11, 11, 10, 07]  [06, 07, 11, 13]
+                                                      // [11, 11, 11, 07]  [**, **, 08, 08]
+       expect(entries[0]).to.equal("Maria Maria");    // [11, 11, 08, 07]  [**, **, 11, 08]
 
-                                                     // [11, 11, 11, 07]  [09, 09, 09, 11]
-       expect(entries).to.include("Si Me Advertí");  // [11, 11, 09, 07]  [09, 09, 11, 11]
-                                                                          // LOOK AT THE BELOW
-                                                     // [11, 11, 11, 07]  [**, **, 08, 08]
-       expect(entries).to.include("Maria Maria");    // [11, 11, 08, 07]  [**, **, 11, 08]
+                                                      // [11, 11, 11, 07]  [09, 09, 09, 11]
+       expect(entries[1]).to.equal("Si Me Advertí");  // [11, 11, 09, 07]  [09, 09, 11, 11]
+
+                                                      // [11, 11, 11, 07]  [06, 07, 10, 13]
+       expect(entries[2]).to.equal("Someday");        // [11, 11, 10, 07]  [06, 07, 11, 13]
      },
    ],
 
