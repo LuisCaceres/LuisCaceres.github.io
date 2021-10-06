@@ -986,13 +986,6 @@ class Chart extends List {
       history.splice(-2, 2);
       history.push(chartA.positionOf(entry), chartB.positionOf(entry));
 
-      // Filter out if `entry` is in the same position for 4 weeeks consecutively.
-      //           1  2  A  B
-      // Example: [5, 5, 5, 5]
-      if (history.isFlat() === true) {
-        return false;
-      }
-
       // Filter out if `entry` is ascending and `positionA` in `entry`'s history causes `entry` to descend from `chartB`.
       //           1  2  A  B  C
       // Example: [5, 3, 2, 3, 2]
