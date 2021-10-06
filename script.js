@@ -871,13 +871,6 @@ class Chart extends List {
 
       history.push(positionB);
 
-      // Filter out if `entry` starts to descend from `chartB`.
-      // Example: [12, 12, 12, 13]
-      // TO DO: THIS DOESN'T SEEM TO WORK WITH 'SOMEDAY';
-      if (history.hasStartedDescending() === true) {
-        return false;
-      }
-
       // Filter out if `entry` is in the same position for 4 weeeks consecutively.
       // Example: [07, 05, 03, 02, 02, 02, 02]
       if (history.isFlat() === true) {
