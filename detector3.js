@@ -311,7 +311,6 @@
 
                                                    // [09, 09, 09, 11]  [06, 07, 10, 13]
        expect(entries).to.include("Someday");      // [09, 09, 10, 11]  [06, 07, 09, 13]
-
      },
 
      function (entries) { // All Or Nothing
