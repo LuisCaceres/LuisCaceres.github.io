@@ -996,42 +996,47 @@ class Chart extends List {
 
     for (const value of values) {
       const history = new ChartHistory(...charts.map(chart => chart.positionOf(value)));
-      let rating = 0;
 
       //  1   2   A   B
       // [**, **, 11, 07]  [**, **, 14, 07]
       if (history[1] === 21 && history[2] <= 12) {
-        rating = 6;
+        map.set(value, 6);
+        break;
       }
 
       // [11, 11, 11, 07]  [11, 11, 09, 07]
       if (history.slice(0, -1).isFlat() === true) {
-        rating = 5;
+        map.set(value, 5);
+        break;
       }
       
       const delta = Math.abs(history[3] - position); 
 
       // [**, **, 17, 14]  [**, **, 16, 14]
       if (delta >= 2) {
-        rating = 4;
+        map.set(value, 4);
+        break;
       }
       
       // [**, **, 16, 14]  [**, **, 15, 14]
       if (delta === 1) {
-        rating = 3;
+        map.set(value, 3);
+        break;
       }
       
       // [**, **, 16, 14]  [**, **, 14, 14]
       if (delta === 0) {
-        rating = 2;
+        map.set(value, 2);
+        break;
       }
 
-      // [15, 12, 13, 18]
+      // [15, 12, 12, 18]  [15, 12, 13, 18]
       if (new ChartHistory(...history.slice(0, -1), position).hasStartedDescending() === true) {
-        rating = 1;
+        map.set(value, 1);
+        break;
       }
 
-      map.set(value, rating);
+      map.set(value, 0);
     }
 
     values.sort((a, b) => map.get(a) - map.get(b));
