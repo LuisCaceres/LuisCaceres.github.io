@@ -931,7 +931,7 @@ class Chart extends List {
     }
 
     return entries.filter(entry => {
-      const history = new ChartHistory(...(database.get(entry)?.history || [21, 21]));
+      const history = new ChartHistory(...database.get(entry)?.history || [21, 21]);
 
       // TO DO: item has only been in chart for less than 3 weeks
       // TO DO: item ascends from chart B 
@@ -980,13 +980,62 @@ class Chart extends List {
       history.push(chartA.positionOf(entry), chartB.positionOf(entry));
 
       // Filter out if `entry` is ascending and `positionA` in `entry`'s history causes `entry` to descend from `chartB`.
-      //           1  2  A  B  C
-      // Example: [5, 3, 2, 3, 2]
+      //           1   2   A   B   C
+      // Example: [05, 03, 02, 03, 02]
       if (history.isAscending() && positionA < chartB.positionOf(entry)) {
         return false;
       }
 
       return true;
     });
+  }
+  
+  static sorter3(entry, values, charts) {
+    const position = charts[2].positionOf(entry);
+    const map = new Map();
+
+    for (const value of values) {
+      const history = new ChartHistory(...charts.map(chart => chart.positionOf(value)));
+      let rating = 0;
+
+      //  1   2   A   B
+      // [**, **, 11, 07]  [**, **, 14, 07]
+      if (history[1] === 21 && history[2] <= 12) {
+        rating = 6;
+      }
+
+      // [11, 11, 11, 07]  [11, 11, 09, 07]
+      if (history.slice(0, -1).isFlat() === true) {
+        rating = 5;
+      }
+      
+      const delta = Math.abs(history[3] - position); 
+
+      // [**, **, 17, 14]  [**, **, 16, 14]
+      if (delta >= 2) {
+        rating = 4;
+      }
+      
+      // [**, **, 16, 14]  [**, **, 15, 14]
+      if (delta === 1) {
+        rating = 3;
+      }
+      
+      // [**, **, 16, 14]  [**, **, 14, 14]
+      if (delta === 0) {
+        rating = 2;
+      }
+
+      // [15, 12, 13, 18]
+      if (new ChartHistory(...history.slice(0, -1), position).hasStartedDescending() === true) {
+        rating = 1;
+      }
+
+      map.set(value, rating);
+    }
+
+    values.sort((a, b) => map.get(a) - map.get(b));
+
+    return values;
   }
 }
