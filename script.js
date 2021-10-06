@@ -1001,13 +1001,13 @@ class Chart extends List {
       // [**, **, 11, 07]  [**, **, 14, 07]
       if (history[1] === 21 && history[2] <= 12) {
         map.set(value, 6);
-        break;
+        continue;
       }
 
       // [11, 11, 11, 07]  [11, 11, 09, 07]
       if (history.slice(0, -1).isFlat() === true) {
         map.set(value, 5);
-        break;
+        continue;
       }
       
       const delta = Math.abs(history[3] - position); 
@@ -1015,25 +1015,25 @@ class Chart extends List {
       // [**, **, 17, 14]  [**, **, 16, 14]
       if (delta >= 2) {
         map.set(value, 4);
-        break;
+        continue;
       }
       
       // [**, **, 16, 14]  [**, **, 15, 14]
       if (delta === 1) {
         map.set(value, 3);
-        break;
+        continue;
       }
       
       // [**, **, 16, 14]  [**, **, 14, 14]
       if (delta === 0) {
         map.set(value, 2);
-        break;
+        continue;
       }
 
       // [15, 12, 12, 18]  [15, 12, 13, 18]
       if (new ChartHistory(...history.slice(0, -1), position).hasStartedDescending() === true) {
         map.set(value, 1);
-        break;
+        continue;
       }
 
       map.set(value, 0);
