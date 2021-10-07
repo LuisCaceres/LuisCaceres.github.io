@@ -1000,13 +1000,13 @@ class Chart extends List {
       //  1   2   A   B
       // [**, **, 11, 07]  [**, **, 14, 07]
       if (history[1] === 21 && history[2] <= 12) {
-        map.set(value, 6);
+        map.set(value, 12);
         continue;
       }
 
       // [11, 11, 11, 07]  [11, 11, 09, 07]
       if (history.slice(0, -1).isFlat() === true) {
-        map.set(value, 5);
+        map.set(value, 11);
         continue;
       }
 
@@ -1016,24 +1016,64 @@ class Chart extends List {
         continue;
       }
 
-      const delta = Math.abs(history[3] - position); 
+      const delta1 = Math.abs(history[1] - position);
+      const delta2 = Math.abs(history[3] - position);
 
       // [**, **, 17, 14]  [**, **, 16, 14]
-      if (delta >= 2) {
-        map.set(value, 4);
-        continue;
+      if (delta1 >= 2) {
+
+        if (delta2 >= 2) {
+          map.set(value, 10);
+          continue;
+        }
+        
+        if (delta2 === 1) {
+          map.set(value, 9);
+          continue;
+        }
+        
+        if (delta2 === 0) {
+          map.set(value, 8);
+          continue;
+        }
       }
 
       // [**, **, 16, 14]  [**, **, 15, 14]
-      if (delta === 1) {
-        map.set(value, 3);
-        continue;
+      if (delta1 === 1) {
+        
+        if (delta2 >= 2) {
+          map.set(value, 7);
+          continue;
+        }
+        
+        if (delta2 === 1) {
+          map.set(value, 6);
+          continue;
+        }
+        
+        if (delta2 === 0) {
+          map.set(value, 5);
+          continue;
+        }
       }
 
       // [**, **, 16, 14]  [**, **, 14, 14]
-      if (delta === 0) {
-        map.set(value, 2);
-        continue;
+      if (delta1 === 0) {
+        
+        if (delta2 >= 2) {
+          map.set(value, 4);
+          continue;
+        }
+        
+        if (delta2 === 1) {
+          map.set(value, 3);
+          continue;
+        }
+        
+        if (delta2 === 0) {
+          map.set(value, 2);
+          continue;
+        }
       }
 
       map.set(value, 0);
