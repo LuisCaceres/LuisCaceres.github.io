@@ -348,17 +348,17 @@
 
      function (entries) { // No Quiero Verte
        expect(entries.length).to.equal(4);
+                                                              // [15, 15, 15, **]  [10, 13, 18, **]
+       expect(entries[0]).to.equal("All I Have To Give");     // [15, 15, 18, **]  [10, 13, 15, **]
+
+                                                              // [15, 15, 15, **]  [16, 12, 19, **]
+       expect(entries[1]).to.equal("Don't Say You Love Me");  // [15, 15, 19, **]  [16, 12, 15, **]
+
                                                               // [15, 15, 15, **]  [**, **, 16, 14]
-       expect(entries[3]).to.equal("Super Trouper");          // [15, 15, 16, **]  [**, **, 15, 14]
+       expect(entries[2]).to.equal("Super Trouper");          // [15, 15, 16, **]  [**, **, 15, 14]
 
-                                                             // [15, 15, 15, **]  [10, 13, 18, **]
-       expect(entries).to.include("All I Have To Give");     // [15, 15, 18, **]  [10, 13, 15, **]
-
-                                                             // [15, 15, 15, **]  [16, 12, 19, **]
-       expect(entries).to.include("Don't Say You Love Me");  // [15, 15, 19, **]  [16, 12, 15, **]
-
-                                                             // [15, 15, 15, **]  [17, 14, 20, 20]
-       expect(entries).to.include("Dreams In Digital");      // [15, 15, 20, **]  [17, 14, 15, 20]
+                                                              // [15, 15, 15, **]  [17, 14, 20, 20]
+       expect(entries[3]).to.equal("Dreams In Digital");      // [15, 15, 20, **]  [17, 14, 15, 20]
      },
    ],
 
