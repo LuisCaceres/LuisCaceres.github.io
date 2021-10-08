@@ -267,8 +267,8 @@ class List extends Array {
    * @param {*} item2 -
    * @returns {List} - this list.
    * @example
-   * // returns [4, 2, 3, 1]
    * new List(1, 2, 3, 4).swap(1, 4);
+   * // returns [4, 2, 3, 1]
    */
   swap(item1, item2) {
     const index1 = this.indexOf(item1);
@@ -524,7 +524,7 @@ class NumberList extends Array {
    * @return {Boolean}
    */
   isDescending() {
-    return this.isCurved() || this.isIncreasing();
+    return this.Ascending() === false;
   }
 }
 
@@ -722,15 +722,16 @@ class Chart extends List {
    */
   format(listB, database) {
     // Detect continuity errors.
-    const errors = Chart.detector2(this, listB, database);
+    const errors = Chart.detector3(this, listB, database);
     errors.shuffle();
 
     const map = new Map();
 
     // Find entries in this chart able to eliminate continuity errors. 
     errors.forEach(error => {
-      const targets = Chart.corrector2(error, this, listB, database);
-      map.set(error, targets.shuffle());
+      const targets = Chart.corrector3(error, this, listB, database);
+      Chart.sorter3(error, target, [chart1, chart2, this, listB]);
+      map.set(error, targets);
     });
 
     map.share();
@@ -738,9 +739,7 @@ class Chart extends List {
     // Eliminate errors.
     for (const [replacement, replacee] of map) {
       if (replacee !== null) {
-        this.replace(replacee, replacement);
-        
-        // this.replace(replacement, replacee);
+        this.swap(replacee, replacement);
       }
     }
 
