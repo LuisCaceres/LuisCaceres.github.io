@@ -495,10 +495,7 @@ class NumberList extends Array {
    * @return {Boolean}
    */
   hasStartedDescending() {
-    const subHistory = this.slice(0, -1);
-    const [secondLast, last] = this.slice(-2);
-    
-    return (subHistory.isDecreasing() || subHistory.isFlat()) && secondLast < last;
+    return this.slice(0, -1).isAscending() && this.at(-2) < this.at(-1);
   }
 
 
