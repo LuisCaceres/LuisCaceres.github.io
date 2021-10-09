@@ -911,7 +911,7 @@ class Chart extends List {
       }
 
       // Filter out if `positionA` is 12 or higher and `entry` departs from `chartB`.
-      if (positionA <= 12 && chartB.positionOf(entry) === 21) {
+      if (positionA <= 12 && chartA.positionOf(entry) >= 13 && chartB.positionOf(entry) === 21) {
         return false;
       }
 
