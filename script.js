@@ -736,6 +736,7 @@ class Chart extends List {
     });
   }
 
+
   /* Finds entries on `chartA` which `entryB` can replace.
    * @param {*} entryA - Entry on `chartA` which has been ascending and has unexpectedly departed from `chartB`.
    *                               A   B
@@ -747,18 +748,18 @@ class Chart extends List {
   static corrector1(entryA, chartA, chartB) {
     return chartA.difference(chartB).filter(entryB => {
       const delta = chartA.positionOf(entryA) - chartB.positionOf(entryB);
- 
+
       // TO DO: Detect if entry will be in the position for more than two weeks.
       // For example: [20, 19, 18, 18, *] turns into [20, 19, 18, 18, 18]
       // It seems that it's okay to let this happen because we'd like to reduce the number of debuts.
       // It's expected that a different corrector will correct this kind of behaviour.
-      
+
       // `entryB`'s position on `chartB` is the same as `entryA`'s position or higher. 
       return delta >= 0;
     });
   }
 
-  
+
   /* Compares `chartA` to `chartB` to find entries on `chartB` which have debuted
    * in position 12 or a lower position.
    * For example: [**, 10]
@@ -849,13 +850,6 @@ class Chart extends List {
    * @return {Array} entries
    */
   static corrector3(entry, chartA, chartB, database) {
-    // TO DO: If there are multiple instances of an entry being static for 3 weeks be careful because inadvertently 
-    // we could end up moving an entry too far away from his original position.
-    // For example:
-    // POSITION 5 [5, 5, 5]
-    // POSITION 10 [10, 10, 10]
-    // TARGET [4, 6, 15] COULD BECOME [4, 5, 15]
-
     const positionA = chartA.positionOf(entry);
     const positionB = chartB.positionOf(entry);
     const history = new NumberList(...database.get(entry).history, positionA, positionB);
@@ -867,9 +861,6 @@ class Chart extends List {
     // Example:
     // Returns [20, 19]
     // new Chart(20, 19, entry, 17, 16).before(entry);
-
-    // TO DO: ALSO WE DON'T WANT TO CAUSE THE ITEM THAT'S MOVED TO REPEAT POSITION FOR CHART A AND B
-    // EXAMPLE [1O, 12, 13, 14] = [10, 12, 14, 14]
 
     const entries = chartA[method](entry, delta);
 
@@ -893,7 +884,7 @@ class Chart extends List {
       // TO DO: item has only been in chart for less than 3 weeks
       // TO DO: item ascends from chart B 
       // Example: [20, 19, 1, 9]
-      
+
       // Filter out if `entry` arrives in `chartA`
       // and `positionA` in `entry`'s history causes `entry` to arrive in position 12 or lower.
       //               BEFORE             AFTER
@@ -901,7 +892,7 @@ class Chart extends List {
       if (history.at(-1) === 21 && positionA <= 12) {
         return false;
       }
-      
+
       // Filter out if `entry` already arrives in `chartA` in position 12 or lower, 
       // and `positionA` in `entry`'s history causes `entry` to arrive in an even lower position.
       //               BEFORE             AFTER
@@ -923,7 +914,7 @@ class Chart extends List {
       if (history.isAscending() && (history.at(-1) - positionA) >= 2 && history.at(-1) < chartB.positionOf(entry)) {
         return false;
       }
-      
+
       history.push(positionA, chartB.positionOf(entry));
 
       // Filter out if `entry` is descending and `positionA` in `entry`'s history causes `entry` to ascend again.
@@ -974,11 +965,8 @@ class Chart extends List {
         if (delta2 >= 2) {
           map.set(value, 10);
         }
-        else if (delta2 === 1) {
-          map.set(value, 9);
-        }
         else {
-          map.set(value, 8);
+          map.set(value, delta2 === 1 ? 9 : 8);
         }
       }
       // [**, **, 16, 14]  [**, **, 15, 14]
@@ -987,11 +975,8 @@ class Chart extends List {
         if (delta2 >= 2) {
           map.set(value, 7);
         }
-        else if (delta2 === 1) {
-          map.set(value, 6);
-        }
         else {
-          map.set(value, 5);
+          map.set(value, delta2 === 1 ? 6 : 5);
         }
       }
       // [**, **, 16, 14]  [**, **, 14, 14]
@@ -1000,11 +985,8 @@ class Chart extends List {
         if (delta2 >= 2) {
           map.set(value, 4);
         }
-        else if (delta2 === 1) {
-          map.set(value, 3);
-        }
         else {
-          map.set(value, 2);
+          map.set(value, delta2 === 1 ? 3 : 2);
         }
       }
       else {
