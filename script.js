@@ -953,78 +953,63 @@ class Chart extends List {
 
     for (const value of values) {
       const history = new ChartHistory(...charts.map(chart => chart.positionOf(value)));
+      const delta1 = Math.abs(history[1] - position);
+      const delta2 = Math.abs(history[3] - position);
 
       //  1   2   A   B
       // [**, **, 11, 07]  [**, **, 14, 07]
       if (history[1] === 21 && history[2] <= 12) {
         map.set(value, 12);
-        continue;
       }
-
       // [11, 11, 11, 07]  [11, 11, 09, 07]
-      if (history.slice(0, -1).isFlat() === true) {
+      else if (history.slice(0, -1).isFlat() === true) {
         map.set(value, 11);
-        continue;
       }
-
       // [15, 12, 12, 18]  [15, 12, 13, 18]
-      if (new ChartHistory(...history.slice(0, -1), position).hasStartedDescending() === true) {
+      else if (new ChartHistory(...history.slice(0, -1), position).hasStartedDescending() === true) {
         map.set(value, 1);
-        continue;
       }
-
-      const delta1 = Math.abs(history[1] - position);
-      const delta2 = Math.abs(history[3] - position);
-
       // [**, **, 17, 14]  [**, **, 16, 14]
-      if (delta1 >= 2) {
-
+      else if (delta1 >= 2) {
         if (delta2 >= 2) {
           map.set(value, 10);
         }
-        
-        if (delta2 === 1) {
+        else if (delta2 === 1) {
           map.set(value, 9);
         }
-        
-        if (delta2 === 0) {
+        else {
           map.set(value, 8);
         }
       }
-
       // [**, **, 16, 14]  [**, **, 15, 14]
-      if (delta1 === 1) {
-        
+      else if (delta1 === 1) {
+
         if (delta2 >= 2) {
           map.set(value, 7);
         }
-        
-        if (delta2 === 1) {
+        else if (delta2 === 1) {
           map.set(value, 6);
         }
-        
-        if (delta2 === 0) {
+        else {
           map.set(value, 5);
         }
       }
-
       // [**, **, 16, 14]  [**, **, 14, 14]
-      if (delta1 === 0) {
-        
+      else if (delta1 === 0) {
+
         if (delta2 >= 2) {
           map.set(value, 4);
         }
-        
-        if (delta2 === 1) {
+        else if (delta2 === 1) {
           map.set(value, 3);
-=        }
-        
-        if (delta2 === 0) {
+        }
+        else {
           map.set(value, 2);
         }
       }
-
-      map.set(value, 0);
+      else {
+        map.set(value, 0);
+      }
     }
 
     values.sort((a, b) => map.get(b) - map.get(a));
