@@ -981,17 +981,14 @@ class Chart extends List {
 
         if (delta2 >= 2) {
           map.set(value, 10);
-          continue;
         }
         
         if (delta2 === 1) {
           map.set(value, 9);
-          continue;
         }
         
         if (delta2 === 0) {
           map.set(value, 8);
-          continue;
         }
       }
 
@@ -1000,17 +997,14 @@ class Chart extends List {
         
         if (delta2 >= 2) {
           map.set(value, 7);
-          continue;
         }
         
         if (delta2 === 1) {
           map.set(value, 6);
-          continue;
         }
         
         if (delta2 === 0) {
           map.set(value, 5);
-          continue;
         }
       }
 
@@ -1019,17 +1013,14 @@ class Chart extends List {
         
         if (delta2 >= 2) {
           map.set(value, 4);
-          continue;
         }
         
         if (delta2 === 1) {
           map.set(value, 3);
-          continue;
-        }
+=        }
         
         if (delta2 === 0) {
           map.set(value, 2);
-          continue;
         }
       }
 
