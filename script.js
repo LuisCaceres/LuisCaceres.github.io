@@ -782,6 +782,20 @@ class Chart extends List {
    * @return {Array} entries
    */
   static corrector2(entryB, chartA, chartB, database) {
+    return chartA.filter(entry => {
+      const history = new ChartHistory(...database.get(entry).history);
+      
+      const position = chartA.positionOf(entry);
+
+      // Filter out if `entry` is on `chartB`.
+      if (history.isDescending() === true && chartB.positionOf(entry) >= 20) {
+        return false;
+      }
+      else if (history.length !== 0) {
+        return false;
+      }
+    });
+    
     return chartB.difference(chartA).filter(entryA => {
       const position = chartA.positionOf(entryA) 
       const delta = position - chartB.positionOf(entryB);
@@ -791,7 +805,7 @@ class Chart extends List {
       // `entryA`'s position on `chartA` is 13 or lower and
       // `entryA` has been charting for at least 2 charts and
       // `entryA` has already had at least one movement backwards.
-      return delta >= 2 && position > 12 && history.length >= 1 && history.isDescending();
+      return position > 12 && history.length >= 1 && history.isDescending();
     });
   }
 
