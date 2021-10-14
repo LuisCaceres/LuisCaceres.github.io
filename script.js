@@ -832,8 +832,7 @@ class Chart extends List {
         return false;
       }
 
-      const positionA = chartA.positionOf(entry);
-      const positionB = chartB.positionOf(entry);
+      const [positionA, positionB] = [chartA.positionOf(entry), chartB.positionOf(entry)];
       history.push(positionA);
 
       // Filter out if `entry` has been static in position 1 for 3 weeeks consecutively.
@@ -864,8 +863,7 @@ class Chart extends List {
    * @return {Array} entries
    */
   static corrector3(entry, chartA, chartB, database) {
-    const positionA = chartA.positionOf(entry);
-    const positionB = chartB.positionOf(entry);
+    const [positionA, positionB] = [chartA.positionOf(entry), chartB.positionOf(entry)];
     const history = new NumberList(...database.get(entry).history, positionA, positionB);
 
     const delta = Math.abs(positionA - positionB);
