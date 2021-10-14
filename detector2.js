@@ -11,9 +11,9 @@ function runTests(week, charts, detector, tests) {
   charts = charts.slice();
   
   for (const test of tests) {
-    charts.splice(week - 1, 1, ...test.splice(0, 1));
+    charts.splice(week + 1, 1, ...test.splice(0, 1));
 
-    const [chartA, chartB] = charts.slice(week - 1, week);
+    const [chartA, chartB] = charts.slice(week, week + 1);
     const database = createDatabase(...charts.before(chartA));
     const entries = Chart[`detector${detector}`](chartA, chartB, database);
  
