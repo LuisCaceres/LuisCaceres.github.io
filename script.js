@@ -832,15 +832,12 @@ class Chart extends List {
         return false;
       }
 
-      const [positionA, positionB] = [chartA.positionOf(entry), chartB.positionOf(entry)];
-      history.push(positionA);
+      history.push(chartA.positionOf(entry), chartB.positionOf(entry));
 
       // Filter out if `entry` has been static in position 1 for 3 weeeks consecutively.
-      if (history.at(0) === 1 && history.isFlat() === true) {
+      if (history.at(0) === 1 && history.slice(0, -1).isFlat()) {
         return false;
       }
-
-      history.push(positionB);
 
       // Filter out if `entry` is in the same position for 4 weeeks consecutively.
       // Example: [07, 05, 03, 02, 02, 02, 02]
@@ -849,7 +846,7 @@ class Chart extends List {
       }
 
       // Filter in if `entry` has been static in the same position for 3 weeks consecutively.
-      return history.slice(0, 3).isFlat() === true;
+      return history.slice(0, 3).isFlat();
     });
   }
 
