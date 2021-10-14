@@ -58,6 +58,6 @@ function runTests(week, charts, detector, tests) {
    ],
   ];
 
-  runTests(2, charts, 2, tests);
+//   runTests(2, charts, 2, tests);
 }
 
