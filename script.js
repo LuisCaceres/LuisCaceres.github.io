@@ -819,19 +819,7 @@ class Chart extends List {
    */
   static detector3(chartA, chartB, database) {
     return chartA.filter(entry => {
-
-      // Filter out if `entry` debuts on `chartA`.
-      if (database.has(entry) === false) {
-        return false;
-      }
-
-      const history = new ChartHistory(...database.get(entry).history.slice(-2));
-
-      // Filter out if `entry` has charted for 2 weeks at most.
-      if (history.length === 1) {
-        return false;
-      }
-
+      const history = new ChartHistory(...database.get(entry)?.history || [21, 21]).slice(-2);
       history.push(chartA.positionOf(entry), chartB.positionOf(entry));
 
       // Filter out if `entry` has been static in position 1 for 3 weeeks consecutively.
@@ -841,7 +829,7 @@ class Chart extends List {
 
       // Filter out if `entry` is in the same position for 4 weeeks consecutively.
       // Example: [07, 05, 03, 02, 02, 02, 02]
-      if (history.isFlat() === true) {
+      if (history.isFlat()) {
         return false;
       }
 
