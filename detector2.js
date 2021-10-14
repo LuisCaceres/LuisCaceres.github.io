@@ -15,7 +15,7 @@ function runTests(week, charts, detector, tests) {
 
     const [chartA, chartB] = charts.slice(week, week + 2);
     const database = createDatabase(...charts.before(chartA));
-    const entries = Chart[`detector${detector}`](chartA, chartB, database);
+    const entries = Chart.detector2(chartA, chartB, database);
  
     displayTable(...charts.before(chartB), chartB);
 
@@ -25,10 +25,10 @@ function runTests(week, charts, detector, tests) {
         test(entries);
       }
       else {
-//         const entry = entries.shift();
-//         const values = Chart[`corrector${detector}`](entry, chartA, chartB, database);
+        const entry = entries.shift();
+        const values = Chart.corrector2(entry, chartA, chartB, database);
 //         Chart[`sorter${detector}`](entry, values, [chart1, chart2, chartA, chartB]);
-//         test(values);
+        test(values);
       }
     });
   }
