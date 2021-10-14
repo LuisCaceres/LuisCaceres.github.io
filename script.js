@@ -842,7 +842,7 @@ class Chart extends List {
   static corrector3(entry, chartA, chartB, database) {
     const [positionA, positionB] = [chartA.positionOf(entry), chartB.positionOf(entry)];
     const history = new NumberList(...database.get(entry).history, positionA, positionB);
-    const entries = chartA.slice(...[positionA, positionB].sort((a, b) => a - b));
+    const entries = chartA.slice(...[positionA - 1, positionB - 1].sort((a, b) => a - b));
 
     // If `entry` starts descending from chartB.
     if (history.hasStartedDescending()) {
