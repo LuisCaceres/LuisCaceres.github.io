@@ -818,21 +818,15 @@ class Chart extends List {
    * @return {Array} entries
    */
   static detector3(chartA, chartB, database) {
-    return chartA.filter(entry => {
+    // Skip position 1 because it's allowed to stay in position 1 indefinetely.
+    return chartA.slice(1).filter(entry => {
       const history = new ChartHistory(...database.get(entry)?.history || [21, 21]).slice(-2);
       history.push(chartA.positionOf(entry), chartB.positionOf(entry));
 
-      // Filter out if `entry` is in the same position for 4 weeks.
-      //           1  2  A  B
-      // Example: [2, 2, 2, 2]
-      if (history.isFlat()) {
-        return false;
-      }
-
-      // Filter in if `entry` is in the same position (except position 1) for 3 weeks.
-      //           1  2  A  B
-      // Example: [3, 2, 2, 2]
-      return history.slice(0, 3).isFlat() && history[0] !== 1;
+      // Filter in if `entry` is in the same position for 3 consecutive charts and not for 4 consecutive charts.
+      //      1  2  A  B                      1  2  A  B
+      //     [2, 2, 2, 3]                    [2, 2, 2, 2]
+      return history.slice(0, 3).isFlat() && history.isFlat() === false;
     });
   }
 
