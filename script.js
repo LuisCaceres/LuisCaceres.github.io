@@ -840,7 +840,7 @@ class Chart extends List {
    * @return {Array} entries
    */
   static corrector3(entry, chartA, chartB, database) {
-    const [positionA, positionB] = [chartA.positionOf(entry), chartB.positionOf(entry)]);
+    const [positionA, positionB] = [chartA.positionOf(entry), chartB.positionOf(entry)];
     const history = new NumberList(...database.get(entry).history, positionA, positionB);
     const entries = chartA.slice(...[positionA, positionB].sort((a, b) => a - b));
 
