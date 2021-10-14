@@ -38,9 +38,9 @@ function runTests(week, charts, detector, tests) {
 // WEEK 2
 {
   const tests = [
-   // POSITION 1
+   // POSITION 10
    [
-     new Chart("All Star", "I Need To Know", "Angels", "Someday We'll Know", "Puente", "Someday", "New", "Mi Chico Latino", "Si Me Advertí", "All I Have To Give", "No Quiero Verte", "Higher", "That's The Way It Is", "Man! I Feel Like A Woman", "If Ya Gettin' Down", "Don't Say You Love Me", "Dreams In Digital", "The Kids Aren't Alright", "When You're Gone", "As Fast As You Can"),
+     new Chart('Puente', 'Someday', "Someday We'll Know", 'All I Have To Give', 'Higher', 'La Lola', "If Ya Gettin' Down", "The Kids Aren't Alright", 'All Star', 'I Need To Know', 'Angels', 'Heartbreaker', "When You're Gone", 'Jennifer Del Estero', 'Si Me Advertí', "What's My Age Again?", 'Waiting For Tonight', 'Atrapados En La Red', 'No Quiero Verte', '...Baby One More Time'),
 
      function (entries) {
        expect(entries.length).to.equal(1);
@@ -54,7 +54,6 @@ function runTests(week, charts, detector, tests) {
 
                                                        // [09, 09, 09, 11]  [06, 07, 10, 13]
        expect(entries[1]).to.equal("Look At Me");      // [09, 09, 10, 11]  [06, 07, 09, 13]
- 
      },
    ],
   ];
