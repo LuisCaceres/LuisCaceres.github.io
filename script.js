@@ -840,18 +840,9 @@ class Chart extends List {
    * @return {Array} entries
    */
   static corrector3(entry, chartA, chartB, database) {
-    const [positionA, positionB] = [chartA.positionOf(entry), chartB.positionOf(entry)];
+    const [positionA, positionB] = [chartA.positionOf(entry), chartB.positionOf(entry)]);
     const history = new NumberList(...database.get(entry).history, positionA, positionB);
-
-    const delta = Math.abs(positionA - positionB);
-    const method = history.isAscending() ? 'before' : 'after';
-
-    // According to `entry`'s direction of movement, retrieve those entries placed ahead of `entry`.
-    // Example:
-    // Returns [20, 19]
-    // new Chart(20, 19, entry, 17, 16).before(entry);
-
-    const entries = chartA[method](entry, delta);
+    const entries = chartA.slice(...[positionA, positionB].sort((a, b) => a - b));
 
     // If `entry` starts descending from chartB.
     if (history.hasStartedDescending()) {
