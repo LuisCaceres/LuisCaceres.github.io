@@ -859,17 +859,17 @@ class Chart extends List {
 //       }
 //     }
 
-    let [start, end] = [Math.min(A, B), Math.max(A, B)];
+    let [start, end] = [A, B].sort((a, b) => a - b);
 
     if (history.hasStartedDescending()) {
-      start = start - 1;
+      start = start - 2;
 
       if (B === 21) {
         end = start + 1;
       }   
     }
 
-    return chartA.slice(start, end).filter(entry => {
+    return chartA.slice(start, end).remove(entry).filter(entry => {
       const history = new ChartHistory(...database.get(entry)?.history || [21, 21]);
 
       // TO DO: item has only been in chart for less than 3 weeks
