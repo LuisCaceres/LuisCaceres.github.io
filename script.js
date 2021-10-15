@@ -214,65 +214,6 @@ class List extends Array {
 }
 
 
-class Matrix {
-  constructor(...rows) {
-    const map = this.#map = new Map();
-
-    for (const row of rows) {
-      map.set(rows.indexOf(row), row);
-    }
-
-    rows();
-    columns();
-  }
-
-  #map
-
-  set(row, entry, value) {
-    const currentValue = this.#map.get(row)[entry];
-    this.#map.get(row)[entry] = value;
-
-    const delta = currentValue - value;
-  
-    for (let index = currentValue; index < currentValue + delta; index++) {
-      this.#map.get(row)[entry] = value; 
-    }
-
-    rows();
-    columns();
-  }
-
-  rows() {
-    this.#map.forEach(row => {
-      const progressions = row.getProgressions();
-
-      if (progressions.length <= 2) {
-
-        if (progressions[0].isIncreasing() === true || progressions[1].isDecreasing() === true) {
-          throw Error();
-        }
-      }     
-      else if (progressions.length > 2) {
-        throw Error();
-      }
-    });   
-  }
-
-  columns() {
-    this.transposed().forEach(column => {
-
-      for (let entry = 1; entry < 21; entry++) {
-        const index = column.indexOf(entry);
-
-        if (index === -1 || column.indexOf(entry, index + 1) > index) {
-          throw Error();
-        }
-      }
-    });
-  }
-}
-
-
 /*
  *
  */
