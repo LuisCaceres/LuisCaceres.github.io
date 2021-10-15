@@ -916,7 +916,8 @@ class Chart extends List {
       return true;
     });
   }
-  
+
+
   static sorter3(entry, values, charts) {
     const position = charts[2].positionOf(entry);
     const map = new Map();
