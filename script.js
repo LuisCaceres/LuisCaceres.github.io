@@ -120,41 +120,6 @@ class List extends Array {
   }
 
 
-  /* Finds the first occurrence of `item` in this list and returns a list of the items placed after `item`.
-   * @param {*} item
-   * @return {List}
-   * @example
-   * // returns `3`
-   * (new List(1, 2, 3)).after(2);
-   */
-  after(item, howMany) {
-    const index = this.indexOf(item);
-
-    if (index === -1) {
-      return [];
-    }
-
-    const start = index + 1;
-    const end = Number.isInteger(howMany) ? start + Math.max(howMany, 0) : howMany;
-
-    return this.slice(start, end);
-  }
-
-
-  /* Finds the first occurrence of `item` in this list and returns a list of the items placed before `item`.
-   * The number of items on the returned is list is determined by `howMany`.
-   * @param {*} item -
-   * @param {Number} howMany -
-   * @return {List}
-   * @example
-   * // returns '1'
-   * (new List(1, 2, 3)).before(2);
-   */
-  before(item, howMany) {
-    return this.slice().reverse().after(item, howMany).reverse();
-  }
-
-
   /* Returns the items from `list` not present in this list.
    * @param {List} list -
    * @return {List}
