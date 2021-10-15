@@ -841,32 +841,20 @@ class Chart extends List {
    */
   static corrector3(entry, chartA, chartB, database) {
     const [A, B] = [chartA.positionOf(entry), chartB.positionOf(entry)];
-    const history = new NumberList(...database.get(entry).history, A, B);
-    // NOTE: CHECK THIS LINE BELOW BECAUSE IT'S MESSING WITH THE UNIT TESTS
-//     const entries = chartA.slice(...[positionA - 1, positionB - 1].sort((a, b) => a - b)).remove(entry);
-
-//     // If `entry` starts descending from chartB.
-//     if (history.hasStartedDescending()) {
-//       //                       1   2   A   B
-//       // Example: [18, 16, 14, 12, 12, 12, 13]
-//       // Retreive the entry immediately preceding `entry` on chartA and add it to `entries`.
-//       entries.unshift(...chartA.before(entry, 1));
-  
-//       if (positionB === 21) {
-//         //                   1   2   A   B
-//         // Example: [20, 20, 17, 17, 17, **]
-//         entries.length = 1;
-//       }
-//     }
-
+    const history = new ChartHistory(...database.get(entry).history, A, B);
+ 
     let [start, end] = [A, B].sort((a, b) => a - b);
 
     if (history.hasStartedDescending()) {
+      //   1   2   A   B
+      // [12, 12, 12, 13]
       start = start - 1;
 
       if (B === 21) {
+        //   1   2   A   B
+        // [17, 17, 17, **]
         end = start + 1;
-      }   
+      }
     }
 
     return chartA.slice(start - 1, end).remove(entry).filter(entry => {
