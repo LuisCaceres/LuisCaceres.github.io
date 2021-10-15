@@ -1,11 +1,3 @@
-// TO DO: IT SEEMS THERE ARE MORE DEBUTS THAN I WOULD LIKE THEM TO THERE BE. 
-// TO DO: [20, 20, 18, 17, 17, **], [**, **, **, **, **, 13] <<<< SHOULDN'T BE ALLOWED, INSTEAD [20, 20, 18, 17, 17, 13]
-// TO DO: [20, **], [** 18]<<<<< SHOULDN'T BE ALLOWED INSTEAD [20, 18]
-// WHAT ABOUT WHEN THERE IS MORE THAN ONCE INSTANCE OF THIS?
-
-
-// TO DO: THERE ARE MORE OCURRENCES OF VIDEOS BEING IN THE SAME POSITION FOR MORE THAN 3 WEEKS, I DON'T LIKE THAT.
-
 /* Reduces each list to only one item. These items become the values of this map instead. The items are unique as values.    
  * In other words, an item is used as a value only once even if some lists share that same item. Therefore, null may be used as a value if necessary   
  * in order to maintain the uniqueness of the values.
@@ -134,7 +126,7 @@ class List extends Array {
    */
    insert(indexes, item) {
     indexes.reverse();
-     
+
     for (const index of indexes) {
       this.splice(index, 0, item);
     }
@@ -147,33 +139,6 @@ class List extends Array {
    intersection(list) {
     return this.filter(a => list.find(b => a === b));
    }
-
-  
-  /* Find `item` in this list. If found, move `item1` to `index`. 
-   * @param {*} item -
-   * @param {Number} index -
-   * @returns {List} - this list.
-   * @example
-   * new List('A', 'B', 'C', 'D', 'E').move('A', 5);
-   * // returns ['B', 'C', 'D', 'E', 'A']
-   */
-  move(item, index) {
-
-    if (index < 0 || index > this.length - 1) {
-      return this;
-    }
-
-    const i = this.indexOf(item);
-    
-    if (i === -1) {
-      return this;
-    }
-    
-    this.splice(i, 1);
-    this.splice(index, 0, item);
-
-    return this;
-  }
 
 
   /*
@@ -329,8 +294,8 @@ class NumberList extends Array {
   isDecreasing() {
     return this.slice().reverse().isIncreasing();
   }
-  
-  
+
+
   /* Returns true
    * @example
    * // Returns true
@@ -344,8 +309,8 @@ class NumberList extends Array {
   isOrdered() {
      return this.isDecreasing() || this.isFlat() || this.isIncreasing();
   }
-  
-  
+
+
   /* Returns a list of progressions in this NumberList. A progression is
    * is a sequence of numbers that express an increment or decrement.
    * @example
@@ -436,7 +401,7 @@ class NumberList extends Array {
   isAscending() {
     return this.isFlat() || this.isDecreasing();
   }
-  
+
 
   /* Returns true 
    * @example
