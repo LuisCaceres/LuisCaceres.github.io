@@ -840,26 +840,36 @@ class Chart extends List {
    * @return {Array} entries
    */
   static corrector3(entry, chartA, chartB, database) {
-    const [positionA, positionB] = [chartA.positionOf(entry), chartB.positionOf(entry)];
-    const history = new NumberList(...database.get(entry).history, positionA, positionB);
+    const [A, B] = [chartA.positionOf(entry), chartB.positionOf(entry)];
+    const history = new NumberList(...database.get(entry).history, A, B);
     // NOTE: CHECK THIS LINE BELOW BECAUSE IT'S MESSING WITH THE UNIT TESTS
-    const entries = chartA.slice(...[positionA - 1, positionB - 1].sort((a, b) => a - b)).remove(entry);
+//     const entries = chartA.slice(...[positionA - 1, positionB - 1].sort((a, b) => a - b)).remove(entry);
 
-    // If `entry` starts descending from chartB.
-    if (history.hasStartedDescending()) {
-      //                       1   2   A   B
-      // Example: [18, 16, 14, 12, 12, 12, 13]
-      // Retreive the entry immediately preceding `entry` on chartA and add it to `entries`.
-      entries.unshift(...chartA.before(entry, 1));
+//     // If `entry` starts descending from chartB.
+//     if (history.hasStartedDescending()) {
+//       //                       1   2   A   B
+//       // Example: [18, 16, 14, 12, 12, 12, 13]
+//       // Retreive the entry immediately preceding `entry` on chartA and add it to `entries`.
+//       entries.unshift(...chartA.before(entry, 1));
   
-      if (positionB === 21) {
-        //                   1   2   A   B
-        // Example: [20, 20, 17, 17, 17, **]
-        entries.length = 1;
-      }
+//       if (positionB === 21) {
+//         //                   1   2   A   B
+//         // Example: [20, 20, 17, 17, 17, **]
+//         entries.length = 1;
+//       }
+//     }
+
+    let [start, end] = [Math.min(A, B), Math.max(A, B)];
+
+    if (history.hasStartedDescending()) {
+      start = start - 1;
+
+      if (B === 21) {
+        end = start + 1;
+      }   
     }
 
-    return entries.filter(entry => {
+    return chartA.slice(start, end).filter(entry => {
       const history = new ChartHistory(...database.get(entry)?.history || [21, 21]);
 
       // TO DO: item has only been in chart for less than 3 weeks
@@ -870,7 +880,7 @@ class Chart extends List {
       // and `positionA` in `entry`'s history causes `entry` to arrive in position 12 or lower.
       //               BEFORE             AFTER
       // Example: [**, **, 14, 07] = [**, **, 12, 07]
-      if (history.at(-1) === 21 && chartA.positionOf(entry) >= 13 && positionA <= 12) {
+      if (history.at(-1) === 21 && chartA.positionOf(entry) >= 13 && A <= 12) {
         return false;
       }
 
@@ -878,12 +888,12 @@ class Chart extends List {
       // and `positionA` in `entry`'s history causes `entry` to arrive in an even lower position.
       //               BEFORE             AFTER
       // Example: [**, **, 11, 07] = [**, **, 09, 07]
-      if (history.at(-1) === 21 && chartA.positionOf(entry) <= 12 && positionA < chartA.positionOf(entry)) {
+      if (history.at(-1) === 21 && chartA.positionOf(entry) <= 12 && A < chartA.positionOf(entry)) {
         return false;
       }
 
       // Filter out if `positionA` is 12 or higher and `entry` departs from `chartB`.
-      if (positionA <= 12 && chartA.positionOf(entry) >= 13 && chartB.positionOf(entry) === 21) {
+      if (A <= 12 && chartA.positionOf(entry) >= 13 && chartB.positionOf(entry) === 21) {
         return false;
       }
 
@@ -892,11 +902,11 @@ class Chart extends List {
       //           1  2  A  B
       // Example: [6, 5, 1, 8]
       // NOTE: DETECT IF IT STARTS DESCENDING FROM CHART A
-      if (history.isAscending() && (history.at(-1) - positionA) >= 2 && history.at(-1) < chartB.positionOf(entry)) {
+      if (history.isAscending() && (history.at(-1) - A) >= 2 && history.at(-1) < chartB.positionOf(entry)) {
         return false;
       }
 
-      history.push(positionA, chartB.positionOf(entry));
+      history.push(A, chartB.positionOf(entry));
 
       // Filter out if `entry` is descending and `positionA` in `entry`'s history causes `entry` to ascend again.
       //           1  2  A  B
@@ -911,7 +921,7 @@ class Chart extends List {
       // Filter out if `entry` is ascending and `positionA` in `entry`'s history causes `entry` to descend from `chartB`.
       //           1   2   A   B   C
       // Example: [05, 03, 02, 03, 02]
-      if (history.isAscending() && positionA < chartB.positionOf(entry)) {
+      if (history.isAscending() && A < chartB.positionOf(entry)) {
         return false;
       }
 
