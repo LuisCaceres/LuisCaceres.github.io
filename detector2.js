@@ -96,12 +96,12 @@ function runTests2(week, charts, tests) {
   runTests2(3, charts, tests);
 }
 
-// WEEK 9
+// WEEK 7
 {
   const tests = [
-   // POSITION 10
+   // POSITION 8
    [
-     new Chart('Puente', 'Someday', "Someday We'll Know", 'All I Have To Give', 'Higher', 'La Lola', "If Ya Gettin' Down", "The Kids Aren't Alright", 'All Star', 'I Need To Know', 'Angels', 'Heartbreaker', "When You're Gone", 'Jennifer Del Estero', 'Si Me Advertí', "What's My Age Again?", 'Waiting For Tonight', 'Atrapados En La Red', 'No Quiero Verte', '...Baby One More Time'),
+     new Chart('All Star', 'Angels', 'Mi Chico Latino', 'I Need To Know', "That's The Way It Is", 'New', "Someday We'll Know", 'Maria Maria', 'Si Me Advertí', 'Someday', 'Fly Away', 'Man! I Feel Like A Woman', 'Puente', 'All Or Nothing', 'No Quiero Verte', 'Super Trouper', 'As Fast As You Can', 'All I Have To Give', "Don't Say You Love Me", 'Dreams In Digital'),
 
      function (entries) {
        expect(entries.length).to.equal(2);
@@ -137,5 +137,5 @@ function runTests2(week, charts, tests) {
    ],
   ];
 
-  runTests2(3, charts, tests);
+  runTests2(7, charts, tests);
 }
