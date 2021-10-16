@@ -40,7 +40,9 @@ function runTests2(week, charts, tests) {
   const tests = [
    // POSITION 1
    [
+     new Chart(),
      new Chart('Someday', 'All I Have To Give', 'La Lola', "Someday We'll Know", 'Higher', "If Ya Gettin' Down", "The Kids Aren't Alright", 'Heartbreaker', 'Waiting For Tonight', "What's My Age Again?", 'Jennifer Del Estero', "When You're Gone", 'All Star', 'Atrapados En La Red', 'Look At Me', 'Si Me Advertí', 'Let Forever Be', '...Baby One More Time', 'Angels', 'No Quiero Verte'),
+     new Chart('DEBUT 1', 'All I Have To Give', 'La Lola', "Someday We'll Know", 'Higher', "If Ya Gettin' Down", "The Kids Aren't Alright", 'Heartbreaker', 'Waiting For Tonight', "What's My Age Again?", 'Jennifer Del Estero', "When You're Gone", 'All Star', 'Atrapados En La Red', 'Look At Me', 'Si Me Advertí', 'Let Forever Be', '...Baby One More Time', 'Angels', 'No Quiero Verte'),
 
      function (entries) {
        expect(entries.length).to.equal(2);
