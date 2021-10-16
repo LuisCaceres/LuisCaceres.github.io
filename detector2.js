@@ -71,7 +71,7 @@ function runTests2(week, charts, tests) {
   const tests = [
    // POSITION 10
    [
-     new Chart('All Star', 'Angels', 'I Need To Know', 'Mi Chico Latino', "Someday We'll Know", 'New', 'Someday', "That's The Way It Is", 'Si Me Advertí', 'Puente', 'No Quiero Verte', 'Man! I Feel Like A Woman', "Don't Say You Love Me", 'All I Have To Give', 'Dreams In Digital', 'All Or Nothing', 'Higher', 'As Fast As You Can', "If Ya Gettin' Down", "When You're Gone"),
+     new Chart('Puente', 'Someday', "Someday We'll Know", 'All I Have To Give', 'Higher', 'La Lola', "If Ya Gettin' Down", "The Kids Aren't Alright", 'All Star', 'I Need To Know', 'Angels', 'Heartbreaker', "When You're Gone", 'Jennifer Del Estero', 'Si Me Advertí', "What's My Age Again?", 'Waiting For Tonight', 'Atrapados En La Red', 'No Quiero Verte', '...Baby One More Time'),
 
      function (entries) {
        expect(entries.length).to.equal(1);
