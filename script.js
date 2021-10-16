@@ -659,9 +659,9 @@ class Chart extends List {
       const [A, B] = [chartA.positionOf(entry), chartB.positionOf(entry)];
       const history = new ChartHistory(...database.get(entry)?.history || [21]);
 
-      //  A   B       A   B
-      // [11, 16]    [11, **]
-      if (new ChartHistory(...history, 21, B)) {
+      //  1   A   B       1   A   B
+      // [17, 15, 13]    [17, **, 13]
+      if (new ChartHistory(...history, 21, B).isValid() === false) {
         return false;
       }
       
