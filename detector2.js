@@ -48,15 +48,50 @@ function runTests2(week, charts, tests) {
      },
 
      function (entries) { // I Need To Know
-       expect(entries.length).to.equal(2);
-                                                       // [09, 09, 09, 11]  [**, **, 08, 08]
-       expect(entries[0]).to.equal("Let Forever Be");  // [09, 09, 08, 11]  [**, **, 09, 08]
+       expect(entries.length).to.equal(3);
 
-                                                       // [09, 09, 09, 11]  [06, 07, 10, 13]
-       expect(entries[1]).to.equal("Look At Me");      // [09, 09, 10, 11]  [06, 07, 09, 13]
+                                                       // [**, **, **, 10]  [**, **, 16, **]
+       expect(entries[0]).to.equal("Look At Me");      // [**, **, 16, 10]  [**, **, **, **]
+
+                                                       // [**, **, **, 10]  [**, **, 18, **]
+       expect(entries[1]).to.equal("Let Forever Be");  // [**, **, 18, 10]  [**, **, **, **]
+
+                                                       // [**, **, **, 10]  [**, **, 17, 15]
+       expect(entries[2]).to.equal("Si Me Advertí");   // [**, **, 17, 10]  [**, **, **, 15]
      },
    ],
   ];
 
   runTests2(2, charts, tests);
+}
+
+
+// WEEK 3
+{
+  const tests = [
+   // POSITION 10
+   [
+     new Chart('Puente', 'Someday', 'All I Have To Give', 'La Lola', "Someday We'll Know", 'Higher', "If Ya Gettin' Down", "The Kids Aren't Alright", 'Heartbreaker', 'Waiting For Tonight', "What's My Age Again?", 'Jennifer Del Estero', "When You're Gone", 'All Star', 'Atrapados En La Red', 'Look At Me', 'Si Me Advertí', 'Let Forever Be', '...Baby One More Time', 'Angels'),
+
+     function (entries) {
+       expect(entries.length).to.equal(1);
+       expect(entries).to.include("New");
+     },
+
+     function (entries) { // I Need To Know
+       expect(entries.length).to.equal(3);
+
+                                                             // [**, **, **, 12]  [**, **, 19, 17]
+       expect(entries[0]).to.equal("No Quiero Verte");       // [**, **, 19, 12]  [**, **, **, 17]
+
+                                                             // [**, **, **, 12]  [**, **, 15, 18]
+       expect(entries[1]).to.equal("Atrapados En La Red");   // [**, **, 18, 12]  [**, **, 15, **]
+
+                                                             // [**, **, **, 12]  [**, **, 19, 20]
+       expect(entries[2]).to.equal("..Baby One More Time");  // [**, **, 20, 12]  [**, **, 19, **]
+     },
+   ],
+  ];
+
+  runTests2(3, charts, tests);
 }
