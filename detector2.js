@@ -69,7 +69,7 @@ function runTests2(week, charts, tests) {
 // WEEK 3
 {
   const tests = [
-   // POSITION 10
+   // POSITION 12
    [
      new Chart('Puente', 'Someday', "Someday We'll Know", 'All I Have To Give', 'Higher', 'La Lola', "If Ya Gettin' Down", "The Kids Aren't Alright", 'All Star', 'I Need To Know', 'Angels', 'Heartbreaker', "When You're Gone", 'Jennifer Del Estero', 'Si Me Advertí', "What's My Age Again?", 'Waiting For Tonight', 'Atrapados En La Red', 'No Quiero Verte', '...Baby One More Time'),
 
