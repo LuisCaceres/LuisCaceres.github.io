@@ -676,12 +676,6 @@ class Chart extends List {
       if (history.at(-1) === 21 && B <= 12) {
         return false;
       }
-      
-      //  2   A   B       2   A   B
-      // [**, 15, 18]    [**, **, 18]
-      if (history.at(-1) === 21 && A <= B && B <= 20) {
-        return false;
-      }
 
       return true;
     });
