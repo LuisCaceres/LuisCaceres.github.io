@@ -7,32 +7,32 @@
  * createDatabase(chart1, chart2);
  * // Returns {'A' => { history: [1, 5])}, 'B' => { history: [2, 4])}, 'C' => { history: [3, 3])}, 'D' => { history: [4, 2])}, 'E' => { history: [5, 1])}}
  */
-// function runTests(week, charts, detector, tests) {
-//   charts = charts.slice();
+function runTests2(week, charts, detector, tests) {
+  charts = charts.slice();
   
-//   for (const test of tests) {
-//     charts.splice(week + 1, 1, ...test.splice(0, 1));
+  for (const test of tests) {
+    charts.splice(week, 1, ...test.splice(0, 1));
 
-//     const [chartA, chartB] = charts.slice(week, week + 2);
-//     const database = createDatabase(...charts.before(chartA));
-//     const entries = Chart.detector2(chartA, chartB, database);
+    const [chartA, chartB] = charts.slice(week, week + 2);
+    const database = createDatabase(...charts.slice(0, week));
+    const entries = Chart.detector2(chartA, chartB, database);
  
-//     displayTable(...charts.before(chartB), chartB);
+    displayTable(...charts);
 
-//     test.forEach((test, index) => {
+    test.forEach((test, index) => {
 
-//       if (index === 0) {
-//         test(entries);
-//       }
-//       else {
-//         const entry = entries.shift();
-//         const values = Chart.corrector2(entry, chartA, chartB, database);
-// //         Chart[`sorter${detector}`](entry, values, [chart1, chart2, chartA, chartB]);
-//         test(values);
-//       }
-//     });
-//   }
-// }
+      if (index === 0) {
+        test(entries);
+      }
+      else {
+        const entry = entries.shift();
+        const values = Chart.corrector2(entry, chartA, chartB, database);
+//         Chart[`sorter${detector}`](entry, values, [chart1, chart2, chartA, chartB]);
+        test(values);
+      }
+    });
+  }
+}
 
 
 // WEEK 2
@@ -58,6 +58,5 @@
    ],
   ];
 
-//   runTests(2, charts, 2, tests);
+  runTests2(2, charts, tests);
 }
-
