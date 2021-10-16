@@ -657,7 +657,7 @@ class Chart extends List {
     const start = Math.max(12, B);
 
     return chartA.slice(start).filter(entry => {
-      const history = new ChartHistory(...database.get(entry)?.history || 21);
+      const history = new ChartHistory(...database.get(entry)?.history || [21]);
 
       if (history[0] === 21 && chartB.positionOf(entry) <= 12) {
         return false;
