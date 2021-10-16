@@ -7,7 +7,7 @@
  * createDatabase(chart1, chart2);
  * // Returns {'A' => { history: [1, 5])}, 'B' => { history: [2, 4])}, 'C' => { history: [3, 3])}, 'D' => { history: [4, 2])}, 'E' => { history: [5, 1])}}
  */
-function runTests2(week, charts, detector, tests) {
+function runTests2(week, charts, tests) {
   charts = charts.slice();
   
   for (const test of tests) {
