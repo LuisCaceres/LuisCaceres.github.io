@@ -88,7 +88,7 @@ function runTests2(week, charts, tests) {
        expect(entries[0]).to.equal("Atrapados En La Red");   // [**, **, 18, 12]  [**, 15, **, **]
 
                                                              // [**, **, **, 12]  [**, 19, 20, **]
-       expect(entries[2]).to.equal("..Baby One More Time");  // [**, **, 20, 12]  [**, 19, **, **]
+       expect(entries[2]).to.equal("...Baby One More Time");  // [**, **, 20, 12]  [**, 19, **, **]
      },
    ],
   ];
