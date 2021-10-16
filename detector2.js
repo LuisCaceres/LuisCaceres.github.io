@@ -78,17 +78,61 @@ function runTests2(week, charts, tests) {
        expect(entries).to.include("New");
      },
 
-     function (entries) { // I Need To Know
+     function (entries) { // New
        expect(entries.length).to.equal(3);
 
                                                              // [**, **, **, 12]  [**, **, 19, 17]
        expect(entries[0]).to.equal("No Quiero Verte");       // [**, **, 19, 12]  [**, **, **, 17]
 
-                                                             // [**, **, **, 12]  [**, **, 15, 18]
-       expect(entries[1]).to.equal("Atrapados En La Red");   // [**, **, 18, 12]  [**, **, 15, **]
+                                                             // [**, **, **, 12]  [**, 15, 18, **]
+       expect(entries[1]).to.equal("Atrapados En La Red");   // [**, **, 18, 12]  [**, 15, **, **]
 
-                                                             // [**, **, **, 12]  [**, **, 19, 20]
-       expect(entries[2]).to.equal("..Baby One More Time");  // [**, **, 20, 12]  [**, **, 19, **]
+                                                             // [**, **, **, 12]  [**, 19, 20, **]
+       expect(entries[2]).to.equal("..Baby One More Time");  // [**, **, 20, 12]  [**, 19, **, **]
+     },
+   ],
+  ];
+
+  runTests2(3, charts, tests);
+}
+
+// WEEK 9
+{
+  const tests = [
+   // POSITION 10
+   [
+     new Chart('Puente', 'Someday', "Someday We'll Know", 'All I Have To Give', 'Higher', 'La Lola', "If Ya Gettin' Down", "The Kids Aren't Alright", 'All Star', 'I Need To Know', 'Angels', 'Heartbreaker', "When You're Gone", 'Jennifer Del Estero', 'Si Me Advertí', "What's My Age Again?", 'Waiting For Tonight', 'Atrapados En La Red', 'No Quiero Verte', '...Baby One More Time'),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Maria Maria");
+       expect(entries).to.include("Fly Away");
+     },
+
+     function (entries) { // Maria Maria
+       expect(entries.length).to.equal(3);
+
+                                                           // [**, **, **, 08]  [**, **, 16, 14]
+       expect(entries[0]).to.equal("All Or Nothing");      // [**, **, 16, 08]  [**, **, **, 14]
+
+                                                           // [**, **, **, 08]  [11, 15, 19, **]
+       expect(entries[1]).to.equal("If Ya Gettin' Down");  // [**, **, 19, 08]  [11, 15, **, **]
+
+                                                           // [**, **, **, 08]  [17, 19, 20, **]
+       expect(entries[2]).to.equal("When You're Gone");    // [**, **, 20, 08]  [17, 19, **, **]
+     },
+
+     function (entries) { // Fly Away
+       expect(entries.length).to.equal(3);
+
+                                                           // [**, **, **, 11]  [**, **, 16, 14]
+       expect(entries[0]).to.equal("All Or Nothing");      // [**, **, 16, 11]  [**, **, **, 14]
+
+                                                           // [**, **, **, 11]  [11, 15, 19, **]
+       expect(entries[1]).to.equal("If Ya Gettin' Down");  // [**, **, 19, 11]  [11, 15, **, **]
+
+                                                           // [**, **, **, 11]  [17, 19, 20, **]
+       expect(entries[2]).to.equal("When You're Gone");    // [**, **, 20, 11]  [17, 19, **, **]
      },
    ],
   ];
