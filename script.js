@@ -652,31 +652,12 @@ class Chart extends List {
    * @param {} database - A list of entries having ever charted.
    * @return {Array} entries
    */
-  static corrector2(entryB, chartA, chartB, database) {
-    return chartA.filter(entry => {
-      const history = new ChartHistory(...database.get(entry).history);
-      
-      const position = chartA.positionOf(entry);
+  static corrector2(entry, chartA, chartB, database) {
+    const [A, B] = [chartA.positionOf(entry), chartB.positionOf(entry)];
+    const start = Math.max(12, B);
 
-      // Filter out if `entry` is on `chartB`.
-      if (history.isDescending() === true && chartB.positionOf(entry) >= 20) {
-        return false;
-      }
-      else if (history.length !== 0) {
-        return false;
-      }
-    });
-    
-    return chartB.difference(chartA).filter(entryA => {
-      const position = chartA.positionOf(entryA) 
-      const delta = position - chartB.positionOf(entryB);
-      const history = new NumberList(...database.get(entryA).history);
-      
-      // `entryA`'s position on `chartA` is at least two positions lower than `entryB`'s position on `chartB` and
-      // `entryA`'s position on `chartA` is 13 or lower and
-      // `entryA` has been charting for at least 2 charts and
-      // `entryA` has already had at least one movement backwards.
-      return position > 12 && history.length >= 1 && history.isDescending();
+    return chartA.slice(start).filter(entry => {
+      return true;
     });
   }
 
