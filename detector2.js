@@ -38,6 +38,61 @@ function runTests2(week, charts, tests) {
 // WEEK 2
 {
   const tests = [
+   // POSITION 1
+   [
+     new Chart('Someday', 'All I Have To Give', 'La Lola', "Someday We'll Know", 'Higher', "If Ya Gettin' Down", "The Kids Aren't Alright", 'Heartbreaker', 'Waiting For Tonight', "What's My Age Again?", 'Jennifer Del Estero', "When You're Gone", 'All Star', 'Atrapados En La Red', 'Look At Me', 'Si Me Advertí', 'Let Forever Be', '...Baby One More Time', 'Angels', 'No Quiero Verte'),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Puente");
+       expect(entries).to.include("I Need To Know");
+     },
+
+     function (entries) { // Puente
+       expect(entries.length).to.equal(6);
+
+                                                              // [**, **, **, 01]  [**, **, 14, 18]
+       expect(entries[0]).to.equal("Atrapados En La Red");    // [**, **, 14, 01]  [**, **, **, 18]
+
+                                                              // [**, **, **, 01]  [**, **, 15, **]
+       expect(entries[1]).to.equal("Look At Me");             // [**, **, 15, 01]  [**, **, **, **]
+
+                                                              // [**, **, **, 01]  [**, **, 16, 15]
+       expect(entries[2]).to.equal("Si Me Advertí");          // [**, **, 16, 01]  [**, **, **, 15]
+
+                                                              // [**, **, **, 01]  [**, **, 17, **]
+       expect(entries[3]).to.equal("Let Forever Be");         // [**, **, 17, 01]  [**, **, **, **]
+
+                                                              // [**, **, **, 01]  [**, **, 18, 20]
+       expect(entries[4]).to.equal("...Baby One More Time");  // [**, **, 18, 01]  [**, **, **, 20]
+       
+                                                              // [**, **, **, 01]  [**, **, 20, 19]
+       expect(entries[5]).to.equal("No Quiero Verte");        // [**, **, 20, 01]  [**, **, **, 19]
+     },
+
+     function (entries) { // I Need To Know
+       expect(entries.length).to.equal(6);
+
+                                                              // [**, **, **, 10]  [**, **, 14, 18]
+       expect(entries[0]).to.equal("Atrapados En La Red");    // [**, **, 14, 10]  [**, **, **, 18]
+
+                                                              // [**, **, **, 10]  [**, **, 15, **]
+       expect(entries[1]).to.equal("Look At Me");             // [**, **, 15, 10]  [**, **, **, **]
+
+                                                              // [**, **, **, 10]  [**, **, 16, 15]
+       expect(entries[2]).to.equal("Si Me Advertí");          // [**, **, 16, 10]  [**, **, **, 15]
+
+                                                              // [**, **, **, 10]  [**, **, 17, **]
+       expect(entries[3]).to.equal("Let Forever Be");         // [**, **, 17, 10]  [**, **, **, **]
+
+                                                              // [**, **, **, 10]  [**, **, 18, 20]
+       expect(entries[4]).to.equal("...Baby One More Time");  // [**, **, 18, 10]  [**, **, **, 20]
+       
+                                                              // [**, **, **, 10]  [**, **, 20, 19]
+       expect(entries[5]).to.equal("No Quiero Verte");        // [**, **, 20, 10]  [**, **, **, 19]
+     },
+   ],
+
    // POSITION 10
    [
      new Chart('Puente', 'Someday', 'All I Have To Give', 'La Lola', "Someday We'll Know", 'Higher', "If Ya Gettin' Down", "The Kids Aren't Alright", 'Heartbreaker', 'Waiting For Tonight', "What's My Age Again?", 'Jennifer Del Estero', "When You're Gone", 'All Star', 'Atrapados En La Red', 'Look At Me', 'Si Me Advertí', 'Let Forever Be', '...Baby One More Time', 'Angels'),
