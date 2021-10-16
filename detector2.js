@@ -54,10 +54,10 @@ function runTests2(week, charts, tests) {
        expect(entries[0]).to.equal("Look At Me");      // [**, **, 16, 10]  [**, **, **, **]
 
                                                        // [**, **, **, 10]  [**, **, 18, **]
-       expect(entries[1]).to.equal("Let Forever Be");  // [**, **, 18, 10]  [**, **, **, **]
+       expect(entries[2]).to.equal("Let Forever Be");  // [**, **, 18, 10]  [**, **, **, **]
 
                                                        // [**, **, **, 10]  [**, **, 17, 15]
-       expect(entries[2]).to.equal("Si Me Advertí");   // [**, **, 17, 10]  [**, **, **, 15]
+       expect(entries[1]).to.equal("Si Me Advertí");   // [**, **, 17, 10]  [**, **, **, 15]
      },
    ],
   ];
