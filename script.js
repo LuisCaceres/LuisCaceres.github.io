@@ -659,10 +659,20 @@ class Chart extends List {
     return chartA.slice(start).filter(entry => {
       const history = new ChartHistory(...database.get(entry)?.history || [21]);
 
+      //  A   B       A   B
+      // [11, 16]    [11, **]
+      if (chartA.positionOf(entry) <= 12) {
+        return false;
+      }
+
+      //  A   B       A   B
+      // [**, 18]    [**, 10]
       if (history[0] === 21 && chartB.positionOf(entry) <= 12) {
         return false;
       }
       
+      //  2   A   B       2   A   B
+      // [**, 15, 18]    [**, **, 18]
       if (history[0] === 21 && chartA.positionOf(entry) <= chartB.positionOf(entry) && chartB.positionOf(entry) <= 20) {
         return false;
       }
