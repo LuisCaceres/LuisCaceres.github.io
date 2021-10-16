@@ -662,6 +662,10 @@ class Chart extends List {
       if (history[0] === 21 && chartB.positionOf(entry) <= 12) {
         return false;
       }
+      
+      if (history[0] === 21 && chartA.positionOf(entry) >= chartB.positionOf(entry)) {
+        return false;
+      }
 
       return true;
     });
