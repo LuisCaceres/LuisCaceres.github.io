@@ -9,8 +9,25 @@
       function (entries) {
         expect(entries.length).to.equal(0);
       },
-    ],    
-  ];
+    ],
+
+    // POSITION 2
+    [
+      new Chart("All Star", "Angels", "I Need To Know", "Someday We'll Know", "Puente", "Someday", "All I Have To Give", "Higher", "New", "Si Me Advertí", "If Ya Gettin' Down", "Mi Chico Latino", "No Quiero Verte", "The Kids Aren't Alright", "That's The Way It Is", "La Lola", "When You're Gone", "Man! I Feel Like A Woman", "Don't Say You Love Me", "As Fast As You Can"),
+      new Chart("All Star", "Angels", "I Need To Know", "Someday We'll Know", "Puente", "Someday", "New", "Mi Chico Latino", "Si Me Advertí", "All I Have To Give", "No Quiero Verte", "Higher", "That's The Way It Is", "Man! I Feel Like A Woman", "If Ya Gettin' Down", "Don't Say You Love Me", "Dreams In Digital", "The Kids Aren't Alright", "When You're Gone", "As Fast As You Can"),
+
+      function (entries) {
+        expect(entries.length).to.equal(1);
+        expect(entries).to.include("I Need To Know");
+      },
+
+      function (entries) { // I Need To Know
+        expect(entries.length).to.equal(1);
+                                                        // [03, 03, 03, 04]  [12, 08, 04, 03]
+        expect(entries).to.include("Mi Chico Latino");  // [03, 03, 04, 04]  [12, 08, 03, 03]
+      },
+    ],
+  ];  
     
   runTests(8, charts, 3, tests);
 }
