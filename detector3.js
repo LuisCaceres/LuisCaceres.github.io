@@ -1,3 +1,10 @@
+/* 
+NOTE: The following tests ensure that no entry stays in the same position for more than 2 weeks consecutively.
+There are exceptions, however, although they are limited. 
+EXAMPLE: [20, 20, 20]
+*/
+
+
 // WEEK 6
 {
   const tests = [
