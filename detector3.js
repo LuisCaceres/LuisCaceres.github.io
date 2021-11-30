@@ -151,13 +151,30 @@ EXAMPLE: [20, 20, 20]
       },
     ],
 
-   // POSITION 9
+    // POSITION 9
+    [
+      new Chart("All Star", "I Need To Know", "Someday We'll Know", "Puente", "Angels", "Someday", "All I Have To Give", "Higher", "Si Me Advertí", "New", "If Ya Gettin' Down", "Mi Chico Latino", "No Quiero Verte", "The Kids Aren't Alright", "That's The Way It Is", "La Lola", "When You're Gone", "Man! I Feel Like A Woman", "Don't Say You Love Me", "As Fast As You Can"),
+      new Chart("All Star", "I Need To Know", "Angels", "Someday We'll Know", "Puente", "Someday", "New", "Mi Chico Latino", "Si Me Advertí", "All I Have To Give", "No Quiero Verte", "Higher", "That's The Way It Is", "Man! I Feel Like A Woman", "If Ya Gettin' Down", "Don't Say You Love Me", "Dreams In Digital", "The Kids Aren't Alright", "When You're Gone", "As Fast As You Can"),
+
+      function (entries) {
+        expect(entries.length).to.equal(0);
+      },
+    ],
+
+   // POSITION 10
    [
-     new Chart("All Star", "I Need To Know", "Someday We'll Know", "Puente", "Angels", "Someday", "All I Have To Give", "Higher", "Si Me Advertí", "New", "If Ya Gettin' Down", "Mi Chico Latino", "No Quiero Verte", "The Kids Aren't Alright", "That's The Way It Is", "La Lola", "When You're Gone", "Man! I Feel Like A Woman", "Don't Say You Love Me", "As Fast As You Can"),
-     new Chart("All Star", "I Need To Know", "Angels", "Someday We'll Know", "Puente", "Someday", "New", "Mi Chico Latino", "Si Me Advertí", "All I Have To Give", "No Quiero Verte", "Higher", "That's The Way It Is", "Man! I Feel Like A Woman", "If Ya Gettin' Down", "Don't Say You Love Me", "Dreams In Digital", "The Kids Aren't Alright", "When You're Gone", "As Fast As You Can"),
+     new Chart("All Star", "I Need To Know", "Someday We'll Know", "Angels", "Someday", "All I Have To Give", "Higher", "New", "Si Me Advertí", "Puente", "If Ya Gettin' Down", "Mi Chico Latino", "No Quiero Verte", "The Kids Aren't Alright", "That's The Way It Is", "La Lola", "When You're Gone", "Man! I Feel Like A Woman", "Don't Say You Love Me", "As Fast As You Can"),
+     new Chart("All Star", "I Need To Know", "Angels", "Someday We'll Know", "Mi Chico Latino", "Someday", "New", "All I Have To Give", "Si Me Advertí", "Puente", "No Quiero Verte", "Higher", "That's The Way It Is", "Man! I Feel Like A Woman", "If Ya Gettin' Down", "Don't Say You Love Me", "Dreams In Digital", "The Kids Aren't Alright", "When You're Gone", "As Fast As You Can"),
 
      function (entries) {
-       expect(entries.length).to.equal(0);
+       expect(entries.length).to.equal(1);
+       expect(entries).to.include("Puente");
+     },
+
+     function (entries) { // Puente
+       expect(entries.length).to.equal(1);
+                                                       // [10, 10, 10, 13]  [13, 11, 11, 15]
+       expect(entries).to.include("No Quiero Verte");  // [10, 10, 11, 13]  [13, 11, 10, 15]
      },
    ],
   ];
