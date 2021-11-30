@@ -100,13 +100,8 @@ EXAMPLE: [20, 20, 20]
       new Chart("All Star", "I Need To Know", "Angels", "Someday We'll Know", "Puente", "New", "Someday", "Mi Chico Latino", "Si Me Advertí", "All I Have To Give", "No Quiero Verte", "Higher", "That's The Way It Is", "Man! I Feel Like A Woman", "If Ya Gettin' Down", "Don't Say You Love Me", "Dreams In Digital", "The Kids Aren't Alright", "When You're Gone", "As Fast As You Can"),
 
       function (entries) {
-        expect(entries.length).to.equal(2);
-        expect(entries).to.include("New");
+        expect(entries.length).to.equal(1);
         expect(entries).to.include("Someday");
-      },
-
-      function (entries) { // New
-        expect(entries.length).to.equal(0);
       },
 
       function (entries) { // Someday
