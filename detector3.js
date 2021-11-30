@@ -93,6 +93,31 @@ EXAMPLE: [20, 20, 20]
         expect(entries.length).to.equal(0);
       },
     ],
+
+    // POSITION 6
+    [
+      new Chart("All Star", "I Need To Know", "Someday We'll Know", "Puente", "Angels", "New", "Someday", "All I Have To Give", "Higher", "Si Me Advertí", "If Ya Gettin' Down", "Mi Chico Latino", "No Quiero Verte", "The Kids Aren't Alright", "That's The Way It Is", "La Lola", "When You're Gone", "Man! I Feel Like A Woman", "Don't Say You Love Me", "As Fast As You Can"),
+      new Chart("All Star", "I Need To Know", "Angels", "Someday We'll Know", "Puente", "New", "Someday", "Mi Chico Latino", "Si Me Advertí", "All I Have To Give", "No Quiero Verte", "Higher", "That's The Way It Is", "Man! I Feel Like A Woman", "If Ya Gettin' Down", "Don't Say You Love Me", "Dreams In Digital", "The Kids Aren't Alright", "When You're Gone", "As Fast As You Can"),
+
+      function (entries) {
+        expect(entries.length).to.equal(2);
+        expect(entries).to.include("New");
+        expect(entries).to.include("Someday");
+      },
+
+      function (entries) { // New
+        expect(entries.length).to.equal(0);
+      },
+
+      function (entries) { // Someday
+        expect(entries.length).to.equal(2);
+                                                             // [07, 07, 07, 10]  [15, 13, 08, 05]
+        expect(entries).to.include("That's The Way It Is");  // [07, 07, 08, 10]  [15, 13, 07, 05]
+
+                                                             // [07, 07, 07, 10]  [04, 05, 10, 13]
+        expect(entries).to.include("Puente");                // [07, 07, 10, 10]  [04, 05, 07, 13]
+      },
+    ],
   ];  
     
   runTests(8, charts, 3, tests);
