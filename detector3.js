@@ -220,18 +220,18 @@ EXAMPLE: [20, 20, 20]
 
       function (entries) { // Don't Say You Love Me
         expect(entries.length).to.equal(3);
-                                                                 // [13, 13, 13, 19]  [19, 15, 12, 12]
-        expect(entries).to.include("Man! I Feel Like A Woman");  // [13, 13, 12, 19]  [19, 15, 13, 12]
+                                                                  // [13, 13, 13, 19]  [19, 15, 12, 12]
+        expect(entries[0]).to.equal("Man! I Feel Like A Woman");  // [13, 13, 12, 19]  [19, 15, 13, 12]
         
-                                                                 // [13, 13, 13, 19]  [07, 10, 14, 18]
-        expect(entries).to.include("All I Have To Give");        // [13, 13, 14, 19]  [07, 10, 13, 18]
+                                                                  // [13, 13, 13, 19]  [07, 10, 14, 18]
+        expect(entries[1]).to.equal("All I Have To Give");        // [13, 13, 14, 19]  [07, 10, 13, 18]
 
-                                                                 // [13, 13, 13, 19]  [08, 12, 17, **]
-        expect(entries).to.include("Higher");                    // [13, 13, 17, 19]  [08, 12, 13, **]
+                                                                  // [13, 13, 13, 19]  [08, 12, 17, **]
+        expect(entries[2]).to.equal("Higher");                    // [13, 13, 17, 19]  [08, 12, 13, **]
       },
     ],
   ];
-    
+
   runTests(8, charts, 3, tests);
 }
 
