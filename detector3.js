@@ -242,7 +242,7 @@ EXAMPLE: [20, 20, 20]
       },
 
       function (entries) { // All I Have To Give
-        expect(entries.length).to.equal(3);
+        expect(entries.length).to.equal(2);
 
                                                           // [14, 14, 14, 18]  [**, **, 16, 14]
         expect(entries).to.include("All Or Nothing");     // [14, 14, 16, 18]  [**, **, 14, 14]
