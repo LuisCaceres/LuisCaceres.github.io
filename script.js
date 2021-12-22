@@ -757,16 +757,16 @@ class Chart extends List {
         return false;
       }
 
+      history.push(A, chartB.positionOf(entry));
+
       // Filter out if the difference between `entry`'s position in `chart2` and `positionA` is at least 2 
       // and `entry` starts to descend from `chartB`.
       //           1  2  A  B
       // Example: [6, 5, 1, 8]
       // NOTE: DETECT IF IT STARTS DESCENDING FROM CHART A
-      if (history.isAscending() && (history.at(-1) - A) >= 2 && history.at(-1) < chartB.positionOf(entry)) {
+      if (history.hasStartedDescending() && (history.at(-3) - A) >= 2) {
         return false;
       }
-
-      history.push(A, chartB.positionOf(entry));
 
       // Filter out if `entry` is descending and `positionA` in `entry`'s history causes `entry` to ascend again.
       //           1  2  A  B
