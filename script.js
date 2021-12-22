@@ -765,7 +765,7 @@ class Chart extends List {
       // Example: [6, 5, 1, 8]            19, 16 10 19.  19 16 13 19.   21 18 15 20 20
       if (history.hasStartedDescending() &&
         (history.at(-3) - history.at(-4) <= 1 && history.at(-3) - A >= 2 ||
-        history.at(-3) - history.at(-4) >= 2 && history.at(-3) - A >= 1)) {
+        history.at(-3) - history.at(-4) >= 2 && A - history.at(-3) >= 1)) {
         return false;
       }
 
