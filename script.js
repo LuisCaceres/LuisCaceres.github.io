@@ -762,7 +762,7 @@ class Chart extends List {
       //           1  2  A  B
       // Example: [6, 5, 1, 8]
       // NOTE: DETECT IF IT STARTS DESCENDING FROM CHART A
-      if (history.isAscending() && (history.at(-1) - A) >= 2 && history.at(-1) < chartB.positionOf(entry)) {
+      if (history.isAscending() && (chartA.positionOf(entry) - A) >= 2 && history.at(-1) < chartB.positionOf(entry)) {
         return false;
       }
 
