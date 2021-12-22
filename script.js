@@ -763,8 +763,7 @@ class Chart extends List {
       // and `entry` starts to descend from `chartB`.
       //           1  2  A  B
       // Example: [6, 5, 1, 8]
-      // NOTE: DETECT IF IT STARTS DESCENDING FROM CHART A
-      if (history.hasStartedDescending() && (history.at(-3) - A) >= 2) {
+      if (history.hasStartedDescending() && (A - history.at(-2)) >= 2) {
         return false;
       }
 
@@ -781,7 +780,7 @@ class Chart extends List {
       // Filter out if `entry` is ascending and `positionA` in `entry`'s history causes `entry` to descend from `chartB`.
       //           1   2   A   B   C
       // Example: [05, 03, 02, 03, 02]
-      if (history.isAscending() && A < chartB.positionOf(entry)) {
+      if (history.isAscending() && A < history.at(-1)) {
         return false;
       }
 
