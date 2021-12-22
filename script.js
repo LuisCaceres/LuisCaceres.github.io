@@ -762,8 +762,10 @@ class Chart extends List {
       // Filter out if the difference between `entry`'s position in `chart2` and `positionA` is at least 2 
       // and `entry` starts to descend from `chartB`.
       //           1  2  A  B
-      // Example: [6, 5, 1, 8]
-      if (history.hasStartedDescending() && (chartA.positionOf(entry) - A) >= 2) {
+      // Example: [6, 5, 1, 8]            19, 16 10 19.  19 16 13 19.   21 18 15 20 20
+      if (history.hasStartedDescending() &&
+        (history.at(-3) - history.at(-4) <= 1 && history.at(-3) - A >= 2 ||
+        history.at(-3) - history.at(-4) >= 2 && history.at(-3) - A >= 1)) {
         return false;
       }
 
