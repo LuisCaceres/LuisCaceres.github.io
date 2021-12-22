@@ -730,7 +730,7 @@ class Chart extends List {
     }
 
     return chartA.slice(start - 1, end).remove(entry).filter(entry => {
-      const history = new ChartHistory(...database.get(entry)?.history || [21, 21]);
+      const history = new ChartHistory(21, 21, ...database.get(entry)?.history);
 
       // TO DO: item has only been in chart for less than 3 weeks
       // TO DO: item ascends from chart B 
