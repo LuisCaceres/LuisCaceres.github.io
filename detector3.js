@@ -7,6 +7,14 @@ EXAMPLE: [20, 20, 20]
 // WEEK 5
 {
   const tests = [
+  ];
+
+  runTests(6, charts, 3, tests);
+}
+
+// WEEK 5
+{
+  const tests = [
    // POSITION 1
    [
      new Chart("All Star", "Puente", "Someday We'll Know", "Someday", "All I Have To Give", "I Need To Know", "Higher", "Angels", "If Ya Gettin' Down", "La Lola", "The Kids Aren't Alright", "New", "Si Me Advertí", "When You're Gone", "Mi Chico Latino", "Heartbreaker", "No Quiero Verte", "Jennifer Del Estero", "That's The Way It Is", "Man! I Feel Like A Woman"),
