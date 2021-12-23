@@ -28,10 +28,7 @@ EXAMPLE: [20, 20, 20]
      },
 
      function (entries) { // I Need To Know
-       expect(entries.length).to.equal(1);
-                                              // NOTE: Don't let an entry descend if it hasn't been ascending for a minimum number of weeks. [** 10, 2, 2, 2] [**, 10, 2, 2, 3]
-                                              // [02, 02, 02, 03]  [08, 05, 03, 02]
-       expect(entries).to.include("Angels");  // [02, 02, 03, 03]  [08, 05, 02, 02]
+       expect(entries.length).to.equal(0);
      },
    ],
 
