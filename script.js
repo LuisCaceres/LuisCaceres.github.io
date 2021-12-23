@@ -727,6 +727,10 @@ class Chart extends List {
         // [17, 17, 17, **]
         end = start + 1;
       }
+
+      if (history.length <= 5) {
+        end = end - 1;
+      }
     }
 
     return chartA.slice(start - 1, end).remove(entry).filter(entry => {
