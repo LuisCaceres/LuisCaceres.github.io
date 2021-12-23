@@ -1459,8 +1459,8 @@ EXAMPLE: [20, 20, 20]
       },
 
       function (entries) {
-        expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
-        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
+//         expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
+//         expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
       },
     ],
     
@@ -1475,8 +1475,8 @@ EXAMPLE: [20, 20, 20]
       },
 
       function (entries) {
-        expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
-        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
+//         expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
+//         expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
       },
     ],
     
@@ -1571,8 +1571,8 @@ EXAMPLE: [20, 20, 20]
       },
 
       function (entries) {  // I Need To Know
-        expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
-        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
+//         expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
+//         expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
       },
 
       function (entries) {  // All Or Nothing
@@ -1600,8 +1600,8 @@ EXAMPLE: [20, 20, 20]
       },
 
       function (entries) {  // I Need To Know
-        expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
-        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
+//         expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
+//         expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
       },
 
       function (entries) {  // New
@@ -1626,8 +1626,8 @@ EXAMPLE: [20, 20, 20]
       },
 
       function (entries) {  // I Need To Know
-        expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
-        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
+//         expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
+//         expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
       },
 
       function (entries) {  // Tengo Frío
@@ -1655,8 +1655,8 @@ EXAMPLE: [20, 20, 20]
       },
 
       function (entries) {  // I Need To Know
-        expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
-        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
+//         expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
+//         expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
       },
 
       function (entries) {  // T.V. And Coffee
@@ -1680,8 +1680,8 @@ EXAMPLE: [20, 20, 20]
       },
 
       function (entries) {  // I Need To Know
-        expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
-        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
+//         expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
+//         expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
       },
     ],
 
@@ -1696,8 +1696,8 @@ EXAMPLE: [20, 20, 20]
       },
 
       function (entries) {  // I Need To Know
-        expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
-        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
+//         expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
+//         expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
       },
     ],
 
@@ -1713,8 +1713,8 @@ EXAMPLE: [20, 20, 20]
       },
 
       function (entries) {  // I Need To Know
-        expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
-        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
+//         expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
+//         expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
       },
 
       function (entries) {  // Someday We'll Know
@@ -1742,8 +1742,8 @@ EXAMPLE: [20, 20, 20]
       },
 
       function (entries) {  // I Need To Know
-        expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
-        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
+//         expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
+//         expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
       },
 
       function (entries) {  // Someday
@@ -1771,8 +1771,8 @@ EXAMPLE: [20, 20, 20]
       },
 
       function (entries) {  // I Need To Know
-        expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
-        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
+//         expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
+//         expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
       },
 
       function (entries) {  // Crazy
@@ -1800,8 +1800,8 @@ EXAMPLE: [20, 20, 20]
       },
 
       function (entries) {  // I Need To Know
-        expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
-        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
+//         expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
+//         expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
       },
 
       function (entries) {  // Si Me Advertí
@@ -1826,8 +1826,8 @@ EXAMPLE: [20, 20, 20]
       },
 
       function (entries) {  // I Need To Know
-        expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
-        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
+//         expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
+//         expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
       },
 
       function (entries) {  // Díselo Con Flores
@@ -1855,8 +1855,8 @@ EXAMPLE: [20, 20, 20]
       },
 
       function (entries) {  // I Need To Know
-        expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
-        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
+//         expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
+//         expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
       },
 
       function (entries) {  // Keep On Movin'
@@ -1878,8 +1878,8 @@ EXAMPLE: [20, 20, 20]
       },
 
       function (entries) {  // I Need To Know
-        expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
-        expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
+//         expect(entries.length).to.equal(1);                   // [04, 04, 04, 06]  [05, 05, 06, 09]
+//         expect(entries).to.include('That\'s The Way It Is');  // [04, 04, 06, 06]  [05, 05, 04, 09]
       },
 
       function (entries) {  // Unpretty
