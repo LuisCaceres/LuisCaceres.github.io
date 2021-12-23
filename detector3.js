@@ -251,6 +251,31 @@ EXAMPLE: [20, 20, 20]
        expect(entries).to.include("Higher");                // [14, 14, 12, 12]  [07, 08, 14, 17]
      },
    ],
+
+   // POSITION 15
+   [
+     new Chart("Puente", "Someday", "Someday We'll Know", "All Star", "All I Have To Give", "I Need To Know", "Higher", "Angels", "La Lola", "The Kids Aren't Alright", "New", "Si Me Advertí", "When You're Gone", "Mi Chico Latino", "If Ya Gettin' Down", "Heartbreaker", "No Quiero Verte", "Jennifer Del Estero", "That's The Way It Is", "Man! I Feel Like A Woman"),
+     new Chart("All Star", "I Need To Know", "Someday We'll Know", "Puente", "Angels", "Someday", "All I Have To Give", "Higher", "New", "Si Me Advertí", "Mi Chico Latino", "No Quiero Verte", "The Kids Aren't Alright", "That's The Way It Is", "If Ya Gettin' Down", "La Lola", "When You're Gone", "Man! I Feel Like A Woman", "Don't Say You Love Me", "As Fast As You Can"),
+
+     function (entries) {
+       expect(entries.length).to.equal(1);
+       expect(entries).to.include("If Ya Gettin' Down");
+     },
+
+     function (entries) { // If Ya Gettin' Down
+       expect(entries.length).to.equal(3);
+                                                               // [15, 15, 15, 19]  [**, 19, 16, 13]
+       expect(entries).to.include("Don't Say You Love Me");    // [15, 15, 16, 19]  [**, 19, 15, 13]
+
+                                                               // [15, 15, 15, 19]  [**, **, 17, 15]
+       expect(entries).to.include("Dreams In Digital");        // [15, 15, 17, 19]  [**, **, 15, 15]
+
+                                                               // [15, 15, 15, 19]  [10, 13, 18, **]
+       expect(entries).to.include("The Kids Aren't Alright");  // [15, 15, 18, 19]  [10, 13, 15, **]
+     },
+
+
+   ],
   ];
 
   runTests(7, charts, 3, tests);
