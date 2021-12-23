@@ -3,7 +3,7 @@
 body {
   display: grid;
   height: 100vh;
-  background: black;
+/*   background: black; */
 }
 
 body::before {
