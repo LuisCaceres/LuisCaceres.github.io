@@ -783,8 +783,7 @@ class Chart extends List {
         return false;
       }
 
-      history.splice(-2, 2);
-      history.push(chartA.positionOf(entry), chartB.positionOf(entry));
+      history[history.length - 2] = chartA.positionOf(entry);
 
       // Filter out if `entry` is ascending and `positionA` in `entry`'s history causes `entry` to descend from `chartB`.
       //           1   2   A   B   C
