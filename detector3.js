@@ -26,7 +26,7 @@ EXAMPLE: [20, 20, 20]
      },
    ],
 
-//+
+
   ];
 
   runTests(6, charts, 3, tests);
