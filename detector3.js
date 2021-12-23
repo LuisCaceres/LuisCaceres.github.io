@@ -25,6 +25,18 @@ EXAMPLE: [20, 20, 20]
        expect(entries.length).to.equal(0);
      },
    ],
+
+   // POSITION 2
+   [
+     new Chart("Puente", "I Need To Know", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "Angels", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte", "...Baby One More Time"),
+     new Chart("Puente", "I Need To Know", "Someday We'll Know", "Someday", "All Star", "All I Have To Give", "Higher", "Angels", "If Ya Gettin' Down", "La Lola", "The Kids Aren't Alright", "New", "Si Me Advertí", "When You're Gone", "Mi Chico Latino", "Heartbreaker", "No Quiero Verte", "Jennifer Del Estero", "That's The Way It Is", "Man! I Feel Like A Woman"),
+
+     function (entries) {
+       expect(entries.length).to.equal(0);
+     },
+   ],
+
+//+
   ];
 
   runTests(6, charts, 3, tests);
