@@ -4,7 +4,15 @@ There are exceptions, however, although they are limited.
 EXAMPLE: [20, 20, 20]
 */
 
-// WEEK 5
+// WEEK 3
+{
+  const tests = [
+  ];
+
+  runTests(5, charts, 3, tests);
+}
+
+// WEEK 4
 {
   const tests = [
   ];
