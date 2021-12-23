@@ -295,7 +295,27 @@ EXAMPLE: [20, 20, 20]
      },
    ],
 
+   // POSITION 17
+   [
+     new Chart("Puente", "Someday", "Someday We'll Know", "All Star", "All I Have To Give", "I Need To Know", "Higher", "Angels", "If Ya Gettin' Down", "La Lola", "The Kids Aren't Alright", "New", "Si Me Advertí", "When You're Gone", "Mi Chico Latino", "Heartbreaker", "Dreams In Digital", "No Quiero Verte", "Jennifer Del Estero", "That's The Way It Is"),
+     new Chart("All Star", "I Need To Know", "Someday We'll Know", "Puente", "Angels", "Someday", "All I Have To Give", "Higher", "New", "Si Me Advertí", "If Ya Gettin' Down", "Mi Chico Latino", "No Quiero Verte", "The Kids Aren't Alright", "That's The Way It Is", "La Lola", "Dreams In Digital", "When You're Gone", "Man! I Feel Like A Woman", "Don't Say You Love Me"),
 
+     function (entries) {
+       expect(entries.length).to.equal(1);
+       expect(entries).to.include("Dreams In Digital");
+     },
+
+     function (entries) { // Dreams In Digital
+       expect(entries.length).to.equal(2);
+                                                             // [17, 17, 17, 15]  [**, 20, 16, 13]
+       expect(entries).to.include("Don't Say You Love Me");  // [17, 17, 16, 15]  [**, 20, 17, 13]
+
+                                                             // [17, 17, 17, 15]  [09, 11, 15, 19]
+       expect(entries).to.include("If Ya Gettin' Down");     // [17, 17, 15, 15]  [09, 11, 17, 19]
+     },
+
+// ++++++
+   ],
   ];
 
   runTests(7, charts, 3, tests);
