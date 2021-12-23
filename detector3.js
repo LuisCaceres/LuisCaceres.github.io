@@ -348,6 +348,21 @@ EXAMPLE: [20, 20, 20]
        expect(entries).to.include("When You're Gone");  // [19, 19, 20, **]  [16, 18, 19, **]
      },
    ],
+
+   // POSITION 20
+   [
+     new Chart("All Star", "I Need To Know", "Someday We'll Know", "Puente", "Angels", "Someday", "All I Have To Give", "Higher", "New", "Si Me Advertí", "If Ya Gettin' Down", "Mi Chico Latino", "No Quiero Verte", "The Kids Aren't Alright", "That's The Way It Is", "La Lola", "Man! I Feel Like A Woman", "Don't Say You Love Me", "As Fast As You Can", "When You're Gone"),
+     new Chart("All Star", "I Need To Know", "Angels", "Someday We'll Know", "Puente", "Someday", "New", "Mi Chico Latino", "Si Me Advertí", "All I Have To Give", "No Quiero Verte", "Higher", "That's The Way It Is", "Man! I Feel Like A Woman", "If Ya Gettin' Down", "Don't Say You Love Me", "Dreams In Digital", "The Kids Aren't Alright", "As Fast As You Can", "When You're Gone"),
+
+     function (entries) {
+       expect(entries.length).to.equal(1);
+       expect(entries).to.include("When You're Gone");
+     },
+
+     function (entries) { // When You're Gone
+       expect(entries.length).to.equal(0);
+     },
+   ],
   ];
 
   runTests(8, charts, 3, tests);
