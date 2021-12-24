@@ -260,6 +260,42 @@ EXAMPLE: [20, 20, 20]
      },
    ],
 
+   // POSITION 12
+   [
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "I Need To Know", "Angels", "Mi Chico Latino", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All Star", "All I Have To Give", "I Need To Know", "Higher", "Angels", "If Ya Gettin' Down", "La Lola", "The Kids Aren't Alright", "Mi Chico Latino", "New", "Si Me Advertí", "When You're Gone", "Heartbreaker", "No Quiero Verte", "Jennifer Del Estero", "That's The Way It Is", "Man! I Feel Like A Woman"),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Someday We'll Know");
+       expect(entries).to.include("Mi Chico Latino");
+     },
+
+     function (entries) { // Someday We'll Know
+       expect(entries.length).to.equal(2);
+                                                      // [03, 03, 03, 04]  [10, 05, 02, 02]
+       expect(entries).to.include("I Need To Know");  // [03, 03, 02, 04]  [10, 05, 03, 02]
+
+                                                      // [03, 03, 03, 04]  [01, 01, 04, 05]
+       expect(entries).to.include("Puente");          // [03, 03, 04, 04]  [01, 01, 03, 05]
+     },
+
+     function (entries) { // Mi Chico Latino
+       expect(entries.length).to.equal(4);
+                                                          // [12, 12, 12, 08]  [07, 09, 11, 15]
+       expect(entries).to.include("If Ya Gettin' Down");  // [12, 12, 11, 08]  [07, 09, 12, 15]
+
+                                                          // [12, 12, 12, 08]  [16, 14, 10, 09]
+       expect(entries).to.include("Si Me Advertí");       // [12, 12, 10, 08]  [16, 14, 12, 09]
+
+                                                          // [12, 12, 12, 08]  [**, 13, 09, 07]
+       expect(entries).to.include("New");                 // [12, 12, 09, 08]  [**, 13, 12, 07]
+
+                                                          // [12, 12, 12, 08]  [05, 07, 08, 12]
+       expect(entries).to.include("Higher");              // [12, 12, 08, 08]  [05, 07, 12, 12]
+     },
+   ],
+
 //+
   ];
 
