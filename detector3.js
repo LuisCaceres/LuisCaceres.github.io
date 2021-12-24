@@ -227,6 +227,39 @@ EXAMPLE: [20, 20, 20]
      },
    ],
 
+   // POSITION 11
+   [
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "The Kids Aren't Alright", "All Star", "I Need To Know", "Angels", "If Ya Gettin' Down", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte", "...Baby One More Time"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All Star", "All I Have To Give", "I Need To Know", "Higher", "Angels", "La Lola", "The Kids Aren't Alright", "If Ya Gettin' Down", "New", "Si Me Advertí", "When You're Gone", "Mi Chico Latino", "Heartbreaker", "No Quiero Verte", "Jennifer Del Estero", "That's The Way It Is", "Man! I Feel Like A Woman"),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Someday We'll Know");
+       expect(entries).to.include("If Ya Gettin' Down");
+     },
+
+     function (entries) { // Someday We'll Know
+       expect(entries.length).to.equal(2);
+                                                      // [03, 03, 03, 04]  [10, 05, 02, 02]
+       expect(entries).to.include("I Need To Know");  // [03, 03, 02, 04]  [10, 05, 03, 02]
+
+                                                      // [03, 03, 03, 04]  [01, 01, 04, 05]
+       expect(entries).to.include("Puente");          // [03, 03, 04, 04]  [01, 01, 03, 05]
+     },
+
+     function (entries) { // If Ya Gettin' Down
+       expect(entries.length).to.equal(3);
+                                                               // [11, 11, 11, 15]  [**, 15, 12, 08]
+       expect(entries).to.include("Mi Chico Latino");          // [11, 11, 12, 15]  [**, 15, 11, 08]
+
+                                                               // [11, 11, 11, 15]  [19, 17, 13, 11]
+       expect(entries).to.include("No Quiero Verte");          // [11, 11, 13, 15]  [19, 17, 11, 11]
+
+                                                               // [11, 11, 11, 15]  [07, 10, 14, 18]
+       expect(entries).to.include("The Kids Aren't Alright");  // [11, 11, 14, 15]  [07, 10, 11, 18]
+     },
+   ],
+
 //+
   ];
 
