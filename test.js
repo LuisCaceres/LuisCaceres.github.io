@@ -5,7 +5,28 @@ const charts = new List(
   new Chart(),
   // NOTE: INCLUDED SO DETECTOR AND CORRECTOR TESTS RUN SMOOTHLY
   // WEEK -1
-  new Chart(),
+  new Chart(
+    /* 20 */ 'Angels',
+    /* 19 */ '...Baby One More Time',
+    /* 18 */ 'Let Forever Be',
+    /* 17 */ 'Si Me Advertí',
+    /* 16 */ 'Look At Me',
+    /* 15 */ 'Atrapados En La Red',
+    /* 14 */ 'All Star',
+    /* 13 */ 'When You\'re Gone',
+    /* 12 */ 'Jennifer Del Estero',
+    /* 11 */ 'What\'s My Age Again?',
+    /* 10 */ 'Waiting For Tonight',
+    /* 09 */ 'Heartbreaker',
+    /* 08 */ 'The Kids Aren\'t Alright',
+    /* 07 */ 'If Ya Gettin\' Down',
+    /* 06 */ 'Higher',
+    /* 05 */ 'Someday We\'ll Know',
+    /* 04 */ 'La Lola',
+    /* 03 */ 'All I Have To Give',
+    /* 02 */ 'Someday',
+    /* 01 */ 'Puente',
+  ),
 
   // WEEK 1
   new Chart(
