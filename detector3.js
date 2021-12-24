@@ -100,6 +100,16 @@ EXAMPLE: [20, 20, 20]
      },
    ],
 
+   // POSITION 6
+   [
+     new Chart("Puente", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "Someday", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "I Need To Know", "Angels", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte", "...Baby One More Time"),
+     new Chart("Puente", "Someday We'll Know", "All Star", "All I Have To Give", "I Need To Know", "Someday", "Higher", "Angels", "If Ya Gettin' Down", "La Lola", "The Kids Aren't Alright", "New", "Si Me Advertí", "When You're Gone", "Mi Chico Latino", "Heartbreaker", "No Quiero Verte", "Jennifer Del Estero", "That's The Way It Is", "Man! I Feel Like A Woman"),
+
+     function (entries) {
+       expect(entries.length).to.equal(0);
+     },
+   ],
+
 //+
   ];
 
