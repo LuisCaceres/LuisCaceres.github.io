@@ -296,6 +296,36 @@ EXAMPLE: [20, 20, 20]
      },
    ],
 
+   // POSITION 13
+   [
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "I Need To Know", "Angels", "Heartbreaker", "No Quiero Verte", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "...Baby One More Time"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All Star", "All I Have To Give", "I Need To Know", "Higher", "Angels", "If Ya Gettin' Down", "La Lola", "The Kids Aren't Alright", "New", "No Quiero Verte", "Si Me Advertí", "When You're Gone", "Mi Chico Latino", "Heartbreaker", "Jennifer Del Estero", "That's The Way It Is", "Man! I Feel Like A Woman"),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Someday We'll Know");
+       expect(entries).to.include("No Quiero Verte");
+     },
+
+     function (entries) { // Someday We'll Know
+       expect(entries.length).to.equal(2);
+                                                      // [03, 03, 03, 04]  [10, 05, 02, 02]
+       expect(entries).to.include("I Need To Know");  // [03, 03, 02, 04]  [10, 05, 03, 02]
+
+                                                      // [03, 03, 03, 04]  [01, 01, 04, 05]
+       expect(entries).to.include("Puente");          // [03, 03, 04, 04]  [01, 01, 03, 05]
+     },
+
+     function (entries) { // No Quiero Verte
+       expect(entries.length).to.equal(2);
+                                                          // [13, 13, 13, 11]  [**, 16, 12, 08]
+       expect(entries).to.include("Mi Chico Latino");     // [13, 13, 12, 11]  [**, 16, 13, 08]
+
+                                                          // [13, 13, 13, 11]  [07, 09, 11, 15]
+       expect(entries).to.include("If Ya Gettin' Down");  // [13, 13, 11, 11]  [07, 09, 13, 15]
+     },
+   ],
+
 //+
   ];
 
