@@ -362,6 +362,36 @@ EXAMPLE: [20, 20, 20]
      },
    ],
 
+   // POSITION 15
+   [
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "I Need To Know", "Angels", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "That's The Way It Is", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All Star", "All I Have To Give", "I Need To Know", "Higher", "Angels", "If Ya Gettin' Down", "La Lola", "The Kids Aren't Alright", "New", "Si Me Advertí", "When You're Gone", "That's The Way It Is", "Mi Chico Latino", "Heartbreaker", "No Quiero Verte", "Jennifer Del Estero", "Man! I Feel Like A Woman"),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Someday We'll Know");
+       expect(entries).to.include("That's The Way It Is");
+     },
+
+     function (entries) { // Someday We'll Know
+       expect(entries.length).to.equal(2);
+                                                      // [03, 03, 03, 04]  [10, 05, 02, 02]
+       expect(entries).to.include("I Need To Know");  // [03, 03, 02, 04]  [10, 05, 03, 02]
+
+                                                      // [03, 03, 03, 04]  [01, 01, 04, 05]
+       expect(entries).to.include("Puente");          // [03, 03, 04, 04]  [01, 01, 03, 05]
+     },
+
+     function (entries) { // That's The Way It Is
+       expect(entries.length).to.equal(2);
+                                                               // [15, 15, 15, 13]  [08, 11, 14, 18]
+       expect(entries).to.include("The Kids Aren't Alright");  // [15, 15, 14, 13]  [08, 11, 15, 18]
+
+                                                               // [15, 15, 15, 13]  [20, 18, 13, 11]
+       expect(entries).to.include("No Quiero Verte");          // [15, 15, 13, 13]  [20, 18, 15, 11]
+     },
+   ],
+
 //+
   ];
 
