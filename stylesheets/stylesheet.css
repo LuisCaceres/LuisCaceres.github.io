@@ -81,3 +81,7 @@ table {
 td:nth-of-type(n+5):nth-of-type(-n+8) {
   border-left: solid black 4px;
 }
+
+td:nth-of-type(3) {
+  display: none;
+}
