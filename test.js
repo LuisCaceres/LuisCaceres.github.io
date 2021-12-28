@@ -5,8 +5,8 @@ const charts = new List(
   new Chart(
     /* 20 */ 'Angels',
     /* 19 */ '...Baby One More Time',
-    /* 18 */ 'Let Forever Be',
-    /* 17 */ 'Si Me Advertí',
+    /* 18 */ 'Si Me Advertí',
+    /* 17 */ 'Let Forever Be',
     /* 16 */ 'Look At Me',
     /* 15 */ 'All Star',
     /* 14 */ 'Atrapados En La Red',
@@ -29,8 +29,8 @@ const charts = new List(
   new Chart(
     /* 20 */ 'Angels',
     /* 19 */ '...Baby One More Time',
-    /* 18 */ 'Let Forever Be',
-    /* 17 */ 'Si Me Advertí',
+    /* 18 */ 'Si Me Advertí',
+    /* 17 */ 'Let Forever Be',
     /* 16 */ 'Look At Me',
     /* 15 */ 'All Star',
     /* 14 */ 'Atrapados En La Red',
