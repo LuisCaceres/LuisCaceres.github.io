@@ -336,7 +336,7 @@ EXAMPLE: [20, 20, 20]
      },
 
      function (entries) { // The Kids Aren't Alright
-       expect(entries.length).to.equal(2);
+       expect(entries.length).to.equal(1);
 
                                                         // [11, 11, 11, 14]  [17, 15, 13, 10]
        expect(entries).to.include("Si Me Advertí");     // [11, 11, 13, 14]  [17, 15, 11, 10]
