@@ -392,7 +392,163 @@ EXAMPLE: [20, 20, 20]
      },
    ],
 
-//+
+   // POSITION 16
+   [
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "I Need To Know", "Angels", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "La Lola", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte", "...Baby One More Time"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All Star", "All I Have To Give", "I Need To Know", "Higher", "Angels", "If Ya Gettin' Down", "The Kids Aren't Alright", "New", "Si Me Advertí", "When You're Gone", "Mi Chico Latino", "Heartbreaker", "La Lola", "No Quiero Verte", "Jennifer Del Estero", "That's The Way It Is", "Man! I Feel Like A Woman"),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Someday We'll Know");
+       expect(entries).to.include("La Lola");
+     },
+
+     function (entries) { // Someday We'll Know
+       expect(entries.length).to.equal(2);
+                                                      // [03, 03, 03, 04]  [10, 05, 02, 02]
+       expect(entries).to.include("I Need To Know");  // [03, 03, 02, 04]  [10, 05, 03, 02]
+
+                                                      // [03, 03, 03, 04]  [01, 01, 04, 05]
+       expect(entries).to.include("Puente");          // [03, 03, 04, 04]  [01, 01, 03, 05]
+     },
+
+     function (entries) { // La Lola
+       expect(entries.length).to.equal(3);
+                                                                // [16, 16, 16, **]  [12, 13, 17, 19]
+       expect(entries).to.include("When You're Gone");          // [16, 16, 17, **]  [12, 13, 16, 19]
+
+                                                                // [16, 16, 16, **]  [**, 20, 18, 14]
+       expect(entries).to.include("Man! I Feel Like A Woman");  // [16, 16, 18, **]  [**, 20, 16, 14]
+
+                                                                // [16, 16, 16, **]  [**, **, 19, 16]
+       expect(entries).to.include("Don't Say You Love Me");     // [16, 16, 19, **]  [**, **, 16, 16]
+     },
+   ],
+
+
+
+   // POSITION 17
+   [
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "I Need To Know", "Angels", "Heartbreaker", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "When You're Gone", "Atrapados En La Red", "No Quiero Verte", "...Baby One More Time"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All Star", "All I Have To Give", "I Need To Know", "Higher", "Angels", "If Ya Gettin' Down", "La Lola", "The Kids Aren't Alright", "New", "Si Me Advertí", "Mi Chico Latino", "Heartbreaker", "No Quiero Verte", "When You're Gone", "Jennifer Del Estero", "That's The Way It Is", "Man! I Feel Like A Woman"),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Someday We'll Know");
+       expect(entries).to.include("When You're Gone");
+     },
+
+     function (entries) { // Someday We'll Know
+       expect(entries.length).to.equal(2);
+                                                      // [03, 03, 03, 04]  [10, 05, 02, 02]
+       expect(entries).to.include("I Need To Know");  // [03, 03, 02, 04]  [10, 05, 03, 02]
+
+                                                      // [03, 03, 03, 04]  [01, 01, 04, 05]
+       expect(entries).to.include("Puente");          // [03, 03, 04, 04]  [01, 01, 03, 05]
+     },
+
+     function (entries) { // When You're Gone
+       expect(entries.length).to.equal(2);
+                                                                // [17, 17, 17, 19]  [**, 20, 18, 14]
+       expect(entries).to.include("Man! I Feel Like A Woman");  // [17, 17, 18, 19]  [**, 20, 17, 14]
+
+                                                                // [17, 17, 17, 19]  [**, **, 19, 16]
+       expect(entries).to.include("Don't Say You Love Me");     // [17, 17, 19, 19]  [**, **, 17, 16]
+     },
+   ],
+
+
+   // POSITION 18
+   [
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "I Need To Know", "Angels", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Man! I Feel Like A Woman", "Atrapados En La Red", "No Quiero Verte"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All Star", "All I Have To Give", "I Need To Know", "Higher", "Angels", "If Ya Gettin' Down", "La Lola", "The Kids Aren't Alright", "New", "Si Me Advertí", "When You're Gone", "Mi Chico Latino", "Heartbreaker", "No Quiero Verte", "Man! I Feel Like A Woman", "Jennifer Del Estero", "That's The Way It Is"),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Someday We'll Know");
+       expect(entries).to.include("Man! I Feel Like A Woman");
+     },
+
+     function (entries) { // Someday We'll Know
+       expect(entries.length).to.equal(2);
+                                                      // [03, 03, 03, 04]  [10, 05, 02, 02]
+       expect(entries).to.include("I Need To Know");  // [03, 03, 02, 04]  [10, 05, 03, 02]
+
+                                                      // [03, 03, 03, 04]  [01, 01, 04, 05]
+       expect(entries).to.include("Puente");          // [03, 03, 04, 04]  [01, 01, 03, 05]
+     },
+
+     function (entries) { // Man! I Feel Like A Woman
+       expect(entries.length).to.equal(4);
+                                                               // [18, 18, 18, 14]  [13, 14, 17, 19]
+       expect(entries).to.include("When You're Gone");         // [18, 18, 17, 14]  [13, 14, 18, 19]
+
+                                                               // [18, 18, 18, 14]  [06, 10, 16, **]
+       expect(entries).to.include("La Lola");                  // [18, 18, 16, 14]  [06, 10, 18, **]
+
+                                                               // [18, 18, 18, 14]  [**, 20, 15, 13]
+       expect(entries).to.include("That's The Way It Is");     // [18, 18, 15, 14]  [**, 20, 18, 13]
+
+                                                               // [18, 18, 18, 14]  [08, 11, 14, 18]
+       expect(entries).to.include("The Kids Aren't Alright");  // [18, 18, 14, 14]  [08, 11, 18, 18]
+     },
+   ],
+
+
+
+   // POSITION 19
+   [
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "I Need To Know", "Angels", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "Don't Say You Love Me", "No Quiero Verte"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All Star", "All I Have To Give", "I Need To Know", "Higher", "Angels", "If Ya Gettin' Down", "La Lola", "The Kids Aren't Alright", "New", "Si Me Advertí", "When You're Gone", "Mi Chico Latino", "Heartbreaker", "No Quiero Verte", "Jennifer Del Estero", "Don't Say You Love Me", "That's The Way It Is"),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Someday We'll Know");
+       expect(entries).to.include("Don't Say You Love Me");
+     },
+
+     function (entries) { // Someday We'll Know
+       expect(entries.length).to.equal(2);
+                                                      // [03, 03, 03, 04]  [10, 05, 02, 02]
+       expect(entries).to.include("I Need To Know");  // [03, 03, 02, 04]  [10, 05, 03, 02]
+
+                                                      // [03, 03, 03, 04]  [01, 01, 04, 05]
+       expect(entries).to.include("Puente");          // [03, 03, 04, 04]  [01, 01, 03, 05]
+     },
+
+     function (entries) { // Don't Say You Love Me
+       expect(entries.length).to.equal(3);
+                                                                // [19, 19, 19, 16]  [**, **, 18, 14]
+       expect(entries).to.include("Man! I Feel Like A Woman");  // [19, 19, 18, 16]  [**, **, 19, 14]
+
+                                                                // [19, 19, 19, 16]  [13, 14, 17, 19]
+       expect(entries).to.include("When You're Gone");          // [19, 19, 17, 16]  [13, 14, 19, 19]
+
+                                                                // [19, 19, 19, 16]  [06, 10, 16, **]
+       expect(entries).to.include("La Lola");                   // [19, 19, 16, 16]  [06, 10, 19, **]
+     },
+   ],
+
+
+   // POSITION 20
+   [
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "I Need To Know", "Angels", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte", "As Fast As You Can"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All Star", "All I Have To Give", "I Need To Know", "Higher", "Angels", "If Ya Gettin' Down", "La Lola", "The Kids Aren't Alright", "New", "Si Me Advertí", "When You're Gone", "Mi Chico Latino", "Heartbreaker", "No Quiero Verte", "Jennifer Del Estero", "That's The Way It Is", "As Fast As You Can"),
+
+     function (entries) {
+       expect(entries.length).to.equal(1);
+       expect(entries).to.include("Someday We'll Know");
+     },
+
+     function (entries) { // Someday We'll Know
+       expect(entries.length).to.equal(2);
+                                                      // [03, 03, 03, 04]  [10, 05, 02, 02]
+       expect(entries).to.include("I Need To Know");  // [03, 03, 02, 04]  [10, 05, 03, 02]
+
+                                                      // [03, 03, 03, 04]  [01, 01, 04, 05]
+       expect(entries).to.include("Puente");          // [03, 03, 04, 04]  [01, 01, 03, 05]
+     },
+   ],
   ];
 
   runTests(6, charts, 3, tests);
