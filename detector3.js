@@ -65,7 +65,7 @@ EXAMPLE: [20, 20, 20]
      },
 
      function (entries) { // Someday
-       expect(entries.length).to.equal(4);
+       expect(entries.length).to.equal(3);
                                                           // [02, 02, 02, 06]  [01, 01, 01, 04]
        expect(entries).to.include("Puente");              // [02, 02, 01, 06]  [01, 01, 02, 04]
 
