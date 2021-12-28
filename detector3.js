@@ -291,14 +291,14 @@ EXAMPLE: [20, 20, 20]
 
      function (entries) { // Someday
        expect(entries.length).to.equal(3);
-                                     									// [02, 02, 02, 06]  [01, 01, 01, 04]
-       expect(entries).to.include("Puente");          // [02, 02, 01, 06]  [01, 01, 02, 04]
+                                                      // [02, 02, 02, 06]  [01, 01, 01, 04]
+       expect(entries).to.include("Puente");          // [02, 02, 01, 06]  [01, 01, 02, 04]
 
-                                   									  // [02, 02, 02, 06]  [14, 08, 04, 01]
-       expect(entries).to.include("All Star");        // [02, 02, 04, 06]  [14, 08, 02, 01]
+                                                      // [02, 02, 02, 06]  [14, 08, 04, 01]
+       expect(entries).to.include("All Star");        // [02, 02, 04, 06]  [14, 08, 02, 01]
   
-                                 											// [02, 02, 02, 06]  [**, 09, 06, 02]
-       expect(entries).to.include("I Need To Know");  // [02, 02, 06, 06]  [**, 09, 02, 02]
+                                                      // [02, 02, 02, 06]  [**, 09, 06, 02]
+       expect(entries).to.include("I Need To Know");  // [02, 02, 06, 06]  [**, 09, 02, 02]
      },
 
      function (entries) { // La Lola
