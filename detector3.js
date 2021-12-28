@@ -93,23 +93,23 @@ EXAMPLE: [20, 20, 20]
 
      function (entries) { // Someday
        expect(entries.length).to.equal(3);
-       // [02, 02, 02, 06]  [01, 01, 01, 04]
-       expect(entries).to.include("Puente");  // [02, 02, 01, 06]  [01, 01, 02, 04]
+                                                      // [02, 02, 02, 06]  [01, 01, 01, 04]
+       expect(entries).to.include("Puente");          // [02, 02, 01, 06]  [01, 01, 02, 04]
 
-       // [02, 02, 02, 06]  [04, 04, 04, 01]
-       expect(entries).to.include("All Star");  // [02, 02, 04, 06]  [04, 04, 02, 01]
+                                                      // [02, 02, 02, 06]  [04, 04, 04, 01]
+       expect(entries).to.include("All Star");        // [02, 02, 04, 06]  [04, 04, 02, 01]
 
-       // [02, 02, 02, 06]  [**, 10, 06, 02]
+                                                      // [02, 02, 02, 06]  [**, 10, 06, 02]
        expect(entries).to.include("I Need To Know");  // [02, 02, 06, 06]  [**, 10, 02, 02]
      },
 
      function (entries) { // All Star
        expect(entries.length).to.equal(2);
-       // [04, 04, 04, 01]  [02, 02, 02, 06]
+                                               // [04, 04, 04, 01]  [02, 02, 02, 06]
        expect(entries).to.include("Someday");  // [04, 04, 02, 01]  [02, 02, 04, 06]
 
-       // [04, 04, 04, 01]  [01, 01, 01, 04]
-       expect(entries).to.include("Puente");  // [04, 04, 01, 01]  [01, 01, 04, 04]
+                                               // [04, 04, 04, 01]  [01, 01, 01, 04]
+       expect(entries).to.include("Puente");   // [04, 04, 01, 01]  [01, 01, 04, 04]
      },
    ],
 
@@ -126,23 +126,23 @@ EXAMPLE: [20, 20, 20]
 
      function (entries) { // Someday
        expect(entries.length).to.equal(3);
-       // [02, 02, 02, 06]  [01, 01, 01, 04]
-       expect(entries).to.include("Puente");  // [02, 02, 01, 06]  [01, 01, 02, 04]
+                                                      // [02, 02, 02, 06]  [01, 01, 01, 04]
+       expect(entries).to.include("Puente");          // [02, 02, 01, 06]  [01, 01, 02, 04]
 
-       // [02, 02, 02, 06]  [14, 09, 04, 01]
-       expect(entries).to.include("All Star");  // [02, 02, 04, 06]  [14, 09, 02, 01]
+                                                      // [02, 02, 02, 06]  [14, 09, 04, 01]
+       expect(entries).to.include("All Star");        // [02, 02, 04, 06]  [14, 09, 02, 01]
 
-       // [02, 02, 02, 06]  [**, 10, 06, 02]
+                                                      // [02, 02, 02, 06]  [**, 10, 06, 02]
        expect(entries).to.include("I Need To Know");  // [02, 02, 06, 06]  [**, 10, 02, 02]
      },
 
      function (entries) { // All I Have To Give
        expect(entries.length).to.equal(2);
-       // [05, 05, 05, 07]  [**, 10, 06, 02]
+                                                      // [05, 05, 05, 07]  [**, 10, 06, 02]
        expect(entries).to.include("I Need To Know");  // [05, 05, 06, 07]  [**, 10, 05, 02]
 
-       // [05, 05, 05, 07]  [06, 04, 07, 08]
-       expect(entries).to.include("Higher");  // [05, 05, 07, 07]  [06, 04, 05, 08]
+                                                      // [05, 05, 05, 07]  [06, 04, 07, 08]
+       expect(entries).to.include("Higher");          // [05, 05, 07, 07]  [06, 04, 05, 08]
      },
    ],
 
@@ -159,26 +159,26 @@ EXAMPLE: [20, 20, 20]
 
      function (entries) { // Someday
        expect(entries.length).to.equal(3);
-       // [02, 02, 02, 06]  [01, 01, 01, 04]
-       expect(entries).to.include("Puente");  // [02, 02, 01, 06]  [01, 01, 02, 04]
+                                                      // [02, 02, 02, 06]  [01, 01, 01, 04]
+       expect(entries).to.include("Puente");          // [02, 02, 01, 06]  [01, 01, 02, 04]
 
-       // [02, 02, 02, 06]  [15, 10, 04, 01]
-       expect(entries).to.include("All Star");  // [02, 02, 04, 06]  [15, 10, 02, 01]
+                                                      // [02, 02, 02, 06]  [15, 10, 04, 01]
+       expect(entries).to.include("All Star");        // [02, 02, 04, 06]  [15, 10, 02, 01]
 
-       // [02, 02, 02, 06]  [06, 06, 06, 02]
+                                                      // [02, 02, 02, 06]  [06, 06, 06, 02]
        expect(entries).to.include("I Need To Know");  // [02, 02, 06, 06]  [06, 06, 02, 02]
      },
 
      function (entries) { // I Need To Know
        expect(entries.length).to.equal(3);
-       // [06, 06, 06, 02]  [03, 04, 05, 07]
+                                                          // [06, 06, 06, 02]  [03, 04, 05, 07]
        expect(entries).to.include("All I Have To Give");  // [06, 06, 05, 02]  [03, 04, 06, 07]
 
-       // [06, 06, 06, 02]  [15, 10, 04, 01]
-       expect(entries).to.include("All Star");  // [06, 06, 04, 02]  [15, 10, 06, 01]
+                                                          // [06, 06, 06, 02]  [15, 10, 04, 01]
+       expect(entries).to.include("All Star");            // [06, 06, 04, 02]  [15, 10, 06, 01]
 
-       // [06, 06, 06, 02]  [02, 02, 02, 06]
-       expect(entries).to.include("Someday");  // [06, 06, 02, 02]  [02, 02, 06, 06]
+                                                          // [06, 06, 06, 02]  [02, 02, 02, 06]
+       expect(entries).to.include("Someday");             // [06, 06, 02, 02]  [02, 02, 06, 06]
      },
    ],
 
