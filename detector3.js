@@ -310,6 +310,40 @@ EXAMPLE: [20, 20, 20]
        expect(entries).to.include("Si Me Advertí");            // [10, 10, 13, 16]  [17, 15, 10, 10]
      },
    ],
+
+   // POSITION 11
+   [
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "If Ya Gettin' Down", "All Star", "I Need To Know", "Angels", "The Kids Aren't Alright", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte", "...Baby One More Time"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All Star", "All I Have To Give", "I Need To Know", "Higher", "Angels", "If Ya Gettin' Down", "La Lola", "The Kids Aren't Alright", "New", "Si Me Advertí", "When You're Gone", "Mi Chico Latino", "Heartbreaker", "No Quiero Verte", "Jennifer Del Estero", "That's The Way It Is", "Man! I Feel Like A Woman"),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Someday");
+       expect(entries).to.include("The Kids Aren't Alright");
+     },
+
+     function (entries) { // Someday
+       expect(entries.length).to.equal(3);
+       // [02, 02, 06, 06]  [01, 01, 04, 05]
+       expect(entries).to.include("Puente");  // [02, 02, 04, 06]  [01, 01, 06, 05]
+
+       // [02, 02, 06, 06]  [08, 04, 01, 01]
+       expect(entries).to.include("All Star");  // [02, 02, 01, 06]  [08, 04, 06, 01]
+
+       // [02, 02, 06, 06]  [09, 06, 02, 02]
+       expect(entries).to.include("I Need To Know");  // [02, 02, 02, 06]  [09, 06, 06, 02]
+
+     },
+
+     function (entries) { // The Kids Aren't Alright
+       expect(entries.length).to.equal(2);
+       // [11, 11, 14, 18]  [15, 13, 10, 09]
+       expect(entries).to.include("Si Me Advertí");  // [11, 11, 10, 18]  [15, 13, 14, 09]
+
+       // [11, 11, 14, 18]  [13, 14, 17, 19]
+       expect(entries).to.include("When You're Gone");  // [11, 11, 17, 18]  [13, 14, 14, 19]
+     },
+   ],
   ];
 
   runTests(5, charts, 3, tests);
