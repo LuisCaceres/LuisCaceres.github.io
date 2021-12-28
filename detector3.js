@@ -7,6 +7,312 @@ EXAMPLE: [20, 20, 20]
 // WEEK 3
 {
   const tests = [
+
+    // POSITION 1
+   [
+     new Chart("Puente", "Someday", "All I Have To Give", "La Lola", "Someday We'll Know", "Higher", "If Ya Gettin' Down", "The Kids Aren't Alright", "Heartbreaker", "Waiting For Tonight", "What's My Age Again?", "Jennifer Del Estero", "When You're Gone", "All Star", "Atrapados En La Red", "Look At Me", "Si Me Advertí", "Let Forever Be", "...Baby One More Time", "Angels"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "I Need To Know", "Angels", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte", "...Baby One More Time"),
+
+     function (entries) {
+       expect(entries.length).to.equal(1);
+       expect(entries).to.include("Someday");
+     },
+
+     function (entries) { // Someday
+       expect(entries.length).to.equal(3);
+                            								          // [02, 02, 02, 06]  [01, 01, 01, 04]
+       expect(entries).to.include("Puente");                          // [02, 02, 01, 06]  [01, 01, 02, 04]
+
+                                					 // [02, 02, 02, 06]  [14, 09, 04, 01]
+       expect(entries).to.include("All Star");  // [02, 02, 04, 06]  [14, 09, 02, 01]
+
+                                                                                      // [02, 02, 02, 06]  [**, 10, 06, 02]
+       expect(entries).to.include("I Need To Know");  // [02, 02, 06, 06]  [**, 10, 02, 02]
+     },
+   ],
+
+   // POSITION 2
+   [
+     new Chart("Puente", "Someday", "All I Have To Give", "La Lola", "Someday We'll Know", "Higher", "If Ya Gettin' Down", "The Kids Aren't Alright", "Heartbreaker", "Waiting For Tonight", "What's My Age Again?", "Jennifer Del Estero", "When You're Gone", "All Star", "Atrapados En La Red", "Look At Me", "Si Me Advertí", "Let Forever Be", "...Baby One More Time", "Angels"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "I Need To Know", "Angels", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte", "...Baby One More Time"),
+
+     function (entries) {
+       expect(entries.length).to.equal(1);
+       expect(entries).to.include("Someday");
+     },
+
+     function (entries) { // Someday
+       expect(entries.length).to.equal(3);
+       // [02, 02, 02, 06]  [01, 01, 01, 04]
+       expect(entries).to.include("Puente");  // [02, 02, 01, 06]  [01, 01, 02, 04]
+
+       // [02, 02, 02, 06]  [14, 09, 04, 01]
+       expect(entries).to.include("All Star");  // [02, 02, 04, 06]  [14, 09, 02, 01]
+
+       // [02, 02, 02, 06]  [**, 10, 06, 02]
+       expect(entries).to.include("I Need To Know");  // [02, 02, 06, 06]  [**, 10, 02, 02]
+     },
+   ],
+
+   // POSITION 3
+   [
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "La Lola", "Higher", "If Ya Gettin' Down", "The Kids Aren't Alright", "Heartbreaker", "Waiting For Tonight", "What's My Age Again?", "Jennifer Del Estero", "When You're Gone", "All Star", "Atrapados En La Red", "Look At Me", "Si Me Advertí", "Let Forever Be", "...Baby One More Time", "Angels"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "I Need To Know", "Angels", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte", "...Baby One More Time"),
+
+     function (entries) {
+       expect(entries.length).to.equal(1);
+       expect(entries).to.include("Someday");
+     },
+
+     function (entries) { // Someday
+       expect(entries.length).to.equal(4);
+       // [02, 02, 02, 06]  [01, 01, 01, 04]
+       expect(entries).to.include("Puente");  // [02, 02, 01, 06]  [01, 01, 02, 04]
+
+       // [02, 02, 02, 06]  [14, 09, 04, 01]
+       expect(entries).to.include("All Star");  // [02, 02, 04, 06]  [14, 09, 02, 01]
+
+       // [02, 02, 02, 06]  [04, 04, 05, 07]
+       expect(entries).to.include("All I Have To Give");  // [02, 02, 05, 06]  [04, 04, 02, 07]
+
+       // [02, 02, 02, 06]  [**, 10, 06, 02]
+       expect(entries).to.include("I Need To Know");  // [02, 02, 06, 06]  [**, 10, 02, 02]
+     },
+   ],
+
+   // POSITION 4
+   [
+     new Chart("Puente", "Someday", "All I Have To Give", "All Star", "La Lola", "Someday We'll Know", "Higher", "If Ya Gettin' Down", "The Kids Aren't Alright", "Heartbreaker", "Waiting For Tonight", "What's My Age Again?", "Jennifer Del Estero", "When You're Gone", "Atrapados En La Red", "Look At Me", "Si Me Advertí", "Let Forever Be", "...Baby One More Time", "Angels"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All Star", "All I Have To Give", "Higher", "La Lola", "If Ya Gettin' Down", "The Kids Aren't Alright", "I Need To Know", "Angels", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte", "...Baby One More Time"),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Someday");
+       expect(entries).to.include("All Star");
+     },
+
+     function (entries) { // Someday
+       expect(entries.length).to.equal(3);
+       // [02, 02, 02, 06]  [01, 01, 01, 04]
+       expect(entries).to.include("Puente");  // [02, 02, 01, 06]  [01, 01, 02, 04]
+
+       // [02, 02, 02, 06]  [04, 04, 04, 01]
+       expect(entries).to.include("All Star");  // [02, 02, 04, 06]  [04, 04, 02, 01]
+
+       // [02, 02, 02, 06]  [**, 10, 06, 02]
+       expect(entries).to.include("I Need To Know");  // [02, 02, 06, 06]  [**, 10, 02, 02]
+     },
+
+     function (entries) { // All Star
+       expect(entries.length).to.equal(2);
+       // [04, 04, 04, 01]  [02, 02, 02, 06]
+       expect(entries).to.include("Someday");  // [04, 04, 02, 01]  [02, 02, 04, 06]
+
+       // [04, 04, 04, 01]  [01, 01, 01, 04]
+       expect(entries).to.include("Puente");  // [04, 04, 01, 01]  [01, 01, 04, 04]
+     },
+   ],
+
+   // POSITION 5
+   [
+     new Chart("Puente", "Someday", "La Lola", "Someday We'll Know", "All I Have To Give", "Higher", "If Ya Gettin' Down", "The Kids Aren't Alright", "Heartbreaker", "Waiting For Tonight", "What's My Age Again?", "Jennifer Del Estero", "When You're Gone", "All Star", "Atrapados En La Red", "Look At Me", "Si Me Advertí", "Let Forever Be", "...Baby One More Time", "Angels"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "Higher", "All I Have To Give", "La Lola", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "I Need To Know", "Angels", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte", "...Baby One More Time"),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Someday");
+       expect(entries).to.include("All I Have To Give");
+     },
+
+     function (entries) { // Someday
+       expect(entries.length).to.equal(3);
+       // [02, 02, 02, 06]  [01, 01, 01, 04]
+       expect(entries).to.include("Puente");  // [02, 02, 01, 06]  [01, 01, 02, 04]
+
+       // [02, 02, 02, 06]  [14, 09, 04, 01]
+       expect(entries).to.include("All Star");  // [02, 02, 04, 06]  [14, 09, 02, 01]
+
+       // [02, 02, 02, 06]  [**, 10, 06, 02]
+       expect(entries).to.include("I Need To Know");  // [02, 02, 06, 06]  [**, 10, 02, 02]
+     },
+
+     function (entries) { // All I Have To Give
+       expect(entries.length).to.equal(2);
+       // [05, 05, 05, 07]  [**, 10, 06, 02]
+       expect(entries).to.include("I Need To Know");  // [05, 05, 06, 07]  [**, 10, 05, 02]
+
+       // [05, 05, 05, 07]  [06, 04, 07, 08]
+       expect(entries).to.include("Higher");  // [05, 05, 07, 07]  [06, 04, 05, 08]
+     },
+   ],
+
+   // POSITION 6
+   [
+     new Chart("Puente", "Someday", "All I Have To Give", "La Lola", "Someday We'll Know", "I Need To Know", "Higher", "If Ya Gettin' Down", "The Kids Aren't Alright", "Heartbreaker", "Waiting For Tonight", "What's My Age Again?", "Jennifer Del Estero", "When You're Gone", "All Star", "Atrapados En La Red", "Look At Me", "Si Me Advertí", "Let Forever Be", "...Baby One More Time"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "I Need To Know", "La Lola", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "Angels", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte", "...Baby One More Time"),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Someday");
+       expect(entries).to.include("I Need To Know");
+     },
+
+     function (entries) { // Someday
+       expect(entries.length).to.equal(3);
+       // [02, 02, 02, 06]  [01, 01, 01, 04]
+       expect(entries).to.include("Puente");  // [02, 02, 01, 06]  [01, 01, 02, 04]
+
+       // [02, 02, 02, 06]  [15, 10, 04, 01]
+       expect(entries).to.include("All Star");  // [02, 02, 04, 06]  [15, 10, 02, 01]
+
+       // [02, 02, 02, 06]  [06, 06, 06, 02]
+       expect(entries).to.include("I Need To Know");  // [02, 02, 06, 06]  [06, 06, 02, 02]
+     },
+
+     function (entries) { // I Need To Know
+       expect(entries.length).to.equal(3);
+       // [06, 06, 06, 02]  [03, 04, 05, 07]
+       expect(entries).to.include("All I Have To Give");  // [06, 06, 05, 02]  [03, 04, 06, 07]
+
+       // [06, 06, 06, 02]  [15, 10, 04, 01]
+       expect(entries).to.include("All Star");  // [06, 06, 04, 02]  [15, 10, 06, 01]
+
+       // [06, 06, 06, 02]  [02, 02, 02, 06]
+       expect(entries).to.include("Someday");  // [06, 06, 02, 02]  [02, 02, 06, 06]
+     },
+   ],
+
+   // POSITION 7
+   [
+     new Chart("Puente", "Someday", "All I Have To Give", "La Lola", "Someday We'll Know", "If Ya Gettin' Down", "Higher", "The Kids Aren't Alright", "Heartbreaker", "Waiting For Tonight", "What's My Age Again?", "Jennifer Del Estero", "When You're Gone", "All Star", "Atrapados En La Red", "Look At Me", "Si Me Advertí", "Let Forever Be", "...Baby One More Time", "Angels"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "La Lola", "If Ya Gettin' Down", "Higher", "The Kids Aren't Alright", "All Star", "I Need To Know", "Angels", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte", "...Baby One More Time"),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Someday");
+       expect(entries).to.include("Higher");
+     },
+
+     function (entries) { // Someday
+       expect(entries.length).to.equal(3);
+       // [02, 02, 02, 06]  [01, 01, 01, 04]
+       expect(entries).to.include("Puente");  // [02, 02, 01, 06]  [01, 01, 02, 04]
+
+       // [02, 02, 02, 06]  [14, 09, 04, 01]
+       expect(entries).to.include("All Star");  // [02, 02, 04, 06]  [14, 09, 02, 01]
+
+       // [02, 02, 02, 06]  [**, 10, 06, 02]
+       expect(entries).to.include("I Need To Know");  // [02, 02, 06, 06]  [**, 10, 02, 02]
+     },
+
+     function (entries) { // Higher
+       expect(entries.length).to.equal(1);
+       // [07, 07, 07, 08]  [20, 11, 08, 05]
+       expect(entries).to.include("Angels");  // [07, 07, 08, 08]  [20, 11, 07, 05]
+     },
+   ],
+
+   // POSITION 8
+   [
+     new Chart("Puente", "Someday", "All I Have To Give", "La Lola", "Someday We'll Know", "Higher", "If Ya Gettin' Down", "Angels", "The Kids Aren't Alright", "Heartbreaker", "Waiting For Tonight", "What's My Age Again?", "Jennifer Del Estero", "When You're Gone", "All Star", "Atrapados En La Red", "Look At Me", "Si Me Advertí", "Let Forever Be", "...Baby One More Time"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "If Ya Gettin' Down", "Angels", "The Kids Aren't Alright", "All Star", "I Need To Know", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte", "...Baby One More Time"),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Someday");
+       expect(entries).to.include("Angels");
+     },
+
+     function (entries) { // Someday
+       expect(entries.length).to.equal(3);
+       // [02, 02, 02, 06]  [01, 01, 01, 04]
+       expect(entries).to.include("Puente");  // [02, 02, 01, 06]  [01, 01, 02, 04]
+
+       // [02, 02, 02, 06]  [15, 10, 04, 01]
+       expect(entries).to.include("All Star");  // [02, 02, 04, 06]  [15, 10, 02, 01]
+
+       // [02, 02, 02, 06]  [**, 11, 06, 02]
+       expect(entries).to.include("I Need To Know");  // [02, 02, 06, 06]  [**, 11, 02, 02]
+     },
+
+     function (entries) { // Angels
+       expect(entries.length).to.equal(2);
+       // [08, 08, 08, 05]  [06, 05, 07, 08]
+       expect(entries).to.include("Higher");  // [08, 08, 07, 05]  [06, 05, 08, 08]
+
+       // [08, 08, 08, 05]  [**, 11, 06, 02]
+       expect(entries).to.include("I Need To Know");  // [08, 08, 06, 05]  [**, 11, 08, 02]
+     },
+   ],
+
+   // POSITION 9
+   [
+     new Chart("Puente", "Someday", "All I Have To Give", "La Lola", "Someday We'll Know", "Higher", "The Kids Aren't Alright", "Heartbreaker", "If Ya Gettin' Down", "Waiting For Tonight", "What's My Age Again?", "Jennifer Del Estero", "When You're Gone", "All Star", "Atrapados En La Red", "Look At Me", "Si Me Advertí", "Let Forever Be", "...Baby One More Time", "Angels"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "The Kids Aren't Alright", "All Star", "If Ya Gettin' Down", "I Need To Know", "Angels", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte", "...Baby One More Time"),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Someday");
+       expect(entries).to.include("If Ya Gettin' Down");
+     },
+
+     function (entries) { // Someday
+       expect(entries.length).to.equal(3);
+       // [02, 02, 02, 06]  [01, 01, 01, 04]
+       expect(entries).to.include("Puente");  // [02, 02, 01, 06]  [01, 01, 02, 04]
+
+       // [02, 02, 02, 06]  [14, 08, 04, 01]
+       expect(entries).to.include("All Star");  // [02, 02, 04, 06]  [14, 08, 02, 01]
+
+       // [02, 02, 02, 06]  [**, 10, 06, 02]
+       expect(entries).to.include("I Need To Know");  // [02, 02, 06, 06]  [**, 10, 02, 02]
+     },
+
+     function (entries) { // If Ya Gettin' Down
+       expect(entries.length).to.equal(2);
+       // [09, 09, 09, 11]  [04, 06, 10, 16]
+       expect(entries).to.include("La Lola");  // [09, 09, 10, 11]  [04, 06, 09, 16]
+
+       // [09, 09, 09, 11]  [07, 07, 11, 14]
+       expect(entries).to.include("The Kids Aren't Alright");  // [09, 09, 11, 11]  [07, 07, 09, 14]
+     },
+   ],
+
+   // POSITION 10
+   [
+     new Chart("Puente", "Someday", "All I Have To Give", "Someday We'll Know", "Higher", "If Ya Gettin' Down", "The Kids Aren't Alright", "Heartbreaker", "Waiting For Tonight", "La Lola", "What's My Age Again?", "Jennifer Del Estero", "When You're Gone", "All Star", "Atrapados En La Red", "Look At Me", "Si Me Advertí", "Let Forever Be", "...Baby One More Time", "Angels"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "I Need To Know", "La Lola", "Angels", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte", "...Baby One More Time"),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Someday");
+       expect(entries).to.include("La Lola");
+     },
+
+     function (entries) { // Someday
+       expect(entries.length).to.equal(3);
+       									// [02, 02, 02, 06]  [01, 01, 01, 04]
+       expect(entries).to.include("Puente");  // [02, 02, 01, 06]  [01, 01, 02, 04]
+
+     									  // [02, 02, 02, 06]  [14, 08, 04, 01]
+       expect(entries).to.include("All Star");  // [02, 02, 04, 06]  [14, 08, 02, 01]
+
+       											// [02, 02, 02, 06]  [**, 09, 06, 02]
+       expect(entries).to.include("I Need To Know");  // [02, 02, 06, 06]  [**, 09, 02, 02]
+     },
+
+     function (entries) { // La Lola
+       expect(entries.length).to.equal(3);
+      												 // [10, 10, 10, 16]  [07, 07, 11, 14]
+       expect(entries).to.include("The Kids Aren't Alright");  // [10, 10, 11, 16]  [07, 07, 10, 14]
+
+      												 // [10, 10, 10, 16]  [**, **, 12, 09]
+       expect(entries).to.include("New");  				// [10, 10, 12, 16]  [**, **, 10, 09]
+
+       												// [10, 10, 10, 16]  [17, 15, 13, 10]
+       expect(entries).to.include("Si Me Advertí"); 		 // [10, 10, 13, 16]  [17, 15, 10, 10]
+     },
+   ],
   ];
 
   runTests(5, charts, 3, tests);
