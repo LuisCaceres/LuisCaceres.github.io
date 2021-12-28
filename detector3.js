@@ -302,12 +302,9 @@ EXAMPLE: [20, 20, 20]
      },
 
      function (entries) { // La Lola
-       expect(entries.length).to.equal(3);
+       expect(entries.length).to.equal(2);
       											                                	 // [10, 10, 10, 16]  [07, 07, 11, 14]
        expect(entries).to.include("The Kids Aren't Alright");  // [10, 10, 11, 16]  [07, 07, 10, 14]
-
-                                      					               // [10, 10, 10, 16]  [**, **, 12, 09]
-       expect(entries).to.include("New");  				             // [10, 10, 12, 16]  [**, **, 10, 09]
 
              	                           											 // [10, 10, 10, 16]  [17, 15, 13, 10]
        expect(entries).to.include("Si Me Advertí"); 		       // [10, 10, 13, 16]  [17, 15, 10, 10]
