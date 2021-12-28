@@ -462,7 +462,6 @@ EXAMPLE: [20, 20, 20]
 
                                                       // [02, 02, 02, 06]  [**, 10, 06, 02]
        expect(entries).to.include("I Need To Know");  // [02, 02, 06, 06]  [**, 10, 02, 02]
-
      },
 
      function (entries) { // When You're Gone
@@ -475,7 +474,42 @@ EXAMPLE: [20, 20, 20]
 
                                                        // [14, 14, 14, 17]  [**, 19, 17, 13]
        expect(entries).to.include("No Quiero Verte");  // [14, 14, 17, 17]  [**, 19, 14, 13]
+     },
+   ],
 
+   // POSITION 15
+   [
+     new Chart("Puente", "Someday", "All I Have To Give", "La Lola", "Someday We'll Know", "Higher", "If Ya Gettin' Down", "The Kids Aren't Alright", "Heartbreaker", "Waiting For Tonight", "What's My Age Again?", "Jennifer Del Estero", "When You're Gone", "All Star", "Mi Chico Latino", "Atrapados En La Red", "Look At Me", "Si Me Advertí", "Let Forever Be", "...Baby One More Time"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "I Need To Know", "Angels", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Mi Chico Latino", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte"),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Someday");
+       expect(entries).to.include("Mi Chico Latino");
+     },
+
+     function (entries) { // Someday
+       expect(entries.length).to.equal(3);
+                                                      // [02, 02, 02, 06]  [01, 01, 01, 04]
+       expect(entries).to.include("Puente");          // [02, 02, 01, 06]  [01, 01, 02, 04]
+
+                                                      // [02, 02, 02, 06]  [14, 09, 04, 01]
+       expect(entries).to.include("All Star");        // [02, 02, 04, 06]  [14, 09, 02, 01]
+
+                                                      // [02, 02, 02, 06]  [**, 10, 06, 02]
+       expect(entries).to.include("I Need To Know");  // [02, 02, 06, 06]  [**, 10, 02, 02]
+     },
+
+     function (entries) { // Mi Chico Latino
+       expect(entries.length).to.equal(3);
+                                                        // [15, 15, 15, 12]  [13, 13, 14, 17]
+       expect(entries).to.include("When You're Gone");  // [15, 15, 14, 12]  [13, 13, 15, 17]
+
+                                                        // [15, 15, 15, 12]  [18, 16, 13, 10]
+       expect(entries).to.include("Si Me Advertí");     // [15, 15, 13, 12]  [18, 16, 15, 10]
+
+                                                        // [15, 15, 15, 12]  [**, **, 12, 09]
+       expect(entries).to.include("New");               // [15, 15, 12, 12]  [**, **, 15, 09]
      },
    ],
 
