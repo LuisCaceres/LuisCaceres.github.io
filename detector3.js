@@ -345,6 +345,54 @@ EXAMPLE: [20, 20, 20]
 //        expect(entries).to.include("When You're Gone");  // [11, 11, 14, 14]  [13, 13, 11, 17]
      },
    ],
+
+   // POSITION 12
+   [
+     new Chart("Puente", "Someday", "All I Have To Give", "La Lola", "Someday We'll Know", "Higher", "If Ya Gettin' Down", "The Kids Aren't Alright", "Heartbreaker", "Waiting For Tonight", "What's My Age Again?", "New", "Jennifer Del Estero", "When You're Gone", "All Star", "Atrapados En La Red", "Look At Me", "Si Me Advertí", "Let Forever Be", "...Baby One More Time"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "I Need To Know", "Angels", "New", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte"),
+
+     function (entries) {
+       expect(entries.length).to.equal(3);
+       expect(entries).to.include("Someday");
+       expect(entries).to.include("New");
+       expect(entries).to.include("When You're Gone");
+     },
+
+     function (entries) { // Someday
+       expect(entries.length).to.equal(3);
+                                                      // [02, 02, 02, 06]  [01, 01, 01, 04]
+       expect(entries).to.include("Puente");          // [02, 02, 01, 06]  [01, 01, 02, 04]
+
+                                                      // [02, 02, 02, 06]  [15, 09, 04, 01]
+       expect(entries).to.include("All Star");        // [02, 02, 04, 06]  [15, 09, 02, 01]
+
+                                                      // [02, 02, 02, 06]  [**, 10, 06, 02]
+       expect(entries).to.include("I Need To Know");  // [02, 02, 06, 06]  [**, 10, 02, 02]
+     },
+
+     function (entries) { // New
+       expect(entries.length).to.equal(2);
+                                                               // [12, 12, 12, 09]  [08, 08, 11, 14]
+       expect(entries).to.include("The Kids Aren't Alright");  // [12, 12, 11, 09]  [08, 08, 12, 14]
+
+                                                               // [12, 12, 12, 09]  [04, 06, 10, 16]
+       expect(entries).to.include("La Lola");                  // [12, 12, 10, 09]  [04, 06, 12, 16]
+     },
+
+     function (entries) { // When You're Gone
+       expect(entries.length).to.equal(3);
+                                                       // [14, 14, 14, 17]  [**, **, 15, 12]
+       expect(entries).to.include("Mi Chico Latino");  // [14, 14, 15, 17]  [**, **, 14, 12]
+
+                                                       // [14, 14, 14, 17]  [09, 13, 16, **]
+       expect(entries).to.include("Heartbreaker");     // [14, 14, 16, 17]  [09, 13, 14, **]
+
+                                                       // [14, 14, 14, 17]  [**, 20, 17, 13]
+       expect(entries).to.include("No Quiero Verte");  // [14, 14, 17, 17]  [**, 20, 14, 13]
+     },
+   ],
+
+//+
   ];
 
   runTests(5, charts, 3, tests);
