@@ -549,6 +549,42 @@ EXAMPLE: [20, 20, 20]
      },
    ],
 
+   // POSITION 17
+   [
+     new Chart("Puente", "Someday", "All I Have To Give", "La Lola", "Someday We'll Know", "Higher", "If Ya Gettin' Down", "The Kids Aren't Alright", "Heartbreaker", "Waiting For Tonight", "What's My Age Again?", "Jennifer Del Estero", "When You're Gone", "All Star", "Atrapados En La Red", "Look At Me", "No Quiero Verte", "Si Me Advertí", "Let Forever Be", "...Baby One More Time"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "I Need To Know", "Angels", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "No Quiero Verte", "Waiting For Tonight", "Atrapados En La Red", "...Baby One More Time"),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Someday");
+       expect(entries).to.include("No Quiero Verte");
+     },
+
+     function (entries) { // Someday
+       expect(entries.length).to.equal(3);
+                                                      // [02, 02, 02, 06]  [01, 01, 01, 04]
+       expect(entries).to.include("Puente");          // [02, 02, 01, 06]  [01, 01, 02, 04]
+
+                                                      // [02, 02, 02, 06]  [14, 09, 04, 01]
+       expect(entries).to.include("All Star");        // [02, 02, 04, 06]  [14, 09, 02, 01]
+
+                                                      // [02, 02, 02, 06]  [**, 10, 06, 02]
+       expect(entries).to.include("I Need To Know");  // [02, 02, 06, 06]  [**, 10, 02, 02]
+     },
+
+     function (entries) { // No Quiero Verte
+       expect(entries.length).to.equal(3);
+                                                        // [17, 17, 17, 13]  [09, 12, 16, ** ]
+       expect(entries).to.include("Heartbreaker");      // [17, 17, 16, 13]  [09, 12, 17, **]
+
+                                                        // [17, 17, 17, 13]  [**, **, 15, 12]
+       expect(entries).to.include("Mi Chico Latino");   // [17, 17, 15, 13]  [**, **, 17, 12]
+
+                                                        // [17, 17, 17, 13]  [13, 13, 14, 17]
+       expect(entries).to.include("When You're Gone");  // [17, 17, 14, 13]  [13, 13, 17, 17]
+     },
+   ],
+
 //+
   ];
 
