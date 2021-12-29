@@ -657,7 +657,38 @@ EXAMPLE: [20, 20, 20]
      },
    ],
 
-//+
+   // POSITION 20
+   [
+     new Chart("Puente", "Someday", "All I Have To Give", "La Lola", "Someday We'll Know", "Higher", "If Ya Gettin' Down", "The Kids Aren't Alright", "Heartbreaker", "Waiting For Tonight", "What's My Age Again?", "Jennifer Del Estero", "When You're Gone", "All Star", "Atrapados En La Red", "Look At Me", "Si Me Advertí", "Let Forever Be", "...Baby One More Time", "Man! I Feel Like A Woman"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "I Need To Know", "Angels", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte", "Man! I Feel Like A Woman"),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Someday");
+       expect(entries).to.include("Man! I Feel Like A Woman");
+     },
+
+     function (entries) { // Someday
+       expect(entries.length).to.equal(3);
+                                                      // [02, 02, 02, 06]  [01, 01, 01, 04]
+       expect(entries).to.include("Puente");          // [02, 02, 01, 06]  [01, 01, 02, 04]
+
+                                                      // [02, 02, 02, 06]  [14, 09, 04, 01]
+       expect(entries).to.include("All Star");        // [02, 02, 04, 06]  [14, 09, 02, 01]
+
+                                                      // [02, 02, 02, 06]  [**, 10, 06, 02]
+       expect(entries).to.include("I Need To Know");  // [02, 02, 06, 06]  [**, 10, 02, 02]
+     },
+
+     function (entries) { // Man! I Feel Like A Woman
+       expect(entries.length).to.equal(2);
+                                                            // [20, 20, 20, 18]  [**, **, 19, 15]
+       expect(entries).to.include("That's The Way It Is");  // [20, 20, 19, 18]  [**, **, 20, 15]
+
+                                                            // [20, 20, 20, 18]  [12, 14, 18, **]
+       expect(entries).to.include("Jennifer Del Estero");   // [20, 20, 18, 18]  [12, 14, 20, **]
+     },
+   ],
   ];
 
   runTests(5, charts, 3, tests);
