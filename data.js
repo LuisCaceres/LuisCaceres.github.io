@@ -434,37 +434,37 @@ const charted = [
 // WEEK 10 / 22.03
 // ++++++++++++++++++++++++++++++++++++++++++
 
-const previousList = [
-  ["The Offspring", "Pretty Fly"],
-  ["Vanessa Amorosi", "Absolutely Everybody"],
-  ["Five", "Keep On Movin'"],
-  ["TLC", "Unpretty"],
-  ["Lena Marlin", "Sitting Down Here"],
-  ["Fey", "Díselo Con Flores"],
-  ["No Doubt", "New"],
-  ["Aerosmith", "I Don't Want To Miss A Thing"],
-  ["A-Teens", "Super Trouper"],
-  ["Britney Spears", "Crazy"],
-  ["Robbie Williams", "Angels"],
-  ["Celine Dion", "That's The Way It Is"],
-  ["Blur", "Coffee And T.V."],
-  ["Ely Guerra", "Tengo Frío"],
-  ["Marc Anthony", "I Need To Know"],
-  ["Santana", "Maria Maria"],
-  ["Cher", "All Or Nothing"],
-  ["Smash Mouth", "All Star"],
-  ["Lenny Kravitz", "Fly Away"],
-  ["Geri Halliwell", "Mi Chico Latino"],
-]
-.map(([artist, title]) => {
-  return Array.from(charted.values()).find(item => item.artist === artist && item.title === title).match;
-})
-.reverse();
+// const previousList = [
+//   ["The Offspring", "Pretty Fly"],
+//   ["Vanessa Amorosi", "Absolutely Everybody"],
+//   ["Five", "Keep On Movin'"],
+//   ["TLC", "Unpretty"],
+//   ["Lena Marlin", "Sitting Down Here"],
+//   ["Fey", "Díselo Con Flores"],
+//   ["No Doubt", "New"],
+//   ["Aerosmith", "I Don't Want To Miss A Thing"],
+//   ["A-Teens", "Super Trouper"],
+//   ["Britney Spears", "Crazy"],
+//   ["Robbie Williams", "Angels"],
+//   ["Celine Dion", "That's The Way It Is"],
+//   ["Blur", "Coffee And T.V."],
+//   ["Ely Guerra", "Tengo Frío"],
+//   ["Marc Anthony", "I Need To Know"],
+//   ["Santana", "Maria Maria"],
+//   ["Cher", "All Or Nothing"],
+//   ["Smash Mouth", "All Star"],
+//   ["Lenny Kravitz", "Fly Away"],
+//   ["Geri Halliwell", "Mi Chico Latino"],
+// ]
+// .map(([artist, title]) => {
+//   return Array.from(charted.values()).find(item => item.artist === artist && item.title === title).match;
+// })
+// .reverse();
 
 const currentList = ['!Spcfsu!Njmft!!!Pof!Boe!Pof!', '!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!', '!Uif!Qspejhz!!!Csfbuif!', '!Nbsl!Pxfo!!!Dijme!', '!Tqjdf!Hjsmt!!!3!Cfdpnf!2!', '!Gvhfft!!!Op!Xpnbo!Op!Dsz!', '!Cbdltusffu!Cpzt!!!Rvju!Qmbzjoh!Hbnft!)Xjui!Nz!Ifbsu*!', '!Xbssfo!H/!gfbu/!Bejob!Ipxbse!!!Xibu(t!Mpwf!Hpu!Up!Ep!Xjui!Ju!', '!Uif!Csbjet!!!Cpifnjbo!Sibqtpez!!', "!Fbtu28!'!Hbcsjfmmf!!!Jg!Zpv!Fwfs!", '!Cpz{pof!!!Xpset!', '!Uif!Bsujtu!Gpsnfsmz!Lopxo!Bt!Qsjodf!!!Cfudib!Cz!Hpmmz!Xpx"!', '!Cmbdltusffu!gfbu/!Es/!Esf!!!Op!Ejhhjuz!', '!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!', '!Epoob!Mfxjt!!!J!Mpwf!Zpv!Bmxbzt!Gpsfwfs!', '!Tqjdf!Hjsmt!!!Tbz!Zpv(mm!Cf!Uifsf!', '!Kbnjsprvbj!!!Dptnjd!Hjsm!', '!Y{jcju!!!Qbqbsb{{j!', '!Qfufs!Boesf!!!J!Gffm!Zpv!', '!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!'];
 const nextList = ["!V3!!!Ejtdpuifrvf!", "!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!", "!Tbti\"!!!Fodpsf!vof!gpjt!", "!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!", "!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!", "!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!", "!Op!Epvcu!!!Epo(u!Tqfbl!", "!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!", "!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!", "!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!", "!CCF!!!Gmbti!", "!Hjovxjof!!!Qpoz!", "!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!", "!Sfqvcmjdb!!!Sfbez!Up!Hp!", "!Xijuf!Upxo!!!Bcpsu-!Sfusz-!Gbjm@!Zpvs!Xpnbo!", "!Cbdltusffu!Cpzt!!!Bozxifsf!Gps!Zpv!", "!Bfsptnjui!!!Gbmmjoh!Jo!Mpwf!)Jt!Ibse!Po!Uif!Lofft*!", "!Ufybt!!!Tbz!Xibu!Zpv!Xbou!", "!Tqjdf!Hjsmt!!!Nbnb!", "!Cmvs!!!Cffumfcvn!"];
 
-expect(previousList.length).to.equal(20);
+// expect(previousList.length).to.equal(20);
 expect(currentList.length).to.equal(20);
 expect(nextList.length).to.equal(20);
 
