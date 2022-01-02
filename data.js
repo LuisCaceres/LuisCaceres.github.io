@@ -20,7 +20,7 @@ const charted = [
   {
     title: "All I Have To Give",
     artist: "Backstreet Boys",
-    history: [3, 4, 5, 7, 10, 14],
+    history: [],
     match: "!Uif!Qspejhz!!!Csfbuif!",
     startSeconds: 1,
     style: {width: "83vw"},
@@ -32,7 +32,7 @@ const charted = [
     title: "All Or Nothing",
     artist: "Cher",
     endSeconds: 242,
-    history: [16, 14, 10, 8],
+    history: [],
     match: "!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!",
     startSeconds: 6,
     style: {left: "-5vw", position: "relative", width: "110vw"},
@@ -43,7 +43,7 @@ const charted = [
   {
     title: "All Star",
     artist: "Smash Mouth",
-    history: [14, 9, 4, 1, 1, 1, 1, 1, 3],
+    history: [],
     match: "!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!",
     style: {width: "100vw"},
     type: 0,
@@ -54,7 +54,7 @@ const charted = [
     title: "Angels",
     artist: "Robbie Williams",
     endSeconds: 235,
-    history: [20, 11, 8, 5, 3, 2, 2, 3, 7],
+    history: [],
     match: "!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!",
     startSeconds: 1,
     style: {width: "83vw"},
@@ -65,7 +65,7 @@ const charted = [
   {
     title: "Atrapados En La Red",
     artist: "Tam Tam Go!",
-    history: [15],
+    history: [],
     match: "!Epoob!Mfxjt!!!J!Mpwf!Zpv!Bmxbzt!Gpsfwfs!",
     style: {width: "83vw"},
     type: 0,
@@ -75,7 +75,7 @@ const charted = [
   {
     title: "Baby One More Time",
     artist: "Britney Spears",
-    history: [19, 20],
+    history: [],
     match: "!Qfufs!Boesf!!!J!Gffm!Zpv!",
     style: {width: "83vw"},
     type: 0,
@@ -85,7 +85,7 @@ const charted = [
   {
     title: "Blue Monday",
     artist: "Orgy",
-    history: [17, 15, 20, 20],
+    history: [],
     match: "!Upsj!Bnpt!!!Qspgfttjpobm!Xjepx!",
     startSeconds: 1,
     style: {width: "83vw"},
@@ -97,7 +97,7 @@ const charted = [
     title: "Coffee And T.V.",
     artist: "Blur",
     endSeconds: 368,
-    history: [15, 11],
+    history: [],
     match: "!Tbti\"!!!Fodpsf!vof!gpjt!",
     startSeconds: 7,
     style: {width: "100vw"},
@@ -109,7 +109,7 @@ const charted = [
     title: "Crazy",
     artist: "Britney Spears",
     endSeconds: 197,
-    history: [16],
+    history: [],
     match: "!Cbdltusffu!Cpzt!!!Bozxifsf!Gps!Zpv!",
     style: {width: "83vw"},
     type: 0,
@@ -119,7 +119,7 @@ const charted = [
   {
     title: "Díselo Con Flores",
     artist: "Fey",
-    history: [19, 18],
+    history: [],
     match: "!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!",
     style: {width: "83vw"},
     type: 0,
@@ -129,7 +129,7 @@ const charted = [
   {
     title: "Don't Say You Love Me",
     artist: "M2M",
-    history: [19, 16, 13, 19],
+    history: [],
     match: "!Fbtu!28!!!Ifz!Dijme!!",
     style: {width: "83vw"},
     type: 0,
@@ -139,7 +139,7 @@ const charted = [
   {
     title: "Fast As You Can",
     artist: "Fiona Apple",
-    history: [20, 20, 18, 17, 17],
+    history: [],
     match: "!MM!Dppm!K!!!Bjo(u!Opcpez!",
     style: {width: "83vw"},
     type: 0,
@@ -149,7 +149,7 @@ const charted = [
   {
     title: "Fly Away",
     artist: "Lenny Kravitz",
-    history: [20, 11, 7, 2],
+    history: [],
     left: "-5vw",
     match: "!V3!!!Ejtdpuifrvf!",
     style: {left: "-5vw", position: "relative", width: "110vw"},
@@ -160,7 +160,7 @@ const charted = [
   {
     title: "Heartbreaker",
     artist: "Mariah Carey",
-    history: [9, 12, 16],
+    history: [],
     match: "!Uif!Csbjet!!!Cpifnjbo!Sibqtpez!!",
     style: {width: "83vw"},
     type: 0,
@@ -170,7 +170,7 @@ const charted = [
   {
     title: "Higher",
     artist: "Creed",
-    history: [6, 5, 7, 8, 12, 17],
+    history: [],
     match: "!Gvhfft!!!Op!Xpnbo!Op!Dsz!",
     style: {width: "83vw"},
     type: 0,
@@ -180,7 +180,7 @@ const charted = [
   {
     title: "I Don't Want To Miss A Thing",
     artist: "Aerosmith",
-    history: [13],
+    history: [],
     match: "!CCF!!!Gmbti!",
     style: {width: "83vw"},
     type: 0,
@@ -190,7 +190,7 @@ const charted = [
   {
     title: "I Need To Know",
     artist: "Marc Anthony",
-    history: [18, 10, 6, 2, 2, 3, 4, 4, 5],
+    history: [],
     match: "!Op!Epvcu!!!Epo(u!Tqfbl!",
     style: {width: "83vw"},
     type: 0,
@@ -200,7 +200,7 @@ const charted = [
   {
     title: "If Ya Gettin' Down",
     artist: "Five",
-    history: [7, 7, 9, 11, 15],
+    history: [],
     match: "!Cbdltusffu!Cpzt!!!Rvju!Qmbzjoh!Hbnft!)Xjui!Nz!Ifbsu*!",
     style: {width: "83vw"},
     type: 0,
@@ -210,7 +210,7 @@ const charted = [
   {
     title: "Jennifer Del Estero",
     artist: "Illya Kuryaki",
-    history: [12, 14, 18],
+    history: [],
     match: "!Uif!Bsujtu!Gpsnfsmz!Lopxo!Bt!Qsjodf!!!Cfudib!Cz!Hpmmz!Xpx\"!",
     style: {width: "83vw"},
     type: 0,
@@ -220,7 +220,7 @@ const charted = [
   {
     title: "Keep On Movin'",
     artist: "Five",
-    history: [19],
+    history: [],
     match: "!Bfsptnjui!!!Gbmmjoh!Jo!Mpwf!)Jt!Ibse!Po!Uif!Lofft*!",
     style: {width: "83vw"},
     type: 0,
@@ -230,7 +230,7 @@ const charted = [
   {
     title: "La Lola",
     artist: "Cafe Quijano",
-    history: [4, 6, 10, 16],
+    history: [],
     match: "!Nbsl!Pxfo!!!Dijme!",
     style: {width: "83vw"},
     type: 0,
@@ -240,7 +240,7 @@ const charted = [
   {
     title: "Look At Me",
     artist: "Geri Halliwell",
-    history: [16],
+    history: [],
     match: "!Tqjdf!Hjsmt!!!Tbz!Zpv(mm!Cf!Uifsf!",
     style: {width: "83vw"},
     type: 0,
@@ -250,7 +250,7 @@ const charted = [
   {
     title: "Man! I Feel Like A Woman",
     artist: "Shania Twain",
-    history: [20, 18, 14, 12, 12, 18],
+    history: [],
     match: "!Cpz{pof!!!B!Ejggfsfou!Cfbu!",
     style: {width: "83vw"},
     type: 0,
@@ -260,7 +260,7 @@ const charted = [
   {
     title: "Maria Maria",
     artist: "Santana",
-    history: [19, 8, 8, 4],
+    history: [],
     match: "!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!",
     style: {width: "83vw"},
     type: 0,
@@ -271,7 +271,7 @@ const charted = [
     title: "Mi Chico Latino",
     artist: "Geri Halliwell",
     left: "-5vw",
-    history: [15, 12, 8, 4, 3, 2, 1],
+    history: [],
     match: "!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!",
     startSeconds: 1,
     style: {left: "-5vw", position: "relative", width: "110vw"},
@@ -282,7 +282,7 @@ const charted = [
   {
     title: "New",
     artist: "No Doubt",
-    history: [18, 12, 9, 7, 6, 6, 6, 9],
+    history: [],
     match: "!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!",
     startSeconds: 2,
     style: {width: "83vw"},
@@ -293,7 +293,7 @@ const charted = [
   {
     title: "No Quiero Verte",
     artist: "Lynda",
-    history: [19, 17, 13, 11, 11, 15],
+    history: [],
     left: "-5vw",
     match: "!Toppq!Ephhz!Ephh!gfbu/!Dibsmjf!Xjmtpo!!!Toppq(t!Vqtjef!Zb!Ifbe!",
     startSeconds: 1,
@@ -305,7 +305,7 @@ const charted = [
   {
     title: "Puente",
     artist: "Gustavo Cerati",
-    history: [1, 1, 1, 4, 5, 10, 13, 16],
+    history: [],
     match: "!Spcfsu!Njmft!!!Pof!Boe!Pof!",
     style: {width: "83vw"},
     type: 0,
@@ -315,7 +315,7 @@ const charted = [
   {
     title: "Si Me Advertí",
     artist: "Zurdok",
-    history: [17, 15, 13, 10, 9, 9, 9, 11, 17],
+    history: [],
     match: "!Kbnjsprvbj!!!Dptnjd!Hjsm!",
     startSeconds: 1,
     style: {width: "83vw"},
@@ -326,7 +326,7 @@ const charted = [
   {
     title: "Someday",
     artist: "Sugar Ray",
-    history: [2, 2, 2, 6, 6, 7, 10, 13, 15],
+    history: [],
     match: "!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!",
     startSeconds: 1,
     style: {width: "83vw"},
@@ -338,7 +338,7 @@ const charted = [
     title: "Someday We'll Know",
     artist: "New Radicals",
     endSeconds: 215,
-    history: [5, 3, 3, 3, 4, 5, 7, 9, 14],
+    history: [],
     match: "!Tqjdf!Hjsmt!!!3!Cfdpnf!2!",
     style: {width: "83vw"},
     type: 0,
@@ -348,7 +348,7 @@ const charted = [
   {
     title: "Super Trouper",
     artist: "A-Teens",
-    history: [16, 14, 12],
+    history: [],
     match: "!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!",
     style: {width: "83vw"},
     type: 0,
@@ -358,7 +358,7 @@ const charted = [
   {
     title: "Tengo Frío",
     artist: "Ely Guerra",
-    history: [18, 12, 10],
+    history: [],
     match: "!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!",
     style: {width: "83vw"},
     type: 0,
@@ -368,7 +368,7 @@ const charted = [
   {
     title: "That's The Way It Is",
     artist: "Celine Dion",
-    history: [19, 15, 13, 8, 5, 5, 6],
+    history: [],
     match: "!Hjovxjof!!!Qpoz!",
     style: {width: "83vw"},
     type: 0,
@@ -378,7 +378,7 @@ const charted = [
   {
     title: "The Kids Aren't Alright",
     artist: "The Offspring",
-    history: [8, 8, 11, 14, 18],
+    history: [],
     match: "!Xbssfo!H/!gfbu/!Bejob!Ipxbse!!!Xibu(t!Mpwf!Hpu!Up!Ep!Xjui!Ju!",
     style: {left: "-5vw", position: "relative", width: "110vw"},
     type: 0,
@@ -388,7 +388,7 @@ const charted = [
   {
     title: "Unpretty",
     artist: "TLC",
-    history: [20],
+    history: [],
     match: "!Xijuf!Upxo!!!Bcpsu-!Sfusz-!Gbjm@!Zpvs!Xpnbo!",
     style: {width: "83vw"},
     type: 0,
@@ -398,7 +398,7 @@ const charted = [
   {
     title: "Waiting For Tonight",
     artist: "Jennifer Lopez",
-    history: [10, 17],
+    history: [],
     match: "!Fbtu28!'!Hbcsjfmmf!!!Jg!Zpv!Fwfs!",
     style: {width: "83vw"},
     type: 0,
@@ -408,7 +408,7 @@ const charted = [
   {
     title: "What's My Age Again?",
     artist: "Blink 182",
-    history: [11, 16],
+    history: [],
     match: "!Cpz{pof!!!Xpset!",
     style: {width: "83vw"},
     type: 0,
@@ -418,7 +418,7 @@ const charted = [
   {
     title: "When You're Gone",
     artist: "Bryan Adams",
-    history: [13, 13, 14, 17, 19],
+    history: [],
     match: "!Cmbdltusffu!gfbu/!Es/!Esf!!!Op!Ejhhjuz!",
     style: {width: "83vw"},
     type: 0,
