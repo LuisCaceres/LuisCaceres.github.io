@@ -62,7 +62,7 @@ async function onYouTubeIframeAPIReady() {
   const result = associate(currentList, charted, uncharted); /* associate(list, charted, uncharted); */
   insertExtraItems(result.chart, result.uncharted);
 
-  let playlist = result.chart; /* generatePlaylist(result.chart, intro, sting, advertisement, newVideo); */
+  let playlist = generatePlaylist(result.chart, intro, sting, advertisement, newVideo);
   playlist = adjustPlaylist(playlist);
 //   validate(playlist);
  
