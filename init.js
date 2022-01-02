@@ -42,43 +42,43 @@ async function onYouTubeIframeAPIReady() {
     player.addEventListener('onReady', resolve); 
   }); 
   
-  const response = confirm('Would you like to verify the availability of videos?');
+//   const response = confirm('Would you like to verify the availability of videos?');
 
-  if (response) {
-    await verifyAvailability(player);
-  }
+//   if (response) {
+//     await verifyAvailability(player);
+//   }
     
-  alert('The availability of videos has been verified');
+//   alert('The availability of videos has been verified');
   
-  const lists = {
-    previous: new List(...previousList),
-    current: new List(...currentList),
-    next: new List(...nextList),
-  };
+//   const lists = {
+//     previous: new List(...previousList),
+//     current: new List(...currentList),
+//     next: new List(...nextList),
+//   };
   
-  let list = format2(lists.current, lists.previous, charted);
-  list = format(lists.current, lists.next, charted);
+//   let list = format2(lists.current, lists.previous, charted);
+//   list = format(lists.current, lists.next, charted);
  
-  const result = associate(list, charted, uncharted);
-  insertExtraItems(result.chart, result.uncharted);
+//   const result = associate(list, charted, uncharted);
+//   insertExtraItems(result.chart, result.uncharted);
 
-  let playlist = generatePlaylist(result.chart, intro, sting, advertisement, newVideo);  
-  playlist = adjustPlaylist(playlist);
-  validate(playlist);
+  let playlist = currentList; /* generatePlaylist(result.chart, intro, sting, advertisement, newVideo); */
+//   playlist = adjustPlaylist(playlist);
+//   validate(playlist);
  
   while (playlist.length) {
     const video = playlist.shift();
     player.loadVideoById(video);
-    player.setVolume(video.volume);
+//     player.setVolume(video.volume);
       
-    const screen = document.querySelector('iframe');
-    adjustScreen(screen, video.style);
+//     const screen = document.querySelector('iframe');
+//     adjustScreen(screen, video.style);
 
-    const logo = document.querySelector('.logo');
-    logo.toggleAttribute('hidden', video.type !== 0);
+//     const logo = document.querySelector('.logo');
+//     logo.toggleAttribute('hidden', video.type !== 0);
 
-    const position = document.querySelector('.position');
-    position.textContent = video.position;
+//     const position = document.querySelector('.position');
+//     position.textContent = video.position;
 
     await new Promise(resolve => {  
       player.addEventListener('onStateChange', function listener({data}) {
