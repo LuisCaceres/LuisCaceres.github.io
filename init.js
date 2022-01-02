@@ -59,10 +59,10 @@ async function onYouTubeIframeAPIReady() {
 //   let list = format2(lists.current, lists.previous, charted);
 //   list = format(lists.current, lists.next, charted);
  
-//   const result = associate(list, charted, uncharted);
+  const result = associate(currentList, charted, uncharted); /* associate(list, charted, uncharted); */
 //   insertExtraItems(result.chart, result.uncharted);
 
-  let playlist = currentList; /* generatePlaylist(result.chart, intro, sting, advertisement, newVideo); */
+  let playlist = result; /* generatePlaylist(result.chart, intro, sting, advertisement, newVideo); */
 //   playlist = adjustPlaylist(playlist);
 //   validate(playlist);
  
