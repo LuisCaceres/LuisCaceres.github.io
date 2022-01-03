@@ -1,3 +1,11 @@
+//
+
+// Initially known as a list.
+// Then it is known as a chart.
+// Then it is known as a playlist.
+// Then a playlist is adjusted.
+
+
 /*
 
 const style = document.createElement('style');
@@ -59,10 +67,10 @@ async function onYouTubeIframeAPIReady() {
 //   let list = format2(lists.current, lists.previous, charted);
 //   list = format(lists.current, lists.next, charted);
  
-  const result = associate(currentList, charted, uncharted); /* associate(list, charted, uncharted); */
+  const result = createChart(currentList, charted, uncharted); /* associate(list, charted, uncharted); */
   insertExtraItems(result.chart, result.uncharted);
 
-  let playlist = generatePlaylist(new List(...result.chart), intro, sting, advertisement, newVideo);
+  let playlist = createPlaylist(new List(...result.chart), intro, sting, advertisement, newVideo);
   playlist = adjustPlaylist(playlist);
 //   validate(playlist);
  
