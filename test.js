@@ -323,7 +323,7 @@ function generateList(outcoming, incoming) {
 
   const list = ['Entry 1', 'Entry 3'];
 
-  const { chart } = associate(list, charted, uncharted);
+  const { chart } = createChart(list, charted, uncharted);
 
   expect(chart.length).to.equal(2);
   expect(chart[0]).to.equal('Song C');
