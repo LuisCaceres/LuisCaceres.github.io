@@ -70,7 +70,7 @@ function adjustScreen(screen, measurements) {
 /*
  *
  */
-function associate(list, charted, uncharted) {
+function createChart(list, charted, uncharted) {
   const chart = list.map((match, index) => {
     let entry = charted.get(match);
     
@@ -398,7 +398,7 @@ class ChartHistory extends NumberList {
 /*
  *
  */
-function generatePlaylist(chart, intro, sting, advertisement, extra) {
+function createPlaylist(chart, intro, sting, advertisement, extra) {
   chart.insert([0], intro);
   chart.insert([1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22], sting);
   chart.insert([7, 28], extra);
