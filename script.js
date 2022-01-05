@@ -378,7 +378,7 @@ class ChartHistory extends NumberList {
   isIllegalArrival() {
     if (this.includes(21)) {
       const index = this.indexOf(21) + 1;
-      position = this[index] || 21;
+      const position = this[index] || 21;
 
       return position <= 12;
     }
@@ -399,7 +399,7 @@ class ChartHistory extends NumberList {
   isIllegalDeparture() {
     if (this.includes(21)) {
       const index = this.lastIndexOf(21) - 1;
-      position = this[index] || 21;
+      const position = this[index] || 21;
 
       return position <= 12;
     }
