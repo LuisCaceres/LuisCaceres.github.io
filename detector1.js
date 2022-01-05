@@ -14,7 +14,7 @@ function createDatabase(...charts) {
     chart.forEach(entry => {
 
       if (database.has(entry) === false) {
-        database.set(entry, {history: [21, 21]});
+        database.set(entry, {history: []});
       }
 
       database.get(entry).history.push(chart.positionOf(entry));
