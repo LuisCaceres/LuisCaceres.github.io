@@ -802,7 +802,7 @@ class Chart extends List {
       }
 
       // Filter out if `positionA` is 12 or higher and `entry` departs from `chartB`.
-      if (new ChartHistory(A, chartB.positionOf(entry)).isIllegalDeparture() === true) {
+      if (A <= 12 && chartA.positionOf(entry) >= 13 && chartB.positionOf(entry) === 21) {
         return false;
       }
 
