@@ -58,16 +58,12 @@ async function onYouTubeIframeAPIReady() {
     
   alert('The availability of videos has been verified');
   
-//   const lists = {
-//     previous: new List(...previousList),
-//     current: new List(...currentList),
-//     next: new List(...nextList),
-//   };
-  
-//   let list = format2(lists.current, lists.previous, charted);
-//   list = format(lists.current, lists.next, charted);
+//   const previousChart = charts.at(-1);
+  const [currentList, nextList] = lists.slice(-2);
 
-  const result = createChart(currentList, charted, uncharted); /* associate(list, charted, uncharted); */
+  currentList.format(nextList, charted, uncharted);
+
+  const chart = createChart(currentList, charted, uncharted); /* associate(list, charted, uncharted); */
   insertExtraItems(result.chart, result.uncharted);
 
   let playlist = createPlaylist(new List(...result.chart), intro, sting, advertisement, newVideo);
