@@ -789,7 +789,7 @@ class Chart extends List {
       // and `positionA` in `entry`'s history causes `entry` to arrive in position 12 or lower.
       //               BEFORE             AFTER
       // Example: [**, **, 14, 07] = [**, **, 12, 07]
-      if (new ChartHistory(history.at(-1), A).isIllegalArrival() === true) {
+      if (history.at(-1) === 21 && chartA.positionOf(entry) >= 13 && A <= 12) {
         return false;
       }
 
