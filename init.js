@@ -50,13 +50,13 @@ async function onYouTubeIframeAPIReady() {
     player.addEventListener('onReady', resolve); 
   }); 
   
-//   const response = confirm('Would you like to verify the availability of videos?');
+  const response = confirm('Would you like to verify the availability of videos?');
 
-//   if (response) {
-//     await verifyAvailability(player);
-//   }
+  if (response) {
+    await verifyAvailability(player);
+  }
     
-//   alert('The availability of videos has been verified');
+  alert('The availability of videos has been verified');
   
 //   const lists = {
 //     previous: new List(...previousList),
@@ -66,19 +66,19 @@ async function onYouTubeIframeAPIReady() {
   
 //   let list = format2(lists.current, lists.previous, charted);
 //   list = format(lists.current, lists.next, charted);
- 
+
   const result = createChart(currentList, charted, uncharted); /* associate(list, charted, uncharted); */
   insertExtraItems(result.chart, result.uncharted);
 
   let playlist = createPlaylist(new List(...result.chart), intro, sting, advertisement, newVideo);
   playlist = adjustPlaylist(playlist);
-//   validate(playlist);
- 
+  validate(playlist);
+
   while (playlist.length) {
     const video = playlist.shift();
     player.loadVideoById(video);
 //     player.setVolume(video.volume);
-      
+
 //     const screen = document.querySelector('iframe');
 //     adjustScreen(screen, video.style);
 
@@ -88,11 +88,11 @@ async function onYouTubeIframeAPIReady() {
 //     const position = document.querySelector('.position');
 //     position.textContent = video.position;
 
-    await new Promise(resolve => {  
+    await new Promise(resolve => {
       player.addEventListener('onStateChange', function listener({data}) {
         if (data === YT.PlayerState.ENDED) {
           resolve();
-          player.removeEventListener('onStateChange', listener);  
+          player.removeEventListener('onStateChange', listener);
         }
       });
     });
@@ -105,7 +105,7 @@ async function onYouTubeIframeAPIReady() {
  */
 async function verifyAvailability(player) {
   const videos = new Set([advertisement, sting].concat(Array.from(charted.values()), uncharted));
-  
+
   for (const video of videos) {
     // Attempt to play this video.
     player.loadVideoById(video);
