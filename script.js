@@ -272,7 +272,7 @@ class NumberList extends Array {
     
     this.forEach((n, index) => {
       const sublist = this.slice(start, index + 1); 
-      
+
       if (sublist.isOrdered()) {
         list.push(n);
       }
@@ -289,10 +289,10 @@ class NumberList extends Array {
 
   /* Returns true 
    * @example
-   * // Returns true
    * new NumberList(1, 1, 1, 1, 1).isFlat();
-   * // Returns false
+   * // Returns true
    * new NumberList(1, 2, 3, 4, 5).isFlat();
+   * // Returns false
    * @return {Boolean}
    */
   isFlat() {
@@ -302,10 +302,10 @@ class NumberList extends Array {
 
   /* Returns true 
    * @example
-   * // Returns true
    * new NumberList(1, 2, 3, 4, 5).isIncreasing();
-   * // Returns false
+   * // Returns true
    * new NumberList(5, 4, 3, 2, 1).isIncreasing();
+   * // Returns false
    * @return {Boolean}
    */
   isIncreasing() {
@@ -367,12 +367,54 @@ class ChartHistory extends NumberList {
   }
 
 
+  /* Returns `true` if or `false` otherwise.
+   * @return {Boolean}
+   * @example
+   * new ChartHistory(21, 10, 06, 02, 02).isIllegalArrival();
+   * // returns `true`
+   * new ChartHistory(21, 20, 11, 08, 05).isIllegalArrival();
+   * // returns `false`
+   */
+  isIllegalArrival() {
+    if (this.includes(21)) {
+      const index = this.indexOf(21) + 1;
+      position = this[index] || 21;
+
+      return position <= 12;
+    }
+    else {
+      return false;
+    }
+  }
+
+
+  /* Returns `true` if or `false` otherwise.
+   * @return {Boolean}
+   * @example
+   * new ChartHistory(01, 04, 05, 10, 21).isIllegalDeparture();
+   * // returns `true`
+   * new ChartHistory(13, 13, 14, 17, 21).isIllegalDeparture();
+   * // returns `false`
+   */
+  isIllegalDeparture() {
+    if (this.includes(21)) {
+      const index = this.lastIndexOf(21) - 1;
+      position = this[index] || 21;
+
+      return position <= 12;
+    }
+    else {
+      return false;
+    }
+  }
+
+
   /* Returns `true` if the order of the progressions in this chart history is valid or `false` otherwise.
    * @return {Boolean}
    * @example
-   * new ChartHistory(1, 2, 3, 4, 5).isValid();
+   * new ChartHistory(01, 02, 03, 04, 05).isValid();
    * // returns `true`
-   * new ChartHistory(1, 2, 3, 2, 1).isValid();
+   * new ChartHistory(01, 02, 03, 02, 01).isValid();
    * // returns `false`
    */
   isValid() {
@@ -737,7 +779,7 @@ class Chart extends List {
     }
 
     return chartA.slice(start - 1, end).remove(entry).filter(entry => {
-      const history = new ChartHistory(21, 21, ...database.get(entry)?.history || []);
+      const history = new ChartHistory(...database.get(entry)?.history);
 
       // TO DO: item has only been in chart for less than 3 weeks
       // TO DO: item ascends from chart B 
