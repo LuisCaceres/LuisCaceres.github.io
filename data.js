@@ -218,8 +218,7 @@ const charted = [
   },
 ]
 // .map(element => new Item(element))
-//.forEach(item => item.validate())
-.reduce((map, item) => map.set(item.match, item), new Map());
+//.forEach(item => item.validate());
 
 // ++++++++++++++++++++++++++++++++++++++++++
 // WEEK 10 / 22.03
