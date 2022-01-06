@@ -58,7 +58,7 @@ async function onYouTubeIframeAPIReady() {
     
   alert('The availability of videos has been verified');
   
-//   const previousChart = charts.at(-1);
+  const previousChart = charts.at(-1);
   const [currentList, nextList] = lists.slice(-2);
 
   currentList.format(nextList, charted, uncharted);
