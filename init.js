@@ -49,19 +49,38 @@ async function onYouTubeIframeAPIReady() {
   await new Promise(resolve => {
     player.addEventListener('onReady', resolve); 
   }); 
-  
+
   const response = confirm('Would you like to verify the availability of videos?');
 
   if (response) {
     await verifyAvailability(player);
   }
-    
+
   alert('The availability of videos has been verified');
-  
+
   const previousChart = charts.at(-1);
   const [currentList, nextList] = lists.slice(-2);
 
-  currentList.format(nextList, charted, uncharted);
+  const database = createDatabase(previousChart, currentList, nextList, entries);
+
+
+  function createDatabase(entries) {
+    const elements = previousChart.concat(currentList, nextList)
+    
+    const map = new Map();
+
+    for (const entry of previousChart) {
+      // trim history to find out whether 
+       map.set(entry, entries.get(entry);
+    }
+
+
+    return map();
+  }
+    
+    
+
+  currentList.format(nextList, database);
 
   const chart = createChart(currentList, charted, uncharted); /* associate(list, charted, uncharted); */
   insertExtraItems(result.chart, result.uncharted);
