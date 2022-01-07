@@ -733,17 +733,19 @@ class Chart extends List {
    * @param {} database - A list of entries having ever charted.
    * @return {Array} entries
    */
-  static detector3(chartA, chartB, database) {
-    // Skip position 1 because it's allowed to stay in position 1 indefinetely.
-    return chartA.slice(1).filter(entry => {
-      const history = new ChartHistory(...database.get(entry)?.history || [21, 21]).slice(-2);
-      history.push(chartA.positionOf(entry), chartB.positionOf(entry));
+  static detector3(database) {
+    const errors = new List();
 
+    for (const [entry, history] of database) {      
       // Filter in if `entry` is in the same position for 3 consecutive charts and not for 4 consecutive charts.
-      //      1  2  A  B                      1  2  A  B
-      //     [2, 2, 2, 3]                    [2, 2, 2, 2]
-      return history.slice(0, 3).isFlat() && history.isFlat() === false;
-    });
+      //  1   2   A   B       1   2   A   B
+      // [02, 02, 02, 03]    [02, 02, 02, 02]
+      if (history[0] !== 21 && history[0] !== 1 && history.slice(0, 3).isFlat() && history.isFlat() === false) {
+        errors.push(entry);
+      }
+    }
+
+    return errors;
   }
 
 
