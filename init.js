@@ -68,24 +68,8 @@ async function onYouTubeIframeAPIReady() {
 
   function createDatabase(previousChart, currentList, nextList, items) {
     const map = new Map();
-
-    for (const entry of previousChart) {
-      // trim history to find out whether
-      map.set(entry, items.find(item => item.title === entry);
-    }
- 
-    currentList.concat(nextList).forEach(element => {
-      const item = items.find(item => item.match === element);
-
-      if (!item && map.has(element) === false) {
-        map.set(element, history: [21, currentList.indexOf(element), nextList.indexOf(element)]);
-      }
-    });
-
     return map();
   }
-    
-    
 
   currentList.format(nextList, database);
 
