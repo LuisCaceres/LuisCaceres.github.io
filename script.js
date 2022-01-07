@@ -71,7 +71,7 @@ function adjustScreen(screen, measurements) {
  *
  */
 function createChart(list, charted, uncharted) {
-  const chart = list.map((element, index) => {
+  const entries = list.map((element, index) => {
     let entry = charted.find(item => item.match === element)?.title;
     
     if (!entry) {
@@ -86,7 +86,7 @@ function createChart(list, charted, uncharted) {
     return entry;
   }).reverse();
     
-  return chart;
+  return new Chart(...entries);
   
 //   return {
 //     chart,
