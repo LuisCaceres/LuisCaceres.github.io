@@ -59,11 +59,11 @@ async function onYouTubeIframeAPIReady() {
 
   const [currentList, nextList] = lists.slice(-2);
 
-  const previousChart = charts.at(-1);
+  const previousCharts = charts.at(-2);
   const currentChart = createChart(currentList, charted, uncharted);
   const nextChart = createChart(nextList, charted, uncharted);
 
-  const database = createDatabase(previousChart, currentChart, nextChart /*, entries */);
+  const database = createDatabase(...previousCharts, currentChart, nextChart /*, entries */);
 
 
   function createDatabase(...charts) {
@@ -83,7 +83,7 @@ async function onYouTubeIframeAPIReady() {
     return map;
   }
 
-  currentList.format(nextList, database);
+  currentChart.format(nextList, database);
 
   const chart = createChart(currentList, charted, uncharted); /* associate(list, charted, uncharted); */
   insertExtraItems(result.chart, result.uncharted);
