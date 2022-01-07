@@ -84,7 +84,7 @@ function createChart(list, charted, uncharted) {
     // entry.position = `${index + 1}`.padStart(2, 0);
     
     return entry;
-  }).reverse();
+  };
     
   return new Chart(...entries);
   
