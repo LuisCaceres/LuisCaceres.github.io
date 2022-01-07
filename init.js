@@ -73,7 +73,7 @@ async function onYouTubeIframeAPIReady() {
 
         if (map.has(entry) === false) {
           const positions = charts.map(chart => chart.positionOf(entry));
-          map.set(entry, { history: new ChartHistory(...positions) });
+          map.set(entry, new ChartHistory(...positions));
         }
       }
     }
