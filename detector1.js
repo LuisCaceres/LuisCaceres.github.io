@@ -103,7 +103,7 @@ function runTests(week, charts, detector, tests) {
 
     const [chart1, chart2, chartA, chartB] = charts.slice(week - 3);    
     const database = createDatabase(...charts.slice(0, week - 1));
-    const entries = Chart[`detector${detector}`](chartA, chartB, database);
+    const entries = Chart[`detector${detector}`](database);
  
     displayTable(...charts);
 
