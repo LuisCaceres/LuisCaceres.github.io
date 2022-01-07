@@ -216,7 +216,7 @@ const charted = [
     videoId: "_W2jONIjrM0",
     volume: 100,
   },
-]
+];
 // .map(element => new Item(element))
 //.forEach(item => item.validate());
 
