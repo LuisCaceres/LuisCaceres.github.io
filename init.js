@@ -57,17 +57,20 @@ async function onYouTubeIframeAPIReady() {
 
   alert('The availability of videos has been verified');
 
-  const previousChart = charts.at(-1);
   const [currentList, nextList] = lists.slice(-2);
 
-  const database = createDatabase(previousChart, currentList, nextList, entries);
+  const previousChart = charts.at(-1);
+  const currentChart = foo(currentList);
+  const nextChart = foo(nextList);
+
+  const database = createDatabase(previousChart, currentChart, nextChart, entries);
 
 
   function createDatabase(previousChart, currentList, nextList, items) {
     const map = new Map();
 
     for (const entry of previousChart) {
-      // trim history to find out whether 
+      // trim history to find out whether
       map.set(entry, items.find(item => item.title === entry);
     }
  
