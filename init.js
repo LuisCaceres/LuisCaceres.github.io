@@ -80,7 +80,7 @@ async function onYouTubeIframeAPIReady() {
       }
     }
 
-    return map();
+    return map;
   }
 
   currentList.format(nextList, database);
