@@ -7,6 +7,7 @@ const lists = [
 
 const charts = [
   // Add a previous chart.
+  new Chart('Puente', 'All I Have To Give', 'La Lola', 'Someday', "The Kids Aren't Alright", "Someday We'll Know", 'Higher', 'Heartbreaker', 'Waiting For Tonight', 'What\'s My Age Again?', "If Ya Gettin' Down", "When You're Gone", 'Jennifer Del Estero', 'Atrapados En La Red', 'Look At Me', 'All Star', 'Let Forever Be', '...Baby One More Time', 'Si Me Advertí', 'Entry 0'),
   new Chart('Puente', 'All I Have To Give', 'Someday', 'La Lola', "Someday We'll Know", 'Higher', "The Kids Aren't Alright", "If Ya Gettin' Down", 'Heartbreaker', 'Waiting For Tonight', 'What\'s My Age Again?', "When You're Gone", 'Jennifer Del Estero', 'All Star', 'Atrapados En La Red', 'Look At Me', 'Si Me Advertí', 'Let Forever Be', '...Baby One More Time', 'Angels'),
 ];
 
