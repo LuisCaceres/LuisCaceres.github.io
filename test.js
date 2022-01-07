@@ -1,4 +1,4 @@
-const charts = new List(
+const testCharts = new List(
 
   // NOTE: INCLUDED SO DETECTOR AND CORRECTOR TESTS RUN SMOOTHLY
   // WEEK -2
