@@ -117,7 +117,7 @@ const charted = [
     title: "Let Forever Be",
     artist: "The Chemical Brothers",
     history: [18],
-    match: '!Kbnjsprvbj!!!Dptnjd!Hjsm!', '!Y{jcju!!!Qbqbsb{{j!',
+    match: '!Y{jcju!!!Qbqbsb{{j!',
     style: {width: "83vw"},
     type: 0,
     videoId: "s5FyfQDO5g0",
