@@ -1,9 +1,8 @@
-//
+// First it is known as a list. A list consists of elements. 
+// This list is then formatted to attempt to eliminate continuity errors.
+// Then it is known as a chart. A chart consists of entries.
+// Finally it is known as a playlist. A playlist consists of tracks.
 
-// Initially known as a list.
-// Then it is known as a chart.
-// Then it is known as a playlist.
-// Then a playlist is adjusted.
 
 
 /*
@@ -72,13 +71,13 @@ async function onYouTubeIframeAPIReady() {
       map.set(entry, items.find(item => item.title === entry);
     }
  
-    currentList.concat(nextList)
-      .map(encode => items.find(item => item.match === encode)?.title || encode)
-      .forEach(title => {
-        if (map.has(title) === false) {
-          map.set(title, {history: [21, currentList.indexOf(), nextList()]})
-        }
-      });
+    currentList.concat(nextList).forEach(element => {
+      const item = items.find(item => item.match === element);
+
+      if (!item && map.has(element) === false) {
+        map.set(element, history: [21, currentList.indexOf(element), nextList.indexOf(element)]);
+      }
+    });
 
     return map();
   }
