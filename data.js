@@ -6,7 +6,7 @@ const lists = [
 ];
 
 const charts = [
-  ['Angels', '...Baby One More Time', 'Let Forever Be', 'Si Me Advertí', 'Look At Me', 'Atrapados En La Red', 'All Star', 'Jennifer Del Estero', 'When You\'re Gone', 'All The Small Things', 'Waiting For Tonight', 'Heartbreaker', 'If Ya Gettin\' Down', 'The Kids Aren\'t Alright', 'Higher', 'Someday We\'ll Know', 'La Lola', 'Someday', 'All I Have To Give', 'Puente'],
+  new Chart('Angels', '...Baby One More Time', 'Let Forever Be', 'Si Me Advertí', 'Look At Me', 'Atrapados En La Red', 'All Star', 'Jennifer Del Estero', 'When You\'re Gone', 'All The Small Things', 'Waiting For Tonight', 'Heartbreaker', 'If Ya Gettin\' Down', 'The Kids Aren\'t Alright', 'Higher', 'Someday We\'ll Know', 'La Lola', 'Someday', 'All I Have To Give', 'Puente'),
 ];
 
 const charted = [
