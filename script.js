@@ -84,7 +84,7 @@ function createChart(list, charted, uncharted) {
     // entry.position = `${index + 1}`.padStart(2, 0);
     
     return entry;
-  };
+  });
     
   return new Chart(...entries);
   
