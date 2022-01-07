@@ -593,9 +593,9 @@ class Chart extends List {
    * // returns ['A', 'B', 'E', 'C', 'D']
    * (new Chart('A', 'B', 'F', 'C', 'D')).format(new Chart('A', 'B', 'C', 'D', 'E'));
    */
-  format(listB, database) {
+  format(database) {
     // Detect continuity errors.
-    const errors = Chart.detector3(this, listB, database);
+    const errors = Chart.detector3(database);
     errors.shuffle();
 
     const map = new Map();
