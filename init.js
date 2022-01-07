@@ -81,18 +81,18 @@ async function onYouTubeIframeAPIReady() {
     return map;
   }
 
-  currentChart.format(nextList, database);
+  currentChart.format(database);
 
-  const chart = createChart(currentList, charted, uncharted); /* associate(list, charted, uncharted); */
-  insertExtraItems(result.chart, result.uncharted);
+//   const chart = createChart(currentList, charted, uncharted); /* associate(list, charted, uncharted); */
+//   insertExtraItems(result.chart, result.uncharted);
 
-  let playlist = createPlaylist(new List(...result.chart), intro, sting, advertisement, newVideo);
-  playlist = adjustPlaylist(playlist);
-  validate(playlist);
+//   let playlist = createPlaylist(new List(...result.chart), intro, sting, advertisement, newVideo);
+//   playlist = adjustPlaylist(playlist);
+//   validate(playlist);
 
-  while (playlist.length) {
-    const video = playlist.shift();
-    player.loadVideoById(video);
+//   while (playlist.length) {
+//     const video = playlist.shift();
+//     player.loadVideoById(video);
 //     player.setVolume(video.volume);
 
 //     const screen = document.querySelector('iframe');
@@ -104,15 +104,15 @@ async function onYouTubeIframeAPIReady() {
 //     const position = document.querySelector('.position');
 //     position.textContent = video.position;
 
-    await new Promise(resolve => {
-      player.addEventListener('onStateChange', function listener({data}) {
-        if (data === YT.PlayerState.ENDED) {
-          resolve();
-          player.removeEventListener('onStateChange', listener);
-        }
-      });
-    });
-  }
+//     await new Promise(resolve => {
+//       player.addEventListener('onStateChange', function listener({data}) {
+//         if (data === YT.PlayerState.ENDED) {
+//           resolve();
+//           player.removeEventListener('onStateChange', listener);
+//         }
+//       });
+//     });
+//   }
 }
 
 
