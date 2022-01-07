@@ -312,8 +312,9 @@ function generateList(outcoming, incoming) {
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// associate()
+// createChart()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// TO DO!!!!!!!
 {
   const charted = new Map()
   .set('Entry 1', 'Song A')
@@ -325,11 +326,11 @@ function generateList(outcoming, incoming) {
 
   const { chart } = createChart(list, charted, uncharted);
 
-  expect(chart.length).to.equal(2);
-  expect(chart[0]).to.equal('Song C');
-  expect(chart[1]).to.equal('Song A');
-  expect(charted.size).to.equal(3);
-  expect(uncharted.length).to.equal(0);
+//   expect(chart.length).to.equal(2);
+//   expect(chart[0]).to.equal('Song C');
+//   expect(chart[1]).to.equal('Song A');
+//   expect(charted.size).to.equal(3);
+//   expect(uncharted.length).to.equal(0);
 }
 
 
