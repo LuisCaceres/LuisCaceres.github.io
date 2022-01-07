@@ -290,7 +290,7 @@ const testCharts = new List(
   ),
 );
 
-charts.forEach(chart => chart.reverse());
+testCharts.forEach(chart => chart.reverse());
 
 
 console.log('Testing starting.');
