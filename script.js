@@ -71,26 +71,28 @@ function adjustScreen(screen, measurements) {
  *
  */
 function createChart(list, charted, uncharted) {
-  const chart = list.map((match, index) => {
-    let entry = charted.get(match);
+  const chart = list.map((element, index) => {
+    let entry = charted.find(item => item.match === element)?.title;
     
     if (!entry) {
-      entry = uncharted.random();
+      entry = uncharted.random().title;
       // Remove any duplicates of 'video' from the pool.
-      uncharted.remove(entry);
-      charted.set(match, entry);
+      // uncharted.remove(entry);
+      // charted.set(match, entry);
     }
     
-    entry.position = `${index + 1}`.padStart(2, 0);
+    // entry.position = `${index + 1}`.padStart(2, 0);
     
     return entry;
   }).reverse();
     
-  return {
-    chart,
-    charted,
-    uncharted,
-  };
+  return chart;
+  
+//   return {
+//     chart,
+//     charted,
+//     uncharted,
+//   };
 }
 
 
