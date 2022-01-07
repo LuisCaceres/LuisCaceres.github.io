@@ -691,7 +691,7 @@ EXAMPLE: [20, 20, 20]
    ],
   ];
 
-  runTests(5, charts, 3, tests);
+  runTests(5, testCharts, 3, tests);
 }
 
 // WEEK 4
@@ -1233,7 +1233,7 @@ EXAMPLE: [20, 20, 20]
    ],
   ];
 
-  runTests(6, charts, 3, tests);
+  runTests(6, testCharts, 3, tests);
 }
 
 // WEEK 5
@@ -1602,7 +1602,7 @@ EXAMPLE: [20, 20, 20]
    ],
   ];
 
-  runTests(7, charts, 3, tests);
+  runTests(7, testCharts, 3, tests);
 }
 
 // WEEK 6
@@ -1965,7 +1965,7 @@ EXAMPLE: [20, 20, 20]
    ],
   ];
 
-  runTests(8, charts, 3, tests);
+  runTests(8, testCharts, 3, tests);
 }
 
 // WEEK 7
@@ -2460,7 +2460,7 @@ EXAMPLE: [20, 20, 20]
    ],
   ];
 
-  runTests(9, charts, 3, tests);
+  runTests(9, testCharts, 3, tests);
 }
     
 // WEEK 8
@@ -3071,7 +3071,7 @@ EXAMPLE: [20, 20, 20]
    ],
   ];
 
-  runTests(10, charts, 3, tests);
+  runTests(10, testCharts, 3, tests);
 }
 
 // WEEK 9
@@ -3562,7 +3562,7 @@ EXAMPLE: [20, 20, 20]
     ],
   ];
 
-  runTests(11, charts, 3, tests);
+  runTests(11, testCharts, 3, tests);
 }
   
 // WEEK 10 - IMPOSSIBLE TO TEST WEEK 10 BECAUSE WEEK 11 IS UNAVAILABLE.
