@@ -63,11 +63,23 @@ async function onYouTubeIframeAPIReady() {
   const currentChart = createChart(currentList, charted, uncharted);
   const nextChart = createChart(nextList, charted, uncharted);
 
-//   const database = createDatabase(previousChart, currentChart, nextChart, entries);
+  const database = createDatabase(previousChart, currentChart, nextChart /*, entries */);
 
 
-  function createDatabase(previousChart, currentList, nextList, items) {
+  function createDatabase(...charts) {
     const map = new Map();
+
+    for (const chart of charts) {
+
+      for (const entry of chart) {
+
+        if (map.has(entry) === false) {
+          const positions = charts.map(chart => chart.positionOf(entry));
+          map.set(entry, { history: new ChartHistory(...positions) });
+        }
+      }
+    }
+
     return map();
   }
 
