@@ -212,7 +212,7 @@ const usedItems = [
   },
 ];
 
-charted.forEach(item => {
+usedItems.forEach(item => {
   const keys = Object.keys(item);
   expect(keys.includes('title')).to.equal(true);
   expect(keys.includes('artist')).to.equal(true);
@@ -677,7 +677,7 @@ const unusedItems = new List(
 .map(item => (new Array(item.priority)).fill(item)).flat();
 
 // Validate each item in uncharted.
-uncharted.forEach(item => {
+unusedItems.forEach(item => {
   const keys = Object.keys(item);
   expect(keys.includes('title')).to.equal(true);
   expect(keys.includes('artist')).to.equal(true);
