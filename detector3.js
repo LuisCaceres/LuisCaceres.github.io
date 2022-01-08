@@ -417,18 +417,6 @@ EXAMPLE: [20, 20, 20]
        expect(entries).to.include("I Need To Know");  // [02, 02, 06, 06]  [**, 10, 02, 02]
      },
 
-     function (entries) { // Si Me Advertí
-       expect(entries.length).to.equal(3);
-                                                               // [13, 13, 13, 10]  [**, **, 12, 09]
-       expect(entries).to.include("New");                      // [13, 13, 12, 10]  [**, **, 13, 09]
-
-                                                               // [13, 13, 13, 10]  [08, 08, 11, 14]
-       expect(entries).to.include("The Kids Aren't Alright");  // [13, 13, 11, 10]  [08, 08, 13, 14]
-
-                                                               // [13, 13, 13, 10]  [04, 06, 10, 16]
-       expect(entries).to.include("La Lola");                  // [13, 13, 10, 10]  [04, 06, 13, 16]
-     },
-
      function (entries) { // When You're Gone
        expect(entries.length).to.equal(3);
                                                        // [14, 14, 14, 17]  [**, **, 15, 12]
@@ -439,6 +427,18 @@ EXAMPLE: [20, 20, 20]
 
                                                        // [14, 14, 14, 17]  [**, 19, 17, 13]
        expect(entries).to.include("No Quiero Verte");  // [14, 14, 17, 17]  [**, 19, 14, 13]
+     },
+
+     function (entries) { // Si Me Advertí
+       expect(entries.length).to.equal(3);
+                                                               // [13, 13, 13, 10]  [**, **, 12, 09]
+       expect(entries).to.include("New");                      // [13, 13, 12, 10]  [**, **, 13, 09]
+
+                                                               // [13, 13, 13, 10]  [08, 08, 11, 14]
+       expect(entries).to.include("The Kids Aren't Alright");  // [13, 13, 11, 10]  [08, 08, 13, 14]
+
+                                                               // [13, 13, 13, 10]  [04, 06, 10, 16]
+       expect(entries).to.include("La Lola");                  // [13, 13, 10, 10]  [04, 06, 13, 16]
      },
    ],
 
