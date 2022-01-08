@@ -2810,6 +2810,15 @@ EXAMPLE: [20, 20, 20]
        expect(entries).to.include("Someday");
      },
 
+     function (entries) { // Someday
+       expect(entries.length).to.equal(2);
+                                                       // [13, 13, 13, 15]  [**, 16, 14, 12]
+       expect(entries).to.include("Super Trouper");    // [13, 13, 14, 15]  [**, 16, 13, 12]
+
+                                                       // [13, 13, 13, 15]  [**, **, 15, 11] 
+       expect(entries).to.include("T.V. And Coffee");  // [13, 13, 15, 15]  [**, **, 13, 11]
+     },
+
      function (entries) { // New
        expect(entries.length).to.equal(3);
                                                             // [06, 06, 06, 09]  [07, 05, 05, 06]
@@ -2820,15 +2829,6 @@ EXAMPLE: [20, 20, 20]
 
                                                             // [06, 06, 06, 09]  [**, 08, 08, 05]
        expect(entries).to.include("Maria Maria");           // [06, 06, 08, 09]  [**, 08, 06, 05]
-     },
-
-     function (entries) { // Someday
-       expect(entries.length).to.equal(2);
-                                                       // [13, 13, 13, 15]  [**, 16, 14, 12]
-       expect(entries).to.include("Super Trouper");    // [13, 13, 14, 15]  [**, 16, 13, 12]
-
-                                                       // [13, 13, 13, 15]  [**, **, 15, 11] 
-       expect(entries).to.include("T.V. And Coffee");  // [13, 13, 15, 15]  [**, **, 13, 11]
      },
    ],
 
