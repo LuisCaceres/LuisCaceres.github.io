@@ -57,7 +57,7 @@ async function onYouTubeIframeAPIReady() {
 
   alert('The availability of videos has been verified');
 
-  const previousCharts = charts.slice(-2);
+  const previousCharts = charts.slice(-4);
   const currentChart = createChart(lists.at(-2), charted, uncharted);
   const nextChart = createChart(lists.at(-1), charted, uncharted);
 
