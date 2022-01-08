@@ -5,7 +5,7 @@ const lists = [
   ['!Qfufs!Boesf!!!J!Gffm!Zpv!', '!Toppq!Ephhz!Ephh!gfbu/!Dibsmjf!Xjmtpo!!!Toppq(t!Vqtjef!Zb!Ifbe!', '!Epoob!Mfxjt!!!J!Mpwf!Zpv!Bmxbzt!Gpsfwfs!', "!Fbtu28!'!Hbcsjfmmf!!!Jg!Zpv!Fwfs!", '!Cpz{pof!!!Xpset!', '!Kbnjsprvbj!!!Dptnjd!Hjsm!', '!Uif!Bsujtu!Gpsnfsmz!Lopxo!Bt!Qsjodf!!!Cfudib!Cz!Hpmmz!Xpx"!', '!Cmbdltusffu!gfbu/!Es/!Esf!!!Op!Ejhhjuz!', '!Uif!Csbjet!!!Cpifnjbo!Sibqtpez!!', '!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!', '!Op!Epvcu!!!Epo(u!Tqfbl!', '!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!', '!Xbssfo!H/!gfbu/!Bejob!Ipxbse!!!Xibu(t!Mpwf!Hpu!Up!Ep!Xjui!Ju!', '!Cbdltusffu!Cpzt!!!Rvju!Qmbzjoh!Hbnft!)Xjui!Nz!Ifbsu*!', '!Nbsl!Pxfo!!!Dijme!', '!Gvhfft!!!Op!Xpnbo!Op!Dsz!', '!Uif!Qspejhz!!!Csfbuif!', '!Tqjdf!Hjsmt!!!3!Cfdpnf!2!', '!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!', '!Spcfsu!Njmft!!!Pof!Boe!Pof!'].reverse(),
 ];
 
-list.forEach(list => expect(list.length).to.equal(20));
+lists.forEach(list => expect(list.length).to.equal(20));
 
 
 
