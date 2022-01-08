@@ -515,72 +515,61 @@ function parse(table) {
  * @return {boolean} - Whether `playlist` fulfils the criteria above.
  */
 function validate(playlist) {
-  
-  /* Remove any consecutive duplicates. Duplicates are inserted into 
-  `playlist` because of what I consider a bug from the YouTube API. See 
-  the `adjustPlaylist` function for further details about this bug. */
-  playlist = playlist.reduce(function (accumulator, current, index) {
-    if (current !== playlist[index + 1]) {
-      accumulator.push(current);
-    }
-    return accumulator;
-  }, []);
-
   expect(playlist.length).to.equal(57);
-  
+
   const order = [
     'INTRO',
     'STING','20',
     'STING','19',
     'ADVERTISEMENT',
-    
+
     'STING','18',
     'STING NEW VIDEO','xtra',
     'ADVERTISEMENT',
-    
+
     'STING','17',
     'STING','16',
     'ADVERTISEMENT',
-    
+
     'STING','15',
     'STING','14',
     'ADVERTISEMENT',
-    
+
     'STING','13',
     'STING','12',
     'ADVERTISEMENT',
-    
+
     'STING','11',
     'ADVERTISEMENT',
-    
+
     'STING','10',
     'STING','09',
     'ADVERTISEMENT',
-    
+
     'STING','08',
     'STING NEW VIDEO','xtra',
     'ADVERTISEMENT',
-    
+
     'STING','07',
     'STING','06',
     'ADVERTISEMENT',
-    
+
     'STING','05',
     'STING','04',
     'ADVERTISEMENT',
-    
+
     'STING','03',
     'STING','02',
     'ADVERTISEMENT',
-    
+
     'STING','01',
     'INTRO',
   ];
-  
+
   playlist.forEach((item, index) => {
     expect(item.name || item.position || item).to.equal(order[index]);
   });
-  
+
   /* Verify there are no music videos duplicated in the playlist */
   playlist = playlist.filter(item => item.position);
   playlist = new Set(playlist);
