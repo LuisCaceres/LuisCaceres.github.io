@@ -74,8 +74,8 @@ function runTests(week, charts, detector, tests) {
   for (const test of tests) {
     charts.splice(week - 3, 2, ...test.splice(0, 2));
 
-    const [chart01, chart0, chart1, chart2, chartA, chartB] = charts.slice(week - 5);    
-    const database = createDatabase(chart01, chart0, chart1, chart2, chartA, chartB);
+    const [chartA] = charts.slice(week - 1);    
+    const database = createDatabase(...charts.slice(week - 5));
     const entries = Chart[`detector${detector}`](database);
  
     displayTable(...charts);
@@ -88,7 +88,7 @@ function runTests(week, charts, detector, tests) {
       else {
         const entry = entries.shift();
         const values = Chart[`corrector${detector}`](entry, chartA, database);
-        Chart[`sorter${detector}`](entry, values, [chart1, chart2, chartA, chartB]);
+        // Chart[`sorter${detector}`](entry, values, [chart1, chart2, chartA, chartB]);
         test(values);
       }
     });
