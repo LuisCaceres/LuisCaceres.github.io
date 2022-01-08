@@ -80,7 +80,7 @@ async function onYouTubeIframeAPIReady() {
   validate(playlist);
   playlist = adjustPlaylist(playlist);
 
-  window.currentChart = currentChart;
+  window.currentChart = currentChart.reverse();
 
   while (playlist.length) {
     const video = playlist.shift();
