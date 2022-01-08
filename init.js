@@ -75,7 +75,7 @@ async function onYouTubeIframeAPIReady() {
     return item;
   });
     
-  insertExtraItems(currentChart, uncharted);
+  insertExtraItems(chart, uncharted);
 
   let playlist = createPlaylist(chart, intro, sting, advertisement, newVideo);
   playlist = adjustPlaylist(playlist);
