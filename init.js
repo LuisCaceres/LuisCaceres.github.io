@@ -58,23 +58,23 @@ async function onYouTubeIframeAPIReady() {
   alert('The availability of video tracks has been verified');
 
   const previousCharts = charts.slice(-4);
-  const currentChart = createChartFromList(lists.at(-2), charted, uncharted);
-  const nextChart = createChartFromList(lists.at(-1), charted, uncharted);
+  const currentChart = createChartFromList(lists.at(-2), usedItems);
+  const nextChart = createChartFromList(lists.at(-1), usedItems);
 
   const database = createDatabase(...previousCharts, currentChart, nextChart);
 
   currentChart.format(database);
     
   const items = currentChart.map((entry, index) => {
-    const item = charted.find(item => item.title === entry) || uncharted.random();
-    uncharted.remove(item);
-    charted.push(item);
+    const item = usedItems.find(item => item.title === entry) || unusedItems.random();
+    unusedItems.remove(item);
+    usedItems.push(item);
     item.position = `${index + 1}`.padStart(2, 0);
 
     return item;
   });
 
-  insertExtraItems(items, uncharted);
+  insertExtraItems(items, unusedItems);
 
   let playlist = createPlaylist(items, intro, sting, advertisement, newVideo);
   validate(playlist);
@@ -110,7 +110,7 @@ async function onYouTubeIframeAPIReady() {
  *
  */
 async function verifyAvailability(player) {
-  const videos = new Set([advertisement, sting].concat(Array.from(charted.values()), uncharted));
+  const videos = new Set([advertisement, sting].concat(Array.from(usedItems.values()), unusedItems));
 
   for (const video of videos) {
     // Attempt to play this video.
