@@ -7,6 +7,7 @@ const lists = [
 
 const charts = [
   // Add a previous chart.
+  new Chart('All I Have To Give', 'La Lola', 'Puente', "The Kids Aren't Alright", 'Someday', 'Heartbreaker', "Someday We'll Know", 'Waiting For Tonight', 'What\'s My Age Again?', 'Higher', "When You're Gone", "If Ya Gettin' Down", 'Atrapados En La Red', 'Look At Me', 'Jennifer Del Estero', 'Let Forever Be', '...Baby One More Time', 'All Star', 'Entry 0', 'Si Me Advertí'),
   new Chart('All I Have To Give', 'Puente', 'La Lola', 'Someday', "The Kids Aren't Alright", "Someday We'll Know", 'Higher', 'Heartbreaker', 'Waiting For Tonight', 'What\'s My Age Again?', "When You're Gone", "If Ya Gettin' Down", 'Atrapados En La Red', 'Jennifer Del Estero', 'Look At Me', 'All Star', 'Let Forever Be', '...Baby One More Time', 'Si Me Advertí', 'Entry 0'),
   new Chart('Puente', 'All I Have To Give', 'La Lola', 'Someday', "The Kids Aren't Alright", "Someday We'll Know", 'Higher', 'Heartbreaker', 'Waiting For Tonight', 'What\'s My Age Again?', "If Ya Gettin' Down", "When You're Gone", 'Jennifer Del Estero', 'Atrapados En La Red', 'Look At Me', 'All Star', 'Let Forever Be', '...Baby One More Time', 'Si Me Advertí', 'Entry 0'),
   new Chart('Puente', 'All I Have To Give', 'Someday', 'La Lola', "Someday We'll Know", 'Higher', "The Kids Aren't Alright", "If Ya Gettin' Down", 'Heartbreaker', 'Waiting For Tonight', 'What\'s My Age Again?', "When You're Gone", 'Jennifer Del Estero', 'All Star', 'Atrapados En La Red', 'Look At Me', 'Si Me Advertí', 'Let Forever Be', '...Baby One More Time', 'Angels'),
