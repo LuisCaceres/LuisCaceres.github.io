@@ -867,8 +867,6 @@ class Chart extends List {
     });
   }
 
-  Chart[`sorter${detector}`](entry, values, [chart1, chart2, chartA, chartB]);
-
   static sorter3(entry, values, database) {
     const position = database.get(entry).at(-2);  // charts[2].positionOf(entry);
     const map = new Map();
