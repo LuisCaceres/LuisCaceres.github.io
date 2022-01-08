@@ -820,7 +820,7 @@ class Chart extends List {
       // and `positionA` in `entry`'s history causes `entry` to arrive in position 12 or lower.
       //               BEFORE             AFTER
       // Example: [**, **, 14, 07] = [**, **, 12, 07]
-      if (history.at(-1) === 21 && chartA.positionOf(entry) >= 13 && A <= 12) {
+      if (history.at(-3) === 21 && history.at(-2) >= 13 && A <= 12) {
         return false;
       }
 
@@ -828,12 +828,12 @@ class Chart extends List {
       // and `positionA` in `entry`'s history causes `entry` to arrive in an even lower position.
       //               BEFORE             AFTER
       // Example: [**, **, 11, 07] = [**, **, 09, 07]
-      if (history.at(-1) === 21 && chartA.positionOf(entry) <= 12 && A < chartA.positionOf(entry)) {
+      if (history.at(-3) === 21 && history.at(-2) <= 12 && A < history.at(-2)) {
         return false;
       }
 
       // Filter out if `positionA` is 12 or higher and `entry` departs from `chartB`.
-      if (A <= 12 && chartA.positionOf(entry) >= 13 && chartB.positionOf(entry) === 21) {
+      if (A <= 12 && history.at(-2) >= 13 && history.at(-1) === 21) {
         return false;
       }
 
