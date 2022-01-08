@@ -487,7 +487,7 @@ function insertExtraItems(chart, uncharted) {
     const extraItem = uncharted.random();
     extraItem.position = "xtra";
     uncharted = uncharted.filter(item => item !== extraItem);
-    chart.splice(slot, 0, extraItem.title);
+    chart.splice(slot, 0, extraItem);
   }
 
  return chart;
