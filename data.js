@@ -7,7 +7,7 @@ const lists = [
   
   
   
-  ['!Spcfsu!Njmft!!!Pof!Boe!Pof!', '!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!', '!Tqjdf!Hjsmt!!!3!Cfdpnf!2!', '!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!', '!Uif!Qspejhz!!!Csfbuif!', '!Op!Epvcu!!!Epo(u!Tqfbl!', '!Gvhfft!!!Op!Xpnbo!Op!Dsz!', '!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!', '!Cbdltusffu!Cpzt!!!Rvju!Qmbzjoh!Hbnft!)Xjui!Nz!Ifbsu*!', '!Nbsl!Pxfo!!!Dijme!', '!Xbssfo!H/!gfbu/!Bejob!Ipxbse!!!Xibu(t!Mpwf!Hpu!Up!Ep!Xjui!Ju!', '!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!', '!Kbnjsprvbj!!!Dptnjd!Hjsm!', '!Cmbdltusffu!gfbu/!Es/!Esf!!!Op!Ejhhjuz!', '!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!', '!Uif!Csbjet!!!Cpifnjbo!Sibqtpez!!', '!Toppq!Ephhz!Ephh!gfbu/!Dibsmjf!Xjmtpo!!!Toppq(t!Vqtjef!Zb!Ifbe!', '!Uif!Bsujtu!Gpsnfsmz!Lopxo!Bt!Qsjodf!!!Cfudib!Cz!Hpmmz!Xpx"!', '!Hjovxjof!!!Qpoz!', '!Cpz{pof!!!B!Ejggfsfou!Cfbu!'].reverse(),
+  ['!Cpz{pof!!!B!Ejggfsfou!Cfbu!', '!Hjovxjof!!!Qpoz!', '!Uif!Bsujtu!Gpsnfsmz!Lopxo!Bt!Qsjodf!!!Cfudib!Cz!Hpmmz!Xpx"!', '!Toppq!Ephhz!Ephh!gfbu/!Dibsmjf!Xjmtpo!!!Toppq(t!Vqtjef!Zb!Ifbe!', '!Uif!Csbjet!!!Cpifnjbo!Sibqtpez!!', '!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!', '!Cmbdltusffu!gfbu/!Es/!Esf!!!Op!Ejhhjuz!', '!Kbnjsprvbj!!!Dptnjd!Hjsm!', '!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!', '!Xbssfo!H/!gfbu/!Bejob!Ipxbse!!!Xibu(t!Mpwf!Hpu!Up!Ep!Xjui!Ju!', '!Nbsl!Pxfo!!!Dijme!', '!Cbdltusffu!Cpzt!!!Rvju!Qmbzjoh!Hbnft!)Xjui!Nz!Ifbsu*!', '!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!', '!Gvhfft!!!Op!Xpnbo!Op!Dsz!', '!Op!Epvcu!!!Epo(u!Tqfbl!', '!Uif!Qspejhz!!!Csfbuif!', '!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!', '!Tqjdf!Hjsmt!!!3!Cfdpnf!2!', '!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!', '!Spcfsu!Njmft!!!Pof!Boe!Pof!'].reverse(),
 ];
 
 lists.forEach(list => expect(list.length).to.equal(20));
