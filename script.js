@@ -67,8 +67,14 @@ function adjustScreen(screen, measurements) {
 }
 
 
-/*
- *
+/* Return
+ * @param {Chart} charts -
+ * @return {Map}
+ * @example
+ * const chart1 = new Chart('A', 'B', 'C', 'D', 'E');
+ * const chart2 = new Chart('E', 'D', 'C', 'B', 'A');
+ * createDatabase(chart1, chart2);
+ * // Returns {'A' => ChartHistory: [1, 5], 'B' => ChartHistory: [2, 4], 'C' => ChartHistory: [3, 3], 'D' => ChartHistory: [4, 2], 'E' => ChartHistory: [5, 1] }
  */
 function createDatabase(...charts) {
   const map = new Map();
