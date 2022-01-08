@@ -1276,15 +1276,14 @@ EXAMPLE: [20, 20, 20]
        expect(entries).to.include("Someday We'll Know");
      },
 
+     function (entries) { // Someday We'll Know
+       expect(entries.length).to.equal(0);
+     },
+
      function (entries) { // Angels
        expect(entries.length).to.equal(1);
                                                       // [03, 03, 03, 02]  [07, 02, 02, 03]
        expect(entries).to.include("I Need To Know");  // [03, 03, 02, 02]  [07, 02, 03, 03]
-
-     },
-
-     function (entries) { // Someday We'll Know
-       expect(entries.length).to.equal(0);
      },
    ],
 
