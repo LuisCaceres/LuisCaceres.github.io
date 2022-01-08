@@ -66,10 +66,12 @@ async function onYouTubeIframeAPIReady() {
   currentChart.format(database);
   insertExtraItems(currentChart, uncharted);
     
-  const chart = currentChart.map(entry => {
+  const chart = currentChart.map((entry, index) => {
     const item = charted.concat(uncharted).find(item => item.title === entry);
     uncharted.remove(item);
     charted.push(item);
+      
+    item.position = `${index + 1}`.padStart(2, 0);
     
     return item;
   });
