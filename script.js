@@ -483,7 +483,7 @@ function createPlaylist(chart, intro, sting, advertisement, extra) {
  *
  */
 function insertExtraItems(chart, uncharted) {
-  const slots = [3, 14];
+  const slots = [8, 18];
 
   for (const slot of slots) {
     const extraItem = uncharted.random();
