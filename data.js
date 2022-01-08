@@ -8,7 +8,7 @@ const lists = [
   
   
   
-  /* chart  3 (01/02/1997) */ ['!MM!Dppm!K!!!Bjo(u!Opcpez!', '!Fbtu!28!!!Ifz!Dijme!!', '!Cpz{pof!!!B!Ejggfsfou!Cfbu!', '!Cmbdltusffu!gfbu/!Es/!Esf!!!Op!Ejhhjuz!', '!Nbsl!Pxfo!!!Dijme!', '!Hjovxjof!!!Qpoz!', '!Xbssfo!H/!gfbu/!Bejob!Ipxbse!!!Xibu(t!Mpwf!Hpu!Up!Ep!Xjui!Ju!', '!Toppq!Ephhz!Ephh!gfbu/!Dibsmjf!Xjmtpo!!!Toppq(t!Vqtjef!Zb!Ifbe!', '!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!', '!Cbdltusffu!Cpzt!!!Rvju!Qmbzjoh!Hbnft!)Xjui!Nz!Ifbsu*!', '!Kbnjsprvbj!!!Dptnjd!Hjsm!', '!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!', '!Gvhfft!!!Op!Xpnbo!Op!Dsz!', '!Uif!Qspejhz!!!Csfbuif!', '!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!', '!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!', '!Spcfsu!Njmft!!!Pof!Boe!Pof!', '!Tqjdf!Hjsmt!!!3!Cfdpnf!2!', '!Op!Epvcu!!!Epo(u!Tqfbl!', '!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!'].reverse();
+  /* chart  3 (01/02/1997) */ ['!MM!Dppm!K!!!Bjo(u!Opcpez!', '!Fbtu!28!!!Ifz!Dijme!!', '!Cpz{pof!!!B!Ejggfsfou!Cfbu!', '!Cmbdltusffu!gfbu/!Es/!Esf!!!Op!Ejhhjuz!', '!Nbsl!Pxfo!!!Dijme!', '!Hjovxjof!!!Qpoz!', '!Xbssfo!H/!gfbu/!Bejob!Ipxbse!!!Xibu(t!Mpwf!Hpu!Up!Ep!Xjui!Ju!', '!Toppq!Ephhz!Ephh!gfbu/!Dibsmjf!Xjmtpo!!!Toppq(t!Vqtjef!Zb!Ifbe!', '!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!', '!Cbdltusffu!Cpzt!!!Rvju!Qmbzjoh!Hbnft!)Xjui!Nz!Ifbsu*!', '!Kbnjsprvbj!!!Dptnjd!Hjsm!', '!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!', '!Gvhfft!!!Op!Xpnbo!Op!Dsz!', '!Uif!Qspejhz!!!Csfbuif!', '!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!', '!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!', '!Spcfsu!Njmft!!!Pof!Boe!Pof!', '!Tqjdf!Hjsmt!!!3!Cfdpnf!2!', '!Op!Epvcu!!!Epo(u!Tqfbl!', '!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!'].reverse(),
 ];
 
 
