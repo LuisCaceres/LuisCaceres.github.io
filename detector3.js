@@ -2991,16 +2991,16 @@ EXAMPLE: [20, 20, 20]
        expect(entries).to.include("Maria Maria");           // [06, 06, 08, 09]  [**, 08, 06, 05]
      },
 
-     function (entries) { // As Fast As You Can
-       expect(entries.length).to.equal(1);
-                                              // [17, 17, 17, **]  [10, 12, 16, **]
-       expect(entries).to.include("Puente");  // [17, 17, 16, **]  [10, 12, 17, **]
-     },
-
      function (entries) { // Man! I Feel Like A Woman
        expect(entries.length).to.equal(1);
                                                          // [18, 18, 18, **]  [**, **, 19, 18]
        expect(entries).to.include("Díselo Con Flores");  // [18, 18, 19, **]  [**, **, 18, 18]
+     },
+
+     function (entries) { // As Fast As You Can
+       expect(entries.length).to.equal(1);
+                                              // [17, 17, 17, **]  [10, 12, 16, **]
+       expect(entries).to.include("Puente");  // [17, 17, 16, **]  [10, 12, 17, **]
      },
    ],
 
