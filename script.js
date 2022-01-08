@@ -767,7 +767,7 @@ class Chart extends List {
       // Filter in if `entry` is in the same position for 3 consecutive charts and not for 4 consecutive charts.
       //  1   2   A   B       1   2   A   B
       // [02, 02, 02, 03]    [02, 02, 02, 02]
-      if (history[0] !== 21 && history[0] !== 1 && history.slice(0, 3).isFlat() && history.isFlat() === false) {
+      if (history.at(-4) !== 21 && history.at(-4) !== 1 && history.slice(-4, -1).isFlat() && history.isFlat() === false) {
         errors.push(entry);
       }
     }
