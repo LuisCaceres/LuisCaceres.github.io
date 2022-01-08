@@ -23,7 +23,7 @@ charts.forEach(chart => expect(chart.length).to.equal(20));
 
 
 
-const charted = [
+const usedItems = [
   {
     title: "All I Have To Give",
     artist: "Backstreet Boys",
@@ -211,8 +211,17 @@ const charted = [
     volume: 100,
   },
 ];
-// .map(element => new Item(element))
-//.forEach(item => item.validate());
+
+charted.forEach(item => {
+  const keys = Object.keys(item);
+  expect(keys.includes('title')).to.equal(true);
+  expect(keys.includes('artist')).to.equal(true);
+  expect(keys.includes('match')).to.equal(true);
+  expect(keys.includes('style')).to.equal(true);
+  expect(keys.includes('type')).to.equal(true);
+  expect(keys.includes('videoId')).to.equal(true);
+  expect(keys.includes('volume')).to.equal(true);
+});
 
 
 
@@ -250,21 +259,10 @@ const sting = {
   volume: 50,
 };
 
-charted.forEach(item => {
-  const keys = Object.keys(item);
-  expect(keys.includes('title')).to.equal(true);
-  expect(keys.includes('artist')).to.equal(true);
-  expect(keys.includes('match')).to.equal(true);
-  expect(keys.includes('style')).to.equal(true);
-  expect(keys.includes('type')).to.equal(true);
-  expect(keys.includes('videoId')).to.equal(true);
-  expect(keys.includes('volume')).to.equal(true);
-});
 
 
 
-
-const uncharted = new List(
+const unusedItems = new List(
   {
     title: "Absolutely Everybody",
     artist: "Vanessa Amorosi",
