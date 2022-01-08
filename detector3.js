@@ -804,15 +804,6 @@ EXAMPLE: [20, 20, 20]
        expect(entries).to.include("All I Have To Give");
      },
 
-     function (entries) { // Someday We'll Know
-       expect(entries.length).to.equal(2);
-                                                      // [03, 03, 03, 04]  [10, 05, 02, 02]
-       expect(entries).to.include("I Need To Know");  // [03, 03, 02, 04]  [10, 05, 03, 02]
-
-                                                      // [03, 03, 03, 04]  [01, 01, 04, 05]
-       expect(entries).to.include("Puente");          // [03, 03, 04, 04]  [01, 01, 03, 05]
-     },
-
      function (entries) { // All I Have To Give
        expect(entries.length).to.equal(2);
                                               // [07, 07, 07, 10]  [04, 06, 08, 12]
@@ -820,6 +811,15 @@ EXAMPLE: [20, 20, 20]
 
                                               // [07, 07, 07, 10]  [**, 12, 09, 07]
        expect(entries).to.include("New");     // [07, 07, 09, 10]  [**, 12, 07, 07]
+     },
+
+     function (entries) { // Someday We'll Know
+       expect(entries.length).to.equal(2);
+                                                      // [03, 03, 03, 04]  [10, 05, 02, 02]
+       expect(entries).to.include("I Need To Know");  // [03, 03, 02, 04]  [10, 05, 03, 02]
+
+                                                      // [03, 03, 03, 04]  [01, 01, 04, 05]
+       expect(entries).to.include("Puente");          // [03, 03, 04, 04]  [01, 01, 03, 05]
      },
    ],
 
