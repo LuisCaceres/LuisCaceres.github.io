@@ -61,7 +61,7 @@ async function onYouTubeIframeAPIReady() {
   const currentChart = createChart(lists.at(-2), charted, uncharted);
   const nextChart = createChart(lists.at(-1), charted, uncharted);
 
-  const database = createDatabase(...previousCharts, currentChart, nextChart /*, entries */);
+  const database = createDatabase(...previousCharts, currentChart, nextChart);
 
   currentChart.format(database);
 
