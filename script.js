@@ -472,7 +472,6 @@ function createPlaylist(chart, intro, sting, advertisement, extra) {
   chart.insert([7, 28], extra);
   chart.insert([5, 9, 13, 17, 21, 23, 27, 31, 35, 39, 43, ], advertisement);
   chart.push(intro);
-  chart.reverse();
   
   return chart;
 }
