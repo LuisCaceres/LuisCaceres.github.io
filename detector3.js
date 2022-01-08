@@ -2915,6 +2915,15 @@ EXAMPLE: [20, 20, 20]
        expect(entries).to.include("Puente");
      },
 
+     function (entries) { // Puente
+       expect(entries.length).to.equal(2);
+                                                                // [16, 16, 16, **]  [18, 17, 17, **]
+       expect(entries).to.include("As Fast As You Can");        // [16, 16, 17, **]  [18, 17, 16, **]
+
+                                                                // [16, 16, 16, **]  [11, 12, 18, **]
+       expect(entries).to.include("Man! I Feel Like A Woman");  // [16, 16, 18, **]  [11, 12, 16, **]
+     },
+
      function (entries) { // New
        expect(entries.length).to.equal(3);
                                                             // [06, 06, 06, 09]  [07, 05, 05, 06]
@@ -2925,15 +2934,6 @@ EXAMPLE: [20, 20, 20]
 
                                                             // [06, 06, 06, 09]  [**, 08, 08, 05]
        expect(entries).to.include("Maria Maria");           // [06, 06, 08, 09]  [**, 08, 06, 05]
-     },
-
-     function (entries) { // Puente
-       expect(entries.length).to.equal(2);
-                                                                // [16, 16, 16, **]  [18, 17, 17, **]
-       expect(entries).to.include("As Fast As You Can");        // [16, 16, 17, **]  [18, 17, 16, **]
-
-                                                                // [16, 16, 16, **]  [11, 12, 18, **]
-       expect(entries).to.include("Man! I Feel Like A Woman");  // [16, 16, 18, **]  [11, 12, 16, **]
      },
    ],
 
