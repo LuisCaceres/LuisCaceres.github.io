@@ -78,8 +78,8 @@ async function onYouTubeIframeAPIReady() {
   insertExtraItems(items, uncharted);
 
   let playlist = createPlaylist(items, intro, sting, advertisement, newVideo);
-  playlist = adjustPlaylist(playlist);
   validate(playlist);
+  playlist = adjustPlaylist(playlist);
 
   while (playlist.length) {
     const video = playlist.shift();
