@@ -784,7 +784,7 @@ class Chart extends List {
    * @param {} database - A list of entries having ever charted.
    * @return {Array} entries
    */
-  static corrector3(entry, chartA, chartB, database) {
+  static corrector3(entry, chartA, database) {
     const history = database.get(entry);
     const [A, B] = history.slice(-2);
  
@@ -804,9 +804,9 @@ class Chart extends List {
       // Decreases the likelyhood that entry starts descending earlier than allowed (minimum 4 charts).
       //        BEFORE                  AFTER
       // [**, 10, 02, 02, 02] = [**, 10, 02, 02, 03]
-//       if (history.length <= 4) {
-//         end = end - 1;
-//       }
+      if (history.at(-6) === 21) {
+        end = end - 1;
+      }
     }
 
     return chartA.slice(start - 1, end).remove(entry).filter(entry => {
