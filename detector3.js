@@ -2029,12 +2029,6 @@ EXAMPLE: [20, 20, 20]
        expect(entries).to.include("Si Me Advertí");
      },
 
-     function (entries) { // Mi Chico Latino
-       expect(entries.length).to.equal(1);
-                                               // [03, 03, 03, 02]  [04, 02, 02, 03]
-       expect(entries[0]).to.equal("Angels");  // [03, 03, 02, 02]  [04, 02, 03, 03]
-     },
-
      function (entries) { // Si Me Advertí
        expect(entries.length).to.equal(2);
                                                     // [09, 09, 09, 11]  [**, **, 08, 08]
@@ -2042,6 +2036,12 @@ EXAMPLE: [20, 20, 20]
 
                                                     // [09, 09, 09, 11]  [06, 07, 10, 13]
        expect(entries[1]).to.equal("Someday");      // [09, 09, 10, 11]  [06, 07, 09, 13]
+     },
+
+     function (entries) { // Mi Chico Latino
+       expect(entries.length).to.equal(1);
+                                               // [03, 03, 03, 02]  [04, 02, 02, 03]
+       expect(entries[0]).to.equal("Angels");  // [03, 03, 02, 02]  [04, 02, 03, 03]
      },
    ],
 
