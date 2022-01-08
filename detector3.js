@@ -1663,12 +1663,6 @@ EXAMPLE: [20, 20, 20]
         expect(entries).to.include("Someday");
       },
 
-      function (entries) { // Mi Chico Latino
-        expect(entries.length).to.equal(1);
-                                                       // [04, 04, 04, 03]  [02, 02, 03, 04]
-        expect(entries).to.include("I Need To Know");  // [04, 04, 03, 03]  [02, 02, 04, 04]
-      },
-
       function (entries) { // Someday
         expect(entries.length).to.equal(2);
                                                              // [07, 07, 07, 10]  [15, 13, 08, 05]     1 + 1 
@@ -1676,6 +1670,12 @@ EXAMPLE: [20, 20, 20]
 
                                                              // [07, 07, 07, 10]  [05, 06, 10, 13]     3 + 1
         expect(entries).to.include("Puente");                // [07, 07, 10, 10]  [05, 06, 07, 13]
+      },
+
+      function (entries) { // Mi Chico Latino
+        expect(entries.length).to.equal(1);
+                                                       // [04, 04, 04, 03]  [02, 02, 03, 04]
+        expect(entries).to.include("I Need To Know");  // [04, 04, 03, 03]  [02, 02, 04, 04]
       },
     ],
 
