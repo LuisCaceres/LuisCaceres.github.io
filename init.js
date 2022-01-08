@@ -65,19 +65,19 @@ async function onYouTubeIframeAPIReady() {
 
   currentChart.format(database);
     
-  const chart = currentChart.map((entry, index) => {
+  const items = currentChart.map((entry, index) => {
     const item = charted.concat(uncharted).find(item => item.title === entry);
     uncharted.remove(item);
     charted.push(item);
-      
+
     item.position = `${index + 1}`.padStart(2, 0);
-    
+
     return item;
   });
-    
-  insertExtraItems(chart, uncharted);
 
-  let playlist = createPlaylist(chart, intro, sting, advertisement, newVideo);
+  insertExtraItems(items, uncharted);
+
+  let playlist = createPlaylist(items, intro, sting, advertisement, newVideo);
   playlist = adjustPlaylist(playlist);
   validate(playlist);
 
