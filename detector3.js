@@ -2501,12 +2501,6 @@ EXAMPLE: [20, 20, 20]
        expect(entries).to.include("New");
      },
 
-     function (entries) { // Mi Chico Latino
-       expect(entries.length).to.equal(1);
-                                                // [02, 02, 02, 01]    [01, 01, 01, 03]
-       expect(entries).to.include("All Star");  // [02, 02, 01, 01]    [01, 01, 02, 03]
-     },
-
      function (entries) { // Angels
        expect(entries.length).to.equal(1);
                                                 // [03, 03, 03, 07]    [**, 11, 07, 02]
@@ -2523,6 +2517,12 @@ EXAMPLE: [20, 20, 20]
 
                                                             // [06, 06, 06, 09]    [**, 08, 08, 05]
        expect(entries).to.include("Maria Maria");           // [06, 06, 08, 09]    [**, 08, 06, 05]
+     },
+
+     function (entries) { // Mi Chico Latino
+       expect(entries.length).to.equal(1);
+                                                // [02, 02, 02, 01]    [01, 01, 01, 03]
+       expect(entries).to.include("All Star");  // [02, 02, 01, 01]    [01, 01, 02, 03]
      },
    ],
 
