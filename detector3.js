@@ -371,15 +371,6 @@ EXAMPLE: [20, 20, 20]
        expect(entries).to.include("I Need To Know");  // [02, 02, 06, 06]  [**, 10, 02, 02]
      },
 
-     function (entries) { // New
-       expect(entries.length).to.equal(2);
-                                                               // [12, 12, 12, 09]  [08, 08, 11, 14]
-       expect(entries).to.include("The Kids Aren't Alright");  // [12, 12, 11, 09]  [08, 08, 12, 14]
-
-                                                               // [12, 12, 12, 09]  [04, 06, 10, 16]
-       expect(entries).to.include("La Lola");                  // [12, 12, 10, 09]  [04, 06, 12, 16]
-     },
-
      function (entries) { // When You're Gone
        expect(entries.length).to.equal(3);
                                                        // [14, 14, 14, 17]  [**, **, 15, 12]
@@ -390,6 +381,15 @@ EXAMPLE: [20, 20, 20]
 
                                                        // [14, 14, 14, 17]  [**, 20, 17, 13]
        expect(entries).to.include("No Quiero Verte");  // [14, 14, 17, 17]  [**, 20, 14, 13]
+     },
+
+     function (entries) { // New
+       expect(entries.length).to.equal(2);
+                                                               // [12, 12, 12, 09]  [08, 08, 11, 14]
+       expect(entries).to.include("The Kids Aren't Alright");  // [12, 12, 11, 09]  [08, 08, 12, 14]
+
+                                                               // [12, 12, 12, 09]  [04, 06, 10, 16]
+       expect(entries).to.include("La Lola");                  // [12, 12, 10, 09]  [04, 06, 12, 16]
      },
    ],
 
