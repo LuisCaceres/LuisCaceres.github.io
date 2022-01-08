@@ -63,24 +63,6 @@ async function onYouTubeIframeAPIReady() {
 
   const database = createDatabase(...previousCharts, currentChart, nextChart /*, entries */);
 
-
-  function createDatabase(...charts) {
-    const map = new Map();
-
-    for (const chart of charts) {
-
-      for (const entry of chart) {
-
-        if (map.has(entry) === false) {
-          const positions = charts.map(chart => chart.positionOf(entry));
-          map.set(entry, new ChartHistory(...positions));
-        }
-      }
-    }
-
-    return map;
-  }
-
   currentChart.format(database);
 
 //   const chart = createChart(currentList, charted, uncharted); /* associate(list, charted, uncharted); */
