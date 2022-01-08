@@ -66,10 +66,9 @@ async function onYouTubeIframeAPIReady() {
   currentChart.format(database);
     
   const items = currentChart.map((entry, index) => {
-    const item = charted.concat(uncharted).find(item => item.title === entry);
+    const item = charted.find(item => item.title === entry) || uncharted.random();
     uncharted.remove(item);
     charted.push(item);
-
     item.position = `${index + 1}`.padStart(2, 0);
 
     return item;
