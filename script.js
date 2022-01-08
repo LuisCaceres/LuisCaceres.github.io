@@ -629,7 +629,7 @@ class Chart extends List {
 
     // Find entries in this chart able to eliminate continuity errors. 
     errors.forEach(error => {
-      const targets = Chart.corrector3(error, this, listB, database);
+      const targets = Chart.corrector3(error, this, database);
 //       Chart.sorter3(error, target, [chart1, chart2, this, listB]);
       map.set(error, targets);
     });
