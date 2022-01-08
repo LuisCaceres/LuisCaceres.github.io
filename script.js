@@ -70,6 +70,27 @@ function adjustScreen(screen, measurements) {
 /*
  *
  */
+function createDatabase(...charts) {
+  const map = new Map();
+
+  for (const chart of charts) {
+
+    for (const entry of chart) {
+
+      if (map.has(entry) === false) {
+        const positions = charts.map(chart => chart.positionOf(entry));
+        map.set(entry, new ChartHistory(...positions));
+      }
+    }
+  }
+
+  return map;
+}
+
+
+/*
+ *
+ */
 function createChart(list, charted, uncharted) {
   const entries = list.map((element, index) => {
     let entry = charted.find(item => item.match === element)?.title;
