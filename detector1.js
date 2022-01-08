@@ -7,33 +7,6 @@
  * createDatabase(chart1, chart2);
  * // Returns {'A' => { history: [1, 5])}, 'B' => { history: [2, 4])}, 'C' => { history: [3, 3])}, 'D' => { history: [4, 2])}, 'E' => { history: [5, 1])}}
  */
-function createDatabase(...charts) {
-  const database = new Map();
-
-  for (const chart of charts) {
-    chart.forEach(entry => {
-
-      if (database.has(entry) === false) {
-        database.set(entry, {history: []});
-      }
-
-      database.get(entry).history.push(chart.positionOf(entry));
-    });
-  }
-
-  return database;
-}
-
-
-/* Return
- * @param {Chart} charts -
- * @return {Map}
- * @example
- * const chart1 = new Chart('A', 'B', 'C', 'D', 'E');
- * const chart2 = new Chart('E', 'D', 'C', 'B', 'A');
- * createDatabase(chart1, chart2);
- * // Returns {'A' => { history: [1, 5])}, 'B' => { history: [2, 4])}, 'C' => { history: [3, 3])}, 'D' => { history: [4, 2])}, 'E' => { history: [5, 1])}}
- */
 function displayTable(...charts) {
 
   // Remove table currently displayed.
