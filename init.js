@@ -68,6 +68,8 @@ async function onYouTubeIframeAPIReady() {
     
   const chart = currentChart.map(entry => {
     const item = charted.concat(uncharted).find(item => item.title === entry);
+    uncharted.remove(item);
+    charted.push(item);
     
     return item;
   });
