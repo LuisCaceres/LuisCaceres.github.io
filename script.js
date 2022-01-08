@@ -464,11 +464,14 @@ class ChartHistory extends NumberList {
  *
  */
 function createPlaylist(chart, intro, sting, advertisement, extra) {
+  chart.reverse(); // UPDATE NUMBERS BELOW
   chart.insert([0], intro);
   chart.insert([1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22], sting);
   chart.insert([7, 28], extra);
   chart.insert([5, 9, 13, 17, 21, 23, 27, 31, 35, 39, 43, ], advertisement);
   chart.push(intro);
+  chart.reverse();
+  
   return chart;
 }
 
