@@ -99,7 +99,7 @@ function createDatabase(...charts) {
 /*
  *
  */
-function createChart(list, charted, uncharted) {
+function createChartFromList(list, charted, uncharted) {
   const entries = list.map((element, index) => {
     let entry = charted.find(item => item.match === element)?.title;
 
@@ -109,8 +109,6 @@ function createChart(list, charted, uncharted) {
       // uncharted.remove(entry);
       // charted.set(match, entry);
     }
-
-    // entry.position = `${index + 1}`.padStart(2, 0);
 
     return entry;
   });
