@@ -66,7 +66,11 @@ async function onYouTubeIframeAPIReady() {
   currentChart.format(database);
   insertExtraItems(currentChart, uncharted);
     
-  const chart = currentChart.map(entry => charted.find(item => item.title === entry));
+  const chart = currentChart.map(entry => {
+    const item = charted.concat(uncharted).find(item => item.title === entry);
+    
+    return item;
+  });
 
   let playlist = createPlaylist(currentChart, intro, sting, advertisement, newVideo);
   playlist = adjustPlaylist(playlist);
