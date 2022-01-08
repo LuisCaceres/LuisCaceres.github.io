@@ -837,7 +837,14 @@ class Chart extends List {
         return false;
       }
 
-      history.push(A, chartB.positionOf(entry));
+      // Filter out if `entry` is ascending and `positionA` in `entry`'s history causes `entry` to descend from `chartB`.
+      //           1   2   A   B   C
+      // Example: [05, 03, 02, 03, 02]
+      if (history.isAscending() && A < history.at(-1)) {
+        return false;
+      }
+
+      history[history.length - 2] = A;
 
       // Filter out if the difference between `entry`'s position in `chart2` and `positionA` is at least 2 
       // and `entry` starts to descend from `chartB`.
@@ -853,15 +860,6 @@ class Chart extends List {
       //           1  2  A  B
       // Example: [3, 4, 2, 7]
       if (history.isValid() === false) {
-        return false;
-      }
-
-      history[history.length - 2] = chartA.positionOf(entry);
-
-      // Filter out if `entry` is ascending and `positionA` in `entry`'s history causes `entry` to descend from `chartB`.
-      //           1   2   A   B   C
-      // Example: [05, 03, 02, 03, 02]
-      if (history.isAscending() && A < history.at(-1)) {
         return false;
       }
 
