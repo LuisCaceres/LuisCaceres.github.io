@@ -21,6 +21,7 @@ const charts = [
   /* chart -2 */ new Chart('Puente', 'All I Have To Give', 'La Lola', 'Someday', "The Kids Aren't Alright", "Someday We'll Know", 'Higher', 'Heartbreaker', 'Waiting For Tonight', 'What\'s My Age Again?', "If Ya Gettin' Down", "When You're Gone", 'Jennifer Del Estero', 'Atrapados En La Red', 'Look At Me', 'All Star', 'Let Forever Be', '...Baby One More Time', 'Si Me Advertí', 'Entry 0'),
   /* chart -1 */ new Chart('Puente', 'All I Have To Give', 'Someday', 'La Lola', "Someday We'll Know", 'Higher', "The Kids Aren't Alright", "If Ya Gettin' Down", 'Heartbreaker', 'Waiting For Tonight', 'What\'s My Age Again?', "When You're Gone", 'Jennifer Del Estero', 'All Star', 'Atrapados En La Red', 'Look At Me', 'Si Me Advertí', 'Let Forever Be', '...Baby One More Time', 'Angels'),
   new Chart('Puente', 'Someday', 'All I Have To Give', 'La Lola', "Someday We'll Know", 'Higher', "If Ya Gettin' Down", "The Kids Aren't Alright", 'Heartbreaker', 'Waiting For Tonight', "What's My Age Again?", 'Jennifer Del Estero', "When You're Gone", 'All Star', 'Atrapados En La Red', 'Look At Me', 'Si Me Advertí', 'Let Forever Be', '...Baby One More Time', 'Angels'),
+  new Chart('Puente', 'Someday', "Someday We'll Know", 'All I Have To Give', 'Higher', 'La Lola', "If Ya Gettin' Down", "The Kids Aren't Alright", 'All Star', 'I Need To Know', 'Angels', 'Heartbreaker', "When You're Gone", 'Jennifer Del Estero', 'Si Me Advertí', "What's My Age Again?", 'Waiting For Tonight', 'Atrapados En La Red', 'No Quiero Verte', '...Baby One More Time'),
 ];
 
 charts.forEach(chart => expect(chart.length).to.equal(20));
@@ -96,6 +97,16 @@ const usedItems = [
     volume: 100,
   },
   {
+    title: "I Need To Know",
+    artist: "Marc Anthony",
+    match: "!Op!Epvcu!!!Epo(u!Tqfbl!",
+    priority: 1,
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "fLVzw9wVd9o",
+    volume: 100,
+  },
+  {
     title: "If Ya Gettin' Down",
     artist: "Five",
     match: "!Cbdltusffu!Cpzt!!!Rvju!Qmbzjoh!Hbnft!)Xjui!Nz!Ifbsu*!",
@@ -138,6 +149,18 @@ const usedItems = [
     style: {width: "83vw"},
     type: 0,
     videoId: "31mlEEs9_Vk",
+    volume: 100,
+  },
+  {
+    title: "No Quiero Verte",
+    artist: "Lynda",
+    left: "-5vw",
+    match: "!Toppq!Ephhz!Ephh!gfbu/!Dibsmjf!Xjmtpo!!!Toppq(t!Vqtjef!Zb!Ifbe!",
+    priority: 1,
+    startSeconds: 1,
+    style: {left: "-5vw", position: "relative", width: "110vw"},
+    type: 0,
+    videoId: "_o0vOmL-PYY",
     volume: 100,
   },
   {
@@ -449,16 +472,6 @@ const unusedItems = new List(
     volume: 100,
   },
   {
-    title: "I Need To Know",
-    artist: "Marc Anthony",
-    match: "!Op!Epvcu!!!Epo(u!Tqfbl!",
-    priority: 1,
-    style: {width: "83vw"},
-    type: 0,
-    videoId: "fLVzw9wVd9o",
-    volume: 100,
-  },
-  {
     title: "Keep On Movin'",
     artist: "Five",
     match: "!Bfsptnjui!!!Gbmmjoh!Jo!Mpwf!)Jt!Ibse!Po!Uif!Lofft*!",
@@ -518,18 +531,6 @@ const unusedItems = new List(
     style: {width: "83vw"},
     type: 0,
     videoId: "LTfD2E0hf4k",
-    volume: 100,
-  },
-  {
-    title: "No Quiero Verte",
-    artist: "Lynda",
-    left: "-5vw",
-    match: "!Toppq!Ephhz!Ephh!gfbu/!Dibsmjf!Xjmtpo!!!Toppq(t!Vqtjef!Zb!Ifbe!",
-    priority: 1,
-    startSeconds: 1,
-    style: {left: "-5vw", position: "relative", width: "110vw"},
-    type: 0,
-    videoId: "_o0vOmL-PYY",
     volume: 100,
   },
   /*
