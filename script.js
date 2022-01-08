@@ -785,8 +785,8 @@ class Chart extends List {
    * @return {Array} entries
    */
   static corrector3(entry, chartA, chartB, database) {
-    const [A, B] = [chartA.positionOf(entry), chartB.positionOf(entry)];
-    const history = new ChartHistory(...database.get(entry).history, A, B);
+    const history = database.get(entry);
+    const [A, B] = history.slice(-2);
  
     let [start, end] = [A, B].sort((a, b) => a - b);
 
@@ -810,7 +810,7 @@ class Chart extends List {
     }
 
     return chartA.slice(start - 1, end).remove(entry).filter(entry => {
-      const history = new ChartHistory(21, 21, ...database.get(entry)?.history || []);
+      const history = database.get(entry);
 
       // TO DO: item has only been in chart for less than 3 weeks
       // TO DO: item ascends from chart B 
