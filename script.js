@@ -74,7 +74,7 @@ function adjustScreen(screen, measurements) {
  * const chart1 = new Chart('A', 'B', 'C', 'D', 'E');
  * const chart2 = new Chart('E', 'D', 'C', 'B', 'A');
  * createDatabase(chart1, chart2);
- * // Returns {'A' => ChartHistory: [1, 5], 'B' => ChartHistory: [2, 4], 'C' => ChartHistory: [3, 3], 'D' => ChartHistory: [4, 2], 'E' => ChartHistory: [5, 1] }
+ * // Returns {'A' => ChartHistory(2) [1, 5], 'B' => ChartHistory(2) [2, 4], 'C' => ChartHistory(2) [3, 3], 'D' => ChartHistory(2) [4, 2], 'E' => ChartHistory(2) [5, 1] }
  */
 function createDatabase(...charts) {
   const map = new Map();
