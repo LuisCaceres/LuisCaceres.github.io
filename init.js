@@ -49,17 +49,17 @@ async function onYouTubeIframeAPIReady() {
     player.addEventListener('onReady', resolve); 
   }); 
 
-  const response = confirm('Would you like to verify the availability of videos?');
+  const response = confirm('Would you like to verify the availability of video tracks?');
 
   if (response) {
     await verifyAvailability(player);
   }
 
-  alert('The availability of videos has been verified');
+  alert('The availability of video tracks has been verified');
 
   const previousCharts = charts.slice(-4);
-  const currentChart = createChart(lists.at(-2), charted, uncharted);
-  const nextChart = createChart(lists.at(-1), charted, uncharted);
+  const currentChart = createChartFromList(lists.at(-2), charted, uncharted);
+  const nextChart = createChartFromList(lists.at(-1), charted, uncharted);
 
   const database = createDatabase(...previousCharts, currentChart, nextChart);
 
