@@ -83,11 +83,11 @@ function runTests(week, charts, detector, tests) {
     test.forEach((test, index) => {
 
       if (index === 0) {
-   //     test(entries);
+       test(entries);
       }
       else {
-//         const entry = entries.shift();
-//         const values = Chart[`corrector${detector}`](entry, chartA, chartB, database);
+        const entry = entries.shift();
+        const values = Chart[`corrector${detector}`](entry, chartA, chartB, database);
 //         Chart[`sorter${detector}`](entry, values, [chart1, chart2, chartA, chartB]);
 //         test(values);
       }
