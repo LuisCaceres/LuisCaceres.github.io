@@ -88,7 +88,7 @@ function runTests(week, charts, detector, tests) {
       else {
         const entry = entries.shift();
         const values = Chart[`corrector${detector}`](entry, chartA, chartB, database);
-//         Chart[`sorter${detector}`](entry, values, [chart1, chart2, chartA, chartB]);
+        Chart[`sorter${detector}`](entry, values, [chart1, chart2, chartA, chartB]);
 //         test(values);
       }
     });
