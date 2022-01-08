@@ -5,6 +5,11 @@ const lists = [
   ['!Qfufs!Boesf!!!J!Gffm!Zpv!', '!Toppq!Ephhz!Ephh!gfbu/!Dibsmjf!Xjmtpo!!!Toppq(t!Vqtjef!Zb!Ifbe!', '!Epoob!Mfxjt!!!J!Mpwf!Zpv!Bmxbzt!Gpsfwfs!', "!Fbtu28!'!Hbcsjfmmf!!!Jg!Zpv!Fwfs!", '!Cpz{pof!!!Xpset!', '!Kbnjsprvbj!!!Dptnjd!Hjsm!', '!Uif!Bsujtu!Gpsnfsmz!Lopxo!Bt!Qsjodf!!!Cfudib!Cz!Hpmmz!Xpx"!', '!Cmbdltusffu!gfbu/!Es/!Esf!!!Op!Ejhhjuz!', '!Uif!Csbjet!!!Cpifnjbo!Sibqtpez!!', '!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!', '!Op!Epvcu!!!Epo(u!Tqfbl!', '!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!', '!Xbssfo!H/!gfbu/!Bejob!Ipxbse!!!Xibu(t!Mpwf!Hpu!Up!Ep!Xjui!Ju!', '!Cbdltusffu!Cpzt!!!Rvju!Qmbzjoh!Hbnft!)Xjui!Nz!Ifbsu*!', '!Nbsl!Pxfo!!!Dijme!', '!Gvhfft!!!Op!Xpnbo!Op!Dsz!', '!Uif!Qspejhz!!!Csfbuif!', '!Tqjdf!Hjsmt!!!3!Cfdpnf!2!', '!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!', '!Spcfsu!Njmft!!!Pof!Boe!Pof!'].reverse(),
 ];
 
+list.forEach(list => expect(list.length).to.equal(20));
+
+
+
+
 const charts = [
   // Add a previous chart.
   new Chart('All I Have To Give', 'La Lola', 'Puente', "The Kids Aren't Alright", 'Someday', 'Heartbreaker', "Someday We'll Know", 'Waiting For Tonight', 'What\'s My Age Again?', 'Higher', "When You're Gone", "If Ya Gettin' Down", 'Atrapados En La Red', 'Look At Me', 'Jennifer Del Estero', 'Let Forever Be', '...Baby One More Time', 'All Star', 'Entry 0', 'Si Me Advertí'),
@@ -12,6 +17,11 @@ const charts = [
   new Chart('Puente', 'All I Have To Give', 'La Lola', 'Someday', "The Kids Aren't Alright", "Someday We'll Know", 'Higher', 'Heartbreaker', 'Waiting For Tonight', 'What\'s My Age Again?', "If Ya Gettin' Down", "When You're Gone", 'Jennifer Del Estero', 'Atrapados En La Red', 'Look At Me', 'All Star', 'Let Forever Be', '...Baby One More Time', 'Si Me Advertí', 'Entry 0'),
   new Chart('Puente', 'All I Have To Give', 'Someday', 'La Lola', "Someday We'll Know", 'Higher', "The Kids Aren't Alright", "If Ya Gettin' Down", 'Heartbreaker', 'Waiting For Tonight', 'What\'s My Age Again?', "When You're Gone", 'Jennifer Del Estero', 'All Star', 'Atrapados En La Red', 'Look At Me', 'Si Me Advertí', 'Let Forever Be', '...Baby One More Time', 'Angels'),
 ];
+
+charts.forEach(chart => expect(chart.length).to.equal(20));
+
+
+
 
 const charted = [
   {
@@ -204,44 +214,6 @@ const charted = [
 // .map(element => new Item(element))
 //.forEach(item => item.validate());
 
-// ++++++++++++++++++++++++++++++++++++++++++
-// WEEK 10 / 22.03
-// ++++++++++++++++++++++++++++++++++++++++++
-
-// const previousList = [
-//   ["The Offspring", "Pretty Fly"],
-//   ["Vanessa Amorosi", "Absolutely Everybody"],
-//   ["Five", "Keep On Movin'"],
-//   ["TLC", "Unpretty"],
-//   ["Lena Marlin", "Sitting Down Here"],
-//   ["Fey", "Díselo Con Flores"],
-//   ["No Doubt", "New"],
-//   ["Aerosmith", "I Don't Want To Miss A Thing"],
-//   ["A-Teens", "Super Trouper"],
-//   ["Britney Spears", "Crazy"],
-//   ["Robbie Williams", "Angels"],
-//   ["Celine Dion", "That's The Way It Is"],
-//   ["Blur", "Coffee And T.V."],
-//   ["Ely Guerra", "Tengo Frío"],
-//   ["Marc Anthony", "I Need To Know"],
-//   ["Santana", "Maria Maria"],
-//   ["Cher", "All Or Nothing"],
-//   ["Smash Mouth", "All Star"],
-//   ["Lenny Kravitz", "Fly Away"],
-//   ["Geri Halliwell", "Mi Chico Latino"],
-// ]
-// .map(([artist, title]) => {
-//   return Array.from(charted.values()).find(item => item.artist === artist && item.title === title).match;
-// })
-// .reverse();
-
-const currentList = ['!Spcfsu!Njmft!!!Pof!Boe!Pof!', '!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!', '!Uif!Qspejhz!!!Csfbuif!', '!Nbsl!Pxfo!!!Dijme!', '!Tqjdf!Hjsmt!!!3!Cfdpnf!2!', '!Gvhfft!!!Op!Xpnbo!Op!Dsz!', '!Cbdltusffu!Cpzt!!!Rvju!Qmbzjoh!Hbnft!)Xjui!Nz!Ifbsu*!', '!Xbssfo!H/!gfbu/!Bejob!Ipxbse!!!Xibu(t!Mpwf!Hpu!Up!Ep!Xjui!Ju!', '!Uif!Csbjet!!!Cpifnjbo!Sibqtpez!!', "!Fbtu28!'!Hbcsjfmmf!!!Jg!Zpv!Fwfs!", '!Cpz{pof!!!Xpset!', '!Uif!Bsujtu!Gpsnfsmz!Lopxo!Bt!Qsjodf!!!Cfudib!Cz!Hpmmz!Xpx"!', '!Cmbdltusffu!gfbu/!Es/!Esf!!!Op!Ejhhjuz!', '!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!', '!Epoob!Mfxjt!!!J!Mpwf!Zpv!Bmxbzt!Gpsfwfs!', '!Tqjdf!Hjsmt!!!Tbz!Zpv(mm!Cf!Uifsf!', '!Kbnjsprvbj!!!Dptnjd!Hjsm!', '!Y{jcju!!!Qbqbsb{{j!', '!Qfufs!Boesf!!!J!Gffm!Zpv!', '!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!'];
-const nextList = ["!V3!!!Ejtdpuifrvf!", "!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!", "!Tbti\"!!!Fodpsf!vof!gpjt!", "!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!", "!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!", "!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!", "!Op!Epvcu!!!Epo(u!Tqfbl!", "!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!", "!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!", "!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!", "!CCF!!!Gmbti!", "!Hjovxjof!!!Qpoz!", "!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!", "!Sfqvcmjdb!!!Sfbez!Up!Hp!", "!Xijuf!Upxo!!!Bcpsu-!Sfusz-!Gbjm@!Zpvs!Xpnbo!", "!Cbdltusffu!Cpzt!!!Bozxifsf!Gps!Zpv!", "!Bfsptnjui!!!Gbmmjoh!Jo!Mpwf!)Jt!Ibse!Po!Uif!Lofft*!", "!Ufybt!!!Tbz!Xibu!Zpv!Xbou!", "!Tqjdf!Hjsmt!!!Nbnb!", "!Cmvs!!!Cffumfcvn!"];
-
-// expect(previousList.length).to.equal(20);
-expect(currentList.length).to.equal(20);
-expect(nextList.length).to.equal(20);
-
 
 
 
@@ -278,8 +250,6 @@ const sting = {
   volume: 50,
 };
 
-
-
 charted.forEach(item => {
   const keys = Object.keys(item);
   expect(keys.includes('title')).to.equal(true);
@@ -292,7 +262,9 @@ charted.forEach(item => {
 });
 
 
-let uncharted = new List(
+
+
+const uncharted = new List(
   {
     title: "Absolutely Everybody",
     artist: "Vanessa Amorosi",
