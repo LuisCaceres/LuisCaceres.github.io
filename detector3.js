@@ -1086,15 +1086,6 @@ EXAMPLE: [20, 20, 20]
        expect(entries).to.include("La Lola");
      },
 
-     function (entries) { // Someday We'll Know
-       expect(entries.length).to.equal(2);
-                                                      // [03, 03, 03, 04]  [10, 05, 02, 02]
-       expect(entries).to.include("I Need To Know");  // [03, 03, 02, 04]  [10, 05, 03, 02]
-
-                                                      // [03, 03, 03, 04]  [01, 01, 04, 05]
-       expect(entries).to.include("Puente");          // [03, 03, 04, 04]  [01, 01, 03, 05]
-     },
-
      function (entries) { // La Lola
        expect(entries.length).to.equal(3);
                                                                 // [16, 16, 16, **]  [12, 13, 17, 19]
@@ -1106,6 +1097,15 @@ EXAMPLE: [20, 20, 20]
                                                                 // [16, 16, 16, **]  [**, **, 19, 16]
        expect(entries).to.include("Don't Say You Love Me");     // [16, 16, 19, **]  [**, **, 16, 16]
      },
+
+     function (entries) { // Someday We'll Know
+       expect(entries.length).to.equal(2);
+                                                      // [03, 03, 03, 04]  [10, 05, 02, 02]
+       expect(entries).to.include("I Need To Know");  // [03, 03, 02, 04]  [10, 05, 03, 02]
+
+                                                      // [03, 03, 03, 04]  [01, 01, 04, 05]
+       expect(entries).to.include("Puente");          // [03, 03, 04, 04]  [01, 01, 03, 05]
+     },
    ],
 
 
