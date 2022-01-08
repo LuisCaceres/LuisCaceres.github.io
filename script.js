@@ -100,26 +100,20 @@ function createDatabase(...charts) {
 function createChart(list, charted, uncharted) {
   const entries = list.map((element, index) => {
     let entry = charted.find(item => item.match === element)?.title;
-    
+
     if (!entry) {
       entry = uncharted.random().title;
       // Remove any duplicates of 'video' from the pool.
       // uncharted.remove(entry);
       // charted.set(match, entry);
     }
-    
+
     // entry.position = `${index + 1}`.padStart(2, 0);
-    
+
     return entry;
   });
-    
+
   return new Chart(...entries);
-  
-//   return {
-//     chart,
-//     charted,
-//     uncharted,
-//   };
 }
 
 
