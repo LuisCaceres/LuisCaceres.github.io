@@ -47,8 +47,10 @@ function adjustScreen(screen, measurements) {
 }
 
 
-/*
- *
+/* Duplicates a video track `videoTrack` whose `endSeconds` property has been explictly given a value.
+ * The duplicated video track is inserted into `playlist` immediately after `videoTrack`.
+ * This is necessary because without a duplicate YouTube API fails to play `videoTrack` at all.
+ * This occurs when `videoTrack` must stop playing before the actual end of the video.
  */
 function adjustPlaylist(playlist) {
   return playlist.map(item => {
