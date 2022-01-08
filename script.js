@@ -867,27 +867,28 @@ class Chart extends List {
     });
   }
 
+  Chart[`sorter${detector}`](entry, values, [chart1, chart2, chartA, chartB]);
 
-  static sorter3(entry, values, charts) {
-    const position = charts[2].positionOf(entry);
+  static sorter3(entry, values, database) {
+    const position = database.get(entry).at(-2);  // charts[2].positionOf(entry);
     const map = new Map();
 
     for (const value of values) {
-      const history = new ChartHistory(...charts.map(chart => chart.positionOf(value)));
-      const delta1 = Math.abs(history[1] - position);
-      const delta2 = Math.abs(history[3] - position);
+      const history = database.get(value); // new ChartHistory(...charts.map(chart => chart.positionOf(value)));
+      const delta1 = Math.abs(history.at(-3) - position); // Math.abs(history[1] - position);
+      const delta2 = Math.abs(history.at(-1) - position); // Math.abs(history[3] - position);
 
       //  1   2   A   B
       // [**, **, 11, 07]  [**, **, 14, 07]
-      if (history[1] === 21 && history[2] <= 12) {
+      if (history.at(-3) === 21 && history.at(-2) <= 12) {
         map.set(value, 12);
       }
       // [11, 11, 11, 07]  [11, 11, 09, 07]
-      else if (history.slice(0, -1).isFlat() === true) {
+      else if (history.slice(-4, -1).isFlat() === true) {
         map.set(value, 11);
       }
       // [15, 12, 12, 18]  [15, 12, 13, 18]
-      else if (new ChartHistory(...history.slice(0, -1), position).hasStartedDescending() === true) {
+      else if (new ChartHistory(...history.slice(-4, -1), position).hasStartedDescending() === true) {
         map.set(value, 1);
       }
       // [**, **, 17, 14]  [**, **, 16, 14]
