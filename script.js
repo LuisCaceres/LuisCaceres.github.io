@@ -868,13 +868,13 @@ class Chart extends List {
   }
 
   static sorter3(entry, values, database) {
-    const position = database.get(entry).at(-2);  // charts[2].positionOf(entry);
+    const position = database.get(entry).at(-2);
     const map = new Map();
 
     for (const value of values) {
-      const history = database.get(value); // new ChartHistory(...charts.map(chart => chart.positionOf(value)));
-      const delta1 = Math.abs(history.at(-3) - position); // Math.abs(history[1] - position);
-      const delta2 = Math.abs(history.at(-1) - position); // Math.abs(history[3] - position);
+      const history = database.get(value);
+      const delta1 = Math.abs(history.at(-3) - position);
+      const delta2 = Math.abs(history.at(-1) - position);
 
       //  1   2   A   B
       // [**, **, 11, 07]  [**, **, 14, 07]
