@@ -64,7 +64,7 @@ async function onYouTubeIframeAPIReady() {
   const database = createDatabase(...previousCharts, currentChart, nextChart);
 
   currentChart.format(database);
-    
+
   const items = currentChart.map((entry, index) => {
     const item = usedItems.find(item => item.title === entry) || unusedItems.random();
     unusedItems.remove(item);
@@ -79,6 +79,8 @@ async function onYouTubeIframeAPIReady() {
   let playlist = createPlaylist(items, intro, sting, advertisement, newVideo);
   validate(playlist);
   playlist = adjustPlaylist(playlist);
+
+  window.currentChart = currentChart;
 
   while (playlist.length) {
     const video = playlist.shift();
