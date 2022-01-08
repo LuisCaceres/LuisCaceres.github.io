@@ -99,18 +99,9 @@ function createDatabase(...charts) {
 /*
  *
  */
-function createChartFromList(list, charted, uncharted) {
-  const entries = list.map((element, index) => {
-    let entry = charted.find(item => item.match === element)?.title;
-
-    if (!entry) {
-      entry = uncharted.random().title;
-      // Remove any duplicates of 'video' from the pool.
-      // uncharted.remove(entry);
-      // charted.set(match, entry);
-    }
-
-    return entry;
+function createChartFromList(list, items) {
+  const entries = list.map(element => {
+    return items.find(item => item.match === element)?.title || element;
   });
 
   return new Chart(...entries);
