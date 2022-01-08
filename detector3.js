@@ -137,6 +137,7 @@ EXAMPLE: [20, 20, 20]
      },
 
      function (entries) { // All I Have To Give
+       // NOTE: [21, 18, 18, 18, 19] <<< CHECK THIS SITUATION
        expect(entries.length).to.equal(2);
                                                       // [05, 05, 05, 07]  [**, 10, 06, 02]
        expect(entries).to.include("I Need To Know");  // [05, 05, 06, 07]  [**, 10, 05, 02]
