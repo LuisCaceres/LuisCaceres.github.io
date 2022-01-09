@@ -13,7 +13,7 @@ const lists = [
   
   
   
-  //  /* chart  8 (08/03/1997) */ ['!Xijuf!Upxo!!!Bcpsu-!Sfusz-!Gbjm@!Zpvs!Xpnbo!', '!Bfsptnjui!!!Gbmmjoh!Jo!Mpwf!)Jt!Ibse!Po!Uif!Lofft*!', '!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!', '!Kbnjsprvbj!!!Dptnjd!Hjsm!', '!Cbdltusffu!Cpzt!!!Bozxifsf!Gps!Zpv!', '!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!', '!Tqjdf!Hjsmt!!!3!Cfdpnf!2!', '!CCF!!!Gmbti!', '!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!', '!Tbti"!!!Fodpsf!vof!gpjt!', '!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!', '!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!', '!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!', '!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!', '!Hjovxjof!!!Qpoz!', '!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!', '!Op!Epvcu!!!Epo(u!Tqfbl!', '!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!', '!V3!!!Ejtdpuifrvf!', '!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!'].reverse(),
+  /* chart  8 (08/03/1997) */ ['!Xijuf!Upxo!!!Bcpsu-!Sfusz-!Gbjm@!Zpvs!Xpnbo!', '!Bfsptnjui!!!Gbmmjoh!Jo!Mpwf!)Jt!Ibse!Po!Uif!Lofft*!', '!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!', '!Kbnjsprvbj!!!Dptnjd!Hjsm!', '!Cbdltusffu!Cpzt!!!Bozxifsf!Gps!Zpv!', '!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!', '!Tqjdf!Hjsmt!!!3!Cfdpnf!2!', '!CCF!!!Gmbti!', '!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!', '!Tbti"!!!Fodpsf!vof!gpjt!', '!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!', '!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!', '!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!', '!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!', '!Hjovxjof!!!Qpoz!', '!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!', '!Op!Epvcu!!!Epo(u!Tqfbl!', '!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!', '!V3!!!Ejtdpuifrvf!', '!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!'].reverse(),
   //  /* chart  8 (08/03/1997) */ [].reverse(),  
 ];
 
