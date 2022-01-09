@@ -381,6 +381,21 @@ class ChartHistory extends NumberList {
   }
 
 
+  /* Returns the true length of this chart history. In other words, 
+   * any ocurrences of position 21 are ignored. 
+   * @return {Number}
+   * @example
+   * new ChartHistory(17, 10, 06, 03, 02, 01).length;
+   * // returns `6`
+   * new ChartHistory(21, 10, 06, 02, 02, 21).length;
+   * // returns `4`
+   */  
+  get length() {
+    const ocurrences = this.filter(position => position === 21).length;
+    return this.length - ocurrences;
+  }
+
+
   /* Returns `true` if or `false` otherwise.
    * @return {Boolean}
    * @example
@@ -899,5 +914,22 @@ class Chart extends List {
     values.sort((a, b) => map.get(b) - map.get(a));
 
     return values;
+  }
+  
+  /* Finds entries, on the current chart, which have started descending unexpectedly.
+   * For example: [21, 10, 06, 03, 02, 03, 04, 04, 04, 06]
+   * @param {} database - A list of items.
+   * @return {List}
+   */
+  static detector4(database) {
+    const errors = new List();
+
+    for (const [entry, history] of database) {
+      if (history.slice(0, -1).hasStartedDescending() === true) {
+
+      }
+    }
+
+    return errors;
   }
 }
