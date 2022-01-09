@@ -731,8 +731,6 @@ class Chart extends List {
 
   /* Finds entries on `chartA` which have been static in the same position consecutively for 3 charts.
    * For example: [17, 15, 13, 10, 9, 9, 9]
-   * @param {Chart} chartA
-   * @param {Chart} chartB
    * @param {} database - A list of entries having ever charted.
    * @return {Array} entries
    */
@@ -753,10 +751,9 @@ class Chart extends List {
 
 
   /* Finds entries on `chartA` which `entryB` can replace.
-   * @param {*} entry - Corrupt entry on `chartB` which has debuted in position 12 or a higher position.
+   * @param {String} entry - Corrupt entry on `chartB` which has debuted in position 12 or a higher position.
    * For example: [**, 10, 6, 2, 2]
    * @param {Chart} chartA
-   * @param {Chart} chartB
    * @param {} database - A list of entries having ever charted.
    * @return {Array} entries
    */
