@@ -43,6 +43,7 @@ const charts = [
   /* chart  7 */ new Chart('All Star', 'Angels', 'Mi Chico Latino', 'I Need To Know', "That's The Way It Is", 'New', "Someday We'll Know", 'Si Me Advertí', 'Maria Maria', 'Someday', 'Fly Away', 'Man! I Feel Like A Woman', 'Puente', 'All Or Nothing', 'No Quiero Verte', 'Super Trouper', 'Fast As You Can', 'All I Have To Give', "Don't Say You Love Me", 'Blue Monday'),
   /* chart  8 */ new Chart('All Star', 'Mi Chico Latino', 'Angels', 'I Need To Know', 'New', "That's The Way It Is", 'Fly Away', 'Maria Maria', "Someday We'll Know", 'All Or Nothing', 'Si Me Advertí', 'Tengo Frío', 'Someday', 'Super Trouper', 'Coffee And T.V.', 'Puente', 'Fast As You Can', 'Man! I Feel Like A Woman', 'Díselo Con Flores', 'Blue Monday'),
   /* chart  9 */ new Chart('Mi Chico Latino', 'Fly Away', 'All Star', 'I Need To Know', 'Maria Maria', "That's The Way It Is", 'Angels', 'All Or Nothing', 'New', 'Tengo Frío', 'Coffee And T.V.', 'Super Trouper', 'I Don\'t Want To Miss A Thing', "Someday We'll Know", 'Someday', 'Crazy', 'Si Me Advertí', 'Díselo Con Flores', 'Keep On Movin\'', 'Unpretty'),
+  /* chart 10 */ new Chart('Mi Chico Latino', 'Fly Away', 'All Star', 'All Or Nothing', 'Maria Maria', 'I Need To Know', 'Tengo Frío', 'Coffee And T.V.', "That's The Way It Is", 'Angels', 'Crazy', 'Super Trouper', "I Don't Want To Miss A Thing", 'New', 'Díselo Con Flores', 'Sitting Down Here', 'Unpretty', "Keep On Movin'", 'Absolutely Everybody', 'Pretty Fly'),
 ];
 
 charts.forEach(chart => expect(chart.length).to.equal(20));
