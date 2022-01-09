@@ -31,6 +31,7 @@ const charts = [
   /* chart  2 */ new Chart('Puente', 'Someday', "Someday We'll Know", 'All I Have To Give', 'Higher', 'La Lola', "If Ya Gettin' Down", "The Kids Aren't Alright", 'All Star', 'I Need To Know', 'Angels', 'Heartbreaker', "When You're Gone", 'Jennifer Del Estero', 'Si Me Advertí', "What's My Age Again?", 'Waiting For Tonight', 'Atrapados En La Red', 'No Quiero Verte', '...Baby One More Time'),
   /* chart  3 */ new Chart('Someday', 'Puente', "Someday We'll Know", 'All Star', 'All I Have To Give', 'I Need To Know', 'Higher', 'Angels', "If Ya Gettin' Down", 'La Lola', "The Kids Aren't Alright", 'New', 'Si Me Advertí', "When You're Gone", 'Mi Chico Latino', 'Heartbreaker', 'No Quiero Verte', 'Jennifer Del Estero', 'That\'s The Way It Is', 'Man! I Feel Like A Woman'),
   /* chart  4 */ new Chart('All Star', "Someday We'll Know", 'I Need To Know', 'Puente', 'Angels', 'Someday', 'All I Have To Give', 'Higher', 'New', 'Si Me Advertí', "If Ya Gettin' Down", 'Mi Chico Latino', 'No Quiero Verte', "The Kids Aren't Alright", "That's The Way It Is", 'La Lola', "When You're Gone", 'Man! I Feel Like A Woman', 'Don\'t Say You Love Me', 'Fast As You Can'),
+  /* chart  5 */ new Chart('All Star', 'I Need To Know', 'Angels', "Someday We'll Know", 'Puente', 'Someday', 'New', 'Mi Chico Latino', 'Si Me Advertí', 'All I Have To Give', 'No Quiero Verte', 'Higher', "That's The Way It Is", 'Man! I Feel Like A Woman', "If Ya Gettin' Down", "Don't Say You Love Me", 'Blue Monday', "The Kids Aren't Alright", "When You're Gone", 'Fast As You Can'),
 ];
 
 charts.forEach(chart => expect(chart.length).to.equal(20));
@@ -85,6 +86,17 @@ const usedItems = [
     style: {width: "83vw"},
     type: 0,
     videoId: "fHPnGqXXUmI",
+    volume: 100,
+  },
+  {
+    title: "Blue Monday",
+    artist: "Orgy",
+    match: "!Upsj!Bnpt!!!Qspgfttjpobm!Xjepx!",
+    priority: 1,
+    startSeconds: 1,
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "aJZTfl3DmCU",
     volume: 100,
   },
   {
@@ -382,17 +394,6 @@ const unusedItems = new List(
     style: {left: "-5vw", position: "relative", width: "110vw"},
     type: 0,
     videoId: "BW4LUe2e5oU",
-    volume: 100,
-  },
-  {
-    title: "Blue Monday",
-    artist: "Orgy",
-    match: "!Upsj!Bnpt!!!Qspgfttjpobm!Xjepx!",
-    priority: 1,
-    startSeconds: 1,
-    style: {width: "83vw"},
-    type: 0,
-    videoId: "aJZTfl3DmCU",
     volume: 100,
   },
   /*{
