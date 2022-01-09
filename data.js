@@ -9,14 +9,16 @@ const lists = [
   /* chart  5 (15/02/1997) */ ['!Cmbdltusffu!gfbu/!Es/!Esf!!!Op!Ejhhjuz!', '!Cbdltusffu!Cpzt!!!Rvju!Qmbzjoh!Hbnft!)Xjui!Nz!Ifbsu*!', '!MM!Dppm!K!!!Bjo(u!Opcpez!', '!Gvhfft!!!Op!Xpnbo!Op!Dsz!', '!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!', '!Upsj!Bnpt!!!Qspgfttjpobm!Xjepx!', '!Uif!Qspejhz!!!Csfbuif!', '!Fbtu!28!!!Ifz!Dijme!!', '!Cpz{pof!!!B!Ejggfsfou!Cfbu!', '!Toppq!Ephhz!Ephh!gfbu/!Dibsmjf!Xjmtpo!!!Toppq(t!Vqtjef!Zb!Ifbe!', '!Spcfsu!Njmft!!!Pof!Boe!Pof!', '!Kbnjsprvbj!!!Dptnjd!Hjsm!', '!Hjovxjof!!!Qpoz!', '!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!', '!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!', '!Tqjdf!Hjsmt!!!3!Cfdpnf!2!', '!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!', '!Op!Epvcu!!!Epo(u!Tqfbl!', '!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!', '!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!'].reverse(),
   /* chart  6 (22/02/1997) */ ['!Upsj!Bnpt!!!Qspgfttjpobm!Xjepx!', '!Fbtu!28!!!Ifz!Dijme!!', '!Uif!Qspejhz!!!Csfbuif!', '!MM!Dppm!K!!!Bjo(u!Opcpez!', '!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!', '!Toppq!Ephhz!Ephh!gfbu/!Dibsmjf!Xjmtpo!!!Toppq(t!Vqtjef!Zb!Ifbe!', '!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!', '!Spcfsu!Njmft!!!Pof!Boe!Pof!', '!Cpz{pof!!!B!Ejggfsfou!Cfbu!', '!V3!!!Ejtdpuifrvf!', '!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!', '!Kbnjsprvbj!!!Dptnjd!Hjsm!', '!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!', '!Tqjdf!Hjsmt!!!3!Cfdpnf!2!', '!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!', '!Hjovxjof!!!Qpoz!', '!Op!Epvcu!!!Epo(u!Tqfbl!', '!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!', '!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!', '!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!'].reverse(),
   /* chart  7 (01/03/1997) */ ['!Upsj!Bnpt!!!Qspgfttjpobm!Xjepx!', '!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!', '!Cpz{pof!!!B!Ejggfsfou!Cfbu!', '!MM!Dppm!K!!!Bjo(u!Opcpez!', '!Spcfsu!Njmft!!!Pof!Boe!Pof!', '!Tbti"!!!Fodpsf!vof!gpjt!', '!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!', '!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!', '!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!', '!Kbnjsprvbj!!!Dptnjd!Hjsm!', '!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!', '!Tqjdf!Hjsmt!!!3!Cfdpnf!2!', '!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!', '!V3!!!Ejtdpuifrvf!', '!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!', '!Hjovxjof!!!Qpoz!', '!Op!Epvcu!!!Epo(u!Tqfbl!', '!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!', '!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!', '!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!'].reverse(),
-  /* chart  8 (08/03/1997) */ ['!Xijuf!Upxo!!!Bcpsu-!Sfusz-!Gbjm@!Zpvs!Xpnbo!', '!Bfsptnjui!!!Gbmmjoh!Jo!Mpwf!)Jt!Ibse!Po!Uif!Lofft*!', '!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!', '!Kbnjsprvbj!!!Dptnjd!Hjsm!', '!Cbdltusffu!Cpzt!!!Bozxifsf!Gps!Zpv!', '!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!', '!Tqjdf!Hjsmt!!!3!Cfdpnf!2!', '!CCF!!!Gmbti!', '!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!', '!Tbti"!!!Fodpsf!vof!gpjt!', '!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!', '!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!', '!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!', '!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!', '!Hjovxjof!!!Qpoz!', '!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!', '!Op!Epvcu!!!Epo(u!Tqfbl!', '!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!', '!V3!!!Ejtdpuifrvf!', '!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!'].reverse(),
+  /* chart  8 (08/03/1997) */ ['!Xijuf!Upxo!!!Bcpsu-!Sfusz-!Gbjm@!Zpvs!Xpnbo!', '!Bfsptnjui!!!Gbmmjoh!Jo!Mpwf!)Jt!Ibse!Po!Uif!Lofft*!', '!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!', '!Kbnjsprvbj!!!Dptnjd!Hjsm!', '!Cbdltusffu!Cpzt!!!Bozxifsf!Gps!Zpv!', '!Upoj!Csbyupo!!!Vo.Csfbl!Nz!Ifbsu!', '!Tqjdf!Hjsmt!!!3!Cfdpnf!2!', '!CCF!!!Gmbti!', '!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!', '!Tbti"!!!Fodpsf!vof!gpjt!', '!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!', '!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!', '!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!', '!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!', '!Hjovxjof!!!Qpoz!', '!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!', '!Op!Epvcu!!!Epo(u!Tqfbl!', '!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!', '!V3!!!Ejtdpuifrvf!', '!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!'].reverse(),  
+  /* chart  9 (15/03/1997) */ ['!Cmvs!!!Cffumfcvn!', '!Ufybt!!!Tbz!Xibu!Zpv!Xbou!', '!Bfsptnjui!!!Gbmmjoh!Jo!Mpwf!)Jt!Ibse!Po!Uif!Lofft*!', '!Xijuf!Upxo!!!Bcpsu-!Sfusz-!Gbjm@!Zpvs!Xpnbo!', '!Sfqvcmjdb!!!Sfbez!Up!Hp!', '!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!', '!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!', '!CCF!!!Gmbti!', '!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!', '!Cbdltusffu!Cpzt!!!Bozxifsf!Gps!Zpv!', '!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!', '!Hjovxjof!!!Qpoz!', '!Tbti"!!!Fodpsf!vof!gpjt!', '!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!', '!Op!Epvcu!!!Epo(u!Tqfbl!', '!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!', '!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!', '!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!', '!V3!!!Ejtdpuifrvf!', '!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!'].reverse(),
 
   
   
   
-  /* chart  9 (15/03/1997) */ ['!Cmvs!!!Cffumfcvn!', '!Ufybt!!!Tbz!Xibu!Zpv!Xbou!', '!Bfsptnjui!!!Gbmmjoh!Jo!Mpwf!)Jt!Ibse!Po!Uif!Lofft*!', '!Xijuf!Upxo!!!Bcpsu-!Sfusz-!Gbjm@!Zpvs!Xpnbo!', '!Sfqvcmjdb!!!Sfbez!Up!Hp!', '!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!', '!ND!Mzuf!!!Dpme!Spdl!B!Qbsuz!', '!CCF!!!Gmbti!', '!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!', '!Cbdltusffu!Cpzt!!!Bozxifsf!Gps!Zpv!', '!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!', '!Hjovxjof!!!Qpoz!', '!Tbti"!!!Fodpsf!vof!gpjt!', '!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!', '!Op!Epvcu!!!Epo(u!Tqfbl!', '!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!', '!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!', '!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!', '!V3!!!Ejtdpuifrvf!', '!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!'].reverse(),
   
-  //  /* chart  9 (15/03/1997) */ [].reverse(),  
+  /* chart  10 (22/03/1997) */ ['!Cmvs!!!Cffumfcvn!', '!Tqjdf!Hjsmt!!!Nbnb!', '!Ufybt!!!Tbz!Xibu!Zpv!Xbou!', '!Bfsptnjui!!!Gbmmjoh!Jo!Mpwf!)Jt!Ibse!Po!Uif!Lofft*!', '!Cbdltusffu!Cpzt!!!Bozxifsf!Gps!Zpv!', '!Xijuf!Upxo!!!Bcpsu-!Sfusz-!Gbjm@!Zpvs!Xpnbo!', '!Sfqvcmjdb!!!Sfbez!Up!Hp!', '!Xijuofz!Ipvtupo!!!Tufq!Cz!Tufq!', '!Hjovxjof!!!Qpoz!', '!CCF!!!Gmbti!', '!Xbssfo!H/!!!J!Tipu!Uif!Tifsjgg!', '!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!', '!Efqfdif!Npef!!!Cbssfm!Pg!B!Hvo!', '!Op!Epvcu!!!Epo(u!Tqfbl!', '!Nbepoob!!!Epo(u!Dsz!Gps!Nf!Bshfoujob!', '!Bqpmmp!Gpvs!Gpsuz!!!Bjo(u!Ubmljo(!(Cpvu!Evc!', '!Npotubst!)C!Sfbm-!Cvtub!Siznft-!Dppmjp-!MM!Dppm!K…Nfuipe!Nbo*!!!Iju!(Fn!Ijhi!)Uif!Npotubst!Bouifn*!', '!Tbti"!!!Fodpsf!vof!gpjt!', '!Fo!Wphvf!!!Epo(u!Mfu!Hp!)Mpwf*!', '!V3!!!Ejtdpuifrvf!'].reverse(),
+  
+//  /* chart  10 (22/03/1997) */ [].reverse(),  
 ];
 
 
@@ -40,6 +42,7 @@ const charts = [
   /* chart  6 */ new Chart('All Star', 'Angels', 'I Need To Know', 'Mi Chico Latino', "Someday We'll Know", 'New', 'Someday', "That's The Way It Is", 'Si Me Advertí', 'Puente', 'No Quiero Verte', 'Man! I Feel Like A Woman', "Don't Say You Love Me", 'All I Have To Give', 'Blue Monday', 'All Or Nothing', 'Higher', 'Fast As You Can', "If Ya Gettin' Down", "When You're Gone"),
   /* chart  7 */ new Chart('All Star', 'Angels', 'Mi Chico Latino', 'I Need To Know', "That's The Way It Is", 'New', "Someday We'll Know", 'Si Me Advertí', 'Maria Maria', 'Someday', 'Fly Away', 'Man! I Feel Like A Woman', 'Puente', 'All Or Nothing', 'No Quiero Verte', 'Super Trouper', 'Fast As You Can', 'All I Have To Give', "Don't Say You Love Me", 'Blue Monday'),
   /* chart  8 */ new Chart('All Star', 'Mi Chico Latino', 'Angels', 'I Need To Know', 'New', "That's The Way It Is", 'Fly Away', 'Maria Maria', "Someday We'll Know", 'All Or Nothing', 'Si Me Advertí', 'Tengo Frío', 'Someday', 'Super Trouper', 'Coffee And T.V.', 'Puente', 'Fast As You Can', 'Man! I Feel Like A Woman', 'Díselo Con Flores', 'Blue Monday'),
+  /* chart  9 */ new Chart('Mi Chico Latino', 'Fly Away', 'All Star', 'I Need To Know', 'Maria Maria', "That's The Way It Is", 'Angels', 'All Or Nothing', 'New', 'Tengo Frío', 'Coffee And T.V.', 'Super Trouper', 'I Don\'t Want To Miss A Thing', "Someday We'll Know", 'Someday', 'Crazy', 'Si Me Advertí', 'Díselo Con Flores', 'Keep On Movin\'', 'Unpretty'),
 ];
 
 charts.forEach(chart => expect(chart.length).to.equal(20));
@@ -132,6 +135,17 @@ const usedItems = [
     volume: 100,
   },
   {
+    title: "Crazy",
+    artist: "Britney Spears",
+    endSeconds: 197,
+    match: "!Cbdltusffu!Cpzt!!!Bozxifsf!Gps!Zpv!",
+    priority: 1,
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "IPL_4ICbrfw",
+    volume: 100,
+  },
+  {
     title: "Díselo Con Flores",
     artist: "Fey",
     match: "!S/!Lfmmz!!!J!Cfmjfwf!J!Dbo!Gmz!",
@@ -191,6 +205,16 @@ const usedItems = [
     volume: 100,
   },
   {
+    title: "I Don't Want To Miss A Thing",
+    artist: "Aerosmith",
+    match: "!CCF!!!Gmbti!",
+    priority: 1,
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "JkK8g6FMEXE",
+    volume: 100,
+  },
+  {
     title: "I Need To Know",
     artist: "Marc Anthony",
     match: "!Op!Epvcu!!!Epo(u!Tqfbl!",
@@ -216,6 +240,16 @@ const usedItems = [
     style: {width: "83vw"},
     type: 0,
     videoId: "KLRlJ0uJ-yI",
+    volume: 100,
+  },
+  {
+    title: "Keep On Movin'",
+    artist: "Five",
+    match: "!Bfsptnjui!!!Gbmmjoh!Jo!Mpwf!)Jt!Ibse!Po!Uif!Lofft*!",
+    priority: 1,
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "3OJMjlzVLZE",
     volume: 100,
   },
   {
@@ -379,6 +413,16 @@ const usedItems = [
     volume: 100,
   },
   {
+    title: "Unpretty",
+    artist: "TLC",
+    match: "!Xijuf!Upxo!!!Bcpsu-!Sfusz-!Gbjm@!Zpvs!Xpnbo!",
+    priority: 1,
+    style: {width: "83vw"},
+    type: 0,
+    videoId: "g2gy1Evb1Kg",
+    volume: 100,
+  },
+  {
     title: "Waiting For Tonight",
     artist: "Jennifer Lopez",
     match: "!Fbtu28!'!Hbcsjfmmf!!!Jg!Zpv!Fwfs!",
@@ -504,17 +548,6 @@ const unusedItems = new List(
     volume: 100,
   },
   {
-    title: "Crazy",
-    artist: "Britney Spears",
-    endSeconds: 197,
-    match: "!Cbdltusffu!Cpzt!!!Bozxifsf!Gps!Zpv!",
-    priority: 1,
-    style: {width: "83vw"},
-    type: 0,
-    videoId: "IPL_4ICbrfw",
-    volume: 100,
-  },
-  {
     title: "Don't Call Me Baby",
     artist: "Madison Avenue",
     priority: 1,
@@ -550,26 +583,6 @@ const unusedItems = new List(
     style: {width: "83vw"},
     type: 0,
     videoId: "Rm1nCYOZB-s",
-    volume: 100,
-  },
-  {
-    title: "I Don't Want To Miss A Thing",
-    artist: "Aerosmith",
-    match: "!CCF!!!Gmbti!",
-    priority: 1,
-    style: {width: "83vw"},
-    type: 0,
-    videoId: "JkK8g6FMEXE",
-    volume: 100,
-  },
-  {
-    title: "Keep On Movin'",
-    artist: "Five",
-    match: "!Bfsptnjui!!!Gbmmjoh!Jo!Mpwf!)Jt!Ibse!Po!Uif!Lofft*!",
-    priority: 1,
-    style: {width: "83vw"},
-    type: 0,
-    videoId: "3OJMjlzVLZE",
     volume: 100,
   },
   {
@@ -673,16 +686,6 @@ const unusedItems = new List(
     style: {width: "83vw"},
     type: 0,
     videoId: "68MKLkNSMN4",
-    volume: 100,
-  },
-  {
-    title: "Unpretty",
-    artist: "TLC",
-    match: "!Xijuf!Upxo!!!Bcpsu-!Sfusz-!Gbjm@!Zpvs!Xpnbo!",
-    priority: 1,
-    style: {width: "83vw"},
-    type: 0,
-    videoId: "g2gy1Evb1Kg",
     volume: 100,
   },
   {
