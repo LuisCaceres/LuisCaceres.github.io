@@ -37,6 +37,7 @@ const charts = [
   /* chart  5 */ new Chart('All Star', 'I Need To Know', 'Angels', "Someday We'll Know", 'Puente', 'Someday', 'New', 'Mi Chico Latino', 'Si Me Advertí', 'All I Have To Give', 'No Quiero Verte', 'Higher', "That's The Way It Is", 'Man! I Feel Like A Woman', "If Ya Gettin' Down", "Don't Say You Love Me", 'Blue Monday', "The Kids Aren't Alright", "When You're Gone", 'Fast As You Can'),
   /* chart  6 */ new Chart('All Star', 'Angels', 'I Need To Know', 'Mi Chico Latino', "Someday We'll Know", 'New', 'Someday', "That's The Way It Is", 'Si Me Advertí', 'Puente', 'No Quiero Verte', 'Man! I Feel Like A Woman', "Don't Say You Love Me", 'All I Have To Give', 'Blue Monday', 'All Or Nothing', 'Higher', 'Fast As You Can', "If Ya Gettin' Down", "When You're Gone"),
   /* chart  7 */ new Chart('All Star', 'Angels', 'Mi Chico Latino', 'I Need To Know', "That's The Way It Is", 'New', "Someday We'll Know", 'Si Me Advertí', 'Maria Maria', 'Someday', 'Fly Away', 'Man! I Feel Like A Woman', 'Puente', 'All Or Nothing', 'No Quiero Verte', 'Super Trouper', 'Fast As You Can', 'All I Have To Give', "Don't Say You Love Me", 'Blue Monday'),
+  /* chart  8 */ new Chart('All Star', 'Mi Chico Latino', 'Angels', 'I Need To Know', 'New', "That's The Way It Is", 'Fly Away', 'Maria Maria', "Someday We'll Know", 'All Or Nothing', 'Si Me Advertí', 'Tengo Frío', 'Someday', 'Super Trouper', 'Coffee And T.V.', 'Puente', 'Fast As You Can', 'Man! I Feel Like A Woman', 'Díselo Con Flores', 'Blue Monday'),
 ];
 
 charts.forEach(chart => expect(chart.length).to.equal(20));
