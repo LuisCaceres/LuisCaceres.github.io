@@ -814,7 +814,7 @@ class Chart extends List {
       // and `positionA` in `entry`'s history causes `entry` to arrive in position 12 or lower.
       //               BEFORE             AFTER
       // Example: [**, **, 14, 07] = [**, **, 12, 07]
-      if (before.at(-3) === 21 && before.at(-2) >= 13 && A <= 12) {
+      if (before.at(-3) === 21 && A <= 12) {
         return false;
       }
 
