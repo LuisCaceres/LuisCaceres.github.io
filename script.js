@@ -802,19 +802,19 @@ class Chart extends List {
       const after = before.slice();
       after.splice(-2, 1, A);
 
-      // Filter out if `entry` arrives in `chartA`
-      // and `positionA` in `entry`'s history causes `entry` to arrive in position 12 or lower.
-      //               BEFORE             AFTER
-      // Example: [**, **, 14, 07] = [**, **, 12, 07]
-      if (before.at(-3) === 21 && before.at(-2) >= 13 && A <= 12) {
-        return false;
-      }
-
       // Filter out if `entry` already arrives in `chartA` in position 12 or lower,
       // and `positionA` in `entry`'s history causes `entry` to arrive in an even lower position.
       //               BEFORE             AFTER
       // Example: [**, **, 11, 07] = [**, **, 09, 07]
       if (before.at(-3) === 21 && before.at(-2) <= 12 && A < before.at(-2)) {
+        return false;
+      }
+
+      // Filter out if `entry` arrives in `chartA`
+      // and `positionA` in `entry`'s history causes `entry` to arrive in position 12 or lower.
+      //               BEFORE             AFTER
+      // Example: [**, **, 14, 07] = [**, **, 12, 07]
+      if (before.at(-3) === 21 && before.at(-2) >= 13 && A <= 12) {
         return false;
       }
 
