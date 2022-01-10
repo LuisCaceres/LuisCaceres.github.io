@@ -798,14 +798,14 @@ class Chart extends List {
     }
 
     return chartA.slice(start - 1, end).remove(entry).filter(entry => {
-      const history = database.get(entry).slice();
+      const before = database.get(entry).slice();
       const after = history.splice(-2, 1, A);
 
       // Filter out if `entry` arrives in `chartA`
       // and `positionA` in `entry`'s history causes `entry` to arrive in position 12 or lower.
       //               BEFORE             AFTER
       // Example: [**, **, 14, 07] = [**, **, 12, 07]
-      if (history.at(-3) === 21 && history.at(-2) >= 13 && A <= 12) {
+      if (before.at(-3) === 21 && before.at(-2) >= 13 && A <= 12) {
         return false;
       }
 
@@ -813,21 +813,26 @@ class Chart extends List {
       // and `positionA` in `entry`'s history causes `entry` to arrive in an even lower position.
       //               BEFORE             AFTER
       // Example: [**, **, 11, 07] = [**, **, 09, 07]
-      if (history.at(-3) === 21 && history.at(-2) <= 12 && A < history.at(-2)) {
+      if (before.at(-3) === 21 && before.at(-2) <= 12 && A < before.at(-2)) {
         return false;
       }
 
       // Filter out if `positionA` is 12 or higher and `entry` departs from `chartB`.
-      if (A <= 12 && history.at(-2) >= 13 && history.at(-1) === 21) {
+      if (A <= 12 && before.at(-2) >= 13 && before.at(-1) === 21) {
         return false;
       }
 
       // Filter out if `entry` is ascending and `positionA` in `entry`'s history causes `entry` to descend from `chartB`.
       //           1   2   A   B   C
       // Example: [05, 03, 02, 03, 02]
-      if (history.isAscending() && A < history.at(-1)) {
+      if (before.isAscending() && A < before.at(-1)) {
         return false;
       }
+      
+//       if (history.slice(0, -1).isAscending() && after.slice(0, -1).hasStartedDescending() && history.at(-2) <= 9 && 
+//         history.length <= 6) {
+//         return false;
+//       }
 
       // Filter out if the difference between `entry`'s position in `chart2` and `positionA` is at least 2 
       // and `entry` starts to descend from `chartB`.
