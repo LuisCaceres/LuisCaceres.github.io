@@ -799,7 +799,8 @@ class Chart extends List {
 
     return chartA.slice(start - 1, end).remove(entry).filter(entry => {
       const before = database.get(entry).slice();
-      const after = history.splice(-2, 1, A);
+      const after = before.slice();
+      after.splice(-2, 1, A);
 
       // Filter out if `entry` arrives in `chartA`
       // and `positionA` in `entry`'s history causes `entry` to arrive in position 12 or lower.
