@@ -799,10 +799,7 @@ class Chart extends List {
 
     return chartA.slice(start - 1, end).remove(entry).filter(entry => {
       const history = database.get(entry).slice();
-
-      // TO DO: item has only been in chart for less than 3 weeks
-      // TO DO: item ascends from chart B 
-      // Example: [20, 19, 1, 9]
+      const after = history.splice(-2, 1, A);
 
       // Filter out if `entry` arrives in `chartA`
       // and `positionA` in `entry`'s history causes `entry` to arrive in position 12 or lower.
@@ -832,22 +829,20 @@ class Chart extends List {
         return false;
       }
 
-      history[history.length - 2] = A;
-
       // Filter out if the difference between `entry`'s position in `chart2` and `positionA` is at least 2 
       // and `entry` starts to descend from `chartB`.
       //           1  2  A  B
       // Example: [6, 5, 1, 8]            19 16 10 19, 19 16 13 19 | 21 18 16 20, 21 18 15 20 | 05 05 04 09, 05 05 06 09 
-      if (history.hasStartedDescending() &&
-        (history.at(-4) - history.at(-3) <= 2 && chartA.positionOf(entry) - A >= 2 ||
-         history.at(-4) - history.at(-3) >= 3 && chartA.positionOf(entry) - A >= 1)) {
+      if (after.hasStartedDescending() &&
+        (after.at(-4) - after.at(-3) <= 2 && chartA.positionOf(entry) - A >= 2 ||
+         after.at(-4) - after.at(-3) >= 3 && chartA.positionOf(entry) - A >= 1)) {
         return false;
       }
 
       // Filter out if `entry` is descending and `positionA` in `entry`'s history causes `entry` to ascend again.
       //           1  2  A  B
       // Example: [3, 4, 2, 7]
-      if (history.isValid() === false) {
+      if (after.isValid() === false) {
         return false;
       }
 
