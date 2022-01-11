@@ -829,11 +829,11 @@ class Chart extends List {
       if (before.isAscending() && A < before.at(-1)) {
         return false;
       }
-      
-//       if (history.slice(0, -1).isAscending() && after.slice(0, -1).hasStartedDescending() && history.at(-2) <= 9 && 
-//         history.length <= 6) {
-//         return false;
-//       }
+
+      if (before.slice(0, -1).isAscending() && after.slice(0, -1).hasStartedDescending() && before.at(-2) <= 9 && 
+        before.length <= 6) {
+        return false;
+      }
 
       // Filter out if the difference between `entry`'s position in `chart2` and `positionA` is at least 2 
       // and `entry` starts to descend from `chartB`.
