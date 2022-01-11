@@ -381,21 +381,6 @@ class ChartHistory extends NumberList {
   }
 
 
-  /* Returns the true length of this chart history. In other words, 
-   * any ocurrences of position 21 are ignored. 
-   * @return {Number}
-   * @example
-   * new ChartHistory(17, 10, 06, 03, 02, 01).length;
-   * // returns `6`
-   * new ChartHistory(21, 10, 06, 02, 02, 21).length;
-   * // returns `4`
-   */  
-  get length() {
-    const ocurrences = this.filter(position => position === 21).length;
-    return this.length - ocurrences;
-  }
-
-
   /* Returns `true` if or `false` otherwise.
    * @return {Boolean}
    * @example
@@ -462,6 +447,21 @@ class ChartHistory extends NumberList {
     }
 
     return validity;
+  }
+
+
+  /* Returns the true length of this chart history. In other words,
+   * ocurrences of position 21 are ignored.
+   * @return {Number}
+   * @example
+   * new ChartHistory(17, 10, 06, 03, 02, 01).span;
+   * // returns `6`
+   * new ChartHistory(21, 10, 06, 02, 02, 21).span;
+   * // returns `4`
+   */
+  get span() {
+    const ocurrences = this.filter(position => position === 21).length;
+    return this.length - ocurrences;
   }
 }
 
