@@ -1,1 +1,42 @@
+<!-- PAGE 6 -->
+
+<body>
+  <header>
+    <title>Link new service</title>
+  </header>
+  <main>
+    <h1>Link new service</h1>
+    <p>Linking Medicare to myGov is easy.</p>
+
+    <h2>If you're listed...</h2>
+    <p>We'll ask you to enter...</p>
+
+    <h2>If you have a linking code</h2>
+    <p>You can get a linking code...</p>
     
+    <form aria-label="">
+      <fieldset>
+        <legend>Select the best option for you:</legend>
+        <p>
+          <label for="foo">I'm listed on a Medicare card</label>
+          <input id="foo" type="radio" aria-required="true" aria-invalid="false" name="foo" aria-errormessage="baz">
+        </p>
+        <p>
+          <label for="bar">I have a linking code</label>
+          <input id="bar" type="radio" aria-required="true" aria-invalid="false" name="foo" aria-errormessage="baz">
+        </p>
+      </fieldset>
+      <p id="baz" aria-live="polite" hidden>
+        <strong>Error:</strong> This is a validation error message.
+      </p>
+      <p>
+        <button type="button">Cancel</button>
+      </p>
+      <p>
+        <button type="submit">Next</button>
+      </p>
+    </form>
+  </main>
+  <footer></footer>
+</body>
+
