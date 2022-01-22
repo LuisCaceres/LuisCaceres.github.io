@@ -715,14 +715,14 @@ class Chart extends List {
    * @return {Array} entries
    */
   static corrector2(entry, chartA, chartB, database) {
+    const A = chartA.positionOf(entry);
     const start = Math.max(12, chartB.positionOf(entry));
 
-    const pairs = [];
-
     return chartA.slice(start).filter(entry => {
-      const [A, B] = [chartA.positionOf(entry), chartB.positionOf(entry)];
-      const history = new ChartHistory(...database.get(entry)?.history);
-      
+      const before = new ChartHistory(...database.get(entry)?.history);
+      const after = before.slice();
+      after.splice(-2, 1, A);
+
       if (history.hasStartedDescending() === false) {
         return;
       }
@@ -838,10 +838,11 @@ class Chart extends List {
         return false;
       }
 
-      if (before.slice(0, -1).isAscending() && after.slice(0, -1).hasStartedDescending() && before.at(-2) <= 9 && 
-        before.length <= 6) {
-        return false;
-      }
+//  NOTE: Filter out if entry position is less than 9 and `after` causes entry to descend in less than 5 weeks.
+//       if (before.slice(0, -1).isAscending() && after.slice(0, -1).hasStartedDescending() && before.at(-2) <= 9 && 
+//         before.length <= 6) {
+//         return false;
+//       }
 
       // Filter out if the difference between `entry`'s position in `chart2` and `positionA` is at least 2 
       // and `entry` starts to descend from `chartB`.
