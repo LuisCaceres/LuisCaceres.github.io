@@ -27,5 +27,5 @@ EXAMPLE: [**, 12, 10, 07]
    ],
   ];
 
-//   runTests(10, testCharts, 2, tests);
+  runTests(10, testCharts, 2, tests);
 }
