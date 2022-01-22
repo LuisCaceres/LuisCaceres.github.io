@@ -727,7 +727,7 @@ class Chart extends List {
     const start = Math.max(12, B);
 
     return chartA.slice(start).filter(entry => {
-      const before = new ChartHistory(...database.get(entry)?.history);
+      const before = database.get(entry);
       const after = before.slice();
       after.splice(-2, 1, A);
 
