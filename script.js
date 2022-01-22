@@ -720,16 +720,18 @@ class Chart extends List {
    * @param {} database - A list of entries which have ever charted.
    * @return {Array} entries
    */
-  static corrector2(entry, chartA, chartB, database) {
-    const A = chartA.positionOf(entry);
-    const start = Math.max(12, chartB.positionOf(entry));
+  static corrector2(entry, chartA, database) {
+    const history = database.get(entry);
+    const [A, B] = history.slice(-2);
+
+    const start = Math.max(12, B);
 
     return chartA.slice(start).filter(entry => {
       const before = new ChartHistory(...database.get(entry)?.history);
       const after = before.slice();
       after.splice(-2, 1, A);
 
-      if (history.hasStartedDescending() === false) {
+      if (before.slice(0, -1).hasStartedDescending() === false) {
         return;
       }
 
