@@ -703,7 +703,7 @@ class Chart extends List {
 
     for (const [entry, history] of database) {
 
-      if (history.at(-3) === 21 && history.at(-2) >= 12) {
+      if (history.at(-3) === 21 && history.at(-2) <= 12) {
         errors.push(entry);
       }
     }
