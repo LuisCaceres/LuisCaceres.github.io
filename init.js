@@ -87,14 +87,14 @@ async function onYouTubeIframeAPIReady() {
     player.loadVideoById(video);
 //     player.setVolume(video.volume);
 
-//     const screen = document.querySelector('iframe');
-//     adjustScreen(screen, video.style);
+    const screen = document.querySelector('iframe');
+    adjustScreen(screen, video.style);
 
-//     const logo = document.querySelector('.logo');
-//     logo.toggleAttribute('hidden', video.type !== 0);
+    const logo = document.querySelector('.logo');
+    logo.toggleAttribute('hidden', video.type !== 0);
 
-//     const position = document.querySelector('.position');
-//     position.textContent = video.position;
+    const position = document.querySelector('.position');
+    position.textContent = video.position;
 
     await new Promise(resolve => {
       player.addEventListener('onStateChange', function listener({data}) {
