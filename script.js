@@ -732,7 +732,7 @@ class Chart extends List {
       after.splice(-2, 1, A);
 
       if (before.slice(0, -1).hasStartedDescending() === false) {
-        return;
+        return false;
       }
 
       return true;
