@@ -1983,11 +1983,11 @@ EXAMPLE: [20, 20, 20]
 
      function (entries) { // Si Me Advertí
        expect(entries.length).to.equal(2);
-                                                    // [09, 09, 09, 11]  [**, **, 08, 08]
-       expect(entries[0]).to.equal("Maria Maria");  // [09, 09, 08, 11]  [**, **, 09, 08]
+                                                   // [09, 09, 09, 11]  [**, **, 08, 08]
+       expect(entries).to.include("Maria Maria");  // [09, 09, 08, 11]  [**, **, 09, 08]
 
-                                                    // [09, 09, 09, 11]  [06, 07, 10, 13]
-       expect(entries[1]).to.equal("Someday");      // [09, 09, 10, 11]  [06, 07, 09, 13]
+                                                   // [09, 09, 09, 11]  [06, 07, 10, 13]
+       expect(entries).to.include("Someday");      // [09, 09, 10, 11]  [06, 07, 09, 13]
      },
    ],
 
