@@ -717,29 +717,37 @@ class Chart extends List {
   static corrector2(entry, chartA, chartB, database) {
     const start = Math.max(12, chartB.positionOf(entry));
 
+    const pairs = [];
+
     return chartA.slice(start).filter(entry => {
       const [A, B] = [chartA.positionOf(entry), chartB.positionOf(entry)];
-      const history = new ChartHistory(...database.get(entry)?.history || [21]);
-
-      //  2   A   B       2   A   B
-      // [17, 15, 13]    [17, **, 13]
-      if (new ChartHistory(...history, 21, B).isValid() === false) {
-        return false;
-      }
+      const history = new ChartHistory(...database.get(entry)?.history);
       
-      //  A   B       A   B
-      // [11, 16]    [11, **]
-      if (history.at(-1) <= 12) {
-        return false;
-      }
-
-      //  A   B       A   B
-      // [**, 18]    [**, 10]
-      if (history.at(-1) === 21 && B <= 12) {
-        return false;
+      if (history.hasStartedDescending() === false) {
+        return;
       }
 
       return true;
+
+//       //  2   A   B       2   A   B
+//       // [17, 15, 13]    [17, **, 13]
+//       if (new ChartHistory(...history, 21, B).isValid() === false) {
+//         return false;
+//       }
+      
+//       //  A   B       A   B
+//       // [11, 16]    [11, **]
+//       if (history.at(-1) <= 12) {
+//         return false;
+//       }
+
+//       //  A   B       A   B
+//       // [**, 18]    [**, 10]
+//       if (history.at(-1) === 21 && B <= 12) {
+//         return false;
+//       }
+
+//       return true;
     });
   }
 
