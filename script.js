@@ -693,16 +693,22 @@ class Chart extends List {
   }
 
 
-  /* Compares `chartA` to `chartB` to find entries on `chartB` which have debuted
-   * in position 12 or a lower position.
-   * For example: [**, 10]
-   * @param {Chart} chartA
-   * @param {Chart} chartB
+  /* Finds entries whose debut position is 12 or higher.
+   * For example: [**, 10, 07, 05]
    * @param {} database - A list of entries having ever charted.
    * @return {Array} entries
    */
-  static detector2(chartA, chartB) {
-    return chartA.difference(chartB).filter(entry => chartB.positionOf(entry) <= 12);
+  static detector2(database) {
+    const errors = new List();
+
+    for (const [entry, history] of database) {
+
+      if (history.at(-3) === 21 && history.at(-2) >= 12) {
+        errors.push(entry);
+      }
+    }
+
+    return errors;
   }
 
 
