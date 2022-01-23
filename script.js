@@ -717,7 +717,7 @@ class Chart extends List {
    * @param {} database - A list of entries which have ever charted.
    * @return {Array} entries
    */
-  static corrector2(entry, database) {
+  static corrector2(entry, chartA, database) {
     const history = database.get(entry);
     const A = history.at(-2);
 
