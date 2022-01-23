@@ -24,7 +24,11 @@ EXAMPLE: [**, 12, 10, 07]
      },
 
      function (entries) { // New
-       expect(entries.length).to.equal(0);
+       expect(entries.length).to.equal(1);
+
+      // NOTE: THERE IS NO OTHER ENTRY TO PUT IN POSITION 14. FOR THAT REASON THE ENTRY BELOW SHOULD NOT BE AN OPTION.
+                                                        // [**, **, 12, 09]  [13, 13, 14, 17]
+       expect(entries).to.include("When You're Gone");  // [**, **, **, **]  [13, 13, 12, 09]
      },
    ],
   ];
