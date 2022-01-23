@@ -734,6 +734,11 @@ class Chart extends List {
       if (before.slice(0, -1).hasStartedDescending() === false) {
         return false;
       }
+      
+      const position = before.at(-2);
+      
+      // Find out if there are candidates();
+      if () {}
 
       return true;
 
