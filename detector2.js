@@ -62,9 +62,10 @@ EXAMPLE: [**, 12, 10, 07]
      new Chart("All Star", "Angels", "I Need To Know", "Mi Chico Latino", "Someday We'll Know", "New", "Someday", "That's The Way It Is", "Si Me Advertí", "Puente", "No Quiero Verte", "Man! I Feel Like A Woman", "Don't Say You Love Me", "All I Have To Give", "Dreams In Digital", "All Or Nothing", "Higher", "As Fast As You Can", "If Ya Gettin' Down", "When You're Gone"),
 
      function (entries) {
-       expect(entries.length).to.equal(2);
+       expect(entries.length).to.equal(3);
        expect(entries).to.include("Maria Maria");
        expect(entries).to.include("Fly Away");
+       expect(entries).to.include("Super Trouper");       
      },
 
      function (entries) { // Maria Maria
@@ -89,7 +90,11 @@ EXAMPLE: [**, 12, 10, 07]
 
                                                              // [**, **, 11, 07]  [17, 15, 20, 20]
        expect(entries).to.include("Dreams In Digital");      // [**, **, **, **]  [17, 15, 11, 07]
-     },     
+     },
+
+     function (entries) { // Super Trouper
+       expect(entries.length).to.equal(0);
+     },
    ],
   ];
 
