@@ -29,7 +29,7 @@ EXAMPLE: [**, 12, 10, 07]
    ],
   ];
 
-  runTests(9, testCharts, 2, tests);
+  runTests(5, testCharts, 2, tests);
 }
 
 
