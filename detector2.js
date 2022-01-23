@@ -4,7 +4,7 @@ There are exceptions, however, although they are limited.
 EXAMPLE: [**, 12, 10, 07]
 */
 
-// WEEK 8
+// WEEK 7
 {
   const tests = [
 
