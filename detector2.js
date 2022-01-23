@@ -25,7 +25,7 @@ EXAMPLE: [**, 12, 10, 07]
 
      function (entries) { // New
        expect(entries.length).to.equal(0);
-      },
+     },
    ],
   ];
 
