@@ -20,7 +20,10 @@ EXAMPLE: [**, 12, 10, 07]
      },
 
      function (entries) { // Maria Maria
-       expect(entries.length).to.equal(2);
+       expect(entries.length).to.equal(3);
+                                                             // [**, **, 08, 08]  [11, 11, 15, **]
+       expect(entries).to.include("No Quiero Verte");        // [**, **, **, **]  [11, 11, 08, 08]
+       
                                                              // [**, **, 08, 08]  [16, 13, 19, **]
        expect(entries).to.include("Don't Say You Love Me");  // [**, **, **, **]  [16, 13, 08, 08]
 
@@ -29,7 +32,10 @@ EXAMPLE: [**, 12, 10, 07]
      },
 
      function (entries) { // Fly Away
-       expect(entries.length).to.equal(2);
+       expect(entries.length).to.equal(3);
+                                                             // [**, **, 11, 07]  [11, 11, 15, **]
+       expect(entries).to.include("No Quiero Verte");        // [**, **, **, **]  [11, 11, 11, 07]
+       
                                                              // [**, **, 11, 07]  [16, 13, 19, **]
        expect(entries).to.include("Don't Say You Love Me");  // [**, **, **, **]  [16, 13, 11, 07]
 
