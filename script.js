@@ -722,9 +722,7 @@ class Chart extends List {
     const history = database.get(entry);
     const A = history.at(-2);
 
-    return Array.from(database).filter((entry, before) => {
-      const after = before.slice();
-      after.splice(-2, 1, A);
+    return Array.from(database).filter(([entry, before]) => {
 
       if (before.slice(0, -1).hasStartedDescending() === false) {
         return false;
@@ -735,32 +733,12 @@ class Chart extends List {
       }
 
       const position = before.at(-2);
-      
+
       // Find out if there are candidates();
 //    if (corrector4(entry, database)) {}
 
       return true;
-
-//       //  2   A   B       2   A   B
-//       // [17, 15, 13]    [17, **, 13]
-//       if (new ChartHistory(...history, 21, B).isValid() === false) {
-//         return false;
-//       }
-      
-//       //  A   B       A   B
-//       // [11, 16]    [11, **]
-//       if (history.at(-1) <= 12) {
-//         return false;
-//       }
-
-//       //  A   B       A   B
-//       // [**, 18]    [**, 10]
-//       if (history.at(-1) === 21 && B <= 12) {
-//         return false;
-//       }
-
-//       return true;
-    });
+    }).map(([entry, before]) => entry);
   }
 
 
