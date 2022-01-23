@@ -714,11 +714,10 @@ class Chart extends List {
   /* Finds entries on `chartA` which `entry` can replace.
    * @param {*} entry - Corrupt entry on `chartB` which has debuted in position 12 or a higher position.
    * For example: [21, 10, 6, 2]
-   * @param {Chart} chartA
    * @param {} database - A list of entries which have ever charted.
    * @return {Array} entries
    */
-  static corrector2(entry, chartA, database) {
+  static corrector2(entry, database) {
     const history = database.get(entry);
     const A = history.at(-2);
 
