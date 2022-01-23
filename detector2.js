@@ -4,6 +4,43 @@ There are exceptions, however, although they are limited.
 EXAMPLE: [**, 12, 10, 07]
 */
 
+// WEEK 8
+{
+  const tests = [
+
+   // POSITION 8
+   [
+     new Chart("All Star", "I Need To Know", "Angels", "Someday We'll Know", "Puente", "Someday", "New", "Mi Chico Latino", "Si Me Advertí", "All I Have To Give", "No Quiero Verte", "Higher", "That's The Way It Is", "Man! I Feel Like A Woman", "If Ya Gettin' Down", "Don't Say You Love Me", "Dreams In Digital", "The Kids Aren't Alright", "When You're Gone", "As Fast As You Can"),
+     new Chart("All Star", "Angels", "I Need To Know", "Mi Chico Latino", "Someday We'll Know", "New", "Someday", "That's The Way It Is", "Si Me Advertí", "Puente", "No Quiero Verte", "Man! I Feel Like A Woman", "Don't Say You Love Me", "All I Have To Give", "Dreams In Digital", "All Or Nothing", "Higher", "As Fast As You Can", "If Ya Gettin' Down", "When You're Gone"),
+
+     function (entries) {
+       expect(entries.length).to.equal(2);
+       expect(entries).to.include("Maria Maria");
+       expect(entries).to.include("Fly Away");
+     },
+
+     function (entries) { // Maria Maria
+       expect(entries.length).to.equal(2);
+                                                             // [**, **, 08, 08]  [16, 13, 19, **]
+       expect(entries).to.include("Don't Say You Love Me");  // [**, **, **, **]  [16, 13, 08, 08]
+
+                                                             // [**, **, 08, 08]  [17, 15, 20, 20]
+       expect(entries).to.include("Dreams In Digital");      // [**, **, **, **]  [17, 15, 08, 08]
+     },
+
+     function (entries) { // Fly Away
+       expect(entries.length).to.equal(2);
+                                                             // [**, **, 11, 07]  [16, 13, 19, **]
+       expect(entries).to.include("Don't Say You Love Me");  // [**, **, **, **]  [16, 13, 11, 07]
+
+                                                             // [**, **, 11, 07]  [17, 15, 20, 20]
+       expect(entries).to.include("Dreams In Digital");      // [**, **, **, **]  [17, 15, 11, 07]
+     },     
+   ],
+  ];
+
+  runTests(9, testCharts, 2, tests);
+}
 
 // WEEK 8
 {
