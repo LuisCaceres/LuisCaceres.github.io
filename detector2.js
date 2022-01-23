@@ -4,6 +4,31 @@ There are exceptions, however, although they are limited.
 EXAMPLE: [**, 12, 10, 07]
 */
 
+
+// WEEK 3
+{
+  const tests = [
+
+   // POSITION 12
+   [
+     new Chart("Puente", "Someday", "All I Have To Give", "La Lola", "Someday We'll Know", "Higher", "If Ya Gettin' Down", "The Kids Aren't Alright", "Heartbreaker", "Waiting For Tonight", "What's My Age Again?", "Jennifer Del Estero", "When You're Gone", "All Star", "Atrapados En La Red", "Look At Me", "Si Me Advertí", "Let Forever Be", "...Baby One More Time", "Angels"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "I Need To Know", "Angels", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte", "...Baby One More Time"),
+
+     function (entries) {
+       expect(entries.length).to.equal(1);
+       expect(entries).to.include("New");
+     },
+
+     function (entries) { // New
+       expect(entries.length).to.equal(0);
+      },
+   ],
+  ];
+
+  runTests(9, testCharts, 2, tests);
+}
+
+
 // WEEK 7
 {
   const tests = [
