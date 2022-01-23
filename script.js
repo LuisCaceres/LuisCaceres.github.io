@@ -604,7 +604,6 @@ class Chart extends List {
 
 
   /* Modifies this chart to eliminate continuity errors.
-   * @param {Chart} chartB - This chart's previous or next chart.
    * @param {} database - A list of entries having ever charted.
    * @return {Chart} this chart.
    * @example
@@ -738,7 +737,7 @@ class Chart extends List {
       const position = before.at(-2);
       
       // Find out if there are candidates();
-//       if () {}
+//    if (corrector4(entry, database)) {}
 
       return true;
 
