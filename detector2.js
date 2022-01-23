@@ -33,6 +33,18 @@ EXAMPLE: [**, 12, 10, 07]
                                                         // [**, **, 12, 09]  [13, 13, 14, 17]
        expect(entries).to.include("When You're Gone");  // [**, **, **, **]  [13, 13, 12, 09]
      },
+
+     function (entries) { // Mi Chico Latino
+       expect(entries.length).to.equal(0);
+     },
+
+     function (entries) { // That's The Way It Is
+       expect(entries.length).to.equal(0);
+     },
+
+     function (entries) { // Man! I Feel Like A Woman
+       expect(entries.length).to.equal(0);
+     },
    ],
   ];
 
