@@ -1,6 +1,10 @@
 /* 
 NOTE: The following tests ensure that no entry arrives at position 12, 11, 10, 09, 08, 07, 06, 05, 04, 03, 02 or 01.
-There are exceptions, however, although they are limited. 
+If a corrupt entry has been found then the application will attempt to amend it. It may not always be possible to amend
+a corrupt entry.
+
+* Replace corrupt entry with an entry which has just started descending.
+
 EXAMPLE: [**, 12, 10, 07]
 */
 
