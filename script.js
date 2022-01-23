@@ -692,7 +692,7 @@ class Chart extends List {
   }
 
 
-  /* Finds entries whose debut position is 12 or higher.
+  /* Finds new entries.
    * For example: [**, 10, 07, 05]
    * @param {} database - A list of entries having ever charted.
    * @return {Array} entries
@@ -702,7 +702,7 @@ class Chart extends List {
 
     for (const [entry, history] of database) {
 
-      if (history.at(-3) === 21 && history.at(-2) <= 12) {
+      if (history.at(-3) === 21 && history.at(-2) <= 20) {
         errors.push(entry);
       }
     }
