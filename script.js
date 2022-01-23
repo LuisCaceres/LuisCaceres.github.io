@@ -721,9 +721,8 @@ class Chart extends List {
    */
   static corrector2(entry, chartA, database) {
     const history = database.get(entry);
-    const [A, B] = history.slice(-2);
-
-    const start = Math.max(12, B);
+    const A = history.at(-2);
+    const start = A;
 
     return chartA.slice(start).filter(entry => {
       const before = database.get(entry);
