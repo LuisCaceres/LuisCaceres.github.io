@@ -738,7 +738,7 @@ class Chart extends List {
       const position = before.at(-2);
       
       // Find out if there are candidates();
-      if () {}
+//       if () {}
 
       return true;
 
