@@ -135,3 +135,40 @@ EXAMPLE: [**, 12, 10, 07]
 
   runTests(10, testCharts, 2, tests);
 }
+
+// WEEK 9
+{
+  const tests = [
+
+   // POSITION 13
+   [
+     new Chart("All Star", "Angels", "I Need To Know", "Mi Chico Latino", "Someday We'll Know", "New", "Someday", "That's The Way It Is", "Si Me Advertí", "Puente", "No Quiero Verte", "Man! I Feel Like A Woman", "Don't Say You Love Me", "All I Have To Give", "Dreams In Digital", "All Or Nothing", "Higher", "As Fast As You Can", "If Ya Gettin' Down", "When You're Gone"),
+     new Chart("All Star", "Angels", "Mi Chico Latino", "I Need To Know", "That's The Way It Is", "New", "Someday We'll Know", "Maria Maria", "Si Me Advertí", "Someday", "Fly Away", "Man! I Feel Like A Woman", "Puente", "All Or Nothing", "No Quiero Verte", "Super Trouper", "As Fast As You Can", "All I Have To Give", "Don't Say You Love Me", "Dreams In Digital"),
+
+     function (entries) {
+       expect(entries.length).to.equal(3);
+       expect(entries).to.include("I Don't Want To Miss A Thing");
+       expect(entries).to.include("Crazy");
+       expect(entries).to.include("Keep On Movin'");
+     },
+
+     function (entries) { // I Don't Want To Miss A Thing
+       expect(entries.length).to.equal(1);
+                                                          // [**, **, 13, 13]  [17, 17, **, **]
+       expect(entries).to.include("As Fast As You Can");  // [**, **, **, **]  [17, 17, 13, 13]
+     },
+
+     function (entries) { // Crazy
+       expect(entries.length).to.equal(1);
+                                                          // [**, **, 16, 11]  [17, 17, **, **]
+       expect(entries).to.include("As Fast As You Can");  // [**, **, **, **]  [17, 17, 16, 11]
+     },
+
+     function (entries) { // Keep On Movin'
+       expect(entries.length).to.equal(0);
+     },
+   ],
+  ];
+
+  runTests(11, testCharts, 2, tests);
+}
