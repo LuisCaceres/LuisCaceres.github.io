@@ -69,7 +69,7 @@ CHART 2          CHART A          CHART B
    ],
   ];
 
-  runTests(5, testCharts, 2, tests);
+  runTests(3, testCharts, 2, tests);
 }
 
 // WEEK 4
