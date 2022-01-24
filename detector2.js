@@ -1,4 +1,4 @@
-/* The number of debuts on the charts is higher than expected. For that reason, the following piece of code
+/* The number of debuts on the first 10 charts is higher than expected. For that reason, the following piece of code
 attempts to reduce the number of debuts. A corrupt entry is a debut on the chart.  
 A substitute is found to replace the corrupt entry.
 
