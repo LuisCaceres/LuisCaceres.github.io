@@ -950,21 +950,3 @@ class Chart extends List {
 
     return values;
   }
-  
-  /* Finds entries, on the current chart, which have started descending unexpectedly.
-   * For example: [21, 10, 06, 03, 02, 03, 04, 04, 04, 06]
-   * @param {} database - A list of items.
-   * @return {List}
-   */
-  static detector4(database) {
-    const errors = new List();
-
-    for (const [entry, history] of database) {
-      if (history.slice(0, -1).hasStartedDescending() === true) {
-
-      }
-    }
-
-    return errors;
-  }
-}
