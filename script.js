@@ -750,7 +750,7 @@ class Chart extends List {
             return false;
           }
 
-          if (history.at(-3) === 21 && history.at(-1) < position) {
+          if (history.at(-3) === 21 && history.at(-1) > position) {
             return false;
           }
 
