@@ -92,7 +92,7 @@ CHART 2          CHART A          CHART B
    ],
   ];
 
-  runTests(6, testCharts, 2, tests);
+  runTests(4, testCharts, 2, tests);
 }
 
 // WEEK 5
@@ -115,7 +115,7 @@ CHART 2          CHART A          CHART B
    ],
   ];
 
-  runTests(7, testCharts, 2, tests);
+  runTests(5, testCharts, 2, tests);
 }
 
 // WEEK 6
@@ -138,7 +138,7 @@ CHART 2          CHART A          CHART B
    ],
   ];
 
-  runTests(8, testCharts, 2, tests);
+  runTests(6, testCharts, 2, tests);
 }
 
 // WEEK 7
@@ -187,7 +187,7 @@ CHART 2          CHART A          CHART B
    ],
   ];
 
-  runTests(9, testCharts, 2, tests);
+  runTests(7, testCharts, 2, tests);
 }
 
 // WEEK 8
@@ -222,7 +222,7 @@ CHART 2          CHART A          CHART B
    ],
   ];
 
-  runTests(10, testCharts, 2, tests);
+  runTests(8, testCharts, 2, tests);
 }
 
 // WEEK 9
@@ -259,5 +259,5 @@ CHART 2          CHART A          CHART B
    ],
   ];
 
-  runTests(11, testCharts, 2, tests);
+  runTests(9, testCharts, 2, tests);
 }
