@@ -746,6 +746,14 @@ class Chart extends List {
             return false;
           }
 
+          if (history.at(-1) === 21 && history.at(-3) > position) {
+            return false;
+          }
+
+          if (history.at(-3) === 21 && history.at(-1) < position) {
+            return false;
+          }
+
           return true;
         });
       }
