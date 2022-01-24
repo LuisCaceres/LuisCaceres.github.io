@@ -950,3 +950,4 @@ class Chart extends List {
 
     return values;
   }
+}
