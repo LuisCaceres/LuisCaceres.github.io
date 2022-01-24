@@ -1,11 +1,37 @@
-/* 
-NOTE: The following tests ensure that no entry arrives at position 12, 11, 10, 09, 08, 07, 06, 05, 04, 03, 02 or 01.
-If a corrupt entry has been found then the application will attempt to amend it. It may not always be possible to amend
-a corrupt entry.
+/* The number of debuts on the charts is higher than expected. For that reason, the following piece of code
+attempts to reduce the number of debuts. A corrupt entry is a debut on the chart.  
+A substitute is found to replace the corrupt entry.
 
-* Replace corrupt entry with an entry which has just started descending.
 
-EXAMPLE: [**, 12, 10, 07]
+NOTE 1: A debut in position 20 isn't a corrupt entry. It's impossible to find a substitute.
+
+
+:::::::::::::::: BEFORE :::::::::::::::::
+
+CHART 2          CHART A          CHART B
+
+20  T            20  S            
+19  S            19  DEBUT 1
+18  R            18  O
+17  Q            17  J
+16  P            16  K
+15  O            15  Q
+14  N            14  L
+13  M            13  M
+12  L            12  I
+11  K            11  T
+10  J            10  DEBUT 2
+09  I            09  N
+08  H            08  H
+07  G            07  G
+06  F            06  D
+05  E            05  F
+04  D            04  C
+03  C            03  E
+02  B            02  B
+01  A            01  A
+
+
 */
 
 
@@ -46,6 +72,74 @@ EXAMPLE: [**, 12, 10, 07]
   runTests(5, testCharts, 2, tests);
 }
 
+// WEEK 4
+{
+  const tests = [
+
+   // POSITION 19
+   [
+     new Chart("Puente", "Someday", "All I Have To Give", "La Lola", "Someday We'll Know", "Higher", "If Ya Gettin' Down", "The Kids Aren't Alright", "Heartbreaker", "Waiting For Tonight", "What's My Age Again?", "Jennifer Del Estero", "When You're Gone", "All Star", "Atrapados En La Red", "Look At Me", "Si Me Advertí", "Let Forever Be", "...Baby One More Time", "Angels"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "I Need To Know", "Angels", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte", "...Baby One More Time"),
+
+     function (entries) {
+       expect(entries.length).to.equal(1);
+       expect(entries).to.include("Don't Say You Love Me");
+     },
+
+     function (entries) { // Don't Say You Love Me
+       expect(entries.length).to.equal(0);
+     },
+   ],
+  ];
+
+  runTests(6, testCharts, 2, tests);
+}
+
+// WEEK 5
+{
+  const tests = [
+
+   // POSITION 19
+   [
+     new Chart("Puente", "Someday", "All I Have To Give", "La Lola", "Someday We'll Know", "Higher", "If Ya Gettin' Down", "The Kids Aren't Alright", "Heartbreaker", "Waiting For Tonight", "What's My Age Again?", "Jennifer Del Estero", "When You're Gone", "All Star", "Atrapados En La Red", "Look At Me", "Si Me Advertí", "Let Forever Be", "...Baby One More Time", "Angels"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "I Need To Know", "Angels", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte", "...Baby One More Time"),
+
+     function (entries) {
+       expect(entries.length).to.equal(1);
+       expect(entries).to.include("Dreams In Digital");
+     },
+
+     function (entries) { // Dreams In Digital 
+       expect(entries.length).to.equal(0);
+     },
+   ],
+  ];
+
+  runTests(7, testCharts, 2, tests);
+}
+
+// WEEK 6
+{
+  const tests = [
+
+   // POSITION 19
+   [
+     new Chart("Puente", "Someday", "All I Have To Give", "La Lola", "Someday We'll Know", "Higher", "If Ya Gettin' Down", "The Kids Aren't Alright", "Heartbreaker", "Waiting For Tonight", "What's My Age Again?", "Jennifer Del Estero", "When You're Gone", "All Star", "Atrapados En La Red", "Look At Me", "Si Me Advertí", "Let Forever Be", "...Baby One More Time", "Angels"),
+     new Chart("Puente", "Someday", "Someday We'll Know", "All I Have To Give", "Higher", "La Lola", "If Ya Gettin' Down", "The Kids Aren't Alright", "All Star", "I Need To Know", "Angels", "Heartbreaker", "When You're Gone", "Jennifer Del Estero", "Si Me Advertí", "What's My Age Again?", "Waiting For Tonight", "Atrapados En La Red", "No Quiero Verte", "...Baby One More Time"),
+
+     function (entries) {
+       expect(entries.length).to.equal(1);
+       expect(entries).to.include("All Or Nothing");
+     },
+
+     function (entries) { // All Or Nothing
+       expect(entries.length).to.equal(0);
+     },
+   ],
+  ];
+
+  runTests(8, testCharts, 2, tests);
+}
 
 // WEEK 7
 {
