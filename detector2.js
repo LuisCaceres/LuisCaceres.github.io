@@ -23,7 +23,6 @@ EXAMPLE: [**, 12, 10, 07]
        expect(entries).to.include("New");
        expect(entries).to.include("Mi Chico Latino");
        expect(entries).to.include("That's The Way It Is");
-       expect(entries).to.include("Man! I Feel Like A Woman");
      },
 
      function (entries) { // New
@@ -39,10 +38,6 @@ EXAMPLE: [**, 12, 10, 07]
      },
 
      function (entries) { // That's The Way It Is
-       expect(entries.length).to.equal(0);
-     },
-
-     function (entries) { // Man! I Feel Like A Woman
        expect(entries.length).to.equal(0);
      },
    ],
