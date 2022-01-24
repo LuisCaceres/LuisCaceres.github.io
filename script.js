@@ -721,7 +721,8 @@ class Chart extends List {
     const history = database.get(entry);
     const A = history.at(-2);
 
-    return Array.from(database).filter(([entry, before]) => {
+    return Array.from(database.keys()).filter(entry => {
+      const before = database.get(entry);
 
       if (before.slice(0, -1).hasStartedDescending() === false) {
         return false;
@@ -737,7 +738,7 @@ class Chart extends List {
 //    if (corrector4(entry, database)) {}
 
       return true;
-    }).map(([entry, before]) => entry);
+    });
   }
 
 
