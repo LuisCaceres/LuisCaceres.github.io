@@ -742,7 +742,7 @@ class Chart extends List {
             return false;
           }
 
-          if (history.at(-3) === 21 || history.at(-1) === 21) {
+          if (history.at(-3) === 21 && history.at(-1) === 21) {
             return false;
           }
 
