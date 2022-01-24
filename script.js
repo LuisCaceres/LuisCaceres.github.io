@@ -731,25 +731,25 @@ class Chart extends List {
       if (before.at(-3) < A) {
         return false;
       }
-      
+
       function foo(entry, database) {
         const position = database.get(entry).at(-2);
 
         return Array.from(database.keys()).filter(entry => {
           const history = database.get(entry);
-          
+
           if (history.at(-2) <= 20) {
             return false;
           }
-          
+
           if (history.at(-3) === 21 || history.at(-1) === 21) {
             return false;
           }
-          
+
           return true;
-        });        
+        });
       }
-      
+
       const entries = foo(entry, database);
 
       // Find out if there are candidates();
