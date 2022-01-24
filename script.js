@@ -736,6 +736,11 @@ class Chart extends List {
         const position = database.get(entry).at(-2);
 
         return Array.from(database.keys()).filter(entry => {
+
+          if (position === 21) {
+            return false;
+          }
+
           const history = database.get(entry);
 
           if (history.at(-2) <= 20) {
