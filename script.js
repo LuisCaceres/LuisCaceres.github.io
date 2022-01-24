@@ -753,6 +753,10 @@ class Chart extends List {
           if (history.at(-3) === 21 && history.at(-1) > position) {
             return false;
           }
+          
+          if (history.at(-2) === 21) {
+            return false;
+          }
 
           return true;
         });
