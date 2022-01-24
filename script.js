@@ -822,7 +822,7 @@ class Chart extends List {
         end = start + 1;
       }
 
-      // Decreases the likelyhood that entry starts descending earlier than allowed (minimum 4 charts).
+      // Decreases the likelyhood that `entry` starts descending earlier than allowed (minimum 4 charts).
       //        BEFORE                  AFTER
       // [**, 10, 02, 02, 02] = [**, 10, 02, 02, 03]
       if (history.at(-6) === 21) {
