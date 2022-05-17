@@ -611,6 +611,9 @@ class Chart extends List {
    * (new Chart('A', 'B', 'F', 'C', 'D')).format(new Chart('A', 'B', 'C', 'D', 'E'));
    */
   format(database) {
+    // TO DO: LIST ALL THE UNWANTED CHART MOVEMENTS
+    
+    
     // Detect continuity errors.
     const errors = Chart.detector3(database);
     errors.shuffle();
