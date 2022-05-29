@@ -69,8 +69,8 @@ function adjustScreen(screen, measurements) {
 }
 
 
-/* Return
- * @param {Chart} charts -
+/* Returns a map whose keys are chart entries and whose values are history objects.
+ * @param {Chart} charts - A list of charts with which this database is created.
  * @return {Map}
  * @example
  * const chart1 = new Chart('A', 'B', 'C', 'D', 'E');
@@ -613,6 +613,7 @@ class Chart extends List {
   format(database) {
     // TO DO: LIST ALL THE UNWANTED CHART MOVEMENTS
     
+    // FILTER 0:  ANY NEW ENTRIES
     // FILTER 1:  ANY ENTRIES MOVING BACKWARDS AND THEN MOVING FORWARDS AGAIN.
     // FILTER 2:  ANY ENTRIES EXITING WITHOUT A BACKWARDS MOVEMENT AND A DEBUT OCCURS AT A HIGHER POSITION
     // FILTER 3:  FEATURE AT RISK: ANY THIRD DEBUT OR MORE 
@@ -675,7 +676,51 @@ class Chart extends List {
     return index >= 0 ? index + 1 : 21;
   }
 
+  
+  /* Compares `chartA` to `chartB` to find new entries on `chartA`. 
+   * @param {Chart} chartA
+   * @param {Chart} chartB
+   * @param {} database - A list of entries having ever charted.
+   * @return {Array} entries
+   */
+  static detector0(chartA, chartB, database) {
+    return chartB.difference(chartA);
+  }
 
+
+  static corrector0(entryA, chartA, database) {
+    const position = chartA.positionOf(entryA);
+    const entries = chartA.filter(entry => {
+
+      if (entry === entryA) {
+        return false;
+      }
+
+      if (chartA.positionOf(entry) < position) {
+        return false;
+      }
+
+      const history = database.get(entry);
+
+      if (history.hasStartedDescending() === false) {
+        return false;
+      }
+ 
+      return true;
+    });
+    
+    const pairs = entries.map(entry => {
+      return [entry, ''];
+    });
+    
+    const entries = sorter(entries);
+    
+    chartA.replace(1, '');
+    chartA.replace(1, '');
+    database.update();
+  }
+  
+  
   /* Compares `chartA` to `chartB` to find entries on `chartB` which have been ascending
    * and have unexpectedly departed from chartA.
    *                               A   B
