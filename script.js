@@ -77,6 +77,7 @@ function adjustScreen(screen, measurements) {
  * const chart2 = new Chart('E', 'D', 'C', 'B', 'A');
  * createDatabase(chart1, chart2);
  * // Returns {'A' => ChartHistory(2) [1, 5], 'B' => ChartHistory(2) [2, 4], 'C' => ChartHistory(2) [3, 3], 'D' => ChartHistory(2) [4, 2], 'E' => ChartHistory(2) [5, 1] }
+ * // Returns {-1 => Chart(5) ['E', 'D', 'C', 'B', 'A'], -2 => Chart(5) ['A', 'B', 'C', 'D', 'E'] }
  */
 function createDatabase(...charts) {
   const map = new Map();
@@ -90,6 +91,10 @@ function createDatabase(...charts) {
         map.set(entry, new ChartHistory(...positions));
       }
     }
+  }
+
+  for (const i = 0; i < charts.length; i++) {
+     map.set(i - length, charts[i]);
   }
 
   return map;
