@@ -688,8 +688,11 @@ class Chart extends List {
    * @param {} database - A list of entries having ever charted.
    * @return {Array} entries
    */
-  static detector0(chartA, chartB, database) {
-    return chartB.difference(chartA);
+  static detector0(database) {
+    const chartA = database.get(-2);
+    const chartB = database.get(-3);
+    
+    return chartA.difference(chartB);
   }
 
 
