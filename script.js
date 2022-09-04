@@ -93,7 +93,7 @@ function createDatabase(...charts) {
     }
   }
 
-  for (const i = 0; i < charts.length; i++) {
+  for (let i = 0; i < charts.length; i++) {
      map.set(i - length, charts[i]);
   }
 
