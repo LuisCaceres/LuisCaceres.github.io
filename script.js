@@ -694,35 +694,35 @@ class Chart extends List {
 
 
   static corrector0(entryA, chartA, database) {
-    const position = chartA.positionOf(entryA);
-    const entries = chartA.filter(entry => {
+//     const position = chartA.positionOf(entryA);
+//     const entries = chartA.filter(entry => {
 
-      if (entry === entryA) {
-        return false;
-      }
+//       if (entry === entryA) {
+//         return false;
+//       }
 
-      if (chartA.positionOf(entry) < position) {
-        return false;
-      }
+//       if (chartA.positionOf(entry) < position) {
+//         return false;
+//       }
 
-      const history = database.get(entry);
+//       const history = database.get(entry);
 
-      if (history.hasStartedDescending() === false) {
-        return false;
-      }
+//       if (history.hasStartedDescending() === false) {
+//         return false;
+//       }
  
-      return true;
-    });
+//       return true;
+//     });
     
-    const pairs = entries.map(entry => {
-      return [entry, ''];
-    });
+//     const pairs = entries.map(entry => {
+//       return [entry, ''];
+//     });
     
-    const entries = sorter(entries);
+//     const entries = sorter(entries);
     
-    chartA.replace(1, '');
-    chartA.replace(1, '');
-    database.update();
+//     chartA.replace(1, '');
+//     chartA.replace(1, '');
+//     database.update();
   }
   
   
