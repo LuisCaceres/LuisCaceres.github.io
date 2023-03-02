@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link href="stylesheets/stylesheet.css" rel="stylesheet"/>      
+    <title>Trip to Mexico</title>
+</head>
+
+<body>
+    <div id="player"></div>
+    <script>
+    async function onYouTubeIframeAPIReady() {
+      const player = new YT.Player('player');
+
+      await new Promise(resolve => {
+        player.addEventListener('onReady', resolve); 
+      });
+
+      const playlist = [
+        {
+          title: "All I Have To Give",
+          artist: "Backstreet Boys",
+          match: "!Uif!Qspejhz!!!Csfbuif!",
+          startSeconds: 1,
+          style: {width: "83vw"},
+          type: 0,
+          videoId: "pj6FCKm8dhM",
+          volume: 100,
+        },
+      ];
+
+      // Plays each video track on the playlist. 
+      while (playlist.length) {
+        const video = playlist.shift();
+        player.loadVideoById(video);
+        player.setVolume(video.volume);
+        
+        await new Promise(resolve => {
+          player.addEventListener('onStateChange', function listener({data}) {
+            if (data === YT.PlayerState.ENDED) {
+              resolve();
+              player.removeEventListener('onStateChange', listener);
+            }
+          });
+        });
+      }
+    }
+    </script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+</body>
+
+</html>
