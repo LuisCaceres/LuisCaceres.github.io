@@ -98,16 +98,12 @@
           volume: 0,
         },
       ];
-
-      const [ video1, video2 ] = playlist; 
-      player1.cueVideoById(video1);
-      player1.cueVideoById(video2);
+        
+      player1.loadVideoById(playlist[0]);
 
 //       // Plays each video track on the playlist. 
 //       while (playlist.length) {
-//         const [ video1, video2 ] = playlist; 
-//         player1.loadVideoById(video1);
-//         player2.loadVideoById(video2);
+//         player2.loadVideoById(playlist[1]);
 
 //         // Note: An event listener is added to ensure that the while loop runs asynchronously until the `resolve` function is called.
 //         await new Promise(resolve => {
@@ -120,18 +116,19 @@
 //           });
 //         });
 
-// //         await new Promise(resolve => {
-// //           player2.addEventListener('onStateChange', function listener({data}) {
-// //             if (data === YT.PlayerState.ENDED) {
-// //               player2.removeEventListener('onStateChange', listener);
-// //               resolve();
-// //             }
-// //           });
-// //         });
+//         await new Promise(resolve => {
+//           player2.addEventListener('onStateChange', function listener({data}) {
+//             if (data === YT.PlayerState.ENDED) {
+              
+//               player2.removeEventListener('onStateChange', listener);
+//               resolve();
+//             }
+//           });
+//         });
 
 //         playlist.shift();
 //         playlist.shift();
-//       }
+// //       }
     }
     </script>
     <script src="https://www.youtube.com/iframe_api"></script>
