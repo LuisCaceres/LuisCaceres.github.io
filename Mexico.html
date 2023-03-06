@@ -120,6 +120,7 @@
       // Plays each video track on the playlist. 
       while (playlist.length) {
          player1.loadVideoById(playlist[2]);
+         player1.pauseVideo();
         
         // Note: An event listener is added to ensure that the while loop runs asynchronously until the `resolve` function is called.
         await new Promise(resolve => {
