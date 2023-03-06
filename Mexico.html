@@ -162,7 +162,7 @@
         player1.setVolume(video.volume);
         
         const [nextVideo] = playlist;
-        player1.loadVideoById(nextVideo);
+        player1.cueVideoById(nextVideo);
         player1.setVolume(nextVideo.volume);
           
         await new Promise(resolve => {
