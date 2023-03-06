@@ -162,8 +162,8 @@
         player1.setVolume(video.volume);
         
         const [nextVideo] = playlist;
-        player1.cueVideoById(nextVideo);
-        player1.setVolume(nextVideo.volume);
+        player2.loadVideoById(nextVideo);
+        player2.setVolume(nextVideo.volume);
           
         await new Promise(resolve => {
           player1.addEventListener('onStateChange', function listener({data}) {
