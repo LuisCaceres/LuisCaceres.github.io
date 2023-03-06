@@ -107,7 +107,9 @@
       while (playlist.length) {
         const [ video1, video2 ] = playlist; 
         player1.loadVideoById(video1);
+        player1.playVideo();
         player2.loadVideoById(video2);
+        player2.playVideo();  
 
         // Note: An event listener is added to ensure that the while loop runs asynchronously until the `resolve` function is called.
         await new Promise(resolve => {
