@@ -154,12 +154,13 @@
           }
         });
       });
+        
+      player2.loadVideoById(playlist[4]);
+      player2.pauseVideo();
 
       // Plays each video track on the playlist. 
       while (playlist.length) {
-        player2.loadVideoById(playlist.shift());
-        player2.pauseVideo();
-
+ 
         await new Promise(resolve => {
           player1.addEventListener('onStateChange', function listener({data}) {
             if (data === YT.PlayerState.ENDED) {
@@ -169,6 +170,9 @@
             }
           });
         });
+          
+        player1.loadVideoById(playlist.shift());
+        player1.pauseVideo();
 
         [player1, player2] = [player2, player1];
       }
