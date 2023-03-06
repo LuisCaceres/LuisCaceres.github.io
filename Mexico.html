@@ -99,37 +99,38 @@
         },
       ];
         
-      player1.loadVideoById(playlist[0]);
-      player1.playVideo();
+      player1.mute();
+      player2.mute();
+        
+      // Plays each video track on the playlist. 
+      while (playlist.length) {
+        player1.loadVideoById(playlist[0]);
+        player2.loadVideoById(playlist[1]);
 
-//       // Plays each video track on the playlist. 
-//       while (playlist.length) {
-//         player2.loadVideoById(playlist[1]);
+        // Note: An event listener is added to ensure that the while loop runs asynchronously until the `resolve` function is called.
+        await new Promise(resolve => {
+          player1.addEventListener('onStateChange', function listener({data}) {
+            if (data === YT.PlayerState.ENDED) {
+              player2.playVideo();
+              player1.removeEventListener('onStateChange', listener);
+              resolve();
+            }
+          });
+        });
 
-//         // Note: An event listener is added to ensure that the while loop runs asynchronously until the `resolve` function is called.
-//         await new Promise(resolve => {
-//           player1.addEventListener('onStateChange', function listener({data}) {
-//             if (data === YT.PlayerState.ENDED) {
-//               player2.playVideo();
-//               player1.removeEventListener('onStateChange', listener);
-//               resolve();
-//             }
-//           });
-//         });
-
-//         await new Promise(resolve => {
-//           player2.addEventListener('onStateChange', function listener({data}) {
-//             if (data === YT.PlayerState.ENDED) {
+        await new Promise(resolve => {
+          player2.addEventListener('onStateChange', function listener({data}) {
+            if (data === YT.PlayerState.ENDED) {
               
-//               player2.removeEventListener('onStateChange', listener);
-//               resolve();
-//             }
-//           });
-//         });
+              player2.removeEventListener('onStateChange', listener);
+              resolve();
+            }
+          });
+        });
 
-//         playlist.shift();
-//         playlist.shift();
-// //       }
+        playlist.shift();
+        playlist.shift();
+      }
     }
     </script>
     <script src="https://www.youtube.com/iframe_api"></script>
