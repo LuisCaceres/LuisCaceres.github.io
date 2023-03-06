@@ -18,123 +18,124 @@
             bottom: 0;
         }
     </style>
-    
-    <div class="player" id="player-1"></div>
-    <div class="player" id="player-2"></div>
+
+    <div id="player-1"></div>
+    <div id="player-2"></div>
+
     <script>
-    async function onYouTubeIframeAPIReady() {
-      let player1 = new YT.Player('player-1');
-      let player2 = new YT.Player('player-2');
+      async function onYouTubeIframeAPIReady() {
+        let player1 = new YT.Player('player-1');
+        let player2 = new YT.Player('player-2');
 
-      const promise1 = new Promise(resolve => {
-        player1.addEventListener('onReady', resolve);
-      });
-        
-      const promise2 = new Promise(resolve => {
-        player2.addEventListener('onReady', resolve);
-      });
-
-      await Promise.all([promise1, promise2]);
-
-      const playlist = [
-
-        // Patzcuaro
-        {
-          endSeconds: 452,
-          startSeconds: 444,
-          videoId: "TJAJ3m44NKk",
-        },
-        {
-          endSeconds: 632,
-          startSeconds: 626,
-          videoId: "TJAJ3m44NKk",
-        },
-        {
-          endSeconds: 1232,
-          startSeconds: 1216,
-          videoId: "TJAJ3m44NKk",
-        },
-
-        // Paricutín
-        {
-          endSeconds: 26,
-          startSeconds: 15,
-          videoId: "npv3_E1Qog0",
-        },
-        {
-          endSeconds: 80,
-          startSeconds: 68,
-          videoId: "npv3_E1Qog0",
-        },
-
-        // Morelia
-        {
-          endSeconds: 31,  
-          startSeconds: 10,
-          videoId: "y6qMwcF4KzY",
-        },
-
-        // Oaxaca
-        {
-          endSeconds: 13,  
-          startSeconds: 10,
-          videoId: "Ipk1Hpt7gUw",
-        },
-        {
-          endSeconds: 870,  
-          startSeconds: 869,
-          videoId: "Ipk1Hpt7gUw",
-        },
-        {
-          endSeconds: 570,
-          startSeconds: 567,
-          videoId: "yVrqZ48neU0",
-        },
-      ];
-
-      player1.mute();
-      player2.mute();
-
-      player1.loadVideoById(playlist.shift());
-      document.body.append(player1.v);
-
-      player2.loadVideoById(playlist.shift());
-      player2.pauseVideo();
-
-      // Play each video track on the playlist. 
-      while (playlist.length) {
-
-        await new Promise(resolve => {
-          player1.addEventListener('onStateChange', function listener({data}) {
-
-            if (data === YT.PlayerState.ENDED) {
-              player2.playVideo();
-              document.body.append(player2.v);
-              player1.removeEventListener('onStateChange', listener);
-              resolve();
-            }
-          });
+        const promise1 = new Promise(resolve => {
+          player1.addEventListener('onReady', resolve);
         });
+
+        const promise2 = new Promise(resolve => {
+          player2.addEventListener('onReady', resolve);
+        });
+
+        await Promise.all([promise1, promise2]);
+
+        const playlist = [
+
+          // Patzcuaro
+          {
+            endSeconds: 452,
+            startSeconds: 444,
+            videoId: "TJAJ3m44NKk",
+          },
+          {
+            endSeconds: 632,
+            startSeconds: 626,
+            videoId: "TJAJ3m44NKk",
+          },
+          {
+            endSeconds: 1232,
+            startSeconds: 1216,
+            videoId: "TJAJ3m44NKk",
+          },
+
+          // Paricutín
+          {
+            endSeconds: 26,
+            startSeconds: 15,
+            videoId: "npv3_E1Qog0",
+          },
+          {
+            endSeconds: 80,
+            startSeconds: 68,
+            videoId: "npv3_E1Qog0",
+          },
+
+          // Morelia
+          {
+            endSeconds: 31,  
+            startSeconds: 10,
+            videoId: "y6qMwcF4KzY",
+          },
+
+          // Oaxaca
+          {
+            endSeconds: 13,  
+            startSeconds: 10,
+            videoId: "Ipk1Hpt7gUw",
+          },
+          {
+            endSeconds: 870,  
+            startSeconds: 869,
+            videoId: "Ipk1Hpt7gUw",
+          },
+          {
+            endSeconds: 570,
+            startSeconds: 567,
+            videoId: "yVrqZ48neU0",
+          },
+        ];
+
+        player1.mute();
+        player2.mute();
 
         player1.loadVideoById(playlist.shift());
-        player1.pauseVideo();
-
-        await new Promise(resolve => {
-          player2.addEventListener('onStateChange', function listener({data}) {
-
-            if (data === YT.PlayerState.ENDED) {
-              player1.playVideo();
-              document.body.append(player1.v);
-              player2.removeEventListener('onStateChange', listener);
-              resolve();
-            }
-          });
-        });
+        document.body.append(player1.v);
 
         player2.loadVideoById(playlist.shift());
         player2.pauseVideo();
+
+        // Play each video track on the playlist. 
+        while (playlist.length) {
+
+          await new Promise(resolve => {
+            player1.addEventListener('onStateChange', function listener({data}) {
+
+              if (data === YT.PlayerState.ENDED) {
+                player2.playVideo();
+                document.body.append(player2.v);
+                player1.removeEventListener('onStateChange', listener);
+                resolve();
+              }
+            });
+          });
+
+          player1.loadVideoById(playlist.shift());
+          player1.pauseVideo();
+
+          await new Promise(resolve => {
+            player2.addEventListener('onStateChange', function listener({data}) {
+
+              if (data === YT.PlayerState.ENDED) {
+                player1.playVideo();
+                document.body.append(player1.v);
+                player2.removeEventListener('onStateChange', listener);
+                resolve();
+              }
+            });
+          });
+
+          player2.loadVideoById(playlist.shift());
+          player2.pauseVideo();
+        }
       }
-    }
     </script>
     <script src="https://www.youtube.com/iframe_api"></script>
 </body>
