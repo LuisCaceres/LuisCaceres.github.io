@@ -113,21 +113,21 @@
         await new Promise(resolve => {
           player1.addEventListener('onStateChange', function listener({data}) {
             if (data === YT.PlayerState.ENDED) {
-              player2.loadVideoById(video2);
+              player2.playVideo();
               player1.removeEventListener('onStateChange', listener);
               resolve();
             }
           });
         });
 
-        await new Promise(resolve => {
-          player2.addEventListener('onStateChange', function listener({data}) {
-            if (data === YT.PlayerState.ENDED) {
-              player2.removeEventListener('onStateChange', listener);
-              resolve();
-            }
-          });
-        });
+//         await new Promise(resolve => {
+//           player2.addEventListener('onStateChange', function listener({data}) {
+//             if (data === YT.PlayerState.ENDED) {
+//               player2.removeEventListener('onStateChange', listener);
+//               resolve();
+//             }
+//           });
+//         });
 
         playlist.shift();
         playlist.shift();
