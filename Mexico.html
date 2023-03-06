@@ -13,8 +13,8 @@
     <div id="player-2"></div>
     <script>
     async function onYouTubeIframeAPIReady() {
-      const player1 = new YT.Player('player-1');
-      const player2 = new YT.Player('player-2');
+      let player1 = new YT.Player('player-1');
+      let player2 = new YT.Player('player-2');
         
       const promise1 = new Promise(resolve => {
         player1.addEventListener('onReady', resolve); 
@@ -102,10 +102,11 @@
       player1.mute();
       player2.mute();
         
+      player1.loadVideoById(playlist[0]);
+      player2.loadVideoById(playlist[1]);
+        
       // Plays each video track on the playlist. 
       while (playlist.length) {
-        player1.loadVideoById(playlist[0]);
-        player2.loadVideoById(playlist[1]);
         player2.pauseVideo();
 
         // Note: An event listener is added to ensure that the while loop runs asynchronously until the `resolve` function is called.
@@ -113,24 +114,16 @@
           player1.addEventListener('onStateChange', function listener({data}) {
             if (data === YT.PlayerState.ENDED) {
               player2.playVideo();
+              player1.loadVideoById(playlist[2]);
               player1.removeEventListener('onStateChange', listener);
               resolve();
             }
           });
         });
 
-        await new Promise(resolve => {
-          player2.addEventListener('onStateChange', function listener({data}) {
-            if (data === YT.PlayerState.ENDED) {
-              
-              player2.removeEventListener('onStateChange', listener);
-              resolve();
-            }
-          });
-        });
-
         playlist.shift();
         playlist.shift();
+        [player1, player2] = [player2, player1];
       }
     }
     </script>
