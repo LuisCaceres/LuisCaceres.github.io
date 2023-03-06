@@ -96,7 +96,7 @@
       player2.mute();
 
       player1.loadVideoById(playlist.shift());
-      document.body.append(player1);
+      document.body.append(player1.v);
 
       player2.loadVideoById(playlist.shift());
       player2.pauseVideo();
@@ -109,7 +109,7 @@
 
             if (data === YT.PlayerState.ENDED) {
               player2.playVideo();
-              document.body.append(player2);
+              document.body.append(player2.v);
               player1.removeEventListener('onStateChange', listener);
               resolve();
             }
@@ -124,7 +124,7 @@
 
             if (data === YT.PlayerState.ENDED) {
               player1.playVideo();
-              document.body.append(player1);
+              document.body.append(player1.v);
               player2.removeEventListener('onStateChange', listener);
               resolve();
             }
