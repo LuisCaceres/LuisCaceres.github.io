@@ -9,14 +9,22 @@
 </head>
 
 <body>
-    <div id="player"></div>
+    <div id="player-1"></div>
+    <div id="player-2"></div>
     <script>
     async function onYouTubeIframeAPIReady() {
-      const player = new YT.Player('player');
-
-      await new Promise(resolve => {
-        player.addEventListener('onReady', resolve); 
+      const player1 = new YT.Player('player-1');
+      const player2 = new YT.Player('player-2');
+        
+      const promise1 = new Promise(resolve => {
+        player1.addEventListener('onReady', resolve); 
       });
+        
+      const promise2 = new Promise(resolve => {
+        player2.addEventListener('onReady', resolve); 
+      });
+
+      await Promise.all([promise1, promise2]);
 
       const playlist = [
         // Patzcuaro
@@ -150,14 +158,18 @@
       // Plays each video track on the playlist. 
       while (playlist.length) {
         const video = playlist.shift();
-        player.loadVideoById(video);
-        player.setVolume(video.volume);
+        player1.loadVideoById(video);
+        player1.setVolume(video.volume);
         
+        const [nextVideo] = playlist;
+        player1.loadVideoById(nextVideo);
+        player1.setVolume(nextVideo.volume);
+          
         await new Promise(resolve => {
-          player.addEventListener('onStateChange', function listener({data}) {
+          player1.addEventListener('onStateChange', function listener({data}) {
             if (data === YT.PlayerState.ENDED) {
               resolve();
-              player.removeEventListener('onStateChange', listener);
+              player1.removeEventListener('onStateChange', listener);
             }
           });
         });
