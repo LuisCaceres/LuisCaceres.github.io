@@ -9,8 +9,18 @@
 </head>
 
 <body>
-    <div id="player-1"></div>
-    <div id="player-2"></div>
+    <style>
+        .player {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+    </style>
+    
+    <div class="player" id="player-1"></div>
+    <div class="player" id="player-2"></div>
     <script>
     async function onYouTubeIframeAPIReady() {
       let player1 = new YT.Player('player-1');
@@ -27,75 +37,58 @@
       await Promise.all([promise1, promise2]);
 
       const playlist = [
+
         // Patzcuaro
         {
           endSeconds: 452,
           startSeconds: 444,
-          style: {width: "83vw"},
           videoId: "TJAJ3m44NKk",
-          volume: 0,
         },
         {
           endSeconds: 632,
           startSeconds: 626,
-          style: {width: "83vw"},
           videoId: "TJAJ3m44NKk",
-          volume: 0,
         },
         {
           endSeconds: 1232,
           startSeconds: 1216,
-          style: {width: "83vw"},
           videoId: "TJAJ3m44NKk",
-          volume: 0,
         },
 
         // Paricutín
         {
           endSeconds: 26,
           startSeconds: 15,
-          style: {width: "83vw"},
           videoId: "npv3_E1Qog0",
-          volume: 0,
         },
         {
           endSeconds: 80,
           startSeconds: 68,
-          style: {width: "83vw"},
           videoId: "npv3_E1Qog0",
-          volume: 0,
         },
 
         // Morelia
         {
           endSeconds: 31,  
           startSeconds: 10,
-          style: {width: "83vw"},
           videoId: "y6qMwcF4KzY",
-          volume: 0,
         },
 
         // Oaxaca
         {
           endSeconds: 13,  
           startSeconds: 10,
-          style: {width: "83vw"},
           videoId: "Ipk1Hpt7gUw",
-          volume: 0,
         },
         {
           endSeconds: 870,  
           startSeconds: 869,
-          style: {width: "83vw"},
           videoId: "Ipk1Hpt7gUw",
-          volume: 0,
         },
         {
           endSeconds: 570,
           startSeconds: 567,
-          style: {width: "83vw"},
           videoId: "yVrqZ48neU0",
-          volume: 0,
         },
       ];
 
@@ -103,68 +96,20 @@
       player2.mute();
 
       player1.loadVideoById(playlist.shift());
+      document.body.append(player1);
+
       player2.loadVideoById(playlist.shift());
       player2.pauseVideo();
 
-//       await new Promise(resolve => {
-//         player1.addEventListener('onStateChange', function listener({data}) {
-//           if (data === YT.PlayerState.ENDED) {
-//             player2.playVideo();
-//             player1.removeEventListener('onStateChange', listener);
-//             resolve();
-//           }
-//         });
-//       });
-
-//       player1.loadVideoById(playlist[2]);
-//       player1.pauseVideo();
-
-//       await new Promise(resolve => {
-//         player2.addEventListener('onStateChange', function listener({data}) {
-//           if (data === YT.PlayerState.ENDED) {
-//             player1.playVideo();
-//             player2.removeEventListener('onStateChange', listener);
-//             resolve();
-//           }
-//         });
-//       });
-
-//       player2.loadVideoById(playlist[3]);
-//       player2.pauseVideo();
-
-//       await new Promise(resolve => {
-//         player1.addEventListener('onStateChange', function listener({data}) {
-//           if (data === YT.PlayerState.ENDED) {
-//             player2.playVideo();
-//             player1.removeEventListener('onStateChange', listener);
-//             resolve();
-//           }
-//         });
-//       });
-
-//       player1.loadVideoById(playlist[4]);
-//       player1.pauseVideo();
-
-//       await new Promise(resolve => {
-//         player2.addEventListener('onStateChange', function listener({data}) {
-//           if (data === YT.PlayerState.ENDED) {
-//             player1.playVideo();
-//             player2.removeEventListener('onStateChange', listener);
-//             resolve();
-//           }
-//         });
-//       });
-        
-//       player2.loadVideoById(playlist[5]);
-//       player2.pauseVideo();
-
-      // Plays each video track on the playlist. 
+      // Play each video track on the playlist. 
       while (playlist.length) {
 
         await new Promise(resolve => {
           player1.addEventListener('onStateChange', function listener({data}) {
+
             if (data === YT.PlayerState.ENDED) {
               player2.playVideo();
+              document.body.append(player2);
               player1.removeEventListener('onStateChange', listener);
               resolve();
             }
@@ -176,8 +121,10 @@
 
         await new Promise(resolve => {
           player2.addEventListener('onStateChange', function listener({data}) {
+
             if (data === YT.PlayerState.ENDED) {
               player1.playVideo();
+              document.body.append(player1);
               player2.removeEventListener('onStateChange', listener);
               resolve();
             }
