@@ -157,14 +157,14 @@
 
       // Plays each video track on the playlist. 
       while (playlist.length) {
-        player1.loadVideoById(playlist.shift());
-        player1.pauseVideo();
+        player2.loadVideoById(playlist.shift());
+        player2.pauseVideo();
 
         await new Promise(resolve => {
-          player2.addEventListener('onStateChange', function listener({data}) {
+          player1.addEventListener('onStateChange', function listener({data}) {
             if (data === YT.PlayerState.ENDED) {
-              player1.playVideo();
-              player2.removeEventListener('onStateChange', listener);
+              player2.playVideo();
+              player1.removeEventListener('onStateChange', listener);
               resolve();
             }
           });
