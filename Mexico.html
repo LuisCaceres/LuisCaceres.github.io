@@ -120,18 +120,18 @@
           });
         });
 
-//         await new Promise(resolve => {
-//           player2.addEventListener('onStateChange', function listener({data}) {
-//             if (data === YT.PlayerState.ENDED) {
-//               player2.removeEventListener('onStateChange', listener);
-//               resolve();
-//             }
-//           });
-//         });
-      }
+        await new Promise(resolve => {
+          player2.addEventListener('onStateChange', function listener({data}) {
+            if (data === YT.PlayerState.ENDED) {
+              player2.removeEventListener('onStateChange', listener);
+              resolve();
+            }
+          });
+        });
 
-      playlist.shift();
-      playlist.shift();
+        playlist.shift();
+        playlist.shift();
+      }
     }
     </script>
     <script src="https://www.youtube.com/iframe_api"></script>
