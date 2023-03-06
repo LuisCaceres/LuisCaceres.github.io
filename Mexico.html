@@ -102,8 +102,8 @@
       player1.mute();
       player2.mute();
 
-      player1.loadVideoById(playlist[0]);
-      player2.loadVideoById(playlist[1]);
+      player1.loadVideoById(playlist.shift());
+      player2.loadVideoById(playlist.shift());
       player2.pauseVideo();
 
 //       await new Promise(resolve => {
