@@ -106,7 +106,7 @@
         player1.setVolume(video.volume);
         
         const [nextVideo] = playlist;
-        player2.loadVideoById(nextVideo);
+        player2.cueVideoById(nextVideo);
         player2.setVolume(nextVideo.volume);
           
         await new Promise(resolve => {
