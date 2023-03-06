@@ -101,6 +101,7 @@
         
       const video = playlist.shift();
       player1.loadVideoById(video);
+      player1.playVideo();
       player1.cueVideoById(playlist[0]);
       
       await new Promise(resolve => {
