@@ -106,6 +106,7 @@
       while (playlist.length) {
         player1.loadVideoById(playlist[0]);
         player2.loadVideoById(playlist[1]);
+        player2.pauseVideo();
 
         // Note: An event listener is added to ensure that the while loop runs asynchronously until the `resolve` function is called.
         await new Promise(resolve => {
