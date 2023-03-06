@@ -142,6 +142,20 @@
         });
       });
         
+      player1.loadVideoById(playlist[4]);
+      player1.pauseVideo();  
+        
+      await new Promise(resolve => {
+        player2.addEventListener('onStateChange', function listener({data}) {
+          if (data === YT.PlayerState.ENDED) {
+            player1.playVideo();
+            player2.removeEventListener('onStateChange', listener);
+            resolve();
+          }
+        });
+      });
+        
+        
 //       // Plays each video track on the playlist. 
 //       while (playlist.length) {
 //          player1.loadVideoById(playlist[2]);
