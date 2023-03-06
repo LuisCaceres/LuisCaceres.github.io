@@ -91,7 +91,7 @@
           volume: 0,
         },
         {
-          endSeconds: 570,  
+          endSeconds: 570,
           startSeconds: 567,
           style: {width: "83vw"},
           videoId: "yVrqZ48neU0",
@@ -101,14 +101,15 @@
 
       // Plays each video track on the playlist. 
       while (playlist.length) {
-        player1.loadVideoById(playlist[0]);
-        player2.loadVideoById(playlist[1]);
+        const [ video1, video2 ] = playlist; 
+        player1.loadVideoById(video1);
+        player2.loadVideoById(video2);
 
         // Note: An event listener is added to ensure that the while loop runs asynchronously until the `resolve` function is called.
         await new Promise(resolve => {
           player1.addEventListener('onStateChange', function listener({data}) {
             if (data === YT.PlayerState.ENDED) {
-              player2.playVideo();
+              player2.loadVideoById(video2);
               player1.removeEventListener('onStateChange', listener);
               resolve();
             }
@@ -125,6 +126,7 @@
         });
       }
 
+      playlist.shift();
       playlist.shift();
     }
     </script>
