@@ -98,26 +98,42 @@
           volume: 0,
         },
       ];
-
-      // Plays each video track on the playlist. 
-      while (playlist.length) {
-        const video = playlist.shift();
-        player1.loadVideoById(video);
-        player1.setVolume(video.volume);
         
-        const [nextVideo] = playlist;
-        player2.cueVideoById(nextVideo);
-        player2.setVolume(nextVideo.volume);
-          
-        await new Promise(resolve => {
-          player1.addEventListener('onStateChange', function listener({data}) {
+      const video = playlist.shift();
+      player1.loadVideoById(video);
+      player1.cueVideoById(playlist[0]);
+      
+      await new Promise(resolve => {
+        player1.addEventListener('onStateChange', function listener({data}) {
             if (data === YT.PlayerState.ENDED) {
-              resolve();
-              player1.removeEventListener('onStateChange', listener);
+                resolve();
+                player1.removeEventListener('onStateChange', listener);
+                player1.playVideo();   
             }
-          });
         });
-      }
+      });
+      
+
+//       // Plays each video track on the playlist. 
+//       while (playlist.length) {
+//         const video = playlist.shift();
+//         player1.loadVideoById(video);
+//         player1.setVolume(video.volume);
+        
+//         const [nextVideo] = playlist;
+//         player2.cueVideoById(nextVideo);
+//         player2.setVolume(nextVideo.volume);
+          
+//         // Note: An event listener is added to ensure that the while loop runs asynchronously until the `resolve` function is called.
+//         await new Promise(resolve => {
+//           player1.addEventListener('onStateChange', function listener({data}) {
+//             if (data === YT.PlayerState.ENDED) {
+//               resolve();
+//               player1.removeEventListener('onStateChange', listener);
+//             }
+//           });
+//         });
+//       }
     }
     </script>
     <script src="https://www.youtube.com/iframe_api"></script>
