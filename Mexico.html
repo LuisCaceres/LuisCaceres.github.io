@@ -106,61 +106,61 @@
       player2.loadVideoById(playlist[1]);
       player2.pauseVideo();
 
-      await new Promise(resolve => {
-        player1.addEventListener('onStateChange', function listener({data}) {
-          if (data === YT.PlayerState.ENDED) {
-            player2.playVideo();
-            player1.removeEventListener('onStateChange', listener);
-            resolve();
-          }
-        });
-      });
+//       await new Promise(resolve => {
+//         player1.addEventListener('onStateChange', function listener({data}) {
+//           if (data === YT.PlayerState.ENDED) {
+//             player2.playVideo();
+//             player1.removeEventListener('onStateChange', listener);
+//             resolve();
+//           }
+//         });
+//       });
 
-      player1.loadVideoById(playlist[2]);
-      player1.pauseVideo();
+//       player1.loadVideoById(playlist[2]);
+//       player1.pauseVideo();
 
-      await new Promise(resolve => {
-        player2.addEventListener('onStateChange', function listener({data}) {
-          if (data === YT.PlayerState.ENDED) {
-            player1.playVideo();
-            player2.removeEventListener('onStateChange', listener);
-            resolve();
-          }
-        });
-      });
+//       await new Promise(resolve => {
+//         player2.addEventListener('onStateChange', function listener({data}) {
+//           if (data === YT.PlayerState.ENDED) {
+//             player1.playVideo();
+//             player2.removeEventListener('onStateChange', listener);
+//             resolve();
+//           }
+//         });
+//       });
 
-      player2.loadVideoById(playlist[3]);
-      player2.pauseVideo();
+//       player2.loadVideoById(playlist[3]);
+//       player2.pauseVideo();
 
-      await new Promise(resolve => {
-        player1.addEventListener('onStateChange', function listener({data}) {
-          if (data === YT.PlayerState.ENDED) {
-            player2.playVideo();
-            player1.removeEventListener('onStateChange', listener);
-            resolve();
-          }
-        });
-      });
+//       await new Promise(resolve => {
+//         player1.addEventListener('onStateChange', function listener({data}) {
+//           if (data === YT.PlayerState.ENDED) {
+//             player2.playVideo();
+//             player1.removeEventListener('onStateChange', listener);
+//             resolve();
+//           }
+//         });
+//       });
 
-      player1.loadVideoById(playlist[4]);
-      player1.pauseVideo();
+//       player1.loadVideoById(playlist[4]);
+//       player1.pauseVideo();
 
-      await new Promise(resolve => {
-        player2.addEventListener('onStateChange', function listener({data}) {
-          if (data === YT.PlayerState.ENDED) {
-            player1.playVideo();
-            player2.removeEventListener('onStateChange', listener);
-            resolve();
-          }
-        });
-      });
+//       await new Promise(resolve => {
+//         player2.addEventListener('onStateChange', function listener({data}) {
+//           if (data === YT.PlayerState.ENDED) {
+//             player1.playVideo();
+//             player2.removeEventListener('onStateChange', listener);
+//             resolve();
+//           }
+//         });
+//       });
         
-      player2.loadVideoById(playlist[5]);
-      player2.pauseVideo();
+//       player2.loadVideoById(playlist[5]);
+//       player2.pauseVideo();
 
       // Plays each video track on the playlist. 
       while (playlist.length) {
- 
+
         await new Promise(resolve => {
           player1.addEventListener('onStateChange', function listener({data}) {
             if (data === YT.PlayerState.ENDED) {
@@ -170,11 +170,22 @@
             }
           });
         });
-          
+
         player1.loadVideoById(playlist.shift());
         player1.pauseVideo();
 
-//         [player1, player2] = [player2, player1];
+        await new Promise(resolve => {
+          player2.addEventListener('onStateChange', function listener({data}) {
+            if (data === YT.PlayerState.ENDED) {
+              player1.playVideo();
+              player2.removeEventListener('onStateChange', listener);
+              resolve();
+            }
+          });
+        });
+
+        player2.loadVideoById(playlist.shift());
+        player2.pauseVideo();
       }
     }
     </script>
