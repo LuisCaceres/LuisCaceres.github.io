@@ -56,7 +56,7 @@
           },
           {
             endSeconds: 632,
-            startSeconds: 626,
+            startSeconds: 618,
             videoId: "TJAJ3m44NKk",
           },
           {
@@ -107,21 +107,14 @@
 
         player1.loadVideoById(playlist.shift());
         player2.loadVideoById(playlist.shift());
-        
-        await new Promise(resolve => {
-          setTimeout(resolve, 1000);
-        });
-          
-        player2.pauseVideo();
 
-        // Play each video track on the playlist. 
+        // Play each video track on the playlist.
         while (playlist.length) {
 
           await new Promise(resolve => {
             player1.addEventListener('onStateChange', function listener({data}) {
 
               if (data === YT.PlayerState.ENDED) {
-                player2.playVideo();
                 document.body.classList.add('reverse');
                 player1.removeEventListener('onStateChange', listener);
                 resolve();
