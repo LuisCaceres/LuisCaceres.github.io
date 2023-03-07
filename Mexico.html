@@ -14,6 +14,10 @@
         flex-direction: column;
         margin: 0;
       }
+        
+      .reverse {
+        flex-direction: column-reverse;  
+      }
       
       #player-1,
       #player-2 {
@@ -111,6 +115,7 @@
 
               if (data === YT.PlayerState.ENDED) {
                 player2.playVideo();
+                document.body.classList.add('reverse');
                 player1.removeEventListener('onStateChange', listener);
                 resolve();
               }
@@ -125,6 +130,7 @@
 
               if (data === YT.PlayerState.ENDED) {
                 player1.playVideo();
+                document.body.classList.remove('reverse');
                 player2.removeEventListener('onStateChange', listener);
                 resolve();
               }
