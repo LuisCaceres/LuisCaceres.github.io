@@ -56,7 +56,7 @@
           },
           {
             endSeconds: 1232,
-            startSeconds: 1227,
+            startSeconds: 1226,
             videoId: "TJAJ3m44NKk",
           },
           {
@@ -163,6 +163,8 @@
 
         player1.loadVideoById(playlist.shift());
         player2.loadVideoById(playlist.shift());
+         
+        await new Promise(resolve => setTimout(resolve, 1000));
         player2.pauseVideo();
 
         // Play each video track on the playlist.
