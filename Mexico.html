@@ -105,12 +105,7 @@
 
         player1.loadVideoById(playlist.shift());
         player2.loadVideoById(playlist.shift());
-        
-        await new Promise(resolve => {
-          setTimeout(resolve, 1000);
-        });
-          
-        player2.pauseVideo();
+        setTimeout(() => player2.pauseVideo(), 1000);
 
         // Play each video track on the playlist. 
         while (playlist.length) {
@@ -128,12 +123,7 @@
           });
 
           player1.loadVideoById(playlist.shift());
-          
-          await new Promise(resolve => {
-            setTimeout(resolve, 1000);
-          });
-            
-          player1.pauseVideo();
+          setTimeout(() => player1.pauseVideo(), 1000);
 
           await new Promise(resolve => {
             player2.addEventListener('onStateChange', function listener({data}) {
@@ -148,12 +138,7 @@
           });
 
           player2.loadVideoById(playlist.shift());
-            
-          await new Promise(resolve => {
-            setTimeout(resolve, 1000);
-          });
-            
-          player2.pauseVideo();
+          setTimeout(() => player2.pauseVideo(), 1000);
         }
       }
     </script>
