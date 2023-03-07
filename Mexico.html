@@ -107,6 +107,11 @@
 
         player1.loadVideoById(playlist.shift());
         player2.loadVideoById(playlist.shift());
+        
+        await new Promise(resolve => {
+          setTimeout(resolve, 1000);
+        });
+          
         player2.pauseVideo();
 
         // Play each video track on the playlist. 
