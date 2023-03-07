@@ -52,16 +52,19 @@
           {
             endSeconds: 452,
             startSeconds: 444,
+            lenght: 8,
             videoId: "TJAJ3m44NKk",
           },
           {
             endSeconds: 632,
-            startSeconds: 618,
+            startSeconds: 626,
+            length: 6,
             videoId: "TJAJ3m44NKk",
           },
           {
             endSeconds: 1232,
             startSeconds: 1216,
+            length: 6,
             videoId: "TJAJ3m44NKk",
           },
 
@@ -69,11 +72,13 @@
           {
             endSeconds: 26,
             startSeconds: 15,
+            length: 9,
             videoId: "npv3_E1Qog0",
           },
           {
             endSeconds: 80,
             startSeconds: 68,
+            length: 12,
             videoId: "npv3_E1Qog0",
           },
 
@@ -81,6 +86,7 @@
           {
             endSeconds: 31,  
             startSeconds: 10,
+            length: 21,
             videoId: "y6qMwcF4KzY",
           },
 
@@ -88,16 +94,19 @@
           {
             endSeconds: 13,  
             startSeconds: 10,
+            length: 3,
             videoId: "Ipk1Hpt7gUw",
           },
           {
             endSeconds: 870,  
             startSeconds: 869,
+            length: 1,
             videoId: "Ipk1Hpt7gUw",
           },
           {
             endSeconds: 570,
             startSeconds: 567,
+            length: 3,
             videoId: "yVrqZ48neU0",
           },
         ];
@@ -106,7 +115,7 @@
         player2.mute();
 
         player1.loadVideoById(playlist.shift());
-        player2.loadVideoById(playlist.shift());
+        player2.cueVideoById(playlist.shift());
 
         // Play each video track on the playlist.
         while (playlist.length) {
@@ -122,8 +131,7 @@
             });
           });
 
-          player1.loadVideoById(playlist.shift());
-          player1.pauseVideo();
+          player1.cueVideoById(playlist.shift());
 
           await new Promise(resolve => {
             player2.addEventListener('onStateChange', function listener({data}) {
@@ -137,8 +145,7 @@
             });
           });
 
-          player2.loadVideoById(playlist.shift());
-          player2.pauseVideo();
+          player2.cueVideoById(playlist.shift());
         }
       }
     </script>
