@@ -124,6 +124,7 @@
             player1.addEventListener('onStateChange', function listener({data}) {
 
               if (data === YT.PlayerState.ENDED) {
+                player2.playVideo();
                 document.body.classList.add('reverse');
                 player1.removeEventListener('onStateChange', listener);
                 resolve();
