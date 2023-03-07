@@ -162,8 +162,8 @@
         player2.mute();
 
         player1.loadVideoById(playlist.shift());
+
         player2.loadVideoById(playlist.shift());
-         
         await new Promise(resolve => setTimeout(resolve, 1000));
         player2.pauseVideo();
 
@@ -183,6 +183,7 @@
           });
 
           player1.loadVideoById(playlist.shift());
+          await new Promise(resolve => setTimeout(resolve, 1000));
           player1.pauseVideo();
           
           await new Promise(resolve => {
@@ -198,6 +199,7 @@
           });
 
           player2.loadVideoById(playlist.shift());
+          await new Promise(resolve => setTimeout(resolve, 1000));
           player2.pauseVideo();
         }
       }
