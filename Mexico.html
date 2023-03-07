@@ -107,6 +107,7 @@
 
         player1.loadVideoById(playlist.shift());
         player2.loadVideoById(playlist.shift());
+        player2.pauseVideo();
 
         // Play each video track on the playlist.
         while (playlist.length) {
@@ -124,7 +125,8 @@
           });
 
           player1.loadVideoById(playlist.shift());
-
+          player1.pauseVideo();
+          
           await new Promise(resolve => {
             player2.addEventListener('onStateChange', function listener({data}) {
 
@@ -138,6 +140,7 @@
           });
 
           player2.loadVideoById(playlist.shift());
+          player2.pauseVideo();
         }
       }
     </script>
