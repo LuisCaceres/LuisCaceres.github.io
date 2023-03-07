@@ -25,6 +25,10 @@ style.textContent = `
     display: none !important;
 }
 
+.ytp-pause-overlay-container {
+    display: none !important;
+}
+
 .ytp-show-cards-title {
     display: none !important;
 }
@@ -32,7 +36,6 @@ style.textContent = `
 .ytp-spinner {
     display: none !important;
 }
-
 `;
 document.head.append(style);
 
