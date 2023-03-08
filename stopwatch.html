@@ -14,8 +14,8 @@
         const gap = 30000; // This is expressed in milliseconds.
         const times = 10;
 
-        const utterance1 = 'Start now';
-        const utterance2 = 'Stop now';
+        const utterance1 = new SpeechSynthesisUtterance('Start now');
+        const utterance2 = new SpeechSynthesisUtterance('Stop now');
 
         let count = 0;
 
