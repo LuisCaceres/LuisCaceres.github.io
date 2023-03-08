@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Stopwatch</title>
+</head>
+
+<body>
+    <script>
+      const duration = 30000; // This is expressed in milliseconds.
+      const gap = 30000; // This is expressed in milliseconds.
+      const times = 10;
+      
+      const utterance1 = 'Start now';
+      const utterance2 = 'Stop now';
+      
+      let count = 0;
+      
+      while (++count <= times) {
+        window.speechSynthesis.speak(utterance1);
+        await new Promise(resolve => setTimeout(resolve, duration));
+        
+        window.speechSynthesis.speak(utterance2);
+        await new Promise(resolve => setTimeout(resolve, gap));
+      }
+    </script>
+</body>
+
+</html>
