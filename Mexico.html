@@ -33,8 +33,8 @@
 
     <script>
       async function onYouTubeIframeAPIReady() {
-        let player1 = new YT.Player('player-1', {playerVars: {controls: 0}});
-        let player2 = new YT.Player('player-2', {playerVars: {controls: 0}});
+        let player1 = new YT.Player('player-1');
+        let player2 = new YT.Player('player-2');
 
         const promise1 = new Promise(resolve => {
           player1.addEventListener('onReady', resolve);
