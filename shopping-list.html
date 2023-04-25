@@ -67,6 +67,8 @@
   `;
 
   rows.split('*').forEach(row => {
+    const tr = document.createElement('tr');
+    
     {
       const td = document.createElement('td');
       const input = template.querySelector('.checkbox').cloneNode();
@@ -74,8 +76,6 @@
       td.append(input);
       tr.append(td);
     }
-    
-    const tr = document.createElement('tr');
 
     row.split('-').reverse().forEach((cell, index) => {
       const td = document.createElement('td');
