@@ -1,9 +1,9 @@
 <table>
   <tr>
+    <th>In Cart?</th>
     <th>Product</th>
     <th>Quantity</th>
     <th>Price</td>
-    <th>In Cart?</th>
   </tr>
 </table>
 
@@ -67,6 +67,14 @@
   `;
 
   rows.split('*').forEach(row => {
+    {
+      const td = document.createElement('td');
+      const input = template.querySelector('.checkbox').cloneNode();
+
+      td.append(input);
+      tr.append(td);
+    }
+    
     const tr = document.createElement('tr');
 
     row.split('-').forEach((cell, index) => {
@@ -78,14 +86,6 @@
     {
       const td = document.createElement('td');
       const input = template.querySelector('.price').cloneNode();
-
-      td.append(input);
-      tr.append(td);
-    }
-
-    {
-      const td = document.createElement('td');
-      const input = template.querySelector('.checkbox').cloneNode();
 
       td.append(input);
       tr.append(td);
