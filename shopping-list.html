@@ -77,7 +77,7 @@
 
     {
       const td = document.createElement('td');
-      const input = fragment.querySelector('.price');
+      const input = fragment.querySelector('.price').cloneNode();
 
       td.append(input);
       tr.append(td);
@@ -85,7 +85,7 @@
 
     {
       const td = document.createElement('td');
-      const input = fragment.querySelector('.checkbox');
+      const input = fragment.querySelector('.checkbox').cloneNode();
 
       td.append(input);
       tr.append(td);
