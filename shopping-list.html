@@ -41,7 +41,7 @@
 <script>
   
   const table = document.querySelector('table');
-  const fragment =  document.querySelector('template');
+  const template =  document.querySelector('template').content;
 
   const rows = `
       2100gr - Potatoes
@@ -77,7 +77,7 @@
 
     {
       const td = document.createElement('td');
-      const input = fragment.querySelector('.price').cloneNode();
+      const input = template.querySelector('.price').cloneNode();
 
       td.append(input);
       tr.append(td);
@@ -85,7 +85,7 @@
 
     {
       const td = document.createElement('td');
-      const input = fragment.querySelector('.checkbox').cloneNode();
+      const input = template.querySelector('.checkbox').cloneNode();
 
       td.append(input);
       tr.append(td);
