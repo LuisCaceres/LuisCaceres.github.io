@@ -9,7 +9,7 @@
 
 <fragment>
   <input class="price">
-  <input type="checkbox" inputmode="decimal">
+  <input type="checkbox" class="checkbox" inputmode="decimal">
 </fragment>
 
 <style>
@@ -18,8 +18,8 @@
     border-collapse: collapse;
   }
   
-  th,
-  td {
+  td,
+  th {
     padding: 0.5rem;
     border: solid;
   }
@@ -41,6 +41,7 @@
 <script>
   
   const table = document.querySelector('table');
+  const fragment =  document.querySelector('fragment');
 
   const rows = `
       2100gr - Potatoes
@@ -76,7 +77,7 @@
 
     {
       const td = document.createElement('td');
-      // const input = 
+      const input = fragment.querySelector('.price');
 
       td.append(input);
       tr.append(td);
@@ -84,7 +85,7 @@
 
     {
       const td = document.createElement('td');
-
+      const input = fragment.querySelector('.checkbox');
 
       td.append(input);
       tr.append(td);
