@@ -12,41 +12,38 @@
   
   const table = document.querySelector('table');
 
-  const data = `
-    2100gr - Potatoes
-  * 2100gr - Sweet Potatoes
-  * 1500gr - Zucchinis
-  * 1000gr - Carrots
-  * 1400gr - Swedes
-  * 1500gr - Frozen Broccolies
-  *  400gr - Whole Pumpkin
-  * 1400gr - Beetroots
-  * 1500gr - Frozen Cauliflowers
-  * 1000gr - Brussel Sprouts
-  *  300gr - Green Beans
-  * 1400gr - Chokoes
-  * 1000gr - Capsicums
-  * 1000gr - Cucumbers
-  * 1000gr - Tomatoes
-  *  500gr - Frozen Corn
-  *  500gr - Frozen Peas
-  *  600gr - Chick peas         
-  * 1000gr - Parsnips
-  *      2 - Avocados
-`;
-  
-  const rows = data.split('*');
-  const cells = items.map(item => item.split('-'));
-  
-  rows.forEach(row => {
+  const rows = `
+      2100gr - Potatoes
+    * 2100gr - Sweet Potatoes
+    * 1500gr - Zucchinis
+    * 1000gr - Carrots
+    * 1400gr - Swedes
+    * 1500gr - Frozen Broccolies
+    *  400gr - Whole Pumpkin
+    * 1400gr - Beetroots
+    * 1500gr - Frozen Cauliflowers
+    * 1000gr - Brussel Sprouts
+    *  300gr - Green Beans
+    * 1400gr - Chokoes
+    * 1000gr - Capsicums
+    * 1000gr - Cucumbers
+    * 1000gr - Tomatoes
+    *  500gr - Frozen Corn
+    *  500gr - Frozen Peas
+    *  600gr - Chick peas         
+    * 1000gr - Parsnips
+    *      2 - Avocados
+  `;
+
+  rows.split('*').forEach(row => {
     const tr = document.createElement('tr');
-    
+
     row.split('-').forEach((cell, index) => {
       const td = document.createElement('td');
       td.textContent = cell;
       tr.append(td);
     });
-    
+
     {
       const td = document.createElement('td');
       const input = document.createElement('input');
@@ -54,7 +51,7 @@
       td.append(input);
       tr.append(td);
     }
-    
+
     {
       const td = document.createElement('td');
       const input = document.createElement('input');
@@ -63,7 +60,7 @@
       td.append(input);
       tr.append(td);
     }
-    
+
     table.append(tr);
   });
   
