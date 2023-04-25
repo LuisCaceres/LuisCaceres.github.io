@@ -77,7 +77,7 @@
     
     const tr = document.createElement('tr');
 
-    row.split('-').forEach((cell, index) => {
+    row.split('-').reverse().forEach((cell, index) => {
       const td = document.createElement('td');
       td.textContent = cell;
       tr.append(td);
