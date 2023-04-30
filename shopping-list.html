@@ -2,7 +2,9 @@
   <tr>
     <th>Done?</th>
     <th>Product</th>
-    <th>Quantity Required</th>
+    <th>Quantity
+      Required
+    </th>
     <th>Quantity In Cart</th>
     <th>Price</th>
     <th>Stock</th>
@@ -12,7 +14,7 @@
 <template>
   <table>
     <tr>
-      <td class="checkbox">
+      <td class="done">
         <input type="checkbox">        
       </td>
       <td class="price">
@@ -34,6 +36,7 @@
   th {
     padding: 0.5rem;
     border: solid;
+    white-space: break-spaces;
   }
   
   td:first-of-type {
@@ -45,7 +48,7 @@
   }
   
   .price > input,
-  .stock > input {
+  .quantity-in-cart > input {
     width: 5rem;
   }
 </style>
