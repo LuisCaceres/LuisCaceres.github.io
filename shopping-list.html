@@ -11,11 +11,11 @@
 <template>
   <table>
     <tr>
-      <td>
-        <input class="price" inputmode="decimal">
+      <td class="price">
+        <input inputmode="decimal">
       </td>
-      <td>
-        <input type="checkbox" class="checkbox">        
+      <td class="checkbox">
+        <input type="checkbox">        
       </td>
       <td class="stock">
         <input inputmode="decimal">
@@ -43,7 +43,7 @@
     text-align: right;
   }
   
-  .price {
+  .price > input {
     width: 5rem;
   }
 </style>
@@ -87,10 +87,7 @@
     const tr = document.createElement('tr');
     
     {
-      const td = document.createElement('td');
-      const input = template.querySelector('.checkbox').cloneNode();
-
-      td.append(input);
+      const td = template.querySelector('.checkbox').cloneNode(true);
       tr.append(td);
     }
 
@@ -101,10 +98,7 @@
     });
 
     {
-      const td = document.createElement('td');
-      const input = template.querySelector('.price').cloneNode();
-
-      td.append(input);
+      const td = template.querySelector('.price').cloneNode(true);
       tr.append(td);
     }
     
