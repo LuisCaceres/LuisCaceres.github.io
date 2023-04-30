@@ -1,21 +1,25 @@
 <table>
   <tr>
-    <th>In Cart?</th>
+    <th>Done?</th>
     <th>Product</th>
-    <th>Quantity</th>
-    <th>Stock</th>
+    <th>Quantity Required</th>
+    <th>Quantity In Cart</th>
     <th>Price</th>
+    <th>Stock</th>
   </tr>
 </table>
 
 <template>
   <table>
     <tr>
+      <td class="checkbox">
+        <input type="checkbox">        
+      </td>
       <td class="price">
         <input inputmode="decimal">
       </td>
-      <td class="checkbox">
-        <input type="checkbox">        
+      <td class="quantity-in-cart">
+        <input inputmode="decimal">
       </td>
     </tr>
   </table>
@@ -84,19 +88,44 @@
   rows.split('*').forEach(row => {
     const tr = document.createElement('tr');
     
+    // 'Done' column
     {
       const td = template.querySelector('.checkbox').cloneNode(true);
       tr.append(td);
     }
 
-    row.split('-').reverse().forEach((cell, index) => {
+    const [product, quantityRequired, stock] = row.split('-').reverse();
+    
+    // 'Product' column
+    {
       const td = document.createElement('td');
-      td.textContent = cell;
+      td.textContent = product;
       tr.append(td);
-    });
-
+    }
+    
+    // 'Quantity required' column
+    {
+      const td = document.createElement('td');
+      td.textContent = quantityRequired;
+      tr.append(td);
+    }
+    
+    // 'Quantity in cart' column
+    {
+      const td = template.querySelector('.quantity-in-cart').cloneNode(true);
+      tr.append(td);
+    }
+    
+    // 'price' column
     {
       const td = template.querySelector('.price').cloneNode(true);
+      tr.append(td);
+    }
+
+    // 'Stock' column
+    {
+      const td = document.createElement('td');
+      td.textContent = stock;
       tr.append(td);
     }
 
