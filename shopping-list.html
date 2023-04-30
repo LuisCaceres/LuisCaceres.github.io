@@ -3,13 +3,17 @@
     <th>In Cart?</th>
     <th>Product</th>
     <th>Quantity</th>
-    <th>Price</td>
+    <th>Price</th>
+    <th>Stock</th>
   </tr>
 </table>
 
 <template>
-  <input class="price">
-  <input type="checkbox" class="checkbox" inputmode="decimal">
+  <input class="price" inputmode="decimal">
+  <input type="checkbox" class="checkbox">
+  <td class="stock">
+    <input inputmode="decimal">
+  </td>
 </template>
 
 <style>
@@ -94,6 +98,11 @@
       const input = template.querySelector('.price').cloneNode();
 
       td.append(input);
+      tr.append(td);
+    }
+    
+    {
+      const td = template.querySelector('.stock').cloneNode(true);
       tr.append(td);
     }
 
