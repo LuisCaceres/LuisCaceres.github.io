@@ -47,4 +47,12 @@
   $380.23 DOLLARS - COST OF FIRST NIGHT ACCOMODATION IN PUERTO ESCONDIDO 
 
   </body>
+  
+  
+  <script>
+    [...$0.querySelectorAll('td:nth-child(5)')].map(cell => cell.textContent)
+      .filter(amount => amount !== '')
+      .map(amount => +amount.replace(/\$|,/g, ''))
+      .reduce((a, b) => a + b);
+  </script>
 </html>
