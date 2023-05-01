@@ -1,3 +1,32 @@
+<table>
+  <tr>
+    <th>Done?</th>
+    <th>Product</th>
+    <th>Quantity
+    Required
+    </th>
+    <th>Quantity In Cart</th>
+    <th>Price</th>
+    <th>Stock</th>
+  </tr>
+</table>
+
+<template>
+  <table>
+    <tr>
+      <td class="done">
+        <input type="checkbox">        
+      </td>
+      <td class="price">
+        <input value="0" inputmode="decimal">
+      </td>
+      <td class="quantity-in-cart">
+        <input inputmode="decimal">
+      </td>
+    </tr>
+  </table>
+</template>
+
 <style>
   table {
     border-collapse: collapse;
@@ -17,8 +46,7 @@
     text-align: right;
   }
   
-  th:nth-of-type(3),
-  th:nth-of-type(4) {
+  th:nth-of-type(3) {
     white-space: pre-line;
   }
   
@@ -26,52 +54,8 @@
   .quantity-in-cart > input {
     width: 5rem;
   }
-  
-  .total {
-    padding: 1rem;
-    background: deepskyblue;
-    border: solid 0.2rem;    
-    margin: 1rem 0;
-    position: sticky;
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
 </style>
 
-<table>
-  <tr>
-    <th>Done?</th>
-    <th>Product</th>
-    <th>Quantity
-      Required
-    </th>
-    <th>Quantity In
-      Cart
-    </th>
-    <th>Price</th>
-    <th>Stock</th>
-  </tr>
-</table>
-
-<template>
-  <table>
-    <tr>
-      <td class="done">
-        <input type="checkbox">        
-      </td>
-      <td class="price">
-        <input inputmode="decimal">
-      </td>
-      <td class="quantity-in-cart">
-        <input inputmode="decimal">
-      </td>
-    </tr>
-  </table>
-</template>
-
-<p class="total">
-  Total: $<span>0</span>
-</p>
 
 <script>
   
@@ -79,25 +63,25 @@
   const template =  document.querySelector('template').content;
 
   const rows = `
-      0 - 2.1kg - Potatoes
-    * 0 - 2.1kg - Sweet Potatoes
-    * 0 - 1.5kg - Zucchinis
-    * 0 - 1.0kg - Carrots
-    * 0 - 1.4kg - Swedes
-    * 0 - 1.5kg - Frozen Broccolies
-    * 0 - 0.4kg - Whole Pumpkin
-    * 0 - 1.4kg - Beetroots
-    * 0 - 1.5kg - Frozen Cauliflowers
-    * 0 - 1.0kg - Brussel Sprouts
-    * 0 - 0.3kg - Green Beans
-    * 0 - 1.4kg - Chokoes
-    * 0 - 1.0kg - Capsicums
-    * 0 - 1.0kg - Cucumbers
-    * 0 - 1.0kg - Tomatoes
-    * 0 - 0.5kg - Frozen Corn
-    * 0 - 0.5kg - Frozen Peas
-    * 0 - 0.6kg - Chick peas
-    * 0 - 1.0kg - Parsnips
+      0 - 2100gr - Potatoes
+    * 0 - 2100gr - Sweet Potatoes
+    * 0 - 1500gr - Zucchinis
+    * 0 - 1000gr - Carrots
+    * 0 - 1400gr - Swedes
+    * 0 - 1500gr - Frozen Broccolies
+    * 0 -  400gr - Whole Pumpkin
+    * 0 - 1400gr - Beetroots
+    * 0 - 1500gr - Frozen Cauliflowers
+    * 0 - 1000gr - Brussel Sprouts
+    * 0 -  300gr - Green Beans
+    * 0 - 1400gr - Chokoes
+    * 0 - 1000gr - Capsicums
+    * 0 - 1000gr - Cucumbers
+    * 0 - 1000gr - Tomatoes
+    * 0 -  500gr - Frozen Corn
+    * 0 -  500gr - Frozen Peas
+    * 0 -  600gr - Chick peas
+    * 0 - 1000gr - Parsnips
     * 0 -      5 - Bananas
     * 0 -      1 - Onions
     * 0 -      2 - Avocados
