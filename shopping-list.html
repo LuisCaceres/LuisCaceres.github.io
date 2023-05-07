@@ -56,7 +56,7 @@
     </table>
 
     <p class="total__container">
-      Total: $<strong class="total">0</strong>
+      Total: <strong>$<span class="total">0</span></strong>
     </p>
 
     <template>
@@ -65,11 +65,11 @@
           <td class="done">
             <input type="checkbox">        
           </td>
-          <td class="price">
-            <input value="0" inputmode="decimal">
+          <td class="price__container">
+            <input class="price" value="0" inputmode="decimal">
           </td>
-          <td class="quantity-in-cart">
-            <input inputmode="decimal">
+          <td class="quantity-in-cart__container">
+            <input class="quantity-in-cart" inputmode="decimal">
           </td>
           <td class="amount">
             0
@@ -156,13 +156,13 @@
 
         // 'Quantity in cart' column
         {
-          const td = template.querySelector('.quantity-in-cart').cloneNode(true);
+          const td = template.querySelector('.quantity-in-cart__container').cloneNode(true);
           tr.append(td);
         }
 
         // 'Price' column
         {
-          const td = template.querySelector('.price').cloneNode(true);
+          const td = template.querySelector('.price__container').cloneNode(true);
           tr.append(td);
         }
 
@@ -183,9 +183,8 @@
       });
 
       // 'Amount'
-
-      function foo() {
-        const prices = document.querySelectorAll('.price > input').forEach(price => {
+      function update() {
+        const prices = document.querySelectorAll('.price').forEach(price => {
           const value = price.value;
           const quantityInCart = +price.parentElement.parentElement.cells[3].firstElementChild.value;
           const amount = value * quantityInCart;
@@ -197,7 +196,7 @@
         document.querySelector('.total').textContent = total;
       }
       
-      setInterval(foo, 1000);
+      setInterval(update, 1000);
     </script>    
   </body>
 </html>
