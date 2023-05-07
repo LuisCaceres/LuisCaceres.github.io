@@ -193,10 +193,12 @@
 
       // 'Amount'
       function update() {
-        const prices = document.querySelectorAll('.price').forEach({value} => {
-          const row = price.closest('tr');
+        const rows = [...table.rows].slice(1);
+        
+        rows.forEach(row => {
           const quantityInCart = +row.querySelector('.quantity-in-cart').value;
-          const amount = value * quantityInCart;
+          const price = +row.querySelector('.price').value;
+          const amount = quantityInCart * price;
           row.querySelector('.amount').textContent = amount;
         });
         
