@@ -188,7 +188,7 @@
           const value = price.value;
           const quantityInCart = +price.parentElement.parentElement.cells[3].firstElementChild.value;
           const amount = value * quantityInCart;
-          const stock = +price.parentElement.parentElement.cells[5];
+          const stock = price.parentElement.parentElement.cells[5];
           stock.textContent = amount;
         });
       }
