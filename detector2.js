@@ -36,9 +36,12 @@ CHART 2          CHART A          CHART B
 
 
 function foo(previousChart, currentChart, database) {
-    // Are there any titles that start to descend in the current chart?
-    const chevrons = currentChart.filter(entry => database.get(entry).hasStartedDescending());
-
+    debugger;
+    
+    // Get any chart entries that start to descend in the current chart.
+    const chevrons = new List(...new Set(previousChart.concat(...currentChart)))
+    .filter(entry => database.get(entry).hasStartedDescending());
+         
     if (!chevrons.length) {
         return;
     }
@@ -47,7 +50,8 @@ function foo(previousChart, currentChart, database) {
 
     for (const chevron of chevrons) {
         // Are there any debuts in the same position or in a higher position than `chevron`'s position in the previous chart?
-        const debuts = previousChart.difference(currentChart).filter(debut => currentChart.positionOf(debut) <= previousChart.positionOf(chevron));
+        const debuts = previousChart.difference(currentChart)
+        .filter(debut => currentChart.positionOf(debut) <= previousChart.positionOf(chevron));
 
         const condition1 = debuts.length > 0;
 
@@ -56,7 +60,9 @@ function foo(previousChart, currentChart, database) {
         }
 
         // Are there any titles that dropped out of the chart this week from the same position or higher position than `chevron`'s current position in the current chart?
-        const dropouts = currentChart.slice(20).filter(dropout => previousChart.positionOf(dropout) <= currentChart.positionOf(chevron));
+        const dropouts = currentChart.difference(previousChart)
+        .filter(dropout => dropout !== chevron)
+        .filter(dropout => previousChart.positionOf(dropout) <= currentChart.positionOf(chevron));
 
         const condition2 = dropouts.length > 0;
 
@@ -74,6 +80,8 @@ function foo(previousChart, currentChart, database) {
         currentChart[position1 - 1] = chevron;
         // Place `dropout` in `chevron`'s former position.
         currentChart[position2 - 1] = dropout;
+        
+        currentChart.length = 20;
     }
 }
 
@@ -81,7 +89,7 @@ function foo(previousChart, currentChart, database) {
 
   const chart1 = new Chart("Lou Bega - Mambo #5", "Britney Spears - Sometimes", "Backstreet Boys - Larger Than Life", "Moenia - Manto Estelar", "James - I Know What I'm Here For", "Ricky Martin - Bella", "Maná - Te Solté la Rienda (Unplugged)", "Jaguares - Fin", "The Cranberries - Animal Instinct", "Christina Aguilera - Genie in a Bottle", "Jumbo - Siento Que", "Molotov - Parásito", "Luis Miguel - O Tú, O Ninguna", "Limp Bizkit - Nookie", "Santana con Rob Thomas - Smooth", "Azul Violeta - Quiere Más", "Madonna - Beautiful Stranger", "Jamiroquai - Supersonic", "Chris Cornell - Can't Change Me", "The Cranberries - Just My Imagination");
   const chart2 = new Chart("Britney Spears - Sometimes", "Backstreet Boys - Larger Than Life", "Lou Bega - Mambo #5", "James - I Know What I'm Here For", "Maná - Te Solté la Rienda (Unplugged)", "Ricky Martin - Bella", "Christina Aguilera - Genie in a Bottle", "Luis Miguel - O Tú, O Ninguna", "Moenia - Manto Estelar", "Chris Cornell - Can't Change Me", "Molotov - Parásito", "Jaguares - Fin", "Jumbo - Siento Que", "Azul Violeta - Quiere Más", "Jamiroquai - Supersonic", "Santana con Rob Thomas - Smooth", "The Cranberries - Just My Imagination", "Gustavo Cerati - Puente", "Foo Fighters - Learn to Fly", "Illya Kuryaki & The Valderramas - Coolo");
-  const chart3 = new Chart("Backstreet Boys - Larger Than Life", "James - I Know What I'm Here For", "Lou Bega - Mambo #5", "Christina Aguilera - Genie in a Bottle", "Britney Spears - Sometimes", "Luis Miguel - O Tú, O Ninguna", "Maná - Te Solté la Rienda (Unplugged)", "Ricky Martin - Bella", "Chris Cornell - Can't Change Me", "Molotov - Parásito", "Enrique Iglesias - Rhythm Divine", "Jamiroquai - Supersonic", "Jaguares - Fin", "Moenia - Manto Estelar", "The Cranberries - Just My Imagination", "Santana con Rob Thomas - Smooth", "Gustavo Cerati - Puente", "Foo Fighters - Learn to Fly", "Illya Kuryaki & The Valderramas - Coolo", "Limp Bizkit - Rearranged", "Jumbo - Siento Que", "Azul Violeta - Quiere Más");
+  const chart3 = new Chart("Backstreet Boys - Larger Than Life", "James - I Know What I'm Here For", "Lou Bega - Mambo #5", "Christina Aguilera - Genie in a Bottle", "Britney Spears - Sometimes", "Luis Miguel - O Tú, O Ninguna", "Maná - Te Solté la Rienda (Unplugged)", "Ricky Martin - Bella", "Chris Cornell - Can't Change Me", "Molotov - Parásito", "Enrique Iglesias - Rhythm Divine", "Jamiroquai - Supersonic", "Jaguares - Fin", "Moenia - Manto Estelar", "The Cranberries - Just My Imagination", "Santana con Rob Thomas - Smooth", "Gustavo Cerati - Puente", "Foo Fighters - Learn to Fly", "Illya Kuryaki & The Valderramas - Coolo", "Limp Bizkit - Rearranged");
 
   const database = createDatabase(chart1, chart2, chart3);
 
