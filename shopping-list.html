@@ -1,153 +1,159 @@
-<style>
-  table {
-    border-collapse: collapse;
-  }
-  
-  td,
-  th {
-    padding: 0.5rem;
-    border: solid;
-  }
-  
-  td:first-of-type {
-    text-align: center;
-  }
-  
-  td:nth-of-type(3) {
-    text-align: right;
-  }
-  
-  th:nth-of-type(3) {
-    white-space: pre-line;
-  }
-  
-  .price > input,
-  .quantity-in-cart > input {
-    width: 5rem;
-  }
+<html>
+  <head>
+    <title>Luis - Shopping List</title>
+  </head>
+  <body>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
 
-  .total__container {
-    padding: 1rem;
-    background-color: skyblue;
-    border: solid;
-    position: sticky;
-    bottom: 200px;
-  }
-</style>
+      td,
+      th {
+        padding: 0.5rem;
+        border: solid;
+      }
+
+      td:first-of-type {
+        text-align: center;
+      }
+
+      td:nth-of-type(3) {
+        text-align: right;
+      }
+
+      th:nth-of-type(3) {
+        white-space: pre-line;
+      }
+
+      .price > input,
+      .quantity-in-cart > input {
+        width: 5rem;
+      }
+
+      .total__container {
+        padding: 1rem;
+        background-color: skyblue;
+        border: solid;
+        position: sticky;
+        bottom: 200px;
+      }
+    </style>
+
+    <table>
+      <tr>
+        <th>Done?</th>
+        <th>Product</th>
+        <th>Quantity
+        Required
+        </th>
+        <th>Quantity In Cart</th>
+        <th>Price</th>
+        <th>Stock</th>
+      </tr>
+    </table>
+
+    <p class="total__container">
+      Total: $<span class="total">0.0</span>
+    </p>
+
+    <template>
+      <table>
+        <tr>
+          <td class="done">
+            <input type="checkbox">        
+          </td>
+          <td class="price">
+            <input value="0" inputmode="decimal">
+          </td>
+          <td class="quantity-in-cart">
+            <input inputmode="decimal">
+          </td>
+        </tr>
+      </table>
+    </template>
+
+    <script>
+      const table = document.querySelector('table');
+      const template =  document.querySelector('template').content;
+
+      const rows = `
+          0 - 2.1 kg - Potatoes
+        * 0 - 2.1 kg - Sweet Potatoes
+        * 0 - 1.5 kg - Zucchinis
+        * 0 - 1.0 kg - Carrots
+        * 0 - 1.4 kg - Swedes
+        * 0 - 1.5 kg - Frozen Broccolies
+        * 0 - 0.4 kg - Whole Pumpkin
+        * 0 - 1.4 kg - Beetroots
+        * 0 - 1.5 kg - Frozen Cauliflowers
+        * 0 - 1.0 kg - Brussel Sprouts
+        * 0 - 0.3 kg - Green Beans
+        * 0 - 1.4 kg - Chokoes
+        * 0 - 1.0 kg - Capsicums
+        * 0 - 1.0 kg - Cucumbers
+        * 0 - 1.0 kg - Tomatoes
+        * 0 - 0.5 kg - Frozen Corn
+        * 0 - 0.5 kg - Frozen Peas
+        * 0 - 0.6 kg - Chick peas
+        * 0 - 1.0 kg - Parsnips
+        * 0 -      5 - Bananas
+        * 0 -      1 - Onions
+        * 0 -      2 - Avocados
+        * 0 -      1 - Bags of Oats
+        * 0 -      1 - Cartons of Almond Milk
+        * 0 -      1 - Tins of Chick Peas
+        * 0 -      1 - Bags of Wraps
+      `;
+
+      rows.split('*').forEach(row => {
+        const tr = document.createElement('tr');
+
+        // 'Done' column
+        {
+          const td = template.querySelector('.done').cloneNode(true);
+          tr.append(td);
+        }
+
+        const [product, quantityRequired, stock] = row.split('-').reverse();
+
+        // 'Product' column
+        {
+          const td = document.createElement('td');
+          td.textContent = product;
+          tr.append(td);
+        }
+
+        // 'Quantity required' column
+        {
+          const td = document.createElement('td');
+          td.textContent = quantityRequired;
+          tr.append(td);
+        }
+
+        // 'Quantity in cart' column
+        {
+          const td = template.querySelector('.quantity-in-cart').cloneNode(true);
+          tr.append(td);
+        }
+
+        // 'Price' column
+        {
+          const td = template.querySelector('.price').cloneNode(true);
+          tr.append(td);
+        }
+
+        // 'Stock' column
+        {
+          const td = document.createElement('td');
+          td.textContent = stock;
+          tr.append(td);
+        }
+
+        table.append(tr);
+      });
+    </script>    
+  </body>
+</html>
 
 
-<table>
-  <tr>
-    <th>Done?</th>
-    <th>Product</th>
-    <th>Quantity
-    Required
-    </th>
-    <th>Quantity In Cart</th>
-    <th>Price</th>
-    <th>Stock</th>
-  </tr>
-</table>
-
-<p class="total__container">
-  Total: $<span class="total">0.0</span>
-</p>
-
-<template>
-  <table>
-    <tr>
-      <td class="done">
-        <input type="checkbox">        
-      </td>
-      <td class="price">
-        <input value="0" inputmode="decimal">
-      </td>
-      <td class="quantity-in-cart">
-        <input inputmode="decimal">
-      </td>
-    </tr>
-  </table>
-</template>
-
-<script>
-  
-  const table = document.querySelector('table');
-  const template =  document.querySelector('template').content;
-
-  const rows = `
-      0 - 2.1 kg - Potatoes
-    * 0 - 2.1 kg - Sweet Potatoes
-    * 0 - 1.5 kg - Zucchinis
-    * 0 - 1.0 kg - Carrots
-    * 0 - 1.4 kg - Swedes
-    * 0 - 1.5 kg - Frozen Broccolies
-    * 0 - 0.4 kg - Whole Pumpkin
-    * 0 - 1.4 kg - Beetroots
-    * 0 - 1.5 kg - Frozen Cauliflowers
-    * 0 - 1.0 kg - Brussel Sprouts
-    * 0 - 0.3 kg - Green Beans
-    * 0 - 1.4 kg - Chokoes
-    * 0 - 1.0 kg - Capsicums
-    * 0 - 1.0 kg - Cucumbers
-    * 0 - 1.0 kg - Tomatoes
-    * 0 - 0.5 kg - Frozen Corn
-    * 0 - 0.5 kg - Frozen Peas
-    * 0 - 0.6 kg - Chick peas
-    * 0 - 1.0 kg - Parsnips
-    * 0 -      5 - Bananas
-    * 0 -      1 - Onions
-    * 0 -      2 - Avocados
-    * 0 -      1 - Bags of Oats
-    * 0 -      1 - Cartons of Almond Milk
-    * 0 -      1 - Tins of Chick Peas
-    * 0 -      1 - Bags of Wraps
-  `;
-
-  rows.split('*').forEach(row => {
-    const tr = document.createElement('tr');
-    
-    // 'Done' column
-    {
-      const td = template.querySelector('.done').cloneNode(true);
-      tr.append(td);
-    }
-
-    const [product, quantityRequired, stock] = row.split('-').reverse();
-    
-    // 'Product' column
-    {
-      const td = document.createElement('td');
-      td.textContent = product;
-      tr.append(td);
-    }
-    
-    // 'Quantity required' column
-    {
-      const td = document.createElement('td');
-      td.textContent = quantityRequired;
-      tr.append(td);
-    }
-    
-    // 'Quantity in cart' column
-    {
-      const td = template.querySelector('.quantity-in-cart').cloneNode(true);
-      tr.append(td);
-    }
-    
-    // 'Price' column
-    {
-      const td = template.querySelector('.price').cloneNode(true);
-      tr.append(td);
-    }
-
-    // 'Stock' column
-    {
-      const td = document.createElement('td');
-      td.textContent = stock;
-      tr.append(td);
-    }
-
-    table.append(tr);
-  });
-  
-</script>
