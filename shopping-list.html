@@ -182,7 +182,17 @@
       });
 
       // 'Amount'
-      // 
+
+      foo() {
+        const prices = document.querySelectorAll('.price > input').forEach(price => {
+        const value = price.value;
+        const quantityInCart = +price.parentElement.parentElement.cells[3].firstElementChild.value;
+        const amount = value * quantityInCart;
+        const stock = +price.parentElement.parentElement.cells[5];
+        stock.textContent = amount;
+      }
+
+      setInterval(foo, 1000);
     </script>    
   </body>
 </html>
