@@ -1,32 +1,3 @@
-<table>
-  <tr>
-    <th>Done?</th>
-    <th>Product</th>
-    <th>Quantity
-    Required
-    </th>
-    <th>Quantity In Cart</th>
-    <th>Price</th>
-    <th>Stock</th>
-  </tr>
-</table>
-
-<template>
-  <table>
-    <tr>
-      <td class="done">
-        <input type="checkbox">        
-      </td>
-      <td class="price">
-        <input value="0" inputmode="decimal">
-      </td>
-      <td class="quantity-in-cart">
-        <input inputmode="decimal">
-      </td>
-    </tr>
-  </table>
-</template>
-
 <style>
   table {
     border-collapse: collapse;
@@ -54,8 +25,49 @@
   .quantity-in-cart > input {
     width: 5rem;
   }
+
+  .total__container {
+    padding: 1rem;
+    background-color: skyblue;
+    border: solid;
+    position: sticky;
+    bottom: 200px;
+  }
 </style>
 
+
+<table>
+  <tr>
+    <th>Done?</th>
+    <th>Product</th>
+    <th>Quantity
+    Required
+    </th>
+    <th>Quantity In Cart</th>
+    <th>Price</th>
+    <th>Stock</th>
+  </tr>
+</table>
+
+<p class="total__container">
+  Total: $<span class="total">0.0</span>
+</p>
+
+<template>
+  <table>
+    <tr>
+      <td class="done">
+        <input type="checkbox">        
+      </td>
+      <td class="price">
+        <input value="0" inputmode="decimal">
+      </td>
+      <td class="quantity-in-cart">
+        <input inputmode="decimal">
+      </td>
+    </tr>
+  </table>
+</template>
 
 <script>
   
