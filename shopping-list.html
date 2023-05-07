@@ -198,7 +198,7 @@
         rows.forEach(row => {
           const quantityInCart = +row.querySelector('.quantity-in-cart').value;
           const price = +row.querySelector('.price').value;
-          const amount = quantityInCart * price;
+          const amount = (quantityInCart * price).toFixed(2);
           row.querySelector('.amount').textContent = amount;
         });
         
