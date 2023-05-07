@@ -191,6 +191,9 @@
           const stock = price.parentElement.parentElement.cells[5];
           stock.textContent = amount;
         });
+        
+        const total = [...document.querySelectorAll('.amount')].map(cell => cell.textContent).reduce((a, b) => a + +b, 0);
+        document.querySelector('.total').textContent = total;
       }
       
       setInterval(foo, 1000);
