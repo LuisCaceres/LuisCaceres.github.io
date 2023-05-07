@@ -80,6 +80,9 @@
           <td class="amount">
             0
           </td>
+          <td class="stock">
+            0
+          </td>
         </tr>
       </table>
     </template>
@@ -180,7 +183,7 @@
 
         // 'Stock' column
         {
-          const td = document.createElement('td');
+          const td = template.querySelector('.stock').cloneNode(true);
           td.textContent = stock;
           tr.append(td);
         }
@@ -190,12 +193,11 @@
 
       // 'Amount'
       function update() {
-        const prices = document.querySelectorAll('.price').forEach(price => {
-          const value = price.value;
-          const quantityInCart = +price.parentElement.parentElement.cells[3].firstElementChild.value;
+        const prices = document.querySelectorAll('.price').forEach({value} => {
+          const row = price.closest('tr');
+          const quantityInCart = +row.querySelector('.quantity-in-cart').value;
           const amount = value * quantityInCart;
-          const stock = price.parentElement.parentElement.cells[5];
-          stock.textContent = amount;
+          row.querySelector('.amount').textContent = amount;
         });
         
         const total = [...document.querySelectorAll('.amount')].map(cell => cell.textContent).reduce((a, b) => a + +b, 0);
