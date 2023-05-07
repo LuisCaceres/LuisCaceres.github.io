@@ -84,14 +84,28 @@ function foo(previousChart, currentChart, database) {
 }
 
 {
+  const chart1 = new Chart("Savage Garden - The Animal Song", "Semisonic - Secret Smile", "The Offspring - Why Don’t You Get A Job", "The Cranberries - Promises", "Blur - Tender", "Control Machete - Si Señor", "KoRn - Freak on a Leash", "Sugar Ray - Every Morning", "Everlast - What It’s Like", "Gus Gus - Ladyshave", "The Cardigans - Erase/Rewind", "El Tri - Todo Me Sale Mal", "Roxette - Wish I Could Fly", "Metallica - Whiskey in a Jar", "Blondie - Maria", "Eminem - My Name Is", "Backstreet Boys - I Want It That Way", "Marilyn Manson - Rock Is Dead", "U.N.K.L.E. con Ian Brown - Be There", "Ricky Martin - Livin’ La Vida Loca");
+  const chart2 = new Chart("Semisonic - Secret Smile", "Savage Garden - The Animal Song", "The Offspring - Why Don’t You Get A Job", "Blur - Tender", "KoRn - Freak on a Leash", "The Cranberries - Promises", "Control Machete - Si Señor", "Backstreet Boys - I Want It That Way", "Metallica - Whiskey in a Jar", "Gus Gus - Ladyshave", "Everlast - What It’s Like", "Sugar Ray - Every Morning", "Ricky Martin - Livin’ La Vida Loca", "The Cardigans - Erase/Rewind", "Marilyn Manson - Rock Is Dead", "Eminem - My Name Is", "Blondie - Maria", "U.N.K.L.E. con Ian Brown - Be There", "Texas - In Our Lifetime", "Underworld - Push Upstairs");
+  const chart3 = new Chart("Semisonic - Secret Smile", "Savage Garden - The Animal Song", "Backstreet Boys - I Want It That Way", "Blur - Tender", "Jamiroquai - Canned Heat", "KoRn - Freak on a Leash", "Metallica - Whiskey in a Jar", "Control Machete - Si Señor", "Gus Gus - Ladyshave", "The Offspring - Why Don’t You Get A Job", "Ricky Martin - Livin’ La Vida Loca", "Marilyn Manson - Rock Is Dead", "The Cranberries - Promises", "Sugar Ray - Every Morning", "U.N.K.L.E. con Ian Brown - Be There", "Underworld - Push Upstairs", "Eminem - My Name Is", "Texas - In Our Lifetime", "Jumbo - Monotransistor", "Bersuit Vergarabat - Sr. Cobranza");
 
+  const database = createDatabase(chart1, chart2, chart3);
+
+  foo(chart2, chart3, database);
+
+  expect(chart3.length).to.equal(20);
+  expect(chart3.at(5)).to.equal("Eminem - My Name Is");
+  expect(chart3.at(17)).not.to.equal("Eminem - My Name Is");
+  expect(["Everlast - What It’s Like", "The Cardigans - Erase/Rewind", "Blondie - Maria"]).to.include(chart3.at(17));
+  expect(chart3).not.to.include("Jamiroquai - Canned Heat");
+}
+
+{
   const chart1 = new Chart("Lou Bega - Mambo #5", "Britney Spears - Sometimes", "Backstreet Boys - Larger Than Life", "Moenia - Manto Estelar", "James - I Know What I'm Here For", "Ricky Martin - Bella", "Maná - Te Solté la Rienda (Unplugged)", "Jaguares - Fin", "The Cranberries - Animal Instinct", "Christina Aguilera - Genie in a Bottle", "Jumbo - Siento Que", "Molotov - Parásito", "Luis Miguel - O Tú, O Ninguna", "Limp Bizkit - Nookie", "Santana con Rob Thomas - Smooth", "Azul Violeta - Quiere Más", "Madonna - Beautiful Stranger", "Jamiroquai - Supersonic", "Chris Cornell - Can't Change Me", "The Cranberries - Just My Imagination");
   const chart2 = new Chart("Britney Spears - Sometimes", "Backstreet Boys - Larger Than Life", "Lou Bega - Mambo #5", "James - I Know What I'm Here For", "Maná - Te Solté la Rienda (Unplugged)", "Ricky Martin - Bella", "Christina Aguilera - Genie in a Bottle", "Luis Miguel - O Tú, O Ninguna", "Moenia - Manto Estelar", "Chris Cornell - Can't Change Me", "Molotov - Parásito", "Jaguares - Fin", "Jumbo - Siento Que", "Azul Violeta - Quiere Más", "Jamiroquai - Supersonic", "Santana con Rob Thomas - Smooth", "The Cranberries - Just My Imagination", "Gustavo Cerati - Puente", "Foo Fighters - Learn to Fly", "Illya Kuryaki & The Valderramas - Coolo");
   const chart3 = new Chart("Backstreet Boys - Larger Than Life", "James - I Know What I'm Here For", "Lou Bega - Mambo #5", "Christina Aguilera - Genie in a Bottle", "Britney Spears - Sometimes", "Luis Miguel - O Tú, O Ninguna", "Maná - Te Solté la Rienda (Unplugged)", "Ricky Martin - Bella", "Chris Cornell - Can't Change Me", "Molotov - Parásito", "Enrique Iglesias - Rhythm Divine", "Jamiroquai - Supersonic", "Jaguares - Fin", "Moenia - Manto Estelar", "The Cranberries - Just My Imagination", "Santana con Rob Thomas - Smooth", "Gustavo Cerati - Puente", "Foo Fighters - Learn to Fly", "Illya Kuryaki & The Valderramas - Coolo", "Limp Bizkit - Rearranged");
 
   const database = createDatabase(chart1, chart2, chart3);
 
-  debugger;
   foo(chart2, chart3, database);
 
   expect(chart3.length).to.equal(20);
