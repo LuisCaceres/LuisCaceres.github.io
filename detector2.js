@@ -36,8 +36,6 @@ CHART 2          CHART A          CHART B
 
 
 function foo(previousChart, currentChart, database) {
-    debugger;
-    
     // Get any chart entries that start to descend in the current chart.
     const chevrons = new List(...new Set(previousChart.concat(...currentChart)))
     .filter(entry => database.get(entry).hasStartedDescending());
@@ -93,14 +91,12 @@ function foo(previousChart, currentChart, database) {
 
   const database = createDatabase(chart1, chart2, chart3);
 
+  debugger;
   foo(chart2, chart3, database);
-
-  chart3.length = 20;
 
   expect(chart3.length).to.equal(20);
   expect(chart3.at(11)).to.equal("Azul Violeta - Quiere Más");
   expect(chart3).not.to.include("Enrique Iglesias - Rhythm Divine");
-
 }
 
 
