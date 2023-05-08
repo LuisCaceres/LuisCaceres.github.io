@@ -124,8 +124,8 @@ function foo(previousChart, currentChart, database) {
   debugger;  
   foo(chart3, chart4, database);
 
-  expect(chart3.length).to.equal(20);
-  expect(chart3.at(12)).to.equal("U2 - Beautiful Day");
+  expect(chart4.length).to.equal(20);
+  expect(chart4.at(12)).to.equal("U2 - Beautiful Day");
 }
 
 
