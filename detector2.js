@@ -136,7 +136,6 @@ function foo(previousChart, currentChart, database) {
 
   const database = createDatabase(chart1, chart2, chart3, chart4, chart5);
 
-  debugger;
   foo(chart4, chart5, database);
 
   expect(chart5.length).to.equal(20);
@@ -152,6 +151,22 @@ function foo(previousChart, currentChart, database) {
   else if (chart5.positionOf("Sophie Ellis Bextor - Murder On The Dance Floor") === 14) {
     expect(chart5).not.to.include("Kelly Osbourne - Papa Don't Preach");
   }
+}
+
+{
+  const chart1 = new Chart("Nick Carter - Do I Have to Cry for You?", "t.A.T.u. - Not Gonna Get Us", "Christina Aguilera - Beautiful", "Molotov - Frijolero", "Red Hot Chili Peppers - Can't Stop", "Paulina Rubio - Baila Casanova", "Linkin Park - Somewhere I Belong", "Kelly Osbourne - Shut Up", "Shakira - Que Me Quedes Tú", "Gustavo Cerati - Cosas Imposibles", "Eminem - Lose Yourself", "Coldplay - Clocks", "Avril Lavigne - Sk8er Boi", "Audioslave - Like a Stone", "Melanie C. - Here it Comes", "Sum 41 - Still Waiting", "Simple Plan - I'd Do Anything", "Justin Timberlake - Cry Me A River", "Juanes - Mala Gente", "Kabah - Por Tí");
+  const chart2 = new Chart("Nick Carter - Do I Have to Cry for You?", "Christina Aguilera - Beautiful", "t.A.T.u. - Not Gonna Get Us", "Linkin Park - Somewhere I Belong", "Molotov - Frijolero", "Red Hot Chili Peppers - Can't Stop", "Coldplay - Clocks", "Kelly Osbourne - Shut Up", "Paulina Rubio - Baila Casanova", "Gustavo Cerati - Cosas Imposibles", "Shakira - Que Me Quedes Tú", "Juanes - Mala Gente", "Avril Lavigne - Sk8er Boi", "Audioslave - Like a Stone", "Simple Plan - I'd Do Anything", "Kabah - Por Tí", "Melanie C. - Here it Comes", "Justin Timberlake - Cry Me A River", "Maná - Mariposa Traicionera", "Sum 41 - Still Waiting");
+  const chart3 = new Chart("Christina Aguilera - Beautiful", "Linkin Park - Somewhere I Belong", "Nick Carter - Do I Have to Cry for You?", "t.A.T.u. - Not Gonna Get Us", "Coldplay - Clocks", "Molotov - Frijolero", "Red Hot Chili Peppers - Can't Stop", "Eminem - Sing for the Moment", "Paulina Rubio - Baila Casanova", "System Of A Down - Boom", "Juanes - Mala Gente", "Gustavo Cerati - Cosas Imposibles", "Simple Plan - I'd Do Anything", "Avril Lavigne - Sk8er Boi", "Audioslave - Like a Stone", "Kabah - Por Tí", "Kelly Osbourne - Shut Up", "Maná - Mariposa Traicionera", "Shakira - Que Me Quedes Tú", "Justin Timberlake - Cry Me A River");
+
+  const database = createDatabase(chart1, chart2, chart3);
+
+  debugger;
+  foo(chart2, chart3, database);
+
+  expect(chart3.length).to.equal(20);
+  expect(chart3.at(8)).to.equal("Eminem - Sing for the Moment");
+  expect(chart3.at(10)).to.equal("System Of A Down - Boom");
+  expect(chart3.at(12)).to.equal("Gustavo Cerati - Cosas Imposibles");
 }
 
 
