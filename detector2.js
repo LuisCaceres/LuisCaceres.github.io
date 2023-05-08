@@ -128,6 +128,30 @@ function foo(previousChart, currentChart, database) {
   expect(chart4.at(12)).to.equal("U2 - Beautiful Day");
 }
 
+{
+  const chart1 = new Chart("No Doubt - Hella Good", "Nelly Furtado - …On the Radio (Remember the Days)", "Moby - We Are All Made of Stars", "Juanes - A Dios le Pido", "Garbage - Breaking Up the Girl", "Paulina Rubio - Don't Say Goodbye", "P.O.D. - Youth of the Nation", "Eminem - Without Me", "Kabah - La Vida Que Va", "Korn - Here to Stay", "Britney Spears - I'm Not a Girl, Not Yet a Woman", "Shakira - Underneath Your Clothes", "Kylie Minogue - Can't Get You Out of My Head", "Darren Hayes - Insatiable", "System Of A Down - Toxicity", "Sophie Ellis Bextor - Murder On The Dance Floor", "The Calling - Wherever You Will Go", "Pink - Don't Let Me Get Me", "Box Car Racer - I Feel So", "Westlife - A World of Our Own");
+  const chart2 = new Chart("No Doubt - Hella Good", "Moby - We Are All Made of Stars", "Nelly Furtado - …On the Radio (Remember the Days)", "Juanes - A Dios le Pido", "Paulina Rubio - Don't Say Goodbye", "Eminem - Without Me", "Garbage - Breaking Up the Girl", "Korn - Here to Stay", "Britney Spears - I'm Not a Girl, Not Yet a Woman", "P.O.D. - Youth of the Nation", "Kabah - La Vida Que Va", "Shakira - Underneath Your Clothes", "Pink - Don't Let Me Get Me", "The Calling - Wherever You Will Go", "Sophie Ellis Bextor - Murder On The Dance Floor", "Kylie Minogue - Can't Get You Out of My Head", "Box Car Racer - I Feel So", "Darren Hayes - Insatiable", "Westlife - Bop Bop Baby", "System Of A Down - Toxicity");
+  const chart3 = new Chart("Moby - We Are All Made of Stars", "No Doubt - Hella Good", "Juanes - A Dios le Pido", "Paulina Rubio - Don't Say Goodbye", "Nelly Furtado - …On the Radio (Remember the Days)", "Eminem - Without Me", "Korn - Here to Stay", "Britney Spears - I'm Not a Girl, Not Yet a Woman", "Garbage - Breaking Up the Girl", "P.O.D. - Youth of the Nation", "Pink - Don't Let Me Get Me", "The Calling - Wherever You Will Go", "Kabah - La Vida Que Va", "Shakira - Underneath Your Clothes", "Sophie Ellis Bextor - Murder On The Dance Floor", "Westlife - Bop Bop Baby", "Box Car Racer - I Feel So", "Kylie Minogue - Can't Get You Out of My Head", "Red Hot Chili Peppers - By the Way", "Static-X - Cold");
+  const chart4 = new Chart("Juanes - A Dios le Pido", "Moby - We Are All Made of Stars", "Paulina Rubio - Don't Say Goodbye", "Eminem - Without Me", "No Doubt - Hella Good", "Korn - Here to Stay", "Nelly Furtado - …On the Radio (Remember the Days)", "Pink - Don't Let Me Get Me", "The Calling - Wherever You Will Go", "P.O.D. - Youth of the Nation", "Garbage - Breaking Up the Girl", "Westlife - Bop Bop Baby", "Kabah - La Vida Que Va", "Red Hot Chili Peppers - By the Way", "Sophie Ellis Bextor - Murder On The Dance Floor", "Britney Spears - I'm Not a Girl, Not Yet a Woman", "Box Car Racer - I Feel So", "Shakira - Underneath Your Clothes", "Static-X - Cold", "Alanis Morissette - Precious Illusions");
+  const chart5 = new Chart("Paulina Rubio - Don't Say Goodbye", "Eminem - Without Me", "Korn - Here to Stay", "Juanes - A Dios le Pido", "Moby - We Are All Made of Stars", "Westlife - Bop Bop Baby", "The Calling - Wherever You Will Go", "Pink - Don't Let Me Get Me", "Red Hot Chili Peppers - By the Way", "P.O.D. - Youth of the Nation", "Britney Spears - I Love Rock 'N Roll", "Papa Roach - She Loves Me Not", "Alanis Morissette - Precious Illusions", "Kelly Osbourne - Papa Don't Preach", "Garbage - Breaking Up the Girl", "Box Car Racer - I Feel So", "Nelly Furtado - …On the Radio (Remember the Days)", "Static-X - Cold", "Thalía - Tú y Yo", "Fey - Sé Lo Que Vendrá");
+
+  const database = createDatabase(chart1, chart2, chart3, chart4, chart5);
+
+  debugger;
+  foo(chart4, chart5, database);
+
+  expect(chart5.length).to.equal(20);
+  expect(chart5).to.include("Sophie Ellis Bextor - Murder On The Dance Floor");
+  expect([11, 12]).to.include(chart3.positionOf("Sophie Ellis Bextor - Murder On The Dance Floor"));
+
+  if (chart5.positionOf("Sophie Ellis Bextor - Murder On The Dance Floor") === 11) {
+    expect(chart5).not.to.include("Britney Spears - I Love Rock 'N Roll");
+  }
+  else if (chart5.positionOf("Sophie Ellis Bextor - Murder On The Dance Floor") === 12) {
+    expect(chart5).not.to.include("Papa Roach - She Loves Me Not");
+  }
+}
+
 
 // WEEK 3
 {
