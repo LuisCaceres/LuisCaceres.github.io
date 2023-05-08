@@ -113,6 +113,20 @@ function foo(previousChart, currentChart, database) {
   expect(chart3).not.to.include("Enrique Iglesias - Rhythm Divine");
 }
 
+{
+  const chart1 = new Chart("Madonna - Music", "Bon Jovi - It’s My Life", "Britney Spears - Lucky", "Moby - Porcelain", "Eminem - The Real Slim Shady", "Savage Garden - Affirmation", "Bloodhound Gang - The Bad Touch", "Travis - Why Does It Always Rain On Me?", "Plastilina Mosh - Human Disco Ball", "La Ley - Fuera de Mí", "Kabah - Antro", "Five - We Will Rock You", "Saúl Hernández - Deslizándote", "Westlife - Fool Again", "Limp Bizkit - Take A Look Around", "The Corrs - Breathless", "Hanson - This Time Around", "Whitney Houston / Enrique Iglesias - Could I Have This Kiss Forever?", "Blink 182 - Adam's Song", "Thalía - Regresa A Mí");
+  const chart2 = new Chart("Madonna - Music", "Britney Spears - Lucky", "Eminem - The Real Slim Shady", "Savage Garden - Affirmation", "Moby - Porcelain", "Bon Jovi - It’s My Life", "Bloodhound Gang - The Bad Touch", "Westlife - Fool Again", "Travis - Why Does It Always Rain On Me?", "Plastilina Mosh - Human Disco Ball", "Kabah - Antro", "Five - We Will Rock You", "La Ley - Fuera de Mí", "Hanson - This Time Around", "Saúl Hernández - Deslizándote", "Limp Bizkit - Take A Look Around", "*NSYNC - It's Gonna Be Me", "Thalía - Regresa A Mí", "The Corrs - Breathless", "Aqua - Bumble Bees");
+  const chart3 = new Chart("Madonna - Music", "Britney Spears - Lucky", "Savage Garden - Affirmation", "Eminem - The Real Slim Shady", "Moby - Porcelain", "Westlife - Fool Again", "Bon Jovi - It’s My Life", "Bloodhound Gang - The Bad Touch", "Travis - Why Does It Always Rain On Me?", "*NSYNC - It's Gonna Be Me", "Plastilina Mosh - Human Disco Ball", "U2 - Beautiful Day", "Hanson - This Time Around", "Robbie Williams - Rock DJ", "Five - We Will Rock You", "Thalía - Regresa A Mí", "Christina Aguilera - Ven Conmigo", "Kabah - Antro", "Aqua - Bumble Bees", "La Ley - Fuera de Mí");
+
+  const database = createDatabase(chart1, chart2, chart3);
+
+  debugger;  
+  foo(chart2, chart3, database);
+
+  expect(chart3.length).to.equal(20);
+  expect(chart3.at(12)).to.equal("U2 - Beautiful Day");
+}
+
 
 // WEEK 3
 {
