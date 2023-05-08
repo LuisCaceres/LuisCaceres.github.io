@@ -121,7 +121,6 @@ function foo(previousChart, currentChart, database) {
 
   const database = createDatabase(chart1, chart2, chart3, chart4);
 
-  debugger;  
   foo(chart3, chart4, database);
 
   expect(chart4.length).to.equal(20);
@@ -142,7 +141,7 @@ function foo(previousChart, currentChart, database) {
 
   expect(chart5.length).to.equal(20);
   expect(chart5).to.include("Sophie Ellis Bextor - Murder On The Dance Floor");
-  expect([11, 12]).to.include(chart3.positionOf("Sophie Ellis Bextor - Murder On The Dance Floor"));
+  expect([11, 12]).to.include(chart5.positionOf("Sophie Ellis Bextor - Murder On The Dance Floor"));
 
   if (chart5.positionOf("Sophie Ellis Bextor - Murder On The Dance Floor") === 11) {
     expect(chart5).not.to.include("Britney Spears - I Love Rock 'N Roll");
