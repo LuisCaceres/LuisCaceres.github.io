@@ -161,13 +161,27 @@ function foo(previousChart, currentChart, database) {
 
   const database = createDatabase(chart1, chart2, chart3, chart4);
 
-  debugger;
   foo(chart3, chart4, database);
 
   expect(chart4.length).to.equal(20);
   expect(chart4.at(8)).to.equal("Eminem - Sing for the Moment");
   expect(chart4.at(10)).to.equal("System Of A Down - Boom");
   expect(chart4.at(12)).to.equal("Gustavo Cerati - Cosas Imposibles");
+}
+
+{
+  const chart1 = new Chart("System Of A Down - Boom", "Linkin Park - Somewhere I Belong", "Eminem - Sing for the Moment", "Juanes - Mala Gente", "Kelly Osbourne - Come Dig Me Out", "Simple Plan - I'd Do Anything", "Nelly Justin & Timberlake - Work It", "Maná - Mariposa Traicionera", "The Calling - For You", "Marilyn Manson - mOBSCENE", "Bon Jovi - All About Lovin' You", "Christina Aguilera - Beautiful", "50 Cent - In Da Club", "Avril Lavigne - I'm With You", "Missy - Misdemeanor" Elliott Ludacris "Gossip Folks", "Nick Carter - Do I Have to Cry for You?", "Audioslave - Like a Stone", "t.A.T.u. - Not Gonna Get Us", "Coldplay - Clocks", "Madonna - American Life");
+  const chart2 = new Chart("System Of A Down - Boom", "Linkin Park - Somewhere I Belong", "Kelly Osbourne - Come Dig Me Out", "Eminem - Sing for the Moment", "Marilyn Manson - mOBSCENE", "Juanes - Mala Gente", "Nelly Justin & Timberlake - Work It", "50 Cent - In Da Club", "Avril Lavigne - I'm With You", "Missy - Misdemeanor" Elliott Ludacris "Gossip Folks", "Madonna - American Life", "Simple Plan - I'd Do Anything", "Maná - Mariposa Traicionera", "Bon Jovi - All About Lovin' You", "Stacie Orrico - Stuck", "Deftones - Minerva", "The Calling - For You", "Ricky Martin - Tal Vez", "Audioslave - Like a Stone", "Christina Aguilera - Beautiful");
+  const chart3 = new Chart("System Of A Down - Boom", "Marilyn Manson - mOBSCENE", "Linkin Park - Somewhere I Belong", "Eminem - Sing for the Moment", "Avril Lavigne - I'm With You", "50 Cent - In Da Club", "Kelly Osbourne - Come Dig Me Out", "Nelly Justin & Timberlake - Work It", "Evanescence - Bring Me to Life", "Missy - Misdemeanor" Elliott Ludacris "Gossip Folks", "Juanes - Mala Gente", "Deftones - Minerva", "Ricky Martin - Tal Vez", "Stacie Orrico - Stuck", "Madonna - American Life", "Simple Plan - I'd Do Anything", "A-Teens - Perfect Match", "Bon Jovi - All About Lovin' You", "Audioslave - Like a Stone", "Maná - Mariposa Traicionera");
+
+  const database = createDatabase(chart1, chart2, chart3);
+
+  debugger;
+  foo(chart2, chart3, database);
+
+  expect(chart3.length).to.equal(20);
+  expect(chart3.at(9)).to.equal("Evanescence - Bring Me to Life");
+  expect(chart3.at(15)).to.equal("Madonna - American Life");    
 }
 
 
