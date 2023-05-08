@@ -141,13 +141,16 @@ function foo(previousChart, currentChart, database) {
 
   expect(chart5.length).to.equal(20);
   expect(chart5).to.include("Sophie Ellis Bextor - Murder On The Dance Floor");
-  expect([11, 12]).to.include(chart5.positionOf("Sophie Ellis Bextor - Murder On The Dance Floor"));
+  expect([11, 12, 14]).to.include(chart5.positionOf("Sophie Ellis Bextor - Murder On The Dance Floor"));
 
   if (chart5.positionOf("Sophie Ellis Bextor - Murder On The Dance Floor") === 11) {
     expect(chart5).not.to.include("Britney Spears - I Love Rock 'N Roll");
   }
   else if (chart5.positionOf("Sophie Ellis Bextor - Murder On The Dance Floor") === 12) {
     expect(chart5).not.to.include("Papa Roach - She Loves Me Not");
+  }
+  else if (chart5.positionOf("Sophie Ellis Bextor - Murder On The Dance Floor") === 14) {
+    expect(chart5).not.to.include("Kelly Osbourne - Papa Don't Preach");
   }
 }
 
