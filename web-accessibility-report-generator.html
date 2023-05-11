@@ -1,1 +1,9 @@
+<script>
+// Remove styles from web page.
+document.querySelectorAll('style, link[type="text/css"]').forEach(element => element.remove());
 
+// Remove `style` attributes.
+document.querySelectorAll('*').forEach(element => element.removeAttribute('style'));
+  
+</script>
+  
