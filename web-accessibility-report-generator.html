@@ -61,7 +61,7 @@ const treeWalker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT + Nod
   acceptNode: acceptNode,
 });
 
-const nodeNames = [];
+const lines = [];
   
 while (treeWalker.nextNode()) {
   const {currentNode} = treeWalker;
@@ -71,20 +71,24 @@ while (treeWalker.nextNode()) {
   const indentation = ''.padStart(depth * 4);
   
   if (nodeName === '#text') {
-    nodeNames.push(`${indentation}"${currentNode.textContent}"`);
+    lines.push([`${indentation}"${currentNode.textContent}"`]);
 
     if (currentNode.nextSibling === null) {
       const {parentNode} = currentNode;
       const depth = getDepth(parentNode, root);
       const indentation = ''.padStart(depth * 4);
 
-      nodeNames.push(`${indentation}<${parentNode.nodeName.toLowerCase()}/>`);
+      lines.push([`${indentation}<${parentNode.nodeName.toLowerCase()}/>`]);
     }
   }
   else {
     const attributes = [...currentNode.attributes].map(({name, value}) => `${name}="${value}"`).join(' ');
+    const span = document.createElement('span');
 
-    nodeNames.push(`${indentation}<${nodeName} ${attributes}>`);
+    span.classList.add('node-name');
+    span.textContent = nodeName;
+
+    lines.push([`${indentation}<`, span, ` ${attributes}>`]);
   }
 }
 
@@ -93,10 +97,10 @@ const ul = document.createElement('ol');
 
 ul.classList.add('accessibility-tree');
 
-nodeNames.forEach(nodeName => {
+lines.forEach(line => {
   const li = document.createElement('li');
 
-  li.textContent = nodeName;
+  li.append(...line);
   ul.append(li);
 });
 
@@ -145,12 +149,20 @@ function getDepth(element, ascendant) {
 
 // STYLE VIEW OF ACCESSIBILITY TREE
   
-const style = `
+const style = document.createElement(`style`);
+
+style.textContent = `
   .accessibility-tree {
     width: max-content;
     white-space: break-spaces;
   }
+  
+  .node-name {
+    color: purple;
+    font-weight: bold;
+  }
 `;
+
+document.body.append(style);
   
 </script>
-  
