@@ -66,15 +66,23 @@ const nodeNames = [];
 while (treeWalker.nextNode()) {
   const {currentNode} = treeWalker;
   const nodeName = currentNode.nodeName.toLowerCase();
+
+  const depth = getDepth(currentNode, root);
+  const indentation = ''.padStart(depth * 4);
   
   if (nodeName === '#text') {
-    nodeNames.push(`"${currentNode.textContent}"`);
+    nodeNames.push(`${indentation}"${currentNode.textContent}"`);
+
+    if (currentNode.nextSibling === null) {
+      const {parentNode} = currentNode;
+      const depth = getDepth(parentNode, root);
+      const indentation = ''.padStart(depth * 4);
+
+      nodeNames.push(`${indentation}<${parentNode.nodeName.toLowerCase()}/>`);
+    }
   }
   else {
     const attributes = [...currentNode.attributes].map(({name, value}) => `${name}="${value}"`).join(' ');
-
-    const depth = getDepth(currentNode, root);
-    const indentation = ''.padStart(depth * 4);    
 
     nodeNames.push(`${indentation}<${nodeName} ${attributes}>`);
   }
@@ -82,6 +90,8 @@ while (treeWalker.nextNode()) {
 
 
 const ul = document.createElement('ol');
+
+ul.classList.add('accessibility-tree');
 
 nodeNames.forEach(nodeName => {
   const li = document.createElement('li');
@@ -133,7 +143,14 @@ function getDepth(element, ascendant) {
 }
 
 
-
+// STYLE VIEW OF ACCESSIBILITY TREE
+  
+const style = `
+  .accessibility-tree {
+    width: max-content;
+    white-space: break-spaces;
+  }
+`;
   
 </script>
   
