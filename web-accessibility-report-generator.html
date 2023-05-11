@@ -1,5 +1,5 @@
 <script>
-// Remove styles from web page.
+// REMOVE STYLES FROM WEB PAGE.
 document.querySelectorAll('style, link[type="text/css"]').forEach(element => element.remove());
 
 // Remove `style` attributes.
@@ -8,8 +8,7 @@ document.querySelectorAll('*').forEach(element => element.removeAttribute('style
 
 
 
-
-// Get the accessibility tree of the web page.
+// REMOVE ANY NON SEMANTIC ELEMENTS FROM THE DOM TREE.
 document.querySelectorAll('*').forEach(element => {
 
   // NOTE: IN SOME INSTANCES PIECES OF TEXT ARE PUT TOGETHER WITHOUT WHITE SPACE CHARACTERS IN BETWEEN.
@@ -22,8 +21,6 @@ document.querySelectorAll('*').forEach(element => {
     element.remove();
   }
 });
-
-
 
 
 /* Returns `true` if `element` conveys any semantics. Otherwise it returns `false`.
@@ -62,6 +59,8 @@ const treeWalker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT + Nod
 });
 
 const lines = [];
+const map = new Map();
+let index = 1;
   
 while (treeWalker.nextNode()) {
   const {currentNode} = treeWalker;
@@ -72,6 +71,7 @@ while (treeWalker.nextNode()) {
   
   if (nodeName === '#text') {
     lines.push([`${indentation}"${currentNode.textContent}"`]);
+    map.set(currentNode, index++);
 
     if (currentNode.nextSibling === null) {
       const {parentNode} = currentNode;
@@ -79,6 +79,7 @@ while (treeWalker.nextNode()) {
       const indentation = ''.padStart(depth * 4);
 
       lines.push([`${indentation}<${parentNode.nodeName.toLowerCase()}/>`]);
+      index++;
     }
   }
   else {
@@ -89,6 +90,7 @@ while (treeWalker.nextNode()) {
     span.textContent = nodeName;
 
     lines.push([`${indentation}<`, span, ` ${attributes}>`]);
+    map.set(currentNode, index++);
   }
 }
 
@@ -147,8 +149,9 @@ function getDepth(element, ascendant) {
 }
 
 
+
+
 // STYLE VIEW OF ACCESSIBILITY TREE
-  
 const style = document.createElement(`style`);
 
 style.textContent = `
@@ -164,5 +167,10 @@ style.textContent = `
 `;
 
 document.body.append(style);
+
+
+
+
+// RUN WEB ACCESSIBILITY TESTS
   
 </script>
