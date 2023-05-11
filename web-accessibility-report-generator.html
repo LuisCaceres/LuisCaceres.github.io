@@ -17,22 +17,25 @@ document.querySelectorAll('*').forEach(element => {
     element.remove();
   }
 });
-  
-  
-/*
- *
- *
- *
+
+
+
+
+/* Returns `true` if `element` conveys any semantics. Otherwise it returns `false`.
  */ 
 function isSemantic(element) {
   const {nodeName} = element;
+  
+  // NOTE: WHAT ABOUT A `DIV` ELEMENT PROGRAMMATICALLY ASSOCIATED TO ANOTHER ATTRIBUTE VIA THE `ID` ATTRIBUTE?
+  // <input aria-errormessage="foo">
+  // <div id="foo">This is an error message.</div>
   
   if (nodeName === 'DIV' || nodeName === 'SPAN') {
     const {attributes} = element;
 
     for (const {name} of attributes) {
       
-      if (attribute.name === 'role' || attribute.name.startsWith('aria-') {
+      if (name === 'role' || name.startsWith('aria-')) {
         return true;
       }
     }
