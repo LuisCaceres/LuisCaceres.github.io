@@ -11,6 +11,11 @@ document.querySelectorAll('*').forEach(element => element.removeAttribute('style
 
 // Get the accessibility tree of the web page.
 document.querySelectorAll('*').forEach(element => {
+
+  // NOTE: IN SOME INSTANCES PIECES OF TEXT ARE PUT TOGETHER WITHOUT WHITE SPACE CHARACTERS IN BETWEEN.
+  // Hello worldHola mundo
+  // <div>Hello world</div>
+  // <div>Hola mundo</div>
   
   if (isSemantic(element) === false) {
     element.after(...element.childNodes);
