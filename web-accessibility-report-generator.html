@@ -65,9 +65,19 @@ const nodeNames = [];
   
 while (treeWalker.nextNode()) {
   const {currentNode} = treeWalker;
-  const {nodeName} = currentNode;
+  const nodeName = currentNode.nodeName.toLowerCase();
+  
+  if (nodeName === '#text') {
+    nodeNames.push(`"${currentNode.textContent}"`);
+  }
+  else {
+    const attributes = [...currentNode.attributes].map(({name, value}) => `${name}="${value}"`).join(' ');
 
-  nodeNames.push(nodeName === '#text' ? `"${currentNode.textContent}"` : nodeName);
+    const depth = getDepth(currentNode, root);
+    const indentation = ''.padStart(depth * 4);    
+
+    nodeNames.push(`${indentation}<${nodeName} ${attributes}>`);
+  }
 }
 
 
@@ -86,13 +96,17 @@ document.body.append(ul);
 /* Along the parent chain of `element`, it returns the number of ascendants in between `element` and `root`. 
  */   
 function acceptNode(node) {
-  
-  if (node.nodeName === '#text') {
+  const {nodeName} = node;
+
+  if (nodeName === '#text') {
     const regex = /^\s+$/g;
-    
+
     if (regex.test(node.textContent) === true) {
       return NodeFilter.FILTER_REJECT;
     }
+  }
+  else if (nodeName === `SCRIPT`) {
+    return NodeFilter.FILTER_REJECT;
   }
 
   return NodeFilter.FILTER_ACCEPT;
