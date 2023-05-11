@@ -172,5 +172,38 @@ document.body.append(style);
 
 
 // RUN WEB ACCESSIBILITY TESTS
+{
+  const treeWalker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT + NodeFilter.SHOW_TEXT, {
+    acceptNode: acceptNode,
+  });
+
+
+  while (treeWalker.nextNode()) {
+    const currentNode = treeWalker.currentNode;
+    
+    for (const test of tests) {
+      const issue = test(currentNode);
+
+      if (issue !== null) {
+        issues.push(issue);
+      }
+    }
+  }
+}
+
+
+  
+// PRINT WEB ACCESSIBILITY ISSUES ON THE WEB PAGE  
+{
+  const issues [];
+  const ol = document.createElement('ol');
+
+  issues.forEach(issue => {
+    const li = document.createElement('li');
+    ol.append(li);
+  });
+
+  document.body.append(ol);
+}
   
 </script>
