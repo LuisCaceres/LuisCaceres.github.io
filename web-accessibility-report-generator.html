@@ -57,14 +57,17 @@ function isSemantic(element) {
 // CONSTRUCT A VIEW OF THE ACCESSIBILITY TREE
 
 const root = document.body;
-const treeWalker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT + NodeFilter.SHOW_TEXT);
+const treeWalker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT + NodeFilter.SHOW_TEXT, {
+  acceptNode: acceptNode,
+});
 
 const nodeNames = [];
   
 while (treeWalker.nextNode()) {
   const {currentNode} = treeWalker;
-  
-  nodeNames.push(currentNode.nodeName);
+  const {nodeName} = currentNode;
+
+  nodeNames.push(nodeName === '#text' ? `"${currentNode.textContent}"` : nodeName);
 }
 
 
@@ -78,6 +81,22 @@ nodeNames.forEach(nodeName => {
 });
 
 document.body.append(ul);
+
+
+/* Along the parent chain of `element`, it returns the number of ascendants in between `element` and `root`. 
+ */   
+function acceptNode(node) {
+  
+  if (node.nodeName === '#text') {
+    const regex = /^\s+$/g;
+    
+    if (regex.test(node.textContent) === true) {
+      return NodeFilter.FILTER_REJECT;
+    }
+  }
+
+  return NodeFilter.FILTER_ACCEPT;
+}
 
 
 /* Along the parent chain of `element`, it returns the number of ascendants in between `element` and `root`. 
