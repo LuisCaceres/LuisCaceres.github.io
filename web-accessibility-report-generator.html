@@ -124,9 +124,9 @@ function getDepth(element, ascendant) {
     let depth = 1;
     let {parentNode} = element;
 
-    while(parentNode !== root) {
+    while(parentNode !== ascendant) {
         depth = depth + 1;
-        parentNode = parent.parentNode;
+        parentNode = parentNode.parentNode;
     }
 
     return depth;
