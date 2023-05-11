@@ -181,13 +181,13 @@ document.body.append(style);
   while (treeWalker.nextNode()) {
     const currentNode = treeWalker.currentNode;
     
-    for (const test of tests) {
-      const issue = test(currentNode);
+//     for (const test of tests) {
+//       const issue = test(currentNode);
 
-      if (issue !== null) {
-        issues.push(issue);
-      }
-    }
+//       if (issue !== null) {
+//         issues.push(issue);
+//       }
+//     }
   }
 }
 
