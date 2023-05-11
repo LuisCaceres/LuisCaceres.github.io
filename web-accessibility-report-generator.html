@@ -4,6 +4,44 @@ document.querySelectorAll('style, link[type="text/css"]').forEach(element => ele
 
 // Remove `style` attributes.
 document.querySelectorAll('*').forEach(element => element.removeAttribute('style'));
+
+
+
+
+
+// Get the accessibility tree of the web page.
+document.querySelectorAll('*').forEach(element => {
+  
+  if (isSemantic(element) === false) {
+    element.after(...element.childNodes);
+    element.remove();
+  }
+});
+  
+  
+/*
+ *
+ *
+ *
+ */ 
+function isSemantic(element) {
+  const {nodeName} = element;
+  
+  if (nodeName === 'DIV' || nodeName === 'SPAN') {
+    const {attributes} = element;
+
+    for (const {name} of attributes) {
+      
+      if (attribute.name === 'role' || attribute.name.startsWith('aria-') {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  return true;
+}
   
 </script>
   
