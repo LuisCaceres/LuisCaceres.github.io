@@ -77,8 +77,12 @@ while (treeWalker.nextNode()) {
       const {parentNode} = currentNode;
       const depth = getDepth(parentNode, root);
       const indentation = ''.padStart(depth * 4);
+      const span = document.createElement('span');
 
-      lines.push([`${indentation}<${parentNode.nodeName.toLowerCase()}/>`]);
+      span.classList.add('node-name');
+      span.textContent = parentNode.nodeName.toLowerCase();
+
+      lines.push([`${indentation}<`, span, `/>`]);
       index++;
     }
   }
@@ -195,6 +199,14 @@ document.body.append(style);
   
 // PRINT WEB ACCESSIBILITY ISSUES ON THE WEB PAGE  
 {
+  const heading = document.createElement('h1');
+  
+  heading.textContent = 'Web accessibility assessment of <what>'
+
+  const paragraph1 = document.createElement('p');
+
+  paragraph1.textContent = 'As requested, I’ve reviewed the <what> from the web accessibility perspective. The outcome of such review is the following list:';
+
   const issues = [];
   const ol = document.createElement('ol');
 
@@ -202,8 +214,12 @@ document.body.append(style);
     const li = document.createElement('li');
     ol.append(li);
   });
+  
+  const paragraph2 = document.createElement('p');
 
-  document.body.append(ol);
+  paragraph2.textContent = 'Further details regarding any of the items on the list above can be provided if required.';
+
+  document.body.append(heading, paragraph1, ol, paragraph2);
 }
   
 </script>
