@@ -69,28 +69,24 @@ while (treeWalker.nextNode()) {
   const depth = getDepth(currentNode, root);
   const indentation = ''.padStart(depth * 4);
   
+  const span = document.createElement('span');
+  span.classList.add('node-name');
+  
   if (nodeName === '#text') {
     lines.push([`${indentation}"${currentNode.textContent}"`]);
     map.set(currentNode, index++);
 
     if (currentNode.nextSibling === null) {
       const {parentNode} = currentNode;
-      const depth = getDepth(parentNode, root);
-      const indentation = ''.padStart(depth * 4);
-      const span = document.createElement('span');
-
-      span.classList.add('node-name');
       span.textContent = parentNode.nodeName.toLowerCase();
 
-      lines.push([`${indentation}<`, span, `/>`]);
+      lines.push([`${indentation.substr(4)}<`, span, `/>`]);
       index++;
     }
   }
   else {
     const attributes = [...currentNode.attributes].map(({name, value}) => `${name}="${value}"`).join(' ');
-    const span = document.createElement('span');
 
-    span.classList.add('node-name');
     span.textContent = nodeName;
 
     lines.push([`${indentation}<`, span, ` ${attributes}>`]);
