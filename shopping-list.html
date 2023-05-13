@@ -71,6 +71,8 @@
           <td class="done">
             <input type="checkbox">
           </td>
+          <td class="quantity-required">
+          </td>
           <td class="quantity-in-cart__container">
             <input class="quantity-in-cart" inputmode="decimal"> kg
           </td>
@@ -158,7 +160,7 @@
 
         // 'Quantity required' column
         {
-          const td = document.createElement('td');
+          const td = template.querySelector('.quantity-required').cloneNode(true);
           td.textContent = quantityRequired;
           tr.append(td);
         }
@@ -191,7 +193,24 @@
         table.append(tr);
       });
 
-      // 'Amount'
+    
+
+
+      //
+      function calculateQuantityRequired() {
+        const rows = [...table.rows].slice(1);
+        
+        rows.forEach(row => {
+          const cell = row.querySelector('.quantity-required');
+          
+          const stock = parseFloat(row.querySelector('.stock').textContent);
+          const quantityRequired = parseFloat(cell.textContent);
+
+          cell.textContent = `${(quantityRequired - stock).toFixed(3)} kg`;
+        });
+      }
+      
+      // Work out how much I'll need to pay at check out.
       function update() {
         const rows = [...table.rows].slice(1);
         
