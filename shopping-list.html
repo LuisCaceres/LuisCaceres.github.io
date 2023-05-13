@@ -193,7 +193,7 @@
         table.append(tr);
       });
 
-    
+
 
 
       //
@@ -209,23 +209,28 @@
           cell.textContent = `${(quantityRequired - stock).toFixed(3)} kg`;
         });
       }
-      
+
+
+
+
       // Work out how much I'll need to pay at check out.
       function update() {
         const rows = [...table.rows].slice(1);
-        
+
         rows.forEach(row => {
           const quantityInCart = +row.querySelector('.quantity-in-cart').value;
           const price = +row.querySelector('.price').value;
           const amount = (quantityInCart * price).toFixed(2);
           row.querySelector('.amount').textContent = amount;
         });
-        
+
         const total = [...document.querySelectorAll('.amount')].map(cell => cell.textContent).reduce((a, b) => a + +b, 0);
-        document.querySelector('.total').textContent = total;
+        document.querySelector('.total').textContent = total.toFixed(2);
       }
-      
+
+
+      calculateQuantityRequired();
       setInterval(update, 1000);
-    </script>    
+    </script>
   </body>
 </html>
