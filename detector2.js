@@ -184,22 +184,24 @@ function foo(previousChart, currentChart, database) {
 }
 
 { // JUNE 2003 ::::: SOLVED
-  const chart1 = new Chart("System Of A Down - Boom", "Marilyn Manson - mOBSCENE", "Linkin Park - Somewhere I Belong", "Eminem - Sing for the Moment", "Avril Lavigne - I'm With You", "50 Cent - In Da Club", "Kelly Osbourne - Come Dig Me Out", "Nelly Justin & Timberlake - Work It", "Evanescence - Bring Me to Life", "Missy Misdemeanor Elliott Ludacris - Gossip Folks", "Juanes - Mala Gente", "Deftones - Minerva", "Ricky Martin - Tal Vez", "Stacie Orrico - Stuck", "Madonna - American Life", "Simple Plan - I'd Do Anything", "A-Teens - Perfect Match", "Bon Jovi - All About Lovin' You", "Audioslave - Like a Stone", "Maná - Mariposa Traicionera");
-  const chart2 = new Chart("Marilyn Manson - mOBSCENE", "Avril Lavigne - I'm With You", "Linkin Park - Somewhere I Belong", "System Of A Down - Boom", "Eminem - Sing for the Moment", "50 Cent - In Da Club", "Evanescence - Bring Me to Life", "Nelly Justin & Timberlake - Work It", "Kelly Osbourne - Come Dig Me Out", "Stacie Orrico - Stuck", "Missy Misdemeanor Elliott Ludacris - Gossip Folks", "Deftones - Minerva", "Ricky Martin - Tal Vez", "Juanes - Mala Gente", "Madonna - American Life", "A-Teens - Perfect Match", "La Oreja de Van Gogh - Puedes Contar Conmigo", "Christina Aguilera - Fighter", "Audioslave - Like a Stone", "Bon Jovi - All About Lovin' You");
-  const chart3 = new Chart("Avril Lavigne - I'm With You", "Marilyn Manson - mOBSCENE", "Linkin Park - Somewhere I Belong", "Evanescence - Bring Me to Life", "Eminem - Sing for the Moment", "System Of A Down - Boom", "50 Cent - In Da Club", "Stacie Orrico - Stuck", "Deftones - Minerva", "Christina Aguilera - Fighter", "Ricky Martin - Tal Vez", "Nelly Justin & Timberlake - Work It", "Missy Misdemeanor Elliott Ludacris - Gossip Folks", "La Oreja de Van Gogh - Puedes Contar Conmigo", "P.O.D. - Sleeping Awake", "Moenia - En Qué Momento?", "Juanes - Mala Gente", "Kelly Osbourne - Come Dig Me Out", "Madonna - American Life", "Audioslave - Like a Stone");
+  const chart1 = new Chart("System Of A Down - Boom", "Linkin Park - Somewhere I Belong", "Eminem - Sing for the Moment", "Juanes - Mala Gente", "Kelly Osbourne - Come Dig Me Out", "Simple Plan - I'd Do Anything", "Nelly Justin & Timberlake - Work It", "Maná - Mariposa Traicionera", "The Calling - For You", "Marilyn Manson - mOBSCENE", "Bon Jovi - All About Lovin' You", "Christina Aguilera - Beautiful", "50 Cent - In Da Club", "Avril Lavigne - I'm With You", "Missy Misdemeanor Elliott Ludacris - Gossip Folks", "Nick Carter - Do I Have to Cry for You?", "Audioslave - Like a Stone", "t.A.T.u. - Not Gonna Get Us", "Coldplay - Clocks", "Madonna - American Life");
+  const chart2 = new Chart("System Of A Down - Boom", "Linkin Park - Somewhere I Belong", "Kelly Osbourne - Come Dig Me Out", "Eminem - Sing for the Moment", "Marilyn Manson - mOBSCENE", "Juanes - Mala Gente", "Nelly Justin & Timberlake - Work It", "50 Cent - In Da Club", "Avril Lavigne - I'm With You", "Missy Misdemeanor Elliott Ludacris - Gossip Folks", "Madonna - American Life", "Simple Plan - I'd Do Anything", "Maná - Mariposa Traicionera", "Bon Jovi - All About Lovin' You", "Stacie Orrico - Stuck", "Deftones - Minerva", "The Calling - For You", "Ricky Martin - Tal Vez", "Audioslave - Like a Stone", "Christina Aguilera - Beautiful");
+  const chart3 = new Chart("System Of A Down - Boom", "Marilyn Manson - mOBSCENE", "Linkin Park - Somewhere I Belong", "Eminem - Sing for the Moment", "Avril Lavigne - I'm With You", "50 Cent - In Da Club", "Kelly Osbourne - Come Dig Me Out", "Nelly Justin & Timberlake - Work It", "Evanescence - Bring Me to Life", "Missy Misdemeanor Elliott Ludacris - Gossip Folks", "Juanes - Mala Gente", "Deftones - Minerva", "Ricky Martin - Tal Vez", "Stacie Orrico - Stuck", "Madonna - American Life", "Simple Plan - I'd Do Anything", "A-Teens - Perfect Match", "Bon Jovi - All About Lovin' You", "Audioslave - Like a Stone", "Maná - Mariposa Traicionera");
+  const chart4 = new Chart("Marilyn Manson - mOBSCENE", "Avril Lavigne - I'm With You", "Linkin Park - Somewhere I Belong", "System Of A Down - Boom", "Eminem - Sing for the Moment", "50 Cent - In Da Club", "Evanescence - Bring Me to Life", "Nelly Justin & Timberlake - Work It", "Kelly Osbourne - Come Dig Me Out", "Stacie Orrico - Stuck", "Missy Misdemeanor Elliott Ludacris - Gossip Folks", "Deftones - Minerva", "Ricky Martin - Tal Vez", "Juanes - Mala Gente", "Madonna - American Life", "A-Teens - Perfect Match", "La Oreja de Van Gogh - Puedes Contar Conmigo", "Christina Aguilera - Fighter", "Audioslave - Like a Stone", "Bon Jovi - All About Lovin' You");
+  const chart5 = new Chart("Avril Lavigne - I'm With You", "Marilyn Manson - mOBSCENE", "Linkin Park - Somewhere I Belong", "Evanescence - Bring Me to Life", "Eminem - Sing for the Moment", "System Of A Down - Boom", "50 Cent - In Da Club", "Stacie Orrico - Stuck", "Deftones - Minerva", "Christina Aguilera - Fighter", "Ricky Martin - Tal Vez", "Nelly Justin & Timberlake - Work It", "Missy Misdemeanor Elliott Ludacris - Gossip Folks", "La Oreja de Van Gogh - Puedes Contar Conmigo", "P.O.D. - Sleeping Awake", "Moenia - En Qué Momento?", "Juanes - Mala Gente", "Kelly Osbourne - Come Dig Me Out", "Madonna - American Life", "Audioslave - Like a Stone");
 
-  const database = createDatabase(chart1, chart2, chart3);
+  const database = createDatabase(chart1, chart2, chart3, chart4, chart5);
 
-  foo(chart2, chart3, database);
+  foo(chart4, chart5, database);
 
-  expect(chart3).to.include("A-Teens - Perfect Match");
+  expect(chart5).to.include("A-Teens - Perfect Match");
   expect([15, 16]).to.include(chart3.positionOf("A-Teens - Perfect Match"));
 
-  if (chart3.positionOf("A-Teens - Perfect Match") === 15) {
-    expect(chart3).not.to.include("P.O.D. - Sleeping Awake");
+  if (chart5.positionOf("A-Teens - Perfect Match") === 15) {
+    expect(chart5).not.to.include("P.O.D. - Sleeping Awake");
   }
-  else if (chart3.positionOf("A-Teens - Perfect Match") === 16) {
-    expect(chart3).not.to.include("Moenia - En Qué Momento?");
+  else if (chart5.positionOf("A-Teens - Perfect Match") === 16) {
+    expect(chart5).not.to.include("Moenia - En Qué Momento?");
   }
 }
 
