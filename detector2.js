@@ -154,25 +154,26 @@ function foo(previousChart, currentChart, database) {
 }
 
 { // MARCH 2023 ::::: SOLVED
-  const chart1 = new Chart("Eminem - Lose Yourself", "Shakira - Que Me Quedes Tú", "Avril Lavigne - Sk8er Boi", "Robbie Williams - Feel", "Kelly Osbourne - Shut Up", "Jennifer Lopez - Jenny from the Block", "Juanes - Es Por Tí", "Westlife - Unbreakable", "Madonna - Die Another Day", "Justin Timberlake - Cry Me A River", "t.A.T.u. - Not Gonna Get Us", "Nirvana - You Know You're Right", "Nick Carter - Do I Have to Cry for You?", "Crazy Town - Drowning", "Kylie Minogue - Come Into My World", "Foo Fighters - All My Life", "Missy - Misdemeanor Elliott - Work It", "Molotov - Frijolero", "Coldplay - The Scientist", "Paulina Rubio - Baila Casanova");
-  const chart2 = new Chart("Eminem - Lose Yourself", "Shakira - Que Me Quedes Tú", "Robbie Williams - Feel", "Kelly Osbourne - Shut Up", "Avril Lavigne - Sk8er Boi", "Justin Timberlake - Cry Me A River", "t.A.T.u. - Not Gonna Get Us", "Jennifer Lopez - Jenny from the Block", "Juanes - Es Por Tí", "Nick Carter - Do I Have to Cry for You?", "Westlife - Unbreakable", "Madonna - Die Another Day", "Crazy Town - Drowning", "Molotov - Frijolero", "Kylie Minogue - Come Into My World", "Nirvana - You Know You're Right", "Missy - Misdemeanor Elliott - Work It", "Paulina Rubio - Baila Casanova", "Foo Fighters - All My Life", "Coldplay - The Scientist");
-  const chart3 = new Chart("Eminem - Lose Yourself", "Robbie Williams - Feel", "Kelly Osbourne - Shut Up", "t.A.T.u. - Not Gonna Get Us", "Shakira - Que Me Quedes Tú", "Justin Timberlake - Cry Me A River", "Avril Lavigne - Sk8er Boi", "Nick Carter - Do I Have to Cry for You?", "Jennifer Lopez - Jenny from the Block", "Juanes - Es Por Tí", "Molotov - Frijolero", "Westlife - Unbreakable", "Paulina Rubio - Baila Casanova", "Madonna - Die Another Day", "Red Hot Chili Peppers - Can't Stop", "Gustavo Cerati - Cosas Imposibles", "Crazy Town - Drowning", "Kylie Minogue - Come Into My World", "Coldplay - The Scientist", "Audioslave - Like a Stone");
+  const chart1 = new Chart("Shakira - Que Me Quedes Tú", "Eminem - Lose Yourself", "Avril Lavigne - Sk8er Boi", "Westlife - Unbreakable", "Juanes - Es Por Tí", "Jennifer Lopez - Jenny from the Block", "Madonna - Die Another Day", "Nirvana - You Know You're Right", "Kelly Osbourne - Shut Up", "Robbie Williams - Feel", "Kylie Minogue - Come Into My World", "Foo Fighters - All My Life", "Christina Aguilera Redman - Dirrty", "Coldplay - The Scientist", "Crazy Town - Drowning", "Justin Timberlake - Cry Me A River", "Nick Carter - Do I Have to Cry for You?", "Missy - Misdemeanor" Elliott "Work It", "t.A.T.u. - Not Gonna Get Us", "Molotov - Frijolero");
+  const chart2 = new Chart("Eminem - Lose Yourself", "Shakira - Que Me Quedes Tú", "Avril Lavigne - Sk8er Boi", "Robbie Williams - Feel", "Kelly Osbourne - Shut Up", "Jennifer Lopez - Jenny from the Block", "Juanes - Es Por Tí", "Westlife - Unbreakable", "Madonna - Die Another Day", "Justin Timberlake - Cry Me A River", "t.A.T.u. - Not Gonna Get Us", "Nirvana - You Know You're Right", "Nick Carter - Do I Have to Cry for You?", "Crazy Town - Drowning", "Kylie Minogue - Come Into My World", "Foo Fighters - All My Life", "Missy - Misdemeanor Elliott - Work It", "Molotov - Frijolero", "Coldplay - The Scientist", "Paulina Rubio - Baila Casanova");
+  const chart3 = new Chart("Eminem - Lose Yourself", "Shakira - Que Me Quedes Tú", "Robbie Williams - Feel", "Kelly Osbourne - Shut Up", "Avril Lavigne - Sk8er Boi", "Justin Timberlake - Cry Me A River", "t.A.T.u. - Not Gonna Get Us", "Jennifer Lopez - Jenny from the Block", "Juanes - Es Por Tí", "Nick Carter - Do I Have to Cry for You?", "Westlife - Unbreakable", "Madonna - Die Another Day", "Crazy Town - Drowning", "Molotov - Frijolero", "Kylie Minogue - Come Into My World", "Nirvana - You Know You're Right", "Missy - Misdemeanor Elliott - Work It", "Paulina Rubio - Baila Casanova", "Foo Fighters - All My Life", "Coldplay - The Scientist");
+  const chart4 = new Chart("Eminem - Lose Yourself", "Robbie Williams - Feel", "Kelly Osbourne - Shut Up", "t.A.T.u. - Not Gonna Get Us", "Shakira - Que Me Quedes Tú", "Justin Timberlake - Cry Me A River", "Avril Lavigne - Sk8er Boi", "Nick Carter - Do I Have to Cry for You?", "Jennifer Lopez - Jenny from the Block", "Juanes - Es Por Tí", "Molotov - Frijolero", "Westlife - Unbreakable", "Paulina Rubio - Baila Casanova", "Madonna - Die Another Day", "Red Hot Chili Peppers - Can't Stop", "Gustavo Cerati - Cosas Imposibles", "Crazy Town - Drowning", "Kylie Minogue - Come Into My World", "Coldplay - The Scientist", "Audioslave - Like a Stone");
 
-  const database = createDatabase(chart1, chart2, chart3);
+  const database = createDatabase(chart1, chart2, chart3, chart4);
 
-  foo(chart2, chart3, database);
+  foo(chart3, chart4, database);
 
-  expect(chart3.length).to.equal(20);
-  expect(chart3).to.include("Missy - Misdemeanor Elliott - Work It");
-  expect([15, 16]).to.include(chart3.positionOf("Missy - Misdemeanor Elliott - Work It"));
+  expect(chart4.length).to.equal(20);
+  expect(chart3.difference(chart4).length).to.equal(2);
+  expect(chart4).to.include("Missy - Misdemeanor Elliott - Work It");
+  expect([15, 16]).to.include(chart4.positionOf("Missy - Misdemeanor Elliott - Work It"));
 
-  if (chart3.positionOf("Missy - Misdemeanor Elliott - Work It") === 15) {
-    expect(chart3).not.to.include("Red Hot Chili Peppers - Can't Stop");
+  if (chart4.positionOf("Missy - Misdemeanor Elliott - Work It") === 15) {
+    expect(chart4).not.to.include("Red Hot Chili Peppers - Can't Stop");
   }
-  else if (chart3.positionOf("Missy - Misdemeanor Elliott - Work It") === 16) {
-    expect(chart3).not.to.include("Gustavo Cerati - Cosas Imposibles");
+  else if (chart4.positionOf("Missy - Misdemeanor Elliott - Work It") === 16) {
+    expect(chart4).not.to.include("Gustavo Cerati - Cosas Imposibles");
   }
-
 }
 
 { // APRIL 2023 ::::: UNRESOLVED
