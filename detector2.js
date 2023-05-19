@@ -153,7 +153,29 @@ function foo(previousChart, currentChart, database) {
   }
 }
 
-{ // UNRESOLVED
+{ // MARCH 2023 ::::: SOLVED
+  const chart1 = new Chart("Eminem - Lose Yourself", "Shakira - Que Me Quedes Tú", "Avril Lavigne - Sk8er Boi", "Robbie Williams - Feel", "Kelly Osbourne - Shut Up", "Jennifer Lopez - Jenny from the Block", "Juanes - Es Por Tí", "Westlife - Unbreakable", "Madonna - Die Another Day", "Justin Timberlake - Cry Me A River", "t.A.T.u. - Not Gonna Get Us", "Nirvana - You Know You're Right", "Nick Carter - Do I Have to Cry for You?", "Crazy Town - Drowning", "Kylie Minogue - Come Into My World", "Foo Fighters - All My Life", "Missy - Misdemeanor Elliott - Work It", "Molotov - Frijolero", "Coldplay - The Scientist", "Paulina Rubio - Baila Casanova");
+  const chart2 = new Chart("Eminem - Lose Yourself", "Shakira - Que Me Quedes Tú", "Robbie Williams - Feel", "Kelly Osbourne - Shut Up", "Avril Lavigne - Sk8er Boi", "Justin Timberlake - Cry Me A River", "t.A.T.u. - Not Gonna Get Us", "Jennifer Lopez - Jenny from the Block", "Juanes - Es Por Tí", "Nick Carter - Do I Have to Cry for You?", "Westlife - Unbreakable", "Madonna - Die Another Day", "Crazy Town - Drowning", "Molotov - Frijolero", "Kylie Minogue - Come Into My World", "Nirvana - You Know You're Right", "Missy - Misdemeanor Elliott - Work It", "Paulina Rubio - Baila Casanova", "Foo Fighters - All My Life", "Coldplay - The Scientist");
+  const chart3 = new Chart("Eminem - Lose Yourself", "Robbie Williams - Feel", "Kelly Osbourne - Shut Up", "t.A.T.u. - Not Gonna Get Us", "Shakira - Que Me Quedes Tú", "Justin Timberlake - Cry Me A River", "Avril Lavigne - Sk8er Boi", "Nick Carter - Do I Have to Cry for You?", "Jennifer Lopez - Jenny from the Block", "Juanes - Es Por Tí", "Molotov - Frijolero", "Westlife - Unbreakable", "Paulina Rubio - Baila Casanova", "Madonna - Die Another Day", "Red Hot Chili Peppers - Can't Stop", "Gustavo Cerati - Cosas Imposibles", "Crazy Town - Drowning", "Kylie Minogue - Come Into My World", "Coldplay - The Scientist", "Audioslave - Like a Stone");
+
+  const database = createDatabase(chart1, chart2, chart3);
+
+  foo(chart2, chart3, database);
+
+  expect(chart3.length).to.equal(20);
+  expect(chart3).to.include("Missy - Misdemeanor Elliott - Work It");
+  expect([15, 16]).to.include(chart3.positionOf("Missy - Misdemeanor Elliott - Work It"));
+
+  if (chart3.positionOf("Missy - Misdemeanor Elliott - Work It") === 15) {
+    expect(chart3).not.to.include("Red Hot Chili Peppers - Can't Stop");
+  }
+  else if (chart3.positionOf("Missy - Misdemeanor Elliott - Work It") === 16) {
+    expect(chart3).not.to.include("Gustavo Cerati - Cosas Imposibles");
+  }
+
+}
+
+{ // APRIL 2023 ::::: UNRESOLVED
   const chart1 = new Chart("t.A.T.u. - Not Gonna Get Us", "Nick Carter - Do I Have to Cry for You?", "Molotov - Frijolero", "Christina Aguilera - Beautiful", "Eminem - Lose Yourself", "Kelly Osbourne - Shut Up", "Shakira - Que Me Quedes Tú", "Red Hot Chili Peppers - Can't Stop", "Paulina Rubio - Baila Casanova", "Avril Lavigne - Sk8er Boi", "Robbie Williams - Feel", "Audioslave - Like a Stone", "Gustavo Cerati - Cosas Imposibles", "Justin Timberlake - Cry Me A River", "Linkin Park - Somewhere I Belong", "Melanie C. - Here it Comes", "Sum 41 - Still Waiting", "Simple Plan - I'd Do Anything", "Jennifer Lopez - Jenny from the Block", "Coldplay - Clocks");
   const chart2 = new Chart("Nick Carter - Do I Have to Cry for You?", "t.A.T.u. - Not Gonna Get Us", "Christina Aguilera - Beautiful", "Molotov - Frijolero", "Red Hot Chili Peppers - Can't Stop", "Paulina Rubio - Baila Casanova", "Linkin Park - Somewhere I Belong", "Kelly Osbourne - Shut Up", "Shakira - Que Me Quedes Tú", "Gustavo Cerati - Cosas Imposibles", "Eminem - Lose Yourself", "Coldplay - Clocks", "Avril Lavigne - Sk8er Boi", "Audioslave - Like a Stone", "Melanie C. - Here it Comes", "Sum 41 - Still Waiting", "Simple Plan - I'd Do Anything", "Justin Timberlake - Cry Me A River", "Juanes - Mala Gente", "Kabah - Por Tí");
   const chart3 = new Chart("Nick Carter - Do I Have to Cry for You?", "Christina Aguilera - Beautiful", "t.A.T.u. - Not Gonna Get Us", "Linkin Park - Somewhere I Belong", "Molotov - Frijolero", "Red Hot Chili Peppers - Can't Stop", "Coldplay - Clocks", "Kelly Osbourne - Shut Up", "Paulina Rubio - Baila Casanova", "Gustavo Cerati - Cosas Imposibles", "Shakira - Que Me Quedes Tú", "Juanes - Mala Gente", "Avril Lavigne - Sk8er Boi", "Audioslave - Like a Stone", "Simple Plan - I'd Do Anything", "Kabah - Por Tí", "Melanie C. - Here it Comes", "Justin Timberlake - Cry Me A River", "Maná - Mariposa Traicionera", "Sum 41 - Still Waiting");
@@ -169,7 +191,7 @@ function foo(previousChart, currentChart, database) {
   expect(chart4.at(12)).to.equal("Gustavo Cerati - Cosas Imposibles");
 }
 
-{ // UNRESOLVED
+{ // MAY 2023 ::::: UNRESOLVED
   const chart1 = new Chart("System Of A Down - Boom", "Linkin Park - Somewhere I Belong", "Eminem - Sing for the Moment", "Juanes - Mala Gente", "Kelly Osbourne - Come Dig Me Out", "Simple Plan - I'd Do Anything", "Nelly Justin & Timberlake - Work It", "Maná - Mariposa Traicionera", "The Calling - For You", "Marilyn Manson - mOBSCENE", "Bon Jovi - All About Lovin' You", "Christina Aguilera - Beautiful", "50 Cent - In Da Club", "Avril Lavigne - I'm With You", "Missy Misdemeanor Elliott Ludacris - Gossip Folks", "Nick Carter - Do I Have to Cry for You?", "Audioslave - Like a Stone", "t.A.T.u. - Not Gonna Get Us", "Coldplay - Clocks", "Madonna - American Life");
   const chart2 = new Chart("System Of A Down - Boom", "Linkin Park - Somewhere I Belong", "Kelly Osbourne - Come Dig Me Out", "Eminem - Sing for the Moment", "Marilyn Manson - mOBSCENE", "Juanes - Mala Gente", "Nelly Justin & Timberlake - Work It", "50 Cent - In Da Club", "Avril Lavigne - I'm With You", "Missy Misdemeanor Elliott Ludacris - Gossip Folks", "Madonna - American Life", "Simple Plan - I'd Do Anything", "Maná - Mariposa Traicionera", "Bon Jovi - All About Lovin' You", "Stacie Orrico - Stuck", "Deftones - Minerva", "The Calling - For You", "Ricky Martin - Tal Vez", "Audioslave - Like a Stone", "Christina Aguilera - Beautiful");
   const chart3 = new Chart("System Of A Down - Boom", "Marilyn Manson - mOBSCENE", "Linkin Park - Somewhere I Belong", "Eminem - Sing for the Moment", "Avril Lavigne - I'm With You", "50 Cent - In Da Club", "Kelly Osbourne - Come Dig Me Out", "Nelly Justin & Timberlake - Work It", "Evanescence - Bring Me to Life", "Missy Misdemeanor Elliott Ludacris - Gossip Folks", "Juanes - Mala Gente", "Deftones - Minerva", "Ricky Martin - Tal Vez", "Stacie Orrico - Stuck", "Madonna - American Life", "Simple Plan - I'd Do Anything", "A-Teens - Perfect Match", "Bon Jovi - All About Lovin' You", "Audioslave - Like a Stone", "Maná - Mariposa Traicionera");
@@ -194,6 +216,7 @@ function foo(previousChart, currentChart, database) {
 
   foo(chart4, chart5, database);
 
+  expect(chart5.length).to.equal(20);
   expect(chart5).to.include("A-Teens - Perfect Match");
   expect([15, 16]).to.include(chart5.positionOf("A-Teens - Perfect Match"));
 
@@ -205,7 +228,7 @@ function foo(previousChart, currentChart, database) {
   }
 }
 
-{ // JULIO 2003 ::::: // UNRESOLVED
+{ // JULY 2003 ::::: // UNRESOLVED
   const chart1 = new Chart("Christina Aguilera - Fighter", "Avril Lavigne - I'm With You", "Metallica - St. Anger", "Evanescence - Bring Me to Life", "Stacie Orrico - Stuck", "P.O.D. - Sleeping Awake", "Eminem - Sing for the Moment", "Linkin Park - Faint", "Deftones - Minerva", "La Ley - Ámate y Sálvate", "White Stripes - Seven Nation Army", "Marilyn Manson - mOBSCENE", "Pink & William Orbit - Feel Good Time", "Molotov - Here We Kum", "Juanes & Nelly Furtado - Fotografía", "Café Tacuba - EO (El Sonidero)", "Qbo - No Más", "Michelle Branch - Are You Happy Now?", "Moenia - En Qué Momento?", "Red Hot Chili Peppers - Universally Speaking");
   const chart2 = new Chart("Metallica - St. Anger", "Christina Aguilera - Fighter", "Linkin Park - Faint", "Evanescence - Bring Me to Life", "Stacie Orrico - Stuck", "P.O.D. - Sleeping Awake", "Avril Lavigne - I'm With You", "White Stripes - Seven Nation Army", "Molotov - Here We Kum", "Pink & William Orbit - Feel Good Time", "Deftones - Minerva", "La Ley - Ámate y Sálvate", "Marilyn Manson - mOBSCENE", "Eminem - Sing for the Moment", "Café Tacuba - EO (El Sonidero)", "Qbo - No Más", "Juanes & Nelly Furtado - Fotografía", "Michelle Branch - Are You Happy Now?", "Red Hot Chili Peppers - Universally Speaking", "Moenia - En Qué Momento?");
   const chart3 = new Chart("Linkin Park - Faint", "Metallica - St. Anger", "Stacie Orrico - Stuck", "Evanescence - Bring Me to Life", "Christina Aguilera - Fighter", "Pink & William Orbit - Feel Good Time", "White Stripes - Seven Nation Army", "Molotov - Here We Kum", "P.O.D. - Sleeping Awake", "Avril Lavigne - I'm With You", "Audioslave - Show Me How to Live", "Michelle Branch - Are You Happy Now?", "Qbo - No Más", "Deftones - Minerva", "Café Tacuba - EO (El Sonidero)", "Simple Plan - Addicted", "Juanes & Nelly Furtado - Fotografía", "Red Hot Chili Peppers - Universally Speaking", "Madonna - Hollywood", "Beyoncé & Jay-Z - Crazy in Love");
