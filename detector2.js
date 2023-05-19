@@ -183,6 +183,21 @@ function foo(previousChart, currentChart, database) {
   expect(chart3.at(15)).to.equal("Madonna - American Life");    
 }
 
+{ // UNRESOLVED
+  const chart1 = new Chart("Christina Aguilera - Fighter", "Avril Lavigne - I'm With You", "Metallica - St. Anger", "Evanescence - Bring Me to Life", "Stacie Orrico - Stuck", "P.O.D. - Sleeping Awake", "Eminem - Sing for the Moment", "Linkin Park - Faint", "Deftones - Minerva", "La Ley - Ámate y Sálvate", "White Stripes - Seven Nation Army", "Marilyn Manson - mOBSCENE", "Pink & William Orbit - Feel Good Time", "Molotov - Here We Kum", "Juanes & Nelly Furtado - Fotografía", "Café Tacuba - EO (El Sonidero)", "Qbo - No Más", "Michelle Branch - Are You Happy Now?", "Moenia - En Qué Momento?", "Red Hot Chili Peppers - Universally Speaking");
+  const chart2 = new Chart("Metallica - St. Anger", "Christina Aguilera - Fighter", "Linkin Park - Faint", "Evanescence - Bring Me to Life", "Stacie Orrico - Stuck", "P.O.D. - Sleeping Awake", "Avril Lavigne - I'm With You", "White Stripes - Seven Nation Army", "Molotov - Here We Kum", "Pink & William Orbit - Feel Good Time", "Deftones - Minerva", "La Ley - Ámate y Sálvate", "Marilyn Manson - mOBSCENE", "Eminem - Sing for the Moment", "Café Tacuba - EO (El Sonidero)", "Qbo - No Más", "Juanes & Nelly Furtado - Fotografía", "Michelle Branch - Are You Happy Now?", "Red Hot Chili Peppers - Universally Speaking", "Moenia - En Qué Momento?");
+  const chart3 = new Chart("Linkin Park - Faint", "Metallica - St. Anger", "Stacie Orrico - Stuck", "Evanescence - Bring Me to Life", "Christina Aguilera - Fighter", "Pink & William Orbit - Feel Good Time", "White Stripes - Seven Nation Army", "Molotov - Here We Kum", "P.O.D. - Sleeping Awake", "Avril Lavigne - I'm With You", "Audioslave - Show Me How to Live", "Michelle Branch - Are You Happy Now?", "Qbo - No Más", "Deftones - Minerva", "Café Tacuba - EO (El Sonidero)", "Simple Plan - Addicted", "Juanes & Nelly Furtado - Fotografía", "Red Hot Chili Peppers - Universally Speaking", "Madonna - Hollywood", "Beyoncé & Jay-Z - Crazy in Love");
+  
+  const database = createDatabase(chart1, chart2, chart3);
+  const clone = chart3.slice();    
+  
+  foo(chart2, chart3, database);
+    
+  expect(chart3.length).to.equal(20);
+  expect(chart3.join('')).to.equal(clone.join(''));
+  expect(chart3.at(11)).to.equal("Audioslave - Show Me How to Live");
+}
+
 
 // WEEK 3
 {
