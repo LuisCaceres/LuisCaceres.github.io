@@ -195,7 +195,7 @@ function foo(previousChart, currentChart, database) {
   foo(chart4, chart5, database);
 
   expect(chart5).to.include("A-Teens - Perfect Match");
-  expect([15, 16]).to.include(chart3.positionOf("A-Teens - Perfect Match"));
+  expect([15, 16]).to.include(chart5.positionOf("A-Teens - Perfect Match"));
 
   if (chart5.positionOf("A-Teens - Perfect Match") === 15) {
     expect(chart5).not.to.include("P.O.D. - Sleeping Awake");
