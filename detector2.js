@@ -183,6 +183,26 @@ function foo(previousChart, currentChart, database) {
   expect(chart3.at(15)).to.equal("Madonna - American Life");    
 }
 
+{ // SOLVED
+  const chart1 = new Chart("System Of A Down - Boom", "Marilyn Manson - mOBSCENE", "Linkin Park - Somewhere I Belong", "Eminem - Sing for the Moment", "Avril Lavigne - I'm With You", "50 Cent - In Da Club", "Kelly Osbourne - Come Dig Me Out", "Nelly Justin & Timberlake - Work It", "Evanescence - Bring Me to Life", "Missy - Misdemeanor" Elliott Ludacris "Gossip Folks", "Juanes - Mala Gente", "Deftones - Minerva", "Ricky Martin - Tal Vez", "Stacie Orrico - Stuck", "Madonna - American Life", "Simple Plan - I'd Do Anything", "A-Teens - Perfect Match", "Bon Jovi - All About Lovin' You", "Audioslave - Like a Stone", "Maná - Mariposa Traicionera");
+  const chart2 = new Chart("Marilyn Manson - mOBSCENE", "Avril Lavigne - I'm With You", "Linkin Park - Somewhere I Belong", "System Of A Down - Boom", "Eminem - Sing for the Moment", "50 Cent - In Da Club", "Evanescence - Bring Me to Life", "Nelly Justin & Timberlake - Work It", "Kelly Osbourne - Come Dig Me Out", "Stacie Orrico - Stuck", "Missy - Misdemeanor" Elliott Ludacris "Gossip Folks", "Deftones - Minerva", "Ricky Martin - Tal Vez", "Juanes - Mala Gente", "Madonna - American Life", "A-Teens - Perfect Match", "La Oreja de Van Gogh - Puedes Contar Conmigo", "Christina Aguilera - Fighter", "Audioslave - Like a Stone", "Bon Jovi - All About Lovin' You");
+  const chart3 = new Chart("Avril Lavigne - I'm With You", "Marilyn Manson - mOBSCENE", "Linkin Park - Somewhere I Belong", "Evanescence - Bring Me to Life", "Eminem - Sing for the Moment", "System Of A Down - Boom", "50 Cent - In Da Club", "Stacie Orrico - Stuck", "Deftones - Minerva", "Christina Aguilera - Fighter", "Ricky Martin - Tal Vez", "Nelly Justin & Timberlake - Work It", "Missy - Misdemeanor" Elliott Ludacris "Gossip Folks", "La Oreja de Van Gogh - Puedes Contar Conmigo", "P.O.D. - Sleeping Awake", "Moenia - En Qué Momento?", "Juanes - Mala Gente", "Kelly Osbourne - Come Dig Me Out", "Madonna - American Life", "Audioslave - Like a Stone");
+
+  const database = createDatabase(chart1, chart2, chart3);
+
+  foo(chart2, chart3, database);
+
+  expect(chart3).to.include("Sophie Ellis Bextor - Murder On The Dance Floor");
+  expect([16, 15]).to.include(chart3.positionOf("A-Teens - Perfect Match"));
+
+  if (chart3.positionOf("A-Teens - Perfect Match") === 15) {
+    expect(chart3).not.to.include("P.O.D. - Sleeping Awake");
+  }
+  else if (chart3.positionOf("A-Teens - Perfect Match") === 16) {
+    expect(chart3).not.to.include("Moenia - En Qué Momento?");
+  }
+}
+
 { // UNRESOLVED
   const chart1 = new Chart("Christina Aguilera - Fighter", "Avril Lavigne - I'm With You", "Metallica - St. Anger", "Evanescence - Bring Me to Life", "Stacie Orrico - Stuck", "P.O.D. - Sleeping Awake", "Eminem - Sing for the Moment", "Linkin Park - Faint", "Deftones - Minerva", "La Ley - Ámate y Sálvate", "White Stripes - Seven Nation Army", "Marilyn Manson - mOBSCENE", "Pink & William Orbit - Feel Good Time", "Molotov - Here We Kum", "Juanes & Nelly Furtado - Fotografía", "Café Tacuba - EO (El Sonidero)", "Qbo - No Más", "Michelle Branch - Are You Happy Now?", "Moenia - En Qué Momento?", "Red Hot Chili Peppers - Universally Speaking");
   const chart2 = new Chart("Metallica - St. Anger", "Christina Aguilera - Fighter", "Linkin Park - Faint", "Evanescence - Bring Me to Life", "Stacie Orrico - Stuck", "P.O.D. - Sleeping Awake", "Avril Lavigne - I'm With You", "White Stripes - Seven Nation Army", "Molotov - Here We Kum", "Pink & William Orbit - Feel Good Time", "Deftones - Minerva", "La Ley - Ámate y Sálvate", "Marilyn Manson - mOBSCENE", "Eminem - Sing for the Moment", "Café Tacuba - EO (El Sonidero)", "Qbo - No Más", "Juanes & Nelly Furtado - Fotografía", "Michelle Branch - Are You Happy Now?", "Red Hot Chili Peppers - Universally Speaking", "Moenia - En Qué Momento?");
