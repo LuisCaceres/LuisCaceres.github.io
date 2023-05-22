@@ -3,7 +3,20 @@
     <title>Expenses</title>
   </head>
   <body>
-    
+
+    <p>Balance: $<span id="balance"></span></p>
+    <p>Total: $<span id="total"></span></p>
+   
+    <table>
+      <tr id="template">
+        <td></td>
+      </tr>
+    </table>
+
+    <p>Budget for May-June 2023: $0</p>
+    <p>Budget from June-July 2023: $5953.38 - $1200 (RENT) - $2100 (MONTHLY SAVINGS) = 2653.38</p>
+    <p>Budget from June-July 2023: $2653.38 (REMAINING) - $15 </p>
+
     <script defer>
       const statements = [
         [ /* MAY-JUNE 2023 */
@@ -117,21 +130,9 @@
       }
     </script>
 
-    <p>Balance: $<span id="balance"></span></p>
-    <p>Total: $<span id="total"></span></p>
-   
-    <table>
-      <tr id="template">
-        <td></td>
-      </tr>
-    </table>
-
-    <p>Budget for May-June 2023: $0</p>
-    <p>Budget from June-July 2023: $5953.38 - $1200 (RENT) - $2100 (MONTHLY SAVINGS) = 2653.38</p>
-    <p>Budget from June-July 2023: $2653.38 (REMAINING) - $15 </p>
-
+    <h1>Comparison of Electrity and Gas Plans</h1>
     
-    <script defer>
+    <script>
       // Electricity Plans
       const period = 37; // Number of days
 
@@ -142,8 +143,6 @@
       data.set('Origin', '');
       data.set('Red Energy', '');
     </script>
-
-    <h1>Comparison of Electrity and Gas Plans</h1>
 
     
     
