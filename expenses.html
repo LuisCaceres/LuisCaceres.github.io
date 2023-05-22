@@ -3,17 +3,7 @@
   </head>
   <body>
     
-    <table>
-      <tr id="template">
-        <td></td>
-      </tr>
-    </table>
-
-    <p>Budget for May-June 2023: $0</p>
-    <p>Budget from June-July 2023: $5953.38 - $1200 (RENT) - $2100 (MONTHLY SAVINGS) = 2653.38</p>
-    <p>Budget from June-July 2023: $2653.38 (REMAINING) - $15 </p>
-    
-    <script>
+    <script async>
       const statements = [
         [ /* MAY-JUNE 2023 */
           `110 [PENDING]`,
@@ -111,20 +101,33 @@
         const balance = transactions.filter(transaction => transaction.includes(`[PENDING]`) === false)
           .reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0);
 
-        const clone = template.cloneNode(true);
+        const p = document.querySelector('#balance');
 
-        clone.cells[0].textContent = `$${balance}`;
+        p.textContent = balance;
         table.append(clone);
       }
 
       {
         const total = transactions.reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0);
-        const clone = template.cloneNode(true);
+        const p = document.querySelector('#total');
 
-        clone.cells[0].textContent = `$${total}`;
+        p.textContent = total;
         table.append(clone);
       }
     </script>
+
+    <p>Balance: $<span id="balance"></span></p>
+    <p>Total: $<span id="total"></span></p>
+   
+    <table>
+      <tr id="template">
+        <td></td>
+      </tr>
+    </table>
+
+    <p>Budget for May-June 2023: $0</p>
+    <p>Budget from June-July 2023: $5953.38 - $1200 (RENT) - $2100 (MONTHLY SAVINGS) = 2653.38</p>
+    <p>Budget from June-July 2023: $2653.38 (REMAINING) - $15 </p>
     
 
   TRIP TO BRISBANE
