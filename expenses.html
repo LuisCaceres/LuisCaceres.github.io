@@ -103,13 +103,23 @@
         table.append(clone);
       });
 
-      const balance = transactions.filter(transaction => transaction.includes(`[PENDING]`) === false)
-        .reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0);
+      {
+        const balance = transactions.filter(transaction => transaction.includes(`[PENDING]`) === false)
+          .reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0);
 
-      const clone = template.cloneNode(true);
-      
-      clone.cells[0].textContent = `$${balance}`;
-      table.append(clone);
+        const clone = template.cloneNode(true);
+
+        clone.cells[0].textContent = `$${balance}`;
+        table.append(clone);
+      }
+
+      {
+        const total = transactions.reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0);
+        const clone = template.cloneNode(true);
+
+        clone.cells[0].textContent = `$${total}`;
+        table.append(clone);
+      }
     </script>
     
 
