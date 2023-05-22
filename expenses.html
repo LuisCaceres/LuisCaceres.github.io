@@ -132,14 +132,15 @@
     
     <script>
       // Electricity Plans
-      const period = 37; // Number of days
+      const period = 7; // Number of days in bill period
+      const averageConsumption = 6.14; // kWh
 
       const data = new Map();
 
-      data.set('AGL', '');      
-      data.set('Energy Australia', '');
-      data.set('Origin', '');
-      data.set('Red Energy', '');
+      data.set('AGL', {supplyCharge: 0.87582, tiers: {3900: 28.237, 3901: 28.237}});
+      data.set('Energy Australia', {supplyCharge: 0.87582, tiers: {3900: 28.237, 3901: 28.237}});
+      data.set('Origin', {supplyCharge: 0.87582, tiers: {3900: 28.237, 3901: 28.237}});
+      data.set('Red Energy', {supplyCharge: 0.87582, tiers: {3900: 28.237, 3901: 28.237}});
     </script>
 
     
