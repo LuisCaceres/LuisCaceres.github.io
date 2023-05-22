@@ -16,12 +16,14 @@
         ],
         
         [ /* APRIL-MAY 2023 */
+          `15.75 [CREDIT CARD FEE 0.25] [9.50 FROM DANNY] [PAID] [6 FROM LUIS] [PAID]`,
           `27.99 [27.99 FROM DANNY] [PAID]`,
           `104.46 [91.46 FROM DANNY] [PAID]`,
           `86.86 [CREDIT CARD FEE 1.86] [43 FROM DANNY] [PAID]`,
           `8.95`,
           `18.70`,
           `10.00`,
+          `-255.00`,
           `2.85`,
           `7.53 [7.53 FROM DANNY] [PAID]`,
           `14 [14 FROM DANNY] [PAID]`,
@@ -39,7 +41,7 @@
           `5`,
           `74.9`,
           `14`,
-          `74.41 [CREDIT CARD FEE 6.01] [30.6 FROM LUIS] [37.8 FROM DANNY]`,
+          `74.41 [CREDIT CARD FEE 6.01] [30.6 FROM LUIS] [PAID] [37.8 FROM DANNY] [PAID]`,
           `207.14 [91.64 FROM DANNY] [PAID] [115.5 FROM ME] [PAID]`,
           `30.46 [CREDIT CARD FEE 0.03] [30.43 FROM DANNY] [PAID]`,
           `20 [10 FROM DANNY] [PAID] [10 FROM ME] [PAID]`,
@@ -59,7 +61,7 @@
           `22.50`,
           `16.90`,
           `3.77`,
-          `90 [30 FROM ME] [PAID] [30 FROM DANNY] [PAID] [30 FROM DAVID] [PAID] v`,
+          `90 [30 FROM ME] [PAID] [30 FROM DANNY] [PAID] [30 FROM DAVID] [PAID]`,
           `5.78`,
           `6.58`,
           `36.9 [CREDIT CARD FEE 0.9] [21.15 FROM DANNY] [PAID] [14.85 FROM ME] [PAID]`,
@@ -100,6 +102,12 @@
         clone.cells[0].textContent = parseFloat(transaction);
         table.append(clone);
       });
+
+      const balance = transactions.reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0);
+      const clone = template.cloneNode(true);
+      
+      clone.cells[0].textContent = `$${balance}`;
+      table.append(clone);
     </script>
     
 
