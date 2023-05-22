@@ -103,7 +103,9 @@
         table.append(clone);
       });
 
-      const balance = transactions.reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0);
+      const balance = transactions.filter(transaction => transaction.includes(`[PENDING]`) === false)
+        .reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0);
+
       const clone = template.cloneNode(true);
       
       clone.cells[0].textContent = `$${balance}`;
