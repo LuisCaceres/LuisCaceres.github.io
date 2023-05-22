@@ -4,6 +4,7 @@
   </head>
   <body>
 
+    <p>Funds: $<span id="funds"></span></p>
     <p>Balance: $<span id="balance"></span></p>
     <p>Total: $<span id="total"></span></p>
    
@@ -112,19 +113,15 @@
       });
 
       {
-        const balance = transactions.filter(transaction => transaction.includes(`[PENDING]`) === false)
+        const creditLimit = 15000;
+        const [funds, balance, total] = document.querySelectorAll('#funds, #balance, #total');
+
+        balance.textContent = transactions.filter(transaction => transaction.includes(`[PENDING]`) === false)
           .reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0);
 
-        const p = document.querySelector('#balance');
+        funds.textContent = creditLimit - +balance.innerText;
 
-        p.textContent = balance;
-      }
-
-      {
-        const total = transactions.reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0);
-        const p = document.querySelector('#total');
-
-        p.textContent = total;
+        total.textContent = transactions.reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0);
       }
     </script>
 
