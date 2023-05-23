@@ -119,9 +119,9 @@
         balance.textContent = transactions.filter(transaction => transaction.includes(`[PENDING]`) === false)
           .reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0);
 
-        funds.textContent = creditLimit - +balance.innerText;
-
         total.textContent = transactions.reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0);
+
+        funds.textContent = creditLimit - +total.innerText;
       }
     </script>
 
