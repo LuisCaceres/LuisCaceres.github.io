@@ -129,7 +129,7 @@
     
     <script>
       // Electricity Plans
-      const period = 7; // Number of days in bill period.
+      const billPeriod = 365; // Number of days in bill period.
       const dailykWhConsumption = 6.14; // 10.68; /* === 3900 kWh per year */ //6.14; // kWh
 
       const providers = new Map();
@@ -145,7 +145,37 @@
       for ([provider, data] of providers) {
         const discounts = data.discounts.reduce((discount, accumulator) => discount + accumulator, 0);
         const dailyCost = dailykWhConsumption * data.costPerkWh;
-        values.push(((data.supplyCharge  + dailyCost) * 365) - discounts);
+        values.push(((data.supplyCharge  + dailyCost) * billPeriod) - discounts);
+      }
+
+
+            const billPeriod = 365; // Number of days in bill period.
+      const yearlyMJConsumption = 18250; // 10.68; /* === 3900 kWh per year */ //6.14; // kWh
+
+      const providers = new Map();
+
+      providers.set('AGL', {supplyCharge: 0.63693, costsPerMJ: [[7560, 0.04145], [7440, 0.03211], [18000, 0.0311], [969000, 0.0301]], discounts: [50 /* CREDIT */]});
+      
+      const values = [];
+
+      for ([provider, data] of providers) {
+        let MJs = yearlyMJConsumption;
+        
+        const yearlyCost = data.costsPerMJ.map(([tier, costPerMj]) => {
+          if (MJs < 0) {
+            return 0;
+          }
+
+          const costPerTier = Math.min(MJs, tier) * costPerMj;
+
+          MJs = MJs - tier;
+
+          return costPerTier;
+        }) 
+        .reduce((cost, accumulator) => cost + accumulator, 0);
+          
+        const discounts = data.discounts.reduce((discount, accumulator) => discount + accumulator, 0);
+        values.push((data.supplyCharge * billPeriod) + yearlyCost - discounts);
       }
     </script>
 
