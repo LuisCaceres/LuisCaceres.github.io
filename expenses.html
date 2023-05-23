@@ -134,22 +134,33 @@
 
       const providers = new Map();
 
-      providers.set('AGL', {supplyCharge: 0.87582, costPerkWh: 0.28237, discounts: [50 /* CREDIT */]});
-      providers.set('Energy Australia', {supplyCharge: 0.8415, costPerkWh: 0.2702, discounts: [70 /* CASHBACK */, 50 /* CREDIT */]});
-      providers.set('Origin', {supplyCharge: 0.8322, costPerkWh: 0.2866, discounts: [150 /* CREDIT */]});
-      providers.set('Everyday Rewards and Origin', {supplyCharge: 0.8676, costPerkWh: 0.2988, discounts: [150 /* CREDIT */]});
-      providers.set('Red Energy', {supplyCharge: 0.97603, costPerkWh: 0.27478, discounts: [277.92 /* QANTAS POINTS */]});
-
-      const values = [];
+      providers.set('AGL', {
+        electricity: { supplyCharge: 0.87582, costPerkWh: 0.28237, discounts: [50 /* CREDIT */]},
+        gas: { supplyCharge: 0.97603, costPerkWh: 0.27478, discounts: [277.92 /* QANTAS POINTS */]}
+      });
+      providers.set('Energy Australia', {
+        electricity: { supplyCharge: 0.8415, costPerkWh: 0.2702, discounts: [70 /* CASHBACK */, 50 /* CREDIT */]},
+        gas: { supplyCharge: 0.97603, costPerkWh: 0.27478, discounts: [277.92 /* QANTAS POINTS */]}
+      });
+      providers.set('Origin', {
+        electricity: { supplyCharge: 0.8322, costPerkWh: 0.2866, discounts: [150 /* CREDIT */]},
+        gas: { supplyCharge: 0.97603, costPerkWh: 0.27478, discounts: [277.92 /* QANTAS POINTS */]}
+      });
+      providers.set('Everyday Rewards and Origin', {
+        electricity: { supplyCharge: 0.8676, costPerkWh: 0.2988, discounts: [150 /* CREDIT */]},
+        gas: { supplyCharge: 0.97603, costPerkWh: 0.27478, discounts: [277.92 /* QANTAS POINTS */]}
+      });
+      providers.set('Red Energy', {
+        electricity: { supplyCharge: 0.97603, costPerkWh: 0.27478, discounts: [277.92 /* QANTAS POINTS */]},
+        gas: { supplyCharge: 0.97603, costPerkWh: 0.27478, discounts: [277.92 /* QANTAS POINTS */]}
+      });
 
       for ([provider, data] of providers) {
         const discounts = data.discounts.reduce((discount, accumulator) => discount + accumulator, 0);
         const dailyCost = dailykWhConsumption * data.costPerkWh;
-        values.push(((data.supplyCharge  + dailyCost) * billPeriod) - discounts);
+        data.total = ((data.supplyCharge  + dailyCost) * billPeriod) - discounts;
       }
 
-
-            const billPeriod = 365; // Number of days in bill period.
       const yearlyMJConsumption = 18250; // 10.68; /* === 3900 kWh per year */ //6.14; // kWh
 
       const providers = new Map();
