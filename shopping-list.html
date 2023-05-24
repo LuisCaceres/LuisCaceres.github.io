@@ -72,6 +72,9 @@
           <td class="done">
             <input type="checkbox">
           </td>
+          <td class="product">
+            Item
+          </td>
           <td class="quantity-required">
           </td>
           <td class="quantity-in-cart__container">
@@ -92,7 +95,6 @@
 
     <script>
       const table = document.querySelector('table');
-      const template =  document.querySelector('template').content;
 
       const rows = `
           0.000 kg -     5    - Bananas
@@ -143,62 +145,30 @@
         * 0 - 1              - Tube of toothpaste
       `;
 
+      const template =  document.querySelector('template').content;
+      const classTokens = [
+        'done', 'product', 'quantity-required', 'quantity-in-cart__container', 'price__container', 'amount__container', 'stock'
+      ];
+
       rows.split('*').forEach(row => {
+        const [product, quantityRequired, stock] = row.split('-').reverse();
         const tr = document.createElement('tr');
 
-        // 'Done' column
-        {
-          const td = template.querySelector('.done').cloneNode(true);
-          tr.append(td);
+        for (const classToken of classTokens) {
+            const td = template.querySelector(`.${classToken}`).cloneNode(true);
+            tr.append(td);
         }
 
-        const [product, quantityRequired, stock] = row.split('-').reverse();
-
-        // 'Product' column
-        {
-          const td = document.createElement('td');
-          td.textContent = product;
-          tr.append(td);
-        }
-
-        // 'Quantity required' column
-        {
-          const td = template.querySelector('.quantity-required').cloneNode(true);
-          td.textContent = quantityRequired;
-          tr.append(td);
-        }
-
-        // 'Quantity in cart' column
-        {
-          const td = template.querySelector('.quantity-in-cart__container').cloneNode(true);
-          tr.append(td);
-        }
-
-        // 'Price' column
-        {
-          const td = template.querySelector('.price__container').cloneNode(true);
-          tr.append(td);
-        }
-
-        // 'Amount' column
-        {
-          const td = template.querySelector('.amount__container').cloneNode(true);
-          tr.append(td);
-        }
-
-        // 'Stock' column
-        {
-          const td = template.querySelector('.stock').cloneNode(true);
-          td.textContent = stock;
-          tr.append(td);
-        }
+        template.querySelector('.product').textContent = product;
+        template.querySelector('.quantity-required').textContent = quantityRequired;
+        template.querySelector('.stock').textContent = stock;
 
         table.append(tr);
       });
 
-
-
-
+      
+      
+      
       //
       function calculateQuantityRequired() {
         const rows = [...table.rows].slice(1);
