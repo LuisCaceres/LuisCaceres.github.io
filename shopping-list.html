@@ -43,12 +43,15 @@
         top: 0;
       }
 
+      .toolbar {
+        position: sticky;
+        bottom: 0;
+      }
+
       .total__container {
         padding: 1rem;
         background-color: skyblue;
         border: solid 0.5rem;
-        position: sticky;
-        bottom: 0;
       }
     </style>
 
@@ -68,9 +71,15 @@
       </table>
     </div>
 
-    <p class="total__container">
-      Total: <strong>$<span class="total">0</span></strong>
-    </p>
+    <div class="toolbar">
+      <p class="total__container">
+        Total: <strong>$<span class="total">0</span></strong>
+      </p>
+
+      <p>
+        <button type="button" id="insert-row">Insert row</button>
+      </p>
+    </div>
 
     <template>
       <table>
@@ -217,7 +226,9 @@
       }
 
 
+
       calculateQuantityRequired();
+      document.querySelector('#insert-button').addEventListener('click', insertRow);
       setInterval(update, 1000);
     </script>
   </body>
