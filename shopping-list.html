@@ -47,13 +47,20 @@
         display: flex;
         justify-content: space-between;        
         align-items: center;
+        padding: 1rem;
+        background-color: skyblue;
+        border: solid 0.1rem;
         position: sticky;
         bottom: 0;
       }
 
+      .button__container,
       .total__container {
+        margin: 0;
+      }
+      
+      #insert-row {
         padding: 1rem;
-        background-color: skyblue;
         border: solid 0.5rem;
       }
     </style>
@@ -79,7 +86,7 @@
         Total: <strong>$<span class="total">0</span></strong>
       </p>
 
-      <p>
+      <p class="button__container">
         <button type="button" id="insert-row">Insert row</button>
       </p>
     </div>
