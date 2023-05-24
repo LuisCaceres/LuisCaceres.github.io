@@ -169,8 +169,6 @@
         * 0 - 1              - Tube of toothpaste
       `;
 
-      const template =  document.querySelector('template').content;
-
       rows.split('*').forEach(row => {
         const [product, quantityRequired, stock] = row.split('-').reverse();
         const tr = insertRow();
@@ -185,6 +183,7 @@
 
       //
       function insertRow() {
+        const template =  document.querySelector('template').content;
         const tr = document.createElement('tr');
 
         const classTokens = [
