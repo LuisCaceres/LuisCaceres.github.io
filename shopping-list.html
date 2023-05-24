@@ -151,29 +151,40 @@
       `;
 
       const template =  document.querySelector('template').content;
-      const classTokens = [
-        'done', 'product', 'quantity-required', 'quantity-in-cart__container', 'price__container', 'amount__container', 'stock'
-      ];
 
       rows.split('*').forEach(row => {
         const [product, quantityRequired, stock] = row.split('-').reverse();
+        const tr = insertRow();
+
+        tr.querySelector('.product').textContent = product;
+        tr.querySelector('.quantity-required').textContent = quantityRequired;
+        tr.querySelector('.stock').textContent = stock;
+      });
+
+      
+      
+
+      //
+      function insertRow() {
         const tr = document.createElement('tr');
+
+        const classTokens = [
+          'done', 'product', 'quantity-required', 'quantity-in-cart__container', 'price__container', 'amount__container', 'stock'
+        ];
 
         for (const classToken of classTokens) {
             const td = template.querySelector(`.${classToken}`).cloneNode(true);
             tr.append(td);
         }
 
-        template.querySelector('.product').textContent = product;
-        template.querySelector('.quantity-required').textContent = quantityRequired;
-        template.querySelector('.stock').textContent = stock;
-
         table.append(tr);
-      });
 
-      
-      
-      
+        return tr;
+      }
+
+
+
+
       //
       function calculateQuantityRequired() {
         const rows = [...table.rows].slice(1);
