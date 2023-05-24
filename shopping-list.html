@@ -221,7 +221,7 @@
 
 
 
-      // Work out how much I'll need to pay at check out.
+      // Work out how much I'll need to pay at check out as I add items to my cart.
       function update() {
         const rows = [...table.rows].slice(1);
 
@@ -237,8 +237,9 @@
       }
 
 
-
       calculateQuantityRequired();
+      insertRow();
+      insertRow();
       document.querySelector('#insert-row').addEventListener('click', insertRow);
       setInterval(update, 1000);
     </script>
