@@ -32,6 +32,11 @@
       .quantity-in-cart {
         width: 3rem;
       }
+
+      .table__container {
+        width: 100%;
+        overflow: auto;
+      }
       
       .table__header {
         background-color: antiquewhite;
@@ -48,19 +53,21 @@
       }
     </style>
 
-    <table>
-      <tr class="table__header">
-        <th>Done?</th>
-        <th>Product</th>
-        <th>Quantity
-        Required
-        </th>
-        <th>Quantity In Cart</th>
-        <th>Price</th>
-        <th>Amount</th>
-        <th>Stock</th>
-      </tr>
-    </table>
+    <div class="table__container">
+      <table>
+        <tr class="table__header">
+          <th>Done?</th>
+          <th>Product</th>
+          <th>Quantity
+          Required
+          </th>
+          <th>Quantity In Cart</th>
+          <th>Price</th>
+          <th>Amount</th>
+          <th>Stock</th>
+        </tr>
+      </table>
+    </div>
 
     <p class="total__container">
       Total: <strong>$<span class="total">0</span></strong>
