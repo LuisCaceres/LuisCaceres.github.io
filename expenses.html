@@ -116,8 +116,9 @@
       {
         const moneySpentThisPeriod = statements[0].reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0);
         const costOfRent = 1800;
+        const rentFromDanny = 1200;
         const monthlySavingsDeposit = 2100;
-        const availableSpendingMoney = 5953.38 - costOfRent - monthlySavingsDeposit - moneySpentThisPeriod;
+        const availableSpendingMoney = 5953.38 + rentFromDanny - costOfRent - monthlySavingsDeposit - moneySpentThisPeriod;
 
         const creditLimit = 15000;
         const [funds, balance, total, spendingMoney] = document.querySelectorAll('#funds, #balance, #total, #spending-money');
