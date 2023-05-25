@@ -129,7 +129,7 @@
 
         total.innerText = transactions.reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0).toFixed(2)
 
-        funds.innerText = creditLimit - +total.innerText;
+        funds.innerText = (creditLimit - +total.innerText).toFixed(2);
 
         spendingMoney.innerText = availableSpendingMoney.toFixed(2)
       }
