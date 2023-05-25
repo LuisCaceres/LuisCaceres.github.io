@@ -113,11 +113,16 @@
       transactions.forEach(transaction => {
         const clone = template.cloneNode(true);
 
-        clone.cells[0].textContent = parseFloat(transaction);
+        clone.cells[0].innerText = parseFloat(transaction);
         table.append(clone);
       });
 
       {
+        const moneySpentThisPeriod = statements[0].reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0);
+        const costOfRent = 1800;
+        const monthlySavingsDeposit = 2100;
+        const availableSpendingMoney = 5953.38 - costOfRent - monthlySavingsDeposit - moneySpentThisPeriod;
+
         const creditLimit = 15000;
         const [funds, balance, total] = document.querySelectorAll('#funds, #balance, #total');
 
