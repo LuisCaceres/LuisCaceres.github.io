@@ -124,14 +124,16 @@
         const availableSpendingMoney = 5953.38 - costOfRent - monthlySavingsDeposit - moneySpentThisPeriod;
 
         const creditLimit = 15000;
-        const [funds, balance, total] = document.querySelectorAll('#funds, #balance, #total');
+        const [funds, balance, total, spendingMoney] = document.querySelectorAll('#funds, #balance, #total', '#spending-money');
 
-        balance.textContent = transactions.filter(transaction => transaction.includes(`[PENDING]`) === false)
+        balance.innerText = transactions.filter(transaction => transaction.includes(`[PENDING]`) === false)
           .reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0);
 
-        total.textContent = transactions.reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0);
+        total.innerText = transactions.reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0);
 
-        funds.textContent = creditLimit - +total.innerText;
+        funds.innerText = creditLimit - +total.innerText;
+
+        spendingMoney.innerText = availableSpendingMoney;
       }
     </script>
 
