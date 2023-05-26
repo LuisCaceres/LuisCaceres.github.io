@@ -74,7 +74,7 @@
     <div class="table__container">
       <table>
         <tr class="table__header">
-          <th>Done?</th>
+          <th>In?</th>
           <th>Product</th>
           <th>Quantity
           Required
@@ -99,7 +99,7 @@
     <template>
       <table>
         <tr>
-          <td class="done">
+          <td class="in">
             <input type="checkbox">
           </td>
           <td class="product"></td>
@@ -192,7 +192,7 @@
         const tr = document.createElement('tr');
 
         const classTokens = [
-          'done', 'product', 'quantity-required', 'quantity-in-cart__container', 'amount__container', 'stock'
+          'in', 'product', 'quantity-required', 'quantity-in-cart__container', 'amount__container', 'stock'
         ];
 
         for (const classToken of classTokens) {
