@@ -106,7 +106,12 @@
           <td class="quantity-required">
           </td>
           <td class="quantity-in-cart__container">
-            <input class="quantity-in-cart" inputmode="decimal"> kg
+            <p>
+              <input class="quantity-in-cart" inputmode="decimal"> kg
+            </p>
+            <p>
+              <input class="price" value="0" inputmode="decimal">
+            </p>
           </td>
           <td class="price__container">
             <input class="price" value="0" inputmode="decimal">
@@ -147,29 +152,28 @@
         * 0.000 kg - 1.800 kg - Basa fish
         * 0.000 kg - 0.800 kg - Turkey breasts
 
+        * 0 - 3 or 2.100 kg  - Package of tofu (0.900 kg)
+        * 0 - 1              - Bag of wraps
+        * 0 - 3 or 1.750 kg  - Bag of oats (0.750 kg)
+        * 0 - 4 or 3.850 lt  - Carton of almond milk (1 lt)
+
+        * 0 - 1 or 3.150 kg  - Bag of rice (5 kg)
+        * 0 - 1              - Bag of quinoa (1 kg)
         * 0.000 kg - 0.600 kg - Chick peas
+        
+        * 0 - 1              - Tube of toothpaste
+
+        * 0 - 1 or 7 eggs    - Package of eggs (12)
+        
+        
 
         * 0.325 kg - 0.500 kg - Frozen corn
         * 0.225 kg - 0.500 kg - Frozen peas
         * 0.000 kg - 1.500 kg - Frozen broccolies
         * 0.000 kg - 1.000 kg - Frozen brussel sprouts
         * 0.000 kg - 1.500 kg - Frozen cauliflowers
-        
-        * 0 - 1 or 0.900 kg  - Bag of mixed berries (1 kg)        
-        
-        * 0 - 1 or 7 eggs    - Package of eggs (12)
-        
-        * 0 - 3 or 2.100 kg  - Package of tofu (0.900 kg)
-        
-        * 0 - 4 or 3.850 lt  - Carton of almond milk (1 lt)
-        
-        * 0 - 3 or 1.750 kg  - Bag of oats (0.750 kg)
-        * 0 - 1              - Bag of wraps
-        
-        * 0 - 1 or 3.150 kg  - Bag of rice (5 kg)
-        * 0 - 1              - Bag of quinoa (1 kg)
-        
-        * 0 - 1              - Tube of toothpaste
+
+        * 0 - 1 or 0.900 kg  - Bag of mixed berries (1 kg)
       `;
 
       rows.split('*').forEach(row => {
@@ -190,7 +194,7 @@
         const tr = document.createElement('tr');
 
         const classTokens = [
-          'done', 'product', 'quantity-required', 'quantity-in-cart__container', 'price__container', 'amount__container', 'stock'
+          'done', 'product', 'quantity-required', 'quantity-in-cart__container', 'amount__container', 'stock'
         ];
 
         for (const classToken of classTokens) {
