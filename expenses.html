@@ -172,6 +172,17 @@
       });
 
       for ([provider, data] of providers) {
+        const dataForElectricity = data.electricity;
+        const dataForGas = data.gas;
+
+        {
+          const discounts = dataForGas.discounts.reduce((discount, accumulator) => discount + accumulator, 0);
+        }
+
+        {
+          const discounts = dataForElectricity.discounts.reduce((discount, accumulator) => discount + accumulator, 0);
+        }
+
         const discounts = data.discounts.reduce((discount, accumulator) => discount + accumulator, 0);
         const dailyCost = dailykWhConsumption * data.costPerkWh;
         data.total = ((data.supplyCharge  + dailyCost) * billPeriod) - discounts;
