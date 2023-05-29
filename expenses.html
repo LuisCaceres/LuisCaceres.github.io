@@ -273,5 +273,79 @@
   <p>El 30 de marzo del 2023 recibí $8184 pesos.</p>
   <p>El 17 de mayo del 2023 recibí $2000 pesos.</p>
 
+
+    <h2>Cashrewards</h2>
+    <p>
+      <a href="https://api-prod.cashrewards.com.au/api/v1/merchants/all-stores?limit=9999&offset=90">
+        https://api-prod.cashrewards.com.au/api/v1/merchants/all-stores?limit=9999&offset=90
+      </a>
+    </p>
+    <pre>
+      <code>
+        const table = document.createElement('table');
+        const tr = document.createElement('tr');
+
+        {
+            const th = document.createElement('th');
+            th.innerText = 'Name';
+            tr.append(th);
+        }
+
+        {
+            const th = document.createElement('th');
+            th.innerText = 'Cashback';
+            tr.append(th);
+        }
+
+        table.append(tr);
+
+        const dataSets = JSON.parse(document.querySelector('pre').innerText).Data;
+
+        for (const dataSet of dataSets) {
+            const tr = document.createElement('tr');
+
+            {
+                const td = document.createElement('td');
+                tr.append(td);
+
+                const a =  document.createElement('a');
+                a.href = `https://${dataSet.Name.replace(/\s/g, '')}.com.au`;
+                a.target = `_blank`;
+                a.innerText = dataSet.Name;
+
+                td.append(a);
+            }
+
+            {
+                const td = document.createElement('td');
+                td.innerText = dataSet.CommissionString;
+                tr.append(td);
+            }
+
+            table.append(tr);
+        }
+
+        document.body.append(table);
+        document.querySelector('pre').remove();
+
+        function sort(row1, row2) {
+            const regex = /\d+(\.\d+)?/;
+
+            const [number1] = row1.cells[1].innerText.match(regex);
+            const [number2] = row2.cells[1].innerText.match(regex);
+
+            return number2 - number1;
+        } 
+
+        [...table.rows].slice(1).sort(sort).forEach(row => table.append(row));
+      </code>
+    </pre>
+
+    <style>
+      pre {
+        height: 5rem;
+        overflow: auto;
+      }
+    </style>
   </body>
 </html>
