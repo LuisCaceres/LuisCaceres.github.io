@@ -276,28 +276,23 @@
 
     <h2>Cashrewards</h2>
     <p>
-      <a href="https://api-prod.cashrewards.com.au/api/v1/merchants/all-stores?limit=9999&offset=90">
+      <a href="https://api-prod.cashrewards.com.au/api/v1/merchants/all-stores?limit=9999&offset=90" target="_blank">
         https://api-prod.cashrewards.com.au/api/v1/merchants/all-stores?limit=9999&offset=90
       </a>
     </p>
+
     <pre>
       <code>
+        const html = `
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Cashback</th>
+            </tr>
+          </table>
+        `;
+
         const table = document.createElement('table');
-        const tr = document.createElement('tr');
-
-        {
-            const th = document.createElement('th');
-            th.innerText = 'Name';
-            tr.append(th);
-        }
-
-        {
-            const th = document.createElement('th');
-            th.innerText = 'Cashback';
-            tr.append(th);
-        }
-
-        table.append(tr);
 
         const dataSets = JSON.parse(document.querySelector('pre').innerText).Data;
 
