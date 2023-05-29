@@ -311,8 +311,6 @@ for (const dataSet of dataSets) {
     table.append(tr);
 }
 
-document.querySelector('pre').replaceWith(table);
-
 function sort(row1, row2) {
     const regex = /\d+(\.\d+)?/;
     const [number1] = row1.cells[1].innerText.match(regex);
@@ -322,6 +320,7 @@ function sort(row1, row2) {
 } 
 
 table.append(...[...table.rows].slice(2).sort(sort));
+document.querySelector('pre').replaceWith(table);
       </code>
     </pre>
 
