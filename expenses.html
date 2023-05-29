@@ -283,56 +283,56 @@
 
     <pre>
       <code>
-        const html = `
-          <table>
-            <tr>
-              <th>Name</th>
-              <th>Cashback</th>
-            </tr>
-          </table>
-        `;
+const html = `
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Cashback</th>
+    </tr>
+  </table>
+`;
 
-        const table = document.createElement('table');
+const table = document.createElement('table');
 
-        const dataSets = JSON.parse(document.querySelector('pre').innerText).Data;
+const dataSets = JSON.parse(document.querySelector('pre').innerText).Data;
 
-        for (const dataSet of dataSets) {
-            const tr = document.createElement('tr');
+for (const dataSet of dataSets) {
+    const tr = document.createElement('tr');
 
-            {
-                const td = document.createElement('td');
-                tr.append(td);
+    {
+        const td = document.createElement('td');
+        tr.append(td);
 
-                const a =  document.createElement('a');
-                a.href = `https://${dataSet.Name.replace(/\s/g, '')}.com.au`;
-                a.target = `_blank`;
-                a.innerText = dataSet.Name;
+        const a =  document.createElement('a');
+        a.href = `https://${dataSet.Name.replace(/\s/g, '')}.com.au`;
+        a.target = `_blank`;
+        a.innerText = dataSet.Name;
 
-                td.append(a);
-            }
+        td.append(a);
+    }
 
-            {
-                const td = document.createElement('td');
-                td.innerText = dataSet.CommissionString;
-                tr.append(td);
-            }
+    {
+        const td = document.createElement('td');
+        td.innerText = dataSet.CommissionString;
+        tr.append(td);
+    }
 
-            table.append(tr);
-        }
+    table.append(tr);
+}
 
-        document.body.append(table);
-        document.querySelector('pre').remove();
+document.body.append(table);
+document.querySelector('pre').remove();
 
-        function sort(row1, row2) {
-            const regex = /\d+(\.\d+)?/;
+function sort(row1, row2) {
+    const regex = /\d+(\.\d+)?/;
 
-            const [number1] = row1.cells[1].innerText.match(regex);
-            const [number2] = row2.cells[1].innerText.match(regex);
+    const [number1] = row1.cells[1].innerText.match(regex);
+    const [number2] = row2.cells[1].innerText.match(regex);
 
-            return number2 - number1;
-        } 
+    return number2 - number1;
+} 
 
-        [...table.rows].slice(1).sort(sort).forEach(row => table.append(row));
+[...table.rows].slice(1).sort(sort).forEach(row => table.append(row));
       </code>
     </pre>
 
