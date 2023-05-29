@@ -301,13 +301,13 @@ const html = `
 const table = (new DOMParser()).parseFromString(html, 'text/html').querySelector('table');
 const dataSets = JSON.parse(document.querySelector('pre').innerText).Data;
 
-for (const dataSet of dataSets) {
+for (const {Name, CommissionString} of dataSets) {
     const tr = table.querySelector('.template').cloneNode(true);
     const [hyperlink, offer] = tr.querySelectorAll('.hyperlink, .offer');
 
-    hyperlink.href = `https://${dataSet.Name.replace(/\s/g, '')}.com.au`;
-    hyperlink.append(dataSet.Name);
-    offer.append(dataSet.CommissionString);
+    hyperlink.href = `https://${Name.replace(/\s/g, '')}.com.au`;
+    hyperlink.append(Name);
+    offer.append(CommissionString);
     table.append(tr);
 }
 
