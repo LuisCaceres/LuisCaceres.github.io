@@ -289,33 +289,26 @@ const html = `
       <th>Name</th>
       <th>Cashback</th>
     </tr>
+    <tr class="template">
+      <td>
+        <a class="hyperlink" target="_blank"></a>
+      </td>
+      <td class="offer"></td>
+    </tr>
   </table>
 `;
 
-const table = document.createElement('table');
-
+const table = (new DOMParser()).parseFromString(html, 'text/html').querySelector('table');
 const dataSets = JSON.parse(document.querySelector('pre').innerText).Data;
 
 for (const dataSet of dataSets) {
-    const tr = document.createElement('tr');
+    const tr = table.querySelector('.template').cloneNode(true);
+    const [hyperlink, offer] = tr.querySelectorAll('.hyperlink, .offer');
 
-    {
-        const td = document.createElement('td');
-        tr.append(td);
+    hyperlink.href = `https://${dataSet.Name.replace(/\s/g, '')}.com.au`;
+    hyperlink.innerText = dataSet.Name;
 
-        const a =  document.createElement('a');
-        a.href = `https://${dataSet.Name.replace(/\s/g, '')}.com.au`;
-        a.target = `_blank`;
-        a.innerText = dataSet.Name;
-
-        td.append(a);
-    }
-
-    {
-        const td = document.createElement('td');
-        td.innerText = dataSet.CommissionString;
-        tr.append(td);
-    }
+    offer.innerText = dataSet.CommissionString;
 
     table.append(tr);
 }
@@ -332,7 +325,7 @@ function sort(row1, row2) {
     return number2 - number1;
 } 
 
-[...table.rows].slice(1).sort(sort).forEach(row => table.append(row));
+[...table.rows].slice(2).sort(sort).forEach(row => table.append(row));
       </code>
     </pre>
 
