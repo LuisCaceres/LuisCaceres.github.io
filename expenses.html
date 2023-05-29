@@ -306,10 +306,8 @@ for (const dataSet of dataSets) {
     const [hyperlink, offer] = tr.querySelectorAll('.hyperlink, .offer');
 
     hyperlink.href = `https://${dataSet.Name.replace(/\s/g, '')}.com.au`;
-    hyperlink.innerText = dataSet.Name;
-
-    offer.innerText = dataSet.CommissionString;
-
+    hyperlink.append(dataSet.Name);
+    offer.append(dataSet.CommissionString);
     table.append(tr);
 }
 
@@ -317,14 +315,13 @@ document.querySelector('pre').replaceWith(table);
 
 function sort(row1, row2) {
     const regex = /\d+(\.\d+)?/;
-
     const [number1] = row1.cells[1].innerText.match(regex);
     const [number2] = row2.cells[1].innerText.match(regex);
 
     return number2 - number1;
 } 
 
-[...table.rows].slice(2).sort(sort).forEach(row => table.append(row));
+table.append(...[...table.rows].slice(2).sort(sort));
       </code>
     </pre>
 
