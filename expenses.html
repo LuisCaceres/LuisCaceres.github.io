@@ -144,9 +144,8 @@
     <h1>Comparison of Electrity and Gas Plans</h1>
     
     <script>
-      // Electricity Plans
       const billPeriod = 365; // Number of days in bill period.
-      const dailykWhConsumption = 6.14; // 10.68; /* === 3900 kWh per year */ //6.14; // kWh
+      const dailykWhConsumption = 6.14 // 6.14; // 10.68; /* === 3900 kWh per year */ //6.14; // kWh
       const dailyMJConsumption = 28.56; // 10.68; /* === 3900 kWh per year */ //6.14; // kWh
       
       const totalkWhUnitsConsumed = dailykWhConsumption * billPeriod;
@@ -160,7 +159,7 @@
       });
       providers.set('Energy Australia', {
         electricity: {unitsConsumed: totalkWhUnitsConsumed, calculationType: 'bulk', supplyCharge: 0.8415, costPerUnit: [[10000, 0.2702]], discounts: [70 /* CASHBACK */, 50 /* CREDIT */]},
-        gas: {unitsConsumed: totalMJUnitsConsumed, calculationType: 'daily', supplyCharge: 0.6557, costPerUnit: [[20.712, 0.0406], [20.384, 0.0287], [49.315, 0.0274]], discounts: [42 /* CASHBACK */, 50 /* CREDIT */]}
+        gas: {unitsConsumed: totalMJUnitsConsumed, calculationType: 'daily', supplyCharge: 0.6757, costPerUnit: [[20.712, 0.0406], [20.384, 0.0287], [49.315, 0.0274]], discounts: [42 /* CASHBACK */, 50 /* CREDIT */]}
       });
       providers.set('Origin', {
         electricity: {unitsConsumed: totalkWhUnitsConsumed, calculationType: 'bulk', supplyCharge: 0.8322, costPerUnit: [[10000, 0.2866]], discounts: [150 /* CREDIT */]},
@@ -207,11 +206,14 @@
             unitsConsumed = unitsConsumed - tier;
 
             return costPerTier;
-          }) 
+          })
           .reduce((a, accumulator) => a + accumulator, 0);
 
-          const totalCost = totalSupplyCharge + totalConsumptionCharge - discounts;
+          const totalCost = totalSupplyCharge + totalConsumptionCharge/* - discounts */;
+        
+          console.log(`Provider: ${provider}, cost: ${totalCost} `);
         });
+      }
     </script>
 
     
