@@ -154,12 +154,12 @@
       const providers = new Map();
 
       providers.set('AGL', {
-        electricity: {unitsConsumed: totalkWhUnitsConsumed, calculationType: 'bulk', supplyCharge: 0.87582, costPerUnit: [[10000, 0.28237]], discounts: [50 /* CREDIT */]},
-        gas: {unitsConsumed: totalMJUnitsConsumed, calculationType: 'bulk', supplyCharge: 0.63693, costPerUnit: [[7560, 0.04145], [7440, 0.03211], [18000, 0.0311], [969000, 0.0301]], discounts: []}
+        electricity: {unitsConsumed: totalkWhUnitsConsumed, calculationType: 'bulk', supplyCharge: 0.87582, costPerUnit: [[10000, 0.28237]], discounts: [75 /* CREDIT */]},
+        gas: {unitsConsumed: totalMJUnitsConsumed, calculationType: 'bulk', supplyCharge: 0.63693, costPerUnit: [[7560, 0.04145], [7440, 0.03211], [18000, 0.0311], [969000, 0.0301]], discounts: [75 /* CREDIT */]}
       });
       providers.set('Energy Australia', {
-        electricity: {unitsConsumed: totalkWhUnitsConsumed, calculationType: 'bulk', supplyCharge: 0.8415, costPerUnit: [[10000, 0.2702]], discounts: [70 /* CASHBACK */, 50 /* CREDIT */]},
-        gas: {unitsConsumed: totalMJUnitsConsumed, calculationType: 'daily', supplyCharge: 0.6757, costPerUnit: [[20.712, 0.0406], [20.384, 0.0287], [49.315, 0.0274]], discounts: [42 /* CASHBACK */, 50 /* CREDIT */]}
+        electricity: {unitsConsumed: totalkWhUnitsConsumed, calculationType: 'bulk', supplyCharge: 0.8415, costPerUnit: [[10000, 0.2702]], discounts: [150 /* CASHBACK */, 50 /* CREDIT */]},
+        gas: {unitsConsumed: totalMJUnitsConsumed, calculationType: 'daily', supplyCharge: 0.6757, costPerUnit: [[20.712, 0.0406], [20.384, 0.0287], [49.315, 0.0274]], discounts: [100 /* CASHBACK */, 50 /* CREDIT */]}
       });
       providers.set('Origin', {
         electricity: {unitsConsumed: totalkWhUnitsConsumed, calculationType: 'bulk', supplyCharge: 0.8322, costPerUnit: [[10000, 0.2866]], discounts: [150 /* CREDIT */]},
@@ -171,7 +171,7 @@
       });
       providers.set('Red Energy', {
         electricity: {unitsConsumed: totalkWhUnitsConsumed, calculationType: 'bulk', supplyCharge: 0.97603, costPerUnit: [[10000, 0.27478]], discounts: [277.92 /* QANTAS POINTS */]},
-        gas: {unitsConsumed: totalMJUnitsConsumed, calculationType: 'daily', supplyCharge: 0.76989, costPerUnit: [[20.712, 0.03608], [20.384, 0.03058], [49.315, 0.02810]], discounts: [90 /* QANTAS POINTS */]}
+        gas: {unitsConsumed: totalMJUnitsConsumed, calculationType: 'daily', supplyCharge: 0.76989, costPerUnit: [[20.712, 0.03608], [20.384, 0.03058], [49.315, 0.02810]], discounts: [176.06 /* QANTAS POINTS */]}
       });
 
 
@@ -209,7 +209,7 @@
           })
           .reduce((a, accumulator) => a + accumulator, 0);
 
-          const totalCost = totalSupplyCharge + totalConsumptionCharge/* - discounts */;
+          const totalCost = totalSupplyCharge + totalConsumptionCharge - discounts;
         
           console.log(`Provider: ${provider}, cost: ${totalCost} `);
         });
