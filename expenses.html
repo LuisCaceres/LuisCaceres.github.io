@@ -313,8 +313,7 @@ for (const dataSet of dataSets) {
     table.append(tr);
 }
 
-document.body.append(table);
-document.querySelector('pre').remove();
+document.querySelector('pre').replaceWith(table);
 
 function sort(row1, row2) {
     const regex = /\d+(\.\d+)?/;
