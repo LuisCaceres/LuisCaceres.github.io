@@ -286,6 +286,7 @@
     <pre>
       <code>
 const html = `
+// <!--
   <table>
     <tr>
       <th>Name</th>
@@ -298,6 +299,7 @@ const html = `
       <td class="offer"></td>
     </tr>
   </table>
+// --->
 `;
 
 const table = (new DOMParser()).parseFromString(html, 'text/html').querySelector('table');
