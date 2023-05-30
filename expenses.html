@@ -283,7 +283,7 @@
       </a>
     </p>
 
-    <script style="display:block">
+    <script class="script--visible">
 function init() {
   const html = `
     <table>
@@ -324,12 +324,17 @@ function init() {
   table.append(...[...table.rows].slice(2).sort(sort));
   document.querySelector('pre').replaceWith(table);
 }
+
+// init();
     </script>
     
     <style>
-      pre {
+      .script--visible {
+        display: block;
         height: 5rem;
+        background: grey;
         overflow: auto;
+        white-space: break-spaces;
       }
     </style>
   </body>
