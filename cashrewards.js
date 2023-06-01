@@ -2,7 +2,7 @@ const html = `
   <table>
     <tr>
       <th>Name</th>
-      <th>Cashback</th>
+      <th>Reward</th>
     </tr>
     <tr class="template">
       <td>
