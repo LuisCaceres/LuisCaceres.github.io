@@ -8,7 +8,7 @@ const html = `
       <td>
         <a class="hyperlink" target="_blank"></a>
       </td>
-      <td class="offer"></td>
+      <td class="reward"></td>
     </tr>
   </table>
 `;
@@ -18,11 +18,11 @@ const dataSets = JSON.parse(document.querySelector('pre').innerText).Data;
 
 for (const {Name, CommissionString} of dataSets) {
     const tr = table.querySelector('.template').cloneNode(true);
-    const [hyperlink, offer] = tr.querySelectorAll('.hyperlink, .offer');
+    const [hyperlink, reward] = tr.querySelectorAll('.hyperlink, .reward');
 
     hyperlink.href = `https://${Name.replace(/\s/g, '')}.com.au`;
     hyperlink.append(Name);
-    offer.append(CommissionString);
+    reward.append(CommissionString);
     table.append(tr);
 }
 
