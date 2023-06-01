@@ -27,7 +27,7 @@ for (const {Name, CommissionString} of dataSets) {
 }
 
 function sort(row1, row2) {
-    // For example, this regular expression matches "112" in "Up to $112 cashback", or "31.5" in "31.5% cashback".
+    // This regular expression matches, for example, "112" in "Up to $112 cashback" or "31.5" in "31.5% cashback".
     const regex = /\d+(\.\d+)?/;
     const [number1] = row1.cells[1].innerText.match(regex);
     const [number2] = row2.cells[1].innerText.match(regex);
