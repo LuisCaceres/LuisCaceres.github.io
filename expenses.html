@@ -142,8 +142,7 @@
       });
 
       {
-        const values = statements[0].map(transaction => parseFloat(transaction));
-        const moneySpentThisPeriod = Mathematics.addition(...values);
+        const moneySpentThisPeriod = Mathematics.addition(...statements[0]);
         const costOfRent = 1800;
         const rentFromDanny = 1200;
         const monthlySavingsDeposit = 2100;
