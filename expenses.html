@@ -154,13 +154,13 @@
         const [funds, balance, total, spendingMoney] = document.querySelectorAll('#funds, #balance, #total, #spending-money');
 
         balance.innerText = transactions.filter(transaction => transaction.includes(`[PENDING]`) === false)
-          .reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0).toFixed(2)
+          .reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0).toFixed(2);
 
-        total.innerText = transactions.reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0).toFixed(2)
+        total.innerText = Mathematics.addition(...transactions.map(transaction => parseFloat(transaction).toFixed(2));
 
         funds.innerText = (creditLimit - +total.innerText).toFixed(2);
 
-        spendingMoney.innerText = availableSpendingMoney.toFixed(2)
+        spendingMoney.innerText = availableSpendingMoney.toFixed(2);
       }
     </script>
 
