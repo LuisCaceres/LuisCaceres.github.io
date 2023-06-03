@@ -124,10 +124,9 @@
       
       class Mathematics {
         static addition(...values) {
-          return values.reduce((accumulator, value) => {
+          return values.map(value => parseFloat(value)).reduce((accumulator, value) => {
               return accumulator + value;
           }, 0);
-
         }
       }
 
@@ -156,8 +155,7 @@
         balance.innerText = transactions.filter(transaction => transaction.includes(`[PENDING]`) === false)
           .reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0).toFixed(2);
 
-        debugger;
-        total.innerText = Mathematics.addition(...transactions.map(transaction => parseFloat(transaction))).toFixed(2);
+        total.innerText = Mathematics.addition(...transactions).toFixed(2);
 
         funds.innerText = (creditLimit - +total.innerText).toFixed(2);
 
