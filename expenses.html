@@ -121,6 +121,15 @@
           `370`,
          ]
       ];
+      
+      class Mathematics {
+        static addition(...values) {
+          return values.reduce((accumulator, value) => {
+              return accumulator + value;
+          }, 0);
+
+        }
+      }
 
       const transactions = statements.flat();
       const table = document.querySelector('table');
@@ -129,12 +138,13 @@
       transactions.forEach(transaction => {
         const clone = template.cloneNode(true);
 
-        clone.cells[0].innerText = parseFloat(transaction);
+        clone.cells[0].append(parseFloat(transaction));
         table.append(clone);
       });
 
       {
-        const moneySpentThisPeriod = statements[0].reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0);
+        const values = statements[0].map(transaction => parseFloat(transaction));
+        const moneySpentThisPeriod = Mathematics.addition(...values);
         const costOfRent = 1800;
         const rentFromDanny = 1200;
         const monthlySavingsDeposit = 2100;
