@@ -157,7 +157,7 @@
           .reduce((accumulator, transaction) => accumulator + parseFloat(transaction), 0).toFixed(2);
 
         debugger;
-        total.innerText = Mathematics.addition(...transactions.map(transaction => parseFloat(transaction).toFixed(2)));
+        total.innerText = Mathematics.addition(...transactions.map(transaction => parseFloat(transaction))).toFixed(2);
 
         funds.innerText = (creditLimit - +total.innerText).toFixed(2);
 
