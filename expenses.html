@@ -143,23 +143,23 @@
       });
 
       {
-        const settledTransactions = transactions.filter(transaction => transaction.includes(`PENDING`) === false);
-        const expensesCurrentStatementPeriod = Mathematics.addition(...statements[0]);
-        const costOfRent = 1800;
-        const rentFromDanny = 1200;
-        const monthlySavingsDeposit = 2100;
-        const availableSpendingMoney = 5953.38 + rentFromDanny - costOfRent - monthlySavingsDeposit - expensesCurrentStatementPeriod;
-
         const creditCardLimit = 15000;
-        const [funds, balance, total, spendingMoney] = document.querySelectorAll('#funds, #balance, #total, #spending-money');
+        const settledTransactions = transactions.filter(transaction => transaction.includes(`PENDING`) === false);
+        const balance = Mathematics.addition(...settledTransactions);
+        const funds = creditCardLimit - balance;
+        const expensesCurrentStatementPeriod = Mathematics.addition(...statements[0]);
+//         const costOfRent = 1800;
+//         const rentFromDanny = 1200;
+//         const monthlySavingsDeposit = 2100;
+//         const availableSpendingMoney = 5953.38 + rentFromDanny - costOfRent - monthlySavingsDeposit - expensesCurrentStatementPeriod;
 
-        balance.innerText = Mathematics.addition(...settledTransactions).toFixed(2);
 
-        total.innerText = Mathematics.addition(...transactions).toFixed(2);
+        const elements = document.querySelectorAll('#funds, #balance, #total, #spending-money');
 
-        funds.innerText = (creditCardLimit - +total.innerText).toFixed(2);
-
-        spendingMoney.innerText = availableSpendingMoney.toFixed(2);
+        elements[0] = balance.toFixed(2);
+        elements[1] = settledTransactions.toFixed(2);
+        elements[2] = funds.toFixed(2);
+//         spendingMoney.innerText = availableSpendingMoney.toFixed(2);
       }
     </script>
 
