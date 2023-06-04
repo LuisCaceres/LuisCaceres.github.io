@@ -153,9 +153,10 @@
         const funds = creditCardLimit - expenses;
         const [currentStatementPeriod] = statements;
 
-        const personalExpenses = currentStatementPeriod.map(transaction => {
+        const personalExpenses = currentStatementPeriod.filter(transaction => !transaction.includes(`RENT`))
+        .map(transaction => {
           const value1 = parseFloat(transaction);
-          const value2 = transaction.match(/\d(\.\d+)?(?=\sFROM\sLUIS\])/)[0] || 0;
+          const value2 = transaction.match(/\d(\.\d+)?(?=\sFROM\sLUIS\])/)?.[0] || 0;
 
           return value1 - value2;
         });
@@ -165,8 +166,7 @@
         const fundsFromDanny = 1200;
         const costOfRent = 1800;
         const monthlySavings = 2100;
-        const availableSpendingMoney = wages - Maths.addition(...currentStatementPeriod.filter(transaction => transaction.includes(`RENT`) === false)) -
-          costOfRent - monthlySavings;
+        const availableSpendingMoney = wages - Maths.addition(...personalExpenses) - costOfRent - monthlySavings;
 
         const elements = document.querySelectorAll('#funds, #balance, #total, #spending-money');
 
