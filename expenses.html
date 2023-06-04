@@ -154,7 +154,7 @@
         const fundsFromDanny = 1200;
         const costOfRent = 1800;
         const monthlySavings = 2100;
-        const availableSpendingMoney = wages + fundsFromDanny - Maths.addition(...currentStatementPeriod.filter(transaction => transaction.includes(`PENDING`) === false)) -
+        const availableSpendingMoney = wages + fundsFromDanny - Maths.addition(...currentStatementPeriod.filter(transaction => transaction.includes(`RENT`) === false)) -
                 costOfRent - monthlySavings;
 
         const elements = document.querySelectorAll('#funds, #balance, #total, #spending-money');
