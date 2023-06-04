@@ -155,13 +155,7 @@
 
         const personalExpenses = currentStatementPeriod.map(transaction => {
           const value1 = parseFloat(transaction);
-          let value2 = 0;
-
-          if (transaction.includes('FROM') {
-            const matches = transaction.match(/\d.+?(FROM).+?\]/g));
-
-            value2 = matches.filter(match => !match.includes('LUIS')).map(match => parseFloat(match));
-          }
+          const value2 = transaction.match(/\d(\.\d+)?(?=\sFROM\sLUIS\])/)[0] || 0;
 
           return value1 - value2;
         });
