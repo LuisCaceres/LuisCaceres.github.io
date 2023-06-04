@@ -29,7 +29,7 @@
           `10 [PENDING]`,
           `10 [PENDING]`,
           `10 [PENDING]`,
-          `1000`,
+          `1000 [RENT]`,
           `18`,
           `109.99`,
           `55.81`,
@@ -60,11 +60,11 @@
           `1`,
           `7`,
           `63.03`,
-          `990`,
+          `990 [RENT]`,
           `43.36`,
           `5.07`,
           `4.99`,
-          `10`,
+          `10 [RENT]`,
           `5`,
         ],
         
@@ -123,7 +123,7 @@
          ]
       ];
       
-      class Mathematics {
+      class Maths {
         static addition(...values) {
           return values.map(value => parseFloat(value)).reduce((accumulator, value) => {
               return accumulator + value;
@@ -144,16 +144,18 @@
 
       {
         const creditCardLimit = 15000;
-        const expenses = Mathematics.addition(...transactions);
+        const expenses = Maths.addition(...transactions);
         const settledTransactions = transactions.filter(transaction => transaction.includes(`PENDING`) === false);
-        const balance = Mathematics.addition(...settledTransactions);
+        const balance = Maths.addition(...settledTransactions);
         const funds = creditCardLimit - expenses;
-        const expensesCurrentStatementPeriod = Mathematics.addition(...statements[0]);
+        const currentStatementPeriod = statements[0];
+        const expensesCurrentStatementPeriod = Maths.addition(...currentStatementPeriod);
         const wages = 5953.38;
         const fundsFromDanny = 1200;
         const costOfRent = 1800;
         const monthlySavings = 2100;
-        const availableSpendingMoney = wages + fundsFromDanny - costOfRent - monthlySavings - expensesCurrentStatementPeriod;
+        const availableSpendingMoney = wages + fundsFromDanny - Maths.addition(...currentStatementPeriod.filter(transaction => transaction.includes(`PENDING`) === false)) -
+                costOfRent - monthlySavings;
 
         const elements = document.querySelectorAll('#funds, #balance, #total, #spending-money');
 
