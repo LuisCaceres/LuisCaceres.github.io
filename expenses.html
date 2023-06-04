@@ -143,6 +143,7 @@
       });
 
       {
+        const settledTransactions = transactions.filter(transaction => transaction.includes(`PENDING`) === false);
         const moneySpentThisPeriod = Mathematics.addition(...statements[0]);
         const costOfRent = 1800;
         const rentFromDanny = 1200;
@@ -152,7 +153,7 @@
         const creditLimit = 15000;
         const [funds, balance, total, spendingMoney] = document.querySelectorAll('#funds, #balance, #total, #spending-money');
 
-        balance.innerText = Mathematics.addition(...transactions.filter(transaction => transaction.includes(`PENDING`) === false)).toFixed(2);
+        balance.innerText = Mathematics.addition(...settledTransaction).toFixed(2);
 
         total.innerText = Mathematics.addition(...transactions).toFixed(2);
 
