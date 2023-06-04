@@ -151,7 +151,7 @@
         const settledTransactions = transactions.filter(transaction => !transaction.includes(`PENDING`));
         const balance = Maths.addition(...settledTransactions);
         const funds = creditCardLimit - expenses;
-        const currentStatementPeriod = statements[0];
+        const [currentStatementPeriod] = statements;
 
         const personalExpenses = currentStatementPeriod.map(transaction => {
           const value1 = parseFloat(transaction);
