@@ -156,7 +156,7 @@
         const personalExpenses = currentStatementPeriod.filter(transaction => !transaction.includes(`RENT`))
         .map(transaction => {
           const value1 = parseFloat(transaction);
-          const value2 = transaction.match(/\d(\.\d+)?(?=\sFROM\sDANNY\])/)?.[0] || 0;
+          const value2 = transaction.match(/\d+(\.\d+)?(?=\sFROM\sDANNY\])/)?.[0] || 0;
 
           return value1 - value2;
         });
