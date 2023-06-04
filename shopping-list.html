@@ -213,12 +213,13 @@
         const rows = [...table.rows].slice(1);
         
         rows.forEach(row => {
-          const cell = row.querySelector('.quantity-required');
+          const [cell, quantityInCart] = row.querySelector('.quantity-required, .quantity-in-cart');
           
           const stock = parseFloat(row.querySelector('.stock').textContent);
           const quantityRequired = parseFloat(cell.textContent);
 
-          cell.textContent = `${(quantityRequired - stock).toFixed(3)} kg`;
+          cell.innerText = `${(quantityRequired - stock).toFixed(3)} kg`;
+          quantityInCart.value = (quantityRequired - stock).toFixed(3);
         });
       }
 
@@ -237,7 +238,7 @@
         });
 
         const total = [...document.querySelectorAll('.amount')].map(cell => cell.textContent).reduce((a, b) => a + +b, 0);
-        document.querySelector('.total').textContent = total.toFixed(2);
+        document.querySelector('.total').innerText = total.toFixed(2);
       }
 
 
