@@ -213,7 +213,7 @@
         const rows = [...table.rows].slice(1);
         
         rows.forEach(row => {
-          const [cell, quantityInCart] = row.querySelector('.quantity-required, .quantity-in-cart');
+          const [cell, quantityInCart] = row.querySelectorAll('.quantity-required, .quantity-in-cart');
           
           const stock = parseFloat(row.querySelector('.stock').textContent);
           const quantityRequired = parseFloat(cell.textContent);
