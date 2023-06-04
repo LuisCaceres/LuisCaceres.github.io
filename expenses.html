@@ -150,14 +150,14 @@
         const monthlySavingsDeposit = 2100;
         const availableSpendingMoney = 5953.38 + rentFromDanny - costOfRent - monthlySavingsDeposit - moneySpentThisPeriod;
 
-        const creditLimit = 15000;
+        const creditCardLimit = 15000;
         const [funds, balance, total, spendingMoney] = document.querySelectorAll('#funds, #balance, #total, #spending-money');
 
-        balance.innerText = Mathematics.addition(...settledTransaction).toFixed(2);
+        balance.innerText = Mathematics.addition(...settledTransactions).toFixed(2);
 
         total.innerText = Mathematics.addition(...transactions).toFixed(2);
 
-        funds.innerText = (creditLimit - +total.innerText).toFixed(2);
+        funds.innerText = (creditCardLimit - +total.innerText).toFixed(2);
 
         spendingMoney.innerText = availableSpendingMoney.toFixed(2);
       }
