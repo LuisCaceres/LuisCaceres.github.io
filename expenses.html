@@ -149,10 +149,11 @@
         const balance = Mathematics.addition(...settledTransactions);
         const funds = creditCardLimit - expenses;
         const expensesCurrentStatementPeriod = Mathematics.addition(...statements[0]);
-//         const costOfRent = 1800;
-//         const rentFromDanny = 1200;
-//         const monthlySavingsDeposit = 2100;
-//         const availableSpendingMoney = 5953.38 + rentFromDanny - costOfRent - monthlySavingsDeposit - expensesCurrentStatementPeriod;
+        const wages = 5953.38;
+        const fundsFromDanny = 1200;
+        const costOfRent = 1800;
+        const monthlySavings = 2100;
+        const availableSpendingMoney = wages + fundsFromDanny - costOfRent - monthlySavings - expensesCurrentStatementPeriod;
 
 
         const elements = document.querySelectorAll('#funds, #balance, #total, #spending-money');
@@ -160,7 +161,7 @@
         elements[0].innerText = funds.toFixed(2);
         elements[1].innerText = balance.toFixed(2);
         elements[2].innerText = expenses.toFixed(2);
-//         spendingMoney.innerText = availableSpendingMoney.toFixed(2);
+        elements[3].innerText = availableSpendingMoney.toFixed(2);
       }
     </script>
 
