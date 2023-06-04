@@ -157,9 +157,9 @@
 
         const elements = document.querySelectorAll('#funds, #balance, #total, #spending-money');
 
-        elements[0] = funds.toFixed(2);
-        elements[1] = balance.toFixed(2);
-        elements[2] = expenses.toFixed(2);
+        elements[0].innerText = funds.toFixed(2);
+        elements[1].innerText = balance.toFixed(2);
+        elements[2].innerText = expenses.toFixed(2);
 //         spendingMoney.innerText = availableSpendingMoney.toFixed(2);
       }
     </script>
