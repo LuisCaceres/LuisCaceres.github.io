@@ -144,6 +144,7 @@
 
       {
         const creditCardLimit = 15000;
+        const expenses = Mathematics.addition(transactions);
         const settledTransactions = transactions.filter(transaction => transaction.includes(`PENDING`) === false);
         const balance = Mathematics.addition(...settledTransactions);
         const funds = creditCardLimit - balance;
@@ -158,7 +159,7 @@
 
         elements[0] = funds.toFixed(2);
         elements[1] = balance.toFixed(2);
-//         elements[2] = settledTransactions.toFixed(2);
+        elements[2] = expenses.toFixed(2);
 //         spendingMoney.innerText = availableSpendingMoney.toFixed(2);
       }
     </script>
