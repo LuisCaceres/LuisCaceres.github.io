@@ -21,7 +21,7 @@
         [ /* 16 MAY 2023 - 15 JUNE 2023 */
           // `-14.55 [PENDING]`,
           `26.71 [PENDING]`,
-          `41.34 [PENDING] [41.34 FROM DANNY]`,
+          `41.34 [PENDING] [41.34 FROM DANNY] [PAID]`,
           `3.95 [PENDING]`,
           `42.60 [PENDING] [42.60 FROM DANNY] [PAID]`,
           `20.33 [PENDING] [20.33 FROM DANNY] [PAID]`,
@@ -98,7 +98,7 @@
           `90 [30 FROM ME] [PAID] [30 FROM DANNY] [PAID] [30 FROM DAVID] [PAID]`,
           `5.78`,
           `6.58`,
-          `36.9 [CREDIT CARD FEE 0.9] [21.15 FROM DANNY] [PAID] [14.85 FROM ME] [PAID]`,
+          `36.9 [CREDIT CARD FEE 0.9] [21.15 FROM DANNY] [PAID] [14.85 FROM LUIS] [PAID]`,
           `8.07`,
           `9.20 [9.20 FROM DANNY] [PAID]`,
           `5.40 [TRANSPORT NSW]`,
@@ -152,6 +152,20 @@
         const balance = Maths.addition(...settledTransactions);
         const funds = creditCardLimit - expenses;
         const currentStatementPeriod = statements[0];
+
+        const personalExpenses = currentStatementPeriod.map(transaction => {
+          const value1 = parseFloat(transaction);
+          let value2 = 0;
+
+          if (transaction.includes('FROM') {
+            const matches = transaction.match(/\d.+?(FROM).+?\]/g));
+
+            value2 = matches.filter(match => !match.includes('LUIS')).map(match => parseFloat(match));
+          }
+
+          return value1 - value2;
+        });
+
         const expensesCurrentStatementPeriod = Maths.addition(...currentStatementPeriod);
         const wages = 5953.38;
         const fundsFromDanny = 1200;
