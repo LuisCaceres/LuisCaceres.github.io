@@ -215,8 +215,8 @@
         rows.forEach(row => {
           const [cell, quantityInCart] = row.querySelectorAll('.quantity-required, .quantity-in-cart');
           
-          const stock = parseFloat(row.querySelector('.stock').textContent);
-          const quantityRequired = parseFloat(cell.textContent);
+          const stock = parseFloat(row.querySelector('.stock').innerText);
+          const quantityRequired = parseFloat(cell.innerText);
 
           cell.innerText = `${(quantityRequired - stock).toFixed(3)} kg`;
           quantityInCart.value = (quantityRequired - stock).toFixed(3);
