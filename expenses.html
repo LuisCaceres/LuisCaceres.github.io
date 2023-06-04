@@ -144,10 +144,10 @@
 
       {
         const creditCardLimit = 15000;
-        const expenses = Mathematics.addition(transactions);
+        const expenses = Mathematics.addition(...transactions);
         const settledTransactions = transactions.filter(transaction => transaction.includes(`PENDING`) === false);
         const balance = Mathematics.addition(...settledTransactions);
-        const funds = creditCardLimit - balance;
+        const funds = creditCardLimit - expenses;
         const expensesCurrentStatementPeriod = Mathematics.addition(...statements[0]);
 //         const costOfRent = 1800;
 //         const rentFromDanny = 1200;
