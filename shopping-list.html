@@ -178,7 +178,7 @@
       ];
 
       dataSets.forEach(dataSet => {
-        const [id, product, quantityRequired, stock] = dataSet.split('-').reverse();
+        const [product, quantityRequired, stock, id] = dataSet.split('-').reverse();
         const row = insertRow();
 
         row.querySelector('.product').innerText = product;
