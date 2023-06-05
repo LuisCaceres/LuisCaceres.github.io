@@ -98,7 +98,7 @@
 
     <template>
       <table>
-        <tr>
+        <tr class="row">
           <td class="in">
             <input type="checkbox">
           </td>
@@ -129,58 +129,62 @@
     <script>
       const table = document.querySelector('table');
 
-      const rows = [
-        `0.000 kg -     5    - Bananas`,
-        `0.000 kg - 1.500 kg - Zucchinis` /* 825869 */,
-        `0.000 kg - 1.000 kg - Carrots` /* 824508 */,
-        `0.200 kg - 1.000 kg - Capsicums` /* 825870 */,
-        `0.075 kg - 1.000 kg - Tomatoes`,
-        `0.100 kg - 1.000 kg - Cucumbers`,
-        `0.000 kg - 2.100 kg - Potatoes`,
-        `0.725 kg - 2.100 kg - Sweet potatoes`,
-        `0.225 kg - 1.400 kg - Beetroots`,
-        `0.000 kg - 1.400 kg - Swedes`,
-        `0.000 kg - 0.300 kg - Green beans`,
-        `0.000 kg - 0.400 kg - Whole pumpkin`,
-        `0.000 kg - 1.400 kg - Chokoes`,
-        `0.000 kg - 1.000 kg - Parsnips`,
-        `0.000 kg -     1    - Onions`,
-        `0.000 kg -     2    - Avocados` /* 120080 */,
+      const dataSets = [
 
-        `0.000 kg - 1.050 kg - Salmon` /* 126497 */,
-        `0.000 kg - 1.050 kg - Chicken breasts` /* 710953 */,
-        `0.000 kg - 1.800 kg - Basa fish` /* 87465 */,
-        `0.000 kg - 0.800 kg - Turkey breasts` /* 67763 */,
+        // ID   -  STOCK   - REQUIRED -    ITEM
 
-        `0 - 3 or 2.100 kg  - Package of tofu (0.900 kg)` /* 119028 */,
-        `0 - 1              - Bag of wraps` /* 634919 */,
-        `0 - 3 or 1.750 kg  - Bag of oats (0.750 kg)` /* 321220 */,
-        `0 - 4 or 3.850 lt  - Carton of almond milk (1 lt)` /* 779134 */,
+        `?????? - 0.000 kg -     5    - Bananas`,
+        `825869 - 0.000 kg - 1.500 kg - Zucchinis`,
+        `824508 - 0.000 kg - 1.000 kg - Carrots`,
+        `825870 - 0.200 kg - 1.000 kg - Capsicums`,
+        `?????? - 0.075 kg - 1.000 kg - Tomatoes`,
+        `?????? - 0.100 kg - 1.000 kg - Cucumbers`,
+        `?????? - 0.000 kg - 2.100 kg - Potatoes`,
+        `?????? - 0.725 kg - 2.100 kg - Sweet potatoes`,
+        `?????? - 0.225 kg - 1.400 kg - Beetroots`,
+        `?????? - 0.000 kg - 1.400 kg - Swedes`,
+        `?????? - 0.000 kg - 0.300 kg - Green beans`,
+        `?????? - 0.000 kg - 0.400 kg - Whole pumpkin`,
+        `?????? - 0.000 kg - 1.400 kg - Chokoes`,
+        `?????? - 0.000 kg - 1.000 kg - Parsnips`,
+        `?????? - 0.000 kg -     1    - Onions`,
+        `120080 - 0.000 kg -     2    - Avocados`,
 
-        `0 - 1 or 3.150 kg  - Bag of rice (5 kg)` /* 750029 */,
-        `0 - 1              - Bag of quinoa (1 kg)` /* 499695 */,
-        `0.000 kg - 0.600 kg - Chick peas` /* 259399 */,
+        `126497 - 0.000 kg - 1.050 kg - Salmon`,
+        `710953 - 0.000 kg - 1.050 kg - Chicken breasts`,
+        ` 87465 - 0.000 kg - 1.800 kg - Basa fish`,
+        ` 67763 - 0.000 kg - 0.800 kg - Turkey breasts`,
 
-        `0 - 1              - Tube of toothpaste` /* 581163 */,
+        `119028 - 0 - 3 or 2.100 kg  - Package of tofu (0.900 kg)`,
+        `634919 - 0 - 1              - Bag of wraps`,
+        `321220 - 0 - 3 or 1.750 kg  - Bag of oats (0.750 kg)`,
+        `779134 - 0 - 4 or 3.850 lt  - Carton of almond milk (1 lt)`,
+
+        `750029 - 0 - 1 or 3.150 kg  - Bag of rice (5 kg)`,
+        `499695 - 0 - 1              - Bag of quinoa (1 kg)`,
+        `259399 - 0.000 kg - 0.600 kg - Chick peas`,
+
+        `581163 - 0 - 1              - Tube of toothpaste`,
  
-        `0 - 1 or 7 eggs    - Package of eggs (12 eggs / 0.700 kg)` /* 175905 */,
+        `175905 - 0 - 1 or 7 eggs    - Package of eggs (12 eggs / 0.700 kg)`,
 
-        `0.325 kg - 0.500 kg - Frozen corn` /* 768570 */,
-        `0.225 kg - 0.500 kg - Frozen peas` /* 96845 */,
-        `0.000 kg - 1.500 kg - Frozen broccolies` /* 768559 */,
-        `0.000 kg - 1.000 kg - Frozen brussel sprouts` /* 768583 */,
-        `0.000 kg - 1.500 kg - Frozen cauliflowers` /* 768560 */,
+        `768570 - 0.325 kg - 0.500 kg - Frozen corn`,
+        ` 96845 - 0.225 kg - 0.500 kg - Frozen peas`,
+        `768559 - 0.000 kg - 1.500 kg - Frozen broccolies`,
+        `768583 - 0.000 kg - 1.000 kg - Frozen brussel sprouts`,
+        `768560 - 0.000 kg - 1.500 kg - Frozen cauliflowers`,
 
-        `0 - 1 or 0.900 kg  - Bag of mixed berries (1 kg)` /* 586517 */,
+        `586517 - 0 - 1 or 0.900 kg  - Bag of mixed berries (1 kg)`,
       ];
 
-      rows.forEach(row => {
-        const [product, quantityRequired, stock] = row.split('-').reverse();
-        const tr = insertRow();
+      dataSets.forEach(dataSet => {
+        const [id, product, quantityRequired, stock] = dataSet.split('-').reverse();
+        const row = insertRow();
 
-        tr.querySelector('.product').innerText = product;
-        tr.querySelector('.quantity-required').innerText = quantityRequired;
-        tr.querySelector('.stock').innerText = stock;
+        row.querySelector('.product').innerText = product;
+        row.querySelector('.quantity-required').innerText = quantityRequired;
+        row.querySelector('.stock').innerText = stock;
+        row.querySelector('.price').value = 0 /*getPrice(id)*/;
       });
 
       
@@ -188,20 +192,8 @@
 
       //
       function insertRow() {
-        const template =  document.querySelector('template').content;
-        const tr = document.createElement('tr');
-
-        const classTokens = [
-          'in', 'product', 'quantity-required', 'quantity-in-cart__container', 'amount__container', 'stock'
-        ];
-
-        for (const classToken of classTokens) {
-            const td = template.querySelector(`.${classToken}`).cloneNode(true);
-            tr.append(td);
-        }
-
+        const row = document.querySelector('template').content.querySelector('.row').cloneNode(true);
         table.append(tr);
-
         return tr;
       }
 
