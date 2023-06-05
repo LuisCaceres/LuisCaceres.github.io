@@ -97,7 +97,6 @@
     </div>
 
     <template>
-      <table>
         <tr class="row">
           <td class="in">
             <input type="checkbox">
@@ -120,7 +119,6 @@
             0
           </td>
         </tr>
-      </table>
     </template>
 
     <script>
@@ -191,6 +189,7 @@
       function insertRow() {
         const row = document.querySelector('template').content.querySelector('.row').cloneNode(true);
         table.append(row);
+        
         return row;
       }
 
