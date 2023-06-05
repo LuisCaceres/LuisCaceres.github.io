@@ -222,7 +222,7 @@
         rows.forEach(row => {
           const quantityInCart = +row.querySelector('.quantity-in-cart').value;
           const price = +row.querySelector('.price').value;
-          const amount = (quantityInCart * price).toFixed(2);
+          const amount = +(quantityInCart * price).toFixed(2);
 
           row.querySelector('.amount').innerText = amount;
           total += amount;  
