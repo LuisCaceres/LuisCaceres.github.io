@@ -6,7 +6,9 @@
 
     <p>Available funds from credit card: $<span id="funds"></span></p>
     <p>Balance from credit card (money owed): $<span id="balance"></span></p>
-    <p>Real Balance (balance plus cost of pending transactions): $<span id="total"></span></p>
+    <p>Real balance (balance plus cost of pending transactions): $<span id="total"></span></p>
+
+    <p>Closing balance as of 15 June 2023: $<span id="closing-balance"></span></p>
 
     <p>Available Spending Money: $<span id="spending-money"></span></p>
    
@@ -183,6 +185,7 @@
         const settledTransactions = transactions.filter(transaction => !transaction.includes(`PENDING`));
         const balance = Maths.addition(...settledTransactions);
         const funds = creditCardLimit - expenses;
+        const closingBalancePreviousStatementPeriod = Maths.addition(...statements.slice(1).flat());
         const [currentStatementPeriod] = statements;
 
         const personalExpenses = currentStatementPeriod.filter(transaction => !transaction.includes(`RENT`))
@@ -200,12 +203,13 @@
         const monthlySavings = 2100;
         const availableSpendingMoney = wages - Maths.addition(...personalExpenses) - costOfRent - monthlySavings;
 
-        const elements = document.querySelectorAll('#funds, #balance, #total, #spending-money');
+        const elements = document.querySelectorAll('#funds, #balance, #total, #closing-balance, #spending-money');
 
         elements[0].innerText = funds.toFixed(2);
         elements[1].innerText = balance.toFixed(2);
         elements[2].innerText = expenses.toFixed(2);
         elements[3].innerText = availableSpendingMoney.toFixed(2);
+        elements[4].innerText = closingBalancePreviousStatementPeriod.toFixed(2);
       }
     </script>
 
