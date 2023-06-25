@@ -83,10 +83,6 @@ function calculate() {
 
 const style = document.createElement('style');
 style.innerText = `
-    .calculate {
-        margin-top: 2rem;
-    }
-
     .container * {
       all: revert;
     }
