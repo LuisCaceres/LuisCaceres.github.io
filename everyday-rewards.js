@@ -2,7 +2,7 @@
 const discount = parseFloat(prompt('Discount that applies to this receipt:')) / 100;
 
 class Maths {
-  static addition(...values) {
+  static addition(values) {
     return values.map(value => parseFloat(value)).reduce((accumulator, value) => {
         return accumulator + value;
     }, 0);
@@ -47,17 +47,16 @@ receipt.append(p);
 
 // Calculate how much someone owes based on the number of the checkboxes checked on the receipt.
 function calculate() {
-    debugger;
     // Get the total cost of the items I purchased.
-    const myItems = Maths.addition(...items.filter(item => item.matches(':has(:checked)')).map(item => item.innerText));
+    const myItems = Maths.addition(items.filter(item => item.matches(':has(:checked)')).map(item => item.innerText));
 
     // Apply discount.
-    const myTotal = (myItems - (myItems * discount)).toFixed(2);
+    const myTotal = +(myItems - (myItems * discount)).toFixed(2)
 
     // Find out how much the other person owes.
-    const hisTotal = (total - myTotal).toFixed(2);
+    const hisTotal = +(total - myTotal).toFixed(2);
 
-    if (+(+myTotal + +hisTotal).toFixed(2) !== total) {
+    if (+(myTotal + hisTotal).toFixed(2) !== total) {
       throw Error('my total and his total combined not equal to the total cost shown in the receipt.');
     }
 
