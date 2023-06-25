@@ -1,4 +1,4 @@
-// Monthly discount applied to the total cost shown on the receipt.
+// Discount applied to the total cost shown on the receipt.
 const discount = parseFloat(prompt('Discount that applies to this receipt:')) / 100;
 
 class Maths {
@@ -11,7 +11,40 @@ class Maths {
 
 const receipt = document.querySelector('.ereceipt-inner-modal-block');
 
-// The total cost shown on the receipt. For example, '273.26'.
+const html = `
+    <div class="container">
+       <input type="checkbox">
+    
+      <fieldset>
+        <legend>Choose a buyer:</legend>
+        <label>
+          Luis
+          <input type="radio">
+        </label>
+        <label>
+          Danny
+          <input type="radio">
+        </label>
+        <label>
+          Both
+          <input type="radio">
+        </label>
+      </fieldset>
+  
+      <p>
+        <!-- This a button that, when pressed, calculates how much someone owes based on the number of the checkboxes checked on the receipt. -->
+        <button type="button" class="calculate">Calculate</button>
+      </p>
+  
+      <p>
+        Applied discount is ${discount * 100}%
+      </p>
+  </div>
+`;
+
+const container = (new DOMParser).parseFromString(html, 'text/html').querySelector('.container');
+
+// This is the total amount shown on the receipt. For example, '273.26'.
 const total = +document.querySelector('.heading-main.font-34').innerText.trim().slice(1);
 
 // Get a reference to each price shown on the receipt.
@@ -21,29 +54,12 @@ const items = [...receipt.querySelectorAll('.price')]
 
 // Insert a checkbox to the right of each price on the receipt.
 items.forEach(item => {
-    const input = document.createElement('input');
-    
-    input.type = 'checkbox';
-    input.style.all = 'revert';
+    const input = container.querySelector('input').cloneNode();
     item.append(input);
 });
 
-// Insert a button that, when pressed, calculates how much someone owes 
-// based on the number of the checkboxes checked on the receipt.
-const button = document.createElement('button');
-
-button.type = 'button';
-button.innerText = 'Calculate';
-button.classList.add('calculate');
-
-receipt.append(button);
-
-button.addEventListener('click', calculate);
-
-const p = document.createElement('p');
-
-p.append(`Discount applied is ${discount * 100}%`);
-receipt.append(p);
+container.querySelector('button').addEventListener('click', calculate);
+receipt.append(container);
 
 // Calculate how much someone owes based on the number of the checkboxes checked on the receipt.
 function calculate() {
@@ -69,6 +85,10 @@ const style = document.createElement('style');
 style.innerText = `
     .calculate {
         margin-top: 2rem;
+    }
+
+    .container * {
+      all: revert;
     }
 
     .price:has(:checked) {
