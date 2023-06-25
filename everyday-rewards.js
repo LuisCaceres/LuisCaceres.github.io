@@ -1,5 +1,5 @@
 // Monthly discount applied to the total cost shown on the receipt.
-const discount = 0.10;
+const discount = parseFloat(confirm('Discount that applies to this receipt.')) / 100;
 
 class Maths {
   static addition(...values) {
@@ -40,6 +40,11 @@ receipt.append(button);
 
 button.addEventListener('click', calculate);
 
+const p = document.createElement('p');
+
+p.append(`Discount applied is ${discount * 100}%`);
+receipt.append(p);
+
 // Calculate how much someone owes based on the number of the checkboxes checked on the receipt.
 function calculate() {
     // Get the total cost of the items I purchased.
@@ -55,8 +60,8 @@ function calculate() {
       throw Error('my total and his total combined not equal to the total cost shown in the receipt.');
     }
 
-    console.log(`My total before 10% is applied: ${myItems}`);
-    console.log(`My total after 10% is applied: ${myTotal}`);
+    console.log(`My total before ${discount * 100}% is applied: ${myItems}`);
+    console.log(`My total after ${discount * 100}% is applied: ${myTotal}`);
     console.log(`The other person pays: ${hisTotal}`);
 }
 
