@@ -12,22 +12,22 @@ class Maths {
 const receipt = document.querySelector('.ereceipt-inner-modal-block');
 
 const html = `
-    <div class="container">
+    <div class="luis-container">
        <input type="checkbox">
     
       <fieldset>
         <legend>Choose a buyer:</legend>
         <label>
+          <input type="radio" name="buyer">
           Luis
-          <input type="radio">
         </label>
         <label>
+          <input type="radio" name="buyer">
           Danny
-          <input type="radio">
         </label>
         <label>
+          <input type="radio" name="buyer">
           Both
-          <input type="radio">
         </label>
       </fieldset>
   
@@ -42,7 +42,7 @@ const html = `
   </div>
 `;
 
-const container = (new DOMParser).parseFromString(html, 'text/html').querySelector('.container');
+const container = (new DOMParser).parseFromString(html, 'text/html').querySelector('.luis-container');
 
 // This is the total amount shown on the receipt. For example, '273.26'.
 const total = +document.querySelector('.heading-main.font-34').innerText.trim().slice(1);
@@ -83,8 +83,10 @@ function calculate() {
 
 const style = document.createElement('style');
 style.innerText = `
-    .container * {
-      all: revert;
+    .luis-container *,
+    input[type=checkbox] {
+      all: revert !important;
+      white-space: normal !important;
     }
 
     .price:has(:checked) {
