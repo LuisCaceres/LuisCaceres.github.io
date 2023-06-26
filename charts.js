@@ -1482,4 +1482,22 @@ const charts = [
     /* 1470 - 18/11/17 +++++++++++++++++++++++++ */ [`Khalid feat. Rae Sremmurd & Lil Yachty - Young Dumb & Broke`, `Clean Bandit feat. Julia Michaels - I Miss You`, `N.E.R.D. feat. Rihanna - Lemon`, `Liam Payne - Bedroom Floor`, `Avicii feat Rita Ora - Lonely Together`, `Imagine Dragons - Whatever It Takes`, `Little Mix feat. CNCO - Reggaeton Lento`, `Ofenbach vs. Nick Waterhouse - Katchi`, `Selena Gomez & Marshmello - Wolves`, `Sam Smith - Too Good At Goodbyes`, `Portugal. The Man - Feel It Still`, `Maroon 5 feat. SZA - What Lovers Do`, `Post Malone feat. 21 Savage - rockstar`, `P!nk - What About Us`, `Charlie Puth - How Long`, `Ed Sheeran - Perfect`, `Zayn feat. Sia - Dusk Till Dawn`, `Camila Cabello feat. Young Thug - Havana`, `Marshmello feat. Khalid - Silence`, `Rita Ora - Anywhere`],
     /* 1471 - 25/11/17 +++++++++++++++++++++++++ */ [`Stormzy feat. MNEK - Blinded by Your Grace, Pt. 2`, `Imagine Dragons - Whatever It Takes`, `Liam Payne - Bedroom Floor`, `Avicii feat Rita Ora - Lonely Together`, `Selena Gomez & Marshmello - Wolves`, `N.E.R.D. feat. Rihanna - Lemon`, `Clean Bandit feat. Julia Michaels - I Miss You`, `Post Malone feat. 21 Savage - rockstar`, `Sam Smith - Too Good At Goodbyes`, `Maroon 5 feat. SZA - What Lovers Do`, `Portugal. The Man - Feel It Still`, `Charlie Puth - How Long`, `P!nk - What About Us`, `Ofenbach vs. Nick Waterhouse - Katchi`, `Zayn feat. Sia - Dusk Till Dawn`, `Eminem feat. Beyoncé - Walk On Water`, `Marshmello feat. Khalid - Silence`, `Camila Cabello feat. Young Thug - Havana`, `Ed Sheeran - Perfect`, `Rita Ora - Anywhere`],
   ]
-];
+]
+
+.flat().map(chart => new Chart(...chart));
+
+// Ensure that there are no spelling mistakes
+
+// 
+
+const database = new Database(...charts);
+
+const chartErrors = [];
+
+class ChartError {
+}
+
+for ([entry, chartHistory] of database) {
+  const positions = chartHistory.map(); 
+}
+
