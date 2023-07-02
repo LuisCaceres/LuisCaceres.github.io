@@ -28,6 +28,8 @@ receipt.querySelectorAll('p:has(+ .price:empty)').forEach(element => {
   parent.remove();
 });
 
+
+// Duplicate items that
 [...receipt.querySelectorAll('p:has(+ .price)')].forEach(element => {
     
     if (element.innerText.includes('Qty')) {
@@ -46,8 +48,16 @@ receipt.querySelectorAll('p:has(+ .price:empty)').forEach(element => {
     }
 });
 
-// Duplicate items that
-
+// Sort items in alphabetical order.
+[...receipt.querySelectorAll('.items')].slice(0, -1).sort((item1, item2) => {
+    if (item1.innerText < item2.innerText) {
+        return 1;
+    }
+    else if  (item1.innerText > item2.innerText) {
+        return -1;
+    }
+})
+.forEach(element => element.parentElement.append(element));
 
 const html = `
     <div class="luis-container">
@@ -86,8 +96,8 @@ const container = (new DOMParser).parseFromString(html, 'text/html').querySelect
 const total = +document.querySelector('.heading-main.font-34').innerText.trim().slice(1);
 
 // Get a reference to each price shown on the receipt.
-const items = [...receipt.querySelectorAll('.price:not(:empty)')]
-    .slice(1, -1);
+const items = [...receipt.querySelectorAll('.price')]
+    .slice(2);
 
 // Insert a checkbox to the right of each price on the receipt.
 items.forEach(item => {
