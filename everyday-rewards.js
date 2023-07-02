@@ -20,13 +20,34 @@ const receipt = document.querySelector('.ereceipt-inner-modal-block');
 //  Betroort Loose
 //  1.482 kg NET @ $6.50/kg
 // </div>
-receipt.querySelectorAll('p:has(+ span:empty)').forEach(element => {
+receipt.querySelectorAll('p:has(+ .price:empty)').forEach(element => {
   const parent = element.closest('.items');
   const sibling = parent.nextElementSibling;
   sibling.prepend(element);
   element.style.display = 'block';
   parent.remove();
 });
+
+[...receipt.querySelectorAll('p:has(+ .price)')].forEach(element => {
+    
+    if (element.innerText.includes('Qty')) {
+      let n = +element.innerText.match(/(?<=Qty\s)\d/)[0] - 1;
+      const price = element.innerText.match(/(?<=@\s\$)\d+(\.\d+)?/)[0];
+
+      element.closest('.items').querySelector('.price').innerText = price;
+
+      while (n--) {
+        const parent = element.closest('.items');
+        const clone = parent.cloneNode(true);
+        parent.after(clone);
+
+        clone.querySelector('.price').innerText = price;
+      }
+    }
+});
+
+// Duplicate items that
+
 
 const html = `
     <div class="luis-container">
