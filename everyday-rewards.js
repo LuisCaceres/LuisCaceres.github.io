@@ -5,11 +5,28 @@ class Maths {
   static addition(values) {
     return values.map(value => parseFloat(value)).reduce((accumulator, value) => {
         return accumulator + value;
-    }, 0);
+    });
   }
 }
 
 const receipt = document.querySelector('.ereceipt-inner-modal-block');
+
+// Format receipt because items that span two lines vertically aren't grouped in the DOM.
+// Before:
+// <div class="items">Betroort Loose</div>
+// <div class="items">1.482 kg NET @ $6.50/kg</div>
+// After:
+// <div class="items">
+//  Betroort Loose
+//  1.482 kg NET @ $6.50/kg
+// </div>
+receipt.querySelectorAll('p:has(+ span:empty)').forEach(element => {
+  const parent = element.closest('.items');
+  const sibling = parent.nextElementSibling;
+  sibling.prepend(element);
+  element.style.display = 'block';
+  parent.remove();
+});
 
 const html = `
     <div class="luis-container">
@@ -48,9 +65,8 @@ const container = (new DOMParser).parseFromString(html, 'text/html').querySelect
 const total = +document.querySelector('.heading-main.font-34').innerText.trim().slice(1);
 
 // Get a reference to each price shown on the receipt.
-const items = [...receipt.querySelectorAll('.price')]
-    .slice(1, -1)
-    .filter(element => element.innerText !== '');
+const items = [...receipt.querySelectorAll('.price:not(:empty)')]
+    .slice(1, -1);
 
 // Insert a checkbox to the right of each price on the receipt.
 items.forEach(item => {
@@ -88,9 +104,13 @@ style.innerText = `
       all: revert !important;
       white-space: normal !important;
     }
-
+    
     .price:has(:checked) {
         background-color: gold;
+    }
+
+    .items {
+      border-top: solid;
     }
 `;
 
