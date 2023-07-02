@@ -1,6 +1,7 @@
 // Discount applied to the total cost shown on the receipt.
 const discount = parseFloat(prompt('Discount that applies to this receipt:')) / 100;
 
+
 class Maths {
   static addition(values) {
     return values.map(value => parseFloat(value)).reduce((accumulator, value) => {
