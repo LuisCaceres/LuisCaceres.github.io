@@ -210,8 +210,8 @@
         const row = insertRow();
 
         row.querySelector('.product').innerText = product;
-        row.querySelector('.quantity-required').innerText = (quantityRequired / numberOfDays) * numberOfDaysThisTime;
-        row.querySelector('.stock').innerText = stock;
+        row.querySelector('.quantity-required').innerText = quantityRequired;
+        row.querySelector('.stock').innerText = stock; 
         row.querySelector('.price').value = 0 /*getPrice(id)*/;
       });
 
@@ -237,7 +237,7 @@
           const [cell, quantityInCart] = row.querySelectorAll('.quantity-required, .quantity-in-cart');
           
           const stock = parseFloat(row.querySelector('.stock').innerText);
-          const quantityRequired = parseFloat(cell.innerText);
+          const quantityRequired = (parseFloat(cell.innerText) / numberOfDays) * numberOfDaysThisTime;
 
           cell.innerText = `${(quantityRequired - stock).toFixed(3)} kg`;
           quantityInCart.value = (quantityRequired - stock).toFixed(3);
