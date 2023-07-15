@@ -154,6 +154,8 @@
 
     <script>
       const table = document.querySelector('table');
+      const numberOfDays = 14;
+      const numberOfDaysThisTime = 7;
 
       const dataSets = [
 
@@ -208,7 +210,7 @@
         const row = insertRow();
 
         row.querySelector('.product').innerText = product;
-        row.querySelector('.quantity-required').innerText = quantityRequired;
+        row.querySelector('.quantity-required').innerText = (quantityRequired / numberOfDays) * numberOfDaysThisTime;
         row.querySelector('.stock').innerText = stock;
         row.querySelector('.price').value = 0 /*getPrice(id)*/;
       });
