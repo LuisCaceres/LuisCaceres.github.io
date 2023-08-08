@@ -34,7 +34,7 @@ receipt.querySelectorAll('p:has(+ .price:empty)').forEach(element => {
 [...receipt.querySelectorAll('p:has(+ .price)')].forEach(element => {
     
     if (element.innerText.includes('Qty')) {
-      let n = +element.innerText.match(/(?<=Qty\s)\d/)[0] - 1;
+      let n = +element.innerText.match(/(?<=Qty\s)\d/+)[0] - 1;
       const price = element.innerText.match(/(?<=@\s\$)\d+(\.\d+)?/)[0];
 
       element.closest('.items').querySelector('.price').innerText = price;
