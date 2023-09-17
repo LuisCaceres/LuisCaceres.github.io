@@ -219,17 +219,17 @@
       });
 
       // WHAT ABOUT WHEN THERE'S OUT OF STOCK PRODUCTS?
-       function getPrice(id) {
-           if (id.startsWith('?')) {
-             return 0;
-           }
+       // function getPrice(id) {
+       //     if (id.startsWith('?')) {
+       //       return 0;
+       //     }
 
-         const windowProxy = window.open(`https://www.woolworths.com.au/shop/productdetails/${id}`);
-        await waitUntil(isPriceLoaded, windowProxy);
-        const price = +windowProxy.document.querySelector('.price.price--large').textContent.replace(/[$\s]/g, '');
-          console.log(price);
-         return price;
-       }
+       //   const windowProxy = window.open(`https://www.woolworths.com.au/shop/productdetails/${id}`);
+       //  await waitUntil(isPriceLoaded, windowProxy);
+       //  const price = +windowProxy.document.querySelector('.price.price--large').textContent.replace(/[$\s]/g, '');
+       //    console.log(price);
+       //   return price;
+       // }
 
       function isPriceLoaded(windowProxy) {
           const element = windowProxy.document.querySelector('.price.price--large');
