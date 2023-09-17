@@ -155,7 +155,7 @@
     <script>
       const table = document.querySelector('table');
       const numberOfDays = 14;
-      const numberOfDaysThisTime = 2;
+      const numberOfDaysThisTime = 8;
 
       const dataSets = [
 
@@ -215,7 +215,7 @@
         row.querySelector('.product').innerText = product;
         row.querySelector('.quantity-required').innerText = quantityRequired;
         row.querySelector('.stock').innerText = stock; 
-        row.querySelector('.price').value = getPrice(id);
+        row.querySelector('.price').value = 0;
       });
 
       // WHAT ABOUT WHEN THERE'S OUT OF STOCK PRODUCTS?
