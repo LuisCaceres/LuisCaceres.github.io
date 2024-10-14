@@ -7,76 +7,77 @@
     </head>
     <body>
         <h1>Vietnam</h1>
+        <h2>Itinerary</h2>
         <ol>
             <li>
-                <h2>December 30</h2>
+                <h3>December 30</h3>
                 <p>Cat Ba</p>
             </li>
             <li>
-                <h2>December 31</h2>
+                <h3>December 31</h3>
                 <p>Cat Ba</p>
                 
             </li>
             <li>
-                <h2>January 1</h2>
+                <h3>January 1</h3>
                 <p>Cat Ba</p>
             </li>
             <li>
-                <h2>January 2</h2>
+                <h3>January 2</h3>
                 <p>Cat Ba (departure)</p>
                 <p>Hanoi (arrival)</p>
             </li>
             <li>
-                <h2>January 3</h2>
+                <h3>January 3</h3>
                 <p>Hanoi (departure)</p>
                 <p>Tam Coc (arrival)</p>
             </li>
             <li>
-                <h2>January 4</h2>
+                <h3>January 4</h3>
                 <p>Tam Coc</p>
             </li>
             <li>
-                <h2>January 5</h2>
+                <h3>January 5</h3>
                 <p>Tam Coc</p>
             </li>
             <li>
-                <h2>January 6</h2>
+                <h3>January 6</h3>
                 <p>Tam Coc (departure)</p>
                 <p>????? (arrival)</p>
             </li>
             <li>
-                <h2>January 7</h2>
+                <h3>January 7</h3>
                 <p>????? (departure)</p>
                 <p>Can Tho (arrival)</p>
             </li>
             <li>
-                <h2>January 8</h2>
+                <h3>January 8</h3>
                 <p>Can Tho</p>
             </li>
             <li>
-                <h2>Thursday January 9</h2>
+                <h3>Thursday January 9</h3>
                 <p>Can Tho (departure)</p>
                 <p>Phu Quok (arrival)</p>
             </li>
             <li>
-                <h2>Friday January 10</h2>
+                <h3>Friday January 10</h3>
                 <p>Phu Quok</p>
             </li>
             <li>
-                <h2>Saturday January 11</h2>
+                <h3>Saturday January 11</h3>
                 <p>Phu Quok</p>
             </li>
             <li>
-                <h2>Sunday January 12</h2>
+                <h3>Sunday January 12</h3>
                 <p>Phu Quok (departure)</p>
                 <p>Ho Chi Minh City (arrival)</p>
             </li>
             <li>
-                <h2>Monday January 13</h2>
+                <h3>Monday January 13</h3>
                 <p>Ho Chi Minh City</p>
             </li>
             <li>
-                <h2>Monday January 14</h2>
+                <h3>Monday January 14</h3>
                 <p>Ho Chi Minh City (departure)</p>
             </li>
         </ol>
@@ -180,6 +181,7 @@
 
             img {
                 height: 250px;
+                border: solid;
             }
  
             ol {
@@ -188,7 +190,11 @@
 
             li > h2::before {
                 counter-increment: section;
-                content: "Day " counter(section) ":";
+                content: "Day " counter(section) ": ";
+            }
+
+            div > p {
+                margin-bottom: 0;
             }
         </style>
     </body>
