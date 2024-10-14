@@ -261,14 +261,15 @@
             h3 {
                 margin: 0 0 0.5rem 0;
                 position: sticky;
-                left: 0;
+                inset-inline-start: 0;
             }
 
             img {
-                height: 250px;
+                block-size: 250px;
             }
 
             ul {
+                padding-inline-start: 0.25rem;
                 counter-reset: section;
             }
 
@@ -288,9 +289,9 @@
 
             .picture-container {
                 padding: 1rem;
-                margin-bottom: 2rem;
+                margin-block-end: 2rem;
                 background: darksalmon;
-                overflow-x: auto;
+                overflow-inline: auto;
             }
         </style>
     </body>
