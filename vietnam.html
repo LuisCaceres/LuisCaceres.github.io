@@ -4,8 +4,7 @@
         <meta charset="UTF-8" />
         <meta
             name="viewport"
-            content="width=<device-width>, initial-scale=1.0"
-        />
+            content="width=<device-width>, initial-scale=1.0"/>
         <title>Document</title>
     </head>
     <body>
@@ -13,73 +12,105 @@
         <h2>Itinerary</h2>
         <ul>
             <li>
-                <h3>Monday December 30</h3>
+                <h3>
+                    <span class="date">Monday December 30</span>
+                </h3>
                 <p>Cat Ba</p>
             </li>
             <li>
-                <h3>Tuesday December 31</h3>
+                <h3>
+                    <span class="date">Tuesday December 31</span>
+                </h3>
                 <p>Cat Ba</p>
             </li>
             <li>
-                <h3>Wednesday January 1</h3>
+                <h3>
+                    <span class="date">Wednesday January 1</span>
+                </h3>
                 <p>Cat Ba</p>
             </li>
             <li>
-                <h3>Thursday January 2</h3>
+                <h3>
+                    <span class="date">Thursday January 2</span>
+                </h3>
                 <p>Cat Ba (departure)</p>
                 <p>Hanoi (arrival)</p>
             </li>
             <li>
-                <h3>Friday January 3</h3>
+                <h3>
+                    <span class="date">Friday January 3</span>
+                </h3>
                 <p>Hanoi (departure)</p>
                 <p>Tam Coc (arrival)</p>
             </li>
             <li>
-                <h3>Saturday January 4</h3>
+                <h3>
+                    <span class="date">Saturday January 4</span>
+                </h3>
                 <p>Tam Coc</p>
             </li>
             <li>
-                <h3>Sunday January 5</h3>
+                <h3>
+                    <span class="date">Sunday January 5</span>
+                </h3>
                 <p>Tam Coc</p>
             </li>
             <li>
-                <h3>Monday January 6</h3>
+                <h3>
+                    <span class="date">Monday January 6</span>
+                </h3>
                 <p>Tam Coc (departure)</p>
                 <p>????? (arrival)</p>
             </li>
             <li>
-                <h3>Tuesday January 7</h3>
+                <h3>
+                    <span class="date">Tuesday January 7</span>
+                </h3>
                 <p>????? (departure)</p>
                 <p>Can Tho (arrival)</p>
             </li>
             <li>
-                <h3>Wednesday January 8</h3>
+                <h3>
+                    <span class="date">Wednesday January 8</span>
+                </h3>
                 <p>Can Tho</p>
             </li>
             <li>
-                <h3>Thursday January 9</h3>
+                <h3>
+                    <span class="date">Thursday January 9</span>
+                </h3>
                 <p>Can Tho (departure)</p>
                 <p>Phu Quok (arrival)</p>
             </li>
             <li>
-                <h3>Friday January 10</h3>
+                <h3>
+                    <span class="date">Friday January 10</span>
+                </h3>
                 <p>Phu Quok</p>
             </li>
             <li>
-                <h3>Saturday January 11</h3>
+                <h3>
+                    <span class="date">Saturday January 11</span>
+                </h3>
                 <p>Phu Quok</p>
             </li>
             <li>
-                <h3>Sunday January 12</h3>
+                <h3>
+                    <span class="date">Sunday January 12</span>
+                </h3>
                 <p>Phu Quok (departure)</p>
                 <p>Ho Chi Minh City (arrival)</p>
             </li>
             <li>
-                <h3>Monday January 13</h3>
+                <h3>
+                    <span class="date">Monday January 13</span>
+                </h3>
                 <p>Ho Chi Minh City</p>
             </li>
             <li>
-                <h3>Monday January 14</h3>
+                <h3>
+                    <span class="date">Monday January 14</span>
+                </h3>
                 <p>Ho Chi Minh City (departure)</p>
             </li>
         </ul>
@@ -87,7 +118,9 @@
         <h2>Pictures of destinations</h2>
 
         <div class="picture-container">
-            <h3>Cat Ba</h3>
+            <h3>
+                <span class="date">Cat Ba</span>
+            </h3>
             <div class="flex-container">
                 <p class="flex-item">
                     <img
@@ -111,7 +144,9 @@
         </div>
 
         <div class="picture-container">
-            <h3>Hanoi</h3>
+            <h3>
+                <span class="date">Hanoi</span>
+            </h3>
             <div class="flex-container">
                 <p class="flex-item">
                     <img
@@ -123,7 +158,9 @@
         </div>
 
         <div class="picture-container">
-            <h3>Tam Coc</h3>
+            <h3>
+                <span class="date">Tam Coc</span>
+            </h3>
             <div class="flex-container">
                 <p class="flex-item">
                     <img
@@ -177,7 +214,9 @@
         </div>
 
         <div class="picture-container">
-            <h3>Can Tho</h3>
+            <h3>
+                <span class="date">Can Tho</span>
+            </h3>
             <div class="flex-container">
                 <p class="flex-item">
                     <img
@@ -207,7 +246,9 @@
         </div>
 
         <div class="picture-container">
-            <h3>Phu Quok</h3>
+            <h3>
+                <span class="date">Phu Quok</span>
+            </h3>
             <div class="flex-container">
                 <p class="flex-item">
                     <img
@@ -237,7 +278,9 @@
         </div>
 
         <div class="picture-container">
-            <h3>Ho Chi Minh City</h3>
+            <h3>
+                <span class="date">Ho Chi Minh City</span>
+            </h3>
             <div class="flex-container">
                 <p class="flex-item">
                     <img
@@ -287,6 +330,11 @@
             li > h3::before {
                 counter-increment: section;
                 content: "Day " counter(section) ": ";
+            }
+
+            .date {
+                display: block;
+                text-wrap: balance;
             }
 
             .flex-container {
