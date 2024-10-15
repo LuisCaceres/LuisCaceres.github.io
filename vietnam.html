@@ -4,7 +4,8 @@
         <meta charset="UTF-8" />
         <meta
             name="viewport"
-            content="width=<device-width>, initial-scale=1.0"/>
+            content="width=<device-width>, initial-scale=1.0"
+        />
         <title>Trip to Vietnam</title>
     </head>
     <body>
@@ -292,24 +293,36 @@
         </div>
 
         <style>
+            :root {
+                --color-1: antiquewhite;
+                --color-2: darksalmon;
+            }
+
             * {
                 box-sizing: border-box;
             }
 
             body {
                 margin: 1rem;
-                background: antiquewhite;
+                background: var(--color-1);
             }
 
             h1 {
-                padding: 1rem;
-                background: darksalmon;
+                min-width: fit-content;
+                padding: 0.5em;
+                background: var(--color-2);
                 position: relative;
                 inset-inline-start: -1rem;
             }
 
             h2 {
+                min-width: fit-content;
+                width: 75%;
+                padding: 0.5em;
                 margin-block-start: 2rem;
+                background: color-mix(in oklab, var(--color-2), white);
+                position: relative;
+                inset-inline-start: 0;
             }
 
             h3 {
@@ -349,7 +362,7 @@
             .picture-container {
                 padding: 1rem;
                 margin-block-end: 2rem;
-                background: darksalmon;
+                background: color-mix(in oklab, var(--color-2), white);
                 overflow-x: auto;
             }
         </style>
