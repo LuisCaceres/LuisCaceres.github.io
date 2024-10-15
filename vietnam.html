@@ -316,6 +316,8 @@
             }
 
             h2 {
+                --padding: 0.5em;
+
                 min-width: fit-content;
                 width: 75%;
                 padding: 0.5em;
@@ -323,6 +325,7 @@
                 background: color-mix(in oklab, var(--color-2), white);
                 position: relative;
                 inset-inline-start: -1rem;
+                clip-path: polygon(0 0, calc(100% - --padding) 0%, 100% 50%, calc(100% - --padding) 100%, 0 100%) padding-box;
             }
 
             h3 {
